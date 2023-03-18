@@ -3,6 +3,7 @@ node_modules
 dist
 dist-ssr
 *.local
-types
 docs/.vitepress/dist
 docs/.vitepress/cache
+.temp
+src/tailwind/generated
