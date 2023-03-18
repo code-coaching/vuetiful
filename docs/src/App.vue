@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import 'vuetiful/dist/style.css';
+import 'vuetiful/dist/styles/all.css';
 
 export default defineComponent({
   name: 'App',

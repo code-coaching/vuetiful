@@ -9,9 +9,10 @@
     "lint": "eslint --ext .js,.ts,.vue ./",
     "format": "prettier --write \"**/*.{js,ts,vue,css,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0",
-    "dev": "quasar dev -m ssr",
+    "dev": "quasar dev",
+    "dev:ssr": "quasar dev -m ssr",
     "build": "quasar build -m ssr",
-    "serve": "node dist/ssr"
+    "preview": "node dist/ssr"
   },
   "dependencies": {
     "axios": "^0.21.1",

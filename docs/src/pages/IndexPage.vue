@@ -1,49 +1,55 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
+  <q-page class="col items-center justify-evenly">
+    <h1>Vuetiful H1</h1>
+    <h2>Vuetiful H2</h2>
+    <h3>Vuetiful H3</h3>
+    <h4>Vuetiful H4</h4>
+    <h5>Vuetiful H5</h5>
+    <h6>Vuetiful H6</h6>
+
+    <br />
+
+    <p>Vuetiful paragraph</p>
+
+    <br />
+
+    <q-card style="width: 250px" class="card q-ma-md">
+      <q-card-section>
+        <h3>This is a QCard</h3>
+      </q-card-section>
+      <q-card-section class="buttons">
+        <v-button class="variant-outline-error" style="width: 100%">This is a VButton</v-button>
+        <q-btn color="primary">This is a QBtn</q-btn>
+      </q-card-section>
+    </q-card>
   </q-page>
 </template>
 
 <script lang="ts">
-import ExampleComponent from 'components/ExampleComponent.vue';
-import { Meta, Todo } from 'components/models';
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
+import { VButton } from 'vuetiful';
 
 export default defineComponent({
   name: 'IndexPage',
-  components: { ExampleComponent },
+  components: { VButton },
   setup() {
-    const todos = ref<Todo[]>([
-      {
-        id: 1,
-        content: 'ct1',
-      },
-      {
-        id: 2,
-        content: 'ct2',
-      },
-      {
-        id: 3,
-        content: 'ct3',
-      },
-      {
-        id: 4,
-        content: 'ct4',
-      },
-      {
-        id: 5,
-        content: 'ct5',
-      },
-    ]);
-    const meta = ref<Meta>({
-      totalCount: 1200,
-    });
-    return { todos, meta };
+    return {};
   },
 });
 </script>
+
+<style scoped>
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card {
+  background-color: rgb(var(--color-surface-50));
+}
+
+.dark .card {
+  background-color: rgb(var(--color-surface-900));
+}
+</style>
