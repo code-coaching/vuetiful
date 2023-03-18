@@ -15,7 +15,6 @@ const modeUserPrefers: Ref<boolean | undefined> = ref(undefined);
 const useDarkMode = () => {
   const getModeOsPrefers = (): boolean => {
     const prefersLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
-    console.log("p: ", prefersLightMode);
     setModeOsPrefers(prefersLightMode);
     return prefersLightMode;
   };
@@ -31,9 +30,7 @@ const useDarkMode = () => {
   const getModeAutoPrefers = (): boolean => {
     const os = getModeOsPrefers();
     const user = getModeUserPrefers();
-    console.log("user: ", user);
     const modeValue = user !== undefined ? user : os;
-    console.log("modeValue: ", modeValue);
     return modeValue;
   };
 
@@ -55,7 +52,6 @@ const useDarkMode = () => {
     const classDark = "dark";
     value === MODE.LIGHT ? elemHtmlClasses.remove(classDark) : elemHtmlClasses.add(classDark);
     currentMode.value = value;
-    console.log("currentMode: ", currentMode.value);
   };
 
   const initializeMode = (): void => {

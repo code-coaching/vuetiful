@@ -4,12 +4,7 @@
       <VButton class="theme-switcher__button" @click="showPopup = !showPopup">Theme</VButton>
     </div>
 
-    <div
-      v-if="showPopup"
-      class="theme-switcher__popup p-4 shadow-xl"
-      :class="classes"
-      data-popup="theme"
-    >
+    <div v-if="showPopup" class="theme-switcher__popup p-4 shadow-xl" :class="classes">
       <div class="space-y-4">
         <section class="flex items-center justify-between">
           <h6>Mode</h6>
@@ -26,7 +21,7 @@
               }`"
               v-for="(theme, index) in themes"
               :key="index"
-              @click="chosenTheme = theme"
+              @click="loadTheme(theme)"
             >
               {{ theme }}
             </li>
@@ -39,7 +34,7 @@
 
 <script lang="ts">
 import { CssClasses, DarkModeSwitch, useDarkMode, useTheme, VButton } from "@/index";
-import { computed, defineComponent, onMounted, ref, watch } from "vue";
+import { computed, defineComponent, onMounted, ref } from "vue";
 
 export default defineComponent({
   components: {
@@ -85,30 +80,10 @@ export default defineComponent({
     },
   },
   setup(props, { attrs }) {
-    const { initializeTheme, setTheme, themes } = useTheme();
+    const { initializeTheme, loadTheme, themes, chosenTheme } = useTheme();
     const { currentMode, MODE } = useDarkMode();
 
     const showPopup = ref(false);
-    const chosenTheme = ref("vuetiful");
-    watch(chosenTheme, (newTheme) => {
-      const existingStyle = document.getElementById("theme");
-
-      const link = document.createElement("link");
-      link.id = "theme";
-      const themeUrl = `https://code-coaching.dev/vuetiful-themes/theme-${newTheme}.css`;
-
-      link.href = themeUrl;
-      link.type = "text/css";
-      link.rel = "stylesheet";
-
-      link.onload = () => {
-        if (existingStyle) existingStyle.remove();
-        setTheme(newTheme);
-      };
-
-      document.getElementsByTagName("head")[0].appendChild(link);
-    });
-
     onMounted(() => {
       initializeTheme();
     });
@@ -117,7 +92,6 @@ export default defineComponent({
 
     type OnKeyDownEvent = KeyboardEvent & { currentTarget: EventTarget & HTMLDivElement };
     function onKeyDown(event: KeyboardEvent): void {
-      console.log(event.code);
       if (["Enter", "Space"].includes(event.code)) {
         event.preventDefault();
         (event as OnKeyDownEvent).currentTarget.click();
@@ -155,6 +129,7 @@ export default defineComponent({
 
     return {
       onKeyDown,
+      loadTheme,
       currentMode,
       classes,
       chosenTheme,

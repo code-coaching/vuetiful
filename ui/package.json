@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "onchange 'src/**/*.vue' 'src/**/*.ts' 'src/**/*.css' -- npm run build",
-    "build": "rimraf dist && vue-tsc && vite build",
-    "build:style": "postcss src/tailwind.css -o dist/styles.css",
+    "build": "rimraf dist && vue-tsc && vite build && npm run build:style && npm run copy:themes",
+    "build:style": "npx tailwindcss -i ./src/styles/all.css -o ./dist/styles/all.css",
+    "copy:themes": "cp -r ./src/themes ./dist/themes",
     "docs:dev": "cd docs && npm run dev",
     "docs:build": "cd docs && npm run build",
     "docs:serve": "cd docs && npm run serve"
@@ -37,6 +38,8 @@
     ".": {
       "import": "./dist/vuetiful.es.mjs"
     },
-    "./dist/style.css": "./dist/style.css"
+    "./dist/style.css": "./dist/style.css",
+    "./dist/styles/all.css": "./dist/styles/all.css",
+    "./dist/themes/*": "./dist/themes/*"
   }
 }

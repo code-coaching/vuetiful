@@ -8,7 +8,7 @@ function install(app: any) {
 }
 
 import "./assets/main.css";
-import "./tailwind.css";
+import "./styles/tailwind.css";
 
 import "./themes/theme-vuetiful.css";
 // import "./themes/theme-modern.css";

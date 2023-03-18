@@ -13,31 +13,31 @@ export default defineComponent({
   props: {
     bgLight: {
       type: String as () => CssClasses,
-      default: "bg-surface-50",
+      default: "bg-primary-50",
     },
     bgDark: {
       type: String as () => CssClasses,
-      default: "bg-surface-900",
+      default: "bg-primary-900",
     },
     textOnLight: {
       type: String as () => CssClasses,
-      default: "text-surface-900",
+      default: "text-primary-900",
     },
     textOnDark: {
       type: String as () => CssClasses,
-      default: "text-surface-50",
+      default: "text-primary-50",
     },
     width: {
       type: String as () => CssClasses,
-      default: "w-full",
+      default: "w-fit",
     },
     height: {
       type: String as () => CssClasses,
-      default: "h-full",
+      default: "h-fit",
     },
     ring: {
       type: String as () => CssClasses,
-      default: "ring-[1px] ring-surface-500/30",
+      default: "ring-[1px] ring-primary-500/30",
     },
     rounded: {
       type: String as () => CssClasses,
