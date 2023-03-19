@@ -1,5 +1,5 @@
 {
-  "name": "vuetiful",
+  "name": "@code-coaching/vuetiful",
   "version": "0.0.0",
   "scripts": {
     "dev": "onchange 'src/**/*.vue' 'src/**/*.ts' 'src/**/*.css' -- npm run build",
@@ -40,6 +40,7 @@
     },
     "./dist/style.css": "./dist/style.css",
     "./dist/styles/all.css": "./dist/styles/all.css",
-    "./dist/themes/*": "./dist/themes/*"
+    "./dist/themes/*": "./dist/themes/*",
+    "./styles/*": "./src/styles/*"
   }
 }

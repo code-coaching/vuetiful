@@ -43,7 +43,7 @@
 import EssentialLink from 'components/EssentialLink.vue';
 import { useQuasar } from 'quasar';
 import { defineComponent, onMounted, ref, watch } from 'vue';
-import { ThemeSwitcher, useDarkMode, useTheme } from 'vuetiful';
+import { ThemeSwitcher, useDarkMode, useTheme } from '@code-coaching/vuetiful';
 
 const linksList = [
   {

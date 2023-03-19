@@ -12,7 +12,7 @@ module.exports = defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
-      name: "vuetiful",
+      name: "@code-coaching/vuetiful",
       formats: ["es", "umd"],
       fileName: (format) => {
         if (format === "es") return `vuetiful.es.mjs`;

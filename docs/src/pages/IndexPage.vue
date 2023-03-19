@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { VButton } from 'vuetiful';
+import { VButton } from '@code-coaching/vuetiful';
 
 export default defineComponent({
   name: 'IndexPage',
