@@ -13,11 +13,11 @@
 
         <q-toolbar-title> Quasar App </q-toolbar-title>
 
-        <div class="switchers">
+        <div class="flex gap-2 items-center">
+          <div>Vuetiful v{{ version }}</div>
           <ThemeSwitcher button-classes="btn-sm" />
+          <div>Quasar v{{ $q.version }}</div>
         </div>
-
-        <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
 
@@ -40,10 +40,11 @@
 </template>
 
 <script lang="ts">
+import { ThemeSwitcher, useDarkMode, useTheme } from '@code-coaching/vuetiful';
 import EssentialLink from 'components/EssentialLink.vue';
 import { useQuasar } from 'quasar';
 import { defineComponent, onMounted, ref, watch } from 'vue';
-import { ThemeSwitcher, useDarkMode, useTheme } from '@code-coaching/vuetiful';
+import { version } from '../../package.json';
 
 const linksList = [
   {
@@ -130,6 +131,7 @@ export default defineComponent({
     return {
       essentialLinks: linksList,
       leftDrawerOpen,
+      version,
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
       },
@@ -139,12 +141,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.switchers {
-  display: flex;
-  gap: 1rem;
-  margin-right: 1rem;
-}
-
 .header {
   background-color: rgb(var(--color-surface-500));
   color: rgb(var(--on-surface));
