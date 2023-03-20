@@ -14,7 +14,7 @@
         <q-toolbar-title> Quasar App </q-toolbar-title>
 
         <div class="switchers">
-          <ThemeSwitcher />
+          <ThemeSwitcher button-classes="btn-sm" />
         </div>
 
         <div>Quasar v{{ $q.version }}</div>
@@ -104,19 +104,27 @@ export default defineComponent({
     const { initializeMode, currentMode, MODE } = useDarkMode();
     const $q = useQuasar();
 
-    watch(currentMode, (newMode) => {
-      $q.dark.set(newMode === MODE.DARK);
-      if (newMode === MODE.LIGHT) {
+    const handleQuasarDarkMode = (mode: boolean) => {
+      $q.dark.set(mode === MODE.DARK);
+      if (mode === MODE.LIGHT) {
         document.body.classList.remove('body--light');
       } else {
         document.body.classList.remove('body--dark');
       }
-      // do not use `{ immediate: true }` here, it will cause SSR issues
-    });
+    };
 
     onMounted(() => {
       initializeMode();
       initializeTheme();
+      handleQuasarDarkMode(currentMode.value);
+    });
+
+    watch(currentMode, (newMode) => {
+      handleQuasarDarkMode(newMode);
+      /*
+       * Put initial dark mode logic in `onMounted` hook
+       * { immediate: true } will cause SSR issues
+       */
     });
 
     return {

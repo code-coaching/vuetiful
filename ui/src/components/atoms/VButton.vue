@@ -1,5 +1,5 @@
 <template>
-  <button :class="`cc-button p-2 ${classes}`">
+  <button :class="`cc-button btn ${classes}`">
     <template v-if="msg">{{ msg }}</template>
     <slot />
   </button>
@@ -76,9 +76,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-.cc-button:hover {
-  opacity: 0.8;
-}
-</style>

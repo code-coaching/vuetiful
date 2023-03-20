@@ -1,1 +1,24 @@
 /* app global css */
+
+.q-card {
+  @apply rounded-container-token;
+  @apply bg-surface-50;
+  @apply transition-all;
+  @apply shadow;
+}
+
+.dark .q-card {
+  @apply bg-surface-900;
+}
+
+.q-btn {
+  @apply rounded-token;
+  @apply !bg-primary-50;
+  @apply !text-primary-900;
+  @apply transition-all;
+}
+
+.dark .q-btn {
+  @apply !bg-primary-900;
+  @apply !text-primary-50;
+}

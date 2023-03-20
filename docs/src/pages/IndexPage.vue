@@ -13,7 +13,7 @@
 
     <br />
 
-    <q-card style="width: 250px" class="card q-ma-md">
+    <q-card class="w-64">
       <q-card-section>
         <h3>This is a QCard</h3>
       </q-card-section>
@@ -43,13 +43,5 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
-
-.card {
-  background-color: rgb(var(--color-surface-50));
-}
-
-.dark .card {
-  background-color: rgb(var(--color-surface-900));
 }
 </style>

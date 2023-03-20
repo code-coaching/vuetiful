@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <div class="w-24">
-      <VButton class="theme-switcher__button" @click="showPopup = !showPopup">Theme</VButton>
-    </div>
+  <div class="cc-theme-switcher">
+    <VButton :class="`cc-theme-switcher__button ${buttonClasses}`" @click="showPopup = !showPopup">
+      Theme
+    </VButton>
 
-    <div v-if="showPopup" class="theme-switcher__popup p-4 shadow-xl" :class="classes">
+    <div v-if="showPopup" class="cc-theme-switcher__popup p-4 shadow-xl" :class="classes">
       <div class="space-y-4">
         <section class="flex items-center justify-between">
           <h6>Mode</h6>
@@ -78,6 +78,10 @@ export default defineComponent({
       type: String as () => CssClasses,
       default: "rounded-container-token",
     },
+    buttonClasses: {
+      type: String as () => CssClasses,
+      default: "w-24",
+    },
   },
   setup(props, { attrs }) {
     const { initializeTheme, loadTheme, themes, chosenTheme } = useTheme();
@@ -143,7 +147,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.theme-switcher__popup {
+.cc-theme-switcher__popup {
   position: absolute;
   z-index: 1;
   margin-top: 0.25rem;
