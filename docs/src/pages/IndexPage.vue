@@ -18,7 +18,7 @@
         <h3>This is a QCard</h3>
       </q-card-section>
       <q-card-section class="buttons">
-        <v-button class="variant-outline-error" style="width: 100%">This is a VButton</v-button>
+        <v-button style="width: 100%">This is a VButton</v-button>
         <q-btn color="primary">This is a QBtn</q-btn>
       </q-card-section>
     </q-card>
