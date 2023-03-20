@@ -104,18 +104,15 @@ export default defineComponent({
     const { initializeMode, currentMode, MODE } = useDarkMode();
     const $q = useQuasar();
 
-    watch(
-      currentMode,
-      (newMode) => {
-        $q.dark.set(newMode === MODE.DARK);
-        if (newMode === MODE.LIGHT) {
-          document.body.classList.remove('body--light');
-        } else {
-          document.body.classList.remove('body--dark');
-        }
-      },
-      { immediate: true }
-    );
+    watch(currentMode, (newMode) => {
+      $q.dark.set(newMode === MODE.DARK);
+      if (newMode === MODE.LIGHT) {
+        document.body.classList.remove('body--light');
+      } else {
+        document.body.classList.remove('body--dark');
+      }
+      // do not use `{ immediate: true }` here, it will cause SSR issues
+    });
 
     onMounted(() => {
       initializeMode();
