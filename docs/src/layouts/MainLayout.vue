@@ -3,6 +3,7 @@
     <q-header elevated class="header">
       <q-toolbar>
         <q-btn
+          id="icon-button"
           flat
           dense
           round
@@ -15,7 +16,9 @@
 
         <div class="flex gap-2 items-center">
           <div>Vuetiful v{{ version }}</div>
-          <ThemeSwitcher button-classes="btn-sm" />
+          <ThemeSwitcher
+            button-classes="btn-sm !bg-surface-400 !text-on-surface-token"
+          />
           <div>Quasar v{{ $q.version }}</div>
         </div>
       </q-toolbar>
@@ -117,5 +120,10 @@ export default defineComponent({
 
 .dark .q-drawer {
   background-color: rgb(var(--color-surface-900));
+}
+
+#icon-button {
+  @apply !bg-transparent;
+  @apply !text-on-surface-token;
 }
 </style>
