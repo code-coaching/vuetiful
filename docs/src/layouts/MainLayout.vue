@@ -112,7 +112,7 @@ export default defineComponent({
 </style>
 
 <style>
-.theme-switcher__popup {
+.cc-theme-switcher__popup {
   right: 1rem;
 }
 
