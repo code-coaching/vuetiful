@@ -23,13 +23,9 @@
 
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
-        <q-item-label header> Essential Links </q-item-label>
+        <q-item-label header> Docs </q-item-label>
 
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
+        <SideBarLink v-for="link in docsLinks" :key="link.name" v-bind="link" />
       </q-list>
     </q-drawer>
 
@@ -41,61 +37,24 @@
 
 <script lang="ts">
 import { ThemeSwitcher, useDarkMode, useTheme } from '@code-coaching/vuetiful';
-import EssentialLink from 'components/EssentialLink.vue';
+import { SideBarLink } from 'components/index';
 import { useQuasar } from 'quasar';
 import { defineComponent, onMounted, ref, watch } from 'vue';
 import { version } from '../../package.json';
+import { ROUTE_NAMES } from '../router/routes';
 
-const linksList = [
+const docsLinks = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
+    title: 'Getting Started',
+    caption: '5 minutes!',
     icon: 'school',
-    link: 'https://quasar.dev',
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework',
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev',
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev',
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev',
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev',
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev',
+    name: ROUTE_NAMES.DOCS.GETTING_STARTED,
   },
 ];
 
 export default defineComponent({
-  name: 'MainLayout',
-
   components: {
-    EssentialLink,
+    SideBarLink,
     ThemeSwitcher,
   },
 
@@ -129,7 +88,7 @@ export default defineComponent({
     });
 
     return {
-      essentialLinks: linksList,
+      docsLinks,
       leftDrawerOpen,
       version,
       toggleLeftDrawer() {
