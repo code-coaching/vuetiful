@@ -78,8 +78,10 @@ export default defineComponent({
 
     onMounted(() => {
       initializeMode();
-      initializeTheme();
-      handleQuasarDarkMode(currentMode.value);
+      const themeCallback = () => {
+        handleQuasarDarkMode(currentMode.value);
+      };
+      initializeTheme(themeCallback);
     });
 
     watch(currentMode, (newMode) => {

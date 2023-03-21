@@ -20,14 +20,14 @@ const useTheme = () => {
     document.body.setAttribute("data-theme", name);
   };
 
-  const initializeTheme = (): void => {
+  const initializeTheme = (callback?: Function): void => {
     if (isBrowser) {
       const themeName = localStorage.getItem("vuetiful-theme") ?? "vuetiful";
-      if (themeName) loadTheme(themeName);
+      if (themeName) loadTheme(themeName, callback);
     }
   };
 
-  const loadTheme = (theme: string) => {
+  const loadTheme = (theme: string, callback?: Function) => {
     chosenTheme.value = theme;
     const existingStyle = document.getElementById("theme");
 
@@ -41,6 +41,10 @@ const useTheme = () => {
     link.onload = () => {
       if (existingStyle) existingStyle.remove();
       setTheme(theme);
+      if (callback) {
+        callback();
+        console.log("callback")
+      }
     };
 
     const head = document.querySelector("head");
