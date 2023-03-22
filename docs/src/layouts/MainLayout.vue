@@ -15,11 +15,10 @@
         <q-toolbar-title> Quasar App </q-toolbar-title>
 
         <div class="flex gap-2 items-center">
-          <div>Vuetiful v{{ version }}</div>
           <ThemeSwitcher
             button-classes="btn-sm !bg-surface-400 !text-on-surface-token"
           />
-          <div>Quasar v{{ $q.version }}</div>
+          <div>Vuetiful v{{ version }}</div>
         </div>
       </q-toolbar>
     </q-header>
