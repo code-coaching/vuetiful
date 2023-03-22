@@ -20,7 +20,7 @@
 
     <h2>Install Vuetiful</h2>
     <div>
-      <pre>npm link "@code-coaching/vuetiful"</pre>
+      <pre>npm install @code-coaching/vuetiful</pre>
     </div>
 
     <h2>Install Tailwind</h2>
