@@ -37,11 +37,10 @@
   </q-layout>
 </template>
 
-<script lang="ts">
-import { ThemeSwitcher, useDarkMode, useTheme } from '@code-coaching/vuetiful';
+<script setup lang="ts">
+import { ThemeSwitcher } from '@code-coaching/vuetiful';
 import { SideBarLink } from 'components/index';
-import { useQuasar } from 'quasar';
-import { defineComponent, onMounted, ref, watch } from 'vue';
+import { ref } from 'vue';
 import { version } from '../../package.json';
 import { ROUTE_NAMES } from '../router/routes';
 
@@ -54,53 +53,8 @@ const docsLinks = [
   },
 ];
 
-export default defineComponent({
-  components: {
-    SideBarLink,
-    ThemeSwitcher,
-  },
-
-  setup() {
-    const leftDrawerOpen = ref(false);
-    const { initializeTheme } = useTheme();
-    const { initializeMode, currentMode, MODE } = useDarkMode();
-    const $q = useQuasar();
-
-    const handleQuasarDarkMode = (mode: boolean) => {
-      $q.dark.set(mode === MODE.DARK);
-      if (mode === MODE.LIGHT) {
-        document.body.classList.remove('body--light');
-      } else {
-        document.body.classList.remove('body--dark');
-      }
-    };
-
-    onMounted(() => {
-      initializeMode();
-      const themeCallback = () => {
-        handleQuasarDarkMode(currentMode.value);
-      };
-      initializeTheme(themeCallback);
-    });
-
-    watch(currentMode, (newMode) => {
-      handleQuasarDarkMode(newMode);
-      /*
-       * Put initial dark mode logic in `onMounted` hook
-       * { immediate: true } will cause SSR issues
-       */
-    });
-
-    return {
-      docsLinks,
-      leftDrawerOpen,
-      version,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
-    };
-  },
-});
+const leftDrawerOpen = ref(false);
+const toggleLeftDrawer = () => (leftDrawerOpen.value = !leftDrawerOpen.value);
 </script>
 
 <style scoped>

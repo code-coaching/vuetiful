@@ -2,11 +2,39 @@
   <router-view />
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
 import '@code-coaching/vuetiful/styles/all.css';
+import { useDarkMode, useTheme } from '@code-coaching/vuetiful';
+import { useQuasar } from 'quasar';
+import { onMounted, watch } from 'vue';
 import './css/app.css';
 
-export default defineComponent({
+const { initializeTheme } = useTheme();
+const { initializeMode, currentMode, MODE } = useDarkMode();
+const $q = useQuasar();
+
+const handleQuasarDarkMode = (mode: boolean) => {
+  $q.dark.set(mode === MODE.DARK);
+  if (mode === MODE.LIGHT) {
+    document.body.classList.remove('body--light');
+  } else {
+    document.body.classList.remove('body--dark');
+  }
+};
+
+onMounted(() => {
+  initializeMode();
+  const themeCallback = () => {
+    handleQuasarDarkMode(currentMode.value);
+  };
+  initializeTheme(themeCallback);
+});
+
+watch(currentMode, (newMode) => {
+  handleQuasarDarkMode(newMode);
+  /*
+   * Put initial dark mode logic in `onMounted` hook
+   * { immediate: true } will cause SSR issues
+   */
 });
 </script>

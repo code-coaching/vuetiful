@@ -25,17 +25,8 @@
   </q-page>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { VButton } from '@code-coaching/vuetiful';
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  name: 'IndexPage',
-  components: { VButton },
-  setup() {
-    return {};
-  },
-});
 </script>
 
 <style scoped>
