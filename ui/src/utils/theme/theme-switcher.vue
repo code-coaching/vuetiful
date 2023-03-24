@@ -15,15 +15,15 @@
             <li
               class="h-full w-full p-2 text-center capitalize hover:cursor-pointer hover:bg-primary-100 hover:text-primary-900"
               :class="`${listItemClasses} ${
-                chosenTheme === theme
+                chosenTheme === theme.name
                   ? 'bg-primary-50 text-primary-900'
                   : 'bg-surface-200 text-surface-900'
               }`"
               v-for="(theme, index) in themes"
               :key="index"
-              @click="loadTheme(theme)"
+              @click="loadTheme(theme.name)"
             >
-              {{ theme }}
+              {{ theme.name }}
             </li>
           </ul>
         </nav>

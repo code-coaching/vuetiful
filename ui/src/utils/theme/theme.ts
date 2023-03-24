@@ -1,37 +1,70 @@
-import { readonly, ref } from "vue";
+import { readonly, Ref, ref } from "vue";
 import { usePlatform } from "../platform/platform";
 
 const { isBrowser } = usePlatform();
-const chosenTheme = ref("vuetiful");
+
+interface Theme {
+  name: string;
+  url?: string;
+}
+
+const THEMES = {
+  VUETIFUL: "vuetiful",
+  MODERN: "modern",
+  ROCKET: "rocket",
+  SAHARA: "sahara",
+  SEAFOAM: "seafoam",
+  SEASONAL: "seasonal",
+  VINTAGE: "vintage",
+};
+
+const builtInThemes: Array<Theme> = [
+  { name: THEMES.VUETIFUL },
+  { name: THEMES.MODERN },
+  { name: THEMES.ROCKET },
+  { name: THEMES.SAHARA },
+  { name: THEMES.SEAFOAM },
+  { name: THEMES.SEASONAL },
+  { name: THEMES.VINTAGE },
+];
+
+const themes: Ref<Array<Theme>> = ref([...builtInThemes]);
+
+const defaultTheme = THEMES.VUETIFUL;
+const chosenTheme = ref(defaultTheme);
 
 const useTheme = () => {
-  const themes = ["vuetiful", "modern", "rocket", "sahara", "seafoam", "seasonal", "vintage"];
-  const theme = ref("vuetiful");
-
   const setTheme = (name: string): void => {
-    theme.value = name;
-    if (isBrowser) {
-      localStorage.setItem("vuetiful-theme", name);
-      applyTheme(name);
-    }
-  };
+    const theme = themes.value.find((t) => t.name === name);
+    if (!theme) return;
 
-  const applyTheme = (name: string): void => {
-    document.body.setAttribute("data-theme", name);
+    if (isBrowser) {
+      localStorage.setItem("vuetiful-theme", theme.name);
+      document.body.setAttribute("data-theme", theme.name);
+    }
   };
 
   const initializeTheme = (callback?: Function): void => {
     if (isBrowser) {
-      const themeName = localStorage.getItem("vuetiful-theme") ?? "vuetiful";
-      if (themeName) loadTheme(themeName, callback);
+      const storedTheme = localStorage.getItem("vuetiful-theme");
+      if (storedTheme) loadTheme(storedTheme, callback);
+      else loadTheme(defaultTheme, callback);
     }
   };
 
-  const loadTheme = (theme: string, callback?: Function) => {
-    chosenTheme.value = theme;
-    const existingStyle = document.getElementById("theme");
+  const loadTheme = (themeName: string, callback?: Function) => {
+    let themeToLoad = themes.value.find((t) => t.name === themeName);
+    if (!themeToLoad)
+      themeToLoad = themes.value.find((t) => t.name === defaultTheme) || themes.value[0];
 
-    const themeUrl = `https://code-coaching.dev/vuetiful-themes/theme-${theme}.css`;
+    const theme: Theme = themeToLoad;
+    chosenTheme.value = theme.name;
+
+    const existingStyle = document.getElementById("theme");
+    let themeUrl = theme.url;
+    if (!themeUrl) {
+      themeUrl = `https://code-coaching.dev/vuetiful-themes/theme-${theme.name}.css`;
+    }
 
     const link = document.createElement("link");
     link.id = "theme";
@@ -40,10 +73,9 @@ const useTheme = () => {
     link.rel = "stylesheet";
     link.onload = () => {
       if (existingStyle) existingStyle.remove();
-      setTheme(theme);
+      setTheme(theme.name);
       if (callback) {
         callback();
-        console.log("callback")
       }
     };
 
@@ -51,14 +83,30 @@ const useTheme = () => {
     if (head) head.appendChild(link);
   };
 
+  const registerAllBuiltInThemes = (): Array<Theme> => {
+    return [...builtInThemes];
+  };
+
+  const registerTheme = (name: string, url?: string): Theme => {
+    if (url) return { url, name };
+    return { name };
+  };
+
+  const overwriteThemes = (newThemes: Array<Theme>): void => {
+    themes.value = [...newThemes];
+  };
+
   return {
-    theme: readonly(theme),
     themes: readonly(themes),
     chosenTheme: readonly(chosenTheme),
 
-    setTheme,
     initializeTheme,
     loadTheme,
+
+    THEMES,
+    overwriteThemes,
+    registerAllBuiltInThemes,
+    registerTheme,
   };
 };
 

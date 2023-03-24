@@ -65,6 +65,7 @@ const useDarkMode = () => {
       const elemHtmlClasses = document.documentElement.classList;
       const classDark = `dark`;
       value === MODE.LIGHT ? elemHtmlClasses.remove(classDark) : elemHtmlClasses.add(classDark);
+      setModeCurrent(value);
     };
     setMode(mql.matches);
     mql.onchange = () => {
