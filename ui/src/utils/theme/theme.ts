@@ -5,7 +5,7 @@ const { isBrowser } = usePlatform();
 
 interface Theme {
   name: string;
-  url?: string;
+  url: string;
 }
 
 const THEMES = {
@@ -18,14 +18,18 @@ const THEMES = {
   VINTAGE: "vintage",
 };
 
+const builtInUrl = (name: string): string => {
+  return `https://code-coaching.dev/vuetiful-themes/theme-${name}.css`;
+};
+
 const builtInThemes: Array<Theme> = [
-  { name: THEMES.VUETIFUL },
-  { name: THEMES.ROCKET },
-  { name: THEMES.SAHARA },
-  { name: THEMES.SEAFOAM },
-  { name: THEMES.SEASONAL },
-  { name: THEMES.SKELETON},
-  { name: THEMES.VINTAGE },
+  { name: THEMES.VUETIFUL, url: builtInUrl(`${THEMES.VUETIFUL}-0.0.1`) },
+  { name: THEMES.ROCKET, url: builtInUrl(`${THEMES.ROCKET}`) },
+  { name: THEMES.SAHARA, url: builtInUrl(`${THEMES.SAHARA}`) },
+  { name: THEMES.SEAFOAM, url: builtInUrl(`${THEMES.SEAFOAM}`) },
+  { name: THEMES.SEASONAL, url: builtInUrl(`${THEMES.SEASONAL}`) },
+  { name: THEMES.SKELETON, url: builtInUrl(`${THEMES.SKELETON}`) },
+  { name: THEMES.VINTAGE, url: builtInUrl(`${THEMES.VINTAGE}`) },
 ];
 
 const themes: Ref<Array<Theme>> = ref([...builtInThemes]);
@@ -62,9 +66,6 @@ const useTheme = () => {
 
     const existingStyle = document.getElementById("theme");
     let themeUrl = theme.url;
-    if (!themeUrl) {
-      themeUrl = `https://code-coaching.dev/vuetiful-themes/theme-${theme.name}.css`;
-    }
 
     const link = document.createElement("link");
     link.id = "theme";
@@ -87,9 +88,8 @@ const useTheme = () => {
     return [...builtInThemes];
   };
 
-  const registerTheme = (name: string, url?: string): Theme => {
-    if (url) return { url, name };
-    return { name };
+  const registerTheme = (name: string, url: string): Theme => {
+    return { url, name };
   };
 
   const overwriteThemes = (newThemes: Array<Theme>): void => {
