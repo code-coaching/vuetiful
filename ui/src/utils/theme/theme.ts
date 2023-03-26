@@ -10,21 +10,21 @@ interface Theme {
 
 const THEMES = {
   VUETIFUL: "vuetiful",
-  MODERN: "modern",
   ROCKET: "rocket",
   SAHARA: "sahara",
   SEAFOAM: "seafoam",
   SEASONAL: "seasonal",
+  SKELETON: "skeleton",
   VINTAGE: "vintage",
 };
 
 const builtInThemes: Array<Theme> = [
   { name: THEMES.VUETIFUL },
-  { name: THEMES.MODERN },
   { name: THEMES.ROCKET },
   { name: THEMES.SAHARA },
   { name: THEMES.SEAFOAM },
   { name: THEMES.SEASONAL },
+  { name: THEMES.SKELETON},
   { name: THEMES.VINTAGE },
 ];
 
