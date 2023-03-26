@@ -12,19 +12,21 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title> Quasar App </q-toolbar-title>
+        <q-toolbar-title>
+          <div class="font-bold">Vuetiful</div>
+        </q-toolbar-title>
 
-        <div class="flex gap-2 items-center">
+        <div class="flex items-center gap-2">
           <ThemeSwitcher
             button-classes="btn-sm !bg-surface-400 !text-on-surface-token"
           />
-          <div>Vuetiful v{{ version }}</div>
+          <div>v{{ version }}</div>
         </div>
       </q-toolbar>
     </q-header>
 
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
-      <q-list>
+      <q-list class="bg-transparent">
         <q-item-label header> Docs </q-item-label>
 
         <SideBarLink v-for="link in docsLinks" :key="link.name" v-bind="link" />
@@ -51,6 +53,12 @@ const docsLinks = [
     icon: 'school',
     name: ROUTE_NAMES.DOCS.GETTING_STARTED,
   },
+  {
+    title: 'Quasar',
+    caption: 'Component Examples',
+    icon: 'auto_awesome',
+    name: ROUTE_NAMES.DOCS.QUASAR,
+  },
 ];
 
 const leftDrawerOpen = ref(false);
@@ -70,15 +78,10 @@ const toggleLeftDrawer = () => (leftDrawerOpen.value = !leftDrawerOpen.value);
 }
 
 .q-drawer {
-  background-color: rgb(var(--color-surface-50));
+  background-color: rgb(var(--color-surface-100));
 }
 
 .dark .q-drawer {
-  background-color: rgb(var(--color-surface-900));
-}
-
-#icon-button {
-  @apply !bg-transparent;
-  @apply !text-on-surface-token;
+  background-color: rgb(var(--color-surface-800));
 }
 </style>

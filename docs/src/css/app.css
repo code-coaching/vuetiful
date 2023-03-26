@@ -1,24 +1,223 @@
 /* app global css */
 
-.q-card {
-  @apply rounded-container-token;
-  @apply bg-surface-50;
+.q-avatar,
+.q-chip .q-avatar {
+  @apply rounded-token;
   @apply transition-all;
-  @apply shadow;
 }
 
-.dark .q-card {
-  @apply bg-surface-900;
+.q-badge {
+  @apply rounded-token;
+
+  @apply transition-all;
+}
+
+.q-banner {
+  @apply rounded-container-token;
+  @apply transition-all;
 }
 
 .q-btn {
   @apply rounded-token;
-  @apply !bg-primary-50;
-  @apply !text-primary-900;
   @apply transition-all;
 }
 
-.dark .q-btn {
-  @apply !bg-primary-900;
-  @apply !text-primary-50;
+.q-btn-group {
+  @apply rounded-token;
+  @apply transition-all;
+
+  width: fit-content;
+}
+
+.q-btn-dropdown {
+  @apply rounded-token;
+  @apply transition-all;
+}
+
+.q-menu {
+  @apply bg-surface-100-800-token;
+  @apply text-surface-900-50-token;
+
+  @apply rounded-container-token;
+  @apply transition-all;
+}
+
+.q-menu--dark {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
+
+.q-card {
+  @apply rounded-container-token;
+  @apply transition-all;
+}
+
+/* Overwrite the white shadow with the normal shadow */
+.q-card--dark {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
+
+.q-chip {
+  @apply rounded-token;
+  @apply transition-all;
+}
+
+.q-color-picker {
+  @apply rounded-container-token;
+  @apply transition-all;
+}
+
+.q-color-picker--dark {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
+
+.q-color-picker__header-bg {
+  @apply rounded-tl-container-token;
+  @apply rounded-tr-container-token;
+}
+
+.q-editor {
+  @apply rounded-container-token;
+  @apply transition-all;
+}
+
+/**
+  * Because of how .q-editor is styled
+  * the a tag needs to be styled here
+  * Add .light-actions or .dark-actions to the QEditor as a class
+  */
+.light-actions a {
+  @apply !text-white;
+}
+
+.dark-actions a {
+  @apply !text-black;
+}
+
+/**
+  * Because of how .q-select is styled
+  * the dropdown icon needs to be styled here
+  * Add .light-actions or .dark-actions to the QSelect as a class
+  */
+.light-actions i {
+  @apply !text-white;
+}
+.dark-actions i {
+  @apply !text-black;
+}
+
+/*
+* Because of how .q-expansion-item__container -> .q-item is styled
+* the background and text color need to be set here
+*/
+.q-list {
+  @apply bg-surface-100-800-token;
+  @apply text-surface-900-50-token;
+
+  @apply rounded-container-token;
+  @apply transition-all;
+}
+
+.q-list .q-card {
+  @apply bg-surface-100-800-token;
+  @apply text-surface-900-50-token;
+}
+
+.q-list > .q-expansion-item:first-child .q-focus-helper {
+  @apply rounded-tl-container-token;
+  @apply rounded-tr-container-token;
+}
+
+.q-list > .q-expansion-item:last-child .q-focus-helper {
+  @apply rounded-bl-container-token;
+  @apply rounded-br-container-token;
+}
+
+.q-input {
+  @apply rounded-container-token;
+  @apply transition-all;
+}
+
+.q-field__control::before {
+  @apply rounded-container-token;
+}
+
+.q-field--outlined .q-field__control::after {
+  @apply rounded-container-token;
+}
+
+.q-input,
+.q-select,
+.q-file {
+  @apply rounded-container-token;
+}
+
+.q-item--dark {
+  color: currentColor;
+}
+
+.q-file,
+.q-time {
+  @apply rounded-container-token;
+}
+
+.q-time {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+
+  @apply bg-surface-100-800-token;
+  @apply text-surface-900-50-token;
+
+  @apply rounded-tl-container-token;
+  @apply rounded-tr-container-token;
+}
+
+.q-time__header {
+  @apply bg-surface-300-600-token;
+  @apply text-surface-900-50-token;
+
+  @apply rounded-tl-container-token;
+  @apply rounded-tr-container-token;
+}
+
+.q-time__clock-position--active,
+.q-time__clock-pointer {
+  @apply bg-surface-900-50-token;
+  @apply text-surface-50-900-token;
+}
+
+.q-date {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+
+  @apply bg-surface-100-800-token;
+  @apply text-surface-900-50-token;
+
+  @apply rounded-container-token;
+}
+
+.q-date__calendar-item .q-btn {
+  @apply bg-surface-100-800-token;
+  @apply text-surface-900-50-token;
+
+  @apply rounded-token;
+}
+
+.q-date__calendar-item .q-btn--unelevated {
+  @apply !bg-surface-900;
+  @apply !text-surface-50;
+}
+
+.q-date__navigation .q-btn {
+  @apply bg-transparent;
+  @apply text-surface-900-50-token;
+
+  @apply rounded-token;
+}
+
+.q-date__header {
+  @apply bg-surface-300-600-token;
+  @apply text-surface-900-50-token;
 }
