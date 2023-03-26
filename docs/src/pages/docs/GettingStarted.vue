@@ -25,20 +25,20 @@
 
     <h2>Install Tailwind</h2>
     <div>
-      <pre>npm install -D tailwindcss postcss autoprefixer</pre>
+      <pre>npm install -D tailwindcss postcss autoprefixer prettier-plugin-tailwindcss</pre>
     </div>
 
-    <h2>Initialize Tailwind</h2>
+    <h3>Initialize Tailwind</h3>
     <div>
       <pre>npx tailwindcss init</pre>
     </div>
 
-    <h2>tailwind.config.js</h2>
+    <h3>tailwind.config.js</h3>
     <pre>{{ exampleTailwindConfig }}</pre>
     Note: This file might be called `tailwind.config.cjs` depending on your
     setup.
 
-    <h2>Tailwind Directives</h2>
+    <h3>Tailwind Directives</h3>
     Make sure to <strong>not</strong> have the Tailwind directives in your css,
     this is provided by Vuetiful.
     <pre>
@@ -47,6 +47,13 @@
 @tailwind components;
 @tailwind utilities;</pre
     >
+
+    <h3>pnpm | yarn</h3>
+    In case you are using pnpm or yarn instead of npm, you will need to create/add the following to `prettier.config.js`.
+    <pre>// prettier.config.js
+module.exports = {
+  plugins: [require('prettier-plugin-tailwindcss')],
+}</pre>
 
     <h2>Vue 3</h2>
     <details>
