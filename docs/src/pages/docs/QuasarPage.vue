@@ -982,8 +982,7 @@
         <q-select
           color="black"
           label-color="black"
-          class="dark-actions w-64 !bg-surface-100"
-          input-class="text-surface-900 !dark:text-surface-900"
+          class="dark-actions w-64 bg-surface-100"
           popup-content-class="!bg-surface-100 dark:!bg-surface-100 !text-surface-900 dark:!text-surface-900"
           outlined
           v-model="selectModel"
@@ -992,8 +991,10 @@
         />
 
         <q-select
-          :color="inputColor"
-          class="w-64 !bg-primary-100 dark:!bg-primary-800"
+          color="black"
+          label-color="black"
+          class="dark-actions w-64 !bg-primary-100"
+          popup-content-class="!bg-primary-100 dark:!bg-primary-100 !text-primary-900 dark:!text-primary-900"
           outlined
           v-model="selectModel"
           :options="selectOptions"
@@ -1001,8 +1002,10 @@
         />
 
         <q-select
-          :color="inputColor"
-          class="w-64 !bg-secondary-100 dark:!bg-secondary-800"
+          color="black"
+          label-color="black"
+          class="dark-actions w-64 !bg-secondary-100"
+          popup-content-class="!bg-secondary-100 dark:!bg-secondary-100 !text-secondary-900 dark:!text-secondary-900"
           outlined
           v-model="selectModel"
           :options="selectOptions"
@@ -1010,8 +1013,10 @@
         />
 
         <q-select
-          :color="inputColor"
-          class="w-64 !bg-tertiary-100 dark:!bg-tertiary-800"
+          color="black"
+          label-color="black"
+          class="dark-actions w-64 !bg-tertiary-100"
+          popup-content-class="!bg-tertiary-100 dark:!bg-tertiary-100 !text-tertiary-900 dark:!text-tertiary-900"
           outlined
           v-model="selectModel"
           :options="selectOptions"
@@ -1019,8 +1024,10 @@
         />
 
         <q-select
-          :color="inputColor"
-          class="w-64 !bg-success-100 dark:!bg-success-800"
+          color="black"
+          label-color="black"
+          class="dark-actions w-64 !bg-success-100"
+          popup-content-class="!bg-success-100 dark:!bg-success-100 !text-success-900 dark:!text-success-900"
           outlined
           v-model="selectModel"
           :options="selectOptions"
@@ -1028,8 +1035,10 @@
         />
 
         <q-select
-          :color="inputColor"
-          class="w-64 !bg-warning-100 dark:!bg-warning-800"
+          color="black"
+          label-color="black"
+          class="dark-actions w-64 !bg-warning-100"
+          popup-content-class="!bg-warning-100 dark:!bg-warning-100 !text-warning-900 dark:!text-warning-900"
           outlined
           v-model="selectModel"
           :options="selectOptions"
@@ -1037,8 +1046,10 @@
         />
 
         <q-select
-          :color="inputColor"
-          class="w-64 !bg-error-100 dark:!bg-error-900"
+          color="black"
+          label-color="black"
+          class="dark-actions w-64 !bg-error-100"
+          popup-content-class="!bg-error-100 dark:!bg-error-100 !text-error-900 dark:!text-error-900"
           outlined
           v-model="selectModel"
           :options="selectOptions"
@@ -1051,7 +1062,6 @@
           color="white"
           label-color="white"
           class="light-actions w-64 !bg-surface-800"
-          input-class="text-surface-50 !dark:text-surface-50"
           popup-content-class="!bg-surface-800 dark:!bg-surface-800 !text-surface-50 dark:!text-surface-50"
           outlined
           v-model="selectModel"

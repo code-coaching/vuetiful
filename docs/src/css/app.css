@@ -150,7 +150,8 @@
 
 .q-input,
 .q-select,
-.q-file {
+.q-file,
+.q-time {
   @apply rounded-container-token;
 }
 
@@ -158,9 +159,8 @@
   color: currentColor;
 }
 
-.q-file,
-.q-time {
-  @apply rounded-container-token;
+.q-field__native {
+  color: currentColor !important;
 }
 
 .q-time {
