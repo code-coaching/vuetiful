@@ -1309,10 +1309,7 @@
 </template>
 
 <script setup lang="ts">
-import { useDarkMode } from '@code-coaching/vuetiful';
-import { computed, ref } from 'vue';
-
-const { currentMode, MODE } = useDarkMode();
+import { ref } from 'vue';
 
 const onDropdownItemClick = (item: string) => {
   console.log(item);
