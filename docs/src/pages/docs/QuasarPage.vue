@@ -1325,10 +1325,6 @@ const rgba = ref('rgba(212, 25, 118,0.8)');
 
 const editor = ref('Vuetiful is beautiful');
 
-const inputColor = computed(() => {
-  return currentMode.value === MODE.DARK ? 'white' : 'black';
-});
-
 const TEXT = {
   SURFACE: 'surface',
   PRIMARY: 'primary',
