@@ -1032,6 +1032,12 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
   <div class="m-8">
     <h1>Quasar Components</h1>
 
+    <p>
+      This page demonstrates how the Quasar components change according to the
+      chosen theme. The theme can be switched by using the "Theme Switcher",
+      found in the top right corner.
+    </p>
+
     <h2>QAvatar</h2>
     <div class="flex gap-2">
       <div class="flex flex-wrap gap-1">
@@ -1553,7 +1559,9 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
             <q-item-section>
               <q-item-label>John Duck</q-item-label>
-              <q-item-label caption class="!text-surface-50">Vuetiful is beautiful</q-item-label>
+              <q-item-label caption class="!text-surface-50"
+                >Vuetiful is beautiful</q-item-label
+              >
             </q-item-section>
           </q-item>
 
