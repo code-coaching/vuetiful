@@ -13,7 +13,6 @@ import "./styles/tailwind.css";
 export default { install };
 
 export * from "./components";
-export * from "./constants";
 export * from "./utils";
 export * from "./directives";
 
