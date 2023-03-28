@@ -3,11 +3,11 @@ import hljs from "highlight.js";
 const highlighter = hljs;
 
 const useHighlight = () => {
-  const highlight = (code: string, lang: string) => {
-    if (lang && highlighter.getLanguage(lang)) {
-      return highlighter.highlight(lang, code).value;
+  const highlight = (code: string, language: string) => {
+    if (language && highlighter.getLanguage(language)) {
+      return highlighter.highlight(code, { language }).value.trim();
     } else {
-      return highlighter.highlightAuto(code).value;
+      return highlighter.highlightAuto(code).value.trim();
     }
   };
 
