@@ -15,6 +15,7 @@ export default { install };
 export * from "./components";
 export * from "./constants";
 export * from "./utils";
+export * from "./directives";
 
 // This type alias is to identify CSS classes within component props, which enables Tailwind IntelliSense
 export type CssClasses = string;
