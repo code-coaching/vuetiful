@@ -1,139 +1,6 @@
-<template>
-  <div class="p-4">
-    <header class="space-y-4">
-      <h1>Get Started</h1>
-      <p>
-        Vuetiful can be used standalone in any Vue3 project or it can be coupled
-        into other frameworks like
-        <a href="https://quasar.dev" target="_blank" rel="noreferrer">
-          Quasar
-        </a>
-        .
-      </p>
-
-      <p>
-        Vuetiful works with TailwindCSS, you will need to add it as a
-        dependency. However, you are not obligated to use TailwindCSS yourself.
-      </p>
-      <hr class="space-y-4" />
-    </header>
-
-    <h2>Install Vuetiful</h2>
-    <div>
-      <pre>npm install @code-coaching/vuetiful</pre>
-    </div>
-
-    <h2>Install Tailwind</h2>
-    <div>
-      <pre>npm install -D tailwindcss postcss autoprefixer prettier-plugin-tailwindcss</pre>
-    </div>
-
-    <h3>Initialize Tailwind</h3>
-    <div>
-      <pre>npx tailwindcss init</pre>
-    </div>
-
-    <h3>tailwind.config.js</h3>
-    <pre>{{ exampleTailwindConfig }}</pre>
-    Note: This file might be called `tailwind.config.cjs` depending on your
-    setup.
-
-    <h3>Tailwind Directives</h3>
-    Make sure to <strong>not</strong> have the Tailwind directives in your css,
-    this is provided by Vuetiful.
-    <pre>
-// If this is in your css, remove it
-@tailwind base;
-@tailwind components;
-@tailwind utilities;</pre
-    >
-
-    <h3>pnpm | yarn</h3>
-    In case you are using pnpm or yarn instead of npm, you will need to create/add the following to `prettier.config.js`.
-    <pre>// prettier.config.js
-module.exports = {
-  plugins: [require('prettier-plugin-tailwindcss')],
-}</pre>
-
-    <h2>Vue 3</h2>
-    <details>
-      <summary>Click here for the Vue 3 instructions</summary>
-
-      <h3>PostCSS config</h3>
-      <p>
-        Create a `postcss.config.cjs` file in the root of your project, add the
-        following content:
-      </p>
-      <pre>
-module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
-};
-</pre
-      >
-
-      <h3>Vue3 - main.ts</h3>
-      <pre>
-import { createApp } from "vue";
-
-import "@code-coaching/vuetiful/styles/all.css";
-import "./style.css";
-
-import App from "./App.vue";
-
-createApp(App).mount("#app");</pre
-      >
-
-      <p>
-        Note: `@code-coaching/vuetiful/styles/all.css` must be imported before
-        any other css.
-      </p>
-
-      <h3>App.vue - script setup</h3>
-      Add the following code to your App.vue file.
-
-      <pre
-        >{{ exampleScriptSetup }}
-</pre
-      >
-
-      <h3>App.vue - no script setup</h3>
-      <pre
-        >{{ exampleNoScriptSetup }}
-</pre
-      >
-    </details>
-
-    <h2>Quasar</h2>
-    <p class="mb-2">Vuetiful is Quasar SSR compatible</p>
-    <details>
-      <summary>Click here for the Quasar instructions</summary>
-
-      <h3>postcss.config.js</h3>
-      <pre>{{ exampleQuasarPostCss }}</pre>
-
-      <h3>quasar.config.js</h3>
-      <pre>{{ exampleQuasarConfig }}</pre>
-      <div>
-        There are two things to change in `quasar.config.js`:
-        <ul>
-          <li>- remove "app.css" from the css array</li>
-          <li>- extendViteConf to dedupe Vue</li>
-        </ul>
-      </div>
-
-      <h3>App.vue - no script setup</h3>
-      <pre>{{ exampleQuasarNoScriptSetup }}</pre>
-
-      <h3>App.vue - script setup</h3>
-      <pre>{{ exampleQuasarScriptSetup }}</pre>
-    </details>
-  </div>
-</template>
-
 <script setup lang="ts">
+import { CodeBlock } from '@code-coaching/vuetiful';
+
 const exampleTailwindConfig = `/** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
@@ -149,6 +16,16 @@ module.exports = {
   },
   plugins: [...require('@code-coaching/vuetiful/tailwind/vuetiful.cjs')()],
 };`;
+
+const exampleVueMain = `import { createApp } from "vue";
+
+import "@code-coaching/vuetiful/styles/all.css";
+import "./style.css";
+
+import App from "./App.vue";
+
+createApp(App).mount("#app");`;
+
 const exampleScriptSetup = `import { useDarkMode, useTheme } from "@code-coaching/vuetiful";
 import "@code-coaching/vuetiful/styles/all.css";
 import { onMounted } from "vue";
@@ -157,8 +34,8 @@ const { autoModeWatcher } = useDarkMode();
 const { loadTheme, THEMES } = useTheme();
 
 onMounted(() => {
-  autoModeWatcher();
-  loadTheme(THEMES.VUETIFUL);
+  autoModeWatcher(); // automatically use the dark preference of the OS
+  loadTheme(THEMES.VUETIFUL); // can be any theme from the THEMES object
 });`;
 
 const exampleNoScriptSetup = `import { useDarkMode, useTheme } from "@code-coaching/vuetiful";
@@ -172,7 +49,7 @@ export default defineComponent({
 
     onMounted(() => {
       autoModeWatcher(); // automatically use the dark preference of the OS
-      loadTheme(BUILT_IN_THEMES.VUETIFUL);
+      loadTheme(THEMES.VUETIFUL); // can be any theme from the THEMES object
     });
 
     return {};
@@ -226,7 +103,7 @@ export default defineComponent({
     onMounted(() => {
       autoModeWatcher(); // automatically use the dark preference of the OS
       handleQuasarDarkMode(currentMode.value);
-      loadTheme(THEMES.SEAFOAM);
+      loadTheme(THEMES.VUETIFUL); // can be any theme from the THEMES object
     });
 
     const handleQuasarDarkMode = (mode: boolean) => {
@@ -259,7 +136,7 @@ const $q = useQuasar();
 onMounted(() => {
   autoModeWatcher(); // automatically use the dark preference of the OS
   handleQuasarDarkMode(currentMode.value);
-  loadTheme(THEMES.VUETIFUL);
+  loadTheme(THEMES.VUETIFUL); // can be any theme from the THEMES object
 });
 
 const handleQuasarDarkMode = (mode: boolean) => {
@@ -303,7 +180,356 @@ module.exports = {
     // require('postcss-rtlcss')
   ],
 };`;
+
+const exampleQuasarCssOverwrite = `.q-avatar,
+.q-chip .q-avatar {
+  @apply rounded-token;
+  @apply transition-all;
+}
+
+.q-badge {
+  @apply rounded-token;
+
+  @apply transition-all;
+}
+
+.q-banner {
+  @apply rounded-container-token;
+  @apply transition-all;
+}
+
+.q-btn {
+  @apply rounded-token;
+  @apply transition-all;
+}
+
+.q-btn-group {
+  @apply rounded-token;
+  @apply transition-all;
+
+  width: fit-content;
+}
+
+.q-btn-dropdown {
+  @apply rounded-token;
+  @apply transition-all;
+}
+
+.q-menu {
+  @apply bg-surface-100-800-token;
+  @apply text-surface-900-50-token;
+
+  @apply rounded-container-token;
+  @apply transition-all;
+}
+
+.q-menu--dark {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
+
+.q-card {
+  @apply rounded-container-token;
+  @apply transition-all;
+}
+
+/* Overwrite the white shadow with the normal shadow */
+.q-card--dark {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
+
+.q-chip {
+  @apply rounded-token;
+  @apply transition-all;
+}
+
+.q-color-picker {
+  @apply rounded-container-token;
+  @apply transition-all;
+}
+
+.q-color-picker--dark {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
+
+.q-color-picker__header-bg {
+  @apply rounded-tl-container-token;
+  @apply rounded-tr-container-token;
+}
+
+.q-editor {
+  @apply rounded-container-token;
+  @apply transition-all;
+}
+
+/**
+  * Because of how .q-editor is styled
+  * the a tag needs to be styled here
+  * Add .light-actions or .dark-actions to the QEditor as a class
+  */
+.light-actions a {
+  @apply !text-white;
+}
+
+.dark-actions a {
+  @apply !text-black;
+}
+
+/**
+  * Because of how .q-select is styled
+  * the dropdown icon needs to be styled here
+  * Add .light-actions or .dark-actions to the QSelect as a class
+  */
+.light-actions i {
+  @apply !text-white;
+}
+.dark-actions i {
+  @apply !text-black;
+}
+
+/*
+* Because of how .q-expansion-item__container -> .q-item is styled
+* the background and text color need to be set here
+*/
+.q-list {
+  @apply bg-surface-100-800-token;
+  @apply text-surface-900-50-token;
+
+  @apply rounded-container-token;
+  @apply transition-all;
+}
+
+.q-list .q-card {
+  @apply bg-surface-100-800-token;
+  @apply text-surface-900-50-token;
+}
+
+.q-list > .q-expansion-item:first-child .q-focus-helper {
+  @apply rounded-tl-container-token;
+  @apply rounded-tr-container-token;
+}
+
+.q-list > .q-expansion-item:last-child .q-focus-helper {
+  @apply rounded-bl-container-token;
+  @apply rounded-br-container-token;
+}
+
+.q-input {
+  @apply rounded-container-token;
+  @apply transition-all;
+}
+
+.q-field__control::before {
+  @apply rounded-container-token;
+}
+
+.q-field--outlined .q-field__control::after {
+  @apply rounded-container-token;
+}
+
+.q-input,
+.q-select,
+.q-file,
+.q-time {
+  @apply rounded-container-token;
+}
+
+.q-item--dark {
+  color: currentColor;
+}
+
+.q-field__native {
+  color: currentColor !important;
+}
+
+.q-time {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+
+  @apply bg-surface-100-800-token;
+  @apply text-surface-900-50-token;
+
+  @apply rounded-tl-container-token;
+  @apply rounded-tr-container-token;
+}
+
+.q-time__header {
+  @apply bg-surface-300-600-token;
+  @apply text-surface-900-50-token;
+
+  @apply rounded-tl-container-token;
+  @apply rounded-tr-container-token;
+}
+
+.q-time__clock-position--active,
+.q-time__clock-pointer {
+  @apply bg-surface-900-50-token;
+  @apply text-surface-50-900-token;
+}
+
+.q-date {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+
+  @apply bg-surface-100-800-token;
+  @apply text-surface-900-50-token;
+
+  @apply rounded-container-token;
+}
+
+.q-date__calendar-item .q-btn {
+  @apply bg-surface-100-800-token;
+  @apply text-surface-900-50-token;
+
+  @apply rounded-token;
+}
+
+.q-date__calendar-item .q-btn--unelevated {
+  @apply !bg-surface-900;
+  @apply !text-surface-50;
+}
+
+.q-date__navigation .q-btn {
+  @apply bg-transparent;
+  @apply text-surface-900-50-token;
+
+  @apply rounded-token;
+}
+
+.q-date__header {
+  @apply bg-surface-300-600-token;
+  @apply text-surface-900-50-token;
+}`
 </script>
+
+<template>
+  <div class="p-4">
+    <header class="space-y-4">
+      <h1>Get Started</h1>
+      <p>
+        Vuetiful can be used standalone in any Vue3 project or it can be coupled
+        into other frameworks like
+        <a href="https://quasar.dev" target="_blank" rel="noreferrer">
+          Quasar
+        </a>
+        .
+      </p>
+      <p>Vuetiful only supports Vite based projects.</p>
+      <hr class="space-y-4" />
+    </header>
+
+    <h2>Install Vuetiful</h2>
+    <CodeBlock language="sh" code="npm install @code-coaching/vuetiful" />
+
+    <h2>Install Tailwind</h2>
+    <p class="pb-4">
+      Vuetiful is created using TailwindCSS, you will need to add it as a
+      dependency. However, you are not obligated to use TailwindCSS yourself.
+    </p>
+    <CodeBlock
+      language="sh"
+      code="npm install -D tailwindcss postcss autoprefixer prettier-plugin-tailwindcss"
+    />
+
+    <h3>Initialize Tailwind</h3>
+    <CodeBlock language="sh" code="npx tailwindcss init" />
+
+    <h3>tailwind.config.js</h3>
+    <CodeBlock language="js" :code="exampleTailwindConfig" />
+    Note: This file might be called `tailwind.config.cjs` depending on your
+    setup.
+
+    <h3>Tailwind Directives</h3>
+    Make sure to <strong>not</strong> have the Tailwind directives in your css,
+    this is provided by Vuetiful.
+
+    <CodeBlock
+      language="css"
+      :code="`// If this is in your css, remove it
+@tailwind base;
+@tailwind components;
+@tailwind utilities;`"
+    />
+
+    <h3>pnpm | yarn</h3>
+    In case you are using pnpm or yarn instead of npm, you will need to
+    create/add the following to `prettier.config.js`.
+    <CodeBlock
+      language="js"
+      :code="`// prettier.config.js
+module.exports = {
+  plugins: [require('prettier-plugin-tailwindcss')],
+};`"
+    />
+
+    <h2>Vue 3</h2>
+    <details>
+      <summary>Click here for the Vue 3 instructions</summary>
+
+      <h3>PostCSS config</h3>
+      <p>
+        Create a `postcss.config.cjs` file in the root of your project, add the
+        following content:
+      </p>
+
+      <CodeBlock
+        language="js"
+        :code="`module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};`"
+      />
+
+      <h3>Vue3 - main.ts</h3>
+      <CodeBlock language="ts" :code="exampleVueMain" />
+
+      <p>
+        Note: `@code-coaching/vuetiful/styles/all.css` must be imported before
+        any other css.
+      </p>
+
+      <h3>App.vue - script setup</h3>
+      Add the following code to your App.vue file.
+      <CodeBlock language="ts" :code="exampleScriptSetup" />
+
+      <h3>App.vue - no script setup</h3>
+      <CodeBlock language="ts" :code="exampleNoScriptSetup" />
+    </details>
+
+    <h2>Quasar</h2>
+    <p class="mb-2">Vuetiful is Quasar SSR compatible</p>
+    <details>
+      <summary>Click here for the Quasar instructions</summary>
+
+      <h3>postcss.config.js</h3>
+      <CodeBlock language="js" :code="exampleQuasarPostCss" />
+
+      <h3>quasar.config.js</h3>
+      <CodeBlock language="js" :code="exampleQuasarConfig" />
+      <div>
+        There are two things to change in `quasar.config.js`:
+        <ul>
+          <li>- remove "app.css" from the css array</li>
+          <li>- extendViteConf to dedupe Vue</li>
+        </ul>
+      </div>
+
+      <h3>App.vue - script setup</h3>
+      <CodeBlock language="ts" :code="exampleQuasarScriptSetup" />
+
+      <h3>App.vue - no script setup</h3>
+      <CodeBlock language="ts" :code="exampleQuasarNoScriptSetup" />
+
+      <h3>app.css</h3>
+      <p>Copy paste this into your app.css file.</p>
+      <CodeBlock language="css" :code="exampleQuasarCssOverwrite" />
+    </details>
+  </div>
+</template>
 
 <style scoped>
 h2,
