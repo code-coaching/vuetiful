@@ -409,6 +409,14 @@ const exampleQuasarCssOverwrite = `.q-avatar,
     <header class="space-y-4">
       <h1>Get Started</h1>
       <p>
+        <strong>Vuetiful</strong> is an opensource project created and
+        maintained by
+        <a href="https://code-coaching.dev" target="_blank" rel="noreferrer">
+          Code Coaching
+        </a>
+        .
+      </p>
+      <p>
         Vuetiful can be used standalone in any Vue3 project or it can be coupled
         into other frameworks like
         <a href="https://quasar.dev" target="_blank" rel="noreferrer">
@@ -417,7 +425,9 @@ const exampleQuasarCssOverwrite = `.q-avatar,
         .
       </p>
       <p>Vuetiful only supports Vite based projects.</p>
-      <p>This documentation website is created using Quasar (SSR) + Vuetiful.</p>
+      <p>
+        This documentation website is created using Quasar (SSR) + Vuetiful.
+      </p>
       <hr class="space-y-4" />
     </header>
 
