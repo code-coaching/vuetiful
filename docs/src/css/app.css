@@ -1,5 +1,8 @@
-/* app global css */
+summary {
+  cursor: pointer;
+}
 
+/* app global css */
 .q-avatar,
 .q-chip .q-avatar {
   @apply rounded-token;
