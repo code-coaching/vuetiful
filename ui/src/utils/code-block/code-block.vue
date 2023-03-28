@@ -42,7 +42,7 @@ const props = defineProps({
 
   button: {
     type: String as () => CssClasses,
-    default: "btn btn-sm variant-soft",
+    default: "btn btn-sm variant-soft !text-white",
   },
   buttonLabel: {
     type: String,
