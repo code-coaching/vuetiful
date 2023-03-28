@@ -18,3 +18,7 @@ TailwindCSS is added as a dependency in the consuming app, but is not mandatory 
 # Docs
 
 [Vuetiful Docs](https://vuetiful.dev)
+
+# Credits
+
+Inspiration for this project comes from [Skeleton](https://skeleton.dev) - a UI Toolkit for SvelteKit. If you are looking for a SvelteKit UI Toolkit, I highly recommend it.
