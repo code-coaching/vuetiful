@@ -248,7 +248,7 @@ const qCardOneExample = `<q-card class="w-64 bg-surface-100 text-surface-900">
 
     <q-item-section>
       <q-item-label>John Duck</q-item-label>
-      <q-item-label caption>Vuetiful is beautiful</q-item-label>
+      <q-item-label caption class="!text-surface-50">Vuetiful is beautiful</q-item-label>
     </q-item-section>
   </q-item>
 
@@ -1553,7 +1553,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
             <q-item-section>
               <q-item-label>John Duck</q-item-label>
-              <q-item-label caption>Vuetiful is beautiful</q-item-label>
+              <q-item-label caption class="!text-surface-50">Vuetiful is beautiful</q-item-label>
             </q-item-section>
           </q-item>
 
