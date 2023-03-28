@@ -12,16 +12,15 @@ const routes: RouteRecordRaw[] = [
     path: '/',
     component: () => import('src/layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('src/pages/IndexPage.vue') },
+      {
+        path: '',
+        name: ROUTE_NAMES.DOCS.GETTING_STARTED,
+        component: () => import('src/pages/docs/GettingStarted.vue'),
+      },
       {
         path: 'quasar',
         name: ROUTE_NAMES.DOCS.QUASAR,
         component: () => import('src/pages/docs/QuasarPage.vue'),
-      },
-      {
-        path: 'docs',
-        name: ROUTE_NAMES.DOCS.GETTING_STARTED,
-        component: () => import('src/pages/docs/GettingStarted.vue'),
       },
     ],
   },

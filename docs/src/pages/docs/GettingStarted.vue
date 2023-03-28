@@ -401,7 +401,7 @@ const exampleQuasarCssOverwrite = `.q-avatar,
 .q-date__header {
   @apply bg-surface-300-600-token;
   @apply text-surface-900-50-token;
-}`
+}`;
 </script>
 
 <template>
@@ -417,6 +417,7 @@ const exampleQuasarCssOverwrite = `.q-avatar,
         .
       </p>
       <p>Vuetiful only supports Vite based projects.</p>
+      <p>This documentation website is created using Quasar (SSR) + Vuetiful.</p>
       <hr class="space-y-4" />
     </header>
 
@@ -463,6 +464,18 @@ module.exports = {
   plugins: [require('prettier-plugin-tailwindcss')],
 };`"
     />
+
+    <h3>Recommended VSCode Extension</h3>
+    <a
+      href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss"
+    >
+      Tailwind CSS IntelliSense
+    </a>
+
+    <p>
+      This will provide autocompletion for TailwindCSS classes. It will also
+      autocomplete custom classes provided by Vuetiful.
+    </p>
 
     <h2>Vue 3</h2>
     <details>
