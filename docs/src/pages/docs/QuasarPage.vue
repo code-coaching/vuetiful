@@ -106,51 +106,100 @@ const qBannerExample = (
 
 const qBtnExample = (type: string) => {
   return `<div class="flex flex-wrap gap-2">
-  <q-btn ${type} class="!bg-surface-100 !text-surface-900"> Surface </q-btn>
-  <q-btn ${type} class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
-  <q-btn ${type} class="!bg-secondary-100 !text-secondary-900"> Secondary </q-btn>
-  <q-btn ${type} class="!bg-tertiary-100 !text-tertiary-900"> Tertiary </q-btn>
-  <q-btn ${type} class="!bg-success-100 !text-success-900"> Success </q-btn>
-  <q-btn ${type} class="!bg-warning-100 !text-warning-900"> Warning </q-btn>
-  <q-btn ${type} class="!bg-error-100 !text-error-900"> Error </q-btn>
+  <q-btn ${
+    type ? `${type} ` : ''
+  }class="!bg-surface-100 !text-surface-900"> Surface </q-btn>
+  <q-btn ${
+    type ? `${type} ` : ''
+  }class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
+  <q-btn ${
+    type ? `${type} ` : ''
+  }class="!bg-secondary-100 !text-secondary-900"> Secondary </q-btn>
+  <q-btn ${
+    type ? `${type} ` : ''
+  }class="!bg-tertiary-100 !text-tertiary-900"> Tertiary </q-btn>
+  <q-btn ${
+    type ? `${type} ` : ''
+  }class="!bg-success-100 !text-success-900"> Success </q-btn>
+  <q-btn ${
+    type ? `${type} ` : ''
+  }class="!bg-warning-100 !text-warning-900"> Warning </q-btn>
+  <q-btn ${
+    type ? `${type} ` : ''
+  }class="!bg-error-100 !text-error-900"> Error </q-btn>
+</div>
+<div class="flex flex-wrap gap-2">
+  <q-btn ${
+    type ? `${type} ` : ''
+  }class="!bg-surface-800 !text-surface-50"> Surface </q-btn>
+  <q-btn ${
+    type ? `${type} ` : ''
+  }class="!bg-primary-800 !text-primary-50"> Primary </q-btn>
+  <q-btn ${
+    type ? `${type} ` : ''
+  }class="!bg-secondary-800 !text-secondary-50"> Secondary </q-btn>
+  <q-btn ${
+    type ? `${type} ` : ''
+  }class="!bg-tertiary-800 !text-tertiary-50"> Tertiary </q-btn>
+  <q-btn ${
+    type ? `${type} ` : ''
+  }class="!bg-success-800 !text-success-50"> Success </q-btn>
+  <q-btn ${
+    type ? `${type} ` : ''
+  }class="!bg-warning-800 !text-warning-50"> Warning </q-btn>
+  <q-btn ${
+    type ? `${type} ` : ''
+  }class="!bg-error-800 !text-error-50"> Error </q-btn>
 </div>`;
 };
 
 const qBtnGroupExample = (type: string) => {
-  return `<q-btn-group ${type}>
-  <q-btn ${type} class="!bg-surface-100 !text-surface-900">
+  return `<q-btn-group ${type ? `${type} ` : ''}>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-surface-100 !text-surface-900">
     Surface
   </q-btn>
-  <q-btn ${type} class="!bg-primary-100 !text-primary-900">
+  <q-btn ${type ? `${type} ` : ''}class="!bg-primary-100 !text-primary-900">
     Primary
   </q-btn>
-  <q-btn ${type} class="!bg-secondary-100 !text-secondary-900">
+  <q-btn ${type ? `${type} ` : ''}class="!bg-secondary-100 !text-secondary-900">
     Secondary
   </q-btn>
-  <q-btn ${type} class="!bg-tertiary-100 !text-tertiary-900">
+  <q-btn ${type ? `${type} ` : ''}class="!bg-tertiary-100 !text-tertiary-900">
     Tertiary
   </q-btn>
-  <q-btn ${type} class="!bg-success-100 !text-success-900">
+  <q-btn ${type ? `${type} ` : ''}class="!bg-success-100 !text-success-900">
     Success
   </q-btn>
-  <q-btn ${type} class="!bg-warning-100 !text-warning-900">
+  <q-btn ${type ? `${type} ` : ''}class="!bg-warning-100 !text-warning-900">
     Warning
   </q-btn>
-  <q-btn ${type} class="!bg-error-100 !text-error-900"> Error </q-btn>
+  <q-btn ${
+    type ? `${type} ` : ''
+  }class="!bg-error-100 !text-error-900"> Error </q-btn>
 </q-btn-group>
 
-<q-btn-group ${type}>
-  <q-btn ${type} class="!bg-surface-800 !text-surface-50"> Surface </q-btn>
-  <q-btn ${type} class="!bg-primary-800 !text-primary-50"> Primary </q-btn>
-  <q-btn ${type} class="!bg-secondary-800 !text-secondary-50">
+<q-btn-group ${type ? `${type} ` : ''}>
+  <q-btn ${
+    type ? `${type} ` : ''
+  }class="!bg-surface-800 !text-surface-50"> Surface </q-btn>
+  <q-btn ${
+    type ? `${type} ` : ''
+  }class="!bg-primary-800 !text-primary-50"> Primary </q-btn>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-secondary-800 !text-secondary-50">
     Secondary
   </q-btn>
-  <q-btn ${type} class="!bg-tertiary-800 !text-tertiary-50">
+  <q-btn ${type ? `${type} ` : ''}class="!bg-tertiary-800 !text-tertiary-50">
     Tertiary
   </q-btn>
-  <q-btn ${type} class="!bg-success-800 !text-success-50"> Success </q-btn>
-  <q-btn ${type} class="!bg-warning-800 !text-warning-50"> Warning </q-btn>
-  <q-btn ${type} class="!bg-error-800 !text-error-50"> Error </q-btn>
+  <q-btn ${
+    type ? `${type} ` : ''
+  }class="!bg-success-800 !text-success-50"> Success </q-btn>
+  <q-btn ${
+    type ? `${type} ` : ''
+  }class="!bg-warning-800 !text-warning-50"> Warning </q-btn>
+  <q-btn ${
+    type ? `${type} ` : ''
+  }class="!bg-error-800 !text-error-50"> Error </q-btn>
 </q-btn-group>`;
 };
 
@@ -330,61 +379,87 @@ const qCardFourExample = `<q-card class="w-64 bg-surface-100 text-surface-900">
   </q-card-actions>
 </q-card>`;
 
-const qChipExample = (type: string) => `<q-chip ${type}
-  class="bg-surface-100-800-token text-surface-900-50-token"
->
+const qCardFiveExample = `<div class="flex flex-wrap items-start gap-2">
+  <q-card class="w-64 bg-surface-100 text-surface-900">
+    <q-img src="/img/john-duck.png">
+      <div class="absolute-bottom text-h6">John Duck</div>
+    </q-img>
+
+    <q-card-section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa,
+      molestias.
+    </q-card-section>
+  </q-card>
+
+  <q-card class="w-64 bg-surface-800 text-surface-50">
+    <q-img src="/img/john-duck.png">
+      <div class="absolute-bottom text-h6">John Duck</div>
+    </q-img>
+
+    <q-card-section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa,
+      molestias.
+    </q-card-section>
+  </q-card>
+</div>`;
+
+const qChipExample = (type: string) => `<q-chip ${
+  type ? `${type} ` : ''
+}class="bg-surface-100-800-token text-surface-900-50-token">
   <q-avatar>
     <img src="/img/john-duck.png" />
   </q-avatar>
   Surface
 </q-chip>
 
-<q-chip ${type}
-  class="bg-primary-100-800-token text-primary-900-50-token"
->
+<q-chip ${
+  type ? `${type} ` : ''
+}class="bg-primary-100-800-token text-primary-900-50-token">
   <q-avatar>
     <img src="/img/john-duck.png" />
   </q-avatar>
   Primary
 </q-chip>
 
-<q-chip ${type}
-  class="bg-secondary-100-800-token text-secondary-900-50-token"
->
+<q-chip ${
+  type ? `${type} ` : ''
+}class="bg-secondary-100-800-token text-secondary-900-50-token">
   <q-avatar>
     <img src="/img/john-duck.png" />
   </q-avatar>
   Secondary
 </q-chip>
 
-<q-chip ${type}
-  class="bg-tertiary-100-800-token text-tertiary-900-50-token"
->
+<q-chip ${
+  type ? `${type} ` : ''
+}class="bg-tertiary-100-800-token text-tertiary-900-50-token">
   <q-avatar>
     <img src="/img/john-duck.png" />
   </q-avatar>
   Secondary
 </q-chip>
 
-<q-chip ${type}
-  class="bg-success-100-800-token text-success-900-50-token"
->
+<q-chip ${
+  type ? `${type} ` : ''
+}class="bg-success-100-800-token text-success-900-50-token">
   <q-avatar>
     <img src="/img/john-duck.png" />
   </q-avatar>
   Success
 </q-chip>
 
-<q-chip ${type}
-  class="bg-warning-100-800-token text-warning-900-50-token"
->
+<q-chip ${
+  type ? `${type} ` : ''
+}class="bg-warning-100-800-token text-warning-900-50-token">
   <q-avatar>
     <img src="/img/john-duck.png" />
   </q-avatar>
   Warning
 </q-chip>
 
-<q-chip ${type} class="bg-error-100-800-token text-error-900-50-token">
+<q-chip ${
+  type ? `${type} ` : ''
+}class="bg-error-100-800-token text-error-900-50-token">
   <q-avatar>
     <img src="/img/john-duck.png" />
   </q-avatar>
@@ -1039,7 +1114,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     </p>
 
     <h2>QAvatar</h2>
-    <div class="flex gap-2">
+    <div class="flex flex-wrap gap-2">
       <div class="flex flex-wrap gap-1">
         <q-avatar class="h-8 w-8">
           <img src="/img/john-duck.png" />
@@ -1050,7 +1125,8 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
         <q-avatar class="h-32 w-32">
           <img src="/img/john-duck.png" />
         </q-avatar>
-
+      </div>
+      <div class="flex flex-wrap gap-1">
         <q-avatar class="h-8 w-8 bg-surface-300 text-surface-900">JD</q-avatar>
         <q-avatar class="h-16 w-16 bg-surface-300 text-surface-900">
           JD
@@ -1058,7 +1134,8 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
         <q-avatar class="h-32 w-32 bg-surface-300 text-surface-900">
           JD
         </q-avatar>
-
+      </div>
+      <div class="flex flex-wrap gap-1">
         <q-avatar class="h-8 w-8 bg-surface-800 text-surface-50">JD</q-avatar>
         <q-avatar class="h-16 w-16 bg-surface-800 text-surface-50">
           JD
@@ -1327,11 +1404,6 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
         </q-btn>
         <q-btn outline class="!bg-error-100 !text-error-900"> Error </q-btn>
       </div>
-
-      <details class="mb-2">
-        <summary>Code</summary>
-        <CodeBlock language="html" :code="qBtnExample('outline')" />
-      </details>
 
       <div class="flex gap-2">
         <q-btn outline class="!bg-surface-800 !text-surface-50">
@@ -1632,6 +1704,11 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
           </q-card-section>
         </q-card>
       </div>
+
+      <details class="mb-2">
+        <summary>Code</summary>
+        <CodeBlock language="html" :code="qCardFiveExample" />
+      </details>
 
       <div class="flex flex-wrap items-start gap-2">
         <q-card class="w-64">
