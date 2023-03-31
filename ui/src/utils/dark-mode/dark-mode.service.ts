@@ -1,5 +1,5 @@
 import { readonly, Ref, ref } from "vue";
-import { usePlatform } from "../platform/platform";
+import { usePlatform } from "../platform/platform.service";
 
 const { isBrowser } = usePlatform();
 
@@ -14,7 +14,8 @@ const modeUserPrefers: Ref<boolean | undefined> = ref(undefined);
 
 const useDarkMode = () => {
   const getModeOsPrefers = (): boolean => {
-    const prefersLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
+    let prefersLightMode = false;
+    if (isBrowser) prefersLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
     setModeOsPrefers(prefersLightMode);
     return prefersLightMode;
   };
@@ -30,8 +31,8 @@ const useDarkMode = () => {
   const getModeAutoPrefers = (): boolean => {
     const os = getModeOsPrefers();
     const user = getModeUserPrefers();
-    const modeValue = user !== undefined ? user : os;
-    return modeValue;
+    if (user === undefined) return os;
+    return user;
   };
 
   const setModeOsPrefers = (value: boolean) => {

@@ -2,7 +2,7 @@
 import { CssClasses, vClipboard } from "@/index";
 import "highlight.js/styles/github-dark.css";
 import { computed, ref, useAttrs } from "vue";
-import { useHighlight } from "./highlight";
+import { useHighlight } from "./highlight.service";
 
 const { highlight } = useHighlight();
 

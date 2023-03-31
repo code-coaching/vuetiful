@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { useHighlight } from "./highlight";
+import { useHighlight } from "./highlight.service";
 
 const { highlight } = useHighlight();
 
