@@ -7,3 +7,4 @@ docs/.vitepress/dist
 docs/.vitepress/cache
 .temp
 src/tailwind/generated
+coverage/
