@@ -9,7 +9,7 @@ interface VitestConfig extends UserConfig {
 }
 const vitestConfig: UserConfig = {
   test: {
-    environment: "happy-dom",
+    environment: "jsdom",
   },
 };
 
