@@ -3,7 +3,7 @@ import { usePlatform } from "../platform/platform.service";
 
 const { isBrowser } = usePlatform();
 
-interface Theme {
+export interface Theme {
   name: string;
   url: string;
 }
@@ -38,7 +38,7 @@ const defaultTheme = THEMES.VUETIFUL;
 const chosenTheme = ref(defaultTheme);
 
 const useTheme = () => {
-  const setTheme = (name: string): void => {
+  const saveThemeToStorage = (name: string): void => {
     const theme = themes.value.find((t) => t.name === name);
     if (!theme) return;
 
@@ -74,10 +74,8 @@ const useTheme = () => {
     link.rel = "stylesheet";
     link.onload = () => {
       if (existingStyle) existingStyle.remove();
-      setTheme(theme.name);
-      if (callback) {
-        callback();
-      }
+      saveThemeToStorage(theme.name);
+      if (callback) callback();
     };
 
     const head = document.querySelector("head");
@@ -102,6 +100,7 @@ const useTheme = () => {
 
     initializeTheme,
     loadTheme,
+    saveThemeToStorage,
 
     THEMES,
     overwriteThemes,
