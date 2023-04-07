@@ -1,71 +1,24 @@
-<template>
-  <button :class="`vuetiful-button btn ${classes}`">
-    <template v-if="msg">{{ msg }}</template>
-    <slot />
-  </button>
-</template>
-
 <script setup lang="ts">
-import { CssClasses, useDarkMode } from "@/index";
-import { computed, useAttrs } from "vue";
+import { useAttrs } from "vue";
 
-const props = defineProps({
-  bgLight: {
-    type: String as () => CssClasses,
-    default: "bg-primary-50",
+defineProps({
+  tag: {
+    type: String as () => string,
+    default: "button",
   },
-  bgDark: {
-    type: String as () => CssClasses,
-    default: "bg-primary-900",
-  },
-  textOnLight: {
-    type: String as () => CssClasses,
-    default: "text-primary-900",
-  },
-  textOnDark: {
-    type: String as () => CssClasses,
-    default: "text-primary-50",
-  },
-  width: {
-    type: String as () => CssClasses,
-    default: "w-fit",
-  },
-  height: {
-    type: String as () => CssClasses,
-    default: "h-fit",
-  },
-  ring: {
-    type: String as () => CssClasses,
-    default: "ring-[1px] ring-primary-500/30",
-  },
-  rounded: {
-    type: String as () => CssClasses,
-    default: "rounded-token",
-  },
-
   msg: {
     type: String,
   },
 });
 const attrs = useAttrs();
-const { currentMode, MODE } = useDarkMode();
-const cTransition = `transition-all duration-[200ms]`;
-
-const background = computed(() => {
-  return currentMode.value === MODE.LIGHT ? props.bgLight : props.bgDark;
-});
-const text = computed(() => {
-  return currentMode.value === MODE.LIGHT ? props.textOnLight : props.textOnDark;
-});
-
-const classes = computed(() => {
-  return `${cTransition} 
-      ${background.value} 
-      ${text.value} 
-      ${props.width} 
-      ${props.height} 
-      ${props.ring} 
-      ${props.rounded} 
-      ${attrs.class ?? ""}`;
-});
 </script>
+
+<template>
+  <component
+    :is="tag"
+    :class="`vuetiful-button btn border-token hover:cursor-pointer ${attrs.class ?? ''}`"
+  >
+    <template v-if="msg">{{ msg }}</template>
+    <slot />
+  </component>
+</template>
