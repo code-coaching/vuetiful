@@ -3,8 +3,8 @@
 </template>
 
 <script setup lang="ts">
-import '@code-coaching/vuetiful/styles/all.css';
 import { useDarkMode, useTheme } from '@code-coaching/vuetiful';
+import '@code-coaching/vuetiful/styles/all.css';
 import { useQuasar } from 'quasar';
 import { onMounted, watch } from 'vue';
 import './css/app.css';

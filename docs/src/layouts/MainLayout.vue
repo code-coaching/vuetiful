@@ -1,50 +1,21 @@
-<template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated class="header">
-      <q-toolbar>
-        <q-btn
-          id="icon-button"
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
-
-        <q-toolbar-title>
-          <div class="font-bold">Vuetiful</div>
-        </q-toolbar-title>
-
-        <div class="flex items-center gap-2">
-          <ThemeSwitcher
-            button-classes="btn-sm !bg-surface-400 !text-on-surface-token"
-          />
-          <div>v{{ version }}</div>
-        </div>
-      </q-toolbar>
-    </q-header>
-
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
-      <q-list class="bg-transparent">
-        <q-item-label header> Docs </q-item-label>
-
-        <SideBarLink v-for="link in docsLinks" :key="link.name" v-bind="link" />
-      </q-list>
-    </q-drawer>
-
-    <q-page-container>
-      <router-view />
-    </q-page-container>
-  </q-layout>
-</template>
-
 <script setup lang="ts">
-import { ThemeSwitcher } from '@code-coaching/vuetiful';
-import { SideBarLink } from 'components/index';
-import { ref } from 'vue';
+import {
+  ThemeSwitcher,
+  VRail,
+  VRailTile,
+  VShell,
+  useRail,
+} from '@code-coaching/vuetiful';
+import { SideBarLink } from 'src/components';
+import { onMounted, ref } from 'vue';
 import { version } from '../../package.json';
 import { ROUTE_NAMES } from '../router/routes';
+
+const { selectedRailTile } = useRail();
+
+onMounted(() => {
+  selectedRailTile.value = 'docs';
+});
 
 const docsLinks = [
   {
@@ -65,23 +36,61 @@ const leftDrawerOpen = ref(false);
 const toggleLeftDrawer = () => (leftDrawerOpen.value = !leftDrawerOpen.value);
 </script>
 
-<style scoped>
-.header {
-  background-color: rgb(var(--color-surface-500));
-  color: rgb(var(--on-surface));
-}
-</style>
+<template>
+  <v-shell>
+    <template v-slot:fixedHeader>
+      <q-toolbar class="border-b border-surface-500/30 bg-surface-50-900-token">
+        <q-btn
+          id="icon-button"
+          flat
+          dense
+          round
+          icon="menu"
+          aria-label="Menu"
+          @click="toggleLeftDrawer"
+        />
+
+        <q-toolbar-title>
+          <div class="font-bold">Vuetiful</div>
+        </q-toolbar-title>
+
+        <div class="flex items-center gap-2">
+          <ThemeSwitcher button-classes="btn-sm variant-filled-secondary" />
+          <div>v{{ version }}</div>
+        </div>
+      </q-toolbar>
+    </template>
+
+    <template v-slot:sidebarLeft>
+      <div
+        class="sidebar hidden h-full grid-cols-[auto_1fr] border-r border-surface-500/30 lg:!grid"
+      >
+        <v-rail class="rail overflow-y-auto border-r border-surface-500/30">
+          <v-rail-tile value="docs" label="Docs">
+            <q-icon size="2rem" name="book" />
+          </v-rail-tile>
+        </v-rail>
+        <div class="flex flex-col gap-1 p-4">
+          <side-bar-link
+            class="min-w-full px-4 py-1"
+            v-for="link in docsLinks"
+            :key="link.name"
+            :route-name="link.name"
+            :link="link.name"
+          >
+            {{ link.title }}
+          </side-bar-link>
+        </div>
+      </div>
+    </template>
+    <div style="display: contents" class="h-full overflow-hidden">
+      <router-view />
+    </div>
+  </v-shell>
+</template>
 
 <style>
 .cc-theme-switcher__popup {
   right: 1rem;
-}
-
-.q-drawer {
-  background-color: rgb(var(--color-surface-100));
-}
-
-.dark .q-drawer {
-  background-color: rgb(var(--color-surface-800));
 }
 </style>

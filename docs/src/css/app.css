@@ -2,6 +2,32 @@ summary {
   cursor: pointer;
 }
 
+html,
+body,
+#q-app {
+  /*
+  * This is done to prevent double scrollbars
+  */
+  height: 100%;
+  overflow: hidden;
+
+  /*
+  * Reset several font properties to browser defaults
+  */
+  font-size: 16px;
+  font-family: 'QuickSand', sans-serif;
+  -moz-osx-font-smoothing: auto;
+}
+
+.flex {
+  /*
+  * Quasar has a flex utility class that also adds flex-wrap: wrap;
+  * This class is used to reset back to flex-wrap: nowrap; the default behavior.
+  */
+  display: flex;
+  flex-wrap: nowrap;
+}
+
 /* app global css */
 .q-avatar,
 .q-chip .q-avatar {

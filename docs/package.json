@@ -15,7 +15,7 @@
     "preview": "node dist/ssr"
   },
   "dependencies": {
-    "@code-coaching/vuetiful": "^0.1.4",
+    "@code-coaching/vuetiful": "^0.2.0",
     "@quasar/extras": "^1.0.0",
     "axios": "^0.21.1",
     "quasar": "^2.6.0",

@@ -3,7 +3,7 @@ import { CodeBlock } from '@code-coaching/vuetiful';
 import { reactive, ref } from 'vue';
 
 const onDropdownItemClick = (item: string) => {
-  console.log(item);
+  console.info(item);
 };
 
 const hex = ref('#0FBA81');

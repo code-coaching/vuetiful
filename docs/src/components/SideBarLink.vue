@@ -1,50 +1,31 @@
 <template>
-  <q-item
-    :active="name === activeRoute"
-    active-class="active-item"
-    clickable
-    @click="onClick()"
+  <v-button
     tag="a"
+    class="hover:variant-ghost-secondary"
+    :class="`min-w-full ${
+      routeName === activeRoute
+        ? 'variant-filled-secondary hover:!bg-secondary-500 hover:!text-on-secondary-token'
+        : ''
+    }`"
+    :key="routeName"
+    @click="onClick()"
   >
-    <q-item-section v-if="icon" avatar>
-      <q-icon :name="icon" />
-    </q-item-section>
-
-    <q-item-section>
-      <q-item-label>{{ title }}</q-item-label>
-      <q-item-label caption>
-        {{ caption }}
-      </q-item-label>
-    </q-item-section>
-  </q-item>
+    <slot />
+  </v-button>
 </template>
 
 <script setup lang="ts">
+import { VButton } from '@code-coaching/vuetiful';
 import { computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 const props = defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-
-  caption: {
-    type: String,
-    default: '',
-  },
-
   link: {
     type: String,
     default: '#',
   },
 
-  name: {
-    type: String,
-    default: '',
-  },
-
-  icon: {
+  routeName: {
     type: String,
     default: '',
   },
@@ -65,21 +46,10 @@ const onClick = () => {
   } else {
     const { params } = props;
     if (Object.keys(params).length) {
-      void router.push({ name: props.name, params });
+      void router.push({ name: props.routeName, params });
     } else {
-      void router.push({ name: props.name });
+      void router.push({ name: props.routeName });
     }
   }
 };
 </script>
-
-<style scoped>
-.active-item {
-  background-color: rgb(var(--color-surface-300));
-  color: rgb(var(--on-surface));
-}
-
-.dark .active-item {
-  background-color: rgb(var(--color-surface-900));
-}
-</style>
