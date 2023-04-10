@@ -1,5 +1,3 @@
-import vClipboard from './clipboard'
+import vClipboard from "./clipboard";
 
-export {
-  vClipboard
-}
+export { vClipboard };
