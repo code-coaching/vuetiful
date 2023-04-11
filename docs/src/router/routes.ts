@@ -6,6 +6,7 @@ export const ROUTE_NAMES = {
   DOCS: {
     DEFAULT: 'GETTING_STARTED',
     GETTING_STARTED: 'GETTING_STARTED',
+    COLORS: 'COLORS',
     QUASAR: 'QUASAR',
   },
   VUE: {
@@ -33,6 +34,11 @@ const routes: RouteRecordRaw[] = [
             path: 'getting-started',
             name: ROUTE_NAMES.DOCS.GETTING_STARTED,
             component: () => import('src/pages/docs/GettingStarted.vue'),
+          },
+          {
+            path: 'colors',
+            name: ROUTE_NAMES.DOCS.COLORS,
+            component: () => import('src/pages/docs/ColorsPage.vue'),
           },
           {
             path: 'quasar',

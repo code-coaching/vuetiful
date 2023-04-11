@@ -2626,15 +2626,3 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     </details>
   </div>
 </template>
-
-<style scoped>
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-</style>

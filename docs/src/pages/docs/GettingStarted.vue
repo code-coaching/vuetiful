@@ -555,12 +555,6 @@ module.exports = {
 </template>
 
 <style scoped>
-h2,
-h3 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-
 pre {
   margin-top: 1rem;
 }

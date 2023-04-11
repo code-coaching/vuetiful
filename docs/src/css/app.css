@@ -1,3 +1,18 @@
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+p,
+h1 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
 summary {
   cursor: pointer;
 }
@@ -26,6 +41,17 @@ body,
   */
   display: flex;
   flex-wrap: nowrap;
+}
+
+/*
+* This makes sure the Tailwind flex utility class is not overwritten
+* by the override above.
+*/
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 /* app global css */
@@ -72,8 +98,7 @@ body,
 }
 
 .q-menu--dark {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
 }
 
 .q-card {
@@ -83,8 +108,7 @@ body,
 
 /* Overwrite the white shadow with the normal shadow */
 .q-card--dark {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
 }
 
 .q-chip {
@@ -98,8 +122,7 @@ body,
 }
 
 .q-color-picker--dark {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
 }
 
 .q-color-picker__header-bg {
@@ -193,8 +216,7 @@ body,
 }
 
 .q-time {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
 
   @apply bg-surface-100-800-token;
   @apply text-surface-900-50-token;
@@ -218,8 +240,7 @@ body,
 }
 
 .q-date {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
 
   @apply bg-surface-100-800-token;
   @apply text-surface-900-50-token;

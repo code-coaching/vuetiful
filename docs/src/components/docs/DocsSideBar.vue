@@ -18,6 +18,10 @@ const docsLinks = [
     name: ROUTE_NAMES.DOCS.GETTING_STARTED,
   },
   {
+    title: 'Colors',
+    name: ROUTE_NAMES.DOCS.COLORS,
+  },
+  {
     title: 'Quasar',
     name: ROUTE_NAMES.DOCS.QUASAR,
   },
@@ -38,18 +42,8 @@ const vueLinks = [
     }`"
   >
     <v-rail class="rail overflow-y-auto border-r border-surface-500/30">
-      <v-rail-tile
-        @click="$router.push({ name: ROUTE_NAMES.DOCS.DEFAULT })"
-        value="docs"
-        label="Docs"
-      >
-      </v-rail-tile>
-      <v-rail-tile
-        value="vue"
-        label="Vue"
-        @click="$router.push({ name: ROUTE_NAMES.VUE.DEFAULT })"
-      >
-      </v-rail-tile>
+      <v-rail-tile @click="$router.push({ name: ROUTE_NAMES.DOCS.DEFAULT })" value="docs" label="Docs"> </v-rail-tile>
+      <v-rail-tile value="vue" label="Vue" @click="$router.push({ name: ROUTE_NAMES.VUE.DEFAULT })"> </v-rail-tile>
     </v-rail>
     <div class="flex flex-col gap-1 p-4">
       <template v-if="selectedRailTile === 'docs'">

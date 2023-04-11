@@ -8,10 +8,7 @@ import { CodeBlock, VButton } from '@code-coaching/vuetiful';
 
     <h2>Usage</h2>
     <h3>Import</h3>
-    <CodeBlock
-      language="ts"
-      :code="`import { VButton } from '@code-coaching/vuetiful`"
-    />
+    <CodeBlock language="ts" :code="`import { VButton } from '@code-coaching/vuetiful`" />
     <h3>Register</h3>
     <p>In case of not using <code>&lt;script setup&gt;</code></p>
     <CodeBlock
@@ -188,11 +185,3 @@ setup() {
     />
   </div>
 </template>
-
-<style scoped>
-h2,
-h3 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-</style>
