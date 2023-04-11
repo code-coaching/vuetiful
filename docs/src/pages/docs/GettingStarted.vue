@@ -181,7 +181,45 @@ module.exports = {
   ],
 };`;
 
-const exampleQuasarCssOverwrite = `.q-avatar,
+const exampleQuasarCssOverwrite = `html,
+body,
+#q-app {
+  /*
+  * This is done to prevent double scrollbars
+  */
+  height: 100%;
+  overflow: hidden;
+
+  /*
+  * Reset several font properties to browser defaults
+  */
+  font-size: 16px;
+  font-family: 'QuickSand', sans-serif;
+  -moz-osx-font-smoothing: auto;
+}
+
+.flex {
+  /*
+  * Quasar has a flex utility class that also adds flex-wrap: wrap;
+  * This class is used to reset back to flex-wrap: nowrap; the default behavior.
+  */
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+/*
+* This makes sure the Tailwind flex utility class is not overwritten
+* by the override above.
+*/
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+/* app global css */
+.q-avatar,
 .q-chip .q-avatar {
   @apply rounded-token;
   @apply transition-all;
@@ -224,8 +262,7 @@ const exampleQuasarCssOverwrite = `.q-avatar,
 }
 
 .q-menu--dark {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
 }
 
 .q-card {
@@ -235,8 +272,7 @@ const exampleQuasarCssOverwrite = `.q-avatar,
 
 /* Overwrite the white shadow with the normal shadow */
 .q-card--dark {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
 }
 
 .q-chip {
@@ -250,8 +286,7 @@ const exampleQuasarCssOverwrite = `.q-avatar,
 }
 
 .q-color-picker--dark {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
 }
 
 .q-color-picker__header-bg {
@@ -316,6 +351,11 @@ const exampleQuasarCssOverwrite = `.q-avatar,
   @apply rounded-br-container-token;
 }
 
+.q-list > .q-expansion-item:last-child .q-card {
+  @apply rounded-bl-container-token;
+  @apply rounded-br-container-token;
+}
+
 .q-input {
   @apply rounded-container-token;
   @apply transition-all;
@@ -345,8 +385,7 @@ const exampleQuasarCssOverwrite = `.q-avatar,
 }
 
 .q-time {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
 
   @apply bg-surface-100-800-token;
   @apply text-surface-900-50-token;
@@ -370,8 +409,7 @@ const exampleQuasarCssOverwrite = `.q-avatar,
 }
 
 .q-date {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
 
   @apply bg-surface-100-800-token;
   @apply text-surface-900-50-token;

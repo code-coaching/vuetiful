@@ -187,6 +187,11 @@ body,
   @apply rounded-br-container-token;
 }
 
+.q-list > .q-expansion-item:last-child .q-card {
+  @apply rounded-bl-container-token;
+  @apply rounded-br-container-token;
+}
+
 .q-input {
   @apply rounded-container-token;
   @apply transition-all;
