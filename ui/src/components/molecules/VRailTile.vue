@@ -37,7 +37,7 @@ const { selectedRailTile } = useRail();
 const active = inject("active");
 const hover = inject("hover");
 
-const onClickHandler = (event: MouseEvent) => {
+const onClickHandler = () => {
   if (!props.value) return;
   selectedRailTile.value = props.value;
   emit("click");
@@ -51,10 +51,7 @@ const onKeyHandler = (event: KeyboardEvent) => {
 </script>
 
 <template>
-  <div
-    @click="onClickHandler"
-    @keydown="onKeyHandler"
-  >
+  <div @click="onClickHandler" @keydown="onKeyHandler">
     <component
       :is="tag"
       v-bind="attrs"
