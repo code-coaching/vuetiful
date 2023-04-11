@@ -1,53 +1,32 @@
 <script setup lang="ts">
 import {
   ThemeSwitcher,
-  VRail,
-  VRailTile,
+  VDrawer,
   VShell,
-  useRail,
+  useDrawer,
 } from '@code-coaching/vuetiful';
-import { SideBarLink } from 'src/components';
-import { onMounted, ref } from 'vue';
+import { DocsSideBar } from 'src/components';
 import { version } from '../../package.json';
-import { ROUTE_NAMES } from '../router/routes';
 
-const { selectedRailTile } = useRail();
-
-onMounted(() => {
-  selectedRailTile.value = 'docs';
-});
-
-const docsLinks = [
-  {
-    title: 'Getting Started',
-    caption: '5 minutes!',
-    icon: 'school',
-    name: ROUTE_NAMES.DOCS.GETTING_STARTED,
-  },
-  {
-    title: 'Quasar',
-    caption: 'Component Examples',
-    icon: 'auto_awesome',
-    name: ROUTE_NAMES.DOCS.QUASAR,
-  },
-];
-
-const leftDrawerOpen = ref(false);
-const toggleLeftDrawer = () => (leftDrawerOpen.value = !leftDrawerOpen.value);
+const { toggle } = useDrawer();
 </script>
 
 <template>
+  <v-drawer>
+    <DocsSideBar embedded />
+  </v-drawer>
   <v-shell>
     <template v-slot:fixedHeader>
       <q-toolbar class="border-b border-surface-500/30 bg-surface-50-900-token">
         <q-btn
+          class="lg:hidden"
           id="icon-button"
           flat
           dense
           round
           icon="menu"
           aria-label="Menu"
-          @click="toggleLeftDrawer"
+          @click="toggle"
         />
 
         <q-toolbar-title>
@@ -62,26 +41,7 @@ const toggleLeftDrawer = () => (leftDrawerOpen.value = !leftDrawerOpen.value);
     </template>
 
     <template v-slot:sidebarLeft>
-      <div
-        class="sidebar hidden h-full grid-cols-[auto_1fr] border-r border-surface-500/30 lg:!grid"
-      >
-        <v-rail class="rail overflow-y-auto border-r border-surface-500/30">
-          <v-rail-tile value="docs" label="Docs">
-            <q-icon size="2rem" name="book" />
-          </v-rail-tile>
-        </v-rail>
-        <div class="flex flex-col gap-1 p-4">
-          <side-bar-link
-            class="min-w-full px-4 py-1"
-            v-for="link in docsLinks"
-            :key="link.name"
-            :route-name="link.name"
-            :link="link.name"
-          >
-            {{ link.title }}
-          </side-bar-link>
-        </div>
-      </div>
+      <DocsSideBar />
     </template>
     <div style="display: contents" class="h-full overflow-hidden">
       <router-view />

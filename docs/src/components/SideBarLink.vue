@@ -1,8 +1,7 @@
 <template>
   <v-button
     tag="a"
-    class="hover:variant-ghost-secondary"
-    :class="`min-w-full ${
+    :class="`min-w-full hover:variant-ghost-secondary ${
       routeName === activeRoute
         ? 'variant-filled-secondary hover:!bg-secondary-500 hover:!text-on-secondary-token'
         : ''
