@@ -16,39 +16,41 @@
     </p>
 
     <p>Colors can be used combined with:</p>
-    <div class="flex">
-      <a class="w-28" href="https://tailwindcss.com/docs/background-color">Background</a>
-      <code>bg-primary-500</code>
-    </div>
+    <div class="flex flex-col gap-2">
+      <div class="flex">
+        <a class="w-28" href="https://tailwindcss.com/docs/background-color">Background</a>
+        <code>bg-primary-500</code>
+      </div>
 
-    <div class="flex">
-      <a class="w-28" href="https://tailwindcss.com/docs/text-color">Text</a>
-      <code>text-primary-500</code>
-    </div>
+      <div class="flex">
+        <a class="w-28" href="https://tailwindcss.com/docs/text-color">Text</a>
+        <code>text-primary-500</code>
+      </div>
 
-    <div class="flex">
-      <a class="w-28" href="https://tailwindcss.com/docs/border-color">Border</a>
-      <code>border-primary-500</code>
-    </div>
+      <div class="flex">
+        <a class="w-28" href="https://tailwindcss.com/docs/border-color">Border</a>
+        <code>border-primary-500</code>
+      </div>
 
-    <div class="flex">
-      <a class="w-28" href="https://tailwindcss.com/docs/outline-color">Outline</a>
-      <code>outline-primary-500</code>
-    </div>
+      <div class="flex">
+        <a class="w-28" href="https://tailwindcss.com/docs/outline-color">Outline</a>
+        <code>outline-primary-500</code>
+      </div>
 
-    <div class="flex">
-      <a class="w-28" href="https://tailwindcss.com/docs/ring-color">Ring</a>
-      <code>ring-primary-900</code>
-    </div>
+      <div class="flex">
+        <a class="w-28" href="https://tailwindcss.com/docs/ring-color">Ring</a>
+        <code>ring-primary-900</code>
+      </div>
 
-    <div class="flex">
-      <a class="w-28" href="https://tailwindcss.com/docs/ring-offset-color">Ring Offset</a>
-      <code>ring-offset-primary-900</code>
-    </div>
+      <div class="flex">
+        <a class="w-28" href="https://tailwindcss.com/docs/ring-offset-color">Ring Offset</a>
+        <code>ring-offset-primary-900</code>
+      </div>
 
-    <div class="flex">
-      <a class="w-28" href="https://tailwindcss.com/docs/divider-color">Divider</a>
-      <code>divider-primary-900</code>
+      <div class="flex">
+        <a class="w-28" href="https://tailwindcss.com/docs/divider-color">Divider</a>
+        <code>divider-primary-900</code>
+      </div>
     </div>
 
     <h2>Examples</h2>
