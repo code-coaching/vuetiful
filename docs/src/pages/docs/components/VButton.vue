@@ -5,12 +5,8 @@ import { CodeBlock, VButton } from '@code-coaching/vuetiful';
 <template>
   <div class="p-4">
     <h1>VButton</h1>
-
-    <h2>Usage</h2>
-    <h3>Import</h3>
     <CodeBlock language="ts" :code="`import { VButton } from '@code-coaching/vuetiful`" />
-    <h3>Register</h3>
-    <p>In case of not using <code>&lt;script setup&gt;</code></p>
+    <p class="mt-8">In case of not using <code>&lt;script setup&gt;</code></p>
     <CodeBlock
       language="ts"
       :code="`// ...
@@ -24,7 +20,8 @@ setup() {
 // ...`"
     />
 
-    <h2>Sizes</h2>
+    <h2>Usage</h2>
+    <h3>Sizes</h3>
     <div class="mb-2 flex flex-wrap items-start gap-2">
       <v-button class="variant-filled btn-sm">sm</v-button>
       <v-button class="variant-filled">default</v-button>
@@ -39,8 +36,8 @@ setup() {
 <v-button class=&quot;variant-filled btn-xl&quot;>xl</v-button>`"
     />
 
-    <h2>Variants</h2>
-    <h3>Outline</h3>
+    <h3>Variants</h3>
+    <h4>Outline</h4>
     <div class="mb-2 flex flex-wrap gap-2">
       <v-button class="variant-outline">Default</v-button>
       <v-button class="variant-outline-surface">Surface</v-button>
@@ -64,7 +61,7 @@ setup() {
     `"
     />
 
-    <h3>Filled</h3>
+    <h4>Filled</h4>
     <div class="mb-2 flex flex-wrap gap-2">
       <v-button class="variant-filled">Default</v-button>
       <v-button class="variant-filled-surface">Surface</v-button>
@@ -88,7 +85,7 @@ setup() {
     `"
     />
 
-    <h3>Ringed</h3>
+    <h4>Ringed</h4>
     <div class="mb-2 flex flex-wrap gap-2">
       <v-button class="variant-ringed">Default</v-button>
       <v-button class="variant-ringed-surface">Surface</v-button>
@@ -112,7 +109,7 @@ setup() {
     `"
     />
 
-    <h3>Ghost</h3>
+    <h4>Ghost</h4>
     <div class="mb-2 flex flex-wrap gap-2">
       <v-button class="variant-ghost">Default</v-button>
       <v-button class="variant-ghost-surface">Surface</v-button>
@@ -136,7 +133,7 @@ setup() {
     `"
     />
 
-    <h3>Soft</h3>
+    <h4>Soft</h4>
     <div class="mb-2 flex flex-wrap gap-2">
       <v-button class="variant-soft">Default</v-button>
       <v-button class="variant-soft-surface">Surface</v-button>
@@ -160,7 +157,7 @@ setup() {
     `"
     />
 
-    <h3>Glass</h3>
+    <h4>Glass</h4>
     <div class="mb-2 flex flex-wrap gap-2">
       <v-button class="variant-glass">Default</v-button>
       <v-button class="variant-glass-surface">Surface</v-button>

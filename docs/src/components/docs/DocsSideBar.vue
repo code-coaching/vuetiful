@@ -32,6 +32,10 @@ const vueLinks = [
     title: 'VButton',
     name: ROUTE_NAMES.VUE.V_BUTTON,
   },
+  {
+    title: 'VShell',
+    name: ROUTE_NAMES.VUE.V_SHELL,
+  }
 ];
 </script>
 

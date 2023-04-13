@@ -12,6 +12,7 @@ export const ROUTE_NAMES = {
   VUE: {
     DEFAULT: 'V_BUTTON',
     V_BUTTON: 'V_BUTTON',
+    V_SHELL: 'V_SHELL',
   },
 };
 
@@ -61,6 +62,11 @@ const routes: RouteRecordRaw[] = [
             path: 'v-button',
             name: ROUTE_NAMES.VUE.V_BUTTON,
             component: () => import('src/pages/docs/components/VButton.vue'),
+          },
+          {
+            path: 'v-shell',
+            name: ROUTE_NAMES.VUE.V_SHELL,
+            component: () => import('src/pages/docs/components/VShell.vue'),
           },
         ],
       },
