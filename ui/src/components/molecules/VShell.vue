@@ -41,7 +41,7 @@ const attrs = useAttrs();
           v-if="$slots.pageHeader"
           :class="`vuetiful-page-header flex-none ${slotPageHeader}`"
         >
-          <slot name="pageHeader">(slot:header)</slot>
+          <slot name="pageHeader" />
         </header>
 
         <main :class="`vuetiful-page-content flex-auto ${slotPageContent}`">
@@ -52,7 +52,7 @@ const attrs = useAttrs();
           v-if="$slots.pageFooter"
           :class="`vuetiful-page-footer flex-none ${slotPageFooter}`"
         >
-          <slot name="pageFooter">(slot:footer)</slot>
+          <slot name="pageFooter" />
         </footer>
       </div>
 
