@@ -3,7 +3,7 @@ import { CodeBlock, VButton } from '@code-coaching/vuetiful';
 </script>
 
 <template>
-  <div class="p-4">
+  <div class="flex max-w-5xl flex-col p-4">
     <h1>VButton</h1>
     <CodeBlock language="ts" :code="`import { VButton } from '@code-coaching/vuetiful`" />
     <p class="mt-8">In case of not using <code>&lt;script setup&gt;</code></p>

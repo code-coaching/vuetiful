@@ -86,9 +86,7 @@ const qBadgeExample = `<div class="flex flex-col gap-2">
 </div>
 `;
 
-const qBannerExample = (
-  color: string
-) => `<q-banner inline-actions class="bg-${color}-100 text-${color}-900">
+const qBannerExample = (color: string) => `<q-banner inline-actions class="bg-${color}-100 text-${color}-900">
   Vuetiful is a portmanteau of Vue and Beautiful, combining the power of
   the Vue.js framework with visually pleasing and elegant design.
   <template v-slot:action>
@@ -106,50 +104,22 @@ const qBannerExample = (
 
 const qBtnExample = (type: string) => {
   return `<div class="flex flex-wrap gap-2">
-  <q-btn ${
-    type ? `${type} ` : ''
-  }class="!bg-surface-100 !text-surface-900"> Surface </q-btn>
-  <q-btn ${
-    type ? `${type} ` : ''
-  }class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
-  <q-btn ${
-    type ? `${type} ` : ''
-  }class="!bg-secondary-100 !text-secondary-900"> Secondary </q-btn>
-  <q-btn ${
-    type ? `${type} ` : ''
-  }class="!bg-tertiary-100 !text-tertiary-900"> Tertiary </q-btn>
-  <q-btn ${
-    type ? `${type} ` : ''
-  }class="!bg-success-100 !text-success-900"> Success </q-btn>
-  <q-btn ${
-    type ? `${type} ` : ''
-  }class="!bg-warning-100 !text-warning-900"> Warning </q-btn>
-  <q-btn ${
-    type ? `${type} ` : ''
-  }class="!bg-error-100 !text-error-900"> Error </q-btn>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-surface-100 !text-surface-900"> Surface </q-btn>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-secondary-100 !text-secondary-900"> Secondary </q-btn>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-tertiary-100 !text-tertiary-900"> Tertiary </q-btn>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-success-100 !text-success-900"> Success </q-btn>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-warning-100 !text-warning-900"> Warning </q-btn>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-error-100 !text-error-900"> Error </q-btn>
 </div>
 <div class="flex flex-wrap gap-2">
-  <q-btn ${
-    type ? `${type} ` : ''
-  }class="!bg-surface-800 !text-surface-50"> Surface </q-btn>
-  <q-btn ${
-    type ? `${type} ` : ''
-  }class="!bg-primary-800 !text-primary-50"> Primary </q-btn>
-  <q-btn ${
-    type ? `${type} ` : ''
-  }class="!bg-secondary-800 !text-secondary-50"> Secondary </q-btn>
-  <q-btn ${
-    type ? `${type} ` : ''
-  }class="!bg-tertiary-800 !text-tertiary-50"> Tertiary </q-btn>
-  <q-btn ${
-    type ? `${type} ` : ''
-  }class="!bg-success-800 !text-success-50"> Success </q-btn>
-  <q-btn ${
-    type ? `${type} ` : ''
-  }class="!bg-warning-800 !text-warning-50"> Warning </q-btn>
-  <q-btn ${
-    type ? `${type} ` : ''
-  }class="!bg-error-800 !text-error-50"> Error </q-btn>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-surface-800 !text-surface-50"> Surface </q-btn>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-primary-800 !text-primary-50"> Primary </q-btn>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-secondary-800 !text-secondary-50"> Secondary </q-btn>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-tertiary-800 !text-tertiary-50"> Tertiary </q-btn>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-success-800 !text-success-50"> Success </q-btn>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-warning-800 !text-warning-50"> Warning </q-btn>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-error-800 !text-error-50"> Error </q-btn>
 </div>`;
 };
 
@@ -173,33 +143,21 @@ const qBtnGroupExample = (type: string) => {
   <q-btn ${type ? `${type} ` : ''}class="!bg-warning-100 !text-warning-900">
     Warning
   </q-btn>
-  <q-btn ${
-    type ? `${type} ` : ''
-  }class="!bg-error-100 !text-error-900"> Error </q-btn>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-error-100 !text-error-900"> Error </q-btn>
 </q-btn-group>
 
 <q-btn-group ${type ? `${type} ` : ''}>
-  <q-btn ${
-    type ? `${type} ` : ''
-  }class="!bg-surface-800 !text-surface-50"> Surface </q-btn>
-  <q-btn ${
-    type ? `${type} ` : ''
-  }class="!bg-primary-800 !text-primary-50"> Primary </q-btn>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-surface-800 !text-surface-50"> Surface </q-btn>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-primary-800 !text-primary-50"> Primary </q-btn>
   <q-btn ${type ? `${type} ` : ''}class="!bg-secondary-800 !text-secondary-50">
     Secondary
   </q-btn>
   <q-btn ${type ? `${type} ` : ''}class="!bg-tertiary-800 !text-tertiary-50">
     Tertiary
   </q-btn>
-  <q-btn ${
-    type ? `${type} ` : ''
-  }class="!bg-success-800 !text-success-50"> Success </q-btn>
-  <q-btn ${
-    type ? `${type} ` : ''
-  }class="!bg-warning-800 !text-warning-50"> Warning </q-btn>
-  <q-btn ${
-    type ? `${type} ` : ''
-  }class="!bg-error-800 !text-error-50"> Error </q-btn>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-success-800 !text-success-50"> Success </q-btn>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-warning-800 !text-warning-50"> Warning </q-btn>
+  <q-btn ${type ? `${type} ` : ''}class="!bg-error-800 !text-error-50"> Error </q-btn>
 </q-btn-group>`;
 };
 
@@ -412,54 +370,42 @@ const qChipExample = (type: string) => `<q-chip ${
   Surface
 </q-chip>
 
-<q-chip ${
-  type ? `${type} ` : ''
-}class="bg-primary-100-800-token text-primary-900-50-token">
+<q-chip ${type ? `${type} ` : ''}class="bg-primary-100-800-token text-primary-900-50-token">
   <q-avatar>
     <img src="/img/john-duck.png" />
   </q-avatar>
   Primary
 </q-chip>
 
-<q-chip ${
-  type ? `${type} ` : ''
-}class="bg-secondary-100-800-token text-secondary-900-50-token">
+<q-chip ${type ? `${type} ` : ''}class="bg-secondary-100-800-token text-secondary-900-50-token">
   <q-avatar>
     <img src="/img/john-duck.png" />
   </q-avatar>
   Secondary
 </q-chip>
 
-<q-chip ${
-  type ? `${type} ` : ''
-}class="bg-tertiary-100-800-token text-tertiary-900-50-token">
+<q-chip ${type ? `${type} ` : ''}class="bg-tertiary-100-800-token text-tertiary-900-50-token">
   <q-avatar>
     <img src="/img/john-duck.png" />
   </q-avatar>
   Secondary
 </q-chip>
 
-<q-chip ${
-  type ? `${type} ` : ''
-}class="bg-success-100-800-token text-success-900-50-token">
+<q-chip ${type ? `${type} ` : ''}class="bg-success-100-800-token text-success-900-50-token">
   <q-avatar>
     <img src="/img/john-duck.png" />
   </q-avatar>
   Success
 </q-chip>
 
-<q-chip ${
-  type ? `${type} ` : ''
-}class="bg-warning-100-800-token text-warning-900-50-token">
+<q-chip ${type ? `${type} ` : ''}class="bg-warning-100-800-token text-warning-900-50-token">
   <q-avatar>
     <img src="/img/john-duck.png" />
   </q-avatar>
   Warning
 </q-chip>
 
-<q-chip ${
-  type ? `${type} ` : ''
-}class="bg-error-100-800-token text-error-900-50-token">
+<q-chip ${type ? `${type} ` : ''}class="bg-error-100-800-token text-error-900-50-token">
   <q-avatar>
     <img src="/img/john-duck.png" />
   </q-avatar>
@@ -1104,13 +1050,12 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 </script>
 
 <template>
-  <div class="m-8">
+  <div class="flex max-w-5xl flex-col p-4">
     <h1>Quasar Components</h1>
 
     <p>
-      This page demonstrates how the Quasar components change according to the
-      chosen theme. The theme can be switched by using the "Theme Switcher",
-      found in the top right corner.
+      This page demonstrates how the Quasar components change according to the chosen theme. The theme can be switched
+      by using the "Theme Switcher", found in the top right corner.
     </p>
 
     <h2>QAvatar</h2>
@@ -1128,21 +1073,13 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       </div>
       <div class="flex flex-wrap gap-1">
         <q-avatar class="h-8 w-8 bg-surface-300 text-surface-900">JD</q-avatar>
-        <q-avatar class="h-16 w-16 bg-surface-300 text-surface-900">
-          JD
-        </q-avatar>
-        <q-avatar class="h-32 w-32 bg-surface-300 text-surface-900">
-          JD
-        </q-avatar>
+        <q-avatar class="h-16 w-16 bg-surface-300 text-surface-900"> JD </q-avatar>
+        <q-avatar class="h-32 w-32 bg-surface-300 text-surface-900"> JD </q-avatar>
       </div>
       <div class="flex flex-wrap gap-1">
         <q-avatar class="h-8 w-8 bg-surface-800 text-surface-50">JD</q-avatar>
-        <q-avatar class="h-16 w-16 bg-surface-800 text-surface-50">
-          JD
-        </q-avatar>
-        <q-avatar class="h-32 w-32 bg-surface-800 text-surface-50">
-          JD
-        </q-avatar>
+        <q-avatar class="h-16 w-16 bg-surface-800 text-surface-50"> JD </q-avatar>
+        <q-avatar class="h-32 w-32 bg-surface-800 text-surface-50"> JD </q-avatar>
       </div>
     </div>
 
@@ -1156,9 +1093,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       <div class="flex flex-wrap gap-2">
         <q-badge class="bg-surface-100 text-surface-900"> Surface </q-badge>
         <q-badge class="bg-primary-100 text-primary-900"> Primary </q-badge>
-        <q-badge class="bg-secondary-100 text-secondary-900">
-          Secondary
-        </q-badge>
+        <q-badge class="bg-secondary-100 text-secondary-900"> Secondary </q-badge>
         <q-badge class="bg-tertiary-100 text-tertiary-900"> Tertiary </q-badge>
         <q-badge class="bg-success-100 text-success-900"> Success </q-badge>
         <q-badge class="bg-warning-100 text-warning-900"> Warning </q-badge>
@@ -1167,9 +1102,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       <div class="flex flex-wrap gap-2">
         <q-badge class="bg-surface-800 text-surface-50"> Surface </q-badge>
         <q-badge class="bg-primary-800 text-primary-50"> Primary </q-badge>
-        <q-badge class="bg-secondary-800 text-secondary-50">
-          Secondary
-        </q-badge>
+        <q-badge class="bg-secondary-800 text-secondary-50"> Secondary </q-badge>
         <q-badge class="bg-tertiary-800 text-tertiary-50"> Tertiary </q-badge>
         <q-badge class="bg-success-800 text-success-50"> Success </q-badge>
         <q-badge class="bg-warning-800 text-warning-50"> Warning </q-badge>
@@ -1185,16 +1118,16 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     <h2>QBanner</h2>
     <div class="flex flex-col gap-1">
       <q-banner inline-actions class="bg-surface-100 text-surface-900">
-        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of
-        the Vue.js framework with visually pleasing and elegant design.
+        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+        pleasing and elegant design.
         <template v-slot:action>
           <q-btn flat label="Dismiss" />
         </template>
       </q-banner>
 
       <q-banner inline-actions class="bg-surface-800 text-surface-50">
-        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of
-        the Vue.js framework with visually pleasing and elegant design.
+        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+        pleasing and elegant design.
         <template v-slot:action>
           <q-btn flat label="Dismiss" />
         </template>
@@ -1206,15 +1139,15 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       </details>
 
       <q-banner inline-actions class="bg-primary-100 text-primary-900">
-        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of
-        the Vue.js framework with visually pleasing and elegant design.
+        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+        pleasing and elegant design.
         <template v-slot:action>
           <q-btn flat label="Dismiss" />
         </template>
       </q-banner>
       <q-banner inline-actions class="bg-primary-800 text-primary-50">
-        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of
-        the Vue.js framework with visually pleasing and elegant design.
+        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+        pleasing and elegant design.
         <template v-slot:action>
           <q-btn flat label="Dismiss" />
         </template>
@@ -1226,15 +1159,15 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       </details>
 
       <q-banner inline-actions class="bg-secondary-100 text-secondary-900">
-        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of
-        the Vue.js framework with visually pleasing and elegant design.
+        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+        pleasing and elegant design.
         <template v-slot:action>
           <q-btn flat label="Dismiss" />
         </template>
       </q-banner>
       <q-banner inline-actions class="bg-secondary-800 text-secondary-50">
-        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of
-        the Vue.js framework with visually pleasing and elegant design.
+        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+        pleasing and elegant design.
         <template v-slot:action>
           <q-btn flat label="Dismiss" />
         </template>
@@ -1246,15 +1179,15 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       </details>
 
       <q-banner inline-actions class="bg-tertiary-100 text-tertiary-900">
-        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of
-        the Vue.js framework with visually pleasing and elegant design.
+        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+        pleasing and elegant design.
         <template v-slot:action>
           <q-btn flat label="Dismiss" />
         </template>
       </q-banner>
       <q-banner inline-actions class="bg-tertiary-800 text-tertiary-50">
-        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of
-        the Vue.js framework with visually pleasing and elegant design.
+        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+        pleasing and elegant design.
         <template v-slot:action>
           <q-btn flat label="Dismiss" />
         </template>
@@ -1266,15 +1199,15 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       </details>
 
       <q-banner inline-actions class="bg-success-100 text-success-900">
-        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of
-        the Vue.js framework with visually pleasing and elegant design.
+        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+        pleasing and elegant design.
         <template v-slot:action>
           <q-btn flat label="Dismiss" />
         </template>
       </q-banner>
       <q-banner inline-actions class="bg-success-800 text-success-50">
-        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of
-        the Vue.js framework with visually pleasing and elegant design.
+        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+        pleasing and elegant design.
         <template v-slot:action>
           <q-btn flat label="Dismiss" />
         </template>
@@ -1286,15 +1219,15 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       </details>
 
       <q-banner inline-actions class="bg-warning-100 text-warning-900">
-        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of
-        the Vue.js framework with visually pleasing and elegant design.
+        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+        pleasing and elegant design.
         <template v-slot:action>
           <q-btn flat label="Dismiss" />
         </template>
       </q-banner>
       <q-banner inline-actions class="bg-warning-800 text-warning-50">
-        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of
-        the Vue.js framework with visually pleasing and elegant design.
+        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+        pleasing and elegant design.
         <template v-slot:action>
           <q-btn flat label="Dismiss" />
         </template>
@@ -1306,15 +1239,15 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       </details>
 
       <q-banner inline-actions class="bg-error-100 text-error-900">
-        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of
-        the Vue.js framework with visually pleasing and elegant design.
+        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+        pleasing and elegant design.
         <template v-slot:action>
           <q-btn flat label="Dismiss" />
         </template>
       </q-banner>
       <q-banner inline-actions class="bg-error-800 text-error-50">
-        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of
-        the Vue.js framework with visually pleasing and elegant design.
+        Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+        pleasing and elegant design.
         <template v-slot:action>
           <q-btn flat label="Dismiss" />
         </template>
@@ -1354,12 +1287,8 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       <div class="flex flex-wrap gap-2">
         <q-btn flat class="!bg-surface-100 !text-surface-900"> Surface </q-btn>
         <q-btn flat class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
-        <q-btn flat class="!bg-secondary-100 !text-secondary-900">
-          Secondary
-        </q-btn>
-        <q-btn flat class="!bg-tertiary-100 !text-tertiary-900">
-          Tertiary
-        </q-btn>
+        <q-btn flat class="!bg-secondary-100 !text-secondary-900"> Secondary </q-btn>
+        <q-btn flat class="!bg-tertiary-100 !text-tertiary-900"> Tertiary </q-btn>
         <q-btn flat class="!bg-success-100 !text-success-900"> Success </q-btn>
         <q-btn flat class="!bg-warning-100 !text-warning-900"> Warning </q-btn>
         <q-btn flat class="!bg-error-100 !text-error-900"> Error </q-btn>
@@ -1367,12 +1296,8 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       <div class="flex flex-wrap gap-2">
         <q-btn flat class="!bg-surface-800 !text-surface-50"> Surface </q-btn>
         <q-btn flat class="!bg-primary-800 !text-primary-50"> Primary </q-btn>
-        <q-btn flat class="!bg-secondary-800 !text-secondary-50">
-          Secondary
-        </q-btn>
-        <q-btn flat class="!bg-tertiary-800 !text-tertiary-50">
-          Tertiary
-        </q-btn>
+        <q-btn flat class="!bg-secondary-800 !text-secondary-50"> Secondary </q-btn>
+        <q-btn flat class="!bg-tertiary-800 !text-tertiary-50"> Tertiary </q-btn>
         <q-btn flat class="!bg-success-800 !text-success-50"> Success </q-btn>
         <q-btn flat class="!bg-warning-800 !text-warning-50"> Warning </q-btn>
         <q-btn flat class="!bg-error-800 !text-error-50"> Error </q-btn>
@@ -1384,46 +1309,22 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       </details>
 
       <div class="flex gap-2">
-        <q-btn outline class="!bg-surface-100 !text-surface-900">
-          Surface
-        </q-btn>
-        <q-btn outline class="!bg-primary-100 !text-primary-900">
-          Primary
-        </q-btn>
-        <q-btn outline class="!bg-secondary-100 !text-secondary-900">
-          Secondary
-        </q-btn>
-        <q-btn outline class="!bg-tertiary-100 !text-tertiary-900">
-          Tertiary
-        </q-btn>
-        <q-btn outline class="!bg-success-100 !text-success-900">
-          Success
-        </q-btn>
-        <q-btn outline class="!bg-warning-100 !text-warning-900">
-          Warning
-        </q-btn>
+        <q-btn outline class="!bg-surface-100 !text-surface-900"> Surface </q-btn>
+        <q-btn outline class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
+        <q-btn outline class="!bg-secondary-100 !text-secondary-900"> Secondary </q-btn>
+        <q-btn outline class="!bg-tertiary-100 !text-tertiary-900"> Tertiary </q-btn>
+        <q-btn outline class="!bg-success-100 !text-success-900"> Success </q-btn>
+        <q-btn outline class="!bg-warning-100 !text-warning-900"> Warning </q-btn>
         <q-btn outline class="!bg-error-100 !text-error-900"> Error </q-btn>
       </div>
 
       <div class="flex gap-2">
-        <q-btn outline class="!bg-surface-800 !text-surface-50">
-          Surface
-        </q-btn>
-        <q-btn outline class="!bg-primary-800 !text-primary-50">
-          Primary
-        </q-btn>
-        <q-btn outline class="!bg-secondary-800 !text-secondary-50">
-          Secondary
-        </q-btn>
-        <q-btn outline class="!bg-tertiary-800 !text-tertiary-50">
-          Tertiary
-        </q-btn>
-        <q-btn outline class="!bg-success-800 !text-success-50">
-          Success
-        </q-btn>
-        <q-btn outline class="!bg-warning-800 !text-warning-50">
-          Warning
-        </q-btn>
+        <q-btn outline class="!bg-surface-800 !text-surface-50"> Surface </q-btn>
+        <q-btn outline class="!bg-primary-800 !text-primary-50"> Primary </q-btn>
+        <q-btn outline class="!bg-secondary-800 !text-secondary-50"> Secondary </q-btn>
+        <q-btn outline class="!bg-tertiary-800 !text-tertiary-50"> Tertiary </q-btn>
+        <q-btn outline class="!bg-success-800 !text-success-50"> Success </q-btn>
+        <q-btn outline class="!bg-warning-800 !text-warning-50"> Warning </q-btn>
         <q-btn outline class="!bg-error-800 !text-error-50"> Error </q-btn>
       </div>
 
@@ -1435,36 +1336,20 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       <h3>QBtnGroup</h3>
       <div class="flex flex-col gap-2">
         <q-btn-group push>
-          <q-btn push class="!bg-surface-100 !text-surface-900">
-            Surface
-          </q-btn>
-          <q-btn push class="!bg-primary-100 !text-primary-900">
-            Primary
-          </q-btn>
-          <q-btn push class="!bg-secondary-100 !text-secondary-900">
-            Secondary
-          </q-btn>
-          <q-btn push class="!bg-tertiary-100 !text-tertiary-900">
-            Tertiary
-          </q-btn>
-          <q-btn push class="!bg-success-100 !text-success-900">
-            Success
-          </q-btn>
-          <q-btn push class="!bg-warning-100 !text-warning-900">
-            Warning
-          </q-btn>
+          <q-btn push class="!bg-surface-100 !text-surface-900"> Surface </q-btn>
+          <q-btn push class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
+          <q-btn push class="!bg-secondary-100 !text-secondary-900"> Secondary </q-btn>
+          <q-btn push class="!bg-tertiary-100 !text-tertiary-900"> Tertiary </q-btn>
+          <q-btn push class="!bg-success-100 !text-success-900"> Success </q-btn>
+          <q-btn push class="!bg-warning-100 !text-warning-900"> Warning </q-btn>
           <q-btn push class="!bg-error-100 !text-error-900"> Error </q-btn>
         </q-btn-group>
 
         <q-btn-group push>
           <q-btn push class="!bg-surface-800 !text-surface-50"> Surface </q-btn>
           <q-btn push class="!bg-primary-800 !text-primary-50"> Primary </q-btn>
-          <q-btn push class="!bg-secondary-800 !text-secondary-50">
-            Secondary
-          </q-btn>
-          <q-btn push class="!bg-tertiary-800 !text-tertiary-50">
-            Tertiary
-          </q-btn>
+          <q-btn push class="!bg-secondary-800 !text-secondary-50"> Secondary </q-btn>
+          <q-btn push class="!bg-tertiary-800 !text-tertiary-50"> Tertiary </q-btn>
           <q-btn push class="!bg-success-800 !text-success-50"> Success </q-btn>
           <q-btn push class="!bg-warning-800 !text-warning-50"> Warning </q-btn>
           <q-btn push class="!bg-error-800 !text-error-50"> Error </q-btn>
@@ -1476,46 +1361,22 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
         </details>
 
         <q-btn-group outline>
-          <q-btn outline class="!bg-surface-100 !text-surface-900">
-            Surface
-          </q-btn>
-          <q-btn outline class="!bg-primary-100 !text-primary-900">
-            Primary
-          </q-btn>
-          <q-btn outline class="!bg-secondary-100 !text-secondary-900">
-            Secondary
-          </q-btn>
-          <q-btn outline class="!bg-tertiary-100 !text-tertiary-900">
-            Tertiary
-          </q-btn>
-          <q-btn outline class="!bg-success-100 !text-success-900">
-            Success
-          </q-btn>
-          <q-btn outline class="!bg-warning-100 !text-warning-900">
-            Warning
-          </q-btn>
+          <q-btn outline class="!bg-surface-100 !text-surface-900"> Surface </q-btn>
+          <q-btn outline class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
+          <q-btn outline class="!bg-secondary-100 !text-secondary-900"> Secondary </q-btn>
+          <q-btn outline class="!bg-tertiary-100 !text-tertiary-900"> Tertiary </q-btn>
+          <q-btn outline class="!bg-success-100 !text-success-900"> Success </q-btn>
+          <q-btn outline class="!bg-warning-100 !text-warning-900"> Warning </q-btn>
           <q-btn outline class="!bg-error-100 !text-error-900"> Error </q-btn>
         </q-btn-group>
 
         <q-btn-group outline>
-          <q-btn outline class="!bg-surface-800 !text-surface-50">
-            Surface
-          </q-btn>
-          <q-btn outline class="!bg-primary-800 !text-primary-50">
-            Primary
-          </q-btn>
-          <q-btn outline class="!bg-secondary-800 !text-secondary-50">
-            Secondary
-          </q-btn>
-          <q-btn outline class="!bg-tertiary-800 !text-tertiary-50">
-            Tertiary
-          </q-btn>
-          <q-btn outline class="!bg-success-800 !text-success-50">
-            Success
-          </q-btn>
-          <q-btn outline class="!bg-warning-800 !text-warning-50">
-            Warning
-          </q-btn>
+          <q-btn outline class="!bg-surface-800 !text-surface-50"> Surface </q-btn>
+          <q-btn outline class="!bg-primary-800 !text-primary-50"> Primary </q-btn>
+          <q-btn outline class="!bg-secondary-800 !text-secondary-50"> Secondary </q-btn>
+          <q-btn outline class="!bg-tertiary-800 !text-tertiary-50"> Tertiary </q-btn>
+          <q-btn outline class="!bg-success-800 !text-success-50"> Success </q-btn>
+          <q-btn outline class="!bg-warning-800 !text-warning-50"> Warning </q-btn>
           <q-btn outline class="!bg-error-800 !text-error-50"> Error </q-btn>
         </q-btn-group>
 
@@ -1527,16 +1388,9 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
       <h3>QBtnDropdown</h3>
       <div class="flex flex-wrap gap-2">
-        <q-btn-dropdown
-          class="!bg-primary-100 !text-primary-900"
-          label="Dropdown Button"
-        >
+        <q-btn-dropdown class="!bg-primary-100 !text-primary-900" label="Dropdown Button">
           <q-list class="!bg-primary-100 !text-primary-900">
-            <q-item
-              clickable
-              v-close-popup
-              @click="onDropdownItemClick('Vuetiful')"
-            >
+            <q-item clickable v-close-popup @click="onDropdownItemClick('Vuetiful')">
               <q-item-section>
                 <q-item-label>Vuetiful</q-item-label>
               </q-item-section>
@@ -1548,11 +1402,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
               </q-item-section>
             </q-item>
 
-            <q-item
-              clickable
-              v-close-popup
-              @click="onDropdownItemClick('Beautiful')"
-            >
+            <q-item clickable v-close-popup @click="onDropdownItemClick('Beautiful')">
               <q-item-section>
                 <q-item-label>Beautiful</q-item-label>
               </q-item-section>
@@ -1560,16 +1410,9 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
           </q-list>
         </q-btn-dropdown>
 
-        <q-btn-dropdown
-          class="!bg-primary-800 !text-primary-50"
-          label="Dropdown Button"
-        >
+        <q-btn-dropdown class="!bg-primary-800 !text-primary-50" label="Dropdown Button">
           <q-list class="!bg-primary-800 !text-primary-50">
-            <q-item
-              clickable
-              v-close-popup
-              @click="onDropdownItemClick('Vuetiful')"
-            >
+            <q-item clickable v-close-popup @click="onDropdownItemClick('Vuetiful')">
               <q-item-section>
                 <q-item-label>Vuetiful</q-item-label>
               </q-item-section>
@@ -1581,11 +1424,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
               </q-item-section>
             </q-item>
 
-            <q-item
-              clickable
-              v-close-popup
-              @click="onDropdownItemClick('Beautiful')"
-            >
+            <q-item clickable v-close-popup @click="onDropdownItemClick('Beautiful')">
               <q-item-section>
                 <q-item-label>Beautiful</q-item-label>
               </q-item-section>
@@ -1612,9 +1451,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
             <q-item-section class="text-surface-900">
               <q-item-label>John Duck</q-item-label>
-              <q-item-label caption class="!text-surface-900">
-                Vuetiful is beautiful
-              </q-item-label>
+              <q-item-label caption class="!text-surface-900"> Vuetiful is beautiful </q-item-label>
             </q-item-section>
           </q-item>
 
@@ -1631,9 +1468,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
             <q-item-section>
               <q-item-label>John Duck</q-item-label>
-              <q-item-label caption class="!text-surface-50"
-                >Vuetiful is beautiful</q-item-label
-              >
+              <q-item-label caption class="!text-surface-50">Vuetiful is beautiful</q-item-label>
             </q-item-section>
           </q-item>
 
@@ -1656,8 +1491,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
           </q-card-section>
 
           <q-card-section class="q-pt-none">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora,
-            quasi!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, quasi!
           </q-card-section>
         </q-card>
 
@@ -1670,8 +1504,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
           </q-card-section>
 
           <q-card-section class="q-pt-none">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora,
-            quasi!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, quasi!
           </q-card-section>
         </q-card>
       </div>
@@ -1687,10 +1520,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
             <div class="absolute-bottom text-h6">John Duck</div>
           </q-img>
 
-          <q-card-section>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa,
-            molestias.
-          </q-card-section>
+          <q-card-section> Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, molestias. </q-card-section>
         </q-card>
 
         <q-card class="w-64 bg-surface-800 text-surface-50">
@@ -1698,10 +1528,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
             <div class="absolute-bottom text-h6">John Duck</div>
           </q-img>
 
-          <q-card-section>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa,
-            molestias.
-          </q-card-section>
+          <q-card-section> Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, molestias. </q-card-section>
         </q-card>
       </div>
 
@@ -1713,9 +1540,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       <div class="flex flex-wrap items-start gap-2">
         <q-card class="w-64">
           <q-img src="/img/john-duck.png">
-            <div class="absolute-bottom text-subtitle2 text-center">
-              John Duck
-            </div>
+            <div class="absolute-bottom text-subtitle2 text-center">John Duck</div>
           </q-img>
         </q-card>
 
@@ -1832,60 +1657,42 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       </details>
 
       <div class="flex flex-wrap gap-1">
-        <q-chip
-          dense
-          class="bg-surface-100-800-token text-surface-900-50-token"
-        >
+        <q-chip dense class="bg-surface-100-800-token text-surface-900-50-token">
           <q-avatar>
             <img src="/img/john-duck.png" />
           </q-avatar>
           Surface
         </q-chip>
 
-        <q-chip
-          dense
-          class="bg-primary-100-800-token text-primary-900-50-token"
-        >
+        <q-chip dense class="bg-primary-100-800-token text-primary-900-50-token">
           <q-avatar>
             <img src="/img/john-duck.png" />
           </q-avatar>
           Primary
         </q-chip>
 
-        <q-chip
-          dense
-          class="bg-secondary-100-800-token text-secondary-900-50-token"
-        >
+        <q-chip dense class="bg-secondary-100-800-token text-secondary-900-50-token">
           <q-avatar>
             <img src="/img/john-duck.png" />
           </q-avatar>
           Secondary
         </q-chip>
 
-        <q-chip
-          dense
-          class="bg-tertiary-100-800-token text-tertiary-900-50-token"
-        >
+        <q-chip dense class="bg-tertiary-100-800-token text-tertiary-900-50-token">
           <q-avatar>
             <img src="/img/john-duck.png" />
           </q-avatar>
           Secondary
         </q-chip>
 
-        <q-chip
-          dense
-          class="bg-success-100-800-token text-success-900-50-token"
-        >
+        <q-chip dense class="bg-success-100-800-token text-success-900-50-token">
           <q-avatar>
             <img src="/img/john-duck.png" />
           </q-avatar>
           Success
         </q-chip>
 
-        <q-chip
-          dense
-          class="bg-warning-100-800-token text-warning-900-50-token"
-        >
+        <q-chip dense class="bg-warning-100-800-token text-warning-900-50-token">
           <q-avatar>
             <img src="/img/john-duck.png" />
           </q-avatar>
@@ -1932,17 +1739,9 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
     <h2>QEditor</h2>
     <div class="flex flex-wrap gap-2">
-      <q-editor
-        class="dark-actions bg-surface-100 text-surface-900"
-        v-model="editor"
-        min-height="5rem"
-      />
+      <q-editor class="dark-actions bg-surface-100 text-surface-900" v-model="editor" min-height="5rem" />
 
-      <q-editor
-        class="light-actions bg-surface-800 text-surface-50"
-        v-model="editor"
-        min-height="5rem"
-      />
+      <q-editor class="light-actions bg-surface-800 text-surface-50" v-model="editor" min-height="5rem" />
     </div>
 
     <details class="mt-2 mb-2">
@@ -1956,33 +1755,22 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     <h2>QExpansionItem</h2>
     <div class="flex flex-wrap items-start gap-4">
       <q-list class="w-64" bordered>
-        <q-expansion-item
-          expand-separator
-          icon="perm_identity"
-          label="Account settings"
-          caption="John Duck"
-        >
+        <q-expansion-item expand-separator icon="perm_identity" label="Account settings" caption="John Duck">
           <q-card>
             <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem,
-              eius reprehenderit eos corrupti commodi magni quaerat ex numquam,
-              dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti commodi
+              magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste eveniet doloribus
+              ullam aliquid.
             </q-card-section>
           </q-card>
         </q-expansion-item>
 
-        <q-expansion-item
-          expand-separator
-          icon="signal_wifi_off"
-          label="Wifi settings"
-        >
+        <q-expansion-item expand-separator icon="signal_wifi_off" label="Wifi settings">
           <q-card>
             <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem,
-              eius reprehenderit eos corrupti commodi magni quaerat ex numquam,
-              dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti commodi
+              magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste eveniet doloribus
+              ullam aliquid.
             </q-card-section>
           </q-card>
         </q-expansion-item>
@@ -1990,10 +1778,9 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
         <q-expansion-item icon="assessment" label="Disabled" disable>
           <q-card>
             <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem,
-              eius reprehenderit eos corrupti commodi magni quaerat ex numquam,
-              dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti commodi
+              magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste eveniet doloribus
+              ullam aliquid.
             </q-card-section>
           </q-card>
         </q-expansion-item>
@@ -2001,10 +1788,9 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
         <q-expansion-item expand-separator icon="drafts" label="Drafts">
           <q-card>
             <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem,
-              eius reprehenderit eos corrupti commodi magni quaerat ex numquam,
-              dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti commodi
+              magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste eveniet doloribus
+              ullam aliquid.
             </q-card-section>
           </q-card>
         </q-expansion-item>
@@ -2020,58 +1806,39 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
         >
           <q-card>
             <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem,
-              eius reprehenderit eos corrupti commodi magni quaerat ex numquam,
-              dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti commodi
+              magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste eveniet doloribus
+              ullam aliquid.
             </q-card-section>
           </q-card>
         </q-expansion-item>
 
-        <q-expansion-item
-          expand-separator
-          icon="signal_wifi_off"
-          label="Wifi settings"
-          group="accordion"
-        >
+        <q-expansion-item expand-separator icon="signal_wifi_off" label="Wifi settings" group="accordion">
           <q-card>
             <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem,
-              eius reprehenderit eos corrupti commodi magni quaerat ex numquam,
-              dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti commodi
+              magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste eveniet doloribus
+              ullam aliquid.
             </q-card-section>
           </q-card>
         </q-expansion-item>
 
-        <q-expansion-item
-          icon="assessment"
-          label="Disabled"
-          group="accordion"
-          disable
-        >
+        <q-expansion-item icon="assessment" label="Disabled" group="accordion" disable>
           <q-card>
             <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem,
-              eius reprehenderit eos corrupti commodi magni quaerat ex numquam,
-              dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti commodi
+              magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste eveniet doloribus
+              ullam aliquid.
             </q-card-section>
           </q-card>
         </q-expansion-item>
 
-        <q-expansion-item
-          expand-separator
-          icon="drafts"
-          label="Drafts"
-          group="accordion"
-        >
+        <q-expansion-item expand-separator icon="drafts" label="Drafts" group="accordion">
           <q-card>
             <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem,
-              eius reprehenderit eos corrupti commodi magni quaerat ex numquam,
-              dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti commodi
+              magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste eveniet doloribus
+              ullam aliquid.
             </q-card-section>
           </q-card>
         </q-expansion-item>

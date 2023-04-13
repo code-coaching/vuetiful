@@ -443,29 +443,21 @@ body,
 </script>
 
 <template>
-  <div class="p-4">
+  <div class="flex max-w-5xl flex-col p-4">
     <header class="space-y-4">
       <h1>Get Started</h1>
       <p>
-        <strong>Vuetiful</strong> is an opensource project created and
-        maintained by
-        <a href="https://code-coaching.dev" target="_blank" rel="noreferrer">
-          Code Coaching
-        </a>
+        <strong>Vuetiful</strong> is an opensource project created and maintained by
+        <a href="https://code-coaching.dev" target="_blank" rel="noreferrer"> Code Coaching </a>
         .
       </p>
       <p>
-        Vuetiful can be used standalone in any Vue3 project or it can be coupled
-        into other frameworks like
-        <a href="https://quasar.dev" target="_blank" rel="noreferrer">
-          Quasar
-        </a>
+        Vuetiful can be used standalone in any Vue3 project or it can be coupled into other frameworks like
+        <a href="https://quasar.dev" target="_blank" rel="noreferrer"> Quasar </a>
         .
       </p>
       <p>Vuetiful only supports Vite based projects.</p>
-      <p>
-        This documentation website is created using Quasar (SSR) + Vuetiful.
-      </p>
+      <p>This documentation website is created using Quasar (SSR) + Vuetiful.</p>
       <hr class="space-y-4" />
     </header>
 
@@ -474,25 +466,20 @@ body,
 
     <h2>Install Tailwind</h2>
     <p class="pb-4">
-      Vuetiful is created using TailwindCSS, you will need to add it as a
-      dependency. However, you are not obligated to use TailwindCSS yourself.
+      Vuetiful is created using TailwindCSS, you will need to add it as a dependency. However, you are not obligated to
+      use TailwindCSS yourself.
     </p>
-    <CodeBlock
-      language="sh"
-      code="npm install -D tailwindcss postcss autoprefixer prettier-plugin-tailwindcss"
-    />
+    <CodeBlock language="sh" code="npm install -D tailwindcss postcss autoprefixer prettier-plugin-tailwindcss" />
 
     <h3>Initialize Tailwind</h3>
     <CodeBlock language="sh" code="npx tailwindcss init" />
 
     <h3>tailwind.config.js</h3>
     <CodeBlock language="js" :code="exampleTailwindConfig" />
-    Note: This file might be called `tailwind.config.cjs` depending on your
-    setup.
+    Note: This file might be called `tailwind.config.cjs` depending on your setup.
 
     <h3>Tailwind Directives</h3>
-    Make sure to <strong>not</strong> have the Tailwind directives in your css,
-    this is provided by Vuetiful.
+    Make sure to <strong>not</strong> have the Tailwind directives in your css, this is provided by Vuetiful.
 
     <CodeBlock
       language="css"
@@ -503,8 +490,8 @@ body,
     />
 
     <h3>pnpm | yarn</h3>
-    In case you are using pnpm or yarn instead of npm, you will need to
-    create/add the following to `prettier.config.js`.
+    In case you are using pnpm or yarn instead of npm, you will need to create/add the following to
+    `prettier.config.js`.
     <CodeBlock
       language="js"
       :code="`// prettier.config.js
@@ -514,15 +501,13 @@ module.exports = {
     />
 
     <h3>Recommended VSCode Extension</h3>
-    <a
-      href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss"
-    >
+    <a href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss">
       Tailwind CSS IntelliSense
     </a>
 
     <p>
-      This will provide autocompletion for TailwindCSS classes. It will also
-      autocomplete custom classes provided by Vuetiful.
+      This will provide autocompletion for TailwindCSS classes. It will also autocomplete custom classes provided by
+      Vuetiful.
     </p>
 
     <h2>Vue 3</h2>
@@ -530,10 +515,7 @@ module.exports = {
       <summary>Click here for the Vue 3 instructions</summary>
 
       <h3>PostCSS config</h3>
-      <p>
-        Create a `postcss.config.cjs` file in the root of your project, add the
-        following content:
-      </p>
+      <p>Create a `postcss.config.cjs` file in the root of your project, add the following content:</p>
 
       <CodeBlock
         language="js"
@@ -548,10 +530,7 @@ module.exports = {
       <h3>Vue3 - main.ts</h3>
       <CodeBlock language="ts" :code="exampleVueMain" />
 
-      <p>
-        Note: `@code-coaching/vuetiful/styles/all.css` must be imported before
-        any other css.
-      </p>
+      <p>Note: `@code-coaching/vuetiful/styles/all.css` must be imported before any other css.</p>
 
       <h3>App.vue - script setup</h3>
       Add the following code to your App.vue file.
