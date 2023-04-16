@@ -2,9 +2,7 @@
   <v-button
     tag="a"
     :class="`min-w-full hover:variant-ghost-secondary ${
-      routeName === activeRoute
-        ? 'variant-filled-secondary hover:!bg-secondary-500 hover:!text-on-secondary-token'
-        : ''
+      routeName === activeRoute ? 'variant-filled-secondary hover:!bg-secondary-500 hover:!text-on-secondary-token' : ''
     }`"
     :key="routeName"
     @click="onClick()"

@@ -32,10 +32,17 @@ const vueLinks = [
     title: 'VButton',
     name: ROUTE_NAMES.VUE.V_BUTTON,
   },
+];
+
+const vueLinksLayout = [
   {
     title: 'VShell',
     name: ROUTE_NAMES.VUE.V_SHELL,
-  }
+  },
+  {
+    title: 'VRail',
+    name: ROUTE_NAMES.VUE.V_RAIL,
+  },
 ];
 </script>
 
@@ -62,7 +69,19 @@ const vueLinks = [
         </side-bar-link>
       </template>
 
-      <template v-if="selectedRailTile === 'vue'">
+      <template v-if="selectedRailTile === 'vue' || selectedRailTile.includes('demo')">
+        <div class="text-lg font-bold text-primary-900-50-token">Layout</div>
+        <side-bar-link
+          class="w-40 min-w-full justify-start px-4 py-1"
+          v-for="link in vueLinksLayout"
+          :key="link.name"
+          :route-name="link.name"
+          :link="link.name"
+        >
+          {{ link.title }}
+        </side-bar-link>
+
+        <div class="text-lg font-bold text-primary-900-50-token">Components</div>
         <side-bar-link
           class="w-40 min-w-full justify-start px-4 py-1"
           v-for="link in vueLinks"

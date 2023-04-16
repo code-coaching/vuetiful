@@ -11,13 +11,7 @@
  */
 import express from 'express';
 import compression from 'compression';
-import {
-  ssrClose,
-  ssrCreate,
-  ssrListen,
-  ssrRenderPreloadTag,
-  ssrServeStaticContent,
-} from 'quasar/wrappers';
+import { ssrClose, ssrCreate, ssrListen, ssrRenderPreloadTag, ssrServeStaticContent } from 'quasar/wrappers';
 
 /**
  * Create your webserver and return its instance.

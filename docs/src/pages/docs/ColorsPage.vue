@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 flex flex-col max-w-5xl">
+  <div class="flex max-w-5xl flex-col p-4">
     <h1>Colors</h1>
 
     <h2>Usage</h2>
