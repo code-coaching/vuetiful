@@ -80,6 +80,9 @@ processFiles(stylesDirectory);
 processFiles(stylesElementsDirectory);
 newFileContents += `};\n`;
 
-fs.writeFileSync(fileToWrite, "");
+if (!fs.existsSync(path.dirname(fileToWrite))) {
+  fs.mkdirSync(path.dirname(fileToWrite), { recursive: true });
+}
 
+fs.writeFileSync(fileToWrite, "");
 fs.writeFileSync(fileToWrite, newFileContents);
