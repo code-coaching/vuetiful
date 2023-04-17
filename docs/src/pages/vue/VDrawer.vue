@@ -64,8 +64,9 @@ setup() {
 
     <h3>Multiple drawers</h3>
     <p>
-      There should still only exist exactly one instance of the <code>VDrawer</code> in the app. In this instance there
-      can be placed multiple content sections using <code>template</code> combined with <code>v-if</code>.
+      There should still only exist exactly one instance of the <code>VDrawer</code> component in the app. In this
+      instance, multiple sections can be added using <code>template</code> combined with <code>v-if</code>. The
+      different sections can be opened by passing an <code>id</code> using <code>open()</code> from <code>useDrawer</code>.
     </p>
     <div>Script</div>
     <code-block language="ts" :code="codeExampleMultipleScript" />
