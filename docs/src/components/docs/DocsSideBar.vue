@@ -52,9 +52,7 @@ const vueLinksLayout = [
 
 <template>
   <div
-    :class="`sidebar h-full grid-cols-[auto_1fr] border-r border-surface-500/30 ${
-      embedded ? 'grid' : 'hidden lg:!grid'
-    }`"
+    :class="`sidebar h-full grid-cols-[auto_1fr] border-r border-surface-500/30 ${ embedded ? 'grid' : 'hidden lg:!grid' }`"
   >
     <v-rail class="rail overflow-y-auto border-r border-surface-500/30">
       <v-rail-tile @click="$router.push({ name: ROUTE_NAMES.DOCS.DEFAULT })" value="docs" label="Docs"> </v-rail-tile>

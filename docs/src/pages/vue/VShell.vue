@@ -34,19 +34,6 @@ const codeExample = computed(() => {
     <h1>VShell</h1>
 
     <CodeBlock language="ts" :code="`import { VShell } from '@code-coaching/vuetiful`" />
-    <p class="mt-8">In case of not using <code>&lt;script setup&gt;</code></p>
-    <CodeBlock
-      language="ts"
-      :code="`// ...
-setup() {
-  // ...
-  components: {
-    VShell,
-  },
-  // ...
-}
-// ...`"
-    />
 
     <h2>Usage</h2>
     <p>

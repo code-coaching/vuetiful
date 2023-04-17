@@ -39,19 +39,6 @@ const useDrawerAnimationCode = `<v-button @click="open({ id: \'content-one\', du
     <h1>VDrawer</h1>
 
     <CodeBlock language="ts" :code="`import { VDrawer} from '@code-coaching/vuetiful`" />
-    <p class="mt-8">In case of not using <code>&lt;script setup&gt;</code></p>
-    <CodeBlock
-      language="ts"
-      :code="`// ...
-setup() {
-  // ...
-  components: {
-    VDrawer,
-  },
-  // ...
-}
-// ...`"
-    />
 
     <h2>Usage</h2>
     <h3>Single drawer</h3>
