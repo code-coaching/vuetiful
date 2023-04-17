@@ -61,7 +61,7 @@
   code:not(.unstyled):is(:not(.prose *)):is(:not(pre *)) {
     @apply whitespace-nowrap font-mono text-xs text-primary-700 dark:text-primary-400;
     @apply bg-primary-500/30 dark:bg-primary-500/20;
-    @apply rounded py-0.5 px-1;
+    @apply rounded px-1 py-0.5;
   }
 
   /* === Insertions / Deletions  ==== */

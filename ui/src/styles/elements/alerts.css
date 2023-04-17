@@ -2,7 +2,7 @@
 
 @layer components {
   .alert {
-    @apply flex flex-col items-start space-y-4 p-4 lg:flex-row lg:items-center lg:space-y-0 lg:space-x-4;
+    @apply flex flex-col items-start space-y-4 p-4 lg:flex-row lg:items-center lg:space-x-4 lg:space-y-0;
     /* Text */
     @apply text-surface-900-50-token;
     /* Rounded */

@@ -95,9 +95,9 @@
 
   /* Set Neutral Divider */
   .btn-group * + * {
-    @apply border-t-0 border-l border-surface-500/20;
+    @apply border-l border-t-0 border-surface-500/20;
   }
   .btn-group-vertical * + * {
-    @apply border-t border-l-0 border-surface-500/20;
+    @apply border-l-0 border-t border-surface-500/20;
   }
 }

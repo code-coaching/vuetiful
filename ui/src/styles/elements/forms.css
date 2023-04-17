@@ -113,8 +113,8 @@
   }
   .select option:checked {
     /* https://stackoverflow.com/questions/50618602/change-color-of-selected-option-in-select-multiple */
-    background: rgb(var(--color-primary-500))
-      linear-gradient(0deg, rgb(var(--color-primary-500)) 0%, rgb(var(--color-primary-500)) 100%);
+    /* prettier-ignore */
+    background: rgb(var(--color-primary-500)) linear-gradient(0deg, rgb(var(--color-primary-500)) 0%, rgb(var(--color-primary-500)) 100%);
     @apply text-on-primary-token;
   }
 
@@ -255,7 +255,7 @@
   /* Material */
   .variant-form-material {
     /* Border Radius */
-    @apply !rounded-tl !rounded-tr !rounded-bl-none !rounded-br-none;
+    @apply !rounded-bl-none !rounded-br-none !rounded-tl !rounded-tr;
     /* Background */
     @apply bg-surface-500/10 dark:bg-surface-500/20;
     /* Border */
