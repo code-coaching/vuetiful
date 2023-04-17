@@ -154,7 +154,6 @@ describe("useTheme", () => {
 
         expect(localStorageSpy).not.toHaveBeenCalled();
       });
-    })
-  })
-
+    });
+  });
 });

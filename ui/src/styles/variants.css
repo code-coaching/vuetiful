@@ -2,155 +2,155 @@
 /* A canned set of reusabled variant styles. */
 
 @layer components {
-	/* Outline -- supports ringed and host variants */
-	.variant-outline-primary {
-		@apply ring-[1px] ring-primary-500 dark:ring-primary-500 ring-inset;
-	}
-	.variant-outline-secondary {
-		@apply ring-[1px] ring-secondary-500 dark:ring-secondary-500 ring-inset;
-	}
-	.variant-outline-tertiary {
-		@apply ring-[1px] ring-tertiary-500 dark:ring-tertiary-500 ring-inset;
-	}
-	.variant-outline-success {
-		@apply ring-[1px] ring-success-500 dark:ring-success-500 ring-inset;
-	}
-	.variant-outline-warning {
-		@apply ring-[1px] ring-warning-500 dark:ring-warning-500 ring-inset;
-	}
-	.variant-outline-error {
-		@apply ring-[1px] ring-error-500 dark:ring-error-500 ring-inset;
-	}
-	.variant-outline,
-	.variant-outline-surface {
-		@apply ring-[1px] ring-surface-500 dark:ring-surface-500 ring-inset;
-	}
+  /* Outline -- supports ringed and host variants */
+  .variant-outline-primary {
+    @apply ring-[1px] ring-inset ring-primary-500 dark:ring-primary-500;
+  }
+  .variant-outline-secondary {
+    @apply ring-[1px] ring-inset ring-secondary-500 dark:ring-secondary-500;
+  }
+  .variant-outline-tertiary {
+    @apply ring-[1px] ring-inset ring-tertiary-500 dark:ring-tertiary-500;
+  }
+  .variant-outline-success {
+    @apply ring-[1px] ring-inset ring-success-500 dark:ring-success-500;
+  }
+  .variant-outline-warning {
+    @apply ring-[1px] ring-inset ring-warning-500 dark:ring-warning-500;
+  }
+  .variant-outline-error {
+    @apply ring-[1px] ring-inset ring-error-500 dark:ring-error-500;
+  }
+  .variant-outline,
+  .variant-outline-surface {
+    @apply ring-[1px] ring-inset ring-surface-500 dark:ring-surface-500;
+  }
 
-	/* ------------------------ */
+  /* ------------------------ */
 
-	/* Filled */
-	.variant-filled {
-		@apply bg-surface-900-50-token text-surface-50-900-token;
-	}
-	.variant-filled-primary {
-		@apply bg-primary-500 dark:bg-primary-500 text-on-primary-token dark:text-on-primary-token;
-	}
-	.variant-filled-secondary {
-		@apply bg-secondary-500 dark:bg-secondary-500 text-on-secondary-token dark:text-on-secondary-token;
-	}
-	.variant-filled-tertiary {
-		@apply bg-tertiary-500 dark:bg-tertiary-500 text-on-tertiary-token dark:text-on-tertiary-token;
-	}
-	.variant-filled-success {
-		@apply bg-success-500 dark:bg-success-500 text-on-success-token dark:text-on-success-token;
-	}
-	.variant-filled-warning {
-		@apply bg-warning-500 dark:bg-warning-500 text-on-warning-token dark:text-on-warning-token;
-	}
-	.variant-filled-error {
-		@apply bg-error-500 dark:bg-error-500 text-on-error-token dark:text-on-error-token;
-	}
-	.variant-filled-surface {
-		@apply bg-surface-400-500-token text-on-surface-token dark:text-on-surface-token;
-	}
+  /* Filled */
+  .variant-filled {
+    @apply bg-surface-900-50-token text-surface-50-900-token;
+  }
+  .variant-filled-primary {
+    @apply bg-primary-500 text-on-primary-token dark:bg-primary-500 dark:text-on-primary-token;
+  }
+  .variant-filled-secondary {
+    @apply bg-secondary-500 text-on-secondary-token dark:bg-secondary-500 dark:text-on-secondary-token;
+  }
+  .variant-filled-tertiary {
+    @apply bg-tertiary-500 text-on-tertiary-token dark:bg-tertiary-500 dark:text-on-tertiary-token;
+  }
+  .variant-filled-success {
+    @apply bg-success-500 text-on-success-token dark:bg-success-500 dark:text-on-success-token;
+  }
+  .variant-filled-warning {
+    @apply bg-warning-500 text-on-warning-token dark:bg-warning-500 dark:text-on-warning-token;
+  }
+  .variant-filled-error {
+    @apply bg-error-500 text-on-error-token dark:bg-error-500 dark:text-on-error-token;
+  }
+  .variant-filled-surface {
+    @apply bg-surface-400-500-token text-on-surface-token dark:text-on-surface-token;
+  }
 
-	/* Ringed */
-	.variant-ringed {
-		@apply bg-transparent dark:bg-transparent variant-outline;
-	}
-	.variant-ringed-primary {
-		@apply bg-transparent dark:bg-transparent variant-outline-primary;
-	}
-	.variant-ringed-secondary {
-		@apply bg-transparent dark:bg-transparent variant-outline-secondary;
-	}
-	.variant-ringed-tertiary {
-		@apply bg-transparent dark:bg-transparent variant-outline-tertiary;
-	}
-	.variant-ringed-success {
-		@apply bg-transparent dark:bg-transparent variant-outline-success;
-	}
-	.variant-ringed-warning {
-		@apply bg-transparent dark:bg-transparent variant-outline-warning;
-	}
-	.variant-ringed-error {
-		@apply bg-transparent dark:bg-transparent variant-outline-error;
-	}
-	.variant-ringed-surface {
-		@apply bg-transparent dark:bg-transparent variant-outline-surface;
-	}
+  /* Ringed */
+  .variant-ringed {
+    @apply variant-outline bg-transparent dark:bg-transparent;
+  }
+  .variant-ringed-primary {
+    @apply variant-outline-primary bg-transparent dark:bg-transparent;
+  }
+  .variant-ringed-secondary {
+    @apply variant-outline-secondary bg-transparent dark:bg-transparent;
+  }
+  .variant-ringed-tertiary {
+    @apply variant-outline-tertiary bg-transparent dark:bg-transparent;
+  }
+  .variant-ringed-success {
+    @apply variant-outline-success bg-transparent dark:bg-transparent;
+  }
+  .variant-ringed-warning {
+    @apply variant-outline-warning bg-transparent dark:bg-transparent;
+  }
+  .variant-ringed-error {
+    @apply variant-outline-error bg-transparent dark:bg-transparent;
+  }
+  .variant-ringed-surface {
+    @apply variant-outline-surface bg-transparent dark:bg-transparent;
+  }
 
-	/* Ghost */
-	.variant-ghost-primary {
-		@apply bg-primary-500/20 dark:bg-primary-500/20 variant-outline-primary;
-	}
-	.variant-ghost-secondary {
-		@apply bg-secondary-500/20 dark:bg-secondary-500/20 variant-outline-secondary;
-	}
-	.variant-ghost-tertiary {
-		@apply bg-tertiary-500/20 dark:bg-tertiary-500/20 variant-outline-tertiary;
-	}
-	.variant-ghost-success {
-		@apply bg-success-500/20 dark:bg-success-500/20 variant-outline-success;
-	}
-	.variant-ghost-warning {
-		@apply bg-warning-500/20 dark:bg-warning-500/20 variant-outline-warning;
-	}
-	.variant-ghost-error {
-		@apply bg-error-500/20 dark:bg-error-500/20 variant-outline-error;
-	}
-	.variant-ghost,
-	.variant-ghost-surface {
-		@apply bg-surface-500/20 dark:bg-surface-500/20 variant-outline-surface;
-	}
+  /* Ghost */
+  .variant-ghost-primary {
+    @apply variant-outline-primary bg-primary-500/20 dark:bg-primary-500/20;
+  }
+  .variant-ghost-secondary {
+    @apply variant-outline-secondary bg-secondary-500/20 dark:bg-secondary-500/20;
+  }
+  .variant-ghost-tertiary {
+    @apply variant-outline-tertiary bg-tertiary-500/20 dark:bg-tertiary-500/20;
+  }
+  .variant-ghost-success {
+    @apply variant-outline-success bg-success-500/20 dark:bg-success-500/20;
+  }
+  .variant-ghost-warning {
+    @apply variant-outline-warning bg-warning-500/20 dark:bg-warning-500/20;
+  }
+  .variant-ghost-error {
+    @apply variant-outline-error bg-error-500/20 dark:bg-error-500/20;
+  }
+  .variant-ghost,
+  .variant-ghost-surface {
+    @apply variant-outline-surface bg-surface-500/20 dark:bg-surface-500/20;
+  }
 
-	/* Soft */
-	.variant-soft-primary {
-		@apply bg-primary-400/20 dark:bg-primary-500/20 text-primary-700-200-token !ring-0;
-	}
-	.variant-soft-secondary {
-		@apply bg-secondary-400/20 dark:bg-secondary-500/20 text-secondary-700-200-token !ring-0;
-	}
-	.variant-soft-tertiary {
-		@apply bg-tertiary-400/20 dark:bg-tertiary-500/20 text-tertiary-700-200-token !ring-0;
-	}
-	.variant-soft-success {
-		@apply bg-success-400/20 dark:bg-success-500/20 text-success-700-200-token !ring-0;
-	}
-	.variant-soft-warning {
-		@apply bg-warning-400/20 dark:bg-warning-500/20 text-warning-700-200-token !ring-0;
-	}
-	.variant-soft-error {
-		@apply bg-error-400/20 dark:bg-error-500/20 text-error-700-200-token !ring-0;
-	}
-	.variant-soft,
-	.variant-soft-surface {
-		@apply bg-surface-400/20 dark:bg-surface-500/20 text-surface-700-200-token !ring-0;
-	}
+  /* Soft */
+  .variant-soft-primary {
+    @apply bg-primary-400/20 !ring-0 text-primary-700-200-token dark:bg-primary-500/20;
+  }
+  .variant-soft-secondary {
+    @apply bg-secondary-400/20 !ring-0 text-secondary-700-200-token dark:bg-secondary-500/20;
+  }
+  .variant-soft-tertiary {
+    @apply bg-tertiary-400/20 !ring-0 text-tertiary-700-200-token dark:bg-tertiary-500/20;
+  }
+  .variant-soft-success {
+    @apply bg-success-400/20 !ring-0 text-success-700-200-token dark:bg-success-500/20;
+  }
+  .variant-soft-warning {
+    @apply bg-warning-400/20 !ring-0 text-warning-700-200-token dark:bg-warning-500/20;
+  }
+  .variant-soft-error {
+    @apply bg-error-400/20 !ring-0 text-error-700-200-token dark:bg-error-500/20;
+  }
+  .variant-soft,
+  .variant-soft-surface {
+    @apply bg-surface-400/20 !ring-0 text-surface-700-200-token dark:bg-surface-500/20;
+  }
 
-	/* Glass */
-	.variant-glass-primary {
-		@apply bg-primary-500/20 dark:bg-primary-500/20 backdrop-blur-lg;
-	}
-	.variant-glass-secondary {
-		@apply bg-secondary-500/20 dark:bg-secondary-500/20 backdrop-blur-lg;
-	}
-	.variant-glass-tertiary {
-		@apply bg-tertiary-500/20 dark:bg-tertiary-500/20 backdrop-blur-lg;
-	}
-	.variant-glass-success {
-		@apply bg-success-500/20 dark:bg-success-500/20 backdrop-blur-lg;
-	}
-	.variant-glass-warning {
-		@apply bg-warning-500/20 dark:bg-warning-500/20 backdrop-blur-lg;
-	}
-	.variant-glass-error {
-		@apply bg-error-500/20 dark:bg-error-500/20 backdrop-blur-lg;
-	}
-	.variant-glass-surface {
-		@apply bg-surface-500/20 dark:bg-surface-500/20 backdrop-blur-lg;
-	}
-	.variant-glass {
-		@apply bg-surface-50/30 dark:bg-surface-900/30 backdrop-blur-lg;
-	}
+  /* Glass */
+  .variant-glass-primary {
+    @apply bg-primary-500/20 backdrop-blur-lg dark:bg-primary-500/20;
+  }
+  .variant-glass-secondary {
+    @apply bg-secondary-500/20 backdrop-blur-lg dark:bg-secondary-500/20;
+  }
+  .variant-glass-tertiary {
+    @apply bg-tertiary-500/20 backdrop-blur-lg dark:bg-tertiary-500/20;
+  }
+  .variant-glass-success {
+    @apply bg-success-500/20 backdrop-blur-lg dark:bg-success-500/20;
+  }
+  .variant-glass-warning {
+    @apply bg-warning-500/20 backdrop-blur-lg dark:bg-warning-500/20;
+  }
+  .variant-glass-error {
+    @apply bg-error-500/20 backdrop-blur-lg dark:bg-error-500/20;
+  }
+  .variant-glass-surface {
+    @apply bg-surface-500/20 backdrop-blur-lg dark:bg-surface-500/20;
+  }
+  .variant-glass {
+    @apply bg-surface-50/30 backdrop-blur-lg dark:bg-surface-900/30;
+  }
 }

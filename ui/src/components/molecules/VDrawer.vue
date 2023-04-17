@@ -8,15 +8,6 @@ const attrs = useAttrs();
 
 // #region Props
 const props = defineProps({
-  position: {
-    type: String as () => "left" | "top" | "right" | "bottom",
-    default: "left",
-  },
-  duration: {
-    type: Number as () => 150 | 300,
-    default: 300,
-  },
-
   // Regions
   regionBackdrop: {
     type: String as () => CssClasses,
@@ -39,7 +30,7 @@ const props = defineProps({
 });
 
 // prettier-ignore
-const { position, duration, regionBackdrop, regionDrawer, labelledby, describedby } = toRefs(props);
+const { regionBackdrop, regionDrawer, labelledby, describedby } = toRefs(props);
 // prettier-ignore
 const presets = {
 	top: { alignment: 'top-0', width: 'w-full', height: 'h-[50%]', rounded: 'rounded-bl-container-token rounded-br-container-token' },
@@ -47,7 +38,10 @@ const presets = {
 	left: { alignment: 'lef-0', width: 'w-[90%]', height: 'h-full', rounded: 'rounded-tr-container-token rounded-br-container-token' },
 	right: { alignment: 'right-0', width: 'w-[90%]', height: 'h-full', rounded: 'rounded-tl-container-token rounded-bl-container-token' }
 };
-const preset = computed(() => presets[position.value]);
+const preset = computed(() => {
+  const position = drawer.position || "left";
+  return presets[position];
+});
 // #endregion
 
 // #region template refs
@@ -70,7 +64,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <transition :name="`slide-${position}-${duration}`">
+  <transition :name="`slide-${drawer.position}-${drawer.duration}`">
     <div
       v-if="drawer.open"
       ref="elemDrawer"
@@ -83,7 +77,7 @@ onMounted(() => {
       <slot />
     </div>
   </transition>
-  <transition :name="`fade-${duration}`">
+  <transition :name="`fade-${drawer.duration}`">
     <div
       v-if="drawer.open"
       ref="elemBackdrop"

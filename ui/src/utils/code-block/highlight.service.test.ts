@@ -19,6 +19,6 @@ describe("useHighlight", () => {
           '<span class="hljs-keyword">const</span> <span class="hljs-keyword">name</span> = <span class="hljs-string">&#x27;John Duck&#x27;</span>'
         );
       });
-    })
+    });
   });
 });

@@ -8,4 +8,4 @@ describe("utils", () => {
       expect(value).toBeDefined();
     });
   });
-})
+});

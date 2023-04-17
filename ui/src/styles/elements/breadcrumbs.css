@@ -1,26 +1,26 @@
 /* Tailwind Elements: breadcrumbs.css */
 
 @layer components {
-	.breadcrumb,
-	.breadcrumb-nonresponsive {
-		@apply flex items-center space-x-4 w-full hide-scrollbar overflow-x-auto;
-	}
+  .breadcrumb,
+  .breadcrumb-nonresponsive {
+    @apply hide-scrollbar flex w-full items-center space-x-4 overflow-x-auto;
+  }
 
-	.crumb {
-		@apply flex justify-center items-center space-x-2;
-	}
-	.crumb-separator {
-		@apply flex text-surface-700-200-token opacity-50;
-	}
+  .crumb {
+    @apply flex items-center justify-center space-x-2;
+  }
+  .crumb-separator {
+    @apply flex opacity-50 text-surface-700-200-token;
+  }
 
-	/* === Auto-Responsive === */
+  /* === Auto-Responsive === */
 
-	.breadcrumb li {
-		@apply hidden md:block;
-	}
-	.breadcrumb li:nth-last-child(3),
-	.breadcrumb li:nth-last-child(2),
-	.breadcrumb li:nth-last-child(1) {
-		@apply block;
-	}
+  .breadcrumb li {
+    @apply hidden md:block;
+  }
+  .breadcrumb li:nth-last-child(3),
+  .breadcrumb li:nth-last-child(2),
+  .breadcrumb li:nth-last-child(1) {
+    @apply block;
+  }
 }

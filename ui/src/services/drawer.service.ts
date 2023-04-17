@@ -1,10 +1,10 @@
-import { reactive, readonly } from 'vue';
+import { reactive, readonly } from "vue";
 
 export interface DrawerSettings {
   id?: string;
   open?: boolean;
 
-  position?: 'left' | 'top' | 'right' | 'bottom';
+  position?: "left" | "top" | "right" | "bottom";
   duration?: 150 | 300;
 
   regionBackdrop?: string;
@@ -14,29 +14,32 @@ export interface DrawerSettings {
 }
 
 const drawer = reactive<DrawerSettings>({
-  id: 'default',
+  id: "default",
   open: false,
+  position: "left",
+  duration: 300,
+  regionBackdrop: "",
+  regionDrawer: "",
 });
 
 const useDrawer = () => {
   const open = (settings?: DrawerSettings) => {
     drawer.open = true;
-    if (settings) {
-      Object.keys(settings).forEach((key: string) => {
-        drawer[key] = settings[key];
-      });
-    }
+    drawer.id = settings?.id ?? "default";
+    drawer.duration = settings?.duration ?? 300;
+    drawer.regionBackdrop = settings?.regionBackdrop ?? "";
+    drawer.regionDrawer = settings?.regionDrawer ?? "";
+    drawer.position = settings?.position ?? "left";
   };
 
-  const close = () => (drawer.open = false);
-
-  const toggle = () => (drawer.open = !drawer.open);
+  const close = () => {
+    drawer.open = false;
+  };
 
   return {
     drawer: readonly(drawer),
     open,
     close,
-    toggle,
   };
 };
 
