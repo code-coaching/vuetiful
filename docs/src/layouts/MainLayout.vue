@@ -3,7 +3,7 @@ import { ThemeSwitcher, VDrawer, VShell, useDrawer } from '@code-coaching/vuetif
 import { DocsSideBar } from 'src/components';
 import { version } from '../../package.json';
 
-const { toggle } = useDrawer();
+const { open } = useDrawer();
 </script>
 
 <template>
@@ -13,7 +13,16 @@ const { toggle } = useDrawer();
   <v-shell>
     <template v-slot:fixedHeader>
       <q-toolbar class="border-b border-surface-500/30 bg-surface-50-900-token">
-        <q-btn class="lg:hidden" id="icon-button" flat dense round icon="menu" aria-label="Menu" @click="toggle" />
+        <q-btn
+          class="lg:hidden"
+          id="icon-button"
+          flat
+          dense
+          round
+          icon="menu"
+          aria-label="Menu"
+          @click="open({ id: 'docs', duration: 300 })"
+        />
 
         <q-toolbar-title>
           <div class="font-bold">Vuetiful</div>

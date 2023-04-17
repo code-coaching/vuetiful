@@ -10,14 +10,15 @@ export const ROUTE_NAMES = {
     QUASAR: 'QUASAR',
   },
   VUE: {
-    DEFAULT: 'V_BUTTON',
+    DEFAULT: 'V_SHELL',
     V_BUTTON: 'V_BUTTON',
     V_SHELL: 'V_SHELL',
     V_RAIL: 'V_RAIL',
+    V_DRAWER: 'V_DRAWER',
   },
 };
 
-const routes: RouteRecordRaw[] = [
+export const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: () => import('src/layouts/MainLayout.vue'),
@@ -74,6 +75,11 @@ const routes: RouteRecordRaw[] = [
             name: ROUTE_NAMES.VUE.V_RAIL,
             component: () => import('src/pages/vue/VRail.vue'),
           },
+          {
+            path: 'v-drawer',
+            name: ROUTE_NAMES.VUE.V_DRAWER,
+            component: () => import('src/pages/vue/VDrawer.vue'),
+          },
         ],
       },
     ],
@@ -86,5 +92,3 @@ const routes: RouteRecordRaw[] = [
     component: () => import('src/pages/ErrorNotFound.vue'),
   },
 ];
-
-export default routes;

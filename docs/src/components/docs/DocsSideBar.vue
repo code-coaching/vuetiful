@@ -43,6 +43,10 @@ const vueLinksLayout = [
     title: 'VRail',
     name: ROUTE_NAMES.VUE.V_RAIL,
   },
+  {
+    title: 'VDrawer',
+    name: ROUTE_NAMES.VUE.V_DRAWER,
+  }
 ];
 </script>
 
