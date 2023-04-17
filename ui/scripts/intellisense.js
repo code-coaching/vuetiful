@@ -23,6 +23,10 @@ const processFiles = (directory) => {
       if (line.startsWith("@import")) return;
       if (line.startsWith("@layer")) return;
 
+      if (line.includes('"')) {
+        line = line.replace(/"/g, "'");
+        console.log(line);
+      }
       if (line.trim().startsWith(".") && (line.includes("{") || line.endsWith(","))) {
         if (line.endsWith(",")) {
           if (!lastSelector.endsWith(",")) {
