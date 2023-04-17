@@ -12,6 +12,7 @@ export const ROUTE_NAMES = {
   VUE: {
     DEFAULT: 'V_SHELL',
     V_BUTTON: 'V_BUTTON',
+    V_BADGE: 'V_BADGE',
     V_SHELL: 'V_SHELL',
     V_RAIL: 'V_RAIL',
     V_DRAWER: 'V_DRAWER',
@@ -59,6 +60,11 @@ export const routes: RouteRecordRaw[] = [
           {
             path: '',
             redirect: { name: ROUTE_NAMES.VUE.V_BUTTON },
+          },
+          {
+            path: 'v-badge',
+            name: ROUTE_NAMES.VUE.V_BADGE,
+            component: () => import('src/pages/vue/VBadge.vue'),
           },
           {
             path: 'v-button',

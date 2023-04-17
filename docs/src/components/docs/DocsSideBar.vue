@@ -29,6 +29,10 @@ const docsLinks = [
 
 const vueLinks = [
   {
+    title: 'VBadge',
+    name: ROUTE_NAMES.VUE.V_BADGE,
+  },
+  {
     title: 'VButton',
     name: ROUTE_NAMES.VUE.V_BUTTON,
   },

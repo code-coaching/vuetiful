@@ -44,8 +44,7 @@ import { CodeBlock, VButton } from '@code-coaching/vuetiful';
 <v-button class=&quot;variant-outline-tertiary&quot;>Tertiary</v-button>
 <v-button class=&quot;variant-outline-success&quot;>Success</v-button>
 <v-button class=&quot;variant-outline-warning&quot;>Warning</v-button>
-<v-button class=&quot;variant-outline-error&quot;>Error</v-button>
-    `"
+<v-button class=&quot;variant-outline-error&quot;>Error</v-button>`"
     />
 
     <h4>Filled</h4>
@@ -68,8 +67,7 @@ import { CodeBlock, VButton } from '@code-coaching/vuetiful';
 <v-button class=&quot;variant-filled-tertiary&quot;>Tertiary</v-button>
 <v-button class=&quot;variant-filled-success&quot;>Success</v-button>
 <v-button class=&quot;variant-filled-warning&quot;>Warning</v-button>
-<v-button class=&quot;variant-filled-error&quot;>Error</v-button>
-    `"
+<v-button class=&quot;variant-filled-error&quot;>Error</v-button>`"
     />
 
     <h4>Ringed</h4>
@@ -92,8 +90,7 @@ import { CodeBlock, VButton } from '@code-coaching/vuetiful';
 <v-button class=&quot;variant-ringed-tertiary&quot;>Tertiary</v-button>
 <v-button class=&quot;variant-ringed-success&quot;>Success</v-button>
 <v-button class=&quot;variant-ringed-warning&quot;>Warning</v-button>
-<v-button class=&quot;variant-ringed-error&quot;>Error</v-button>
-    `"
+<v-button class=&quot;variant-ringed-error&quot;>Error</v-button>`"
     />
 
     <h4>Ghost</h4>
@@ -116,8 +113,7 @@ import { CodeBlock, VButton } from '@code-coaching/vuetiful';
 <v-button class=&quot;variant-ghost-tertiary&quot;>Tertiary</v-button>
 <v-button class=&quot;variant-ghost-success&quot;>Success</v-button>
 <v-button class=&quot;variant-ghost-warning&quot;>Warning</v-button>
-<v-button class=&quot;variant-ghost-error&quot;>Error</v-button>
-    `"
+<v-button class=&quot;variant-ghost-error&quot;>Error</v-button>`"
     />
 
     <h4>Soft</h4>
@@ -140,8 +136,7 @@ import { CodeBlock, VButton } from '@code-coaching/vuetiful';
 <v-button class=&quot;variant-soft-tertiary&quot;>Tertiary</v-button>
 <v-button class=&quot;variant-soft-success&quot;>Success</v-button>
 <v-button class=&quot;variant-soft-warning&quot;>Warning</v-button>
-<v-button class=&quot;variant-soft-error&quot;>Error</v-button>
-    `"
+<v-button class=&quot;variant-soft-error&quot;>Error</v-button>`"
     />
 
     <h4>Glass</h4>
@@ -164,8 +159,7 @@ import { CodeBlock, VButton } from '@code-coaching/vuetiful';
 <v-button class=&quot;variant-glass-tertiary&quot;>Tertiary</v-button>
 <v-button class=&quot;variant-glass-success&quot;>Success</v-button>
 <v-button class=&quot;variant-glass-warning&quot;>Warning</v-button>
-<v-button class=&quot;variant-glass-error&quot;>Error</v-button>
-    `"
+<v-button class=&quot;variant-glass-error&quot;>Error</v-button>`"
     />
   </div>
 </template>

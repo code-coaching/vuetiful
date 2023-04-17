@@ -1,6 +1,6 @@
 {
   "name": "vuetiful-docs",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Documentation for Vuetiful UI Toolkit",
   "productName": "Vuetiful Docs",
   "author": "Bart Duisters <bartduisters@bartduisters.com>",
@@ -36,7 +36,7 @@
     "postcss": "^8.4.21",
     "prettier": "^2.8.7",
     "prettier-plugin-tailwindcss": "^0.2.5",
-    "tailwindcss": "^3.3.1",
+    "tailwindcss": "^3.2.7",
     "typescript": "^4.5.4"
   },
   "engines": {
