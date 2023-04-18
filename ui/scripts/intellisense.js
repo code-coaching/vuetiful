@@ -25,7 +25,6 @@ const processFiles = (directory) => {
 
       if (line.includes('"')) {
         line = line.replace(/"/g, "'");
-        console.log(line);
       }
       if (line.trim().startsWith(".") && (line.includes("{") || line.endsWith(","))) {
         if (line.endsWith(",")) {
