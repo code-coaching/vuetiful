@@ -14,29 +14,6 @@ import { CodeBlock, VBadge } from '@code-coaching/vuetiful';
     <CodeBlock language="html" :code="`<v-badge class=&quot;variant-filled&quot;>default</v-badge>`" />
 
     <h3>Variants</h3>
-    <h4>Outline</h4>
-    <div class="mb-2 flex flex-wrap gap-2">
-      <v-badge class="variant-outline">Default</v-badge>
-      <v-badge class="variant-outline-surface">Surface</v-badge>
-      <v-badge class="variant-outline-primary">Primary</v-badge>
-      <v-badge class="variant-outline-secondary">Secondary</v-badge>
-      <v-badge class="variant-outline-tertiary">Tertiary</v-badge>
-      <v-badge class="variant-outline-success">Success</v-badge>
-      <v-badge class="variant-outline-warning">Warning</v-badge>
-      <v-badge class="variant-outline-error">Error</v-badge>
-    </div>
-    <CodeBlock
-      language="html"
-      :code="`<v-badge class=&quot;variant-outline&quot;>Default</v-badge>
-<v-badge class=&quot;variant-outline-surface&quot;>Surface</v-badge>
-<v-badge class=&quot;variant-outline-primary&quot;>Primary</v-badge>
-<v-badge class=&quot;variant-outline-secondary&quot;>Secondary</v-badge>
-<v-badge class=&quot;variant-outline-tertiary&quot;>Tertiary</v-badge>
-<v-badge class=&quot;variant-outline-success&quot;>Success</v-badge>
-<v-badge class=&quot;variant-outline-warning&quot;>Warning</v-badge>
-<v-badge class=&quot;variant-outline-error&quot;>Error</v-badge>`"
-    />
-
     <h4>Filled</h4>
     <div class="mb-2 flex flex-wrap gap-2">
       <v-badge class="variant-filled">Default</v-badge>

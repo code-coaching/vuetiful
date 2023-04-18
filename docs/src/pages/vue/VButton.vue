@@ -24,29 +24,6 @@ import { CodeBlock, VButton } from '@code-coaching/vuetiful';
     />
 
     <h3>Variants</h3>
-    <h4>Outline</h4>
-    <div class="mb-2 flex flex-wrap gap-2">
-      <v-button class="variant-outline">Default</v-button>
-      <v-button class="variant-outline-surface">Surface</v-button>
-      <v-button class="variant-outline-primary">Primary</v-button>
-      <v-button class="variant-outline-secondary">Secondary</v-button>
-      <v-button class="variant-outline-tertiary">Tertiary</v-button>
-      <v-button class="variant-outline-success">Success</v-button>
-      <v-button class="variant-outline-warning">Warning</v-button>
-      <v-button class="variant-outline-error">Error</v-button>
-    </div>
-    <CodeBlock
-      language="html"
-      :code="`<v-button class=&quot;variant-outline&quot;>Default</v-button>
-<v-button class=&quot;variant-outline-surface&quot;>Surface</v-button>
-<v-button class=&quot;variant-outline-primary&quot;>Primary</v-button>
-<v-button class=&quot;variant-outline-secondary&quot;>Secondary</v-button>
-<v-button class=&quot;variant-outline-tertiary&quot;>Tertiary</v-button>
-<v-button class=&quot;variant-outline-success&quot;>Success</v-button>
-<v-button class=&quot;variant-outline-warning&quot;>Warning</v-button>
-<v-button class=&quot;variant-outline-error&quot;>Error</v-button>`"
-    />
-
     <h4>Filled</h4>
     <div class="mb-2 flex flex-wrap gap-2">
       <v-button class="variant-filled">Default</v-button>

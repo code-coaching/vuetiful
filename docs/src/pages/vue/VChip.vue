@@ -16,29 +16,6 @@ import { CodeBlock, VChip } from '@code-coaching/vuetiful';
     </div>
 
     <h3>Variants</h3>
-    <h4>Outline</h4>
-    <div class="mb-2 flex flex-wrap gap-2">
-      <v-chip class="variant-outline">Default</v-chip>
-      <v-chip class="variant-outline-surface">Surface</v-chip>
-      <v-chip class="variant-outline-primary">Primary</v-chip>
-      <v-chip class="variant-outline-secondary">Secondary</v-chip>
-      <v-chip class="variant-outline-tertiary">Tertiary</v-chip>
-      <v-chip class="variant-outline-success">Success</v-chip>
-      <v-chip class="variant-outline-warning">Warning</v-chip>
-      <v-chip class="variant-outline-error">Error</v-chip>
-    </div>
-    <CodeBlock
-      language="html"
-      :code="`<v-chip class=&quot;variant-outline&quot;>Default</v-chip>
-<v-chip class=&quot;variant-outline-surface&quot;>Surface</v-chip>
-<v-chip class=&quot;variant-outline-primary&quot;>Primary</v-chip>
-<v-chip class=&quot;variant-outline-secondary&quot;>Secondary</v-chip>
-<v-chip class=&quot;variant-outline-tertiary&quot;>Tertiary</v-chip>
-<v-chip class=&quot;variant-outline-success&quot;>Success</v-chip>
-<v-chip class=&quot;variant-outline-warning&quot;>Warning</v-chip>
-<v-chip class=&quot;variant-outline-error&quot;>Error</v-chip>`"
-    />
-
     <h4>Filled</h4>
     <div class="mb-2 flex flex-wrap gap-2">
       <v-chip class="variant-filled">Default</v-chip>
