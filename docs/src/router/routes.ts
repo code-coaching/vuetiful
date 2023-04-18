@@ -11,8 +11,9 @@ export const ROUTE_NAMES = {
   },
   VUE: {
     DEFAULT: 'V_SHELL',
-    V_BUTTON: 'V_BUTTON',
     V_BADGE: 'V_BADGE',
+    V_BUTTON: 'V_BUTTON',
+    V_CHIP: 'V_CHIP',
     V_SHELL: 'V_SHELL',
     V_RAIL: 'V_RAIL',
     V_DRAWER: 'V_DRAWER',
@@ -70,6 +71,11 @@ export const routes: RouteRecordRaw[] = [
             path: 'v-button',
             name: ROUTE_NAMES.VUE.V_BUTTON,
             component: () => import('src/pages/vue/VButton.vue'),
+          },
+          {
+            path: 'v-chip',
+            name: ROUTE_NAMES.VUE.V_CHIP,
+            component: () => import('src/pages/vue/VChip.vue'),
           },
           {
             path: 'v-shell',

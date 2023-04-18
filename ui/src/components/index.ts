@@ -1,4 +1,4 @@
-import { VBadge, VButton } from "./atoms";
+import { VBadge, VButton, VChip } from "./atoms";
 import { VDrawer, VRail, VRailTile, VShell } from "./molecules";
 
-export { VButton, VRail, VRailTile, VShell, VDrawer, VBadge };
+export { VButton, VRail, VRailTile, VShell, VDrawer, VBadge, VChip };

@@ -36,6 +36,10 @@ const vueLinks = [
     title: 'VButton',
     name: ROUTE_NAMES.VUE.V_BUTTON,
   },
+  {
+    title: 'VChip',
+    name: ROUTE_NAMES.VUE.V_CHIP,
+  },
 ];
 
 const vueLinksLayout = [
