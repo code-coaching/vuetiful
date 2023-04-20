@@ -8,6 +8,7 @@ defineProps({
   },
 });
 const attrs = useAttrs();
+defineEmits(["click"]);
 </script>
 
 <template>
