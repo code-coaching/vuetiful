@@ -22,6 +22,10 @@ const docsLinks = [
     name: ROUTE_NAMES.DOCS.COLORS,
   },
   {
+    title: 'Icons',
+    name: ROUTE_NAMES.DOCS.ICONS,
+  },
+  {
     title: 'Quasar',
     name: ROUTE_NAMES.DOCS.QUASAR,
   },

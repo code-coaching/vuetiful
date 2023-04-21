@@ -1,0 +1,175 @@
+<script setup lang="ts">
+import { CodeBlock, VButton } from '@code-coaching/vuetiful';
+
+const fileStructure = `font-awesome/
+  css/
+    brands.min.css
+    fontawesome.min.css
+    solid.min.css
+  webfonts/
+    fa-brands-400.ttf
+    fa-brands-400.woff2
+    fa-solid-900.ttf
+    fa-solid-900.woff2
+`;
+
+const indexHtml = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- ... -->
+    <link rel="stylesheet" href="font-awesome/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="font-awesome/css/brands.min.css" />
+    <link rel="stylesheet" href="font-awesome/css/solid.min.css" />
+  </head>
+  <body>
+    <!-- ... -->
+  </body>
+</html>
+`;
+
+const faIcons = `<i class="fa-solid fa-code"></i>
+<i class="fa-solid fa-spinner fa-spin"></i>
+<i class="fa-solid fa-ghost fa-fade"></i>
+<i class="fa-solid fa-ghost fa-beat-fade"></i>`;
+
+const faIconsSizes = `<p><i class="fa-solid fa-code fa-2xs"></i></p>
+<p><i class="fa-solid fa-code fa-xs"></i></p>
+<p><i class="fa-solid fa-code fa-sm"></i></p>
+<p><i class="fa-solid fa-code"></i></p>
+<p><i class="fa-solid fa-code fa-lg"></i></p>
+<p><i class="fa-solid fa-code fa-xl"></i></p>
+<p><i class="fa-solid fa-code fa-2xl"></i></p>`;
+
+const vbuttonIcon = `<v-button icon class="variant-filled">
+  <i class="fa-solid fa-code"></i>
+</v-button>
+
+<v-button class="variant-filled">
+  <i class="fa-solid fa-code"></i>
+</v-button>
+
+<v-button class="variant-filled">
+  <i class="fa-solid fa-code"></i>
+  <div>Code</div>
+</v-button>
+
+<v-button class="variant-filled">
+  <div>Code</div>
+  <i class="fa-solid fa-code"></i>
+</v-button>
+`;
+
+const quasarQIcon = `<v-button icon class="variant-filled">
+  <q-icon name="code"></q-icon>
+</v-button>
+
+<v-button class="variant-filled">
+  <q-icon name="code"></q-icon>
+</v-button>
+
+<v-button class="variant-filled">
+  <q-icon name="code"></q-icon>
+  <div>Code</div>
+</v-button>
+
+<v-button class="variant-filled">
+  <div>Code</div>
+  <q-icon name="code"></q-icon>
+</v-button>
+`;
+</script>
+<template>
+  <div class="flex max-w-5xl flex-col p-4">
+    <h1>Icons</h1>
+    <p>You can use any icon library you want. This website uses Font Awesome.</p>
+
+    <h2>Font Awesome</h2>
+    <p>
+      Download the <code>Free For Web</code> version of Font Awesome from
+      <a href="https://fontawesome.com/download">Font Awesome</a>. Add the following file structure to a public folder.
+      The <code>css</code>, <code>ttf</code> and <code>woff2</code> files are copied over from the download.
+    </p>
+    <CodeBlock language="bash" :code="fileStructure" />
+
+    <p class="mt-8">Add the css files to the <code>head</code> of your <code>index.html</code> file.</p>
+    <CodeBlock language="html" :code="indexHtml" />
+    <p>Note: make sure to point towards the correct paths.</p>
+
+    <h2>Usage</h2>
+    <h3>Examples</h3>
+    <p>Any free solid <a href="https://fontawesome.com/search?o=r&m=free&s=solid">Font Awesome Icon</a> can be used</p>
+    <div class="flex flex-col gap-8">
+      <div class="flex flex-col gap-2">
+        <div class="flex flex-wrap gap-4">
+          <i class="fa-solid fa-code"></i>
+          <i class="fa-solid fa-spinner fa-spin"></i>
+          <i class="fa-solid fa-ghost fa-fade"></i>
+          <i class="fa-solid fa-ghost fa-beat-fade"></i>
+        </div>
+        <CodeBlock language="html" :code="faIcons" />
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <div class="flex flex-wrap gap-4">
+          <p><i class="fa-solid fa-code fa-2xs"></i></p>
+          <p><i class="fa-solid fa-code fa-xs"></i></p>
+          <p><i class="fa-solid fa-code fa-sm"></i></p>
+          <p><i class="fa-solid fa-code"></i></p>
+          <p><i class="fa-solid fa-code fa-lg"></i></p>
+          <p><i class="fa-solid fa-code fa-xl"></i></p>
+          <p><i class="fa-solid fa-code fa-2xl"></i></p>
+        </div>
+        <CodeBlock language="html" :code="faIconsSizes" />
+      </div>
+    </div>
+
+    <h3>VButton</h3>
+    <h4>Font Awesome</h4>
+    <div class="flex flex-col gap-2">
+      <div class="flex flex-wrap gap-4">
+        <v-button icon class="variant-filled">
+          <i class="fa-solid fa-code"></i>
+        </v-button>
+        <v-button class="variant-filled">
+          <i class="fa-solid fa-code"></i>
+        </v-button>
+        <v-button class="variant-filled">
+          <i class="fa-solid fa-code"></i>
+          <div>Code</div>
+        </v-button>
+        <v-button class="variant-filled">
+          <div>Code</div>
+          <i class="fa-solid fa-code"></i>
+        </v-button>
+      </div>
+      <CodeBlock language="html" :code="vbuttonIcon" />
+    </div>
+
+    <h4>Quasar - QIcon</h4>
+
+    <div class="flex flex-col gap-2">
+      <div class="flex flex-wrap gap-4">
+        <v-button icon class="variant-filled">
+          <q-icon name="code"></q-icon>
+        </v-button>
+        <v-button class="variant-filled">
+          <q-icon name="code"></q-icon>
+        </v-button>
+        <v-button class="variant-filled">
+          <q-icon name="code"></q-icon>
+          <div>Code</div>
+        </v-button>
+        <v-button class="variant-filled">
+          <div>Code</div>
+          <q-icon name="code"></q-icon>
+        </v-button>
+
+      </div>
+      <CodeBlock language="html" :code="quasarQIcon" />
+
+      <v-button aria-label="kaka" class="variant-filled">
+        kaka
+      </v-button>
+    </div>
+  </div>
+</template>
