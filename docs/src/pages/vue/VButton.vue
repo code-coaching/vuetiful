@@ -7,6 +7,23 @@ import { CodeBlock, VButton } from '@code-coaching/vuetiful';
     <h1>VButton</h1>
     <CodeBlock language="ts" :code="`import { VButton } from '@code-coaching/vuetiful`" />
 
+    <h2>Accessibility</h2>
+    <p>
+      The VButton component implements the
+      <a href="https://www.w3.org/WAI/ARIA/apg/patterns/button/">WAI-ARAI button pattern</a>. This means that the
+      component is accessible by default.
+    </p>
+
+    <p>
+      By default the accessibility label is the same as the button text. If you want to change the accessibility label,
+      you can use the
+      <code>aria-label</code> attribute.
+    </p>
+
+    <p>Keyboard users can use the <code>Enter</code> or <code>Space</code> key to activate the button.</p>
+
+    <code-block language="html" :code="`<v-button aria-label=&quot;Menu&quot;>John Duck</v-button>`" />
+
     <h2>Usage</h2>
     <h3>Sizes</h3>
     <div class="mb-2 flex flex-wrap items-start gap-2">
