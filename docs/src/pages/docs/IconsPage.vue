@@ -165,8 +165,6 @@ const quasarQIcon = `<v-button icon class="variant-filled">
         </v-button>
       </div>
       <v-code-block language="html" :code="quasarQIcon" />
-
-      <v-button aria-label="kaka" class="variant-filled"> kaka </v-button>
     </div>
   </div>
 </template>
