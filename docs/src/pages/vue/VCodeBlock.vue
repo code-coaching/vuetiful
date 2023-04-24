@@ -62,6 +62,9 @@ const codeCodeTemplateExample = '<v-code-block language="html" :code="codeExampl
 const withOverflowExample = '<v-code-block class="max-w-[500px]" language="html" :code="withoutOverflowExample" />';
 const withoutOverflowExample =
   '        <v-code-block prevent-overflow class="max-w-[500px]" language="html" :code="withoutOverflowExample" />';
+
+const copyButtonExample =
+  '<v-code-block button-text="Grab me!" button-copied-text="You got me!" language="html" :code="copyButtonExample" />';
 </script>
 
 <template>
@@ -169,6 +172,22 @@ const mascot: Mascot = {
       <div class="flex flex-col gap-1">
         <div>Without overflow - Add <code>prevent-overflow</code> prop</div>
         <v-code-block prevent-overflow class="max-w-[500px]" language="html" :code="withoutOverflowExample" />
+      </div>
+    </div>
+
+    <h3>Copy Button</h3>
+    <div class="mb-4 flex flex-col gap-2">
+      <div class="flex flex-col gap-1">
+        <div>
+          The text to copy and the copied text can be customized with the <code>button-text</code> and
+          <code>button-copied-text</code> props.
+        </div>
+        <v-code-block
+          button-text="Grab me!"
+          button-copied-text="You got me!"
+          language="html"
+          :code="copyButtonExample"
+        />
       </div>
     </div>
   </div>
