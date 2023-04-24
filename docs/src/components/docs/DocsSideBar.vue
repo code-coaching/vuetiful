@@ -59,6 +59,10 @@ const vueLinks = [
     title: 'Chip',
     name: ROUTE_NAMES.VUE.V_CHIP,
   },
+  {
+    title: 'CodeBlock',
+    name: ROUTE_NAMES.VUE.V_CODE_BLOCK,
+  },
 ];
 </script>
 

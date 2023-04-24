@@ -15,6 +15,7 @@ export const ROUTE_NAMES = {
     V_BADGE: 'V_BADGE',
     V_BUTTON: 'V_BUTTON',
     V_CHIP: 'V_CHIP',
+    V_CODE_BLOCK: 'V_CODE_BLOCK',
     V_SHELL: 'V_SHELL',
     V_RAIL: 'V_RAIL',
     V_DRAWER: 'V_DRAWER',
@@ -82,6 +83,11 @@ export const routes: RouteRecordRaw[] = [
             path: 'chip',
             name: ROUTE_NAMES.VUE.V_CHIP,
             component: () => import('src/pages/vue/VChip.vue'),
+          },
+          {
+            path: 'code-block',
+            name: ROUTE_NAMES.VUE.V_CODE_BLOCK,
+            component: () => import('src/pages/vue/VCodeBlock.vue'),
           },
           {
             path: 'shell',
