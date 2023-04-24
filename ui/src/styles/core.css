@@ -28,6 +28,7 @@
 
   ::-webkit-scrollbar {
     @apply w-2;
+    @apply h-2;
   }
   ::-webkit-scrollbar-track {
     @apply px-[1px] !bg-surface-50-900-token;

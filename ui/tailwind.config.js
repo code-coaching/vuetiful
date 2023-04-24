@@ -13,6 +13,6 @@ module.exports = {
   },
   plugins: [
     // require('@tailwindcss/forms'),
-    ...require("./src/tailwind/vuetiful.cjs")({ intellisense: false }),
+    ...require("./src/tailwind/vuetiful.cjs")(),
   ],
 };
