@@ -64,7 +64,7 @@ const withoutOverflowExample =
   '        <v-code-block prevent-overflow class="max-w-[500px]" language="html" :code="withoutOverflowExample" />';
 
 const copyButtonExample =
-  '<v-code-block button-text="Grab me!" button-copied-text="You got me!" language="html" :code="<h1>John Duck</h1>" />';
+  '<v-code-block button-text="Grab me!" button-copied-text="You got me!" language="html" code="<h1>John Duck</h1>" />';
 </script>
 
 <template>
