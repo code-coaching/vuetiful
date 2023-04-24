@@ -16,11 +16,18 @@ const props = defineProps({
     default: "",
   },
 
+  preventOverflow: {
+    type: Boolean,
+    default: false,
+  },
+
   headerClass: {
     type: String as () => CssClasses,
+    default: "",
   },
   preClass: {
     type: String as () => CssClasses,
+    default: "",
   },
 
   buttonClass: {
@@ -75,7 +82,9 @@ function onCopyClick() {
       </button>
     </header>
     <pre
-      :class="`code-block-pre whitespace-pre-wrap break-all p-4 pt-1 ${preClass}`"
+      :class="`code-block-pre ${
+        preventOverflow ? 'whitespace-pre-wrap break-all' : 'overflow-auto'
+      } p-4 pt-1 ${preClass}`"
     ><code :class="`code-block-code language-${language}`" v-html="highlight(props.code, props.language)"></code></pre>
   </div>
 </template>
