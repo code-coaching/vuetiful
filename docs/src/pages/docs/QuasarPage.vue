@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CodeBlock } from '@code-coaching/vuetiful';
+import { VCodeBlock } from '@code-coaching/vuetiful';
 import { reactive, ref } from 'vue';
 
 const onDropdownItemClick = (item: string) => {
@@ -1085,7 +1085,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
     <details class="mt-8">
       <summary>Code</summary>
-      <CodeBlock language="html" :code="qAvatarExample" />
+      <v-code-block language="html" :code="qAvatarExample" />
     </details>
 
     <h2>QBadge</h2>
@@ -1112,7 +1112,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
     <details class="mt-8">
       <summary>Code</summary>
-      <CodeBlock language="html" :code="qBadgeExample" />
+      <v-code-block language="html" :code="qBadgeExample" />
     </details>
 
     <h2>QBanner</h2>
@@ -1135,7 +1135,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
       <details class="mb-2">
         <summary>Code</summary>
-        <CodeBlock language="html" :code="qBannerExample('surface')" />
+        <v-code-block language="html" :code="qBannerExample('surface')" />
       </details>
 
       <q-banner inline-actions class="bg-primary-100 text-primary-900">
@@ -1155,7 +1155,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
       <details class="mb-2">
         <summary>Code</summary>
-        <CodeBlock language="html" :code="qBannerExample('primary')" />
+        <v-code-block language="html" :code="qBannerExample('primary')" />
       </details>
 
       <q-banner inline-actions class="bg-secondary-100 text-secondary-900">
@@ -1175,7 +1175,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
       <details class="mb-2">
         <summary>Code</summary>
-        <CodeBlock language="html" :code="qBannerExample('secondary')" />
+        <v-code-block language="html" :code="qBannerExample('secondary')" />
       </details>
 
       <q-banner inline-actions class="bg-tertiary-100 text-tertiary-900">
@@ -1195,7 +1195,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
       <details class="mb-2">
         <summary>Code</summary>
-        <CodeBlock language="html" :code="qBannerExample('tertiary')" />
+        <v-code-block language="html" :code="qBannerExample('tertiary')" />
       </details>
 
       <q-banner inline-actions class="bg-success-100 text-success-900">
@@ -1215,7 +1215,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
       <details class="mb-2">
         <summary>Code</summary>
-        <CodeBlock language="html" :code="qBannerExample('success')" />
+        <v-code-block language="html" :code="qBannerExample('success')" />
       </details>
 
       <q-banner inline-actions class="bg-warning-100 text-warning-900">
@@ -1235,7 +1235,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
       <details class="mb-2">
         <summary>Code</summary>
-        <CodeBlock language="html" :code="qBannerExample('warning')" />
+        <v-code-block language="html" :code="qBannerExample('warning')" />
       </details>
 
       <q-banner inline-actions class="bg-error-100 text-error-900">
@@ -1255,7 +1255,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
       <details class="mb-2">
         <summary>Code</summary>
-        <CodeBlock language="html" :code="qBannerExample('error')" />
+        <v-code-block language="html" :code="qBannerExample('error')" />
       </details>
     </div>
 
@@ -1281,7 +1281,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       </div>
       <details class="mb-2">
         <summary>Code</summary>
-        <CodeBlock language="html" :code="qBtnExample('')" />
+        <v-code-block language="html" :code="qBtnExample('')" />
       </details>
 
       <div class="flex flex-wrap gap-2">
@@ -1305,7 +1305,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
       <details class="mb-2">
         <summary>Code</summary>
-        <CodeBlock language="html" :code="qBtnExample('flat')" />
+        <v-code-block language="html" :code="qBtnExample('flat')" />
       </details>
 
       <div class="flex gap-2">
@@ -1330,7 +1330,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
       <details class="mb-2">
         <summary>Code</summary>
-        <CodeBlock language="html" :code="qBtnExample('outline')" />
+        <v-code-block language="html" :code="qBtnExample('outline')" />
       </details>
 
       <h3>QBtnGroup</h3>
@@ -1357,7 +1357,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
         <details class="mb-2">
           <summary>Code</summary>
-          <CodeBlock language="html" :code="qBtnGroupExample('push')" />
+          <v-code-block language="html" :code="qBtnGroupExample('push')" />
         </details>
 
         <q-btn-group outline>
@@ -1382,7 +1382,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
         <details class="mb-2">
           <summary>Code</summary>
-          <CodeBlock language="html" :code="qBtnGroupExample('outline')" />
+          <v-code-block language="html" :code="qBtnGroupExample('outline')" />
         </details>
       </div>
 
@@ -1434,7 +1434,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       </div>
       <details class="mb-2">
         <summary>Code</summary>
-        <CodeBlock language="html" :code="qButtonDropdownExample" />
+        <v-code-block language="html" :code="qButtonDropdownExample" />
       </details>
     </div>
 
@@ -1478,7 +1478,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
       <details class="mb-2">
         <summary>Code</summary>
-        <CodeBlock language="html" :code="qCardOneExample" />
+        <v-code-block language="html" :code="qCardOneExample" />
       </details>
 
       <div class="flex flex-wrap items-start gap-2">
@@ -1511,7 +1511,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
       <details class="mb-2">
         <summary>Code</summary>
-        <CodeBlock language="html" :code="qCardTwoExample" />
+        <v-code-block language="html" :code="qCardTwoExample" />
       </details>
 
       <div class="flex flex-wrap items-start gap-2">
@@ -1534,7 +1534,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
       <details class="mb-2">
         <summary>Code</summary>
-        <CodeBlock language="html" :code="qCardFiveExample" />
+        <v-code-block language="html" :code="qCardFiveExample" />
       </details>
 
       <div class="flex flex-wrap items-start gap-2">
@@ -1559,7 +1559,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
       <details class="mb-2">
         <summary>Code</summary>
-        <CodeBlock language="html" :code="qCardThreeExample" />
+        <v-code-block language="html" :code="qCardThreeExample" />
       </details>
 
       <div class="flex flex-wrap items-start gap-2">
@@ -1594,7 +1594,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
       <details class="mb-2">
         <summary>Code</summary>
-        <CodeBlock language="html" :code="qCardFourExample" />
+        <v-code-block language="html" :code="qCardFourExample" />
       </details>
     </div>
 
@@ -1653,7 +1653,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
       <details class="mb-2">
         <summary>Code</summary>
-        <CodeBlock language="html" :code="qChipExample('')" />
+        <v-code-block language="html" :code="qChipExample('')" />
       </details>
 
       <div class="flex flex-wrap gap-1">
@@ -1709,7 +1709,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
       <details class="mb-2">
         <summary>Code</summary>
-        <CodeBlock language="html" :code="qChipExample('dense')" />
+        <v-code-block language="html" :code="qChipExample('dense')" />
       </details>
     </div>
 
@@ -1732,8 +1732,8 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     <details class="mb-2">
       <summary>Code</summary>
       <div class="flex flex-col gap-2">
-        <CodeBlock language="ts" :code="qColorScriptExample" />
-        <CodeBlock language="html" :code="qColorExample" />
+        <v-code-block language="ts" :code="qColorScriptExample" />
+        <v-code-block language="html" :code="qColorExample" />
       </div>
     </details>
 
@@ -1744,11 +1744,11 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       <q-editor class="light-actions bg-surface-800 text-surface-50" v-model="editor" min-height="5rem" />
     </div>
 
-    <details class="mt-2 mb-2">
+    <details class="mb-2 mt-2">
       <summary>Code</summary>
       <div class="flex flex-col gap-2">
-        <CodeBlock language="ts" :code="qEditorScriptExample" />
-        <CodeBlock language="html" :code="qEditorExample" />
+        <v-code-block language="ts" :code="qEditorScriptExample" />
+        <v-code-block language="html" :code="qEditorExample" />
       </div>
     </details>
 
@@ -1845,10 +1845,10 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       </q-list>
     </div>
 
-    <details class="mt-2 mb-2">
+    <details class="mb-2 mt-2">
       <summary>Code</summary>
       <div class="flex flex-col gap-2">
-        <CodeBlock language="html" :code="qExpansionItemExample" />
+        <v-code-block language="html" :code="qExpansionItemExample" />
       </div>
     </details>
 
@@ -1930,8 +1930,8 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       <details class="mb-2">
         <summary>Code</summary>
         <div class="flex flex-col gap-2">
-          <CodeBlock language="ts" :code="qInputScriptExample" />
-          <CodeBlock language="html" :code="qInputLightExample" />
+          <v-code-block language="ts" :code="qInputScriptExample" />
+          <v-code-block language="html" :code="qInputLightExample" />
         </div>
       </details>
 
@@ -2010,8 +2010,8 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       <details class="mb-2">
         <summary>Code</summary>
         <div class="flex flex-col gap-2">
-          <CodeBlock language="ts" :code="qInputScriptExample" />
-          <CodeBlock language="html" :code="qInputDarkExample" />
+          <v-code-block language="ts" :code="qInputScriptExample" />
+          <v-code-block language="html" :code="qInputDarkExample" />
         </div>
       </details>
     </div>
@@ -2101,8 +2101,8 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       <details class="mb-2">
         <summary>Code</summary>
         <div class="flex flex-col gap-2">
-          <CodeBlock language="ts" :code="qSelectScriptExample" />
-          <CodeBlock language="html" :code="qSelectLightExample" />
+          <v-code-block language="ts" :code="qSelectScriptExample" />
+          <v-code-block language="html" :code="qSelectLightExample" />
         </div>
       </details>
 
@@ -2194,8 +2194,8 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       <details class="mb-2">
         <summary>Code</summary>
         <div class="flex flex-col gap-2">
-          <CodeBlock language="ts" :code="qSelectScriptExample" />
-          <CodeBlock language="html" :code="qSelectDarkExample" />
+          <v-code-block language="ts" :code="qSelectScriptExample" />
+          <v-code-block language="html" :code="qSelectDarkExample" />
         </div>
       </details>
     </div>
@@ -2278,8 +2278,8 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       <details class="mb-2">
         <summary>Code</summary>
         <div class="flex flex-col gap-2">
-          <CodeBlock language="ts" :code="qFileScriptExample" />
-          <CodeBlock language="html" :code="qFileLightExample" />
+          <v-code-block language="ts" :code="qFileScriptExample" />
+          <v-code-block language="html" :code="qFileLightExample" />
         </div>
       </details>
 
@@ -2358,8 +2358,8 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       <details class="mb-2">
         <summary>Code</summary>
         <div class="flex flex-col gap-2">
-          <CodeBlock language="ts" :code="qFileScriptExample" />
-          <CodeBlock language="html" :code="qFileDarkExample" />
+          <v-code-block language="ts" :code="qFileScriptExample" />
+          <v-code-block language="html" :code="qFileDarkExample" />
         </div>
       </details>
     </div>
@@ -2370,11 +2370,11 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       <q-time v-model="timeWithSeconds" with-seconds />
     </div>
 
-    <details class="mt-2 mb-2">
+    <details class="mb-2 mt-2">
       <summary>Code</summary>
       <div class="flex flex-col gap-2">
-        <CodeBlock language="ts" :code="qTimeScriptExample" />
-        <CodeBlock language="html" :code="qTimeExample" />
+        <v-code-block language="ts" :code="qTimeScriptExample" />
+        <v-code-block language="html" :code="qTimeExample" />
       </div>
     </details>
 
@@ -2384,11 +2384,11 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
       <q-date v-model="date" minimal />
     </div>
 
-    <details class="mt-2 mb-2">
+    <details class="mb-2 mt-2">
       <summary>Code</summary>
       <div class="flex flex-col gap-2">
-        <CodeBlock language="ts" :code="qDateScriptExample" />
-        <CodeBlock language="html" :code="qDateExample" />
+        <v-code-block language="ts" :code="qDateScriptExample" />
+        <v-code-block language="html" :code="qDateExample" />
       </div>
     </details>
   </div>

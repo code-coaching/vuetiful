@@ -31,40 +31,42 @@ const docsLinks = [
   },
 ];
 
-const vueLinks = [
-  {
-    title: 'VBadge',
-    name: ROUTE_NAMES.VUE.V_BADGE,
-  },
-  {
-    title: 'VButton',
-    name: ROUTE_NAMES.VUE.V_BUTTON,
-  },
-  {
-    title: 'VChip',
-    name: ROUTE_NAMES.VUE.V_CHIP,
-  },
-];
-
 const vueLinksLayout = [
   {
-    title: 'VShell',
+    title: 'Shell',
     name: ROUTE_NAMES.VUE.V_SHELL,
   },
   {
-    title: 'VRail',
+    title: 'Rail',
     name: ROUTE_NAMES.VUE.V_RAIL,
   },
   {
-    title: 'VDrawer',
+    title: 'Drawer',
     name: ROUTE_NAMES.VUE.V_DRAWER,
-  }
+  },
+];
+
+const vueLinks = [
+  {
+    title: 'Badge',
+    name: ROUTE_NAMES.VUE.V_BADGE,
+  },
+  {
+    title: 'Button',
+    name: ROUTE_NAMES.VUE.V_BUTTON,
+  },
+  {
+    title: 'Chip',
+    name: ROUTE_NAMES.VUE.V_CHIP,
+  },
 ];
 </script>
 
 <template>
   <div
-    :class="`sidebar h-full grid-cols-[auto_1fr] border-r border-surface-500/30 ${ embedded ? 'grid' : 'hidden lg:!grid' }`"
+    :class="`sidebar h-full grid-cols-[auto_1fr] border-r border-surface-500/30 ${
+      embedded ? 'grid' : 'hidden lg:!grid'
+    }`"
   >
     <v-rail class="rail overflow-y-auto border-r border-surface-500/30">
       <v-rail-tile @click="$router.push({ name: ROUTE_NAMES.DOCS.DEFAULT })" value="docs" label="Docs"> </v-rail-tile>

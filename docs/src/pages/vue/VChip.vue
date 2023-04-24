@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { CodeBlock, VChip } from '@code-coaching/vuetiful';
+import { VChip, VCodeBlock } from '@code-coaching/vuetiful';
 </script>
 
 <template>
   <div class="flex max-w-5xl flex-col p-4">
     <h1>VChip</h1>
-    <CodeBlock language="ts" :code="`import { VChip } from '@code-coaching/vuetiful`" />
+    <v-code-block language="ts" :code="`import { VChip } from '@code-coaching/vuetiful`" />
 
     <h2>Usage</h2>
     <div class="mb-4">
       <div class="mb-2 flex flex-wrap items-start gap-2">
         <v-chip class="variant-filled">default</v-chip>
       </div>
-      <CodeBlock language="html" :code="`<v-chip class=&quot;variant-filled&quot;>default</v-chip>`" />
+      <v-code-block language="html" :code="`<v-chip class=&quot;variant-filled&quot;>default</v-chip>`" />
     </div>
 
     <h3>Variants</h3>
@@ -27,7 +27,7 @@ import { CodeBlock, VChip } from '@code-coaching/vuetiful';
       <v-chip class="variant-filled-warning">Warning</v-chip>
       <v-chip class="variant-filled-error">Error</v-chip>
     </div>
-    <CodeBlock
+    <v-code-block
       language="html"
       :code="`<v-chip class=&quot;variant-filled&quot;>Default</v-chip>
 <v-chip class=&quot;variant-filled-surface&quot;>Surface</v-chip>
@@ -50,7 +50,7 @@ import { CodeBlock, VChip } from '@code-coaching/vuetiful';
       <v-chip class="variant-ringed-warning">Warning</v-chip>
       <v-chip class="variant-ringed-error">Error</v-chip>
     </div>
-    <CodeBlock
+    <v-code-block
       language="html"
       :code="`<v-chip class=&quot;variant-ringed&quot;>Default</v-chip>
 <v-chip class=&quot;variant-ringed-surface&quot;>Surface</v-chip>
@@ -73,7 +73,7 @@ import { CodeBlock, VChip } from '@code-coaching/vuetiful';
       <v-chip class="variant-ghost-warning">Warning</v-chip>
       <v-chip class="variant-ghost-error">Error</v-chip>
     </div>
-    <CodeBlock
+    <v-code-block
       language="html"
       :code="`<v-chip class=&quot;variant-ghost&quot;>Default</v-chip>
 <v-chip class=&quot;variant-ghost-surface&quot;>Surface</v-chip>
@@ -96,7 +96,7 @@ import { CodeBlock, VChip } from '@code-coaching/vuetiful';
       <v-chip class="variant-soft-warning">Warning</v-chip>
       <v-chip class="variant-soft-error">Error</v-chip>
     </div>
-    <CodeBlock
+    <v-code-block
       language="html"
       :code="`<v-chip class=&quot;variant-soft&quot;>Default</v-chip>
 <v-chip class=&quot;variant-soft-surface&quot;>Surface</v-chip>
@@ -119,7 +119,7 @@ import { CodeBlock, VChip } from '@code-coaching/vuetiful';
       <v-chip class="variant-glass-warning">Warning</v-chip>
       <v-chip class="variant-glass-error">Error</v-chip>
     </div>
-    <CodeBlock
+    <v-code-block
       language="html"
       :code="`<v-chip class=&quot;variant-glass&quot;>Default</v-chip>
 <v-chip class=&quot;variant-glass-surface&quot;>Surface</v-chip>

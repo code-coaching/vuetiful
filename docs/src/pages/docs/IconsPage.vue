@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CodeBlock, VButton } from '@code-coaching/vuetiful';
+import { VButton, VCodeBlock } from '@code-coaching/vuetiful';
 
 const fileStructure = `font-awesome/
   css/
@@ -89,10 +89,10 @@ const quasarQIcon = `<v-button icon class="variant-filled">
       <a href="https://fontawesome.com/download">Font Awesome</a>. Add the following file structure to a public folder.
       The <code>css</code>, <code>ttf</code> and <code>woff2</code> files are copied over from the download.
     </p>
-    <CodeBlock language="bash" :code="fileStructure" />
+    <v-code-block language="bash" :code="fileStructure" />
 
     <p class="mt-8">Add the css files to the <code>head</code> of your <code>index.html</code> file.</p>
-    <CodeBlock language="html" :code="indexHtml" />
+    <v-code-block language="html" :code="indexHtml" />
     <p>Note: make sure to point towards the correct paths.</p>
 
     <h2>Usage</h2>
@@ -106,7 +106,7 @@ const quasarQIcon = `<v-button icon class="variant-filled">
           <i class="fa-solid fa-ghost fa-fade"></i>
           <i class="fa-solid fa-ghost fa-beat-fade"></i>
         </div>
-        <CodeBlock language="html" :code="faIcons" />
+        <v-code-block language="html" :code="faIcons" />
       </div>
 
       <div class="flex flex-col gap-2">
@@ -119,7 +119,7 @@ const quasarQIcon = `<v-button icon class="variant-filled">
           <p><i class="fa-solid fa-code fa-xl"></i></p>
           <p><i class="fa-solid fa-code fa-2xl"></i></p>
         </div>
-        <CodeBlock language="html" :code="faIconsSizes" />
+        <v-code-block language="html" :code="faIconsSizes" />
       </div>
     </div>
 
@@ -142,7 +142,7 @@ const quasarQIcon = `<v-button icon class="variant-filled">
           <i class="fa-solid fa-code"></i>
         </v-button>
       </div>
-      <CodeBlock language="html" :code="vbuttonIcon" />
+      <v-code-block language="html" :code="vbuttonIcon" />
     </div>
 
     <h4>Quasar - QIcon</h4>
@@ -163,13 +163,10 @@ const quasarQIcon = `<v-button icon class="variant-filled">
           <div>Code</div>
           <q-icon name="code"></q-icon>
         </v-button>
-
       </div>
-      <CodeBlock language="html" :code="quasarQIcon" />
+      <v-code-block language="html" :code="quasarQIcon" />
 
-      <v-button aria-label="kaka" class="variant-filled">
-        kaka
-      </v-button>
+      <v-button aria-label="kaka" class="variant-filled"> kaka </v-button>
     </div>
   </div>
 </template>

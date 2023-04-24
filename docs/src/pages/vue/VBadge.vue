@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { CodeBlock, VBadge } from '@code-coaching/vuetiful';
+import { VBadge, VCodeBlock } from '@code-coaching/vuetiful';
 </script>
 
 <template>
   <div class="flex max-w-5xl flex-col p-4">
     <h1>VBadge</h1>
-    <CodeBlock language="ts" :code="`import { VBadge } from '@code-coaching/vuetiful`" />
+    <v-code-block language="ts" :code="`import { VBadge } from '@code-coaching/vuetiful`" />
 
     <h2>Usage</h2>
     <div class="mb-2 flex flex-wrap items-start gap-2">
       <v-badge class="variant-filled">default</v-badge>
     </div>
-    <CodeBlock language="html" :code="`<v-badge class=&quot;variant-filled&quot;>default</v-badge>`" />
+    <v-code-block language="html" :code="`<v-badge class=&quot;variant-filled&quot;>default</v-badge>`" />
 
     <h3>Variants</h3>
     <h4>Filled</h4>
@@ -25,7 +25,7 @@ import { CodeBlock, VBadge } from '@code-coaching/vuetiful';
       <v-badge class="variant-filled-warning">Warning</v-badge>
       <v-badge class="variant-filled-error">Error</v-badge>
     </div>
-    <CodeBlock
+    <v-code-block
       language="html"
       :code="`<v-badge class=&quot;variant-filled&quot;>Default</v-badge>
 <v-badge class=&quot;variant-filled-surface&quot;>Surface</v-badge>
@@ -48,7 +48,7 @@ import { CodeBlock, VBadge } from '@code-coaching/vuetiful';
       <v-badge class="variant-ringed-warning">Warning</v-badge>
       <v-badge class="variant-ringed-error">Error</v-badge>
     </div>
-    <CodeBlock
+    <v-code-block
       language="html"
       :code="`<v-badge class=&quot;variant-ringed&quot;>Default</v-badge>
 <v-badge class=&quot;variant-ringed-surface&quot;>Surface</v-badge>
@@ -71,7 +71,7 @@ import { CodeBlock, VBadge } from '@code-coaching/vuetiful';
       <v-badge class="variant-ghost-warning">Warning</v-badge>
       <v-badge class="variant-ghost-error">Error</v-badge>
     </div>
-    <CodeBlock
+    <v-code-block
       language="html"
       :code="`<v-badge class=&quot;variant-ghost&quot;>Default</v-badge>
 <v-badge class=&quot;variant-ghost-surface&quot;>Surface</v-badge>
@@ -94,7 +94,7 @@ import { CodeBlock, VBadge } from '@code-coaching/vuetiful';
       <v-badge class="variant-soft-warning">Warning</v-badge>
       <v-badge class="variant-soft-error">Error</v-badge>
     </div>
-    <CodeBlock
+    <v-code-block
       language="html"
       :code="`<v-badge class=&quot;variant-soft&quot;>Default</v-badge>
 <v-badge class=&quot;variant-soft-surface&quot;>Surface</v-badge>
@@ -117,7 +117,7 @@ import { CodeBlock, VBadge } from '@code-coaching/vuetiful';
       <v-badge class="variant-glass-warning">Warning</v-badge>
       <v-badge class="variant-glass-error">Error</v-badge>
     </div>
-    <CodeBlock
+    <v-code-block
       language="html"
       :code="`<v-badge class=&quot;variant-glass&quot;>Default</v-badge>
 <v-badge class=&quot;variant-glass-surface&quot;>Surface</v-badge>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CodeBlock, useDrawer, VButton } from '@code-coaching/vuetiful';
+import { VButton, VCodeBlock, useDrawer } from '@code-coaching/vuetiful';
 
 const { open } = useDrawer();
 
@@ -38,7 +38,7 @@ const useDrawerAnimationCode = `<v-button @click="open({ id: \'content-one\', du
   <div class="flex max-w-5xl flex-col p-4">
     <h1>VDrawer</h1>
 
-    <CodeBlock language="ts" :code="`import { VDrawer} from '@code-coaching/vuetiful`" />
+    <v-code-block language="ts" :code="`import { VDrawer} from '@code-coaching/vuetiful`" />
 
     <h2>Usage</h2>
     <h3>Single drawer</h3>
@@ -47,30 +47,31 @@ const useDrawerAnimationCode = `<v-button @click="open({ id: \'content-one\', du
       layout component.
     </p>
 
-    <code-block language="html" :code="codeExample" />
+    <v-code-block language="html" :code="codeExample" />
 
     <h3>Multiple drawers</h3>
     <p>
       There should still only exist exactly one instance of the <code>VDrawer</code> component in the app. In this
       instance, multiple sections can be added using <code>template</code> combined with <code>v-if</code>. The
-      different sections can be opened by passing an <code>id</code> using <code>open()</code> from <code>useDrawer</code>.
+      different sections can be opened by passing an <code>id</code> using <code>open()</code> from
+      <code>useDrawer</code>.
     </p>
     <div>Script</div>
-    <code-block language="ts" :code="codeExampleMultipleScript" />
+    <v-code-block language="ts" :code="codeExampleMultipleScript" />
     <div>Template</div>
-    <code-block language="html" :code="codeExampleMultipleTemplate" />
+    <v-code-block language="html" :code="codeExampleMultipleTemplate" />
 
     <h3>useDrawer</h3>
 
     <div class="flex flex-col gap-4">
-      <code-block
+      <v-code-block
         language="ts"
         :code="`import { useDrawer } from '@code-coaching/vuetiful';
   const { open } = useDrawer();
   `"
       />
 
-      <code-block language="html" :code="useDrawerCode" />
+      <v-code-block language="html" :code="useDrawerCode" />
 
       <div class="mb-4 flex flex-col items-center justify-center gap-2">
         <div class="grid grid-cols-3 gap-10">
@@ -88,7 +89,7 @@ const useDrawerAnimationCode = `<v-button @click="open({ id: \'content-one\', du
 
       <div class="flex flex-col gap-2">
         <p>There are two speeds for animation <code>300 (default)</code> and <code>150</code>.</p>
-        <code-block language="html" :code="useDrawerAnimationCode" />
+        <v-code-block language="html" :code="useDrawerAnimationCode" />
       </div>
     </div>
   </div>

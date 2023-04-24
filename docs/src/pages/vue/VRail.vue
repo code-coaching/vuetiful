@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CodeBlock, VRail, VRailTile, VShell, useRail } from '@code-coaching/vuetiful';
+import { VCodeBlock, VRail, VRailTile, VShell, useRail } from '@code-coaching/vuetiful';
 const { selectedRailTile } = useRail();
 
 const codeExample = `<v-rail>
@@ -28,7 +28,7 @@ const useRailExample = `<v-shell class="flex border-2 border-surface-500">
   <div class="flex max-w-5xl flex-col p-4">
     <h1>VRail</h1>
 
-    <CodeBlock language="ts" :code="`import { VRail } from '@code-coaching/vuetiful`" />
+    <v-code-block language="ts" :code="`import { VRail } from '@code-coaching/vuetiful`" />
 
     <h2>Usage</h2>
     <p>
@@ -43,7 +43,7 @@ const useRailExample = `<v-shell class="flex border-2 border-surface-500">
       is kept in a variable called <code>selectedRailTile</code> which can be accessed through <code>useRail</code>.
     </p>
 
-    <code-block language="html" :code="codeExample" />
+    <v-code-block language="html" :code="codeExample" />
 
     <h2>Example</h2>
 
@@ -65,11 +65,11 @@ const useRailExample = `<v-shell class="flex border-2 border-surface-500">
     </div>
 
     <div class="flex flex-col gap-4">
-      <code-block
+      <v-code-block
         language="ts"
         :code="`import { VRail, VRailTile, VShell, useRail } from '@code-coaching/vuetiful';`"
       />
-      <code-block language="html" :code="useRailExample" />
+      <v-code-block language="html" :code="useRailExample" />
     </div>
   </div>
 </template>

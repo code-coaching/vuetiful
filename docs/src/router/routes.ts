@@ -69,32 +69,32 @@ export const routes: RouteRecordRaw[] = [
             redirect: { name: ROUTE_NAMES.VUE.V_BUTTON },
           },
           {
-            path: 'v-badge',
+            path: 'badge',
             name: ROUTE_NAMES.VUE.V_BADGE,
             component: () => import('src/pages/vue/VBadge.vue'),
           },
           {
-            path: 'v-button',
+            path: 'button',
             name: ROUTE_NAMES.VUE.V_BUTTON,
             component: () => import('src/pages/vue/VButton.vue'),
           },
           {
-            path: 'v-chip',
+            path: 'chip',
             name: ROUTE_NAMES.VUE.V_CHIP,
             component: () => import('src/pages/vue/VChip.vue'),
           },
           {
-            path: 'v-shell',
+            path: 'shell',
             name: ROUTE_NAMES.VUE.V_SHELL,
             component: () => import('src/pages/vue/VShell.vue'),
           },
           {
-            path: 'v-rail',
+            path: 'rail',
             name: ROUTE_NAMES.VUE.V_RAIL,
             component: () => import('src/pages/vue/VRail.vue'),
           },
           {
-            path: 'v-drawer',
+            path: 'drawer',
             name: ROUTE_NAMES.VUE.V_DRAWER,
             component: () => import('src/pages/vue/VDrawer.vue'),
           },

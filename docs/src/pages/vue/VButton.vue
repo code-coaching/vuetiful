@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { CodeBlock, VButton } from '@code-coaching/vuetiful';
+import { VButton, VCodeBlock } from '@code-coaching/vuetiful';
 </script>
 
 <template>
   <div class="flex max-w-5xl flex-col p-4">
     <h1>VButton</h1>
-    <CodeBlock language="ts" :code="`import { VButton } from '@code-coaching/vuetiful`" />
+    <v-code-block language="ts" :code="`import { VButton } from '@code-coaching/vuetiful`" />
 
     <h2>Accessibility</h2>
     <p>
@@ -22,7 +22,7 @@ import { CodeBlock, VButton } from '@code-coaching/vuetiful';
 
     <p>Keyboard users can use the <code>Enter</code> or <code>Space</code> key to activate the button.</p>
 
-    <code-block language="html" :code="`<v-button aria-label=&quot;Menu&quot;>John Duck</v-button>`" />
+    <v-code-block language="html" :code="`<v-button aria-label=&quot;Menu&quot;>John Duck</v-button>`" />
 
     <h2>Usage</h2>
     <h3>Sizes</h3>
@@ -32,7 +32,7 @@ import { CodeBlock, VButton } from '@code-coaching/vuetiful';
       <v-button class="variant-filled btn-lg">lg</v-button>
       <v-button class="variant-filled btn-xl">xl</v-button>
     </div>
-    <CodeBlock
+    <v-code-block
       language="html"
       :code="`<v-button class=&quot;variant-filled btn-sm&quot;>sm</v-button>
 <v-button class=&quot;variant-filled&quot;>default</v-button>
@@ -52,7 +52,7 @@ import { CodeBlock, VButton } from '@code-coaching/vuetiful';
       <v-button class="variant-filled-warning">Warning</v-button>
       <v-button class="variant-filled-error">Error</v-button>
     </div>
-    <CodeBlock
+    <v-code-block
       language="html"
       :code="`<v-button class=&quot;variant-filled&quot;>Default</v-button>
 <v-button class=&quot;variant-filled-surface&quot;>Surface</v-button>
@@ -75,7 +75,7 @@ import { CodeBlock, VButton } from '@code-coaching/vuetiful';
       <v-button class="variant-ringed-warning">Warning</v-button>
       <v-button class="variant-ringed-error">Error</v-button>
     </div>
-    <CodeBlock
+    <v-code-block
       language="html"
       :code="`<v-button class=&quot;variant-ringed&quot;>Default</v-button>
 <v-button class=&quot;variant-ringed-surface&quot;>Surface</v-button>
@@ -98,7 +98,7 @@ import { CodeBlock, VButton } from '@code-coaching/vuetiful';
       <v-button class="variant-ghost-warning">Warning</v-button>
       <v-button class="variant-ghost-error">Error</v-button>
     </div>
-    <CodeBlock
+    <v-code-block
       language="html"
       :code="`<v-button class=&quot;variant-ghost&quot;>Default</v-button>
 <v-button class=&quot;variant-ghost-surface&quot;>Surface</v-button>
@@ -121,7 +121,7 @@ import { CodeBlock, VButton } from '@code-coaching/vuetiful';
       <v-button class="variant-soft-warning">Warning</v-button>
       <v-button class="variant-soft-error">Error</v-button>
     </div>
-    <CodeBlock
+    <v-code-block
       language="html"
       :code="`<v-button class=&quot;variant-soft&quot;>Default</v-button>
 <v-button class=&quot;variant-soft-surface&quot;>Surface</v-button>
@@ -144,7 +144,7 @@ import { CodeBlock, VButton } from '@code-coaching/vuetiful';
       <v-button class="variant-glass-warning">Warning</v-button>
       <v-button class="variant-glass-error">Error</v-button>
     </div>
-    <CodeBlock
+    <v-code-block
       language="html"
       :code="`<v-button class=&quot;variant-glass&quot;>Default</v-button>
 <v-button class=&quot;variant-glass-surface&quot;>Surface</v-button>

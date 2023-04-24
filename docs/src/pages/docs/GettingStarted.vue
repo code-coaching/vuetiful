@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CodeBlock } from '@code-coaching/vuetiful';
+import { VCodeBlock } from '@code-coaching/vuetiful';
 
 const exampleTailwindConfig = `/** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -462,26 +462,26 @@ body,
     </header>
 
     <h2>Install Vuetiful</h2>
-    <CodeBlock language="sh" code="npm install @code-coaching/vuetiful" />
+    <v-code-block language="sh" code="npm install @code-coaching/vuetiful" />
 
     <h2>Install Tailwind</h2>
     <p class="pb-4">
       Vuetiful is created using TailwindCSS, you will need to add it as a dependency. However, you are not obligated to
       use TailwindCSS yourself.
     </p>
-    <CodeBlock language="sh" code="npm install -D tailwindcss postcss autoprefixer prettier-plugin-tailwindcss" />
+    <v-code-block language="sh" code="npm install -D tailwindcss postcss autoprefixer prettier-plugin-tailwindcss" />
 
     <h3>Initialize Tailwind</h3>
-    <CodeBlock language="sh" code="npx tailwindcss init" />
+    <v-code-block language="sh" code="npx tailwindcss init" />
 
     <h3>tailwind.config.js</h3>
-    <CodeBlock language="js" :code="exampleTailwindConfig" />
+    <v-code-block language="js" :code="exampleTailwindConfig" />
     Note: This file might be called `tailwind.config.cjs` depending on your setup.
 
     <h3>Tailwind Directives</h3>
     Make sure to <strong>not</strong> have the Tailwind directives in your css, this is provided by Vuetiful.
 
-    <CodeBlock
+    <v-code-block
       language="css"
       :code="`// If this is in your css, remove it
 @tailwind base;
@@ -492,7 +492,7 @@ body,
     <h3>pnpm | yarn</h3>
     In case you are using pnpm or yarn instead of npm, you will need to create/add the following to
     `prettier.config.js`.
-    <CodeBlock
+    <v-code-block
       language="js"
       :code="`// prettier.config.js
 module.exports = {
@@ -517,7 +517,7 @@ module.exports = {
       <h3>PostCSS config</h3>
       <p>Create a `postcss.config.cjs` file in the root of your project, add the following content:</p>
 
-      <CodeBlock
+      <v-code-block
         language="js"
         :code="`module.exports = {
   plugins: {
@@ -528,16 +528,16 @@ module.exports = {
       />
 
       <h3>Vue3 - main.ts</h3>
-      <CodeBlock language="ts" :code="exampleVueMain" />
+      <v-code-block language="ts" :code="exampleVueMain" />
 
       <p>Note: `@code-coaching/vuetiful/styles/all.css` must be imported before any other css.</p>
 
       <h3>App.vue - script setup</h3>
       Add the following code to your App.vue file.
-      <CodeBlock language="ts" :code="exampleScriptSetup" />
+      <v-code-block language="ts" :code="exampleScriptSetup" />
 
       <h3>App.vue - no script setup</h3>
-      <CodeBlock language="ts" :code="exampleNoScriptSetup" />
+      <v-code-block language="ts" :code="exampleNoScriptSetup" />
     </details>
 
     <h2>Quasar</h2>
@@ -546,10 +546,10 @@ module.exports = {
       <summary>Click here for the Quasar instructions</summary>
 
       <h3>postcss.config.js</h3>
-      <CodeBlock language="js" :code="exampleQuasarPostCss" />
+      <v-code-block language="js" :code="exampleQuasarPostCss" />
 
       <h3>quasar.config.js</h3>
-      <CodeBlock language="js" :code="exampleQuasarConfig" />
+      <v-code-block language="js" :code="exampleQuasarConfig" />
       <div>
         There are two things to change in `quasar.config.js`:
         <ul>
@@ -559,14 +559,14 @@ module.exports = {
       </div>
 
       <h3>App.vue - script setup</h3>
-      <CodeBlock language="ts" :code="exampleQuasarScriptSetup" />
+      <v-code-block language="ts" :code="exampleQuasarScriptSetup" />
 
       <h3>App.vue - no script setup</h3>
-      <CodeBlock language="ts" :code="exampleQuasarNoScriptSetup" />
+      <v-code-block language="ts" :code="exampleQuasarNoScriptSetup" />
 
       <h3>app.css</h3>
       <p>Copy paste this into your app.css file.</p>
-      <CodeBlock language="css" :code="exampleQuasarCssOverwrite" />
+      <v-code-block language="css" :code="exampleQuasarCssOverwrite" />
     </details>
   </div>
 </template>

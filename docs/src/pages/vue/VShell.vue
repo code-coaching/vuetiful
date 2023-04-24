@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CodeBlock, VButton, VShell } from '@code-coaching/vuetiful';
+import { VButton, VCodeBlock, VShell } from '@code-coaching/vuetiful';
 import { computed, reactive } from 'vue';
 
 const state = reactive({
@@ -33,7 +33,7 @@ const codeExample = computed(() => {
   <div class="flex max-w-5xl flex-col p-4">
     <h1>VShell</h1>
 
-    <CodeBlock language="ts" :code="`import { VShell } from '@code-coaching/vuetiful`" />
+    <v-code-block language="ts" :code="`import { VShell } from '@code-coaching/vuetiful`" />
 
     <h2>Usage</h2>
     <p>
@@ -155,6 +155,6 @@ const codeExample = computed(() => {
       </div>
     </div>
 
-    <code-block class="md:h-60" language="html" :code="codeExample" />
+    <v-code-block class="md:h-60" language="html" :code="codeExample" />
   </div>
 </template>
