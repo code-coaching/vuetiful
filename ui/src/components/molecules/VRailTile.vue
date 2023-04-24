@@ -61,22 +61,23 @@ const keyupHandler = (event: KeyboardEvent) => {
 </script>
 
 <template>
-  <div @click="clickHandler" @keydown="keydownHandler" @keyup="keyupHandler">
-    <component
-      :is="tag"
-      v-bind="attrs"
-      :class="`app-rail-tile unstyled grid aspect-square w-full cursor-pointer place-content-center place-items-center space-y-1.5 ${hover} ${
-        selectedRailTile === value ? `${active}` : ''
-      } ${attrs.class || ''}`"
-    >
-      <template v-if="$slots.default">
-        <div :class="`app-rail-tile-icon ${regionIcon}`"><slot /></div>
-      </template>
-      <template v-if="label">
-        <div :class="`app-rail-tile-label text-center text-xs font-bold ${regionLabel}`">
-          {{ label }}
-        </div>
-      </template>
-    </component>
-  </div>
+  <component
+    @click="clickHandler"
+    @keydown="keydownHandler"
+    @keyup="keyupHandler"
+    :is="tag"
+    v-bind="attrs"
+    :class="`app-rail-tile unstyled grid aspect-square w-full cursor-pointer place-content-center place-items-center space-y-1.5 ${hover} ${
+      selectedRailTile === value ? `${active}` : ''
+    }`"
+  >
+    <template v-if="$slots.default">
+      <div :class="`app-rail-tile-icon ${regionIcon}`"><slot /></div>
+    </template>
+    <template v-if="label">
+      <div :class="`app-rail-tile-label text-center text-xs font-bold ${regionLabel}`">
+        {{ label }}
+      </div>
+    </template>
+  </component>
 </template>

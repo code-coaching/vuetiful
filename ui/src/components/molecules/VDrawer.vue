@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import type { CssClasses } from "@/index";
 import { useDrawer } from "@/services";
-import { Ref, computed, onMounted, ref, toRefs, useAttrs } from "vue";
+import { Ref, computed, onMounted, ref, toRefs } from "vue";
 
 const { drawer, close } = useDrawer();
-const attrs = useAttrs();
 
 // #region Props
 const props = defineProps({
@@ -29,7 +28,6 @@ const props = defineProps({
   },
 });
 
-// prettier-ignore
 const { regionBackdrop, regionDrawer, labelledby, describedby } = toRefs(props);
 // prettier-ignore
 const presets = {
@@ -81,9 +79,7 @@ onMounted(() => {
     <div
       v-if="drawer.open"
       ref="elemBackdrop"
-      :class="`drawer-backdrop backdrop-blur-xs fixed bottom-0 left-0 right-0 top-0 flex bg-surface-backdrop-token ${regionBackdrop} z-40 ${
-        attrs.class ?? ''
-      }`"
+      :class="`drawer-backdrop backdrop-blur-xs fixed bottom-0 left-0 right-0 top-0 flex bg-surface-backdrop-token z-40 ${regionBackdrop}`"
       @mousedown="onBackdropInteraction"
       @touchstart="onBackdropInteraction"
     ></div>

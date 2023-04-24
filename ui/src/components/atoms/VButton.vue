@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useAttrs } from "vue";
-
 defineProps({
   icon: {
     type: Boolean as () => boolean,
@@ -11,7 +9,6 @@ defineProps({
     default: "button",
   },
 });
-const attrs = useAttrs();
 const emit = defineEmits<{ (event: "click"): void }>();
 
 const activate = () => {
@@ -41,9 +38,7 @@ const keyupHandler = (event: KeyboardEvent) => {
     tabindex="0"
     role="button"
     :is="tag"
-    :class="`vuetiful-button ${icon ? 'btn-icon' : 'btn'} border-token hover:cursor-pointer ${
-      attrs.class ?? ''
-    }`"
+    :class="`vuetiful-button ${icon ? 'btn-icon' : 'btn'} border-token hover:cursor-pointer`"
     @click="clickHandler"
     @keydown="keydownHandler"
     @keyup="keyupHandler"

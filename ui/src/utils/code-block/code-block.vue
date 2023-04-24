@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { CssClasses, vClipboard } from "@/index";
 import "highlight.js/styles/github-dark.css";
-import { computed, ref, useAttrs } from "vue";
+import { ref } from "vue";
 import { useHighlight } from "./highlight.service";
 
 const { highlight } = useHighlight();
@@ -15,53 +15,31 @@ const props = defineProps({
     type: String,
     default: "",
   },
-  background: {
+
+  headerClass: {
     type: String as () => CssClasses,
-    default: "bg-neutral-900/90",
   },
-  blur: {
+  preClass: {
     type: String as () => CssClasses,
-    default: "",
-  },
-  text: {
-    type: String as () => CssClasses,
-    default: "text-sm",
-  },
-  color: {
-    type: String as () => CssClasses,
-    default: "text-white",
-  },
-  rounded: {
-    type: String as () => CssClasses,
-    default: "rounded-container-token",
-  },
-  shadow: {
-    type: String as () => CssClasses,
-    default: "shadow",
   },
 
-  button: {
+  buttonClass: {
     type: String as () => CssClasses,
     default: "btn btn-sm variant-soft !text-white",
   },
-  buttonLabel: {
+  buttonText: {
     type: String,
     default: "Copy",
   },
-  buttonCopied: {
+  buttonCopiedText: {
     type: String,
     default: "👍",
   },
 });
 
-const attrs = useAttrs();
 const emit = defineEmits<{
   (event: "copy"): void;
 }>();
-
-const cBase = "overflow-hidden shadow";
-const cHeader = "text-xs text-white/50 uppercase flex justify-between items-center p-2 pl-4 pb-0";
-const cPre = "whitespace-pre-wrap break-all p-4 pt-1";
 
 const copyState = ref(false);
 
@@ -80,27 +58,24 @@ function onCopyClick() {
   }, 2000);
   emit("copy");
 }
-
-// Reactive
-const classesBase = computed(
-  () =>
-    `${cBase} ${props.background} ${props.blur} ${props.text} ${props.color} ${props.rounded} ${
-      props.shadow
-    } ${attrs.class ?? ""}`
-);
 </script>
 
-<!-- prettier-ignore -->
-<template>
-	<div v-if="language && code">
-		<div :class="`code-block ${classesBase}`" data-testid="code-block">
-			<header :class="`code-block-header ${cHeader}`">
-				<span :class="`code-block-language`">{{languageFormatter(language)}}</span>
-				<button :class="`code-block-btn ${button}`" @click="onCopyClick()" v-clipboard="props.code">
-					{{!copyState ? buttonLabel : buttonCopied}}
-				</button>
-			</header>
-			<pre :class="`code-block-pre ${cPre}`"><code :class="`code-block-code language-${language}`" v-html="highlight(props.code, props.language)"></code></pre>
-		</div>
-	</div>
+<template v-if="language && code">
+  <div class="code-block bg-neutral-900/90 text-sm text-white shadow rounded-container-token">
+    <header
+      :class="`code-block-header flex items-center justify-between p-2 pb-0 pl-4 text-xs uppercase text-white/50 ${headerClass}`"
+    >
+      <span :class="`code-block-language`">{{ languageFormatter(language) }}</span>
+      <button
+        :class="`code-block-btn ${buttonClass}`"
+        @click="onCopyClick()"
+        v-clipboard="props.code"
+      >
+        {{ !copyState ? buttonText : buttonCopiedText }}
+      </button>
+    </header>
+    <pre
+      :class="`code-block-pre whitespace-pre-wrap break-all p-4 pt-1 ${preClass}`"
+    ><code :class="`code-block-code language-${language}`" v-html="highlight(props.code, props.language)"></code></pre>
+  </div>
 </template>

@@ -1,6 +1,6 @@
 {
   "name": "@code-coaching/vuetiful",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "scripts": {
     "dev": "onchange 'src/**/*.vue' 'src/**/*.ts' 'src/**/*.css' -- npm run build",
     "prebuild": "node 'scripts/intellisense.js'",

@@ -7,7 +7,6 @@
  * @slot pageFooter - Insert content that resides below your page content. Recommended for most layouts.
  * @slot fixedFooter - Insert fixed footer content. Not recommended for most layouts.
  */
-import { useAttrs } from "vue";
 export type CssClasses = string;
 defineProps({
   regionPage: { type: String as () => CssClasses, default: "" },
@@ -19,11 +18,10 @@ defineProps({
   slotPageFooter: { type: String as () => CssClasses, default: "" },
   slotFixedFooter: { type: String as () => CssClasses, default: "" },
 });
-const attrs = useAttrs();
 </script>
 
 <template>
-  <div :class="`vuetiful-shell flex h-full w-full flex-col overflow-hidden ${attrs.class ?? ''}`">
+  <div class="vuetiful-shell flex h-full w-full flex-col overflow-hidden">
     <header v-if="$slots.fixedHeader" :class="`vuetiful-fixed-header ${slotFixedHeader}`">
       <slot name="fixedHeader" />
     </header>
