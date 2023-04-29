@@ -1,45 +1,33 @@
-<template>
-  <!-- A11y attributes are not allowed on <label> -->
-  <label :for="id">
-    <div
-      :class="`radio-item cursor-pointer px-4 py-1 text-center text-base rounded-token ${
-        checked ? 'variant-filled' : 'hover:variant-soft'
-      } `"
-      role="radio"
-      :aria-checked="checked"
-      :tabindex="tabbable"
-      :name="name"
-      @keydown="handleKeydown"
-    >
-      <!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
-      <div class="h-0 w-0 overflow-hidden">
-        <input
-          tabindex="-1"
-          type="radio"
-          :id="id"
-          :name="name"
-          :value="value"
-          v-model="selectedOption"
-        />
-      </div>
-      <slot />
-    </div>
-  </label>
-</template>
-
 <script setup lang="ts">
-import { ComputedRef, computed, defineProps, inject } from "vue";
+import { ComputedRef, computed, defineProps, inject, watch } from "vue";
 
 const props = defineProps({
   value: {
     type: [String, Number],
     required: true,
   },
+  ariaLabel: {
+    type: String,
+    default: undefined,
+  },
+  ariaLabelledby: {
+    type: String,
+    default: undefined,
+  },
 });
 
 const radioGroup = inject("radioGroup") as ComputedRef<HTMLElement>;
 const selectedOption = inject("selectedOption") as ComputedRef<string>;
+watch(selectedOption, (newVal) => {
+  console.log(newVal, props.value);
+  if (newVal === props.value) {
+    console.log("checked");
+  }
+});
 const name = inject("name") as string;
+
+const active = (inject("active") as string) || "variant-filled";
+const hover = (inject("hover") as string) || "hover:variant-ghost";
 
 const id = `radio-${Math.random().toString(36).substring(2, 9)}`;
 const isFirst = computed(() => {
@@ -152,3 +140,35 @@ const handleKeydown = (event: KeyboardEvent) => {
   }
 };
 </script>
+
+<template>
+  <!-- A11y attributes are not allowed on <label> -->
+  <label :for="id">
+    <div
+      :class="`radio-item cursor-pointer px-4 py-1 text-center text-base rounded-token ${
+        checked ? active : hover
+      } `"
+      role="radio"
+      :aria-checked="checked"
+      :aria-label="ariaLabel"
+      :aria-labelledby="ariaLabelledby"
+      :tabindex="tabbable"
+      :name="name"
+      @keydown="handleKeydown"
+    >
+      <!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
+      <div class="h-0 w-0 overflow-hidden">
+        <input
+          tabindex="-1"
+          type="radio"
+          :id="id"
+          :name="name"
+          :value="value"
+          v-model="selectedOption"
+        />
+      </div>
+      <slot />
+      {{ selectedOption }} - {{ checked }}
+    </div>
+  </label>
+</template>

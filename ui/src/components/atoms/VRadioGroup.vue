@@ -13,9 +13,31 @@ const props = defineProps({
     required: true,
   },
 
-  labelledby: {
+  active: {
     type: String,
-    default: "",
+    default: "variant-filled",
+  },
+  hover: {
+    type: String,
+    default: "hover:variant-ghost",
+  },
+
+  background: {
+    type: String,
+    default: "bg-surface-200-700-token",
+  },
+  text: {
+    type: String,
+    default: "text-surface-900 dark:text-surface-50",
+  },
+
+  ariaLabel: {
+    type: String,
+    default: undefined,
+  },
+  ariaLabelledby: {
+    type: String,
+    default: undefined,
   },
 });
 
@@ -24,6 +46,9 @@ const selectedOption = ref(props.modelValue);
 provide("selectedOption", selectedOption);
 provide("name", props.name);
 provide("radioGroup", radioGroupRef);
+
+provide("active", props.active);
+provide("hover", props.hover);
 
 watch(selectedOption, (newVal) => {
   emits("update:modelValue", newVal);
@@ -34,7 +59,9 @@ watch(selectedOption, (newVal) => {
   <div
     ref="radioGroupRef"
     role="radiogroup"
-    class="radio-group inline-flex space-x-1 p-1 bg-surface-200-700-token border-token border-surface-400-500-token rounded-token"
+    :class="`radio-group inline-flex space-x-1 p-1 ${background} ${text} border-token border-surface-400-500-token rounded-token`"
+    :aria-labelledby="ariaLabelledby"
+    :aria-label="ariaLabel"
     tabindex="-1"
   >
     <slot></slot>
