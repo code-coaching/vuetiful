@@ -1,16 +1,17 @@
+h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
-p,
-h1 {
-  margin-top: 0;
-  margin-bottom: 1rem;
+section.section {
+  margin-bottom: 2rem;
+}
+header.header {
+  margin-bottom: 2rem;
 }
 
 summary {

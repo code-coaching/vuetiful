@@ -70,125 +70,140 @@ const copyButtonExample =
 <template>
   <div class="flex max-w-5xl flex-col p-4">
     <h1>VCodeBlock</h1>
-    <v-code-block language="ts" :code="`import { VCodeBlock } from '@code-coaching/vuetiful`" />
+    <section class="section">
+      <v-code-block language="ts" :code="`import { VCodeBlock } from '@code-coaching/vuetiful`" />
+    </section>
 
     <h2>Usage</h2>
-
     <h3>Console</h3>
-    <div class="mb-4 flex flex-col gap-2">
-      <div class="flex flex-col gap-1">
-        <div>Output</div>
-        <v-code-block language="console" code="npm install @code-coaching/vuetiful" />
-      </div>
+    <section class="section">
+      <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-1">
+          <div>Output</div>
+          <v-code-block language="console" code="npm install @code-coaching/vuetiful" />
+        </div>
 
-      <div class="flex flex-col gap-1">
-        <div>Code used to achieve the output</div>
-        <v-code-block language="html" :code="consoleExample" />
+        <div class="flex flex-col gap-1">
+          <div>Code used to achieve the output</div>
+          <v-code-block language="html" :code="consoleExample" />
+        </div>
       </div>
-    </div>
+    </section>
 
     <h3>HTML</h3>
-    <div class="mb-4 flex flex-col gap-2">
-      <div class="flex flex-col gap-1">
-        <div>Output</div>
-        <v-code-block
-          language="html"
-          code="<h1>John Duck</h1>
-<p>Vuetiful is beautiful</p>"
-        />
+    <section class="section">
+      <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-1">
+          <div>Output</div>
+          <v-code-block
+            language="html"
+            code="<h1>John Duck</h1>
+  <p>Vuetiful is beautiful</p>"
+          />
+        </div>
+        <div class="flex flex-col gap-1">
+          <div>Code used to achieve the output</div>
+          <v-code-block language="html" :code="htmlExample" />
+        </div>
       </div>
-      <div class="flex flex-col gap-1">
-        <div>Code used to achieve the output</div>
-        <v-code-block language="html" :code="htmlExample" />
-      </div>
-    </div>
+    </section>
 
     <h3>JavaScript</h3>
-    <div class="mb-4 flex flex-col gap-2">
-      <div class="flex flex-col gap-1">
-        <div>Output</div>
-        <v-code-block
-          language="js"
-          code="const mascot = {
-  name: 'John Duck',
-  age: 32,
-  isCool: true,
-};"
-        />
+    <section class="section">
+      <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-1">
+          <div>Output</div>
+          <v-code-block
+            language="js"
+            code="const mascot = {
+    name: 'John Duck',
+    age: 32,
+    isCool: true,
+  };"
+          />
+        </div>
+        <div class="flex flex-col gap-1">
+          <div>Code used to achieve the output</div>
+          <v-code-block language="html" :code="jsExample" />
+        </div>
       </div>
-      <div class="flex flex-col gap-1">
-        <div>Code used to achieve the output</div>
-        <v-code-block language="html" :code="jsExample" />
-      </div>
-    </div>
+    </section>
 
     <h3>TypeScript</h3>
-    <div class="mb-4 flex flex-col gap-2">
-      <div class="flex flex-col gap-1">
-        <div>Output</div>
-        <v-code-block
-          language="ts"
-          code="interface Mascot {
-  name: string;
-  age: number;
-  isCool: boolean;
-};
+    <section class="section">
+      <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-1">
+          <div>Output</div>
+          <v-code-block
+            language="ts"
+            code="interface Mascot {
+    name: string;
+    age: number;
+    isCool: boolean;
+  };
 
-const mascot: Mascot = {
-  name: 'John Duck',
-  age: 32,
-  isCool: true,
-};"
-        />
-      </div>
+  const mascot: Mascot = {
+    name: 'John Duck',
+    age: 32,
+    isCool: true,
+  };"
+          />
+        </div>
 
-      <div class="flex flex-col gap-1">
-        <div>Code used to achieve the output</div>
-        <v-code-block language="html" :code="tsExample" />
+        <div class="flex flex-col gap-1">
+          <div>Code used to achieve the output</div>
+          <v-code-block language="html" :code="tsExample" />
+        </div>
       </div>
-    </div>
+    </section>
 
     <h3>A lot of code</h3>
-    <div class="mb-4 flex flex-col gap-2">
-      <div class="flex flex-col gap-1">
-        <div>Output</div>
-        <v-code-block language="html" :code="codeExample" />
-      </div>
+    <section class="section">
+      <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-1">
+          <div>Output</div>
+          <v-code-block language="html" :code="codeExample" />
+        </div>
 
-      <div class="flex flex-col gap-1">
-        <div>Code used to achieve the output</div>
-        <v-code-block language="ts" :code="codeCodeScriptExample" />
-        <v-code-block language="html" :code="codeCodeTemplateExample"></v-code-block>
+        <div class="flex flex-col gap-1">
+          <div>Code used to achieve the output</div>
+          <v-code-block language="ts" :code="codeCodeScriptExample" />
+          <v-code-block language="html" :code="codeCodeTemplateExample"></v-code-block>
+        </div>
       </div>
-    </div>
+    </section>
 
     <h3>Prevent overflow</h3>
-    <div class="mb-4 flex flex-col gap-2">
-      <div class="flex flex-col gap-1">
-        <div>With overflow (default)</div>
-        <v-code-block class="max-w-[500px]" language="html" :code="withOverflowExample" />
-      </div>
+    <section class="section">
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-1">
+          <div>With overflow (default)</div>
+          <v-code-block class="max-w-[500px]" language="html" :code="withOverflowExample" />
+        </div>
 
-      <div class="flex flex-col gap-1">
-        <div>Without overflow - Add <code>prevent-overflow</code> prop</div>
-        <v-code-block prevent-overflow class="max-w-[500px]" language="html" :code="withoutOverflowExample" />
+        <div class="flex flex-col gap-1">
+          <div>Without overflow - Add <code>prevent-overflow</code> prop</div>
+          <v-code-block prevent-overflow class="max-w-[500px]" language="html" :code="withoutOverflowExample" />
+        </div>
       </div>
-    </div>
+    </section>
 
     <h3>Copy Button</h3>
-    <div class="mb-4 flex flex-col gap-2">
-      <div class="flex flex-col gap-1">
-        <div>
-          The text to copy and the copied text can be customized with the <code>button-text</code> and
-          <code>button-copied-text</code> props.
+    <section class="section">
+      <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-1">
+          <div>
+            The text to copy and the copied text can be customized with the <code>button-text</code> and
+            <code>button-copied-text</code> props.
+          </div>
+          <v-code-block
+            button-text="Grab me!"
+            button-copied-text="You got me!"
+            language="html"
+            :code="copyButtonExample"
+          />
         </div>
-        <v-code-block
-          button-text="Grab me!"
-          button-copied-text="You got me!"
-          language="html"
-          :code="copyButtonExample"
-        />
       </div>
-    </div>
+    </section>
   </div>
 </template>

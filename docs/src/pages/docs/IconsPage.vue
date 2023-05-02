@@ -81,90 +81,108 @@ const quasarQIcon = `<v-button icon class="variant-filled">
 <template>
   <div class="flex max-w-5xl flex-col p-4">
     <h1>Icons</h1>
-    <p>You can use any icon library you want. This website uses Font Awesome.</p>
+    <header class="header">
+      <section class="section">
+        <p>You can use any icon library you want. This website uses Font Awesome.</p>
+      </section>
+      <hr />
+    </header>
 
     <h2>Font Awesome</h2>
-    <p>
-      Download the <code>Free For Web</code> version of Font Awesome from
-      <a href="https://fontawesome.com/download">Font Awesome</a>. Add the following file structure to a public folder.
-      The <code>css</code>, <code>ttf</code> and <code>woff2</code> files are copied over from the download.
-    </p>
-    <v-code-block language="bash" :code="fileStructure" />
+    <section class="section">
+      <section class="section">
+        <p class="mb-4">
+          Download the <code>Free For Web</code> version of Font Awesome from
+          <a href="https://fontawesome.com/download">Font Awesome</a>. Add the following file structure to a public
+          folder. The <code>css</code>, <code>ttf</code> and <code>woff2</code> files are copied over from the download.
+        </p>
+        <v-code-block language="bash" :code="fileStructure" />
+      </section>
 
-    <p class="mt-8">Add the css files to the <code>head</code> of your <code>index.html</code> file.</p>
-    <v-code-block language="html" :code="indexHtml" />
-    <p>Note: make sure to point towards the correct paths.</p>
+      <section>
+        <p class="mb-4">Add the css files to the <code>head</code> of your <code>index.html</code> file.</p>
+        <v-code-block language="html" :code="indexHtml" />
+        <p>Note: make sure to point towards the correct paths.</p>
+      </section>
+    </section>
 
     <h2>Usage</h2>
     <h3>Examples</h3>
-    <p>Any free solid <a href="https://fontawesome.com/search?o=r&m=free&s=solid">Font Awesome Icon</a> can be used</p>
-    <div class="flex flex-col gap-8">
-      <div class="flex flex-col gap-2">
-        <div class="flex flex-wrap gap-4">
-          <i class="fa-solid fa-code"></i>
-          <i class="fa-solid fa-spinner fa-spin"></i>
-          <i class="fa-solid fa-ghost fa-fade"></i>
-          <i class="fa-solid fa-ghost fa-beat-fade"></i>
+    <section class="section">
+      <p class="mb-4">
+        Any free solid <a href="https://fontawesome.com/search?o=r&m=free&s=solid">Font Awesome Icon</a> can be used
+      </p>
+      <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-wrap gap-4">
+            <i class="fa-solid fa-code"></i>
+            <i class="fa-solid fa-spinner fa-spin"></i>
+            <i class="fa-solid fa-ghost fa-fade"></i>
+            <i class="fa-solid fa-ghost fa-beat-fade"></i>
+          </div>
+          <v-code-block language="html" :code="faIcons" />
         </div>
-        <v-code-block language="html" :code="faIcons" />
-      </div>
 
-      <div class="flex flex-col gap-2">
-        <div class="flex flex-wrap gap-4">
-          <p><i class="fa-solid fa-code fa-2xs"></i></p>
-          <p><i class="fa-solid fa-code fa-xs"></i></p>
-          <p><i class="fa-solid fa-code fa-sm"></i></p>
-          <p><i class="fa-solid fa-code"></i></p>
-          <p><i class="fa-solid fa-code fa-lg"></i></p>
-          <p><i class="fa-solid fa-code fa-xl"></i></p>
-          <p><i class="fa-solid fa-code fa-2xl"></i></p>
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-wrap gap-4">
+            <p><i class="fa-solid fa-code fa-2xs"></i></p>
+            <p><i class="fa-solid fa-code fa-xs"></i></p>
+            <p><i class="fa-solid fa-code fa-sm"></i></p>
+            <p><i class="fa-solid fa-code"></i></p>
+            <p><i class="fa-solid fa-code fa-lg"></i></p>
+            <p><i class="fa-solid fa-code fa-xl"></i></p>
+            <p><i class="fa-solid fa-code fa-2xl"></i></p>
+          </div>
+          <v-code-block language="html" :code="faIconsSizes" />
         </div>
-        <v-code-block language="html" :code="faIconsSizes" />
       </div>
-    </div>
+    </section>
 
     <h3>VButton</h3>
     <h4>Font Awesome</h4>
-    <div class="flex flex-col gap-2">
-      <div class="flex flex-wrap gap-4">
-        <v-button icon class="variant-filled">
-          <i class="fa-solid fa-code"></i>
-        </v-button>
-        <v-button class="variant-filled">
-          <i class="fa-solid fa-code"></i>
-        </v-button>
-        <v-button class="variant-filled">
-          <i class="fa-solid fa-code"></i>
-          <div>Code</div>
-        </v-button>
-        <v-button class="variant-filled">
-          <div>Code</div>
-          <i class="fa-solid fa-code"></i>
-        </v-button>
+    <section class="section">
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-wrap gap-4">
+          <v-button icon class="variant-filled">
+            <i class="fa-solid fa-code"></i>
+          </v-button>
+          <v-button class="variant-filled">
+            <i class="fa-solid fa-code"></i>
+          </v-button>
+          <v-button class="variant-filled">
+            <i class="fa-solid fa-code"></i>
+            <div>Code</div>
+          </v-button>
+          <v-button class="variant-filled">
+            <div>Code</div>
+            <i class="fa-solid fa-code"></i>
+          </v-button>
+        </div>
+        <v-code-block language="html" :code="vbuttonIcon" />
       </div>
-      <v-code-block language="html" :code="vbuttonIcon" />
-    </div>
+    </section>
 
     <h4>Quasar - QIcon</h4>
-
-    <div class="flex flex-col gap-2">
-      <div class="flex flex-wrap gap-4">
-        <v-button icon class="variant-filled">
-          <q-icon name="code"></q-icon>
-        </v-button>
-        <v-button class="variant-filled">
-          <q-icon name="code"></q-icon>
-        </v-button>
-        <v-button class="variant-filled">
-          <q-icon name="code"></q-icon>
-          <div>Code</div>
-        </v-button>
-        <v-button class="variant-filled">
-          <div>Code</div>
-          <q-icon name="code"></q-icon>
-        </v-button>
+    <section class="section">
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-wrap gap-4">
+          <v-button icon class="variant-filled">
+            <q-icon name="code"></q-icon>
+          </v-button>
+          <v-button class="variant-filled">
+            <q-icon name="code"></q-icon>
+          </v-button>
+          <v-button class="variant-filled">
+            <q-icon name="code"></q-icon>
+            <div>Code</div>
+          </v-button>
+          <v-button class="variant-filled">
+            <div>Code</div>
+            <q-icon name="code"></q-icon>
+          </v-button>
+        </div>
+        <v-code-block language="html" :code="quasarQIcon" />
       </div>
-      <v-code-block language="html" :code="quasarQIcon" />
-    </div>
+    </section>
   </div>
 </template>

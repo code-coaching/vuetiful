@@ -37,60 +37,66 @@ const useDrawerAnimationCode = `<v-button @click="open({ id: \'content-one\', du
 <template>
   <div class="flex max-w-5xl flex-col p-4">
     <h1>VDrawer</h1>
-
-    <v-code-block language="ts" :code="`import { VDrawer} from '@code-coaching/vuetiful`" />
+    <section class="section">
+      <v-code-block language="ts" :code="`import { VDrawer} from '@code-coaching/vuetiful`" />
+    </section>
 
     <h2>Usage</h2>
     <h3>Single drawer</h3>
-    <p class="mb-8">
-      There should only be exact one <code>VDrawer</code> component in the app. A good place to put it is in the main
-      layout component.
-    </p>
+    <section class="section">
+      <p class="mb-4">
+        There should only be exact one <code>VDrawer</code> component in the app. A good place to put it is in the main
+        layout component.
+      </p>
 
-    <v-code-block language="html" :code="codeExample" />
+      <v-code-block language="html" :code="codeExample" />
+    </section>
 
     <h3>Multiple drawers</h3>
-    <p>
-      There should still only exist exactly one instance of the <code>VDrawer</code> component in the app. In this
-      instance, multiple sections can be added using <code>template</code> combined with <code>v-if</code>. The
-      different sections can be opened by passing an <code>id</code> using <code>open()</code> from
-      <code>useDrawer</code>.
-    </p>
-    <div>Script</div>
-    <v-code-block language="ts" :code="codeExampleMultipleScript" />
-    <div>Template</div>
-    <v-code-block language="html" :code="codeExampleMultipleTemplate" />
+    <section class="section">
+      <p class="mb-4">
+        There should still only exist exactly one instance of the <code>VDrawer</code> component in the app. In this
+        instance, multiple sections can be added using <code>template</code> combined with <code>v-if</code>. The
+        different sections can be opened by passing an <code>id</code> using <code>open()</code> from
+        <code>useDrawer</code>.
+      </p>
+      <div>Script</div>
+      <v-code-block language="ts" :code="codeExampleMultipleScript" />
+      <div>Template</div>
+      <v-code-block language="html" :code="codeExampleMultipleTemplate" />
+    </section>
 
     <h3>useDrawer</h3>
+    <section class="section">
+      <div class="flex flex-col gap-4">
+        <v-code-block
+          language="ts"
+          :code="`import { useDrawer } from '@code-coaching/vuetiful';
+    const { open } = useDrawer();
+    `"
+        />
 
-    <div class="flex flex-col gap-4">
-      <v-code-block
-        language="ts"
-        :code="`import { useDrawer } from '@code-coaching/vuetiful';
-  const { open } = useDrawer();
-  `"
-      />
+        <v-code-block language="html" :code="useDrawerCode" />
 
-      <v-code-block language="html" :code="useDrawerCode" />
+        <div class="mb-4 flex flex-col items-center justify-center gap-2">
+          <div class="grid grid-cols-3 gap-10">
+            <div></div>
+            <v-button class="variant-filled" @click="open({ position: 'top' })">&#8595;</v-button>
+            <div></div>
+            <v-button class="variant-filled" @click="open({ position: 'left' })">&#8594;</v-button>
+            <div></div>
+            <v-button class="variant-filled" @click="open({ position: 'right' })">&#8592;</v-button>
+            <div></div>
+            <v-button class="variant-filled" @click="open({ position: 'bottom' })">&#8593;</v-button>
+            <div></div>
+          </div>
+        </div>
 
-      <div class="mb-4 flex flex-col items-center justify-center gap-2">
-        <div class="grid grid-cols-3 gap-10">
-          <div></div>
-          <v-button class="variant-filled" @click="open({ position: 'top' })">&#8595;</v-button>
-          <div></div>
-          <v-button class="variant-filled" @click="open({ position: 'left' })">&#8594;</v-button>
-          <div></div>
-          <v-button class="variant-filled" @click="open({ position: 'right' })">&#8592;</v-button>
-          <div></div>
-          <v-button class="variant-filled" @click="open({ position: 'bottom' })">&#8593;</v-button>
-          <div></div>
+        <div class="flex flex-col gap-2">
+          <p>There are two speeds for animation <code>300 (default)</code> and <code>150</code>.</p>
+          <v-code-block language="html" :code="useDrawerAnimationCode" />
         </div>
       </div>
-
-      <div class="flex flex-col gap-2">
-        <p>There are two speeds for animation <code>300 (default)</code> and <code>150</code>.</p>
-        <v-code-block language="html" :code="useDrawerAnimationCode" />
-      </div>
-    </div>
+    </section>
   </div>
 </template>
