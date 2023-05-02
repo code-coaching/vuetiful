@@ -8,11 +8,6 @@ import { VButton, VCodeBlock } from '@code-coaching/vuetiful';
     <v-code-block language="ts" :code="`import { VButton } from '@code-coaching/vuetiful`" />
 
     <h2>Accessibility</h2>
-    <p>
-      The VButton component implements the
-      <a href="https://www.w3.org/WAI/ARIA/apg/patterns/button/">WAI-ARAI button pattern</a>. This means that the
-      component is accessible by default.
-    </p>
 
     <p>
       By default the accessibility label is the same as the button text. If you want to change the accessibility label,

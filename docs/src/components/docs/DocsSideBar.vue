@@ -63,6 +63,10 @@ const vueLinks = [
     title: 'CodeBlock',
     name: ROUTE_NAMES.VUE.V_CODE_BLOCK,
   },
+  {
+    title: 'RadioGroup',
+    name: ROUTE_NAMES.VUE.V_RADIO_GROUP,
+  }
 ];
 </script>
 
