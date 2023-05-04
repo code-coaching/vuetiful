@@ -2,7 +2,10 @@
 import { RadioGroupDescription } from '@headlessui/vue';
 
 defineProps({
-  as: RadioGroupDescription.props['as'],
+  as: {
+    type: String,
+    default: 'p',
+  }
 });
 </script>
 

@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import { RadioGroupLabel } from '@headlessui/vue';
+import { RadioGroupLabel } from "@headlessui/vue";
 
 defineProps({
   as: {
-    type: RadioGroupLabel.props['as'].type,
-    default: 'p'
-  }
+    type: String,
+    default: "p",
+  },
 });
-
-
 </script>
 
 <template>
