@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { VCodeBlock, VRadioGroup, VRadioItem, VRadioLabel, VRadioDescription } from '@code-coaching/vuetiful';
+import { VCodeBlock, VRadioDescription, VRadioGroup, VRadioItem, VRadioLabel } from '@code-coaching/vuetiful';
 import { computed, ref } from 'vue';
 
 const radioValue = ref('vuetiful');
+const radioObjectValue = ref({ id: 'vuetiful', name: 'Vuetiful' });
 const defaultExample = `<div class="font-bold">default</div>
 <v-radio-group v-model="radioValue">
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
@@ -45,6 +46,13 @@ const a11yExample = `<div class="font-bold">Example using <code>v-radio-label</c
       <div class="text-xs">€9 / month</div>
     </v-radio-description>
   </v-radio-item>
+</v-radio-group>`;
+
+const objectExample = `<div class="font-bold">by</div>
+<v-radio-group by="id" v-model="radioObjectValue">
+  <v-radio-item :value="{ id: 'vuetiful', name: 'Vuetiful' }">Vuetiful</v-radio-item>
+  <v-radio-item :value="{ id: 'is', name: 'Is' }">Is</v-radio-item>
+  <v-radio-item :value="{ id: 'beautiful', name: 'Beautiful' }">Beautiful</v-radio-item>
 </v-radio-group>`;
 
 const option = ref('surface');
@@ -172,7 +180,7 @@ const glassBgExample = computed(
     </section>
 
     <h2>Usage</h2>
-    <h3>Simple</h3>
+    <h3>Basic</h3>
     <section class="section">
       <div class="flex flex-col gap-4">
         <div class="flex gap-2">
@@ -202,6 +210,32 @@ const glassBgExample = computed(
           <v-code-block language="html" :code="defaultExample" />
         </div>
       </div>
+    </section>
+
+    <h3>Object as value</h3>
+    <section class="section">
+      <div class="flex flex-col gap-4">
+        <div>
+          <div class="font-bold">by</div>
+          <v-radio-group by="id" v-model="radioObjectValue">
+            <v-radio-item :value="{ id: 'vuetiful', name: 'Vuetiful' }">Vuetiful</v-radio-item>
+            <v-radio-item :value="{ id: 'is', name: 'Is' }">Is</v-radio-item>
+            <v-radio-item :value="{ id: 'beautiful', name: 'Beautiful' }">Beautiful</v-radio-item>
+          </v-radio-group>
+        </div>
+        <div class="flex flex-col gap-2">
+          <v-code-block
+            language="ts"
+            :code="`const radioValue = ref({ id: ${radioObjectValue.id}, name: ${radioObjectValue.name} });`"
+          />
+          <v-code-block language="html" :code="objectExample" />
+        </div>
+      </div>
+
+      <p>
+        Note: The <code>by</code> attribute on the <code>v-radio-group</code> contains the value of the property to
+        filter by.
+      </p>
     </section>
 
     <h3>Accessibility</h3>
