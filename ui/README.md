@@ -11,9 +11,54 @@ TailwindCSS is added as a dependency in the consuming app, but is not mandatory 
 
 # Features
 
-- [x] Themes
+## Components
+
+### Atoms 
+
+- [ ] Avatar
+- [x] Badge
+- [x] Button
+- [ ] Conic Gradients
+- [x] Chip
+- [ ] File Button
+- [ ] File Dropzone
+- [ ] Input Chip
+- [ ] Placeholder
+- [ ] Progress Bar
+- [ ] Progress Radial
+- [x] Radio (group, item, label, description)
+- [ ] Range Slider
+- [ ] Slide Toggle
+
+
+### Molecules
+
+- [ ] Accordion
+- [ ] Alert
+- [ ] Autocomplete
+- [ ] Breadcrumb
+- [ ] Card
+- [x] Drawer
+- [ ] List
+- [ ] Listbox
+- [ ] Paginator
+- [x] Rail (rail, rail tile)
+- [x] Shell
+- [ ] Stepper
+- [ ] Tab
+- [ ] Table
+- [ ] Table of Contents
+
+## Directives
+
+- [x] Clipboard
+
+## Utilities
+
+- [x] Code Block (with syntax highlighting and copy to clipboard)
 - [x] Dark Mode
-- ... more to come
+- [x] Platform (detects if SSR or Browser)
+- [x] Themes
 
 # Docs
 
