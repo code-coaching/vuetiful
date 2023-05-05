@@ -18,11 +18,15 @@ TailwindCSS is added as a dependency in the consuming app, but is not mandatory 
 - [ ] Avatar
 - [x] Badge
 - [x] Button
+- [x] Code Block (with syntax highlighting and copy to clipboard)
+  - [ ] TODO - move from utils to atoms
 - [ ] Conic Gradients
 - [x] Chip
 - [ ] File Button
 - [ ] File Dropzone
 - [ ] Input Chip
+- [x] Lightswitch (dark mode)
+  - [ ] TODO - move from utils to atoms
 - [ ] Placeholder
 - [ ] Progress Bar
 - [ ] Progress Radial
@@ -41,13 +45,18 @@ TailwindCSS is added as a dependency in the consuming app, but is not mandatory 
 - [x] Drawer
 - [ ] List
 - [ ] Listbox
+- [ ] Modal
 - [ ] Paginator
+- [ ] Popup
 - [x] Rail (rail, rail tile)
 - [x] Shell
 - [ ] Stepper
 - [ ] Tab
 - [ ] Table
 - [ ] Table of Contents
+- [ ] Toast
+- [x] Themes
+  - TODO - move from utils to molecules
 
 ## Directives
 
@@ -55,10 +64,7 @@ TailwindCSS is added as a dependency in the consuming app, but is not mandatory 
 
 ## Utilities
 
-- [x] Code Block (with syntax highlighting and copy to clipboard)
-- [x] Dark Mode
 - [x] Platform (detects if SSR or Browser)
-- [x] Themes
 
 # Docs
 
