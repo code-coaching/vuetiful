@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@code-coaching/vuetiful": "^0.13.2",
-    "@headlessui/vue": "^1.7.13",
     "@quasar/extras": "^1.0.0",
     "axios": "^0.21.1",
     "quasar": "^2.6.0",
