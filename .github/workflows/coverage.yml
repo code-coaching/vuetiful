@@ -15,4 +15,16 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - name: Install composer dependencies
+        run: |
+          npm install
+        working-directory: ./ui
+      - name: List files in the ui directory
+        run: |
+          ls ${{ github.workspace }}/ui
+        working-directory: ./ui
+      - name: Run unit tests
+        run: |
+          npm run coverage
+        working-directory: ./ui
       - run: echo "🍏 This job's status is ${{ job.status }}."
