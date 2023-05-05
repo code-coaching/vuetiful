@@ -5,26 +5,22 @@ jobs:
   run-unit-tests:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "👀 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+
       - name: Check out repository code
         uses: actions/checkout@v3
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - name: Install composer dependencies
+
+      - run: echo "✓ The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "✓ The workflow is now ready to test your code on the runner."
+
+      - name: Install npm dependencies in ./ui
         run: |
           npm install
         working-directory: ./ui
-      - name: List files in the ui directory
-        run: |
-          ls ${{ github.workspace }}/ui
-        working-directory: ./ui
-      - name: Run unit tests
+      - name: Run unit tests in ./ui
         run: |
           npm run coverage
         working-directory: ./ui
+
       - run: echo "🍏 This job's status is ${{ job.status }}."

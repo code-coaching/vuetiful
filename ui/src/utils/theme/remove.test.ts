@@ -6,7 +6,7 @@ import { describe, expect, it, vi } from "vitest";
  */
 
 describe("given there is no existing theme style tag", () => {
-  it.only("should create a new theme style tag", async () => {
+  it("should create a new theme style tag", async () => {
     const { useTheme } = await import("./theme.service");
     const { loadTheme } = useTheme();
 

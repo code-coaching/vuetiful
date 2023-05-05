@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { CssClasses } from "@/index";
-import { defineProps, provide } from "vue";
+import { provide } from "vue";
 
 const props = defineProps({
   active: {
