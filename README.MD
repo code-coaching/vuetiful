@@ -39,6 +39,7 @@ To consume the Vuetiful library in the docs website locally, you need to link th
 ```bash
 npm link @code-coaching/vuetiful
 ```
+Gotcha: When running `npm install` or after installing a new dependency, you will need to run `npm link @code-coaching/vuetiful` again.
 
 Now that the library is linked, you can start the docs website. To do this, run the following command in the docs directory:
 
