@@ -10,6 +10,13 @@ interface VitestConfig extends UserConfig {
 const vitestConfig: UserConfig = {
   test: {
     environment: "jsdom",
+    coverage: {
+      lines: 90,
+      functions: 96,
+      branches: 100,
+      statements: 89.78,
+      thresholdAutoUpdate: true,
+    }
   },
 };
 
