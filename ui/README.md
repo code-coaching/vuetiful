@@ -25,14 +25,12 @@ TailwindCSS is added as a dependency in the consuming app, but is not mandatory 
 - [ ] File Button
 - [ ] File Dropzone
 - [ ] Input Chip
-- [x] Lightswitch (dark mode)
-  - [ ] TODO - move from utils to atoms
 - [ ] Placeholder
 - [ ] Progress Bar
 - [ ] Progress Radial
 - [x] Radio (group, item, label, description)
 - [ ] Range Slider
-- [ ] Slide Toggle
+- [x] Switch
 
 
 ### Molecules
@@ -43,6 +41,8 @@ TailwindCSS is added as a dependency in the consuming app, but is not mandatory 
 - [ ] Breadcrumb
 - [ ] Card
 - [x] Drawer
+- [x] Lightswitch (dark mode)
+  - [ ] TODO - move from utils to molecules
 - [ ] List
 - [ ] Listbox
 - [ ] Modal
