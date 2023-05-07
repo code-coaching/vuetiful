@@ -32,7 +32,7 @@ TailwindCSS is added as a dependency in the consuming app, but is not mandatory 
 - [ ] Progress Radial
 - [x] Radio (group, item, label, description)
 - [ ] Range Slider
-- [ ] Slide Toggle
+- [x] Switch
 
 
 ### Molecules
@@ -43,6 +43,8 @@ TailwindCSS is added as a dependency in the consuming app, but is not mandatory 
 - [ ] Breadcrumb
 - [ ] Card
 - [x] Drawer
+- [x] Lightswitch (dark mode)
+  - [ ] TODO - move from utils to molecules
 - [ ] List
 - [ ] Listbox
 - [ ] Modal

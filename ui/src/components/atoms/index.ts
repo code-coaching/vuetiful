@@ -7,4 +7,21 @@ import VRadioGroup from "./VRadio/VRadioGroup.vue";
 import VRadioItem from "./VRadio/VRadioItem.vue";
 import VRadioLabel from "./VRadio/VRadioLabel.vue";
 
-export { VButton, VBadge, VChip, VRadioGroup, VRadioItem, VRadioLabel, VRadioDescription };
+import VSwitch from "./VSwitch/VSwitch.vue";
+import VSwitchDescription from "./VSwitch/VSwitchDescription.vue";
+import VSwitchGroup from "./VSwitch/VSwitchGroup.vue";
+import VSwitchLabel from "./VSwitch/VSwitchLabel.vue";
+
+export {
+  VButton,
+  VBadge,
+  VChip,
+  VRadioGroup,
+  VRadioItem,
+  VRadioLabel,
+  VRadioDescription,
+  VSwitchGroup,
+  VSwitchLabel,
+  VSwitchDescription,
+  VSwitch,
+};
