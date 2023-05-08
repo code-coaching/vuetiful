@@ -19,6 +19,7 @@ export const ROUTE_NAMES = {
     V_RADIO_GROUP: 'V_RADIO_GROUP',
     V_SHELL: 'V_SHELL',
     V_RAIL: 'V_RAIL',
+    V_SWITCH: 'V_SWITCH',
     V_DRAWER: 'V_DRAWER',
   },
 };
@@ -99,6 +100,11 @@ export const routes: RouteRecordRaw[] = [
             path: 'shell',
             name: ROUTE_NAMES.VUE.V_SHELL,
             component: () => import('src/pages/vue/VShell.vue'),
+          },
+          {
+            path: 'switch',
+            name: ROUTE_NAMES.VUE.V_SWITCH,
+            component: () => import('src/pages/vue/VSwitch.vue'),
           },
           {
             path: 'rail',

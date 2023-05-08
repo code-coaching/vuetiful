@@ -66,6 +66,10 @@ const vueLinks = [
   {
     title: 'RadioGroup',
     name: ROUTE_NAMES.VUE.V_RADIO_GROUP,
+  },
+  {
+    title: 'Switch',
+    name: ROUTE_NAMES.VUE.V_SWITCH,
   }
 ];
 </script>
