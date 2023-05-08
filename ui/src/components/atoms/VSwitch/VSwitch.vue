@@ -71,27 +71,21 @@ const trackSize = computed(() => {
 <template>
   <!-- There is some odd behavior with test coverge, v-model must be the last property in this component -->
   <Switch
-    :class="`slide-toggle rounded-container-token ${
+    :class="`slide-toggle-track flex transition-all duration-[150ms] border-token rounded-container-token ${trackSize} ${
       disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'
-    }`"
+    } ${switchClass}`"
     :name="name"
     :as="as"
     v-slot="{ checked }"
     v-model="parentModelValue"
   >
-    <button
-      :class="`slide-toggle-track flex transition-all duration-[150ms] border-token rounded-token ${trackSize} ${
-        disabled ? 'cursor-not-allowed' : 'cursor-pointer'
-      } ${switchClass}`"
-    >
-      <template v-if="$slots.default">
-        <span class="sr-only"><slot /></span>
-      </template>
-      <div
-        :class="`slide-toggle-thumb h-full w-[50%] scale-[0.8] shadow transition-all duration-[150ms] rounded-token ${
-          checked ? 'translate-x-full' : 'opacity-90'
-        } ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'} ${thumbClass} bg-opacity-90`"
-      ></div>
-    </button>
+    <template v-if="$slots.default">
+      <span class="sr-only"><slot /></span>
+    </template>
+    <div
+      :class="`slide-toggle-thumb h-full w-[50%] scale-[0.8] shadow transition-all duration-[150ms] rounded-token ${
+        checked ? 'translate-x-full' : 'opacity-90'
+      } ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'} ${thumbClass} bg-opacity-90`"
+    ></div>
   </Switch>
 </template>
