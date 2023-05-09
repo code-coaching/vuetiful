@@ -4,11 +4,15 @@
       Theme
     </VButton>
 
-    <div v-if="showPopup" class="cc-theme-switcher__popup p-4 shadow-xl" :class="classes">
+    <div
+      v-if="showPopup"
+      class="cc-theme-switcher__popup absolute z-10 mt-1 p-4 shadow-xl"
+      :class="classes"
+    >
       <div class="space-y-4">
         <section class="flex items-center justify-between">
           <h6>Mode</h6>
-          <DarkModeSwitch />
+          <v-light-switch />
         </section>
         <nav class="list-nav -m-4 overflow-y-auto p-4" :class="listClasses">
           <ul class="flex flex-col gap-4">
@@ -33,12 +37,12 @@
 </template>
 
 <script lang="ts">
-import { CssClasses, DarkModeSwitch, useDarkMode, useTheme, VButton } from "@/index";
+import { CssClasses, useDarkMode, useTheme, VButton, VLightSwitch } from "@/index";
 import { computed, defineComponent, onMounted, ref } from "vue";
 
 export default defineComponent({
   components: {
-    DarkModeSwitch,
+    VLightSwitch,
     VButton,
   },
   props: {
@@ -83,7 +87,7 @@ export default defineComponent({
       default: "w-24",
     },
   },
-  setup(props, { attrs }) {
+  setup(props) {
     const { initializeTheme, loadTheme, themes, chosenTheme } = useTheme();
     const { currentMode, MODE } = useDarkMode();
 
@@ -116,8 +120,7 @@ export default defineComponent({
       ${text.value} 
       ${props.width} 
       ${props.ring}
-      ${props.roundedContainer}
-      ${attrs.class ?? ""}`;
+      ${props.roundedContainer}`;
     });
 
     const listClasses = computed(() => {
@@ -145,11 +148,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-.cc-theme-switcher__popup {
-  position: absolute;
-  z-index: 1;
-  margin-top: 0.25rem;
-}
-</style>

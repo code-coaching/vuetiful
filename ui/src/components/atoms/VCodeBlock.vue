@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { CssClasses, vClipboard } from "@/index";
+import { useHighlight } from "@/services/highlight.service";
 import "highlight.js/styles/github-dark.css";
 import { ref } from "vue";
-import { useHighlight } from "./highlight.service";
 
 const { highlight } = useHighlight();
 

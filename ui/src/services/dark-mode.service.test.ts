@@ -13,7 +13,7 @@ describe("useDarkMode", () => {
   describe("getModeUserPrefers", () => {
     describe("given not in browser", () => {
       it("should return default modeUserPrefers", async () => {
-        const platform = await import("../platform/platform.service");
+        const platform = await import("../utils/platform/platform.service");
         vi.spyOn(platform, "usePlatform").mockReturnValueOnce({ isBrowser: false });
 
         const { useDarkMode } = await import("./dark-mode.service");
@@ -25,7 +25,7 @@ describe("useDarkMode", () => {
     describe("given in browser", () => {
       describe("given no modeUserPrefers in localStorage", () => {
         it("should return default modeUserPrefers", async () => {
-          const platform = await import("../platform/platform.service");
+          const platform = await import("../utils/platform/platform.service");
           vi.spyOn(platform, "usePlatform").mockReturnValueOnce({ isBrowser: true });
 
           const { useDarkMode } = await import("./dark-mode.service");
@@ -39,7 +39,7 @@ describe("useDarkMode", () => {
       });
       describe("given modeUserPrefers in localStorage", () => {
         it("should return the value", async () => {
-          const platform = await import("../platform/platform.service");
+          const platform = await import("../utils/platform/platform.service");
           vi.spyOn(platform, "usePlatform").mockReturnValueOnce({ isBrowser: true });
 
           const { useDarkMode } = await import("./dark-mode.service");
@@ -57,7 +57,7 @@ describe("useDarkMode", () => {
   describe("getModeOsPrefers", () => {
     describe("given not in browser", () => {
       it("should return default modeOsPrefers", async () => {
-        const platform = await import("../platform/platform.service");
+        const platform = await import("../utils/platform/platform.service");
         vi.spyOn(platform, "usePlatform").mockReturnValueOnce({ isBrowser: false });
 
         const { useDarkMode } = await import("./dark-mode.service");
@@ -69,7 +69,7 @@ describe("useDarkMode", () => {
     describe("given in browser", () => {
       describe("given prefers-color-scheme: light", () => {
         it("should return true", async () => {
-          const platform = await import("../platform/platform.service");
+          const platform = await import("../utils/platform/platform.service");
           vi.spyOn(platform, "usePlatform").mockReturnValueOnce({ isBrowser: true });
           const localStorageSpy = vi.spyOn(window.localStorage, "setItem");
 
@@ -83,7 +83,7 @@ describe("useDarkMode", () => {
       });
       describe("given prefers-color-scheme: dark", () => {
         it("should return false", async () => {
-          const platform = await import("../platform/platform.service");
+          const platform = await import("../utils/platform/platform.service");
           vi.spyOn(platform, "usePlatform").mockReturnValueOnce({ isBrowser: true });
           const localStorageSpy = vi.spyOn(window.localStorage, "setItem");
 
@@ -101,7 +101,7 @@ describe("useDarkMode", () => {
   describe("getModeAutoPrefers", () => {
     describe("given not in browser", () => {
       it("should return default modeAutoPrefers", async () => {
-        const platform = await import("../platform/platform.service");
+        const platform = await import("../utils/platform/platform.service");
         vi.spyOn(platform, "usePlatform").mockReturnValueOnce({ isBrowser: false });
 
         const { useDarkMode } = await import("./dark-mode.service");
@@ -113,7 +113,7 @@ describe("useDarkMode", () => {
     describe("given in browser", () => {
       describe("given no modeUserPrefers in localStorage", () => {
         it("should return default modeAutoPrefers", async () => {
-          const platform = await import("../platform/platform.service");
+          const platform = await import("../utils/platform/platform.service");
           vi.spyOn(platform, "usePlatform").mockReturnValueOnce({ isBrowser: true });
 
           const { useDarkMode } = await import("./dark-mode.service");
@@ -127,7 +127,7 @@ describe("useDarkMode", () => {
       });
       describe("given modeUserPrefers in localStorage", () => {
         it("should return the value", async () => {
-          const platform = await import("../platform/platform.service");
+          const platform = await import("../utils/platform/platform.service");
           vi.spyOn(platform, "usePlatform").mockReturnValueOnce({ isBrowser: true });
 
           const { useDarkMode } = await import("./dark-mode.service");
@@ -145,7 +145,7 @@ describe("useDarkMode", () => {
   describe("setModeUserPrefers", () => {
     describe("given not in browser", () => {
       it("should set modeUserPrefers", async () => {
-        const platform = await import("../platform/platform.service");
+        const platform = await import("../utils/platform/platform.service");
         vi.spyOn(platform, "usePlatform").mockReturnValueOnce({ isBrowser: false });
         vi.spyOn(window.localStorage, "setItem");
 
@@ -160,7 +160,7 @@ describe("useDarkMode", () => {
 
     describe("given in browser", () => {
       it("should set modeUserPrefers and localStorage", async () => {
-        const platform = await import("../platform/platform.service");
+        const platform = await import("../utils/platform/platform.service");
         vi.spyOn(platform, "usePlatform").mockReturnValueOnce({ isBrowser: true });
 
         const { useDarkMode } = await import("./dark-mode.service");
