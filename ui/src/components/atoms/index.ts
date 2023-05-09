@@ -1,3 +1,4 @@
+import VAvatar from "./VAvatar.vue";
 import VBadge from "./VBadge.vue";
 import VButton from "./VButton.vue";
 import VChip from "./VChip.vue";
@@ -13,6 +14,7 @@ import VSwitchGroup from "./VSwitch/VSwitchGroup.vue";
 import VSwitchLabel from "./VSwitch/VSwitchLabel.vue";
 
 export {
+  VAvatar,
   VButton,
   VBadge,
   VChip,
