@@ -48,6 +48,10 @@ const vueLinksLayout = [
 
 const vueLinks = [
   {
+    title: 'Avatar',
+    name: ROUTE_NAMES.VUE.V_AVATAR,
+  },
+  {
     title: 'Badge',
     name: ROUTE_NAMES.VUE.V_BADGE,
   },
@@ -70,7 +74,7 @@ const vueLinks = [
   {
     title: 'Switch',
     name: ROUTE_NAMES.VUE.V_SWITCH,
-  }
+  },
 ];
 </script>
 

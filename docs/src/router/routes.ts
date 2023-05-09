@@ -12,6 +12,7 @@ export const ROUTE_NAMES = {
   },
   VUE: {
     DEFAULT: 'V_SHELL',
+    V_AVATAR: 'V_AVATAR',
     V_BADGE: 'V_BADGE',
     V_BUTTON: 'V_BUTTON',
     V_CHIP: 'V_CHIP',
@@ -70,6 +71,11 @@ export const routes: RouteRecordRaw[] = [
           {
             path: '',
             redirect: { name: ROUTE_NAMES.VUE.V_BUTTON },
+          },
+          {
+            path: 'avatar',
+            name: ROUTE_NAMES.VUE.V_AVATAR,
+            component: () => import('src/pages/vue/VAvatar.vue'),
           },
           {
             path: 'badge',
