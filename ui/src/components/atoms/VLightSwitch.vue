@@ -24,9 +24,8 @@
 </template>
 
 <script lang="ts">
-import type { CssClasses } from "@/index";
+import { CssClasses, useDarkMode } from "@/index";
 import { computed, ComputedRef, defineComponent, onMounted } from "vue";
-import { useDarkMode } from "./dark-mode.service";
 
 export default defineComponent({
   props: {

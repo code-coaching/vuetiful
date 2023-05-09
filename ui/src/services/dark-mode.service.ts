@@ -1,5 +1,5 @@
 import { readonly, Ref, ref } from "vue";
-import { usePlatform } from "../platform/platform.service";
+import { usePlatform } from "../utils/platform/platform.service";
 
 const { isBrowser } = usePlatform();
 

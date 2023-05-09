@@ -19,7 +19,6 @@ TailwindCSS is added as a dependency in the consuming app, but is not mandatory 
 - [x] Badge
 - [x] Button
 - [x] Code Block (with syntax highlighting and copy to clipboard)
-  - [ ] TODO - move from utils to atoms
 - [ ] Conic Gradients
 - [x] Chip
 - [ ] File Button
@@ -43,8 +42,6 @@ TailwindCSS is added as a dependency in the consuming app, but is not mandatory 
 - [ ] Breadcrumb
 - [ ] Card
 - [x] Drawer
-- [x] Lightswitch (dark mode)
-  - [ ] TODO - move from utils to molecules
 - [ ] List
 - [ ] Listbox
 - [ ] Modal
