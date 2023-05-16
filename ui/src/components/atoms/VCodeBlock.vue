@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CssClasses, vClipboard } from "@/index";
+import { CssClasses, vClipboard, VButton } from "@/index";
 import { useHighlight } from "@/services/highlight.service";
 import "highlight.js/styles/github-dark.css";
 import { ref } from "vue";
@@ -32,7 +32,7 @@ const props = defineProps({
 
   buttonClass: {
     type: String as () => CssClasses,
-    default: "btn btn-sm variant-soft !text-white",
+    default: "btn-sm bg-surface-400 text-surface-900",
   },
   buttonText: {
     type: String,
@@ -40,7 +40,7 @@ const props = defineProps({
   },
   buttonCopiedText: {
     type: String,
-    default: "👍",
+    default: "Copied!",
   },
 });
 
@@ -73,13 +73,13 @@ function onCopyClick() {
       :class="`code-block-header flex items-center justify-between p-2 pb-0 pl-4 text-xs uppercase text-white/50 ${headerClass}`"
     >
       <span :class="`code-block-language`">{{ languageFormatter(language) }}</span>
-      <button
+      <v-button
         :class="`code-block-btn ${buttonClass}`"
         @click="onCopyClick()"
         v-clipboard="props.code"
       >
         {{ !copyState ? buttonText : buttonCopiedText }}
-      </button>
+      </v-button>
     </header>
     <pre
       :class="`code-block-pre ${
