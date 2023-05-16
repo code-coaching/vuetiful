@@ -1,6 +1,6 @@
 {
   "name": "@code-coaching/vuetiful",
-  "version": "0.16.3",
+  "version": "0.16.4",
   "license": "MIT",
   "scripts": {
     "dev": "onchange 'src/**/*.vue' 'src/**/*.ts' 'src/**/*.css' -- npm run build",

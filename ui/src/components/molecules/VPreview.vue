@@ -4,8 +4,8 @@ import { ref } from "vue";
 
 const backgrounds: Record<string, string> = {
   "bg-transparent": "bg-transparent",
-  neutral: "bg-white/25 dark:bg-black/25",
   "neutral-opaque": "bg-white/50 dark:bg-black/50",
+  neutral: "bg-surface-100-800-token",
 
   "variant-filled-surface": "variant-filled-surface",
   "variant-filled-primary": "variant-filled-primary",
@@ -197,7 +197,7 @@ const toggleSwatches = () => (swatches.value = !swatches.value);
           data-test="previewer-preview"
           :class="`vuetiful-previewer-preview mx-auto flex duration-300 ${
             radioSize === 'mobile'
-              ? 'mobile-screen flex h-[812px]  max-w-[375px] flex-col overflow-hidden rounded-3xl border-8 border-black/50 p-2 shadow-2xl dark:border-white/50'
+              ? 'mobile-screen flex h-[812px] max-w-[375px] flex-col overflow-hidden rounded-3xl border-8 border-black/50 p-2 shadow-2xl dark:border-white/50'
               : 'w-full items-center justify-center'
           } ${regionPreview}`"
         >
@@ -216,7 +216,7 @@ const toggleSwatches = () => (swatches.value = !swatches.value);
     <template v-if="tabView === 'code'">
       <div
         data-test="previewer-source"
-        :class="`vuetiful-previewer-source space-y-4 p-4 bg-surface-200-700-token ${regionSource}`"
+        :class="`vuetiful-previewer-source p-4 ${backgrounds['neutral']} ${regionSource}`"
       >
         <slot name="source">(source)</slot>
       </div>
