@@ -32,7 +32,7 @@ const props = defineProps({
 
   buttonClass: {
     type: String as () => CssClasses,
-    default: "btn-sm bg-surface-400 text-surface-900",
+    default: "btn-sm",
   },
   buttonText: {
     type: String,
@@ -40,7 +40,7 @@ const props = defineProps({
   },
   buttonCopiedText: {
     type: String,
-    default: "Copied!",
+    default: "👍",
   },
 });
 
