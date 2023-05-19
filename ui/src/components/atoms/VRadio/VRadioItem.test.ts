@@ -40,7 +40,7 @@ describe("VRadioItem slot states", () => {
         },
       });
 
-      const itemEl = wrapper.find("[data-test='item']").find("span");
+      const itemEl = wrapper.find("[data-test='item']").find("div");
       expect(itemEl.element.classList.contains("variant-filled")).toBe(true);
       expect(itemEl.element.classList.contains("hover:variant-ghost")).toBe(false); 
     });
@@ -62,7 +62,7 @@ describe("VRadioItem slot states", () => {
         },
       });
 
-      const itemEl = wrapper.find("[data-test='item']").find("span");
+      const itemEl = wrapper.find("[data-test='item']").find("div");
       expect(itemEl.element.classList.contains("variant-filled")).toBe(false);
       expect(itemEl.element.classList.contains("hover:variant-ghost")).toBe(true);  
     });
@@ -89,7 +89,7 @@ describe("VRadioItem slot states", () => {
         },
       });
 
-      const itemEl = wrapper.find("[data-test='item']").find("span");
+      const itemEl = wrapper.find("[data-test='item']").find("div");
       expect(itemEl.element.classList.contains("custom-active-class")).toBe(true);
       expect(itemEl.element.classList.contains("custom-hover-class")).toBe(false); 
     });
@@ -117,7 +117,7 @@ describe("VRadioItem slot states", () => {
         },
       });
 
-      const itemEl = wrapper.find("[data-test='item']").find("span");
+      const itemEl = wrapper.find("[data-test='item']").find("div");
       expect(itemEl.element.classList.contains("custom-active-class")).toBe(false); 
       expect(itemEl.element.classList.contains("custom-hover-class")).toBe(true); 
     });
@@ -145,7 +145,7 @@ describe("VRadioItem slot states", () => {
         },
       });
 
-      const itemEl = wrapper.find("[data-test='item']").find("span");
+      const itemEl = wrapper.find("[data-test='item']").find("div");
       expect(itemEl.element.classList.contains("cursor-pointer")).toBe(true); 
       expect(itemEl.element.classList.contains("cursor-not-allowed")).toBe(false); 
       expect(itemEl.element.classList.contains("opacity-50")).toBe(false); 
@@ -174,7 +174,7 @@ describe("VRadioItem slot states", () => {
         },
       });
 
-      const itemEl = wrapper.find("[data-test='item']").find("span");
+      const itemEl = wrapper.find("[data-test='item']").find("div");
       expect(itemEl.element.classList.contains("cursor-pointer")).toBe(false); 
       expect(itemEl.element.classList.contains("cursor-not-allowed")).toBe(true); 
       expect(itemEl.element.classList.contains("opacity-50")).toBe(true); 
