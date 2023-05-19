@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CssClasses, vClipboard, VButton } from "@/index";
+import { CssClasses, VButton, vClipboard } from "@/index";
 import { useHighlight } from "@/services/highlight.service";
 import "highlight.js/styles/github-dark.css";
 import { ref } from "vue";
@@ -68,7 +68,9 @@ function onCopyClick() {
 </script>
 
 <template v-if="language && code">
-  <div class="code-block bg-neutral-900/90 text-sm text-white shadow rounded-container-token">
+  <div
+    class="code-block max-w-full bg-neutral-900/90 text-sm text-white shadow rounded-container-token"
+  >
     <header
       :class="`code-block-header flex items-center justify-between p-2 pb-0 pl-4 text-xs uppercase text-white/50 ${headerClass}`"
     >
