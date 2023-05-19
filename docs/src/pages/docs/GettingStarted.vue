@@ -497,9 +497,9 @@ body,
       <v-code-block
         language="css"
         :code="`// If this is in your css, remove it
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;`"
+@tailwind base;
+@tailwind components;
+@tailwind utilities;`"
       />
     </section>
 
@@ -512,9 +512,9 @@ body,
       <v-code-block
         language="js"
         :code="`// prettier.config.js
-  module.exports = {
-    plugins: [require('prettier-plugin-tailwindcss')],
-  };`"
+module.exports = {
+  plugins: [require('prettier-plugin-tailwindcss')],
+};`"
       />
     </section>
 
@@ -542,11 +542,11 @@ body,
           <v-code-block
             language="js"
             :code="`module.exports = {
-      plugins: {
-        tailwindcss: {},
-        autoprefixer: {},
-      },
-    };`"
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};`"
           />
         </section>
 
