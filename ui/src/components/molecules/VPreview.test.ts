@@ -71,23 +71,3 @@ describe("VPreview", () => {
     });
   })
 });
-
-// test("VPreview", () => {
-//   const wrapper = mount(VPreview, {
-//     slots: {
-//       preview: "<div data-test='preview-slot'>Preview</div>",
-//       source: "<div data-test='source-slot'>Source</div>",
-//     },
-//   });
-
-//   const previewerPreview = wrapper.find("[data-test='previewer-preview']");
-//   const previewSlot = previewerPreview.find("[data-test='preview-slot']");
-
-//   console.log(wrapper.html());
-//   const previewerSource = wrapper.find("[data-test='previewer-source']");
-//   expect(previewerSource.exists()).toBe(false);
-//   const sourceSlot = previewerSource.find("[data-test='source-slot']");
-
-//   expect(previewSlot.exists()).toBe(true);
-//   expect(sourceSlot.exists()).toBe(true);
-// })
