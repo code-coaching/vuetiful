@@ -15,7 +15,7 @@ TailwindCSS is added as a dependency in the consuming app, but is not mandatory 
 
 ### Atoms 
 
-- [ ] Avatar
+- [x] Avatar
 - [x] Badge
 - [x] Button
 - [x] Code Block (with syntax highlighting and copy to clipboard)
@@ -25,7 +25,6 @@ TailwindCSS is added as a dependency in the consuming app, but is not mandatory 
 - [ ] File Dropzone
 - [ ] Input Chip
 - [x] Lightswitch (dark mode)
-  - [ ] TODO - move from utils to atoms
 - [ ] Placeholder
 - [ ] Progress Bar
 - [ ] Progress Radial
@@ -47,6 +46,7 @@ TailwindCSS is added as a dependency in the consuming app, but is not mandatory 
 - [ ] Modal
 - [ ] Paginator
 - [ ] Popup
+- [x] Preview
 - [x] Rail (rail, rail tile)
 - [x] Shell
 - [ ] Stepper
