@@ -22,6 +22,7 @@ export const ROUTE_NAMES = {
     V_RAIL: 'V_RAIL',
     V_SWITCH: 'V_SWITCH',
     V_DRAWER: 'V_DRAWER',
+    V_PREVIEW: 'V_PREVIEW',
   },
 };
 
@@ -122,6 +123,11 @@ export const routes: RouteRecordRaw[] = [
             name: ROUTE_NAMES.VUE.V_DRAWER,
             component: () => import('src/pages/vue/VDrawer.vue'),
           },
+          {
+            path: 'preview',
+            name: ROUTE_NAMES.VUE.V_PREVIEW,
+            component: () => import('src/pages/vue/VPreview.vue'),
+          }
         ],
       },
     ],
