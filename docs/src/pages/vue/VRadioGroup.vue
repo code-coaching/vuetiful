@@ -238,17 +238,16 @@ const glassBgExample = computed(
           </div>
         </template>
         <template v-slot:source>
-          <div class="flex flex-col gap-2">
-            <v-code-block
-              language="ts"
-              :code="`const radioValue = ref({ id: ${radioObjectValue.id}, name: ${radioObjectValue.name} });`"
-            />
-            <v-code-block language="html" :code="objectExample" />
-            <p>
-              Note: The <code>by</code> attribute on the <code>v-radio-group</code> contains the value of the property
-              to filter by.
-            </p>
-          </div>
+          <v-code-block
+            class="mb-2"
+            language="ts"
+            :code="`const radioValue = ref({ id: ${radioObjectValue.id}, name: ${radioObjectValue.name} });`"
+          />
+          <v-code-block class="mb-2" language="html" :code="objectExample" />
+          <p>
+            Note: The <code>by</code> attribute on the <code>v-radio-group</code> contains the value of the property to
+            filter by.
+          </p>
         </template>
         <template v-slot:footer>
           <p class="flex items-center justify-center">
@@ -299,10 +298,8 @@ const glassBgExample = computed(
           </div>
         </template>
         <template v-slot:source>
-          <div class="flex flex-col gap-2">
-            <v-code-block language="ts" :code="`const radioValue = ref('${a11yValue}');`" />
-            <v-code-block language="html" :code="a11yExample" />
-          </div>
+          <v-code-block class="mb-2" language="ts" :code="`const radioValue = ref('${a11yValue}');`" />
+          <v-code-block class="mb-2" language="html" :code="a11yExample" />
           <p>Adding <code>disabled</code> to a <code>v-radio-item</code> will disable the radio button.</p>
           <p>
             Using <code>v-radio-label</code> and <code>v-radio-description</code> is optional, but recommended for
