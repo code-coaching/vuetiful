@@ -35,6 +35,7 @@ const glassExample = `<v-button class="variant-glass text-white/75">Default</v-b
         </template>
         <template v-slot:source>
           <v-code-block
+            class="mb-2"
             language="html"
             :code="`<v-button class=&quot;variant-filled&quot; aria-label=&quot;menu&quot;>John Duck</v-button>`"
           />
@@ -51,7 +52,7 @@ const glassExample = `<v-button class="variant-glass text-white/75">Default</v-b
     <section class="section">
       <v-preview>
         <template v-slot:preview>
-          <div class="flex flex-wrap gap-2 items-start">
+          <div class="flex flex-wrap items-start gap-2">
             <v-button class="variant-filled btn-sm">sm</v-button>
             <v-button class="variant-filled">default</v-button>
             <v-button class="variant-filled btn-lg">lg</v-button>

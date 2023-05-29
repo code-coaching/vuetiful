@@ -53,7 +53,7 @@ const sourceHide = `<v-preview hide-swatches hide-mobile-toggle class="min-w-ful
           </v-preview>
         </template>
         <template v-slot:source>
-          <v-code-block language="html" :code="sourceHide" />
+          <v-code-block class="mb-2" language="html" :code="sourceHide" />
           <p><code>hide-swatches</code> hides the swatches (background picker).</p>
           <p><code>hide-mobile-toggle</code> hides the toggle to showcase the mobile view.</p>
           <p>The mobile toggle is not shown when the screen is to small.</p>

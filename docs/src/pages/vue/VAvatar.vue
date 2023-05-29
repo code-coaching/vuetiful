@@ -84,7 +84,7 @@ const glass = `<v-avatar class="variant-glass" initials="AB" />
         </template>
         <template v-slot:source>
           <v-code-block class="mb-2" language="html" :code="usage" />
-          <v-code-block language="css" :code="usageCss" />
+          <v-code-block class="mb-2" language="css" :code="usageCss" />
           <p>
             Passing a <code>src</code> will render an image. If the image fails to load, the <code>fallback</code> will
             be used.

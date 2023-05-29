@@ -103,7 +103,7 @@ const switchValue = ref(false);
           </div>
         </template>
         <template v-slot:source>
-          <v-code-block class="mt-4" language="html" :code="groupTemplate" />
+          <v-code-block language="html" :code="groupTemplate" />
         </template>
       </v-preview>
     </section>
@@ -125,7 +125,7 @@ const switchValue = ref(false);
             <v-switch v-model="switchValue">Label for screen readers</v-switch>
           </template>
           <template v-slot:source>
-            <v-code-block language="html" :code="labelTemplate" />
+            <v-code-block class="mb-2" language="html" :code="labelTemplate" />
             <p>The text inside the <code>v-switch</code> tag is only visible to screen readers.</p>
             <p>
               When not using an explicit label (<code>v-switch-label</code>), do add text to the
