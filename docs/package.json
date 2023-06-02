@@ -1,6 +1,6 @@
 {
   "name": "vuetiful-docs",
-  "version": "0.16.6",
+  "version": "0.17.1",
   "description": "Documentation for Vuetiful UI Toolkit",
   "productName": "Vuetiful Docs",
   "author": "Bart Duisters <bartduisters@bartduisters.com>",
@@ -15,7 +15,7 @@
     "preview": "node dist/ssr"
   },
   "dependencies": {
-    "@code-coaching/vuetiful": "^0.16.6",
+    "@code-coaching/vuetiful": "^0.17.1",
     "@quasar/extras": "^1.0.0",
     "axios": "^0.21.1",
     "quasar": "^2.6.0",

@@ -68,6 +68,10 @@ const vueLinks = [
     name: ROUTE_NAMES.VUE.V_CODE_BLOCK,
   },
   {
+    title: 'Listbox',
+    name: ROUTE_NAMES.VUE.V_LISTBOX,
+  },
+  {
     title: 'Preview',
     name: ROUTE_NAMES.VUE.V_PREVIEW,
   },
