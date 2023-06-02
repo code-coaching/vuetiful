@@ -6,7 +6,7 @@ test("VDrawer", () => {
   expect(VDrawer).toBeTruthy();
 });
 
-// TODO: add tests 
+// TODO: add tests
 test("VDrawer using slot", () => {
   const wrapper = mount(VDrawer);
 

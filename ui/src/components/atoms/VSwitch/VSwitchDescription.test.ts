@@ -1,7 +1,7 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, test } from "vitest";
-import VSwitchGroup from "./VSwitchGroup.vue";
 import VSwitchDescription from "./VSwitchDescription.vue";
+import VSwitchGroup from "./VSwitchGroup.vue";
 
 test("VSwitchDescription using slot", () => {
   const wrapper = mount({
@@ -52,5 +52,4 @@ describe("VSwitchDescription props", () => {
     const label = wrapper.find("[data-test='label']");
     expect(label.element).toBeInstanceOf(HTMLDivElement);
   });
-
 });
