@@ -79,7 +79,7 @@ onMounted(() => {
     <div
       v-if="drawer.open"
       ref="elemBackdrop"
-      :class="`drawer-backdrop backdrop-blur-xs fixed bottom-0 left-0 right-0 top-0 flex bg-surface-backdrop-token z-40 ${regionBackdrop}`"
+      :class="`drawer-backdrop backdrop-blur-xs fixed bottom-0 left-0 right-0 top-0 z-40 flex bg-surface-backdrop-token ${regionBackdrop}`"
       @mousedown="onBackdropInteraction"
       @touchstart="onBackdropInteraction"
     ></div>

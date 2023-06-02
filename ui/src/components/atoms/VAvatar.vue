@@ -33,7 +33,13 @@ const fillInitials = computed(() => {
   <figure
     :class="`avatar isolate flex aspect-square items-center justify-center overflow-hidden font-semibold ${rounded} ${width}`"
   >
-    <img class="avatar-image" v-if="src" :src="imgSrc" :alt="alt" @error="() => (imgSrc = fallback)" />
+    <img
+      class="avatar-image"
+      v-if="src"
+      :src="imgSrc"
+      :alt="alt"
+      @error="() => (imgSrc = fallback)"
+    />
     <svg v-else class="avatar-initials h-full w-full" viewBox="0 0 512 512">
       <text
         x="50%"

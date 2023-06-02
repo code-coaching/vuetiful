@@ -11,7 +11,7 @@ test("VLightSwitch", () => {
   expect(VLightSwitch).toBeTruthy();
 });
 
-// TODO: add tests 
+// TODO: add tests
 test("VLightSwitch using slot", () => {
   window.matchMedia = matchMediaMock(MODE.LIGHT) as any;
   const wrapper = mount(VLightSwitch);

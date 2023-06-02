@@ -22,5 +22,5 @@ describe("VSwitchGroup props", () => {
 
     const divEl = wrapper.find("div");
     expect(divEl).not.toBeUndefined();
-  })
-})
+  });
+});

@@ -67,7 +67,7 @@
 
   /* File Input Button */
   input[type="file"]:not(.file-dropzone-input)::file-selector-button {
-    @apply btn variant-filled btn-sm mr-2 border-0;
+    @apply variant-filled btn btn-sm mr-2 border-0;
   }
 
   /* === Button Groups === */

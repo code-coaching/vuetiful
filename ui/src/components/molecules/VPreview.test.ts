@@ -69,5 +69,5 @@ describe("VPreview", () => {
       expect(after.classes()).toContain("mobile-screen");
       expect(after.classes()).not.toContain("w-full");
     });
-  })
+  });
 });

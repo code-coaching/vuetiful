@@ -77,7 +77,7 @@ describe("VListbox", () => {
       await button.trigger("click");
       await listbox.find("[data-test='vuetiful']").trigger("click");
 
-      expect(choice.value).toEqual({ name: 'vuetiful', id: 0 });
+      expect(choice.value).toEqual({ name: "vuetiful", id: 0 });
       expect(button.text()).toBe("vuetiful");
     });
   });
@@ -115,7 +115,7 @@ describe("VListbox", () => {
       expect(choice.value).toEqual(["vuetiful", "is"]);
       expect(button.text()).toBe("2 options selected");
     });
-  })
+  });
 });
 
 //   test("size xs", () => {
