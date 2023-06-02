@@ -6,7 +6,7 @@ test("VShell", () => {
   expect(VShell).toBeTruthy();
 });
 
-// TODO: add tests 
+// TODO: add tests
 test("VShell using slot", () => {
   const wrapper = mount(VShell);
 

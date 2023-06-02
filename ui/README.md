@@ -13,7 +13,7 @@ TailwindCSS is added as a dependency in the consuming app, but is not mandatory 
 
 ## Components
 
-### Atoms 
+### Atoms
 
 - [x] Avatar
 - [x] Badge
@@ -32,7 +32,6 @@ TailwindCSS is added as a dependency in the consuming app, but is not mandatory 
 - [ ] Range Slider
 - [x] Switch
 
-
 ### Molecules
 
 - [ ] Accordion
@@ -42,7 +41,7 @@ TailwindCSS is added as a dependency in the consuming app, but is not mandatory 
 - [ ] Card
 - [x] Drawer
 - [ ] List
-- [ ] Listbox
+- [x] Listbox
 - [ ] Modal
 - [ ] Paginator
 - [ ] Popup

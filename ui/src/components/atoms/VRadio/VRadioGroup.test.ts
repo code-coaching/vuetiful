@@ -75,7 +75,7 @@ describe("VRadioGroup v-model", () => {
 
       wrapper.setProps({ modelValue: "Jane Duck" });
       await wrapper.vm.$nextTick();
-      expect(wrapper.emitted()['update:modelValue'][0]).toEqual(["Jane Duck"]);
-    })
-  })
-})
+      expect(wrapper.emitted()["update:modelValue"][0]).toEqual(["Jane Duck"]);
+    });
+  });
+});

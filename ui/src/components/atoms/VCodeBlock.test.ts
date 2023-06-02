@@ -6,7 +6,7 @@ test("VCodeBlock", () => {
   expect(VCodeBlock).toBeTruthy();
 });
 
-// TODO: add tests 
+// TODO: add tests
 test("VCodeBlock using slot", () => {
   const wrapper = mount(VCodeBlock);
 

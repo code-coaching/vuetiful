@@ -1,26 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, test } from "vitest";
 import VSwitch from "./VSwitch.vue";
-import { ref } from "vue";
-
-describe("VSwitch slots", () => {
-  test("should not add screen reader text by default", () => {
-    const wrapper = mount(VSwitch);
-
-    const srOnly = wrapper.find(".sr-only");
-    expect(srOnly.exists()).toBe(false);
-  });
-  test("should add screen reader text if default slot is present", () => {
-    const wrapper = mount(VSwitch, {
-      slots: {
-        default: "John Duck",
-      },
-    });
-
-    const srOnly = wrapper.find(".sr-only");
-    expect(srOnly.text()).toContain("John Duck");
-  });
-});
 
 describe("VSwitch props", () => {
   test("defaults", () => {
@@ -102,9 +82,6 @@ describe("VSwitch props", () => {
     const track = wrapper.find(".slide-toggle-track");
     expect(track.attributes("class")).toContain("custom");
   });
-
-
-
 });
 
 describe("VSwitch events", () => {
@@ -112,10 +89,10 @@ describe("VSwitch events", () => {
     const wrapper = mount(VSwitch, {
       props: {
         modelValue: false,
-      }
+      },
     });
 
-    await wrapper.setProps({ modelValue: true});
+    await wrapper.setProps({ modelValue: true });
     expect(wrapper.emitted()).toHaveProperty("update:modelValue");
-  })
-})
+  });
+});

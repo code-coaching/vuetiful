@@ -67,7 +67,7 @@ describe("VSwitchLabel props", () => {
     });
 
     const label = wrapper.findComponent(VSwitchLabel);
-    expect(label.props('passive')).toBe(false);
+    expect(label.props("passive")).toBe(false);
   });
 
   test("custom 'passive' prop'", () => {
@@ -84,6 +84,6 @@ describe("VSwitchLabel props", () => {
     });
 
     const label = wrapper.findComponent(VSwitchLabel);
-    expect(label.props('passive')).toBe(true);
-  })
+    expect(label.props("passive")).toBe(true);
+  });
 });

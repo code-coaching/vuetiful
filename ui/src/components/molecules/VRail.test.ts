@@ -6,7 +6,7 @@ test("VRail", () => {
   expect(VRail).toBeTruthy();
 });
 
-// TODO: add tests 
+// TODO: add tests
 test("VRail using slot", () => {
   const wrapper = mount(VRail);
 
