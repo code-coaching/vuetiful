@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { VCodeBlock, VPreview, VListbox, VListboxItem } from '@code-coaching/vuetiful';
+import { VCodeBlock, VListbox, VListboxItem, VPreview } from '@code-coaching/vuetiful';
 import { ref } from 'vue';
 
 const basicScript = 'const choice = ref();';

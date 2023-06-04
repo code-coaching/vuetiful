@@ -204,9 +204,7 @@ const glass = `<v-avatar class="variant-glass" initials="AB" />
         </template>
         <template v-slot:footer>
           <div class="flex items-center justify-center">
-            <a  target="_blank" href="https://www.markferrari.com/">
-              Image Source
-            </a>
+            <a target="_blank" href="https://www.markferrari.com/"> Image Source </a>
           </div>
         </template>
 
