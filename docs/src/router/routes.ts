@@ -133,7 +133,7 @@ export const routes: RouteRecordRaw[] = [
             path: 'preview',
             name: ROUTE_NAMES.VUE.V_PREVIEW,
             component: () => import('src/pages/vue/VPreview.vue'),
-          }
+          },
         ],
       },
     ],

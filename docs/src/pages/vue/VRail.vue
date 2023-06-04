@@ -50,7 +50,7 @@ const useRailExample = `<v-shell class="flex border-2 border-surface-500">
 
     <h2>Example</h2>
     <section class="section">
-      <div class="flex h-[576px] flex-col items-center justify-center gap-2 md:h-[576px] mb-4">
+      <div class="mb-4 flex h-[576px] flex-col items-center justify-center gap-2 md:h-[576px]">
         <v-shell class="flex border-2 border-surface-500">
           <div :class="'sidebar grid h-full grid-cols-[auto_1fr] border-r border-surface-500/30'">
             <v-rail class="border-r border-surface-500">
@@ -74,6 +74,5 @@ const useRailExample = `<v-shell class="flex border-2 border-surface-500">
         <v-code-block language="html" :code="useRailExample" />
       </div>
     </section>
-
   </div>
 </template>

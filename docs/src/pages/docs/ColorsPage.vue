@@ -15,8 +15,9 @@
         Intensity <code>500</code> is the default color. The higher the intensity, the darker the color. The lower the
         intensity, the lighter the color.
       </p>
-
-      <p>Colors can be used combined with:</p>
+    </section>
+    <section class="section">
+      <p class="mb-2">Colors can be used combined with:</p>
       <div class="flex flex-col gap-2">
         <div class="flex">
           <a class="w-28" href="https://tailwindcss.com/docs/background-color">Background</a>
@@ -182,7 +183,7 @@
           <div class="btn-sm bg-slate-700 text-slate-50">700</div>
           <div class="btn-sm bg-slate-800 text-slate-50">800</div>
           <div class="btn-sm bg-slate-900 text-slate-50">900</div>
-          <div class="bg-slate-950 btn-sm text-slate-50">950</div>
+          <div class="btn-sm bg-slate-950 text-slate-50">950</div>
         </div>
 
         <div class="mb-2 flex flex-wrap items-start gap-2">
@@ -197,7 +198,7 @@
           <div class="btn-sm bg-gray-700 text-gray-50">700</div>
           <div class="btn-sm bg-gray-800 text-gray-50">800</div>
           <div class="btn-sm bg-gray-900 text-gray-50">900</div>
-          <div class="bg-gray-950 btn-sm text-gray-50">950</div>
+          <div class="btn-sm bg-gray-950 text-gray-50">950</div>
         </div>
 
         <div class="mb-2 flex flex-wrap items-start gap-2">
@@ -212,7 +213,7 @@
           <div class="btn-sm bg-zinc-700 text-zinc-50">700</div>
           <div class="btn-sm bg-zinc-800 text-zinc-50">800</div>
           <div class="btn-sm bg-zinc-900 text-zinc-50">900</div>
-          <div class="bg-zinc-950 btn-sm text-zinc-50">950</div>
+          <div class="btn-sm bg-zinc-950 text-zinc-50">950</div>
         </div>
 
         <div class="mb-2 flex flex-wrap items-start gap-2">
@@ -227,7 +228,7 @@
           <div class="btn-sm bg-neutral-700 text-neutral-50">700</div>
           <div class="btn-sm bg-neutral-800 text-neutral-50">800</div>
           <div class="btn-sm bg-neutral-900 text-neutral-50">900</div>
-          <div class="bg-neutral-950 btn-sm text-neutral-50">950</div>
+          <div class="btn-sm bg-neutral-950 text-neutral-50">950</div>
         </div>
 
         <div class="mb-2 flex flex-wrap items-start gap-2">
@@ -242,7 +243,7 @@
           <div class="btn-sm bg-stone-700 text-stone-50">700</div>
           <div class="btn-sm bg-stone-800 text-stone-50">800</div>
           <div class="btn-sm bg-stone-900 text-stone-50">900</div>
-          <div class="bg-stone-950 btn-sm text-stone-50">950</div>
+          <div class="btn-sm bg-stone-950 text-stone-50">950</div>
         </div>
 
         <div class="mb-2 flex flex-wrap items-start gap-2">
@@ -257,7 +258,7 @@
           <div class="btn-sm bg-red-700 text-red-50">700</div>
           <div class="btn-sm bg-red-800 text-red-50">800</div>
           <div class="btn-sm bg-red-900 text-red-50">900</div>
-          <div class="bg-red-950 btn-sm text-red-50">950</div>
+          <div class="btn-sm bg-red-950 text-red-50">950</div>
         </div>
 
         <div class="mb-2 flex flex-wrap items-start gap-2">
@@ -272,7 +273,7 @@
           <div class="btn-sm bg-orange-700 text-orange-50">700</div>
           <div class="btn-sm bg-orange-800 text-orange-50">800</div>
           <div class="btn-sm bg-orange-900 text-orange-50">900</div>
-          <div class="bg-orange-950 btn-sm text-orange-50">950</div>
+          <div class="btn-sm bg-orange-950 text-orange-50">950</div>
         </div>
 
         <div class="mb-2 flex flex-wrap items-start gap-2">
@@ -287,7 +288,7 @@
           <div class="btn-sm bg-amber-700 text-amber-50">700</div>
           <div class="btn-sm bg-amber-800 text-amber-50">800</div>
           <div class="btn-sm bg-amber-900 text-amber-50">900</div>
-          <div class="bg-amber-950 btn-sm text-amber-50">950</div>
+          <div class="btn-sm bg-amber-950 text-amber-50">950</div>
         </div>
 
         <div class="mb-2 flex flex-wrap items-start gap-2">
@@ -302,7 +303,7 @@
           <div class="btn-sm bg-yellow-700 text-yellow-50">700</div>
           <div class="btn-sm bg-yellow-800 text-yellow-50">800</div>
           <div class="btn-sm bg-yellow-900 text-yellow-50">900</div>
-          <div class="bg-yellow-950 btn-sm text-yellow-50">950</div>
+          <div class="btn-sm bg-yellow-950 text-yellow-50">950</div>
         </div>
 
         <div class="mb-2 flex flex-wrap items-start gap-2">
@@ -317,7 +318,7 @@
           <div class="btn-sm bg-lime-700 text-lime-50">700</div>
           <div class="btn-sm bg-lime-800 text-lime-50">800</div>
           <div class="btn-sm bg-lime-900 text-lime-50">900</div>
-          <div class="bg-lime-950 btn-sm text-lime-50">950</div>
+          <div class="btn-sm bg-lime-950 text-lime-50">950</div>
         </div>
 
         <div class="mb-2 flex flex-wrap items-start gap-2">
@@ -332,7 +333,7 @@
           <div class="btn-sm bg-green-700 text-green-50">700</div>
           <div class="btn-sm bg-green-800 text-green-50">800</div>
           <div class="btn-sm bg-green-900 text-green-50">900</div>
-          <div class="bg-green-950 btn-sm text-green-50">950</div>
+          <div class="btn-sm bg-green-950 text-green-50">950</div>
         </div>
 
         <div class="mb-2 flex flex-wrap items-start gap-2">
@@ -347,7 +348,7 @@
           <div class="btn-sm bg-emerald-700 text-emerald-50">700</div>
           <div class="btn-sm bg-emerald-800 text-emerald-50">800</div>
           <div class="btn-sm bg-emerald-900 text-emerald-50">900</div>
-          <div class="bg-emerald-950 btn-sm text-emerald-50">950</div>
+          <div class="btn-sm bg-emerald-950 text-emerald-50">950</div>
         </div>
 
         <div class="mb-2 flex flex-wrap items-start gap-2">
@@ -362,7 +363,7 @@
           <div class="btn-sm bg-teal-700 text-teal-50">700</div>
           <div class="btn-sm bg-teal-800 text-teal-50">800</div>
           <div class="btn-sm bg-teal-900 text-teal-50">900</div>
-          <div class="bg-teal-950 btn-sm text-teal-50">950</div>
+          <div class="btn-sm bg-teal-950 text-teal-50">950</div>
         </div>
 
         <div class="mb-2 flex flex-wrap items-start gap-2">
@@ -377,7 +378,7 @@
           <div class="btn-sm bg-cyan-700 text-cyan-50">700</div>
           <div class="btn-sm bg-cyan-800 text-cyan-50">800</div>
           <div class="btn-sm bg-cyan-900 text-cyan-50">900</div>
-          <div class="bg-cyan-950 btn-sm text-cyan-50">950</div>
+          <div class="btn-sm bg-cyan-950 text-cyan-50">950</div>
         </div>
 
         <div class="mb-2 flex flex-wrap items-start gap-2">
@@ -392,7 +393,7 @@
           <div class="btn-sm bg-sky-700 text-sky-50">700</div>
           <div class="btn-sm bg-sky-800 text-sky-50">800</div>
           <div class="btn-sm bg-sky-900 text-sky-50">900</div>
-          <div class="bg-sky-950 btn-sm text-sky-50">950</div>
+          <div class="btn-sm bg-sky-950 text-sky-50">950</div>
         </div>
 
         <div class="mb-2 flex flex-wrap items-start gap-2">
@@ -407,7 +408,7 @@
           <div class="btn-sm bg-blue-700 text-blue-50">700</div>
           <div class="btn-sm bg-blue-800 text-blue-50">800</div>
           <div class="btn-sm bg-blue-900 text-blue-50">900</div>
-          <div class="bg-blue-950 btn-sm text-blue-50">950</div>
+          <div class="btn-sm bg-blue-950 text-blue-50">950</div>
         </div>
 
         <div class="mb-2 flex flex-wrap items-start gap-2">
@@ -422,7 +423,7 @@
           <div class="btn-sm bg-indigo-700 text-indigo-50">700</div>
           <div class="btn-sm bg-indigo-800 text-indigo-50">800</div>
           <div class="btn-sm bg-indigo-900 text-indigo-50">900</div>
-          <div class="bg-indigo-950 btn-sm text-indigo-50">950</div>
+          <div class="btn-sm bg-indigo-950 text-indigo-50">950</div>
         </div>
 
         <div class="mb-2 flex flex-wrap items-start gap-2">
@@ -437,7 +438,7 @@
           <div class="btn-sm bg-violet-700 text-violet-50">700</div>
           <div class="btn-sm bg-violet-800 text-violet-50">800</div>
           <div class="btn-sm bg-violet-900 text-violet-50">900</div>
-          <div class="bg-violet-950 btn-sm text-violet-50">950</div>
+          <div class="btn-sm bg-violet-950 text-violet-50">950</div>
         </div>
 
         <div class="mb-2 flex flex-wrap items-start gap-2">
@@ -452,7 +453,7 @@
           <div class="btn-sm bg-purple-700 text-purple-50">700</div>
           <div class="btn-sm bg-purple-800 text-purple-50">800</div>
           <div class="btn-sm bg-purple-900 text-purple-50">900</div>
-          <div class="bg-purple-950 btn-sm text-purple-50">950</div>
+          <div class="btn-sm bg-purple-950 text-purple-50">950</div>
         </div>
 
         <div class="mb-2 flex flex-wrap items-start gap-2">
@@ -467,7 +468,7 @@
           <div class="btn-sm bg-fuchsia-700 text-fuchsia-50">700</div>
           <div class="btn-sm bg-fuchsia-800 text-fuchsia-50">800</div>
           <div class="btn-sm bg-fuchsia-900 text-fuchsia-50">900</div>
-          <div class="bg-fuchsia-950 btn-sm text-fuchsia-50">950</div>
+          <div class="btn-sm bg-fuchsia-950 text-fuchsia-50">950</div>
         </div>
 
         <div class="mb-2 flex flex-wrap items-start gap-2">
@@ -482,7 +483,7 @@
           <div class="btn-sm bg-pink-700 text-pink-50">700</div>
           <div class="btn-sm bg-pink-800 text-pink-50">800</div>
           <div class="btn-sm bg-pink-900 text-pink-50">900</div>
-          <div class="bg-pink-950 btn-sm text-pink-50">950</div>
+          <div class="btn-sm bg-pink-950 text-pink-50">950</div>
         </div>
 
         <div class="mb-2 flex flex-wrap items-start gap-2">
@@ -497,7 +498,7 @@
           <div class="btn-sm bg-rose-700 text-rose-50">700</div>
           <div class="btn-sm bg-rose-800 text-rose-50">800</div>
           <div class="btn-sm bg-rose-900 text-rose-50">900</div>
-          <div class="bg-rose-950 btn-sm text-rose-50">950</div>
+          <div class="btn-sm bg-rose-950 text-rose-50">950</div>
         </div>
       </div>
     </section>
