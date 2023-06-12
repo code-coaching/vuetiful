@@ -445,6 +445,7 @@ body,
 <template>
   <div class="flex max-w-5xl flex-col p-4">
     <h1>Getting Started</h1>
+
     <header class="header">
       <section class="section">
         <p>
