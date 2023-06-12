@@ -83,6 +83,10 @@ const vueLinks = [
     title: 'Switch',
     name: ROUTE_NAMES.VUE.V_SWITCH,
   },
+  {
+    title: 'Tabs',
+    name: ROUTE_NAMES.VUE.V_TABS,
+  }
 ];
 </script>
 

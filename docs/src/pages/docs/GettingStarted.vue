@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import { VCodeBlock } from '@code-coaching/vuetiful';
-import VTab from 'src/components/Tabs/VTab.vue';
-import VTabPanel from 'src/components/Tabs/VTabPanel.vue';
-import VTabs from 'src/components/Tabs/VTabs.vue';
 
 const exampleTailwindConfig = `/** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -448,23 +445,6 @@ body,
 <template>
   <div class="flex max-w-5xl flex-col p-4">
     <h1>Getting Started</h1>
-
-    <div>
-      <v-tabs>
-        <!-- <template v-slot:tabs>
-          <v-tab>Vuetiful</v-tab>
-          <v-tab>Is</v-tab>
-          <v-tab disabled>Disabled</v-tab>
-          <v-tab>Beautiful</v-tab>
-        </template>
-        <v-tab-panel>Content for "Vuetiful"</v-tab-panel>
-        <v-tab-panel>Content for "Is"</v-tab-panel>
-        <v-tab-panel>Content for "Disabled"</v-tab-panel>
-        <v-tab-panel>Content for "Beautiful"</v-tab-panel> -->
-      </v-tabs>
-    </div>
-
-    <div class="mb-8"></div>
 
     <header class="header">
       <section class="section">

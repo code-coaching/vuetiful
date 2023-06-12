@@ -18,12 +18,14 @@ export const ROUTE_NAMES = {
     V_CHIP: 'V_CHIP',
     V_CODE_BLOCK: 'V_CODE_BLOCK',
     V_LISTBOX: 'V_LISTBOX',
-    V_RADIO_GROUP: 'V_RADIO_GROUP',
-    V_SHELL: 'V_SHELL',
-    V_RAIL: 'V_RAIL',
-    V_SWITCH: 'V_SWITCH',
-    V_DRAWER: 'V_DRAWER',
     V_PREVIEW: 'V_PREVIEW',
+    V_RADIO_GROUP: 'V_RADIO_GROUP',
+    V_SWITCH: 'V_SWITCH',
+    V_TABS: 'V_TABS',
+
+    V_DRAWER: 'V_DRAWER',
+    V_RAIL: 'V_RAIL',
+    V_SHELL: 'V_SHELL',
   },
 };
 
@@ -35,6 +37,11 @@ export const routes: RouteRecordRaw[] = [
       {
         path: '',
         redirect: { name: ROUTE_NAMES.DOCS.GETTING_STARTED },
+      },
+      {
+        path: 'test',
+        name: 'TEST',
+        component: () => import('src/pages/IndexPage.vue'),
       },
       {
         path: 'docs',
@@ -105,14 +112,14 @@ export const routes: RouteRecordRaw[] = [
             component: () => import('src/pages/vue/VListbox.vue'),
           },
           {
+            path: 'preview',
+            name: ROUTE_NAMES.VUE.V_PREVIEW,
+            component: () => import('src/pages/vue/VPreview.vue'),
+          },
+          {
             path: 'radio-group',
             name: ROUTE_NAMES.VUE.V_RADIO_GROUP,
             component: () => import('src/pages/vue/VRadioGroup.vue'),
-          },
-          {
-            path: 'shell',
-            name: ROUTE_NAMES.VUE.V_SHELL,
-            component: () => import('src/pages/vue/VShell.vue'),
           },
           {
             path: 'switch',
@@ -120,19 +127,25 @@ export const routes: RouteRecordRaw[] = [
             component: () => import('src/pages/vue/VSwitch.vue'),
           },
           {
-            path: 'rail',
-            name: ROUTE_NAMES.VUE.V_RAIL,
-            component: () => import('src/pages/vue/VRail.vue'),
+            path: 'tabs',
+            name: ROUTE_NAMES.VUE.V_TABS,
+            component: () => import('src/pages/vue/VTabs.vue'),
           },
+
           {
             path: 'drawer',
             name: ROUTE_NAMES.VUE.V_DRAWER,
             component: () => import('src/pages/vue/VDrawer.vue'),
           },
           {
-            path: 'preview',
-            name: ROUTE_NAMES.VUE.V_PREVIEW,
-            component: () => import('src/pages/vue/VPreview.vue'),
+            path: 'rail',
+            name: ROUTE_NAMES.VUE.V_RAIL,
+            component: () => import('src/pages/vue/VRail.vue'),
+          },
+          {
+            path: 'shell',
+            name: ROUTE_NAMES.VUE.V_SHELL,
+            component: () => import('src/pages/vue/VShell.vue'),
           },
         ],
       },
