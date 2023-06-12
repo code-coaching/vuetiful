@@ -39,6 +39,11 @@ export const routes: RouteRecordRaw[] = [
         redirect: { name: ROUTE_NAMES.DOCS.GETTING_STARTED },
       },
       {
+        path: 'test',
+        name: 'TEST',
+        component: () => import('src/pages/IndexPage.vue'),
+      },
+      {
         path: 'docs',
         beforeEnter: () => {
           selectedRailTile.value = 'docs';
