@@ -49,7 +49,7 @@ TailwindCSS is added as a dependency in the consuming app, but is not mandatory 
 - [x] Rail (rail, rail tile)
 - [x] Shell
 - [ ] Stepper
-- [ ] Tab
+- [x] Tabs
 - [ ] Table
 - [ ] Table of Contents
 - [ ] Toast
