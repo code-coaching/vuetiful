@@ -48,6 +48,10 @@ const vueLinksLayout = [
 
 const vueLinks = [
   {
+    title: 'Accordion',
+    name: ROUTE_NAMES.VUE.V_ACCORDION,
+  },
+  {
     title: 'Avatar',
     name: ROUTE_NAMES.VUE.V_AVATAR,
   },
