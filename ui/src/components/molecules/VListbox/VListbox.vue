@@ -101,7 +101,9 @@ const showText = computed(() => {
     v-model="parentModelValue"
   >
     <v-listbox-label v-if="labelText" :class="labelClasses">{{ labelText }}</v-listbox-label>
-    <v-listbox-button data-test="v-listbox-button">{{ showText }}</v-listbox-button>
+    <v-listbox-button data-test="v-listbox-button" :class="`${background} ${text}`">
+      {{ showText }}
+    </v-listbox-button>
     <!-- TODO: Add configurable transition -->
     <transition
       enter-active-class="transition duration-150 ease-in-out"
