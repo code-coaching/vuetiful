@@ -12,6 +12,7 @@ export const ROUTE_NAMES = {
   },
   VUE: {
     DEFAULT: 'V_SHELL',
+    V_ACCORDION: 'V_ACCORDION',
     V_AVATAR: 'V_AVATAR',
     V_BADGE: 'V_BADGE',
     V_BUTTON: 'V_BUTTON',
@@ -75,6 +76,11 @@ export const routes: RouteRecordRaw[] = [
           {
             path: '',
             redirect: { name: ROUTE_NAMES.VUE.V_BUTTON },
+          },
+          {
+            path: 'accordion',
+            name: ROUTE_NAMES.VUE.V_ACCORDION,
+            component: () => import('src/pages/vue/VAccordion.vue'),
           },
           {
             path: 'avatar',

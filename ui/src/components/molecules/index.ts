@@ -14,7 +14,12 @@ import VTab from "./VTabs/VTab.vue";
 import VTabPanel from "./VTabs/VTabPanel.vue";
 import VTabs from "./VTabs/VTabs.vue";
 
+import VAccordion from "./VAccordion/VAccordion.vue";
+import VAccordionItem from "./VAccordion/VAccordionItem.vue";
+
 export {
+  VAccordion,
+  VAccordionItem,
   VDrawer,
   VListbox,
   VListboxButton,
