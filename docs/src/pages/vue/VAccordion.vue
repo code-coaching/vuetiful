@@ -1,8 +1,45 @@
 <script setup lang="ts">
-import { VCodeBlock, VPreview } from '@code-coaching/vuetiful';
-import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue';
-import VAccordion from 'src/components/VAccordion/VAccordion.vue';
-import VAccordionItem from 'src/components/VAccordion/VAccordionItem.vue';
+import { VCodeBlock, VPreview, VAccordion, VAccordionItem } from '@code-coaching/vuetiful';
+
+const usage = `<v-accordion>
+  <v-accordion-item title="Vuetiful">
+    Vuetiful is a component library built with Vue 3 and TailwindCSS.
+  </v-accordion-item>
+  <v-accordion-item title="Is">
+    Vuetiful is a theming solution for Vue 3 applications, including Quasar applications.
+  </v-accordion-item>
+  <v-accordion-item title="Beautiful"> Vuetiful Is Beautiful. </v-accordion-item>
+</v-accordion>`;
+
+const faqs = [
+  {
+    question: 'What is Vuetiful?',
+    answer: 'Vuetiful is a component library built with Vue 3 and TailwindCSS.',
+  },
+  {
+    question: 'Is Vuetiful a theming solution for Vue 3 applications, including Quasar applications?',
+    answer: 'Yes.',
+  },
+];
+
+const faqTemplate = `<v-accordion hover="hover:variant-ghost-primary" background="bg-secondary-100-800-token">
+  <v-accordion-item v-for="(faq, index) in faqs" :key="index" :title="faq.question">
+    {{ faq.answer }}
+    <template v-slot:open-item>open</template>
+    <template v-slot:close-item>close</template>
+  </v-accordion-item>
+</v-accordion>`;
+
+const faqScript = `const faqs = [
+  {
+    question: 'What is Vuetiful?',
+    answer: 'Vuetiful is a component library built with Vue 3 and TailwindCSS.',
+  },
+  {
+    question: 'Is Vuetiful a theming solution for Vue 3 applications, including Quasar applications?',
+    answer: 'Yes.',
+  },
+];`;
 </script>
 
 <template>
@@ -11,56 +48,6 @@ import VAccordionItem from 'src/components/VAccordion/VAccordionItem.vue';
     <section class="section">
       <v-code-block language="ts" :code="`import { VAccordion, VAccordionItem } from '@code-coaching/vuetiful`" />
     </section>
-
-    <div class="w-full px-4 pt-16">
-      <div class="mx-auto w-full max-w-md rounded-2xl bg-white p-2">
-        <Disclosure v-slot="{ open }">
-          <DisclosureButton
-            class="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
-          >
-            <span>What is your refund policy?</span>
-            <svg v-if="!open" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-              <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-              <path
-                d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"
-              />
-            </svg>
-
-            <svg v-if="open" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-              <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-              <path
-                d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
-              />
-            </svg>
-          </DisclosureButton>
-          <DisclosurePanel class="px-4 pb-2 pt-4 text-sm text-gray-500">
-            If you're unhappy with your purchase for any reason, email us within 90 days and we'll refund you in full,
-            no questions asked.
-          </DisclosurePanel>
-        </Disclosure>
-        <Disclosure as="div" class="mt-2" v-slot="{ open }">
-          <DisclosureButton
-            class="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
-          >
-            <span>Do you offer technical support?</span>
-            <svg v-if="!open" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-              <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-              <path
-                d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"
-              />
-            </svg>
-
-            <svg v-if="open" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-              <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-              <path
-                d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
-              />
-            </svg>
-          </DisclosureButton>
-          <DisclosurePanel class="px-4 pb-2 pt-4 text-sm text-gray-500"> No. </DisclosurePanel>
-        </Disclosure>
-      </div>
-    </div>
 
     <h2>Usage</h2>
     <section class="section">
@@ -77,7 +64,47 @@ import VAccordionItem from 'src/components/VAccordion/VAccordionItem.vue';
           </v-accordion>
         </template>
         <template v-slot:source>
-          <!-- <v-code-block class="mb-2" language="html" :code="usage" /> -->
+          <v-code-block language="html" :code="usage" />
+        </template>
+      </v-preview>
+    </section>
+
+    <h3>Accessibility</h3>
+    <section class="section">
+      <p><kbd>Tab</kbd> and <kbd>Shift + Tab</kbd>: Move focus onto and away from the accordion item.</p>
+      <p><kbd>Space</kbd> and <kbd>Enter</kbd>: Toggle open/close the accordion item.</p>
+    </section>
+
+    <h3>Customization</h3>
+    <section class="section">
+      <v-preview>
+        <template v-slot:preview>
+          <v-accordion hover="hover:variant-ghost-primary" background="bg-secondary-100-800-token">
+            <v-accordion-item v-for="(faq, index) in faqs" :key="index" :title="faq.question">
+              {{ faq.answer }}
+              <template v-slot:open-item>open</template>
+              <template v-slot:close-item>close</template>
+            </v-accordion-item>
+          </v-accordion>
+        </template>
+        <template v-slot:source>
+          <v-code-block class="mb-2" language="ts" :code="faqScript" />
+          <v-code-block class="mb-2" language="html" :code="faqTemplate" />
+          <p>
+            <code>hover</code> will be appended to the <code>class</code> property of each invidivual tab. This can be
+            one or multiple classes. This can be both normal CSS classes or Tailwind classes. This property is
+            automatically applied to each accordion item.
+          </p>
+          <p>
+            <code>background</code> will be appended to the <code>class</code> property of each invidivual tab. This can
+            be one or multiple classes. This can be both normal CSS classes or Tailwind classes. This property is
+            automatically applied to each accordion item.
+          </p>
+          <p>
+            <code>open-item</code> and <code>close-item</code> are slots that can be used to customize the open and
+            close content. These slots are optional. By default, the open slot will display a plus icon and the close
+            slot will display a minus icon.
+          </p>
         </template>
       </v-preview>
     </section>
