@@ -52,6 +52,10 @@ const vueLinks = [
     name: ROUTE_NAMES.VUE.V_ACCORDION,
   },
   {
+    title: 'Alert',
+    name: ROUTE_NAMES.VUE.V_ALERT,
+  },
+  {
     title: 'Avatar',
     name: ROUTE_NAMES.VUE.V_AVATAR,
   },

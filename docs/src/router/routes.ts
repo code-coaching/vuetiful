@@ -13,6 +13,7 @@ export const ROUTE_NAMES = {
   VUE: {
     DEFAULT: 'V_SHELL',
     V_ACCORDION: 'V_ACCORDION',
+    V_ALERT: 'V_ALERT',
     V_AVATAR: 'V_AVATAR',
     V_BADGE: 'V_BADGE',
     V_BUTTON: 'V_BUTTON',
@@ -81,6 +82,11 @@ export const routes: RouteRecordRaw[] = [
             path: 'accordion',
             name: ROUTE_NAMES.VUE.V_ACCORDION,
             component: () => import('src/pages/vue/VAccordion.vue'),
+          },
+          {
+            path: 'alert',
+            name: ROUTE_NAMES.VUE.V_ALERT,
+            component: () => import('src/pages/vue/VAlert.vue'),
           },
           {
             path: 'avatar',
