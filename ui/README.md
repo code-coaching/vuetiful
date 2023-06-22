@@ -35,7 +35,7 @@ TailwindCSS is added as a dependency in the consuming app, but is not mandatory 
 ### Molecules
 
 - [x] Accordion
-- [ ] Alert
+- [x] Alert
 - [ ] Autocomplete
 - [ ] Breadcrumb
 - [ ] Card
