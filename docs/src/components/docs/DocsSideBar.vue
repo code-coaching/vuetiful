@@ -68,6 +68,10 @@ const vueLinks = [
     name: ROUTE_NAMES.VUE.V_BUTTON,
   },
   {
+    title: 'Card',
+    name: ROUTE_NAMES.VUE.V_CARD,
+  },
+  {
     title: 'Chip',
     name: ROUTE_NAMES.VUE.V_CHIP,
   },
