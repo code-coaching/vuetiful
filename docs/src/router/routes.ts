@@ -17,6 +17,7 @@ export const ROUTE_NAMES = {
     V_AVATAR: 'V_AVATAR',
     V_BADGE: 'V_BADGE',
     V_BUTTON: 'V_BUTTON',
+    V_CARD: 'V_CARD',
     V_CHIP: 'V_CHIP',
     V_CODE_BLOCK: 'V_CODE_BLOCK',
     V_LISTBOX: 'V_LISTBOX',
@@ -102,6 +103,11 @@ export const routes: RouteRecordRaw[] = [
             path: 'button',
             name: ROUTE_NAMES.VUE.V_BUTTON,
             component: () => import('src/pages/vue/VButton.vue'),
+          },
+          {
+            path: 'card',
+            name: ROUTE_NAMES.VUE.V_CARD,
+            component: () => import('src/pages/vue/VCard.vue'),
           },
           {
             path: 'chip',

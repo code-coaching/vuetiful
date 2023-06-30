@@ -19,10 +19,19 @@ import VAccordionItem from "./VAccordion/VAccordionItem.vue";
 
 import VAlert from "./VAlert.vue";
 
+import VCard from "./VCard/VCard.vue";
+import VCardBody from "./VCard/VCardBody.vue";
+import VCardFooter from "./VCard/VCardFooter.vue";
+import VCardHeader from "./VCard/VCardHeader.vue";
+
 export {
   VAccordion,
   VAccordionItem,
   VAlert,
+  VCard,
+  VCardBody,
+  VCardFooter,
+  VCardHeader,
   VDrawer,
   VListbox,
   VListboxButton,
