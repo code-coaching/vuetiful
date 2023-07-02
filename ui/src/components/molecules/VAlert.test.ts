@@ -32,7 +32,7 @@ describe("VAlert", () => {
 
   describe("given close icon is clicked", () => {
     test("should emit close", async () => {
-      const wrapper = mount(VAlert);
+      const wrapper = mount(VAlert, { props: { showClose: true } });
       await wrapper.find("[data-test=close]").trigger("click");
       expect(wrapper.emitted()["close"][0]).toEqual([]);
 
@@ -53,7 +53,7 @@ describe("VAlert", () => {
       });
       expect(wrapper.text()).toContain("John Duck");
     });
-  })
+  });
 
   describe("given a actions slot is provided", () => {
     test("should render the actions slot", () => {
@@ -64,7 +64,7 @@ describe("VAlert", () => {
       });
       expect(wrapper.text()).toContain("John Duck");
     });
-  })
+  });
 
   describe("given hide-icon prop is present", () => {
     test("should not render an icon", () => {
@@ -73,18 +73,18 @@ describe("VAlert", () => {
           hideIcon: true,
         },
       });
-      expect(wrapper.findAll(".icon").length).toBe(1);
+      expect(wrapper.findAll(".icon").length).toBe(0);
     });
-  })
+  });
 
-  describe("given hide-close prop is present", () => {
-    test("should not render a close icon", () => {
+  describe("given show-close prop is present", () => {
+    test("should render a close icon", () => {
       const wrapper = mount(VAlert, {
         props: {
-          hideClose: true,
+          showClose: true,
         },
       });
-      expect(wrapper.find("[data-test=close]").exists()).toBe(false);
+      expect(wrapper.find("[data-test=close]").exists()).toBe(true);
     });
-  })
+  });
 });

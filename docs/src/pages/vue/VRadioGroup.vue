@@ -244,10 +244,8 @@ const glassBgExample = computed(
             :code="`const radioValue = ref({ id: ${radioObjectValue.id}, name: ${radioObjectValue.name} });`"
           />
           <v-code-block class="mb-2" language="html" :code="objectExample" />
-          <p>
-            Note: The <code>by</code> attribute on the <code>v-radio-group</code> contains the value of the property to
-            filter by.
-          </p>
+          The <code>by</code> attribute on the <code>v-radio-group</code> contains the value of the property to filter
+          by.
         </template>
         <template v-slot:footer>
           <p class="flex items-center justify-center">

@@ -1,41 +1,23 @@
 <script setup lang="ts">
-import { VButton, VCodeBlock, VPreview, VAlert } from '@code-coaching/vuetiful';
+import { VAlert, VButton, VCodeBlock, VPreview } from '@code-coaching/vuetiful';
 import { ref } from 'vue';
 
-const usageScript = `const showInfoAlert = ref(true);
-const showSuccessAlert = ref(true);
-const showWarningAlert = ref(true);
-const showErrorAlert = ref(true);`;
-
 const usageTemplate = `<div class="flex w-full flex-col gap-2">
-  <v-alert :show="showInfoAlert" @close="showInfoAlert = false" type="info">This is an info alert.</v-alert>
-  <v-alert :show="showSuccessAlert" @close="showSuccessAlert = false" type="success">
-    This is a success alert.
-  </v-alert>
-  <v-alert :show="showWarningAlert" @close="showWarningAlert = false" type="warning">
-    This is a warning alert.
-  </v-alert>
-  <v-alert :show="showErrorAlert" @close="showErrorAlert = false" type="error">
-    This is an error alert.
-  </v-alert>
+  <v-alert type="info">This is an info alert.</v-alert>
+  <v-alert type="success">This is a success alert.</v-alert>
+  <v-alert type="warning">This is a warning alert.</v-alert>
+  <v-alert type="error">This is an error alert.</v-alert>
 </div>`;
 
 const customScript = 'const showCustomAlert = ref(true);';
-const customTemplate = `<v-alert hide-icon hide-close :show="showCustomAlert" @close="showCustomAlert = false" type="warning">
+const customTemplate = `<v-alert hide-icon show-close :show="showCustomAlert" @close="showCustomAlert = false" type="warning">
   This is a warning alert without an icon or actions.
 </v-alert>`;
 
-const customSlotsScript = `const showCustomSlotsAlert = ref(true);
-
-const handleCustomAction = () => {
+const customSlotsScript = `const handleCustomAction = () => {
   alert('Custom action clicked!');
 };`;
-const customSlotsTemplate = `<v-alert
-  hide-close
-  :show="showCustomSlotsAlert"
-  @close="showCustomSlotsAlert = false"
-  class="variant-ghost-primary text-primary-700-200-token"
->
+const customSlotsTemplate = `<v-alert class="variant-ghost-primary text-primary-700-200-token">
   <template v-slot:pre>
     <!-- https://fontawesome.com/icons/ghost?f=classic&s=solid -->
     <svg
@@ -51,19 +33,11 @@ const customSlotsTemplate = `<v-alert
   </template>
   This is a custom alert with a custom icon and a custom action.
   <template v-slot:actions>
-    <v-button class="variant-filled" @click="handleCustomAction">
-      Custom
-    </v-button>
+    <v-button class="variant-filled" @click="handleCustomAction"> Custom </v-button>
   </template>
 </v-alert>`;
 
-const showInfoAlert = ref(true);
-const showSuccessAlert = ref(true);
-const showWarningAlert = ref(true);
-const showErrorAlert = ref(true);
-
 const showCustomAlert = ref(true);
-const showCustomSlotsAlert = ref(true);
 
 const handleCustomAction = () => {
   alert('Custom action clicked!');
@@ -82,34 +56,13 @@ const handleCustomAction = () => {
       <v-preview>
         <template v-slot:preview>
           <div class="flex w-full flex-col gap-2">
-            <v-alert :show="showInfoAlert" @close="showInfoAlert = false" type="info">This is an info alert.</v-alert>
-            <v-alert :show="showSuccessAlert" @close="showSuccessAlert = false" type="success">
-              This is a success alert.
-            </v-alert>
-            <v-alert :show="showWarningAlert" @close="showWarningAlert = false" type="warning">
-              This is a warning alert.
-            </v-alert>
-            <v-alert :show="showErrorAlert" @close="showErrorAlert = false" type="error">
-              This is an error alert.
-            </v-alert>
-          </div>
-        </template>
-        <template v-slot:footer>
-          <div class="flex flex-wrap justify-center gap-2">
-            <v-button class="variant-filled" @click="showInfoAlert = !showInfoAlert">Toggle Info Alert</v-button>
-            <v-button class="variant-filled-success" @click="showSuccessAlert = !showSuccessAlert">
-              Toggle Success Alert
-            </v-button>
-            <v-button class="variant-filled-warning" @click="showWarningAlert = !showWarningAlert">
-              Toggle Warning Alert
-            </v-button>
-            <v-button class="variant-filled-error" @click="showErrorAlert = !showErrorAlert">
-              Toggle Error Alert
-            </v-button>
+            <v-alert type="info">This is an info alert.</v-alert>
+            <v-alert type="success">This is a success alert.</v-alert>
+            <v-alert type="warning">This is a warning alert.</v-alert>
+            <v-alert type="error">This is an error alert.</v-alert>
           </div>
         </template>
         <template v-slot:source>
-          <v-code-block class="mb-2" language="ts" :code="usageScript" />
           <v-code-block language="html" :code="usageTemplate" />
         </template>
       </v-preview>
@@ -125,7 +78,7 @@ const handleCustomAction = () => {
     <section class="section">
       <v-preview>
         <template v-slot:preview>
-          <v-alert hide-icon hide-close :show="showCustomAlert" @close="showCustomAlert = false" type="warning">
+          <v-alert hide-icon show-close :show="showCustomAlert" @close="showCustomAlert = false" type="warning">
             This is a warning alert without an icon or actions.
           </v-alert>
         </template>
@@ -140,7 +93,7 @@ const handleCustomAction = () => {
           <v-code-block class="mb-2" language="ts" :code="customScript" />
           <v-code-block class="mb-2" language="html" :code="customTemplate" />
           <p><code>hide-icon</code> will hide the icon in the alert.</p>
-          <p><code>hide-close</code> will hide the close button in the alert.</p>
+          <p><code>show-close</code> will show the close button in the alert.</p>
         </template>
       </v-preview>
     </section>
@@ -148,12 +101,7 @@ const handleCustomAction = () => {
     <section class="section">
       <v-preview>
         <template v-slot:preview>
-          <v-alert
-            hide-close
-            :show="showCustomSlotsAlert"
-            @close="showCustomSlotsAlert = false"
-            class="variant-ghost-primary text-primary-700-200-token"
-          >
+          <v-alert class="variant-ghost-primary text-primary-700-200-token">
             <template v-slot:pre>
               <!-- https://fontawesome.com/icons/ghost?f=classic&s=solid -->
               <svg
@@ -172,13 +120,6 @@ const handleCustomAction = () => {
               <v-button class="variant-filled" @click="handleCustomAction"> Custom </v-button>
             </template>
           </v-alert>
-        </template>
-        <template v-slot:footer>
-          <div class="flex justify-center">
-            <v-button class="variant-ghost-primary" @click="showCustomSlotsAlert = !showCustomSlotsAlert">
-              Toggle Alert
-            </v-button>
-          </div>
         </template>
         <template v-slot:source>
           <v-code-block class="mb-2" language="ts" :code="customSlotsScript" />

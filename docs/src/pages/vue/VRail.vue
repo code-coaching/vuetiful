@@ -34,7 +34,7 @@ const useRailExample = `<v-shell class="flex border-2 border-surface-500">
     <h2>Usage</h2>
     <section class="section">
       <p>
-        The <code>VRail</code> is a container for <code>VRailTile</code>s. The <code>VRailTile</code> is a clickable
+        The <code>VRail</code> is a container for <code>VRailTile</code> components. The <code>VRailTile</code> is a clickable
         tile that can be used to visualize on which page/section the user is currently on.
       </p>
 

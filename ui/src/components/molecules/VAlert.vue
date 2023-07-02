@@ -7,7 +7,7 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  hideClose: {
+  showClose: {
     type: Boolean,
     default: false,
   },
@@ -111,7 +111,7 @@ const handleKeydown = (event: KeyboardEvent) => {
     <!-- https://fontawesome.com/icons/xmark?f=classic&s=solid -->
     <svg
       data-test="close"
-      v-if="!hideClose"
+      v-if="showClose"
       tabindex="0"
       @keydown="handleKeydown"
       @click="close"
