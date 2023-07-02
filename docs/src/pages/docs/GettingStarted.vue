@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { VCodeBlock } from '@code-coaching/vuetiful';
+import { VAlert, VBadge, VCodeBlock } from '@code-coaching/vuetiful';
 
 const exampleTailwindConfig = `/** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -485,8 +485,10 @@ body,
 
     <h3>tailwind.config.js</h3>
     <section class="section">
-      <v-code-block language="js" :code="exampleTailwindConfig" />
-      <p>Note: This file might be called `tailwind.config.cjs` depending on your setup.</p>
+      <v-code-block class="mb-2" language="js" :code="exampleTailwindConfig" />
+      <v-alert type="info">
+        This file might be called <v-badge class="variant-filled-surface">tailwind.config.cjs</v-badge> depending on your setup.
+      </v-alert>
     </section>
 
     <h3>Tailwind Directives</h3>
@@ -508,7 +510,7 @@ body,
     <section class="section">
       <p class="mb-4">
         In case you are using pnpm or yarn instead of npm, you will need to create/add the following to
-        `prettier.config.js`.
+        <code>prettier.config.js</code>.
       </p>
       <v-code-block
         language="js"
@@ -538,7 +540,7 @@ module.exports = {
 
         <h3>PostCSS config</h3>
         <section class="section">
-          <p class="mb-4">Create a `postcss.config.cjs` file in the root of your project, add the following content:</p>
+          <p class="mb-4">Create a <code>postcss.config.cjs</code> file in the root of your project, add the following content:</p>
 
           <v-code-block
             language="js"
@@ -553,8 +555,11 @@ module.exports = {
 
         <h3>Vue3 - main.ts</h3>
         <section class="section">
-          <v-code-block language="ts" :code="exampleVueMain" />
-          <p>Note: `@code-coaching/vuetiful/styles/all.css` must be imported before any other css.</p>
+          <v-code-block class="mb-2" language="ts" :code="exampleVueMain" />
+          <v-alert type="info">
+            <v-badge class="variant-filled-surface">@code-coaching/vuetiful/styles/all.css</v-badge> must be imported before any
+            other css.
+          </v-alert>
         </section>
 
         <h3>App.vue - script setup</h3>
@@ -605,7 +610,7 @@ module.exports = {
 
         <h3>app.css</h3>
         <section class="section">
-          <p class="mb-4">Copy paste this into your app.css file.</p>
+          <p class="mb-4">Copy paste this into your <code>app.css</code> file.</p>
           <v-code-block language="css" :code="exampleQuasarCssOverwrite" />
         </section>
       </details>

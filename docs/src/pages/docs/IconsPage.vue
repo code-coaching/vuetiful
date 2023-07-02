@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { VButton, VCodeBlock } from '@code-coaching/vuetiful';
+import { VButton, VCodeBlock, VAlert } from '@code-coaching/vuetiful';
 
 const fileStructure = `font-awesome/
   css/
@@ -101,8 +101,8 @@ const quasarQIcon = `<v-button icon class="variant-filled">
 
       <section>
         <p class="mb-4">Add the css files to the <code>head</code> of your <code>index.html</code> file.</p>
-        <v-code-block language="html" :code="indexHtml" />
-        <p>Note: make sure to point towards the correct paths.</p>
+        <v-code-block class="mb-2" language="html" :code="indexHtml" />
+        <v-alert type="info">Make sure to point towards the correct paths.</v-alert>
       </section>
     </section>
 

@@ -217,10 +217,7 @@ const a11yTemplate = `<div class="flex flex-wrap gap-2">
         <template v-slot:source>
           <v-code-block class="mb-2" language="ts" :code="a11yScript" />
           <v-code-block class="mb-2" language="html" :code="a11yTemplate" />
-          <v-alert type="info" hide-close
-            >Having the prop <v-badge class="variant-filled-surface">clickable</v-badge> present adds an hover
-            effect.</v-alert
-          >
+          Having the prop <code>clickable</code> present adds an hover effect.
         </template>
       </v-preview>
     </section>

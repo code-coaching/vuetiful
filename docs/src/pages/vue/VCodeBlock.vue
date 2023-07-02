@@ -59,23 +59,23 @@ const codeCodeScriptExample = `const codeExample = \`<div class="mb-2 flex flex-
 </div>\`;`;
 
 const codeCodeTemplateExample = '<v-code-block language="html" :code="codeExample" />';
-const withOverflowExample = '<v-code-block class="max-w-[500px]" language="html" :code="withoutOverflowExample" />';
+const withOverflowExample = '<v-code-block class="!max-w-[500px]" language="html" :code="withoutOverflowExample" />';
 const withoutOverflowExample =
-  '<v-code-block prevent-overflow class="max-w-[500px]" language="html" :code="withoutOverflowExample" />';
+  '<v-code-block prevent-overflow class="!max-w-[500px]" language="html" :code="withoutOverflowExample" />';
 
-const sourceScriptOverflowExample = `const withOverflowExample = '<v-code-block class="max-w-[500px]" language="html" :code="withoutOverflowExample" />';
-const withoutOverflowExample = '<v-code-block prevent-overflow class="max-w-[500px]" language="html" :code="withoutOverflowExample" />';`;
-const sourceTemplateOverflowExample = `<div class="flex flex-col gap-4 max-w-full">
+const sourceScriptOverflowExample = `const withOverflowExample = '<v-code-block class="!max-w-[500px]" language="html" :code="withoutOverflowExample" />';
+const withoutOverflowExample = '<v-code-block prevent-overflow class="!max-w-[500px]" language="html" :code="withoutOverflowExample" />';`;
+const sourceTemplateOverflowExample = `<div class="flex max-w-full flex-col gap-4">
   <div class="flex flex-col gap-1">
-    <v-code-block class="max-w-[500px]" language="html" :code="withOverflowExample" />
+    <v-code-block class="!max-w-[500px]" language="html" :code="withOverflowExample" />
     <div>With overflow (default)</div>
-    </div>
+  </div>
 
-    <div class="flex flex-col gap-1">
-      <v-code-block prevent-overflow class="max-w-[500px]" language="html" :code="withoutOverflowExample" />
-      <div>Without overflow - Add <code>prevent-overflow</code> prop</div>
-      </div>
-      </div>`;
+  <div class="flex flex-col gap-1">
+    <v-code-block prevent-overflow class="!max-w-[500px]" language="html" :code="withoutOverflowExample" />
+    <div>Without overflow - Add <code>prevent-overflow</code> prop</div>
+  </div>
+</div>`;
 
 const copyButtonExample =
   '<v-code-block button-text="Grab me!" button-copied-text="You got me!" language="html" code="<h1>John Duck</h1>" />';
@@ -191,12 +191,12 @@ const mascot: Mascot = {
         <template v-slot:preview>
           <div class="flex max-w-full flex-col gap-4">
             <div class="flex flex-col gap-1">
-              <v-code-block class="max-w-[500px]" language="html" :code="withOverflowExample" />
+              <v-code-block class="!max-w-[500px]" language="html" :code="withOverflowExample" />
               <div>With overflow (default)</div>
             </div>
 
             <div class="flex flex-col gap-1">
-              <v-code-block prevent-overflow class="max-w-[500px]" language="html" :code="withoutOverflowExample" />
+              <v-code-block prevent-overflow class="!max-w-[500px]" language="html" :code="withoutOverflowExample" />
               <div>Without overflow - Add <code>prevent-overflow</code> prop</div>
             </div>
           </div>

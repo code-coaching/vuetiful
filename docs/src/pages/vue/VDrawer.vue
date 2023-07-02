@@ -9,29 +9,26 @@ const codeExample = `<v-drawer>
 </v-drawer>`;
 
 const codeExampleMultipleScript = `import { VDrawer, useDrawer } from '@code-coaching/vuetiful';
-const { drawer } = useDrawer();
-`;
+const { drawer } = useDrawer();`;
 
 const codeExampleMultipleTemplate = `<v-drawer>
-    <template v-if="drawer.id === 'content-one'">
-      <h1>Content One</h1>
-      <p>This is some content in the drawer.</p>
-    </template>
-    <template v-if="drawer.id === 'content-two'">
-      <h1>Content Two</h1>
-      <p>This is some content in the drawer.</p>
-    </template>
-  </v-drawer>`;
+  <template v-if="drawer.id === 'content-one'">
+    <h1>Content One</h1>
+    <p>This is some content in the drawer.</p>
+  </template>
+  <template v-if="drawer.id === 'content-two'">
+    <h1>Content Two</h1>
+    <p>This is some content in the drawer.</p>
+  </template>
+</v-drawer>`;
 
 const useDrawerCode = `<v-button @click="open({ id: \'content-one\', position: \'top\' })">Open Content One</v-button>
 <v-button @click="open({ id: \'content-two\', position: \'right\' })">Open Content Two</v-button>
 <v-button @click="open({ id: \'content-three\, position: \'bottom\' })">Open Content Three</v-button>
-<v-button @click="open({ id: \'content-four\', position: \'left\' })">Open Content Four</v-button>
-`;
+<v-button @click="open({ id: \'content-four\', position: \'left\' })">Open Content Four</v-button>`;
 
 const useDrawerAnimationCode = `<v-button @click="open({ id: \'content-one\', duration: 150 })">Open Content One</v-button>
-<v-button @click="open({ id: \'content-two\', duration: 300 })">Open Content Two</v-button>
-`;
+<v-button @click="open({ id: \'content-two\', duration: 300 })">Open Content Two</v-button>`;
 </script>
 
 <template>
@@ -72,8 +69,7 @@ const useDrawerAnimationCode = `<v-button @click="open({ id: \'content-one\', du
         <v-code-block
           language="ts"
           :code="`import { useDrawer } from '@code-coaching/vuetiful';
-    const { open } = useDrawer();
-    `"
+const { open } = useDrawer();`"
         />
 
         <v-code-block language="html" :code="useDrawerCode" />
