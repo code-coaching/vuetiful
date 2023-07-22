@@ -194,7 +194,7 @@ body,
   * Reset several font properties to browser defaults
   */
   font-size: 16px;
-  font-family: 'QuickSand', sans-serif;
+  font-family: var(--theme-font-family-base), sans-serif;
   -moz-osx-font-smoothing: auto;
 }
 

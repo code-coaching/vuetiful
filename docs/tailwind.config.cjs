@@ -11,5 +11,8 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [...require('@code-coaching/vuetiful/tailwind/vuetiful.cjs')()],
+  plugins: [
+    require('@tailwindcss/forms'),
+    ...require('@code-coaching/vuetiful/tailwind/vuetiful.cjs')()
+  ],
 };

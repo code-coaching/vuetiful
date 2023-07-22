@@ -1,4 +1,4 @@
-import { readonly, Ref, ref } from "vue";
+import { computed, readonly, Ref, ref } from "vue";
 import { usePlatform } from "../utils/platform/platform.service";
 
 const { isBrowser } = usePlatform();
@@ -11,6 +11,7 @@ const MODE = {
 const modeOsPrefers = ref(MODE.DARK);
 const currentMode = ref(MODE.DARK);
 const modeUserPrefers: Ref<boolean | undefined> = ref(undefined);
+const isDark = computed(() => currentMode.value === MODE.DARK);
 
 const useDarkMode = () => {
   const getModeOsPrefers = (): boolean => {
@@ -78,6 +79,7 @@ const useDarkMode = () => {
     modeOsPrefers: readonly(modeOsPrefers),
     modeUserPrefers: readonly(modeUserPrefers),
     currentMode: readonly(currentMode),
+    isDark: readonly(isDark),
     getModeOsPrefers,
     getModeUserPrefers,
     getModeAutoPrefers,
