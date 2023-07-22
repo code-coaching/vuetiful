@@ -31,6 +31,13 @@ const docsLinks = [
   },
 ];
 
+const docsResourceLinks = [
+  {
+    title: 'Theme Generator',
+    name: ROUTE_NAMES.DOCS.THEME_GENERATOR,
+  }
+]
+
 const vueLinksLayout = [
   {
     title: 'Shell',
@@ -114,9 +121,20 @@ const vueLinks = [
     </v-rail>
     <div class="flex flex-col gap-1 p-4">
       <template v-if="selectedRailTile === 'docs'">
+        <div class="text-lg font-bold text-primary-900-50-token">Docs</div>
         <side-bar-link
           class="w-40 min-w-full justify-start px-4 py-1"
           v-for="link in docsLinks"
+          :key="link.name"
+          :route-name="link.name"
+          :link="link.name"
+        >
+          {{ link.title }}
+        </side-bar-link>
+        <div class="text-lg font-bold text-primary-900-50-token">Resources</div>
+        <side-bar-link
+          class="w-40 min-w-full justify-start px-4 py-1"
+          v-for="link in docsResourceLinks"
           :key="link.name"
           :route-name="link.name"
           :link="link.name"

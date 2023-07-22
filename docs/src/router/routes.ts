@@ -9,6 +9,7 @@ export const ROUTE_NAMES = {
     COLORS: 'COLORS',
     ICONS: 'ICONS',
     QUASAR: 'QUASAR',
+    THEME_GENERATOR: 'THEME_GENERATOR',
   },
   VUE: {
     DEFAULT: 'V_SHELL',
@@ -67,6 +68,11 @@ export const routes: RouteRecordRaw[] = [
             name: ROUTE_NAMES.DOCS.QUASAR,
             component: () => import('src/pages/docs/QuasarPage.vue'),
           },
+          {
+            path: 'theme-generator',
+            name: ROUTE_NAMES.DOCS.THEME_GENERATOR,
+            component: () => import('src/pages/docs/ThemeGenerator.vue'),
+          }
         ],
       },
       {
