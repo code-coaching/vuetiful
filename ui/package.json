@@ -1,12 +1,11 @@
 {
   "name": "@code-coaching/vuetiful",
-  "version": "0.21.2",
+  "version": "0.21.4",
   "license": "MIT",
   "scripts": {
     "dev": "onchange 'src/**/*.vue' 'src/**/*.ts' 'src/**/*.css' -- npm run build",
     "prebuild": "node 'scripts/intellisense.js'",
-    "build": "rimraf dist && vue-tsc && vite build && npm run build:style",
-    "build:style": "npx tailwindcss -i ./src/styles/all.css -o ./dist/styles/all.css",
+    "build": "rimraf dist && vue-tsc && vite build",
     "docs:dev": "cd docs && npm run dev",
     "docs:build": "cd docs && npm run build",
     "docs:serve": "cd docs && npm run serve",
@@ -27,6 +26,7 @@
     "@vitest/coverage-c8": "^0.29.8",
     "@vue/test-utils": "^2.3.2",
     "autoprefixer": "^10.4.14",
+    "clean-css": "^5.3.2",
     "jsdom": "^21.1.1",
     "onchange": "^7.1.0",
     "postcss": "^8.4.21",
