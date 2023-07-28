@@ -29,6 +29,9 @@ const settings = reactive({
     },
     switch: {
       unstyled: false,
+    },
+    avatar: {
+      unstyled: false,
     }
   },
 });
