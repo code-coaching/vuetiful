@@ -343,7 +343,7 @@ const resetGradients = () => {
         <section class="section">
           <v-card>
             <v-card-header>
-              <div class="flex items-center gap-4">
+              <div class="flex flex-wrap items-center gap-4">
                 <h2 class="mb-0">Colors</h2>
                 <div class="flex flex-1 items-center justify-between">
                   <v-light-switch />
@@ -371,17 +371,17 @@ const resetGradients = () => {
                       </div>
                     </div>
                   </div>
-                  <div class="flex items-end justify-between gap-4">
+                  <div class="flex flex-wrap items-end justify-between gap-4">
                     <label class="flex items-center gap-2">
                       <input class="input !h-[50px] !w-[50px] flex-shrink-0" type="color" v-model="color.hex" />
                       <input
-                        class="input !h-[50px] !w-[100px] bg-surface-50-900-token"
+                        class="input !h-[50px] bg-surface-50-900-token flex-1"
                         type="text"
                         v-model="color.hex"
                         placeholder="#BADA55"
                       />
                     </label>
-                    <div class="input-group input-group-divider h-[50px] w-[175px] pl-4 bg-surface-50-900-token">
+                    <div class="input-group input-group-divider h-[50px] min-w-[175px] flex-1 pl-4 bg-surface-50-900-token">
                       <select v-model="color.on">
                         <option v-for="c in inputSettings.colorProps" :value="c.value" :key="c.value">
                           {{ c.label }}
@@ -415,7 +415,7 @@ const resetGradients = () => {
         <section class="section">
           <v-card>
             <v-card-header>
-              <div class="flex items-center gap-4">
+              <div class="flex flex-wrap items-center gap-4">
                 <h2 class="mb-0">Gradients</h2>
                 <div class="flex flex-1 items-center justify-between">
                   <v-light-switch />
