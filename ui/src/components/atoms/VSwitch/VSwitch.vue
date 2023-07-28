@@ -97,10 +97,10 @@ const isUnstyled =
       :class="`vuetiful-slide-toggle-track ${
         isUnstyled
           ? ''
-          : `flex transition-all duration-[150ms] border-token rounded-token ${trackSize} ${
+          : `flex transition-all duration-[150ms] border-token rounded-token ${
               disabled ? 'cursor-not-allowed' : 'cursor-pointer'
             }`
-      } ${classTrack}`"
+      } ${trackSize} ${classTrack}`"
     >
       <template v-if="$slots.default">
         <span class="sr-only"><slot /></span>
@@ -111,9 +111,9 @@ const isUnstyled =
           isUnstyled
             ? ''
             : `bg-opactiy-90 h-full w-[50%] scale-[0.8] shadow transition-all duration-[150ms] rounded-token ${
-                checked ? 'translate-x-full' : 'opacity-90'
-              } ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}`
-        } ${classThumb}`"
+                disabled ? 'cursor-not-allowed' : 'cursor-pointer'
+              }`
+        } ${checked ? 'translate-x-full' : `${isUnstyled ? '' : 'opacity-90'}`} ${classThumb}`"
       ></div>
     </div>
   </Switch>
