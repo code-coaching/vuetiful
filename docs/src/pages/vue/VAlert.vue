@@ -23,7 +23,6 @@ const customSlotsTemplate = `<v-alert class="variant-ghost-primary text-primary-
     <svg
       class="fill-surface-700 dark:fill-surface-200"
       xmlns="http://www.w3.org/2000/svg"
-      height="1.5rem"
       viewBox="0 0 384 512"
     >
       <path
@@ -107,7 +106,6 @@ const handleCustomAction = () => {
               <svg
                 class="fill-surface-700 dark:fill-surface-200"
                 xmlns="http://www.w3.org/2000/svg"
-                height="1.5rem"
                 viewBox="0 0 384 512"
               >
                 <path
