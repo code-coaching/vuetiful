@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useSettings } from "@/index";
 import { Switch } from "@headlessui/vue";
 import { computed, ref, watch } from "vue";
 
@@ -17,11 +18,11 @@ const props = defineProps({
     default: "md",
   },
 
-  switchClass: {
+  classTrack: {
     type: String,
     default: "variant-filled",
   },
-  thumbClass: {
+  classThumb: {
     type: String,
     default: "bg-surface-100-800-token",
   },
@@ -33,6 +34,11 @@ const props = defineProps({
   name: {
     type: String,
     default: "",
+  },
+
+  unstyled: {
+    type: Boolean,
+    default: false,
   },
 });
 
@@ -66,13 +72,20 @@ const trackSize = computed(() => {
       return props.size;
   }
 });
+
+const { settings } = useSettings();
+const isUnstyled =
+  settings.global.unstyled || settings.components.switch.unstyled || props.unstyled;
 </script>
 
 <template>
   <!-- There is some odd behavior with test coverge, v-model must be the last property in this component -->
   <Switch
-    :class="`slide-toggle rounded-container-token ${
-      disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'
+    data-test="switch"
+    :class="`vuetiful-slide-toggle ${
+      isUnstyled
+        ? ''
+        : `rounded-container-token ${disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`
     }`"
     :name="name"
     :as="as"
@@ -80,17 +93,27 @@ const trackSize = computed(() => {
     v-model="parentModelValue"
   >
     <div
-      :class="`slide-toggle-track flex transition-all duration-[150ms] border-token rounded-token ${trackSize} ${
-        disabled ? 'cursor-not-allowed' : 'cursor-pointer'
-      } ${switchClass}`"
+      data-test="switch-track"
+      :class="`vuetiful-slide-toggle-track ${
+        isUnstyled
+          ? ''
+          : `flex transition-all duration-[150ms] border-token rounded-token ${trackSize} ${
+              disabled ? 'cursor-not-allowed' : 'cursor-pointer'
+            }`
+      } ${classTrack}`"
     >
       <template v-if="$slots.default">
         <span class="sr-only"><slot /></span>
       </template>
       <div
-        :class="`slide-toggle-thumb h-full w-[50%] scale-[0.8] shadow transition-all duration-[150ms] rounded-token ${
-          checked ? 'translate-x-full' : 'opacity-90'
-        } ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'} ${thumbClass} bg-opacity-90`"
+        data-test="switch-thumb"
+        :class="`vuetiful-slide-toggle-thumb ${
+          isUnstyled
+            ? ''
+            : `bg-opactiy-90 h-full w-[50%] scale-[0.8] shadow transition-all duration-[150ms] rounded-token ${
+                checked ? 'translate-x-full' : 'opacity-90'
+              } ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}`
+        } ${classThumb}`"
       ></div>
     </div>
   </Switch>

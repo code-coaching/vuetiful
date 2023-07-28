@@ -10,10 +10,11 @@ describe("VSwitch props", () => {
       modelValue: false,
       disabled: false,
       size: "md",
-      switchClass: "variant-filled",
-      thumbClass: "bg-surface-100-800-token",
+      classTrack: "variant-filled",
+      classThumb: "bg-surface-100-800-token",
       as: "button",
       name: "",
+      unstyled: false,
     });
   });
 
@@ -24,7 +25,7 @@ describe("VSwitch props", () => {
       },
     });
 
-    const track = wrapper.find(".slide-toggle-track");
+    const track = wrapper.find("[data-test='switch-track']");
     expect(track.attributes("class")).toContain("w-8 h-4");
   });
 
@@ -35,7 +36,7 @@ describe("VSwitch props", () => {
       },
     });
 
-    const track = wrapper.find(".slide-toggle-track");
+    const track = wrapper.find("[data-test='switch-track']");
     expect(track.attributes("class")).toContain("w-12 h-6");
   });
 
@@ -46,7 +47,7 @@ describe("VSwitch props", () => {
       },
     });
 
-    const track = wrapper.find(".slide-toggle-track");
+    const track = wrapper.find("[data-test='switch-track']");
     expect(track.attributes("class")).toContain("w-16 h-8");
   });
 
@@ -57,7 +58,7 @@ describe("VSwitch props", () => {
       },
     });
 
-    const track = wrapper.find(".slide-toggle-track");
+    const track = wrapper.find("[data-test='switch-track']");
     expect(track.attributes("class")).toContain("w-20 h-10");
   });
 
@@ -68,7 +69,7 @@ describe("VSwitch props", () => {
       },
     });
 
-    const track = wrapper.find(".slide-toggle-track");
+    const track = wrapper.find("[data-test='switch-track']");
     expect(track.attributes("class")).toContain("w-24 h-12");
   });
 
@@ -79,7 +80,7 @@ describe("VSwitch props", () => {
       },
     });
 
-    const track = wrapper.find(".slide-toggle-track");
+    const track = wrapper.find("[data-test='switch-track']");
     expect(track.attributes("class")).toContain("custom");
   });
 });
@@ -96,3 +97,15 @@ describe("VSwitch events", () => {
     expect(wrapper.emitted()).toHaveProperty("update:modelValue");
   });
 });
+
+describe("VSwitch default slot", () => {
+  test("default slot", () => {
+    const wrapper = mount(VSwitch, {
+      slots: {
+        default: "John Duck",
+      },
+    });
+
+    expect(wrapper.text()).toContain("John Duck");
+  });
+})

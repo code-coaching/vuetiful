@@ -14,7 +14,7 @@ defineProps({
 </script>
 
 <template>
-  <SwitchLabel :as="as" :passive="passive">
+  <SwitchLabel class="vuetiful-switch-label" :as="as" :passive="passive">
     <slot />
   </SwitchLabel>
 </template>

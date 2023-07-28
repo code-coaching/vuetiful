@@ -27,6 +27,9 @@ const settings = reactive({
     radioItem: {
       unstyled: false,
     },
+    switch: {
+      unstyled: false,
+    }
   },
 });
 

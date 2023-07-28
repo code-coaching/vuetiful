@@ -10,7 +10,7 @@ defineProps({
 </script>
 
 <template>
-  <SwitchDescription :as="as">
+  <SwitchDescription class="vuetiful-switch-description" :as="as">
     <slot />
   </SwitchDescription>
 </template>
