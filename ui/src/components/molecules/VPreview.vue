@@ -152,7 +152,7 @@ const toggleSwatches = () => (swatches.value = !swatches.value);
       </v-button>
     </header>
 
-    <!-- There is some odd behavior with test coverge, v-model must be the last property in this component -->
+    <!-- There is some odd behavior with test coverage, v-model must be the last property in this component -->
     <v-radio-group
       v-if="swatches"
       data-test="swatches"

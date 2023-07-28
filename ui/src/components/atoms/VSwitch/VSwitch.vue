@@ -79,7 +79,7 @@ const isUnstyled =
 </script>
 
 <template>
-  <!-- There is some odd behavior with test coverge, v-model must be the last property in this component -->
+  <!-- There is some odd behavior with test coverage, v-model must be the last property in this component -->
   <Switch
     data-test="switch"
     :class="`vuetiful-slide-toggle ${

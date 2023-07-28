@@ -62,11 +62,12 @@ provide("active", props.active);
 provide("hover", props.hover);
 
 const { settings } = useSettings();
-const isUnstyled = settings.global.unstyled || settings.components.radioGroup.unstyled || props.unstyled;
+const isUnstyled =
+  settings.global.unstyled || settings.components.radioGroup.unstyled || props.unstyled;
 </script>
 l
 <template>
-  <!-- There is some odd behavior with test coverge, v-model must be the last property in this component -->
+  <!-- There is some odd behavior with test coverage, v-model must be the last property in this component -->
   <radio-group
     data-test="radio-group"
     :as="as"

@@ -91,7 +91,7 @@ const showText = computed(() => {
 </script>
 
 <template>
-  <!-- There is some odd behavior with test coverge, v-model must be the last property in this component -->
+  <!-- There is some odd behavior with test coverage, v-model must be the last property in this component -->
   <Listbox
     data-test="v-listbox"
     as="div"
