@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { VRail, VRailTile, useRail } from '@code-coaching/vuetiful';
+import { VRail, VRailTile, useRail, VRadioGroup } from '@code-coaching/vuetiful';
 import { SideBarLink } from 'src/components';
 import { ROUTE_NAMES } from 'src/router/routes';
+import { ref } from 'vue';
 
 const { selectedRailTile } = useRail();
 
@@ -35,8 +36,8 @@ const docsResourceLinks = [
   {
     title: 'Theme Generator',
     name: ROUTE_NAMES.DOCS.THEME_GENERATOR,
-  }
-]
+  },
+];
 
 const vueLinksLayout = [
   {
@@ -105,8 +106,10 @@ const vueLinks = [
   {
     title: 'Tabs',
     name: ROUTE_NAMES.VUE.V_TABS,
-  }
+  },
 ];
+
+const activeRoute = ref();
 </script>
 
 <template>
@@ -115,15 +118,15 @@ const vueLinks = [
       embedded ? 'grid' : 'hidden lg:!grid'
     }`"
   >
-    <v-rail class="rail overflow-y-auto border-r border-surface-500/30">
+    <v-rail class="rail border-r border-surface-500/30">
       <v-rail-tile @click="$router.push({ name: ROUTE_NAMES.DOCS.DEFAULT })" value="docs" label="Docs"> </v-rail-tile>
       <v-rail-tile value="vue" label="Vue" @click="$router.push({ name: ROUTE_NAMES.VUE.DEFAULT })"> </v-rail-tile>
     </v-rail>
-    <div class="flex flex-col gap-1 p-4">
+    <v-radio-group v-model="activeRoute" unstyled class="flex flex-col gap-1 overflow-y-auto p-4">
       <template v-if="selectedRailTile === 'docs'">
         <div class="text-lg font-bold text-primary-900-50-token">Docs</div>
         <side-bar-link
-          class="w-40 min-w-full justify-start px-4 py-1"
+          class="w-40 min-w-full justify-start px-2 py-1"
           v-for="link in docsLinks"
           :key="link.name"
           :route-name="link.name"
@@ -133,7 +136,7 @@ const vueLinks = [
         </side-bar-link>
         <div class="text-lg font-bold text-primary-900-50-token">Resources</div>
         <side-bar-link
-          class="w-40 min-w-full justify-start px-4 py-1"
+          class="w-40 min-w-full justify-start px-2 py-1"
           v-for="link in docsResourceLinks"
           :key="link.name"
           :route-name="link.name"
@@ -166,6 +169,6 @@ const vueLinks = [
           {{ link.title }}
         </side-bar-link>
       </template>
-    </div>
+    </v-radio-group>
   </div>
 </template>

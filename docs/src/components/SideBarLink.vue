@@ -1,18 +1,5 @@
-<template>
-  <v-button
-    tag="a"
-    :class="`min-w-full hover:variant-ghost-secondary ${
-      routeName === activeRoute ? 'variant-filled-secondary hover:!bg-secondary-500 hover:!text-on-secondary-token' : ''
-    }`"
-    :key="routeName"
-    @click="onClick()"
-  >
-    <slot />
-  </v-button>
-</template>
-
 <script setup lang="ts">
-import { VButton } from '@code-coaching/vuetiful';
+import { VRadioItem } from '@code-coaching/vuetiful';
 import { computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
@@ -50,3 +37,21 @@ const onClick = () => {
   }
 };
 </script>
+
+<template>
+  <v-radio-item
+    unstyled
+    :value="props.link"
+    :class="`min-w-full border-token rounded-token hover:variant-ghost-secondary hover:cursor-pointer ${
+      routeName === activeRoute
+        ? 'variant-filled-secondary hover:!bg-secondary-500 hover:!text-on-secondary-token'
+        : 'focus:variant-ghost-secondary'
+    }`"
+    :key="routeName"
+    @click="onClick()"
+    @keydown.enter="onClick()"
+    @keydown.space="onClick()"
+  >
+    <slot />
+  </v-radio-item>
+</template>

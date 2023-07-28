@@ -25,7 +25,7 @@ const props = defineProps({
   },
   hover: {
     type: String,
-    default: "hover:variant-ghost",
+    default: "hover:variant-ghost hover:text-surface-900 dark:hover:text-surface-50",
   },
 
   background: {
@@ -35,6 +35,11 @@ const props = defineProps({
   text: {
     type: String,
     default: "text-surface-900 dark:text-surface-50",
+  },
+
+  unstyled: {
+    type: Boolean,
+    default: false,
   },
 });
 
@@ -63,7 +68,11 @@ l
     :as="as"
     :disabled="disabled"
     :by="by"
-    :class="`radio-group inline-flex gap-1 p-1 ${background} ${text} border-token border-surface-400-500-token rounded-container-token`"
+    :class="`${
+      unstyled
+        ? ''
+        : `radio-group ${background} ${text} inline-flex gap-1 p-1 border-token border-surface-400-500-token rounded-container-token`
+    }`"
     v-model="parentModelValue"
   >
     <slot></slot>
