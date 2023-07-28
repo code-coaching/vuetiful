@@ -16,3 +16,13 @@ test("VBadge using slot", () => {
   expect(wrapper.text()).toContain("John Duck");
   expect(wrapper.classes()).toContain("badge");
 });
+
+test("VBadge unstyled", () => {
+  const wrapper = mount(VBadge, {
+    props: {
+      unstyled: true,
+    },
+  });
+
+  expect(wrapper.classes()).not.toContain("badge");
+})

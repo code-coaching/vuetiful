@@ -4,9 +4,9 @@ interface UnstyledSettings {
   unstyled: boolean;
 }
 
-interface GlobalSettings extends UnstyledSettings { }
-interface RadioGroupSettings extends UnstyledSettings { }
-interface RadioItemSettings extends UnstyledSettings { }
+interface GlobalSettings extends UnstyledSettings {}
+interface RadioGroupSettings extends UnstyledSettings {}
+interface RadioItemSettings extends UnstyledSettings {}
 
 export interface VuetifulSettings {
   global: GlobalSettings;
@@ -32,7 +32,10 @@ const settings = reactive({
     },
     avatar: {
       unstyled: false,
-    }
+    },
+    badge: {
+      unstyled: false,
+    },
   },
 });
 
