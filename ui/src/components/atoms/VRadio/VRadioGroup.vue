@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useSettings } from "@/index";
 import { RadioGroup } from "@headlessui/vue";
 import { provide, ref, watch } from "vue";
 
@@ -59,6 +60,9 @@ watch(
 
 provide("active", props.active);
 provide("hover", props.hover);
+
+const { settings } = useSettings();
+const isUnstyled = settings.global.unstyled || settings.components.radioGroup.unstyled || props.unstyled;
 </script>
 l
 <template>
@@ -68,10 +72,10 @@ l
     :as="as"
     :disabled="disabled"
     :by="by"
-    :class="`${
-      unstyled
+    :class="`vuetiful-radio-group ${
+      isUnstyled
         ? ''
-        : `radio-group ${background} ${text} inline-flex gap-1 p-1 border-token border-surface-400-500-token rounded-container-token`
+        : `${background} ${text} inline-flex gap-1 p-1 border-token border-surface-400-500-token rounded-container-token`
     }`"
     v-model="parentModelValue"
   >

@@ -16,7 +16,7 @@ test("VRadioGroup default props", () => {
   const wrapper = mount(VRadioGroup);
   const radioGroupEl = wrapper.find("div");
   expect(radioGroupEl.classes()).toEqual([
-    "radio-group",
+    "vuetiful-radio-group",
     "bg-surface-200-700-token",
     "text-surface-900",
     "dark:text-surface-50",
@@ -41,7 +41,7 @@ test("VRadioGroup custom class props", () => {
   });
   const radioGroupEl = wrapper.find("div");
   expect(radioGroupEl.classes()).toEqual([
-    "radio-group",
+    "vuetiful-radio-group",
     "custom-background-class",
     "custom-text-class",
     "inline-flex",
