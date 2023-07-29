@@ -42,6 +42,9 @@ const settings = reactive({
     chip: {
       unstyled: false,
     },
+    codeBlock: {
+      unstyled: false,
+    },
   },
 });
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CssClasses, VButton, vClipboard } from "@/index";
+import { CssClasses, VButton, useSettings, vClipboard } from "@/index";
 import { useHighlight } from "@/services/highlight.service";
 import "highlight.js/styles/github-dark.css";
 import { ref } from "vue";
@@ -21,16 +21,24 @@ const props = defineProps({
     default: false,
   },
 
-  headerClass: {
+  classHeader: {
     type: String as () => CssClasses,
     default: "",
   },
-  preClass: {
+  classLanguage: {
+    type: String as () => CssClasses,
+    default: "",
+  },
+  classPre: {
+    type: String as () => CssClasses,
+    default: "",
+  },
+  classCode: {
     type: String as () => CssClasses,
     default: "",
   },
 
-  buttonClass: {
+  classButton: {
     type: String as () => CssClasses,
     default: "btn-sm",
   },
@@ -41,6 +49,11 @@ const props = defineProps({
   buttonCopiedText: {
     type: String,
     default: "👍",
+  },
+
+  unstyled: {
+    type: Boolean,
+    default: false,
   },
 });
 
@@ -65,18 +78,32 @@ function onCopyClick() {
   }, 2000);
   emit("copy");
 }
+
+const { settings } = useSettings();
+const isUnstyled =
+  settings.global.unstyled || settings.components.codeBlock.unstyled || props.unstyled;
 </script>
 
 <template v-if="language && code">
   <div
-    class="code-block max-w-full bg-neutral-900/90 text-sm text-white shadow rounded-container-token"
+    :class="`vuetiful-code-block ${
+      isUnstyled
+        ? ''
+        : 'max-w-full bg-neutral-900/90 text-sm text-white shadow rounded-container-token'
+    }`"
   >
     <header
-      :class="`code-block-header flex items-center justify-between p-2 pb-0 pl-4 text-xs uppercase text-white/50 ${headerClass}`"
+      :class="`vuetiful-code-block-header ${
+        isUnstyled
+          ? ''
+          : 'flex items-center justify-between p-2 pb-0 pl-4 text-xs uppercase text-white/50'
+      } ${classHeader}`"
     >
-      <span :class="`code-block-language`">{{ languageFormatter(language) }}</span>
+      <span :class="`vuetiful-code-block-language ${classLanguage}`">{{
+        languageFormatter(language)
+      }}</span>
       <v-button
-        :class="`code-block-btn ${buttonClass}`"
+        :class="`vuetiful-code-block-button ${classButton}`"
         @click="onCopyClick()"
         v-clipboard="props.code"
       >
@@ -84,9 +111,9 @@ function onCopyClick() {
       </v-button>
     </header>
     <pre
-      :class="`code-block-pre ${
+      :class="`vuetiful-code-block-pre ${isUnstyled ? '' : 'p-4 pt-1'} ${
         preventOverflow ? 'whitespace-pre-wrap break-all' : 'overflow-auto'
-      } p-4 pt-1 ${preClass}`"
-    ><code :class="`code-block-code language-${language}`" v-html="highlight(props.code, props.language)"></code></pre>
+      } ${classPre}`"
+    ><code :class="`vuetiful-code-block-code language-${language} ${classCode}`" v-html="highlight(props.code, props.language)"></code></pre>
   </div>
 </template>
