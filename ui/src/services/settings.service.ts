@@ -36,6 +36,12 @@ const settings = reactive({
     badge: {
       unstyled: false,
     },
+    button: {
+      unstyled: false,
+    },
+    chip: {
+      unstyled: false,
+    },
   },
 });
 

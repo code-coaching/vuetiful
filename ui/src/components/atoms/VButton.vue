@@ -1,5 +1,8 @@
 <script setup lang="ts">
-defineProps({
+import { useSettings } from "@/services";
+import { computed } from "vue";
+
+const props = defineProps({
   icon: {
     type: Boolean as () => boolean,
     default: false,
@@ -7,6 +10,16 @@ defineProps({
   tag: {
     type: String as () => string,
     default: "button",
+  },
+
+  size: {
+    type: String as () => string,
+    default: "md",
+  },
+
+  unstyled: {
+    type: Boolean,
+    default: false,
   },
 });
 const emit = defineEmits<{ (event: "click"): void }>();
@@ -31,6 +44,27 @@ const keyupHandler = (event: KeyboardEvent) => {
     activate();
   }
 };
+
+const btnSize = computed(() => {
+  switch (props.size) {
+    case "xs":
+      return "px-2.5 py-1.5 text-xs";
+    case "sm":
+      return "px-3 py-2 text-sm leading-4";
+    case "md":
+      return "px-4 py-2 text-sm";
+    case "lg":
+      return "px-4 py-2 text-base";
+    case "xl":
+      return "px-6 py-3 text-base";
+    default:
+      return props.size;
+  }
+});
+
+const { settings } = useSettings();
+const isUnstyled =
+  settings.global.unstyled || settings.components.button.unstyled || props.unstyled;
 </script>
 
 <template>
@@ -38,7 +72,9 @@ const keyupHandler = (event: KeyboardEvent) => {
     tabindex="0"
     role="button"
     :is="tag"
-    :class="`vuetiful-button ${icon ? 'btn-icon' : 'btn'} border-token hover:cursor-pointer`"
+    :class="`vuetiful-button ${
+      isUnstyled ? '' : `${icon ? 'btn-icon' : 'btn'} border-token hover:cursor-pointer`
+    } ${btnSize}`"
     @click="clickHandler"
     @keydown="keydownHandler"
     @keyup="keyupHandler"
