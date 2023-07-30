@@ -76,8 +76,8 @@ l
     :class="`vuetiful-radio-group ${
       isUnstyled
         ? ''
-        : `${background} ${text} inline-flex gap-1 p-1 border-token border-surface-400-500-token rounded-container-token`
-    }`"
+        : `inline-flex gap-1 p-1 border-token border-surface-400-500-token rounded-container-token`
+    } ${background} ${text}`"
     v-model="parentModelValue"
   >
     <slot></slot>
