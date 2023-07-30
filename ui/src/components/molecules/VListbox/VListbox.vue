@@ -128,7 +128,11 @@ const isUnstyled =
       leave-from-class="opacity-100"
       leave-to-class="opacity-0"
     >
-      <v-listbox-items data-test="listbox-items" :unstyled="unstyled" :class="`${isUnstyled ? '' : 'absolute mt-1 min-w-full'}`">
+      <v-listbox-items
+        data-test="listbox-items"
+        :unstyled="unstyled"
+        :class="`${isUnstyled ? '' : 'absolute mt-1 min-w-full'}`"
+      >
         <slot />
       </v-listbox-items>
     </transition>
