@@ -24,6 +24,8 @@ import VCardBody from "./VCard/VCardBody.vue";
 import VCardFooter from "./VCard/VCardFooter.vue";
 import VCardHeader from "./VCard/VCardHeader.vue";
 
+import VCodeBlock from "./VCodeBlock.vue";
+
 export {
   VAccordion,
   VAccordionItem,
@@ -32,6 +34,7 @@ export {
   VCardBody,
   VCardFooter,
   VCardHeader,
+  VCodeBlock,
   VDrawer,
   VListbox,
   VListboxButton,
