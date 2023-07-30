@@ -45,6 +45,12 @@ const settings = reactive({
     codeBlock: {
       unstyled: false,
     },
+    listbox: {
+      unstyled: false,
+    },
+    listboxItem: {
+      unstyled: false,
+    }
   },
 });
 

@@ -10,5 +10,5 @@ defineProps({
 </script>
 
 <template>
-  <ListboxLabel :as="as"><slot /></ListboxLabel>
+  <ListboxLabel class="vuetiful-listbox-label" :as="as"><slot /></ListboxLabel>
 </template>

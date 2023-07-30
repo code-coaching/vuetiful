@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useSettings } from "@/index";
 import { ListboxButton } from "@headlessui/vue";
 
 defineProps({
@@ -11,13 +12,18 @@ defineProps({
     default: false,
   },
 });
+
+const { settings } = useSettings();
+const isUnstyled = settings.global.unstyled || settings.components.listbox.unstyled;
 </script>
 
 <template>
   <ListboxButton
     v-slot="{ open }"
     :as="as"
-    class="variant-filled btn flex w-full justify-between active:scale-[100%]"
+    :class="`vuetiful-listbox-button ${
+      isUnstyled ? 'flex' : 'variant-filled btn flex w-full justify-between active:scale-[100%]'
+    }`"
   >
     <slot />
     <span v-if="!hideIcon">
