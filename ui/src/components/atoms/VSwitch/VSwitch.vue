@@ -94,10 +94,10 @@ const isUnstyled =
   >
     <div
       data-test="switch-track"
-      :class="`vuetiful-slide-toggle-track ${
+      :class="`vuetiful-slide-toggle-track flex ${
         isUnstyled
           ? ''
-          : `flex transition-all duration-[150ms] border-token rounded-token ${
+          : `transition-all duration-[150ms] border-token rounded-token ${
               disabled ? 'cursor-not-allowed' : 'cursor-pointer'
             }`
       } ${trackSize} ${classTrack}`"
@@ -107,10 +107,10 @@ const isUnstyled =
       </template>
       <div
         data-test="switch-thumb"
-        :class="`vuetiful-slide-toggle-thumb ${
+        :class="`vuetiful-slide-toggle-thumb w-[50%] scale-[0.8] ${
           isUnstyled
             ? ''
-            : `bg-opactiy-90 h-full w-[50%] scale-[0.8] shadow transition-all duration-[150ms] rounded-token ${
+            : `bg-opactiy-90 shadow transition-all duration-[150ms] rounded-token ${
                 disabled ? 'cursor-not-allowed' : 'cursor-pointer'
               }`
         } ${checked ? 'translate-x-full' : `${isUnstyled ? '' : 'opacity-90'}`} ${classThumb}`"
