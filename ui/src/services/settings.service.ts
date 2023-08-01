@@ -7,10 +7,31 @@ interface UnstyledSettings {
 interface GlobalSettings extends UnstyledSettings {}
 interface RadioGroupSettings extends UnstyledSettings {}
 interface RadioItemSettings extends UnstyledSettings {}
+interface AccordionSettings extends UnstyledSettings {}
+interface AccordionItemSettings extends UnstyledSettings {}
+interface AvatarSettings extends UnstyledSettings {}
+interface BadgeSettings extends UnstyledSettings {}
+interface ButtonSettings extends UnstyledSettings {}
+interface ListboxSettings extends UnstyledSettings {}
+interface ListboxItemSettings extends UnstyledSettings {}
+interface CodeBlockSettings extends UnstyledSettings {}
+interface SwitchSettings extends UnstyledSettings {}
 
 export interface VuetifulSettings {
   global: GlobalSettings;
   components: {
+    avatar: AvatarSettings;
+    badge: BadgeSettings;
+    button: ButtonSettings;
+    codeBlock: CodeBlockSettings;
+    switch: SwitchSettings;
+
+    accordion: AccordionSettings;
+    accordionItem: AccordionItemSettings;
+
+    listbox: ListboxSettings;
+    listboxItem: ListboxItemSettings;
+
     radioGroup: RadioGroupSettings;
     radioItem: RadioItemSettings;
   };
