@@ -31,8 +31,8 @@ const hover = inject("hover");
 
 <template>
   <v-radio-item
-    :value="value"
-    unstyled
+  unstyled
+  :value="value"
     :class="`vuetiful-rail-tile grid aspect-square w-full cursor-pointer place-content-center place-items-center space-y-1.5 ${hover} ${
       selectedRailTile === value ? `${active}` : ''
     }`"

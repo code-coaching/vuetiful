@@ -50,6 +50,12 @@ const settings = reactive({
     },
     listboxItem: {
       unstyled: false,
+    },
+    accordion: {
+      unstyled: false,
+    },
+    accordionItem: {
+      unstyled: false,
     }
   },
 });

@@ -24,9 +24,45 @@ describe("VAccordionItem", () => {
       expect(accordionItemButton.classes()).toEqual([
         "bg-surface-200-700-token",
         "hover:variant-soft",
-        "vuetiful-accordion-item-button",
-        "w-full",
+        "items-center",
+        "justify-between",
+        "p-4",
         "rounded-container-token",
+        "hover:cursor-pointer",
+        "vuetiful-accordion-item-button",
+        "flex",
+        "w-full",
+      ]);
+
+      const accordionItemTitle = accordionItem.find(".vuetiful-accordion-title");
+      expect(accordionItemTitle.text()).toEqual(accordionItem.props().title);
+    });
+  });
+
+  test("unstyled", async () => {
+    const wrapper = mount({
+      template: /*html*/ `
+        <v-accordion>
+          <v-accordion-item title="Vuetiful" unstyled>John Duck</v-accordion-item>
+          <v-accordion-item title="Is" unstyled>Janine Duck</v-accordion-item>
+        </v-accordion>`,
+      components: {
+        "v-accordion": VAccordion,
+        "v-accordion-item": VAccordionItem,
+      },
+    });
+
+    const accordionItems = wrapper.findAllComponents(VAccordionItem);
+    accordionItems.forEach((accordionItem) => {
+      expect(accordionItem.classes()).toEqual(["vuetiful-accordion-item"]);
+
+      const accordionItemButton = accordionItem.find(".vuetiful-accordion-item-button");
+      expect(accordionItemButton.classes()).toEqual([
+        "bg-surface-200-700-token",
+        "hover:variant-soft",
+        "vuetiful-accordion-item-button",
+        "flex",
+        "w-full",
       ]);
 
       const accordionItemTitle = accordionItem.find(".vuetiful-accordion-title");
@@ -58,28 +94,38 @@ describe("VAccordionItem", () => {
       "hover:variant-soft",
       "!rounded-bl-none",
       "!rounded-br-none",
-      "vuetiful-accordion-item-button",
-      "w-full",
+      "items-center",
+      "justify-between",
+      "p-4",
       "rounded-container-token",
+      "hover:cursor-pointer",
+      "vuetiful-accordion-item-button",
+      "flex",
+      "w-full",
     ]);
     expect(accordionItemButtonTwo.classes()).toEqual([
       "bg-surface-200-700-token",
       "hover:variant-soft",
-      "vuetiful-accordion-item-button",
-      "w-full",
+      "items-center",
+      "justify-between",
+      "p-4",
       "rounded-container-token",
+      "hover:cursor-pointer",
+      "vuetiful-accordion-item-button",
+      "flex",
+      "w-full",
     ]);
 
     const accordionItemPanelOne = accordionItems[0].find(".vuetiful-accordion-item-panel");
 
     expect(accordionItemPanelOne.classes()).toEqual([
       "vuetiful-accordion-item-panel",
-      "p-4",
-      "pt-0",
-      "rounded-container-token",
       "bg-surface-200-700-token",
       "!rounded-tl-none",
       "!rounded-tr-none",
+      "p-4",
+      "pt-0",
+      "rounded-container-token",
     ]);
   });
 });

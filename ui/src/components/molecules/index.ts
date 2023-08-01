@@ -1,7 +1,7 @@
 import VDrawer from "./VDrawer.vue";
 import VPreview from "./VPreview.vue";
-import VRail from "./VRail.vue";
-import VRailTile from "./VRailTile.vue";
+import VRail from "./VRail/VRail.vue";
+import VRailTile from "./VRail/VRailTile.vue";
 import VShell from "./VShell.vue";
 
 import VListbox from "./VListbox/VListbox.vue";
