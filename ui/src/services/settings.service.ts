@@ -19,7 +19,7 @@ interface SwitchSettings extends UnstyledSettings {}
 
 export interface VuetifulSettings {
   global: GlobalSettings;
-  components: {
+  components: Partial<{
     avatar: AvatarSettings;
     badge: BadgeSettings;
     button: ButtonSettings;
@@ -34,7 +34,7 @@ export interface VuetifulSettings {
 
     radioGroup: RadioGroupSettings;
     radioItem: RadioItemSettings;
-  };
+  }>;
 }
 
 const settings = reactive({
