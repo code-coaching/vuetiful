@@ -9,6 +9,7 @@ interface RadioGroupSettings extends UnstyledSettings {}
 interface RadioItemSettings extends UnstyledSettings {}
 interface AccordionSettings extends UnstyledSettings {}
 interface AccordionItemSettings extends UnstyledSettings {}
+interface AlertSettings extends UnstyledSettings {}
 interface AvatarSettings extends UnstyledSettings {}
 interface BadgeSettings extends UnstyledSettings {}
 interface ButtonSettings extends UnstyledSettings {}
@@ -21,6 +22,7 @@ export interface VuetifulSettings {
   global: GlobalSettings;
   components: Partial<{
     avatar: AvatarSettings;
+    alert: AlertSettings;
     badge: BadgeSettings;
     button: ButtonSettings;
     codeBlock: CodeBlockSettings;
@@ -77,7 +79,10 @@ const settings = reactive({
     },
     accordionItem: {
       unstyled: false,
-    }
+    },
+    alert: {
+      unstyled: false,
+    },
   },
 });
 
