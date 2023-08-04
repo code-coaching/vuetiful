@@ -216,7 +216,7 @@ const toggleSwatches = () => (swatches.value = !swatches.value);
     <template v-if="tabView === 'code'">
       <div
         data-test="previewer-source"
-        :class="`vuetiful-previewer-source p-4 ${backgrounds['neutral']} ${regionSource}`"
+        :class="`vuetiful-previewer-source p-4 md:p-10 ${backgrounds['neutral']} ${regionSource}`"
       >
         <slot name="source">(source)</slot>
       </div>
