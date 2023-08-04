@@ -177,7 +177,6 @@ const randomGradients = () => {
     formTheme.value.gradients.light = randomGradients.join(', \n\t\t');
     formTheme.value.gradients.dark = randomGradients.join(', \n\t\t');
   } else {
-    console.log('isDark', isDark);
     if (isDark.value) {
       formTheme.value.gradients.dark = randomGradients.join(', \n\t\t');
     } else {
