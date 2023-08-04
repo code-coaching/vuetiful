@@ -4,14 +4,14 @@ h3,
 h4,
 h5,
 h6 {
-  margin-bottom: 1rem;
+  @apply mb-4 md:mb-10;
 }
 
 section.section {
-  margin-bottom: 2rem;
+  @apply mb-4 md:mb-10;
 }
 header.header {
-  margin-bottom: 2rem;
+  @apply mb-4 md:mb-10;
 }
 
 summary {

@@ -1,14 +1,6 @@
 <script setup lang="ts">
-import {
-  VAccordion,
-  VAccordionItem,
-  VAlert,
-  VCodeBlock,
-  VPreview,
-  VTab,
-  VTabPanel,
-  VTabs,
-} from '@code-coaching/vuetiful';
+import { VAccordion, VAccordionItem, VCodeBlock, VPreview, VTab, VTabPanel, VTabs } from '@code-coaching/vuetiful';
+import { AlertUnstyled } from 'src/components';
 
 const usage = `<v-accordion>
   <v-accordion-item title="Vuetiful">
@@ -151,9 +143,7 @@ const unstyledCustomTemplate = `<v-accordion
     </v-tab-panel>
     <v-tab-panel>
       <section class="section">
-        <v-alert type="info"
-          >Unstyled prop removes default styles, while retaining essential prop-based styles.</v-alert
-        >
+        <alert-unstyled />
       </section>
 
       <section class="section">
@@ -173,7 +163,6 @@ const unstyledCustomTemplate = `<v-accordion
       </section>
 
       <h2>No prop-based styles</h2>
-
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -194,7 +183,7 @@ const unstyledCustomTemplate = `<v-accordion
         </v-preview>
       </section>
 
-      <h2>custom style example</h2>
+      <h2>Custom style example</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
