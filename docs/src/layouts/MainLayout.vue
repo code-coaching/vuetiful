@@ -38,7 +38,11 @@ const { open } = useDrawer();
     <template v-slot:sidebarLeft>
       <DocsSideBar />
     </template>
-    <router-view />
+    <div class="flex justify-center p-4 md:p-10">
+      <div class="flex w-full max-w-5xl flex-col">
+        <router-view />
+      </div>
+    </div>
   </v-shell>
 </template>
 
