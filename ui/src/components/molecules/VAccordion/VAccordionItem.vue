@@ -15,8 +15,8 @@ const props = defineProps({
   },
 });
 
-const hover = inject("hover");
-const background = inject("background");
+const classQuestion = inject("classQuestion");
+const classAnswer = inject("classAnswer");
 
 const { settings } = useSettings();
 const isUnstyled =
@@ -26,14 +26,13 @@ const isUnstyled =
 <template>
   <Disclosure class="vuetiful-accordion-item" as="div" v-slot="{ open }">
     <DisclosureButton
-      :class="`${background} ${hover} ${
-        isUnstyled ? '' : `${open ? '!rounded-bl-none !rounded-br-none' : ''}`
-      }
+      :class="`${isUnstyled ? '' : `${open ? '!rounded-bl-none !rounded-br-none' : ''}`}
       ${
         isUnstyled
           ? ''
-          : 'items-center justify-between p-4 rounded-container-token hover:cursor-pointer'
-      }`"
+          : 'items-center justify-between p-4 py-2 rounded-container-token hover:cursor-pointer'
+      }
+      ${classQuestion}`"
       class="vuetiful-accordion-item-button flex w-full"
     >
       <span class="vuetiful-accordion-title">{{ title }}</span>
@@ -66,9 +65,9 @@ const isUnstyled =
     </DisclosureButton>
     <DisclosurePanel
       class="vuetiful-accordion-item-panel"
-      :class="`${
-        open ? `${background} ${isUnstyled ? '' : '!rounded-tl-none !rounded-tr-none'}` : ''
-      } ${isUnstyled ? '' : 'p-4 pt-0 rounded-container-token'}`"
+      :class="`${open ? `${isUnstyled ? '' : '!rounded-tl-none !rounded-tr-none'}` : ''} ${
+        isUnstyled ? '' : 'p-4 py-2 rounded-container-token'
+      } ${classAnswer}`"
     >
       <slot></slot>
     </DisclosurePanel>
@@ -77,6 +76,6 @@ const isUnstyled =
 
 <style scoped>
 .icon {
-  @apply my-1 h-4 w-4 fill-current;
+  @apply my-1 h-4 min-h-[1rem] w-4 min-w-[1rem] fill-current;
 }
 </style>

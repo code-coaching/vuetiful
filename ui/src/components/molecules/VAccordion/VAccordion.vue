@@ -3,11 +3,11 @@ import { useSettings } from '@/services';
 import { provide, useSSRContext } from 'vue';
 
 const props = defineProps({
-  hover: {
+  classQuestion: {
     type: String,
-    default: 'hover:variant-soft',
+    default: 'bg-surface-200-700-token hover:variant-soft',
   },
-  background: {
+  classAnswer: {
     type: String,
     default: 'bg-surface-200-700-token',
   },
@@ -18,8 +18,8 @@ const props = defineProps({
   },
 });
 
-provide('hover', props.hover);
-provide('background', props.background);
+provide('classQuestion', props.classQuestion);
+provide('classAnswer', props.classAnswer);
 
 const { settings } = useSettings()
 const isUnstyled =  settings.global.unstyled || settings.components.accordion.unstyled || props.unstyled

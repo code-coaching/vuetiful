@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { VCodeBlock, VPreview, VAccordion, VAccordionItem } from '@code-coaching/vuetiful';
+import { VAccordion, VAccordionItem, VAlert, VCodeBlock, VPreview } from '@code-coaching/vuetiful';
 
 const usage = `<v-accordion>
   <v-accordion-item title="Vuetiful">
@@ -22,14 +22,6 @@ const faqs = [
   },
 ];
 
-const faqTemplate = `<v-accordion hover="hover:variant-ghost-primary" background="bg-secondary-100-800-token">
-  <v-accordion-item v-for="(faq, index) in faqs" :key="index" :title="faq.question">
-    {{ faq.answer }}
-    <template v-slot:open-item>open</template>
-    <template v-slot:close-item>close</template>
-  </v-accordion-item>
-</v-accordion>`;
-
 const faqScript = `const faqs = [
   {
     question: 'What is Vuetiful?',
@@ -40,6 +32,40 @@ const faqScript = `const faqs = [
     answer: 'Yes.',
   },
 ];`;
+
+const customTemplate = `<v-accordion
+  class-question="hover:variant-ghost-primary bg-secondary-200-700-token"
+  class-answer="bg-secondary-100-800-token"
+>
+  <v-accordion-item v-for="(faq, index) in faqs" :key="index" :title="faq.question">
+    {{ faq.answer }}
+    <template v-slot:open-item>open</template>
+    <template v-slot:close-item>close</template>
+  </v-accordion-item>
+</v-accordion>`;
+
+const unstyledTemplate = `<v-accordion unstyled>
+  <v-accordion-item unstyled v-for="(faq, index) in faqs" :key="index" :title="faq.question">
+    {{ faq.answer }}
+  </v-accordion-item>
+</v-accordion>`;
+
+const unstyledPropTemplate = `<v-accordion unstyled>
+  <v-accordion-item unstyled v-for="(faq, index) in faqs" :key="index" :title="faq.question">
+    {{ faq.answer }}
+  </v-accordion-item>
+</v-accordion>`;
+
+const unstyledCustomTemplate = `<v-accordion
+  unstyled
+  class="flex flex-col gap-4"
+  class-question="hover:bg-pink-400 bg-pink-500 p-4"
+  class-answer="bg-red-500 p-4"
+>
+  <v-accordion-item unstyled v-for="(faq, index) in faqs" :key="index" :title="faq.question">
+    {{ faq.answer }}
+  </v-accordion-item>
+</v-accordion>`;
 </script>
 
 <template>
@@ -79,7 +105,10 @@ const faqScript = `const faqs = [
     <section class="section">
       <v-preview>
         <template v-slot:preview>
-          <v-accordion hover="hover:variant-ghost-primary" background="bg-secondary-100-800-token">
+          <v-accordion
+            class-question="hover:variant-ghost-primary bg-secondary-200-700-token"
+            class-answer="bg-secondary-100-800-token"
+          >
             <v-accordion-item v-for="(faq, index) in faqs" :key="index" :title="faq.question">
               {{ faq.answer }}
               <template v-slot:open-item>open</template>
@@ -89,16 +118,14 @@ const faqScript = `const faqs = [
         </template>
         <template v-slot:source>
           <v-code-block class="mb-2" language="ts" :code="faqScript" />
-          <v-code-block class="mb-2" language="html" :code="faqTemplate" />
+          <v-code-block class="mb-2" language="html" :code="customTemplate" />
           <p>
-            <code>hover</code> will be appended to the <code>class</code> property of each invidivual tab. This can be
-            one or multiple classes. This can be both normal CSS classes or Tailwind classes. This property is
-            automatically applied to each accordion item.
+            <code>class-question</code> will be appended to the <code>class</code> property of each invidivual tab's
+            question. This can be one or multiple classes. This can be both normal CSS classes or Tailwind classes.
           </p>
           <p>
-            <code>background</code> will be appended to the <code>class</code> property of each invidivual tab. This can
-            be one or multiple classes. This can be both normal CSS classes or Tailwind classes. This property is
-            automatically applied to each accordion item.
+            <code>class-answer</code> will be appended to the <code>class</code> property of each invidivual tab's
+            answer. This can be one or multiple classes. This can be both normal CSS classes or Tailwind classes.
           </p>
           <p>
             <code>open-item</code> and <code>close-item</code> are slots that can be used to customize the open and
@@ -108,11 +135,79 @@ const faqScript = `const faqs = [
         </template>
       </v-preview>
     </section>
+
+    <h3>Unstyled</h3>
+
+    <section class="section">
+      <v-alert type="info">Unstyled prop removes default styles, while retaining essential prop-based styles.</v-alert>
+    </section>
+
+    <section class="section">
+      <v-preview>
+        <template v-slot:preview>
+          <v-accordion unstyled>
+            <v-accordion-item unstyled v-for="(faq, index) in faqs" :key="index" :title="faq.question">
+              {{ faq.answer }}
+            </v-accordion-item>
+          </v-accordion>
+        </template>
+        <template v-slot:source>
+          <v-code-block class="mb-2" language="ts" :code="faqScript" />
+          <v-code-block class="mb-2" language="html" :code="unstyledTemplate" />
+        </template>
+      </v-preview>
+    </section>
+
+    <h4>Unstyled - no prop-based styles</h4>
+
+    <section class="section">
+      <v-preview>
+        <template v-slot:preview>
+          <v-accordion unstyled class-question="" class-answer="">
+            <v-accordion-item unstyled v-for="(faq, index) in faqs" :key="index" :title="faq.question">
+              {{ faq.answer }}
+            </v-accordion-item>
+          </v-accordion>
+        </template>
+        <template v-slot:source>
+          <v-code-block class="mb-2" language="ts" :code="faqScript" />
+          <v-code-block class="mb-2" language="html" :code="unstyledPropTemplate" />
+          <p>
+            Overwrite <code>class-question</code> and <code>class-answer</code> with empty strings to remove all prop
+            based styles.
+          </p>
+        </template>
+      </v-preview>
+    </section>
+
+    <h4>Unstyled - custom style example</h4>
+    <section class="section">
+      <v-preview>
+        <template v-slot:preview>
+          <v-accordion
+            unstyled
+            class="flex flex-col gap-4"
+            class-question="flex flex-row-reverse justify-between gap-2 bg-blue-600 p-4 text-white hover:bg-blue-400"
+            class-answer="bg-blue-500 p-4 text-white"
+          >
+            <v-accordion-item unstyled v-for="(faq, index) in faqs" :key="index" :title="faq.question">
+              {{ faq.answer }}
+            </v-accordion-item>
+          </v-accordion>
+        </template>
+        <template v-slot:source>
+          <v-code-block class="mb-2" language="ts" :code="faqScript" />
+          <v-code-block class="mb-2" language="html" :code="unstyledCustomTemplate" />
+          <p>
+            <code>class-question</code> will be appended to the <code>class</code> property of each invidivual tab's
+            question. This can be one or multiple classes. This can be both normal CSS classes or Tailwind classes.
+          </p>
+          <p>
+            <code>class-answer</code> will be appended to the <code>class</code> property of each invidivual tab's
+            answer. This can be one or multiple classes. This can be both normal CSS classes or Tailwind classes.
+          </p>
+        </template>
+      </v-preview>
+    </section>
   </div>
 </template>
-
-<style>
-.custom-class {
-  fill: #ec4899;
-}
-</style>
