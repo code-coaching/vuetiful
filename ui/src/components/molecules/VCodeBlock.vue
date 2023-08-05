@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { CssClasses, VButton, useSettings, vClipboard } from "@/index";
+import { unstyledProp } from "@/props";
 import { useHighlight } from "@/services/highlight.service";
 import "highlight.js/styles/github-dark.css";
 import { ref } from "vue";
@@ -40,7 +41,7 @@ const props = defineProps({
 
   classButton: {
     type: String as () => CssClasses,
-    default: "btn-sm",
+    default: "",
   },
   buttonText: {
     type: String,
@@ -51,10 +52,7 @@ const props = defineProps({
     default: "👍",
   },
 
-  unstyled: {
-    type: Boolean,
-    default: false,
-  },
+  unstyled: unstyledProp,
 });
 
 const emit = defineEmits<{
@@ -86,34 +84,37 @@ const isUnstyled =
 
 <template v-if="language && code">
   <div
-    :class="`vuetiful-code-block ${
+    :class="`vuetiful-code-block code-block ${
       isUnstyled
         ? ''
-        : 'max-w-full bg-neutral-900/90 text-sm text-white shadow rounded-container-token'
+        : 'max-w-full bg-[#171717] text-sm text-white shadow rounded-container-token'
     }`"
   >
     <header
       :class="`vuetiful-code-block-header ${
         isUnstyled
           ? ''
-          : 'flex items-center justify-between p-2 pb-0 pl-4 text-xs uppercase text-white/50'
+          : 'flex items-center justify-between p-2 pb-0 pl-4 text-xs uppercase text-[#a4a4a4]'
       } ${classHeader}`"
     >
       <span :class="`vuetiful-code-block-language ${classLanguage}`">{{
         languageFormatter(language)
       }}</span>
       <v-button
-        :class="`vuetiful-code-block-button ${classButton}`"
+        size="sm"
+        :class="`vuetiful-code-block-button ${
+          classButton ? classButton : 'bg-[#171717] dark:bg-[#171717] text-[#a4a4a4] dark:text-[#a4a4a4]'
+        }`"
         @click="onCopyClick()"
-        v-clipboard="props.code"
+        v-clipboard="code"
       >
         {{ !copyState ? buttonText : buttonCopiedText }}
       </v-button>
     </header>
     <pre
-      :class="`vuetiful-code-block-pre ${isUnstyled ? '' : 'p-4 pt-1'} ${
-        preventOverflow ? 'whitespace-pre-wrap break-all' : 'overflow-auto'
-      } ${classPre}`"
-    ><code :class="`vuetiful-code-block-code language-${language} ${classCode}`" v-html="highlight(props.code, props.language)"></code></pre>
+      :class="`vuetiful-code-block-pre ${
+        isUnstyled ? '' : '!rounded-t-none bg-transparent p-4 !pt-0'
+      } ${preventOverflow ? 'whitespace-pre-wrap break-all' : 'overflow-auto'} ${classPre}`"
+    ><code :class="`vuetiful-code-block-code language-${language} ${classCode}`" v-html="highlight(code, language)"></code></pre>
   </div>
 </template>
