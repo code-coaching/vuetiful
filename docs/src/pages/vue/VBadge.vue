@@ -49,7 +49,7 @@ const glass = `<v-badge variant="glass text-white/75">Default</v-badge>
 
 const unstyledTemplate = '<v-badge unstyled>Unstyled</v-badge>';
 const unstyledPropTemplate = '<v-badge unstyled variant="">No prop-based styles</v-badge>';
-const unstyledCustomTemplate = '<v-badge unstyled class="bg-blue-600 p-1 text-white">Custom</v-badge>';
+const unstyledCustomTemplate = '<v-badge unstyled variant="" class="bg-blue-600 p-1 text-white">Custom</v-badge>';
 </script>
 
 <template>
@@ -225,7 +225,7 @@ const unstyledCustomTemplate = '<v-badge unstyled class="bg-blue-600 p-1 text-wh
         <section class="section">
           <v-preview>
             <template v-slot:preview>
-              <v-badge unstyled class="bg-blue-600 p-1 text-white">Custom</v-badge>
+              <v-badge unstyled variant="" class="bg-blue-600 p-1 text-white">Custom</v-badge>
             </template>
             <template v-slot:source>
               <v-code-block language="html" :code="unstyledCustomTemplate" />

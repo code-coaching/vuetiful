@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useSettings } from "@/services";
-import { Size } from "@/types";
+import { Size, Variant } from "@/types";
 import { PropType, computed } from "vue";
 
 const props = defineProps({
@@ -16,6 +16,54 @@ const props = defineProps({
   size: {
     type: String as PropType<"xs" | "sm" | "md" | "lg" | "xl">,
     default: Size.MD,
+  },
+
+  variant: {
+    // explicit string union because TypeScript type won't throw error if invalid value is passed
+    type: String as PropType<
+      | ""
+      | "filled"
+      | "filled-primary"
+      | "filled-secondary"
+      | "filled-tertiary"
+      | "filled-success"
+      | "filled-warning"
+      | "filled-error"
+      | "filled-surface"
+      | "ringed"
+      | "ringed-primary"
+      | "ringed-secondary"
+      | "ringed-tertiary"
+      | "ringed-success"
+      | "ringed-warning"
+      | "ringed-error"
+      | "ringed-surface"
+      | "ghost"
+      | "ghost-primary"
+      | "ghost-secondary"
+      | "ghost-tertiary"
+      | "ghost-success"
+      | "ghost-warning"
+      | "ghost-error"
+      | "ghost-surface"
+      | "soft"
+      | "soft-primary"
+      | "soft-secondary"
+      | "soft-tertiary"
+      | "soft-success"
+      | "soft-warning"
+      | "soft-error"
+      | "soft-surface"
+      | "glass"
+      | "glass-primary"
+      | "glass-secondary"
+      | "glass-tertiary"
+      | "glass-success"
+      | "glass-warning"
+      | "glass-error"
+      | "glass-surface"
+    >,
+    default: Variant.Filled,
   },
 
   unstyled: {
@@ -73,7 +121,7 @@ const isUnstyled =
     :is="tag"
     :class="`vuetiful-button ${
       isUnstyled ? '' : `${icon ? 'btn-icon' : 'btn'} border-token hover:cursor-pointer`
-    } ${btnSize}`"
+    } ${btnSize} variant-${variant}`"
     @click="clickHandler"
     @keydown="keydownHandler"
     @keyup="keyupHandler"
