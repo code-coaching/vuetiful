@@ -73,15 +73,6 @@ describe("VButton props", () => {
       expect(wrapper.classes()).toContain("py-3");
       expect(wrapper.classes()).toContain("text-base"); 
     });
-
-    test("custom", () => {
-      const wrapper = mount(VButton, {
-        props: {
-          size: "custom",
-        },
-      });
-      expect(wrapper.classes()).toContain("custom");
-    })
   });
 
   describe("given icon is true", () => {

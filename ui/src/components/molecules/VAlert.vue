@@ -53,8 +53,6 @@ const typeBackground = computed(() => {
       return "variant-filled-error";
     case "":
       return "";
-    default:
-      return "variant-filled-primary";
   }
 });
 

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { CssClasses, useSettings } from "@/index";
-import { computed, ref, useAttrs } from "vue";
+import { Size, Variant } from "@/types";
+import { PropType, computed, ref } from "vue";
 
 const props = defineProps({
   // Initials
@@ -14,19 +15,67 @@ const props = defineProps({
   fallback: { type: String, default: "" },
   classImage: { type: String, default: "" },
 
-  size: { type: String, default: "md" },
+  size: {
+    type: String as PropType<"xs" | "sm" | "md" | "lg" | "xl">,
+    default: Size.MD,
+  },
 
   unstyled: { type: Boolean, default: false },
+  variant: {
+    // explicit string union because TypeScript type won't throw error if invalid value is passed
+    type: String as PropType<
+      | ""
+      | "variant-filled"
+      | "variant-filled-primary"
+      | "variant-filled-secondary"
+      | "variant-filled-tertiary"
+      | "variant-filled-success"
+      | "variant-filled-warning"
+      | "variant-filled-error"
+      | "variant-filled-surface"
+      | "variant-ringed"
+      | "variant-ringed-primary"
+      | "variant-ringed-secondary"
+      | "variant-ringed-tertiary"
+      | "variant-ringed-success"
+      | "variant-ringed-warning"
+      | "variant-ringed-error"
+      | "variant-ringed-surface"
+      | "variant-ghost"
+      | "variant-ghost-primary"
+      | "variant-ghost-secondary"
+      | "variant-ghost-tertiary"
+      | "variant-ghost-success"
+      | "variant-ghost-warning"
+      | "variant-ghost-error"
+      | "variant-ghost-surface"
+      | "variant-soft"
+      | "variant-soft-primary"
+      | "variant-soft-secondary"
+      | "variant-soft-tertiary"
+      | "variant-soft-success"
+      | "variant-soft-warning"
+      | "variant-soft-error"
+      | "variant-soft-surface"
+      | "variant-glass"
+      | "variant-glass-primary"
+      | "variant-glass-secondary"
+      | "variant-glass-tertiary"
+      | "variant-glass-success"
+      | "variant-glass-warning"
+      | "variant-glass-error"
+      | "variant-glass-surface"
+    >,
+    default: Variant.Filled,
+  },
 });
 
 const imgSrc = ref(props.src);
 const fillInitials = computed(() => {
   if (props.fill) return props.fill;
 
-  const attrs = useAttrs();
-  const classString = attrs.class as string | undefined;
-
-  if (classString?.includes("variant-filled")) {
+  const variantString = props.variant as string | undefined;
+  if (variantString?.includes("variant-filled")) {
     return "fill-on-surface-token dark:fill-base-token";
   }
   return "dark:fill-on-surface-token fill-base-token";
@@ -34,18 +83,16 @@ const fillInitials = computed(() => {
 
 const avatarSize = computed(() => {
   switch (props.size) {
-    case "xs":
+    case Size.XS:
       return "w-8";
-    case "sm":
+    case Size.SM:
       return "w-12";
-    case "md":
+    case Size.MD:
       return "w-16";
-    case "lg":
+    case Size.LG:
       return "w-20";
-    case "xl":
+    case Size.XL:
       return "w-24";
-    default:
-      return props.size;
   }
 });
 
@@ -60,7 +107,7 @@ const isUnstyled =
       isUnstyled
         ? ''
         : 'isolate flex aspect-square items-center justify-center overflow-hidden font-semibold rounded-token'
-    } ${avatarSize}`"
+    } ${avatarSize} ${variant}`"
   >
     <img
       :class="`vuetiful-avatar-image ${classImage}`"

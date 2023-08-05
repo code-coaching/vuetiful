@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { useSettings } from "@/index";
+import { Size } from "@/types";
 import { Switch } from "@headlessui/vue";
-import { computed, ref, watch } from "vue";
+import { PropType, computed, ref, watch } from "vue";
 
 const emit = defineEmits(["update:modelValue"]);
 const props = defineProps({
@@ -14,8 +15,8 @@ const props = defineProps({
     default: false,
   },
   size: {
-    type: String,
-    default: "md",
+    type: String as PropType<"xs" | "sm" | "md" | "lg" | "xl">,
+    default: Size.MD,
   },
 
   classTrack: {
@@ -68,8 +69,6 @@ const trackSize = computed(() => {
       return "w-20 h-10";
     case "xl":
       return "w-24 h-12";
-    default:
-      return props.size;
   }
 });
 

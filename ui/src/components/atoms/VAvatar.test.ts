@@ -17,6 +17,18 @@ describe("VAvatar props", () => {
     const avatarText = wrapper.find(".vuetiful-avatar-text");
     expect(avatarText.exists()).toBe(true);
     expect(avatarText.text()).toBe("");
+    expect(avatarText.classes()).toContain("fill-on-surface-token");
+    expect(avatarText.classes()).toContain("dark:fill-base-token");
+  });
+
+  test("VAvatar custom variant", () => {
+    const wrapper = mount(VAvatar, {
+      props: {
+        variant: "variant-ghost",
+      },
+    });
+
+    const avatarText = wrapper.find(".vuetiful-avatar-text");
     expect(avatarText.classes()).toContain("dark:fill-on-surface-token");
     expect(avatarText.classes()).toContain("fill-base-token");
   });
@@ -25,7 +37,7 @@ describe("VAvatar props", () => {
     const wrapper = mount(VAvatar, {
       props: {
         initials: "JD",
-        class: "variant-filled",
+        variant: "variant-filled",
       },
     });
 
@@ -156,16 +168,5 @@ describe("VAvatar props", () => {
 
     const avatar = wrapper.find("[data-test='avatar']");
     expect(avatar.attributes("class")).toContain("w-24");
-  });
-
-  test("size custom", () => {
-    const wrapper = mount(VAvatar, {
-      props: {
-        size: "custom",
-      },
-    });
-
-    const avatar = wrapper.find("[data-test='avatar']");
-    expect(avatar.attributes("class")).toContain("custom");
   });
 });

@@ -72,17 +72,6 @@ describe("VSwitch props", () => {
     const track = wrapper.find("[data-test='switch-track']");
     expect(track.attributes("class")).toContain("w-24 h-12");
   });
-
-  test("size custom", () => {
-    const wrapper = mount(VSwitch, {
-      props: {
-        size: "custom",
-      },
-    });
-
-    const track = wrapper.find("[data-test='switch-track']");
-    expect(track.attributes("class")).toContain("custom");
-  });
 });
 
 describe("VSwitch events", () => {

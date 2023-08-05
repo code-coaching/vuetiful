@@ -11,10 +11,10 @@ const vitestConfig: UserConfig = {
   test: {
     environment: "jsdom",
     coverage: {
-      lines: 96.54,
-      functions: 87.32,
-      branches: 97.31,
-      statements: 96.54,
+      lines: 96.91,
+      functions: 88,
+      branches: 98.5,
+      statements: 96.91,
       thresholdAutoUpdate: true,
     },
   },

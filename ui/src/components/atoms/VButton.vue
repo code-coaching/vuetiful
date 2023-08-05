@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useSettings } from "@/services";
-import { computed } from "vue";
+import { Size } from "@/types";
+import { PropType, computed } from "vue";
 
 const props = defineProps({
   icon: {
@@ -13,8 +14,8 @@ const props = defineProps({
   },
 
   size: {
-    type: String as () => string,
-    default: "md",
+    type: String as PropType<"xs" | "sm" | "md" | "lg" | "xl">,
+    default: Size.MD,
   },
 
   unstyled: {
@@ -57,8 +58,6 @@ const btnSize = computed(() => {
       return "px-4 py-2 text-base";
     case "xl":
       return "px-6 py-3 text-base";
-    default:
-      return props.size;
   }
 });
 

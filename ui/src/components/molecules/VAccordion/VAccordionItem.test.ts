@@ -22,13 +22,14 @@ describe("VAccordionItem", () => {
 
       const accordionItemButton = accordionItem.find(".vuetiful-accordion-item-button");
       expect(accordionItemButton.classes()).toEqual([
-        "bg-surface-200-700-token",
-        "hover:variant-soft",
         "items-center",
         "justify-between",
         "p-4",
+        "py-2",
         "rounded-container-token",
         "hover:cursor-pointer",
+        "bg-surface-200-700-token",
+        "hover:variant-soft",
         "vuetiful-accordion-item-button",
         "flex",
         "w-full",
@@ -90,42 +91,44 @@ describe("VAccordionItem", () => {
     await accordionItemButtonOne.trigger("click");
 
     expect(accordionItemButtonOne.classes()).toEqual([
-      "bg-surface-200-700-token",
-      "hover:variant-soft",
       "!rounded-bl-none",
       "!rounded-br-none",
       "items-center",
       "justify-between",
       "p-4",
+      "py-2",
       "rounded-container-token",
       "hover:cursor-pointer",
+      "bg-surface-200-700-token",
+      "hover:variant-soft",
       "vuetiful-accordion-item-button",
       "flex",
       "w-full",
     ]);
     expect(accordionItemButtonTwo.classes()).toEqual([
-      "bg-surface-200-700-token",
-      "hover:variant-soft",
-      "items-center",
-      "justify-between",
-      "p-4",
-      "rounded-container-token",
-      "hover:cursor-pointer",
-      "vuetiful-accordion-item-button",
-      "flex",
-      "w-full",
+      'items-center',
+      'justify-between',
+      'p-4',
+      'py-2',
+      'rounded-container-token',
+      'hover:cursor-pointer',
+      'bg-surface-200-700-token',
+      'hover:variant-soft',
+      'vuetiful-accordion-item-button',
+      'flex',
+      'w-full'
     ]);
-
+    
     const accordionItemPanelOne = accordionItems[0].find(".vuetiful-accordion-item-panel");
 
     expect(accordionItemPanelOne.classes()).toEqual([
-      "vuetiful-accordion-item-panel",
-      "bg-surface-200-700-token",
-      "!rounded-tl-none",
-      "!rounded-tr-none",
-      "p-4",
-      "pt-0",
-      "rounded-container-token",
+      'vuetiful-accordion-item-panel',
+      '!rounded-tl-none',
+      '!rounded-tr-none',
+      'p-4',
+      'py-2',
+      'rounded-container-token',
+      'bg-surface-200-700-token'
     ]);
   });
 });

@@ -18,7 +18,7 @@ describe("VAlert", () => {
     });
 
     const defaultAlert = wrapper.find("[data-test=default]");
-    expect(defaultAlert.classes()).toContain("variant-filled-primary");
+    expect(defaultAlert.classes()).not.toContain("variant-filled-primary");
 
     const infoAlert = wrapper.find("[data-test=info]");
     expect(infoAlert.classes()).toContain("variant-filled");
@@ -28,6 +28,16 @@ describe("VAlert", () => {
 
     const warningAlert = wrapper.find("[data-test=warning]");
     expect(warningAlert.classes()).toContain("variant-filled-warning");
+  });
+
+  test("unstyled", () => {
+    const wrapper = mount(VAlert, {
+      props: {
+        unstyled: true,
+      },
+    });
+
+    expect(wrapper.classes()).toEqual(["vuetiful-alert", "flex"]);
   });
 
   describe("given close icon is clicked", () => {
