@@ -108,8 +108,8 @@ const unstyledCustomTemplate = '';
         </v-preview>
       </section>
 
-      <h3>Variants</h3>
-      <h4>Filled</h4>
+      <h2>Variants</h2>
+      <h3>Filled</h3>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -130,7 +130,7 @@ const unstyledCustomTemplate = '';
         </v-preview>
       </section>
 
-      <h4>Ringed</h4>
+      <h3>Ringed</h3>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -151,7 +151,7 @@ const unstyledCustomTemplate = '';
         </v-preview>
       </section>
 
-      <h4>Ghost</h4>
+      <h3>Ghost</h3>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -172,7 +172,7 @@ const unstyledCustomTemplate = '';
         </v-preview>
       </section>
 
-      <h4>Soft</h4>
+      <h3>Soft</h3>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -193,7 +193,7 @@ const unstyledCustomTemplate = '';
         </v-preview>
       </section>
 
-      <h4>Glass</h4>
+      <h3>Glass</h3>
       <section class="section">
         <v-preview hide-swatches region-viewport="!p-0">
           <template v-slot:preview>
