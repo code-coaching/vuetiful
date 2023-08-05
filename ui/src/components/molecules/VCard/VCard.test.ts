@@ -9,8 +9,8 @@ describe("VCard", () => {
       background: "bg-surface-200-700-token",
       clickable: false,
       hideSeparator: false,
-      horizontal: false,
       text: "text-surface-900-50-token",
+      unstyled: false,
     });
   });
 

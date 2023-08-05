@@ -33,14 +33,14 @@ const customSlotsTemplate = `<v-alert class="variant-ghost-primary text-primary-
   </template>
   This is a custom alert with a custom icon and a custom action.
   <template v-slot:actions>
-    <v-button class="variant-filled" @click="handleCustomAction"> Custom </v-button>
+    <v-button @click="handleCustomAction"> Custom </v-button>
   </template>
 </v-alert>`;
 
 const unstyledTemplate = `<v-alert unstyled type="info">This is an info alert.</v-alert>
 <v-alert unstyled type="success">This is a success alert.</v-alert>
 <v-alert unstyled type="warning">This is a warning alert.</v-alert>
-<v-alert unstyled type="error">This is an error alert.</v-alert>`
+<v-alert unstyled type="error">This is an error alert.</v-alert>`;
 
 const unstyledPropTemplate =
   '<v-alert unstyled type="">This is an unstyled alert without any prop-based styles.</v-alert>';
@@ -119,9 +119,7 @@ const handleCloseAction = () => {
           </template>
           <template v-slot:footer>
             <div class="flex justify-center">
-              <v-button class="variant-filled-warning" @click="showCustomAlert = !showCustomAlert">
-                Toggle Alert
-              </v-button>
+              <v-button variant="filled-warning" @click="showCustomAlert = !showCustomAlert">Toggle Alert</v-button>
             </div>
           </template>
           <template v-slot:source>
@@ -151,7 +149,7 @@ const handleCloseAction = () => {
               </template>
               This is a custom alert with a custom icon and a custom action.
               <template v-slot:actions>
-                <v-button class="variant-filled" @click="handleCustomAction"> Custom </v-button>
+                <v-button @click="handleCustomAction"> Custom </v-button>
               </template>
             </v-alert>
           </template>

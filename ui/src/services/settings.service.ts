@@ -17,6 +17,10 @@ interface ListboxSettings extends UnstyledSettings {}
 interface ListboxItemSettings extends UnstyledSettings {}
 interface CodeBlockSettings extends UnstyledSettings {}
 interface SwitchSettings extends UnstyledSettings {}
+interface CardSettings extends UnstyledSettings {}
+interface CardHeaderSettings extends UnstyledSettings {}
+interface CardBodySettings extends UnstyledSettings {}
+interface CardFooterSettings extends UnstyledSettings {}
 
 export interface VuetifulSettings {
   global: GlobalSettings;
@@ -36,6 +40,11 @@ export interface VuetifulSettings {
 
     radioGroup: RadioGroupSettings;
     radioItem: RadioItemSettings;
+
+    card: CardSettings;
+    cardHeader: CardHeaderSettings;
+    cardBody: CardBodySettings;
+    cardFooter: CardFooterSettings;
   }>;
 }
 
@@ -81,6 +90,18 @@ const settings = reactive({
       unstyled: false,
     },
     alert: {
+      unstyled: false,
+    },
+    card: {
+      unstyled: false,
+    },
+    cardHeader: {
+      unstyled: false,
+    },
+    cardBody: {
+      unstyled: false,
+    },
+    cardFooter: {
       unstyled: false,
     },
   },

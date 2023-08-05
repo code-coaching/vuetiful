@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useSettings } from "@/index";
+import { unstyledProp } from "@/props";
 import { provide } from "vue";
 
 const emit = defineEmits(["click"]);
@@ -16,14 +18,12 @@ const props = defineProps({
     type: String,
     default: "text-surface-900-50-token",
   },
-  horizontal: {
-    type: Boolean,
-    default: false,
-  },
   clickable: {
     type: Boolean,
     default: false,
   },
+
+  unstyled: unstyledProp,
 });
 
 provide("hideSeparator", props.hideSeparator);
@@ -43,6 +43,9 @@ const onKeydown = (event: KeyboardEvent) => {
     emit("click");
   }
 };
+
+const { settings } = useSettings();
+const isUnstyled = settings.global.unstyled || settings.components.card.unstyled || props.unstyled;
 </script>
 
 <template>
@@ -50,9 +53,11 @@ const onKeydown = (event: KeyboardEvent) => {
     @click="onClick"
     @keydown="onKeydown"
     :tabindex="clickable ? 0 : undefined"
-    :class="`vuetiful-card flex border-token rounded-container-token ring-outline-token ${
-      horizontal ? 'flex-row' : 'flex-col'
-    } ${background} ${text} ${clickable ? 'card-hover hover:cursor-pointer' : ''}`"
+    :class="`vuetiful-card flex flex-col ${
+      isUnstyled ? '' : 'border-token rounded-container-token ring-outline-token'
+    } ${background} ${text} ${
+      clickable ? `${isUnstyled ? '' : 'card-hover'} hover:cursor-pointer` : ''
+    }`"
   >
     <slot />
   </div>
