@@ -37,6 +37,11 @@ const customSlotsTemplate = `<v-alert class="variant-ghost-primary text-primary-
   </template>
 </v-alert>`;
 
+const unstyledTemplate = `<v-alert unstyled type="info">This is an info alert.</v-alert>
+<v-alert unstyled type="success">This is a success alert.</v-alert>
+<v-alert unstyled type="warning">This is a warning alert.</v-alert>
+<v-alert unstyled type="error">This is an error alert.</v-alert>`
+
 const unstyledPropTemplate =
   '<v-alert unstyled type="">This is an unstyled alert without any prop-based styles.</v-alert>';
 
@@ -175,7 +180,7 @@ const handleCloseAction = () => {
             </div>
           </template>
           <template v-slot:source>
-            <v-code-block language="html" :code="usageTemplate" />
+            <v-code-block language="html" :code="unstyledTemplate" />
           </template>
         </v-preview>
       </section>
