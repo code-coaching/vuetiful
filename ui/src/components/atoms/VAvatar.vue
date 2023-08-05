@@ -25,46 +25,46 @@ const props = defineProps({
     // explicit string union because TypeScript type won't throw error if invalid value is passed
     type: String as PropType<
       | ""
-      | "variant-filled"
-      | "variant-filled-primary"
-      | "variant-filled-secondary"
-      | "variant-filled-tertiary"
-      | "variant-filled-success"
-      | "variant-filled-warning"
-      | "variant-filled-error"
-      | "variant-filled-surface"
-      | "variant-ringed"
-      | "variant-ringed-primary"
-      | "variant-ringed-secondary"
-      | "variant-ringed-tertiary"
-      | "variant-ringed-success"
-      | "variant-ringed-warning"
-      | "variant-ringed-error"
-      | "variant-ringed-surface"
-      | "variant-ghost"
-      | "variant-ghost-primary"
-      | "variant-ghost-secondary"
-      | "variant-ghost-tertiary"
-      | "variant-ghost-success"
-      | "variant-ghost-warning"
-      | "variant-ghost-error"
-      | "variant-ghost-surface"
-      | "variant-soft"
-      | "variant-soft-primary"
-      | "variant-soft-secondary"
-      | "variant-soft-tertiary"
-      | "variant-soft-success"
-      | "variant-soft-warning"
-      | "variant-soft-error"
-      | "variant-soft-surface"
-      | "variant-glass"
-      | "variant-glass-primary"
-      | "variant-glass-secondary"
-      | "variant-glass-tertiary"
-      | "variant-glass-success"
-      | "variant-glass-warning"
-      | "variant-glass-error"
-      | "variant-glass-surface"
+      | "filled"
+      | "filled-primary"
+      | "filled-secondary"
+      | "filled-tertiary"
+      | "filled-success"
+      | "filled-warning"
+      | "filled-error"
+      | "filled-surface"
+      | "ringed"
+      | "ringed-primary"
+      | "ringed-secondary"
+      | "ringed-tertiary"
+      | "ringed-success"
+      | "ringed-warning"
+      | "ringed-error"
+      | "ringed-surface"
+      | "ghost"
+      | "ghost-primary"
+      | "ghost-secondary"
+      | "ghost-tertiary"
+      | "ghost-success"
+      | "ghost-warning"
+      | "ghost-error"
+      | "ghost-surface"
+      | "soft"
+      | "soft-primary"
+      | "soft-secondary"
+      | "soft-tertiary"
+      | "soft-success"
+      | "soft-warning"
+      | "soft-error"
+      | "soft-surface"
+      | "glass"
+      | "glass-primary"
+      | "glass-secondary"
+      | "glass-tertiary"
+      | "glass-success"
+      | "glass-warning"
+      | "glass-error"
+      | "glass-surface"
     >,
     default: Variant.Filled,
   },
@@ -75,10 +75,12 @@ const fillInitials = computed(() => {
   if (props.fill) return props.fill;
 
   const variantString = props.variant as string | undefined;
-  if (variantString?.includes("variant-filled")) {
-    return "fill-on-surface-token dark:fill-base-token";
+  const type = variantString?.split("-")[1];
+  if (variantString?.includes("filled")) {
+    if (!type) return "fill-white dark:fill-black";
+    return "fill-white";
   }
-  return "dark:fill-on-surface-token fill-base-token";
+  return "fill-black dark:fill-white";
 });
 
 const avatarSize = computed(() => {
@@ -107,7 +109,7 @@ const isUnstyled =
       isUnstyled
         ? ''
         : 'isolate flex aspect-square items-center justify-center overflow-hidden font-semibold rounded-token'
-    } ${avatarSize} ${variant}`"
+    } ${avatarSize} variant-${variant}`"
   >
     <img
       :class="`vuetiful-avatar-image ${classImage}`"

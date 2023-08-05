@@ -15,50 +15,50 @@ const usageCss = `.custom-class {
   fill: #ec4899;
 }`;
 
-const filled = `<v-avatar variant="variant-filled" initials="AB" />
-<v-avatar variant="variant-filled-surface" initials="CD" />
-<v-avatar variant="variant-filled-primary" initials="EF" />
-<v-avatar variant="variant-filled-secondary" initials="GH" />
-<v-avatar variant="variant-filled-tertiary" initials="IJ" />
-<v-avatar variant="variant-filled-success" initials="KL" />
-<v-avatar variant="variant-filled-warning" initials="MN" />
-<v-avatar variant="variant-filled-error" initials="OP" />`;
+const filled = `<v-avatar variant="filled" initials="AB" />
+<v-avatar variant="filled-surface" initials="CD" />
+<v-avatar variant="filled-primary" initials="EF" />
+<v-avatar variant="filled-secondary" initials="GH" />
+<v-avatar variant="filled-tertiary" initials="IJ" />
+<v-avatar variant="filled-success" initials="KL" />
+<v-avatar variant="filled-warning" initials="MN" />
+<v-avatar variant="filled-error" initials="OP" />`;
 
-const ringed = `<v-avatar variant="variant-ringed" initials="AB" />
-<v-avatar variant="variant-ringed-surface" initials="CD" />
-<v-avatar variant="variant-ringed-primary" initials="EF" />
-<v-avatar variant="variant-ringed-secondary" initials="GH" />
-<v-avatar variant="variant-ringed-tertiary" initials="IJ" />
-<v-avatar variant="variant-ringed-success" initials="KL" />
-<v-avatar variant="variant-ringed-warning" initials="MN" />
-<v-avatar variant="variant-ringed-error" initials="OP" />`;
+const ringed = `<v-avatar variant="ringed" initials="AB" />
+<v-avatar variant="ringed-surface" initials="CD" />
+<v-avatar variant="ringed-primary" initials="EF" />
+<v-avatar variant="ringed-secondary" initials="GH" />
+<v-avatar variant="ringed-tertiary" initials="IJ" />
+<v-avatar variant="ringed-success" initials="KL" />
+<v-avatar variant="ringed-warning" initials="MN" />
+<v-avatar variant="ringed-error" initials="OP" />`;
 
-const ghost = `<v-avatar variant="variant-ghost" initials="AB" />
-<v-avatar variant="variant-ghost-surface" initials="CD" />
-<v-avatar variant="variant-ghost-primary" initials="EF" />
-<v-avatar variant="variant-ghost-secondary" initials="GH" />
-<v-avatar variant="variant-ghost-tertiary" initials="IJ" />
-<v-avatar variant="variant-ghost-success" initials="KL" />
-<v-avatar variant="variant-ghost-warning" initials="MN" />
-<v-avatar variant="variant-ghost-error" initials="OP" />`;
+const ghost = `<v-avatar variant="ghost" initials="AB" />
+<v-avatar variant="ghost-surface" initials="CD" />
+<v-avatar variant="ghost-primary" initials="EF" />
+<v-avatar variant="ghost-secondary" initials="GH" />
+<v-avatar variant="ghost-tertiary" initials="IJ" />
+<v-avatar variant="ghost-success" initials="KL" />
+<v-avatar variant="ghost-warning" initials="MN" />
+<v-avatar variant="ghost-error" initials="OP" />`;
 
-const soft = `<v-avatar variant="variant-soft" initials="AB" />
-<v-avatar variant="variant-soft-surface" initials="CD" />
-<v-avatar variant="variant-soft-primary" initials="EF" />
-<v-avatar variant="variant-soft-secondary" initials="GH" />
-<v-avatar variant="variant-soft-tertiary" initials="IJ" />
-<v-avatar variant="variant-soft-success" initials="KL" />
-<v-avatar variant="variant-soft-warning" initials="MN" />
-<v-avatar variant="variant-soft-error" initials="OP" />>`;
+const soft = `<v-avatar variant="soft" initials="AB" />
+<v-avatar variant="soft-surface" initials="CD" />
+<v-avatar variant="soft-primary" initials="EF" />
+<v-avatar variant="soft-secondary" initials="GH" />
+<v-avatar variant="soft-tertiary" initials="IJ" />
+<v-avatar variant="soft-success" initials="KL" />
+<v-avatar variant="soft-warning" initials="MN" />
+<v-avatar variant="soft-error" initials="OP" />>`;
 
-const glass = `<v-avatar variant="variant-glass" initials="AB" />
-<v-avatar variant="variant-glass-surface" initials="CD" />
-<v-avatar variant="variant-glass-primary" initials="EF" />
-<v-avatar variant="variant-glass-secondary" initials="GH" />
-<v-avatar variant="variant-glass-tertiary" initials="IJ" />
-<v-avatar variant="variant-glass-success" initials="KL" />
-<v-avatar variant="variant-glass-warning" initials="MN" />
-<v-avatar variant="variant-glass-error" initials="OP" />`;
+const glass = `<v-avatar variant="glass" initials="AB" />
+<v-avatar variant="glass-surface" initials="CD" />
+<v-avatar variant="glass-primary" initials="EF" />
+<v-avatar variant="glass-secondary" initials="GH" />
+<v-avatar variant="glass-tertiary" initials="IJ" />
+<v-avatar variant="glass-success" initials="KL" />
+<v-avatar variant="glass-warning" initials="MN" />
+<v-avatar variant="glass-error" initials="OP" />`;
 
 const unstyledTemplate = '<v-avatar unstyled initials="JD" />';
 const unstyledPropTemplate = '<v-avatar unstyled variant="" initials="JD" />';
@@ -114,14 +114,14 @@ const unstyledCustomTemplate = '';
         <v-preview>
           <template v-slot:preview>
             <div class="flex flex-wrap gap-2">
-              <v-avatar variant="variant-filled" initials="AB" />
-              <v-avatar variant="variant-filled-surface" initials="CD" />
-              <v-avatar variant="variant-filled-primary" initials="EF" />
-              <v-avatar variant="variant-filled-secondary" initials="GH" />
-              <v-avatar variant="variant-filled-tertiary" initials="IJ" />
-              <v-avatar variant="variant-filled-success" initials="KL" />
-              <v-avatar variant="variant-filled-warning" initials="MN" />
-              <v-avatar variant="variant-filled-error" initials="OP" />
+              <v-avatar variant="filled" initials="AB" />
+              <v-avatar variant="filled-surface" initials="CD" />
+              <v-avatar variant="filled-primary" initials="EF" />
+              <v-avatar variant="filled-secondary" initials="GH" />
+              <v-avatar variant="filled-tertiary" initials="IJ" />
+              <v-avatar variant="filled-success" initials="KL" />
+              <v-avatar variant="filled-warning" initials="MN" />
+              <v-avatar variant="filled-error" initials="OP" />
             </div>
           </template>
           <template v-slot:source>
@@ -135,14 +135,14 @@ const unstyledCustomTemplate = '';
         <v-preview>
           <template v-slot:preview>
             <div class="flex flex-wrap gap-2">
-              <v-avatar variant="variant-ringed" initials="AB" />
-              <v-avatar variant="variant-ringed-surface" initials="CD" />
-              <v-avatar variant="variant-ringed-primary" initials="EF" />
-              <v-avatar variant="variant-ringed-secondary" initials="GH" />
-              <v-avatar variant="variant-ringed-tertiary" initials="IJ" />
-              <v-avatar variant="variant-ringed-success" initials="KL" />
-              <v-avatar variant="variant-ringed-warning" initials="MN" />
-              <v-avatar variant="variant-ringed-error" initials="OP" />
+              <v-avatar variant="ringed" initials="AB" />
+              <v-avatar variant="ringed-surface" initials="CD" />
+              <v-avatar variant="ringed-primary" initials="EF" />
+              <v-avatar variant="ringed-secondary" initials="GH" />
+              <v-avatar variant="ringed-tertiary" initials="IJ" />
+              <v-avatar variant="ringed-success" initials="KL" />
+              <v-avatar variant="ringed-warning" initials="MN" />
+              <v-avatar variant="ringed-error" initials="OP" />
             </div>
           </template>
           <template v-slot:source>
@@ -156,14 +156,14 @@ const unstyledCustomTemplate = '';
         <v-preview>
           <template v-slot:preview>
             <div class="flex flex-wrap gap-2">
-              <v-avatar variant="variant-ghost" initials="AB" />
-              <v-avatar variant="variant-ghost-surface" initials="CD" />
-              <v-avatar variant="variant-ghost-primary" initials="EF" />
-              <v-avatar variant="variant-ghost-secondary" initials="GH" />
-              <v-avatar variant="variant-ghost-tertiary" initials="IJ" />
-              <v-avatar variant="variant-ghost-success" initials="KL" />
-              <v-avatar variant="variant-ghost-warning" initials="MN" />
-              <v-avatar variant="variant-ghost-error" initials="OP" />
+              <v-avatar variant="ghost" initials="AB" />
+              <v-avatar variant="ghost-surface" initials="CD" />
+              <v-avatar variant="ghost-primary" initials="EF" />
+              <v-avatar variant="ghost-secondary" initials="GH" />
+              <v-avatar variant="ghost-tertiary" initials="IJ" />
+              <v-avatar variant="ghost-success" initials="KL" />
+              <v-avatar variant="ghost-warning" initials="MN" />
+              <v-avatar variant="ghost-error" initials="OP" />
             </div>
           </template>
           <template v-slot:source>
@@ -177,14 +177,14 @@ const unstyledCustomTemplate = '';
         <v-preview>
           <template v-slot:preview>
             <div class="flex flex-wrap gap-2">
-              <v-avatar variant="variant-soft" initials="AB" />
-              <v-avatar variant="variant-soft-surface" initials="CD" />
-              <v-avatar variant="variant-soft-primary" initials="EF" />
-              <v-avatar variant="variant-soft-secondary" initials="GH" />
-              <v-avatar variant="variant-soft-tertiary" initials="IJ" />
-              <v-avatar variant="variant-soft-success" initials="KL" />
-              <v-avatar variant="variant-soft-warning" initials="MN" />
-              <v-avatar variant="variant-soft-error" initials="OP" />
+              <v-avatar variant="soft" initials="AB" />
+              <v-avatar variant="soft-surface" initials="CD" />
+              <v-avatar variant="soft-primary" initials="EF" />
+              <v-avatar variant="soft-secondary" initials="GH" />
+              <v-avatar variant="soft-tertiary" initials="IJ" />
+              <v-avatar variant="soft-success" initials="KL" />
+              <v-avatar variant="soft-warning" initials="MN" />
+              <v-avatar variant="soft-error" initials="OP" />
             </div>
           </template>
           <template v-slot:source>
@@ -201,14 +201,14 @@ const unstyledCustomTemplate = '';
               class="flex w-full flex-wrap items-center justify-center gap-2 p-4 md:p-10"
               style="background: url('https://i.imgur.com/DdrZVb7.gif') center center no-repeat; background-size: cover"
             >
-              <v-avatar variant="variant-glass" initials="AB" fill="fill-white/75" />
-              <v-avatar variant="variant-glass-surface" initials="CD" fill="fill-white/75" />
-              <v-avatar variant="variant-glass-primary" initials="EF" fill="fill-white/75" />
-              <v-avatar variant="variant-glass-secondary" initials="GH" fill="fill-white/75" />
-              <v-avatar variant="variant-glass-tertiary" initials="IJ" fill="fill-white/75" />
-              <v-avatar variant="variant-glass-success" initials="KL" fill="fill-white/75" />
-              <v-avatar variant="variant-glass-warning" initials="MN" fill="fill-white/75" />
-              <v-avatar variant="variant-glass-error" initials="OP" fill="fill-white/75" />
+              <v-avatar variant="glass" initials="AB" fill="fill-white/75" />
+              <v-avatar variant="glass-surface" initials="CD" fill="fill-white/75" />
+              <v-avatar variant="glass-primary" initials="EF" fill="fill-white/75" />
+              <v-avatar variant="glass-secondary" initials="GH" fill="fill-white/75" />
+              <v-avatar variant="glass-tertiary" initials="IJ" fill="fill-white/75" />
+              <v-avatar variant="glass-success" initials="KL" fill="fill-white/75" />
+              <v-avatar variant="glass-warning" initials="MN" fill="fill-white/75" />
+              <v-avatar variant="glass-error" initials="OP" fill="fill-white/75" />
             </div>
           </template>
           <template v-slot:footer>

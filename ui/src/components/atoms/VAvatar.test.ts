@@ -24,7 +24,7 @@ describe("VAvatar props", () => {
   test("VAvatar custom variant", () => {
     const wrapper = mount(VAvatar, {
       props: {
-        variant: "variant-ghost",
+        variant: "ghost",
       },
     });
 
@@ -37,7 +37,7 @@ describe("VAvatar props", () => {
     const wrapper = mount(VAvatar, {
       props: {
         initials: "JD",
-        variant: "variant-filled",
+        variant: "filled",
       },
     });
 
