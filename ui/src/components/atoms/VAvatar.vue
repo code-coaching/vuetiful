@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { CssClasses, useSettings } from "@/index";
-import { Size, Variant } from "@/types";
-import { PropType, computed, ref } from "vue";
+import { sizeProp, unstyledProp, variantProp } from "@/props";
+import { Size } from "@/types";
+import { computed, ref } from "vue";
 
 const props = defineProps({
   // Initials
@@ -15,59 +16,9 @@ const props = defineProps({
   fallback: { type: String, default: "" },
   classImage: { type: String, default: "" },
 
-  size: {
-    type: String as PropType<"xs" | "sm" | "md" | "lg" | "xl">,
-    default: Size.MD,
-  },
-
-  unstyled: { type: Boolean, default: false },
-  variant: {
-    // explicit string union because TypeScript type won't throw error if invalid value is passed
-    type: String as PropType<
-      | ""
-      | "filled"
-      | "filled-primary"
-      | "filled-secondary"
-      | "filled-tertiary"
-      | "filled-success"
-      | "filled-warning"
-      | "filled-error"
-      | "filled-surface"
-      | "ringed"
-      | "ringed-primary"
-      | "ringed-secondary"
-      | "ringed-tertiary"
-      | "ringed-success"
-      | "ringed-warning"
-      | "ringed-error"
-      | "ringed-surface"
-      | "ghost"
-      | "ghost-primary"
-      | "ghost-secondary"
-      | "ghost-tertiary"
-      | "ghost-success"
-      | "ghost-warning"
-      | "ghost-error"
-      | "ghost-surface"
-      | "soft"
-      | "soft-primary"
-      | "soft-secondary"
-      | "soft-tertiary"
-      | "soft-success"
-      | "soft-warning"
-      | "soft-error"
-      | "soft-surface"
-      | "glass"
-      | "glass-primary"
-      | "glass-secondary"
-      | "glass-tertiary"
-      | "glass-success"
-      | "glass-warning"
-      | "glass-error"
-      | "glass-surface"
-    >,
-    default: Variant.Filled,
-  },
+  size: sizeProp,
+  variant: variantProp,
+  unstyled: unstyledProp,
 });
 
 const imgSrc = ref(props.src);

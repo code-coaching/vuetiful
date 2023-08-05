@@ -135,9 +135,13 @@ const toggleSwatches = () => (swatches.value = !swatches.value);
       <v-button
         v-if="!hideSwatches"
         data-test="swatch-button"
-        :class="`${
-          swatches ? 'variant-filled' : 'variant-ghost'
-        } px-4 py-1 border-token border-surface-400-500-token`"
+        :variant="swatches ? 'filled' : ''"
+        class="px-4 py-1 border-token border-surface-400-500-token"
+        :class="
+          swatches
+            ? ''
+            : 'text-center text-base rounded-token hover:variant-ghost hover:text-surface-900 dark:hover:text-surface-50'
+        "
         @click="toggleSwatches"
         title="Backgrounds"
       >

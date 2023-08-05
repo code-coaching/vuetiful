@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useSettings } from "@/index";
-import { Size } from "@/types";
+import { sizeProp, unstyledProp } from "@/props";
 import { Switch } from "@headlessui/vue";
-import { PropType, computed, ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 
 const emit = defineEmits(["update:modelValue"]);
 const props = defineProps({
@@ -13,10 +13,6 @@ const props = defineProps({
   disabled: {
     type: Boolean,
     default: false,
-  },
-  size: {
-    type: String as PropType<"xs" | "sm" | "md" | "lg" | "xl">,
-    default: Size.MD,
   },
 
   classTrack: {
@@ -37,10 +33,8 @@ const props = defineProps({
     default: "",
   },
 
-  unstyled: {
-    type: Boolean,
-    default: false,
-  },
+  size: sizeProp,
+  unstyled: unstyledProp,
 });
 
 const parentModelValue = ref(props.modelValue);
