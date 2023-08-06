@@ -1,6 +1,5 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, test, vi } from "vitest";
-import { onMounted, ref } from "vue";
 import { VCodeBlock } from "../..";
 
 const clipboardMock = {
@@ -14,8 +13,6 @@ Object.defineProperty(window.navigator, "clipboard", {
 
 describe("VCodeBlock", () => {
   test("copy button copies code to clipboard", async () => {
-    const copyState = ref(false); // Create a ref for copyState
-
     const mockClipboardDirective = {
       mounted(el: HTMLElement, binding: any) {
         el.addEventListener("click", () => {
@@ -33,10 +30,6 @@ describe("VCodeBlock", () => {
           clipboard: mockClipboardDirective,
         },
       },
-    });
-
-    await onMounted(() => {
-      copyState.value = (wrapper.vm.$refs.component as any).copyState;
     });
 
     await wrapper.find(".vuetiful-code-block-button").trigger("click");
