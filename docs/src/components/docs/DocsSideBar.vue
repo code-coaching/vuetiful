@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { VRail, VRailTile, useRail, VRadioGroup } from '@code-coaching/vuetiful';
+import { VRadioGroup, VRail, VRailTile, useRail } from '@code-coaching/vuetiful';
 import { SideBarLink } from 'src/components';
 import { ROUTE_NAMES } from 'src/router/routes';
 import { ref } from 'vue';
