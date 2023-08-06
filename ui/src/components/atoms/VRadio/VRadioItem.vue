@@ -16,6 +16,7 @@ const props = defineProps({
 
 const active = inject("active") as string;
 const hover = inject("hover") as string;
+const classItem = inject("classItem") as string;
 
 const { settings } = useSettings();
 const isUnstyled =
@@ -30,7 +31,7 @@ const isUnstyled =
         isUnstyled ? '' : `px-4 py-1 text-center text-base rounded-token`
       } ${checked ? active : hover} ${
         disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'
-      }`"
+      } ${classItem}`"
     >
       <slot />
     </div>

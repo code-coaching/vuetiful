@@ -38,6 +38,11 @@ const props = defineProps({
     default: "text-surface-900 dark:text-surface-50",
   },
 
+  classItem: {
+    type: String,
+    default: "",
+  },
+
   unstyled: {
     type: Boolean,
     default: false,
@@ -60,6 +65,7 @@ watch(
 
 provide("active", props.active);
 provide("hover", props.hover);
+provide("classItem", props.classItem);
 
 const { settings } = useSettings();
 const isUnstyled =
@@ -73,10 +79,10 @@ l
     :as="as"
     :disabled="disabled"
     :by="by"
-    :class="`vuetiful-radio-group ${
+    :class="`vuetiful-radio-group inline-flex ${
       isUnstyled
         ? ''
-        : `inline-flex gap-1 p-1 border-token border-surface-400-500-token rounded-container-token`
+        : `gap-1 p-1 border-token border-surface-400-500-token rounded-container-token`
     } ${background} ${text}`"
     v-model="parentModelValue"
   >
