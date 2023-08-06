@@ -8,21 +8,24 @@ describe("VListbox", () => {
   test("default props", () => {
     const wrapper = mount(VListbox);
 
+    console.log(wrapper.props());
     expect(wrapper.props()).toEqual({
-      active: "variant-filled",
-      background: "bg-surface-200-700-token",
+      modelValue: undefined,
+      classLabel: "",
       textButton: "Select an option",
       classButton: "",
+      classItem: "",
+      classItems: "",
+      horizontal: false,
+      multiple: false,
+      active: "variant-filled",
+      hover: "hover:variant-ghost",
+      background: "bg-surface-200-700-token",
+      text: "text-surface-900 dark:text-surface-50",
+      unstyled: false,
       by: undefined,
       display: undefined,
-      horizontal: false,
-      hover: "hover:variant-ghost",
-      classLabel: "",
       textLabel: undefined,
-      unstyled: false,
-      modelValue: undefined,
-      multiple: false,
-      text: "text-surface-900 dark:text-surface-50",
     });
   });
 
@@ -133,6 +136,7 @@ describe("VListbox", () => {
 
       expect(listbox.classes()).toEqual(["vuetiful-listbox"]);
       expect(listboxItems.classes()).toEqual([
+        "z-10",
         "bg-surface-200-700-token",
         "text-surface-900",
         "dark:text-surface-50",

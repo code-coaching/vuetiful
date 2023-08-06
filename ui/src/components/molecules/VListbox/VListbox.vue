@@ -5,6 +5,7 @@ import { computed, provide, ref, watch } from "vue";
 import VListboxButton from "./VListboxButton.vue";
 import VListboxItems from "./VListboxItems.vue";
 import VListboxLabel from "./VListboxLabel.vue";
+import { unstyledProp } from "@/props";
 
 const emit = defineEmits(["update:modelValue"]);
 const props = defineProps({
@@ -30,6 +31,15 @@ const props = defineProps({
     default: "Select an option",
   },
   classButton: {
+    type: String as () => CssClasses,
+    default: "",
+  },
+
+  classItem: {
+    type: String as () => CssClasses,
+    default: "",
+  },
+  classItems: {
     type: String as () => CssClasses,
     default: "",
   },
@@ -61,10 +71,7 @@ const props = defineProps({
     default: "text-surface-900 dark:text-surface-50",
   },
 
-  unstyled: {
-    type: Boolean,
-    default: false,
-  },
+  unstyled: unstyledProp,
 });
 
 const parentModelValue = ref(props.modelValue);
@@ -86,6 +93,9 @@ provide("hover", props.hover);
 provide("background", props.background);
 provide("text", props.text);
 provide("horizontal", props.horizontal);
+provide("unstyled", props.unstyled);
+provide("classItem", props.classItem);
+provide("classItems", props.classItems);
 
 const showText = computed(() => {
   if (props.display && parentModelValue.value) return parentModelValue.value[props.display];

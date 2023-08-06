@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useSettings } from "@/index";
 import { ListboxButton } from "@headlessui/vue";
+import { inject } from "vue";
 
 defineProps({
   as: {
@@ -13,8 +14,10 @@ defineProps({
   },
 });
 
+const unstyled = inject("unstyled") as boolean;
+
 const { settings } = useSettings();
-const isUnstyled = settings.global.unstyled || settings.components.listbox.unstyled;
+const isUnstyled = settings.global.unstyled || settings.components.listbox.unstyled || unstyled;
 </script>
 
 <template>

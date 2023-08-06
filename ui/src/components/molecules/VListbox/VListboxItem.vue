@@ -17,6 +17,7 @@ const props = defineProps({
 
 const activeClass = inject("active") as string;
 const hoverClass = inject("hover") as string;
+const classItem = inject("classItem") as string;
 
 const { settings } = useSettings();
 const isUnstyled =
@@ -30,7 +31,8 @@ const isUnstyled =
       :class="`vuetiful-listbox-item ${isUnstyled ? '' : 'px-4 py-1 text-base rounded-token'} 
       ${selected ? activeClass : hoverClass} 
       ${disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}
-      ${active && !selected ? hoverClass : ''}`"
+      ${active && !selected ? hoverClass : ''}
+      ${classItem}`"
     >
       <slot />
     </div>

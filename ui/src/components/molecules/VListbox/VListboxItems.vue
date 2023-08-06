@@ -22,6 +22,7 @@ const props = defineProps({
 const background = inject("background") as string;
 const text = inject("text") as string;
 const horizontal = inject("horizontal") as boolean;
+const classItems = inject("classItems") as string;
 
 const { settings } = useSettings();
 const isUnstyled = settings.global.unstyled || settings.components.listbox.unstyled || props.unstyled;
@@ -31,11 +32,11 @@ const isUnstyled = settings.global.unstyled || settings.components.listbox.unsty
   <ListboxOptions
     :as="as"
     :static="static"
-    :class="`${
+    :class="`z-10 ${
       isUnstyled
         ? ''
         : `rounded-container-token' gap-1 p-4 border-token border-surface-400-500-token`
-    } ${background} ${text} ${horizontal ? 'flex' : 'flex-col'}`"
+    } ${background} ${text} ${horizontal ? 'flex' : 'flex-col'} ${classItems}`"
     data-test="listbox-items"
   >
     <slot />
