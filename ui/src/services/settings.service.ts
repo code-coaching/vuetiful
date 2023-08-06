@@ -21,6 +21,8 @@ interface CardSettings extends UnstyledSettings {}
 interface CardHeaderSettings extends UnstyledSettings {}
 interface CardBodySettings extends UnstyledSettings {}
 interface CardFooterSettings extends UnstyledSettings {}
+interface TabsSettings extends UnstyledSettings {}
+interface TabSettings extends UnstyledSettings {}
 
 export interface VuetifulSettings {
   global: GlobalSettings;
@@ -45,6 +47,9 @@ export interface VuetifulSettings {
     cardHeader: CardHeaderSettings;
     cardBody: CardBodySettings;
     cardFooter: CardFooterSettings;
+
+    tabs: TabsSettings;
+    tab: TabSettings;
   }>;
 }
 
@@ -102,6 +107,12 @@ const settings = reactive({
       unstyled: false,
     },
     cardFooter: {
+      unstyled: false,
+    },
+    tabs: {
+      unstyled: false,
+    },
+    tab: {
       unstyled: false,
     },
   },
