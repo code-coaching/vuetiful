@@ -204,7 +204,7 @@ const exampleFiveTemplate = /*html*/ `<v-tabs hide-separator active="variant-fil
   </v-tab-panel>
 </v-tabs>`;
 
-const unstyledTemplate = /*html*/`<v-tabs unstyled>
+const unstyledTemplate = /*html*/ `<v-tabs unstyled>
   <template v-slot:tabs>
     <v-tab unstyled>Vuetiful</v-tab>
     <v-tab unstyled>Is</v-tab>
@@ -213,7 +213,7 @@ const unstyledTemplate = /*html*/`<v-tabs unstyled>
   <v-tab-panel>Vuetiful panel</v-tab-panel>
   <v-tab-panel>Is panel</v-tab-panel>
   <v-tab-panel>Beautiful panel</v-tab-panel>
-</v-tabs>`
+</v-tabs>`;
 
 const unstyledPropTemplate = /*html*/ `<v-tabs unstyled hover="" hide-separator>
   <template v-slot:tabs>
@@ -224,7 +224,7 @@ const unstyledPropTemplate = /*html*/ `<v-tabs unstyled hover="" hide-separator>
   <v-tab-panel>Vuetiful panel</v-tab-panel>
   <v-tab-panel>Is panel</v-tab-panel>
   <v-tab-panel>Beautiful panel</v-tab-panel>
-</v-tabs>`
+</v-tabs>`;
 
 const unstyledCustomTemplate = /*html*/ `<v-tabs
   unstyled
@@ -245,7 +245,7 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
   <v-tab-panel>Vuetiful panel</v-tab-panel>
   <v-tab-panel>Is panel</v-tab-panel>
   <v-tab-panel>Beautiful panel</v-tab-panel>
-</v-tabs>`
+</v-tabs>`;
 </script>
 
 <template>
