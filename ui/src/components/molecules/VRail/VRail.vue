@@ -16,17 +16,17 @@ const props = defineProps({
   },
 });
 
-provide("active", props.active);
-provide("hover", props.hover);
+provide("activeRail", props.active);
+provide("hoverRail", props.hover);
 </script>
 
 <template>
   <v-radio-group
-    unstyled
-    :active="active"
-    :hover="hover"
     v-model="selectedRailTile"
-    class="vuetiful-rail flex h-full w-[70px] flex-col overflow-y-auto sm:w-20"
+    unstyled
+    hover=""
+    active=""
+    class="flex h-full w-[70px] flex-col overflow-y-auto"
   >
     <slot />
   </v-radio-group>

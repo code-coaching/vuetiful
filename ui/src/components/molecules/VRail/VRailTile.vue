@@ -25,17 +25,15 @@ defineProps({
 });
 
 const { selectedRailTile } = useRail();
-const active = inject("active");
-const hover = inject("hover");
+const activeRail = inject("activeRail");
+const hoverRail = inject("hoverRail");
 </script>
 
 <template>
   <v-radio-item
-  unstyled
-  :value="value"
-    :class="`vuetiful-rail-tile grid aspect-square w-full cursor-pointer place-content-center place-items-center space-y-1.5 ${hover} ${
-      selectedRailTile === value ? `${active}` : ''
-    }`"
+    unstyled
+    :value="value"
+    :class="`vuetiful-rail-tile grid aspect-square w-full cursor-pointer place-content-center place-items-center ${ selectedRailTile === value ? `${activeRail}` : `${hoverRail}` }`"
   >
     <template v-if="$slots.default">
       <div :class="`vuetiful-rail-tile-icon ${regionIcon}`"><slot /></div>
