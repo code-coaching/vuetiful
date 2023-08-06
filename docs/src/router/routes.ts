@@ -72,7 +72,7 @@ export const routes: RouteRecordRaw[] = [
             path: 'theme-generator',
             name: ROUTE_NAMES.DOCS.THEME_GENERATOR,
             component: () => import('src/pages/docs/ThemeGenerator.vue'),
-          }
+          },
         ],
       },
       {

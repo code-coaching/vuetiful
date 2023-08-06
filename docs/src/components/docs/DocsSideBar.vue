@@ -122,7 +122,13 @@ const activeRoute = ref();
       <v-rail-tile @click="$router.push({ name: ROUTE_NAMES.DOCS.DEFAULT })" value="docs" label="Docs"> </v-rail-tile>
       <v-rail-tile value="vue" label="Vue" @click="$router.push({ name: ROUTE_NAMES.VUE.DEFAULT })"> </v-rail-tile>
     </v-rail>
-    <v-radio-group v-model="activeRoute" unstyled class="flex flex-col gap-1 overflow-y-auto p-4" hover="transparant" active="transparant">
+    <v-radio-group
+      v-model="activeRoute"
+      unstyled
+      class="flex flex-col gap-1 overflow-y-auto p-4"
+      hover="transparant"
+      active="transparant"
+    >
       <template v-if="selectedRailTile === 'docs'">
         <div class="text-lg font-bold text-primary-900-50-token">Docs</div>
         <side-bar-link

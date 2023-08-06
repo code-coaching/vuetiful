@@ -443,179 +443,179 @@ body,
 </script>
 
 <template>
-  <div class="flex max-w-5xl flex-col p-4">
-    <h1>Getting Started</h1>
+  <h1>Getting Started</h1>
 
-    <header class="header">
-      <section class="section">
-        <p>
-          <strong>Vuetiful</strong> is an opensource project created and maintained by
-          <a href="https://code-coaching.dev" target="_blank" rel="noreferrer"> Code Coaching </a>
-          .
-        </p>
-        <p>
-          Vuetiful can be used standalone in any Vue3 project or it can be coupled into other frameworks like
-          <a href="https://quasar.dev" target="_blank" rel="noreferrer"> Quasar </a>
-          .
-        </p>
-        <p>Vuetiful only supports Vite based projects.</p>
-        <p>This documentation website is created using Quasar (SSR) + Vuetiful.</p>
-      </section>
-      <hr />
-    </header>
-
-    <h2>Install Vuetiful</h2>
+  <header class="header">
     <section class="section">
-      <v-code-block language="sh" code="npm install @code-coaching/vuetiful" />
-    </section>
-
-    <h2>Install Tailwind</h2>
-    <section class="section">
-      <p class="mb-4">
-        Vuetiful is created using TailwindCSS, you will need to add it as a dependency. However, you are not obligated
-        to use TailwindCSS yourself.
+      <p>
+        <strong>Vuetiful</strong> is an opensource project created and maintained by
+        <a href="https://code-coaching.dev" target="_blank" rel="noreferrer"> Code Coaching </a>
+        .
       </p>
-      <v-code-block language="sh" code="npm install -D tailwindcss postcss autoprefixer prettier-plugin-tailwindcss" />
-    </section>
-
-    <h3>Initialize Tailwind</h3>
-    <section class="section">
-      <v-code-block language="sh" code="npx tailwindcss init" />
-    </section>
-
-    <h3>tailwind.config.js</h3>
-    <section class="section">
-      <v-code-block class="mb-2" language="js" :code="exampleTailwindConfig" />
-      <v-alert type="info">
-        This file might be called <v-badge class="variant-filled-surface">tailwind.config.cjs</v-badge> depending on your setup.
-      </v-alert>
-    </section>
-
-    <h3>Tailwind Directives</h3>
-    <section class="section">
-      <p class="mb-4">
-        Make sure to <strong>not</strong> have the Tailwind directives in your css, this is provided by Vuetiful.
+      <p>
+        Vuetiful can be used standalone in any Vue3 project or it can be coupled into other frameworks like
+        <a href="https://quasar.dev" target="_blank" rel="noreferrer"> Quasar </a>
+        .
       </p>
+      <p>Vuetiful only supports Vite based projects.</p>
+      <p>This documentation website is created using Quasar (SSR) + Vuetiful.</p>
+    </section>
+    <hr />
+  </header>
 
-      <v-code-block
-        language="css"
-        :code="`// If this is in your css, remove it
+  <h2>Install Vuetiful</h2>
+  <section class="section">
+    <v-code-block language="sh" code="npm install @code-coaching/vuetiful" />
+  </section>
+
+  <h2>Install Tailwind</h2>
+  <section class="section">
+    <p class="mb-4">
+      Vuetiful is created using TailwindCSS, you will need to add it as a dependency. However, you are not obligated to
+      use TailwindCSS yourself.
+    </p>
+    <v-code-block language="sh" code="npm install -D tailwindcss postcss autoprefixer prettier-plugin-tailwindcss" />
+  </section>
+
+  <h3>Initialize Tailwind</h3>
+  <section class="section">
+    <v-code-block language="sh" code="npx tailwindcss init" />
+  </section>
+
+  <h3>tailwind.config.js</h3>
+  <section class="section">
+    <v-code-block class="mb-2" language="js" :code="exampleTailwindConfig" />
+    <v-alert type="info">
+      This file might be called <v-badge variant="filled-surface">tailwind.config.cjs</v-badge> depending on your setup.
+    </v-alert>
+  </section>
+
+  <h3>Tailwind Directives</h3>
+  <section class="section">
+    <p class="mb-4">
+      Make sure to <strong>not</strong> have the Tailwind directives in your css, this is provided by Vuetiful.
+    </p>
+
+    <v-code-block
+      language="css"
+      :code="`// If this is in your css, remove it
 @tailwind base;
 @tailwind components;
 @tailwind utilities;`"
-      />
-    </section>
+    />
+  </section>
 
-    <h3>pnpm | yarn</h3>
-    <section class="section">
-      <p class="mb-4">
-        In case you are using pnpm or yarn instead of npm, you will need to create/add the following to
-        <code>prettier.config.js</code>.
-      </p>
-      <v-code-block
-        language="js"
-        :code="`// prettier.config.js
+  <h3>pnpm | yarn</h3>
+  <section class="section">
+    <p class="mb-4">
+      In case you are using pnpm or yarn instead of npm, you will need to create/add the following to
+      <code>prettier.config.js</code>.
+    </p>
+    <v-code-block
+      language="js"
+      :code="`// prettier.config.js
 module.exports = {
   plugins: [require('prettier-plugin-tailwindcss')],
 };`"
-      />
-    </section>
+    />
+  </section>
 
-    <h3>Recommended VSCode Extension</h3>
-    <section class="section">
-      <a href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss">
-        Tailwind CSS IntelliSense
-      </a>
+  <h3>Recommended VSCode Extension</h3>
+  <section class="section">
+    <a href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss">
+      Tailwind CSS IntelliSense
+    </a>
 
-      <p>
-        This will provide autocompletion for TailwindCSS classes. It will also autocomplete custom classes provided by
-        Vuetiful.
-      </p>
-    </section>
+    <p>
+      This will provide autocompletion for TailwindCSS classes. It will also autocomplete custom classes provided by
+      Vuetiful.
+    </p>
+  </section>
 
-    <h2>Vue 3</h2>
-    <section class="section">
-      <details>
-        <summary>Click here for the Vue 3 instructions</summary>
+  <h2>Vue 3</h2>
+  <section class="section">
+    <details>
+      <summary>Click here for the Vue 3 instructions</summary>
 
-        <h3>PostCSS config</h3>
-        <section class="section">
-          <p class="mb-4">Create a <code>postcss.config.cjs</code> file in the root of your project, add the following content:</p>
+      <h3>PostCSS config</h3>
+      <section class="section">
+        <p class="mb-4">
+          Create a <code>postcss.config.cjs</code> file in the root of your project, add the following content:
+        </p>
 
-          <v-code-block
-            language="js"
-            :code="`module.exports = {
+        <v-code-block
+          language="js"
+          :code="`module.exports = {
   plugins: {
     tailwindcss: {},
     autoprefixer: {},
   },
 };`"
-          />
-        </section>
+        />
+      </section>
 
-        <h3>Vue3 - main.ts</h3>
-        <section class="section">
-          <v-code-block class="mb-2" language="ts" :code="exampleVueMain" />
-          <v-alert type="info">
-            <v-badge class="variant-filled-surface">@code-coaching/vuetiful/styles/all.css</v-badge> must be imported before any
-            other css.
-          </v-alert>
-        </section>
+      <h3>Vue3 - main.ts</h3>
+      <section class="section">
+        <v-code-block class="mb-2" language="ts" :code="exampleVueMain" />
+        <v-alert type="info">
+          <v-badge variant="filled-surface">@code-coaching/vuetiful/styles/all.css</v-badge> must be imported before any
+          other css.
+        </v-alert>
+      </section>
 
-        <h3>App.vue - script setup</h3>
-        <section class="section">
-          <p class="mb-4">Add the following code to your App.vue file.</p>
-          <v-code-block language="ts" :code="exampleScriptSetup" />
-        </section>
+      <h3>App.vue - script setup</h3>
+      <section class="section">
+        <p class="mb-4">Add the following code to your App.vue file.</p>
+        <v-code-block language="ts" :code="exampleScriptSetup" />
+      </section>
 
-        <h3>App.vue - no script setup</h3>
-        <section class="section">
-          <v-code-block language="ts" :code="exampleNoScriptSetup" />
-        </section>
-      </details>
-    </section>
+      <h3>App.vue - no script setup</h3>
+      <section class="section">
+        <v-code-block language="ts" :code="exampleNoScriptSetup" />
+      </section>
+    </details>
+  </section>
 
-    <h2>Quasar</h2>
-    <section class="section">
-      <p class="mb-2">Vuetiful is Quasar SSR compatible</p>
-      <details>
-        <summary>Click here for the Quasar instructions</summary>
+  <h2>Quasar</h2>
+  <section class="section">
+    <p class="mb-2">Vuetiful is Quasar SSR compatible</p>
+    <details>
+      <summary>Click here for the Quasar instructions</summary>
 
-        <h3>postcss.config.js</h3>
-        <section class="section">
-          <v-code-block language="js" :code="exampleQuasarPostCss" />
-        </section>
+      <h3>postcss.config.js</h3>
+      <section class="section">
+        <v-code-block language="js" :code="exampleQuasarPostCss" />
+      </section>
 
-        <h3>quasar.config.js</h3>
-        <section class="section">
-          <v-code-block language="js" :code="exampleQuasarConfig" />
-          <div class="mt-2">
-            There are two things to change in <code>quasar.config.js</code>:
-            <ul>
-              <li>- remove <code>app.css</code> from the css array</li>
-              <li>- extendViteConf to dedupe Vue</li>
-            </ul>
-          </div>
-        </section>
+      <h3>quasar.config.js</h3>
+      <section class="section">
+        <v-code-block language="js" :code="exampleQuasarConfig" />
+        <div class="mt-2">
+          There are two things to change in <code>quasar.config.js</code>:
+          <ul>
+            <li>- remove <code>app.css</code> from the css array</li>
+            <li>- extendViteConf to dedupe Vue</li>
+          </ul>
+        </div>
+      </section>
 
-        <h3>App.vue - script setup</h3>
-        <section class="section">
-          <v-code-block language="ts" :code="exampleQuasarScriptSetup" />
-        </section>
+      <h3>App.vue - script setup</h3>
+      <section class="section">
+        <v-code-block language="ts" :code="exampleQuasarScriptSetup" />
+      </section>
 
-        <h3>App.vue - no script setup</h3>
-        <section class="section">
-          <v-code-block language="ts" :code="exampleQuasarNoScriptSetup" />
-        </section>
+      <h3>App.vue - no script setup</h3>
+      <section class="section">
+        <v-code-block language="ts" :code="exampleQuasarNoScriptSetup" />
+      </section>
 
-        <h3>app.css</h3>
-        <section class="section">
-          <p class="mb-4">Copy paste this into your <code>app.css</code> file.</p>
-          <v-code-block language="css" :code="exampleQuasarCssOverwrite" />
-        </section>
-      </details>
-    </section>
-  </div>
+      <h3>app.css</h3>
+      <section class="section">
+        <p class="mb-4">Copy paste this into your <code>app.css</code> file.</p>
+        <v-code-block language="css" :code="exampleQuasarCssOverwrite" />
+      </section>
+    </details>
+  </section>
 </template>
 
 <style scoped>

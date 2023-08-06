@@ -1516,7 +1516,7 @@ const unstyledCustomTemplate = '';
             </v-radio-group>
           </template>
           <template v-slot:source>
-            <div class="flex flex-col gap-2 mb-2">
+            <div class="mb-2 flex flex-col gap-2">
               <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
               <v-code-block language="html" :code="unstyledPropTemplate" />
             </div>
@@ -1544,7 +1544,7 @@ const unstyledCustomTemplate = '';
               text="text-white"
               hover="hover:bg-blue-500"
               active="bg-green-600"
-              class="p-4 flex flex-col gap-2"
+              class="flex flex-col gap-2 p-4"
               class-item="p-2"
             >
               <v-radio-item value="vuetiful" unstyled>Vuetiful</v-radio-item>

@@ -7,27 +7,27 @@ export const semanticNames = ['primary', 'secondary', 'tertiary', 'success', 'wa
 export type SemanticNames = (typeof semanticNames)[number];
 
 export interface Report {
-	emoji: string;
-	note: string;
+  emoji: string;
+  note: string;
 }
 
 export interface PassReport {
-	textColor: string;
-	backgroundColor: string;
-	contrast: number;
-	report: Report;
-	smallAA: boolean;
-	smallAAA: boolean;
-	largeAA: boolean;
-	largeAAA: boolean;
-	fails: boolean;
+  textColor: string;
+  backgroundColor: string;
+  contrast: number;
+  report: Report;
+  smallAA: boolean;
+  smallAAA: boolean;
+  largeAA: boolean;
+  largeAAA: boolean;
+  fails: boolean;
 }
 
 export interface ContrastReport {
-	key: SemanticNames;
-	label: string;
-	hex: string;
-	rgb: string;
-	on: string;
-	contrastReport: PassReport;
+  key: SemanticNames;
+  label: string;
+  hex: string;
+  rgb: string;
+  on: string;
+  contrastReport: PassReport;
 }
