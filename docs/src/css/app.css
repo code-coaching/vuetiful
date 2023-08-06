@@ -8,7 +8,7 @@ h6 {
 }
 
 section.section {
-  @apply mb-4 md:mb-10;
+  @apply mb-6 md:mb-14;
 }
 header.header {
   @apply mb-4 md:mb-10;
