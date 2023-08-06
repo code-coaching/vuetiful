@@ -32,7 +32,7 @@ const tabClass = computed(() => {
     <div
       v-show="selected && !hideSeparator"
       :class="`z-10 border-surface-900-50-token ${
-        vertical ? 'mr-[-2px] h-full border-r-2' : 'mb-[-2px] border-b-2'
+        vertical ? 'mr-[-2px] h-full border-r-2' : 'mb-[-2px] w-full border-b-2'
       }`"
     ></div>
   </Tab>
