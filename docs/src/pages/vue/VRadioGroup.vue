@@ -187,8 +187,25 @@ const unstyledTemplate = `<v-radio-group v-model="radioValue" unstyled>
   <v-radio-item value="is" unstyled>Is</v-radio-item>
   <v-radio-item value="beautiful" unstyled>Beautiful</v-radio-item>
 </v-radio-group>`;
-const unstyledPropTemplate = '';
-const unstyledCustomTemplate = '';
+const unstyledPropTemplate = `<v-radio-group v-model="radioValue" unstyled background="" text="" hover="" active="">
+  <v-radio-item value="vuetiful" unstyled>Vuetiful</v-radio-item>
+  <v-radio-item value="is" unstyled>Is</v-radio-item>
+  <v-radio-item value="beautiful" unstyled>Beautiful</v-radio-item>
+</v-radio-group>`;
+const unstyledCustomTemplate = `<v-radio-group
+  v-model="radioValue"
+  unstyled
+  background="bg-blue-600"
+  text="text-white"
+  hover="hover:bg-blue-500"
+  active="bg-green-600"
+  class="flex flex-col gap-2 p-4"
+  class-item="p-2"
+>
+  <v-radio-item value="vuetiful" unstyled>Vuetiful</v-radio-item>
+  <v-radio-item value="is" unstyled>Is</v-radio-item>
+  <v-radio-item value="beautiful" unstyled>Beautiful</v-radio-item>
+</v-radio-group>`;
 </script>
 
 <template>
@@ -234,7 +251,7 @@ const unstyledCustomTemplate = '';
             </div>
           </template>
           <template v-slot:source>
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-4">
               <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
               <v-code-block language="html" :code="defaultExample" />
             </div>
@@ -445,7 +462,7 @@ const unstyledCustomTemplate = '';
               </div>
             </template>
             <template v-slot:source>
-              <div class="flex flex-col gap-2">
+              <div class="flex flex-col gap-4">
                 <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
                 <v-code-block language="html" :code="filledExample" />
               </div>
@@ -563,7 +580,7 @@ const unstyledCustomTemplate = '';
               </div>
             </template>
             <template v-slot:source>
-              <div class="flex flex-col gap-2">
+              <div class="flex flex-col gap-4">
                 <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
                 <v-code-block language="html" :code="filledBgExample" />
               </div>
@@ -665,7 +682,7 @@ const unstyledCustomTemplate = '';
               </div>
             </template>
             <template v-slot:source>
-              <div class="flex flex-col gap-2">
+              <div class="flex flex-col gap-4">
                 <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
                 <v-code-block language="html" :code="ringedExample" />
               </div>
@@ -783,7 +800,7 @@ const unstyledCustomTemplate = '';
               </div>
             </template>
             <template v-slot:source>
-              <div class="flex flex-col gap-2">
+              <div class="flex flex-col gap-4">
                 <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
                 <v-code-block language="html" :code="ringedBgExample" />
               </div>
@@ -896,7 +913,7 @@ const unstyledCustomTemplate = '';
               </div>
             </template>
             <template v-slot:source>
-              <div class="flex flex-col gap-2">
+              <div class="flex flex-col gap-4">
                 <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
                 <v-code-block language="html" :code="ghostExample" />
               </div>
@@ -1014,7 +1031,7 @@ const unstyledCustomTemplate = '';
               </div>
             </template>
             <template v-slot:source>
-              <div class="flex flex-col gap-2">
+              <div class="flex flex-col gap-4">
                 <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
                 <v-code-block language="html" :code="ghostBgExample" />
               </div>
@@ -1100,7 +1117,7 @@ const unstyledCustomTemplate = '';
               </div>
             </template>
             <template v-slot:source>
-              <div class="flex flex-col gap-2">
+              <div class="flex flex-col gap-4">
                 <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
                 <v-code-block language="html" :code="softExample" />
               </div>
@@ -1218,7 +1235,7 @@ const unstyledCustomTemplate = '';
               </div>
             </template>
             <template v-slot:source>
-              <div class="flex flex-col gap-2">
+              <div class="flex flex-col gap-4">
                 <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
                 <v-code-block language="html" :code="softBgExample" />
               </div>
@@ -1343,7 +1360,7 @@ const unstyledCustomTemplate = '';
             </template>
 
             <template v-slot:source>
-              <div class="flex flex-col gap-2">
+              <div class="flex flex-col gap-4">
                 <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
                 <v-code-block language="html" :code="glassExample" />
               </div>
@@ -1473,7 +1490,7 @@ const unstyledCustomTemplate = '';
             </template>
 
             <template v-slot:source>
-              <div class="flex flex-col gap-2">
+              <div class="flex flex-col gap-4">
                 <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
                 <v-code-block language="html" :code="glassBgExample" />
               </div>
@@ -1497,7 +1514,7 @@ const unstyledCustomTemplate = '';
             </v-radio-group>
           </template>
           <template v-slot:source>
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-4">
               <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
               <v-code-block language="html" :code="unstyledTemplate" />
             </div>
@@ -1553,7 +1570,7 @@ const unstyledCustomTemplate = '';
             </v-radio-group>
           </template>
           <template v-slot:source>
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-4">
               <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
               <v-code-block language="html" :code="unstyledCustomTemplate" />
             </div>

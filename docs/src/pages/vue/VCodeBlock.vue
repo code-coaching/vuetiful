@@ -201,7 +201,7 @@ const mascot: Mascot = {
             <v-code-block language="html" :code="codeExample" />
           </template>
           <template v-slot:source>
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-4">
               <v-code-block language="ts" :code="codeCodeScriptExample" />
               <v-code-block language="html" :code="codeCodeTemplateExample"></v-code-block>
             </div>
@@ -227,7 +227,7 @@ const mascot: Mascot = {
           </template>
 
           <template v-slot:source>
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-4">
               <v-code-block language="typescript" :code="sourceScriptOverflowExample" />
               <v-code-block language="html" :code="sourceTemplateOverflowExample" />
             </div>

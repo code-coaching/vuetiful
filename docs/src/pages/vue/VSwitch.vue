@@ -103,7 +103,7 @@ const unstyledCustomTemplate = `<v-switch
             </div>
           </template>
           <template v-slot:source>
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-4">
               <v-code-block language="ts" :code="basicScript" />
               <v-code-block language="html" :code="basicTemplate" />
             </div>
@@ -180,7 +180,7 @@ const unstyledCustomTemplate = `<v-switch
             </div>
           </template>
           <template v-slot:source>
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-4">
               <v-code-block language="ts" :code="basicScript" />
               <v-code-block language="html" :code="variantFilled" />
             </div>
@@ -227,7 +227,7 @@ const unstyledCustomTemplate = `<v-switch
             </div>
           </template>
           <template v-slot:source>
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-4">
               <v-code-block language="ts" :code="basicScript" />
               <v-code-block language="html" :code="variantRinged" />
             </div>
@@ -274,7 +274,7 @@ const unstyledCustomTemplate = `<v-switch
             </div>
           </template>
           <template v-slot:source>
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-4">
               <v-code-block language="ts" :code="basicScript" />
               <v-code-block language="html" :code="variantGhost" />
             </div>
@@ -321,7 +321,7 @@ const unstyledCustomTemplate = `<v-switch
             </div>
           </template>
           <template v-slot:source>
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-4">
               <v-code-block language="ts" :code="basicScript" />
               <v-code-block language="html" :code="variantSoft" />
             </div>
@@ -377,7 +377,7 @@ const unstyledCustomTemplate = `<v-switch
           </template>
 
           <template v-slot:source>
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-4">
               <v-code-block language="ts" :code="basicScript" />
               <v-code-block language="html" :code="variantGlass" />
             </div>
@@ -396,7 +396,7 @@ const unstyledCustomTemplate = `<v-switch
             <v-switch v-model="switchValue" unstyled />
           </template>
           <template v-slot:source>
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-4">
               <v-code-block language="ts" :code="basicScript" />
               <v-code-block language="html" :code="unstyledTemplate" />
             </div>
