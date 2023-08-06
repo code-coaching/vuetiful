@@ -8,7 +8,6 @@ describe("VListbox", () => {
   test("default props", () => {
     const wrapper = mount(VListbox);
 
-    console.log(wrapper.props());
     expect(wrapper.props()).toEqual({
       modelValue: undefined,
       classLabel: "",
