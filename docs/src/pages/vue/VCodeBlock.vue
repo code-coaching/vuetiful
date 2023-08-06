@@ -299,8 +299,7 @@ const mascot: Mascot = {
             />
           </template>
           <template v-slot:source>
-            <v-code-block class="mb-2" language="html" :code="unstyledPropTemplate" />
-            <p>Set <code>variant</code> to an empty string to have no prop-based styles.</p>
+            <v-code-block language="html" :code="unstyledPropTemplate" />
           </template>
         </v-preview>
       </section>
