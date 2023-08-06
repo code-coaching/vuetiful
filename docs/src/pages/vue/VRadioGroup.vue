@@ -196,7 +196,7 @@ const unstyledCustomTemplate = '';
   <section class="section">
     <v-code-block
       language="ts"
-      :code="`import { VRadioGroup, VRadioItem, VRadioLabel, VRadioDescription } from '@code-coaching/vuetiful'`"
+      :code="`import { VRadioGroup, VRadioItem, VRadioLabel, VRadioDescription } from '@code-coaching/vuetiful';`"
     />
   </section>
 

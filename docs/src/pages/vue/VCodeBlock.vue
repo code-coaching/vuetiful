@@ -112,7 +112,7 @@ const unstyledPropTemplate = `<v-code-block
 <template>
   <h1>VCodeBlock</h1>
   <section class="section">
-    <v-code-block language="ts" :code="`import { VCodeBlock } from '@code-coaching/vuetiful`" />
+    <v-code-block language="ts" :code="`import { VCodeBlock } from '@code-coaching/vuetiful';`" />
   </section>
 
   <v-tabs class-panels="py-4 md:py-10">

@@ -33,7 +33,7 @@ const codeExample = computed(() => {
   <div class="flex max-w-5xl flex-col p-4">
     <h1>VShell</h1>
     <section class="section">
-      <v-code-block language="ts" :code="`import { VShell } from '@code-coaching/vuetiful`" />
+      <v-code-block language="ts" :code="`import { VShell } from '@code-coaching/vuetiful';`" />
     </section>
 
     <h2>Usage</h2>

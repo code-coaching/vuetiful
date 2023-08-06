@@ -211,7 +211,7 @@ const unstyledCustomTemplate = '';
 <template>
   <h1>VCard</h1>
   <section class="section">
-    <v-code-block language="ts" :code="`import { VCard } from '@code-coaching/vuetiful`" />
+    <v-code-block language="ts" :code="`import { VCard } from '@code-coaching/vuetiful';`" />
   </section>
 
   <v-tabs class-panels="py-4 md:py-10">

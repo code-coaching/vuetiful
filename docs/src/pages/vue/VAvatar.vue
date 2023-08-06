@@ -68,7 +68,7 @@ const unstyledCustomTemplate = '';
 <template>
   <h1>VAvatar</h1>
   <section class="section">
-    <v-code-block language="ts" :code="`import { VAvatar } from '@code-coaching/vuetiful`" />
+    <v-code-block language="ts" :code="`import { VAvatar } from '@code-coaching/vuetiful';`" />
   </section>
 
   <v-tabs class-panels="py-4 md:py-10">

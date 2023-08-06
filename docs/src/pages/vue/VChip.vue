@@ -56,7 +56,7 @@ const unstyledCustomTemplate = '<v-chip unstyled variant="" class="bg-blue-600 p
 <template>
   <h1>VChip</h1>
   <section class="section">
-    <v-code-block language="ts" :code="`import { VChip } from '@code-coaching/vuetiful`" />
+    <v-code-block language="ts" :code="`import { VChip } from '@code-coaching/vuetiful';`" />
   </section>
 
   <v-tabs class-panels="py-4 md:py-10">

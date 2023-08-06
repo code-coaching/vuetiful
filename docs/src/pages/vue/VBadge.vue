@@ -55,7 +55,7 @@ const unstyledCustomTemplate = '<v-badge unstyled variant="" class="bg-blue-600 
 <template>
   <h1>VBadge</h1>
   <section class="section">
-    <v-code-block language="ts" :code="`import { VBadge } from '@code-coaching/vuetiful`" />
+    <v-code-block language="ts" :code="`import { VBadge } from '@code-coaching/vuetiful';`" />
   </section>
 
   <v-tabs class-panels="py-4 md:py-10">

@@ -24,7 +24,7 @@ const sourceHide = `<v-preview hide-swatches hide-mobile-toggle class="min-w-ful
   <div class="flex max-w-5xl flex-col p-4">
     <h1>VPreview</h1>
     <section class="section">
-      <v-code-block language="ts" :code="`import { VPreview } from '@code-coaching/vuetiful`" />
+      <v-code-block language="ts" :code="`import { VPreview } from '@code-coaching/vuetiful';`" />
     </section>
 
     <h2>Usage</h2>

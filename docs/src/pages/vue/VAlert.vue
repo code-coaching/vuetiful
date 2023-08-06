@@ -78,7 +78,7 @@ const handleCloseAction = () => {
 <template>
   <h1>VAlert</h1>
   <section class="section">
-    <v-code-block language="ts" :code="`import { VAlert } from '@code-coaching/vuetiful`" />
+    <v-code-block language="ts" :code="`import { VAlert } from '@code-coaching/vuetiful';`" />
   </section>
 
   <v-tabs class-panels="py-4 md:py-10">

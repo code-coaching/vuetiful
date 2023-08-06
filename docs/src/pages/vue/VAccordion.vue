@@ -72,7 +72,7 @@ const unstyledCustomTemplate = `<v-accordion
 <template>
   <h1>VAccordion</h1>
   <section class="section">
-    <v-code-block language="ts" :code="`import { VAccordion, VAccordionItem } from '@code-coaching/vuetiful`" />
+    <v-code-block language="ts" :code="`import { VAccordion, VAccordionItem } from '@code-coaching/vuetiful';`" />
   </section>
 
   <v-tabs class-panels="py-4 md:py-10">

@@ -28,7 +28,7 @@ const useRailExample = `<v-shell class="flex border-2 border-surface-500">
   <div class="flex max-w-5xl flex-col p-4">
     <h1>VRail</h1>
     <section class="section">
-      <v-code-block language="ts" :code="`import { VRail, VRailTile } from '@code-coaching/vuetiful`" />
+      <v-code-block language="ts" :code="`import { VRail, VRailTile } from '@code-coaching/vuetiful';`" />
     </section>
 
     <h2>Usage</h2>
