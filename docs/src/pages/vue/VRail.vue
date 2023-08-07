@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import {
+  VAlert,
+  VBadge,
   VCodeBlock,
   VPreview,
   VRail,
@@ -44,12 +46,18 @@ const useRailExample = `<v-shell class="flex border-2 border-surface-500">
   </section>
 
   <section class="section">
-    <p><code>VRail</code> is a container that holds multiple <code>VRailTile</code> components.</p>
-    <p>
-      <code>VRailTile</code> is a clickable tile that indicates the current page and allows navigation through a click
-      handler. Each tile has a unique value, determining its active state, which is automatically stored in the
-      <code>selectedRailTile</code> variable accessible via <code>useRail</code>.
-    </p>
+    <v-alert type="info">
+      <p>
+        <v-badge variant="filled-surface">VRail</v-badge> is a container that holds multiple
+        <v-badge variant="filled-surface">VRailTile</v-badge> components.
+      </p>
+      <p>
+        <v-badge variant="filled-surface">VRailTile</v-badge> is a clickable tile that indicates the current page and
+        allows navigation through a click handler. Each tile has a unique value, determining its active state, which is
+        automatically stored in the <v-badge variant="filled-surface">selectedRailTile</v-badge> variable accessible via
+        <v-badge variant="filled-surface">useRail</v-badge>.
+      </p>
+    </v-alert>
   </section>
 
   <section class="section">
