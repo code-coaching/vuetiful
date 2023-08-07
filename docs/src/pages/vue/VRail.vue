@@ -44,16 +44,11 @@ const useRailExample = `<v-shell class="flex border-2 border-surface-500">
   </section>
 
   <section class="section">
+    <p><code>VRail</code> is a container that holds multiple <code>VRailTile</code> components.</p>
     <p>
-      The <code>VRail</code> is a container for <code>VRailTile</code> components. The <code>VRailTile</code> is a
-      clickable tile that can be used to visualize on which page/section the user is currently on.
-    </p>
-
-    <p>Combine this with a click handler to navigate to the desired page/section.</p>
-
-    <p class="mb-4">
-      The value of each tile should be unique. Active state is automatically set based on the value. This active state
-      is kept in a variable called <code>selectedRailTile</code> which can be accessed through <code>useRail</code>.
+      <code>VRailTile</code> is a clickable tile that indicates the current page and allows navigation through a click
+      handler. Each tile has a unique value, determining its active state, which is automatically stored in the
+      <code>selectedRailTile</code> variable accessible via <code>useRail</code>.
     </p>
   </section>
 
