@@ -1,14 +1,19 @@
 <script setup lang="ts">
 import { ThemeSwitcher, VDrawer, VShell, useDrawer } from '@code-coaching/vuetiful';
-import { DocsSideBar } from 'src/components';
+import { DocsSideBar, DrawerExample } from 'src/components';
 import { version } from '../../package.json';
 
-const { open } = useDrawer();
+const { open, drawer } = useDrawer();
 </script>
 
 <template>
   <v-drawer>
-    <DocsSideBar embedded />
+    <DocsSideBar v-if="drawer.id === 'docs'" embedded />
+    <DrawerExample title="This is a drawer" v-if="drawer.id === 'drawer-example'" />
+    <DrawerExample title="Content One" v-if="drawer.id === 'drawer-multi-example-one'" />
+    <DrawerExample title="Content Two" v-if="drawer.id === 'drawer-multi-example-two'" />
+    <DrawerExample title="Content Three" v-if="drawer.id === 'drawer-multi-example-three'" />
+    <DrawerExample title="Content Four" v-if="drawer.id === 'drawer-multi-example-four'" />
   </v-drawer>
   <v-shell>
     <template v-slot:fixedHeader>
