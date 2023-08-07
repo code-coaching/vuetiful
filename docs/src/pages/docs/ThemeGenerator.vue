@@ -335,7 +335,7 @@ const resetGradients = () => {
       </p>
     </section>
     <section class="section flex justify-center">
-      <v-button variant="filled" @click="generateTheme">Generate Theme</v-button>
+      <v-button @click="generateTheme">Generate Theme</v-button>
     </section>
     <hr />
   </header>
@@ -349,7 +349,7 @@ const resetGradients = () => {
               <h2 class="mb-0">Colors</h2>
               <div class="flex flex-1 items-center justify-between">
                 <v-light-switch />
-                <v-button variant="filled" @click="randomize">Randomize Colors</v-button>
+                <v-button @click="randomize">Randomize Colors</v-button>
               </div>
             </div>
           </v-card-header>
@@ -421,7 +421,7 @@ const resetGradients = () => {
               <h2 class="mb-0">Gradients</h2>
               <div class="flex flex-1 items-center justify-between">
                 <v-light-switch />
-                <v-button variant="filled" @click="randomGradients()">Randomize gradient</v-button>
+                <v-button @click="randomGradients()">Randomize gradient</v-button>
               </div>
             </div>
           </v-card-header>
@@ -433,7 +433,7 @@ const resetGradients = () => {
                   isDark ? 'border-surface-50 bg-surface-900' : 'border-surface-900 bg-surface-50'
                 } relative flex aspect-video min-w-[300px] flex-1 items-center justify-center border-2 rounded-container-token`"
               >
-                <v-button variant="filled" icon @click="resetGradients"><i class="fa-solid fa-xmark" /></v-button>
+                <v-button icon @click="resetGradients"><i class="fa-solid fa-xmark" /></v-button>
               </div>
             </div>
             <p class="mb-4">
