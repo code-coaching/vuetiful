@@ -180,45 +180,7 @@ module.exports = {
   ],
 };`;
 
-const exampleQuasarCssOverwrite = `html,
-body,
-#q-app {
-  /*
-  * This is done to prevent double scrollbars
-  */
-  height: 100%;
-  overflow: hidden;
-
-  /*
-  * Reset several font properties to browser defaults
-  */
-  font-size: 16px;
-  font-family: var(--theme-font-family-base), sans-serif;
-  -moz-osx-font-smoothing: auto;
-}
-
-.flex {
-  /*
-  * Quasar has a flex utility class that also adds flex-wrap: wrap;
-  * This class is used to reset back to flex-wrap: nowrap; the default behavior.
-  */
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-/*
-* This makes sure the Tailwind flex utility class is not overwritten
-* by the override above.
-*/
-.flex-nowrap {
-  flex-wrap: nowrap;
-}
-.flex-wrap {
-  flex-wrap: wrap;
-}
-
-/* app global css */
-.q-avatar,
+const exampleQuasarCssOverwrite = `.q-avatar,
 .q-chip .q-avatar {
   @apply rounded-token;
   @apply transition-all;
@@ -381,6 +343,7 @@ body,
 
 .q-field__native {
   color: currentColor !important;
+  background-color: transparent !important;
 }
 
 .q-time {
