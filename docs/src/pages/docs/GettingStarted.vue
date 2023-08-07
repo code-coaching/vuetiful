@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { VAlert, VBadge, VCodeBlock } from '@code-coaching/vuetiful';
+import { VAlert, VBadge, VCodeBlock, VTab, VTabPanel, VTabs } from '@code-coaching/vuetiful';
 
 const exampleTailwindConfig = `/** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -39,7 +39,6 @@ onMounted(() => {
 });`;
 
 const exampleNoScriptSetup = `import { useDarkMode, useTheme } from "@code-coaching/vuetiful";
-
 import { onMounted } from "vue";
 
 export default defineComponent({
@@ -89,7 +88,7 @@ module.exports = configure(function (/* ctx */) {
 const exampleQuasarNoScriptSetup = `import { defineComponent, onMounted, watch } from 'vue';
 import { useDarkMode, useTheme } from '@code-coaching/vuetiful';
 import '@code-coaching/vuetiful/styles/all.css';
-/* This line contains the useQuasar import from 'quasar' it gets parsed out for some reason */
+/* Add in the line containing the useQuasar import from 'quasar', it gets parsed out for some reason */
 import './css/app.css';
 
 
@@ -532,11 +531,12 @@ module.exports = {
     </p>
   </section>
 
-  <h2>Vue 3</h2>
-  <section class="section">
-    <details>
-      <summary>Click here for the Vue 3 instructions</summary>
-
+  <v-tabs class-panels="py-4 md:py-10">
+    <template v-slot:tabs>
+      <v-tab><h2 class="mb-0">Vue 3</h2></v-tab>
+      <v-tab><h2 class="mb-0">Quasar</h2></v-tab>
+    </template>
+    <v-tab-panel>
       <h3>PostCSS config</h3>
       <section class="section">
         <p class="mb-4">
@@ -573,49 +573,47 @@ module.exports = {
       <section class="section">
         <v-code-block language="ts" :code="exampleNoScriptSetup" />
       </section>
-    </details>
-  </section>
-
-  <h2>Quasar</h2>
-  <section class="section">
-    <p class="mb-2">Vuetiful is Quasar SSR compatible</p>
-    <details>
-      <summary>Click here for the Quasar instructions</summary>
-
-      <h3>postcss.config.js</h3>
+    </v-tab-panel>
+    <v-tab-panel>
       <section class="section">
-        <v-code-block language="js" :code="exampleQuasarPostCss" />
+        <v-alert type="info">Vuetiful is Quasar SSR compatible</v-alert>
       </section>
-
-      <h3>quasar.config.js</h3>
       <section class="section">
-        <v-code-block language="js" :code="exampleQuasarConfig" />
-        <div class="mt-2">
-          There are two things to change in <code>quasar.config.js</code>:
-          <ul>
-            <li>- remove <code>app.css</code> from the css array</li>
-            <li>- extendViteConf to dedupe Vue</li>
-          </ul>
-        </div>
-      </section>
+        <h3>postcss.config.js</h3>
+        <section class="section">
+          <v-code-block language="js" :code="exampleQuasarPostCss" />
+        </section>
 
-      <h3>App.vue - script setup</h3>
-      <section class="section">
-        <v-code-block language="ts" :code="exampleQuasarScriptSetup" />
-      </section>
+        <h3>quasar.config.js</h3>
+        <section class="section">
+          <v-code-block language="js" :code="exampleQuasarConfig" />
+          <div class="mt-2">
+            There are two things to change in <code>quasar.config.js</code>:
+            <ul>
+              <li>- remove <code>app.css</code> from the css array</li>
+              <li>- extendViteConf to dedupe Vue</li>
+            </ul>
+          </div>
+        </section>
 
-      <h3>App.vue - no script setup</h3>
-      <section class="section">
-        <v-code-block language="ts" :code="exampleQuasarNoScriptSetup" />
-      </section>
+        <h3>App.vue - script setup</h3>
+        <section class="section">
+          <v-code-block language="ts" :code="exampleQuasarScriptSetup" />
+        </section>
 
-      <h3>app.css</h3>
-      <section class="section">
-        <p class="mb-4">Copy paste this into your <code>app.css</code> file.</p>
-        <v-code-block language="css" :code="exampleQuasarCssOverwrite" />
+        <h3>App.vue - no script setup</h3>
+        <section class="section">
+          <v-code-block language="ts" :code="exampleQuasarNoScriptSetup" />
+        </section>
+
+        <h3>app.css</h3>
+        <section class="section">
+          <p class="mb-4">Copy paste this into your <code>app.css</code> file.</p>
+          <v-code-block language="css" :code="exampleQuasarCssOverwrite" />
+        </section>
       </section>
-    </details>
-  </section>
+    </v-tab-panel>
+  </v-tabs>
 </template>
 
 <style scoped>
