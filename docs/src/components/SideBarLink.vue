@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { VRadioItem } from '@code-coaching/vuetiful';
+import { VRadioItem, useDrawer } from '@code-coaching/vuetiful';
 import { computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
@@ -18,11 +18,17 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
+
+  preventAutoClose: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const router = useRouter();
 const route = useRoute();
 const activeRoute = computed(() => route.name);
+const { close } = useDrawer();
 
 const onClick = () => {
   if (props.link.split('http')[0] === '') {
@@ -34,6 +40,7 @@ const onClick = () => {
     } else {
       void router.push({ name: props.routeName });
     }
+    if (!props.preventAutoClose) close();
   }
 };
 </script>
