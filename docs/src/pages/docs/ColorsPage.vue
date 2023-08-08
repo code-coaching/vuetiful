@@ -49,8 +49,8 @@
       </div>
 
       <div class="flex">
-        <a class="w-28" href="https://tailwindcss.com/docs/divider-color">Divider</a>
-        <code>divider-primary-900</code>
+        <a class="w-28" href="https://tailwindcss.com/docs/divide-color">Divide</a>
+        <code>divide-primary-900</code>
       </div>
     </div>
   </section>
