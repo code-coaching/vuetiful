@@ -411,8 +411,7 @@ const exampleQuasarCssOverwrite = `.q-avatar,
     <section class="section">
       <p>
         <strong>Vuetiful</strong> is an opensource project created and maintained by
-        <a href="https://code-coaching.dev" target="_blank" rel="noreferrer"> Code Coaching </a>
-        .
+        <a href="https://code-coaching.dev" target="_blank" rel="noreferrer">Code Coaching</a>.
       </p>
       <p>
         Vuetiful can be used standalone in any Vue3 project or it can be coupled into other frameworks like
