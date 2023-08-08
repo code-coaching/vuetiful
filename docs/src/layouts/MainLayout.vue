@@ -66,7 +66,7 @@ const { open, drawer } = useDrawer();
 </template>
 
 <style>
-.cc-theme-switcher__popup {
+.vuetiful-theme-switcher__popup {
   right: 1rem;
 }
 </style>
