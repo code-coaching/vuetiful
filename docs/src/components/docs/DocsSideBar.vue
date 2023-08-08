@@ -125,7 +125,7 @@ const activeRoute = ref();
     <v-radio-group
       v-model="activeRoute"
       unstyled
-      class="flex flex-col gap-1 overflow-y-auto p-4"
+      class="flex flex-col gap-4 overflow-y-auto p-4"
       hover="transparant"
       active="transparant"
     >
