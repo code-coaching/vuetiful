@@ -19,38 +19,38 @@
     <p class="mb-2">Colors can be used combined with:</p>
     <div class="flex flex-col gap-2">
       <div class="flex">
-        <a class="w-28" href="https://tailwindcss.com/docs/background-color">Background</a>
+        <a target="_blank" class="w-28" href="https://tailwindcss.com/docs/background-color">Background</a>
         <code>bg-primary-500</code>
       </div>
 
       <div class="flex">
-        <a class="w-28" href="https://tailwindcss.com/docs/text-color">Text</a>
+        <a target="_blank" class="w-28" href="https://tailwindcss.com/docs/text-color">Text</a>
         <code>text-primary-500</code>
       </div>
 
       <div class="flex">
-        <a class="w-28" href="https://tailwindcss.com/docs/border-color">Border</a>
+        <a target="_blank" class="w-28" href="https://tailwindcss.com/docs/border-color">Border</a>
         <code>border-primary-500</code>
       </div>
 
       <div class="flex">
-        <a class="w-28" href="https://tailwindcss.com/docs/outline-color">Outline</a>
+        <a target="_blank" class="w-28" href="https://tailwindcss.com/docs/outline-color">Outline</a>
         <code>outline-primary-500</code>
       </div>
 
       <div class="flex">
-        <a class="w-28" href="https://tailwindcss.com/docs/ring-color">Ring</a>
+        <a target="_blank" class="w-28" href="https://tailwindcss.com/docs/ring-color">Ring</a>
         <code>ring-primary-900</code>
       </div>
 
       <div class="flex">
-        <a class="w-28" href="https://tailwindcss.com/docs/ring-offset-color">Ring Offset</a>
+        <a target="_blank" class="w-28" href="https://tailwindcss.com/docs/ring-offset-color">Ring Offset</a>
         <code>ring-offset-primary-900</code>
       </div>
 
       <div class="flex">
-        <a class="w-28" href="https://tailwindcss.com/docs/divider-color">Divider</a>
-        <code>divider-primary-900</code>
+        <a target="_blank" class="w-28" href="https://tailwindcss.com/docs/divide-color">Divide</a>
+        <code>divide-primary-900</code>
       </div>
     </div>
   </section>
