@@ -415,8 +415,7 @@ const exampleQuasarCssOverwrite = `.q-avatar,
       </p>
       <p>
         Vuetiful can be used standalone in any Vue3 project or it can be coupled into other frameworks like
-        <a href="https://quasar.dev" target="_blank" rel="noreferrer"> Quasar </a>
-        .
+        <a href="https://quasar.dev" target="_blank" rel="noreferrer">Quasar</a>.
       </p>
       <p>Vuetiful only supports Vite based projects.</p>
       <p>This documentation website is created using Quasar (SSR) + Vuetiful.</p>
