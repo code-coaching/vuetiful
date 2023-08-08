@@ -177,6 +177,7 @@ const randomGradients = () => {
     formTheme.value.gradients.light = randomGradients.join(', \n\t\t');
     formTheme.value.gradients.dark = randomGradients.join(', \n\t\t');
   } else {
+    console.log('isDark', isDark);
     if (isDark.value) {
       formTheme.value.gradients.dark = randomGradients.join(', \n\t\t');
     } else {
@@ -191,12 +192,8 @@ const cssOutput = computed(() => {
 ${formTheme.value.fonts.headingImports}
 :root {
     /* =~= Theme Properties =~= */
-    --theme-font-family-base: ${formTheme.value.fonts.customBase ? `"${formTheme.value.fonts.customBase}", ` : ''}${
-      formTheme.value.fonts.base
-    };
-    --theme-font-family-heading: ${
-      formTheme.value.fonts.customHeadings ? `"${formTheme.value.fonts.customHeadings}", ` : ''
-    }${formTheme.value.fonts.headings};
+    --theme-font-family-base: ${formTheme.value.fonts.customBase ? `"${formTheme.value.fonts.customBase}", ` : ''}${formTheme.value.fonts.base};
+    --theme-font-family-heading: ${formTheme.value.fonts.customHeadings ? `"${formTheme.value.fonts.customHeadings}", ` : ''}${formTheme.value.fonts.headings};
     --theme-font-color-base: ${formTheme.value.textColorLight};
     --theme-font-color-dark: ${formTheme.value.textColorDark};
     --theme-rounded-base: ${formTheme.value.roundedBase};
@@ -325,252 +322,258 @@ const resetGradients = () => {
 };
 </script>
 <template>
-  <h1>Theme Generator</h1>
-  <header class="header">
-    <section class="section">
-      <p>
-        This page will change the theme of the entire documentation site. As long as you do not refresh or manually
-        switch to another theme, the theme will remain the same. After generating a theme, you can fine tune the theme
-        by adjusting the colors, fonts, and other properties.
-      </p>
-    </section>
-    <section class="section flex justify-center">
-      <v-button @click="generateTheme">Generate Theme</v-button>
-    </section>
-    <hr />
-  </header>
-
-  <transition name="slide-bottom-300">
-    <div v-if="isThemeGenerated">
+  <div class="flex max-w-5xl flex-col p-4">
+    <h1>Theme Generator</h1>
+    <header class="header">
       <section class="section">
-        <v-card>
-          <v-card-header>
-            <div class="flex flex-wrap items-center gap-4">
-              <h2 class="mb-0">Colors</h2>
-              <div class="flex flex-1 items-center justify-between">
-                <v-light-switch />
-                <v-button @click="randomize">Randomize Colors</v-button>
+        <p>
+          This page will change the theme of the entire documentation site. As long as you do not refresh or manually
+          switch to another theme, the theme will remain the same. After generating a theme, you can fine tune the theme
+          by adjusting the colors, fonts, and other properties.
+        </p>
+      </section>
+      <section class="section flex justify-center">
+        <v-button class="variant-filled" @click="generateTheme">Generate Theme</v-button>
+      </section>
+      <hr />
+    </header>
+
+    <transition name="slide-bottom-300">
+      <div v-if="isThemeGenerated">
+        <section class="section">
+          <v-card>
+            <v-card-header>
+              <div class="flex flex-wrap items-center gap-4">
+                <h2 class="mb-0">Colors</h2>
+                <div class="flex flex-1 items-center justify-between">
+                  <v-light-switch />
+                  <v-button class="variant-filled" @click="randomize">Randomize Colors</v-button>
+                </div>
               </div>
-            </div>
-          </v-card-header>
-          <div class="flex flex-col justify-center gap-4 p-4">
-            <div v-for="(color, index) in formTheme.colors" :key="index">
-              <div class="flex flex-wrap justify-between gap-4">
-                <div class="flex w-full flex-1">
-                  <div class="w-full" v-for="(tint, index) in tailwindNumbers" :key="index">
-                    <div class="flex w-full flex-col items-center">
-                      <div>{{ tint }}</div>
-                      <div
-                        :class="`bg-${color.key}-${tint} flex h-[50px] w-full items-center justify-center`"
-                        :style="`color: rgb(${color.on})`"
-                      >
-                        <template v-if="tint === '500'">
-                          <div class="flex items-center px-4">
-                            {{ tint }}
-                          </div>
-                        </template>
+            </v-card-header>
+            <div class="flex flex-col justify-center gap-4 p-4">
+              <div v-for="(color, index) in formTheme.colors" :key="index">
+                <div class="flex flex-wrap justify-between gap-4">
+                  <div class="flex w-full flex-1">
+                    <div class="w-full" v-for="(tint, index) in tailwindNumbers" :key="index">
+                      <div class="flex w-full flex-col items-center">
+                        <div>{{ tint }}</div>
+                        <div
+                          :class="`bg-${color.key}-${tint} flex h-[50px] w-full items-center justify-center`"
+                          :style="`color: rgb(${color.on})`"
+                        >
+                          <template v-if="tint === '500'">
+                            <div class="flex items-center px-4">
+                              {{ tint }}
+                            </div>
+                          </template>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="flex flex-wrap items-end justify-between gap-4">
-                  <label class="flex items-center gap-2">
-                    <input class="input !h-[50px] !w-[50px] flex-shrink-0" type="color" v-model="color.hex" />
-                    <input
-                      class="input !h-[50px] flex-1 bg-surface-50-900-token"
-                      type="text"
-                      v-model="color.hex"
-                      placeholder="#BADA55"
-                    />
-                  </label>
-                  <div
-                    class="input-group input-group-divider h-[50px] min-w-[175px] flex-1 pl-4 bg-surface-50-900-token"
-                  >
-                    <select v-model="color.on">
-                      <option v-for="c in inputSettings.colorProps" :value="c.value" :key="c.value">
-                        {{ c.label }}
-                      </option>
-                    </select>
+                  <div class="flex flex-wrap items-end justify-between gap-4">
+                    <label class="flex items-center gap-2">
+                      <input class="input !h-[50px] !w-[50px] flex-shrink-0" type="color" v-model="color.hex" />
+                      <input
+                        class="input !h-[50px] bg-surface-50-900-token flex-1"
+                        type="text"
+                        v-model="color.hex"
+                        placeholder="#BADA55"
+                      />
+                    </label>
+                    <div class="input-group input-group-divider h-[50px] min-w-[175px] flex-1 pl-4 bg-surface-50-900-token">
+                      <select v-model="color.on">
+                        <option v-for="c in inputSettings.colorProps" :value="c.value" :key="c.value">
+                          {{ c.label }}
+                        </option>
+                      </select>
+                    </div>
+                    <div
+                      :title="contrastReports[index].contrastReport.report.note"
+                      class="flex h-[50px] w-[50px] items-center justify-center rounded-token"
+                      :class="{
+                        'text-stone-900': contrastReports[index].contrastReport.fails,
+                        'bg-red-500': contrastReports[index].contrastReport.fails,
+                        'text-zinc-900': contrastReports[index].contrastReport.largeAA,
+                        'bg-amber-500': contrastReports[index].contrastReport.largeAA,
+                        'text-slate-900':
+                          contrastReports[index].contrastReport.smallAAA ||
+                          contrastReports[index].contrastReport.smallAA,
+                        'bg-green-500':
+                          contrastReports[index].contrastReport.smallAAA ||
+                          contrastReports[index].contrastReport.smallAA,
+                      }"
+                      v-html="contrastReports[index].contrastReport.report.emoji"
+                    ></div>
                   </div>
-                  <div
-                    :title="contrastReports[index].contrastReport.report.note"
-                    class="flex h-[50px] w-[50px] items-center justify-center rounded-token"
-                    :class="{
-                      'text-stone-900': contrastReports[index].contrastReport.fails,
-                      'bg-red-500': contrastReports[index].contrastReport.fails,
-                      'text-zinc-900': contrastReports[index].contrastReport.largeAA,
-                      'bg-amber-500': contrastReports[index].contrastReport.largeAA,
-                      'text-slate-900':
-                        contrastReports[index].contrastReport.smallAAA || contrastReports[index].contrastReport.smallAA,
-                      'bg-green-500':
-                        contrastReports[index].contrastReport.smallAAA || contrastReports[index].contrastReport.smallAA,
-                    }"
-                    v-html="contrastReports[index].contrastReport.report.emoji"
-                  ></div>
                 </div>
               </div>
+            </div>
+          </v-card>
+        </section>
+
+        <section class="section">
+          <v-card>
+            <v-card-header>
+              <div class="flex flex-wrap items-center gap-4">
+                <h2 class="mb-0">Gradients</h2>
+                <div class="flex flex-1 items-center justify-between">
+                  <v-light-switch />
+                  <v-button class="variant-filled" @click="randomGradients()">Randomize gradient</v-button>
+                </div>
+              </div>
+            </v-card-header>
+            <v-card-body>
+              <div :class="`mb-2 flex flex-wrap gap-2 ${isDark ? 'dark' : ''}`">
+                <div
+                  data-theme="custom"
+                  :class="`${
+                    isDark ? 'border-surface-50 bg-surface-900' : 'border-surface-900 bg-surface-50'
+                  } relative flex aspect-video min-w-[300px] flex-1 items-center justify-center border-2 rounded-container-token`"
+                >
+                  <v-button class="variant-filled" icon @click="resetGradients"
+                    ><i class="fa-solid fa-xmark"
+                  /></v-button>
+                </div>
+              </div>
+              <p class="mb-4">
+                <v-switch-group>
+                  <v-switch-label class="font-bold">Synchronized gradients</v-switch-label>
+                  <div class="flex w-[260px] items-center gap-2">
+                    <v-switch v-model="synchronizeGradients" />
+                    <v-switch-description>{{ synchronizeGradients ? 'on' : 'off' }}</v-switch-description>
+                  </div>
+                </v-switch-group>
+              </p>
+              <p>
+                When <v-badge class="variant-filled">Synchronized gradients</v-badge> is
+                <v-badge class="variant-filled">on</v-badge>, the gradient will be the same for both light and dark
+                mode.
+              </p>
+              <p>
+                When <v-badge class="variant-filled">Synchronized gradients</v-badge> is
+                <v-badge class="variant-filled">off</v-badge>, the gradient will be different for light and dark mode.
+                To set the gradient for light mode, switch to light mode and then generate a new gradient. To set the
+                gradient for dark mode, switch to dark mode and then generate a new gradient.
+              </p>
+            </v-card-body>
+          </v-card>
+        </section>
+
+        <section class="section card gap-4 p-4">
+          <h3 class="h3 mb-0" data-toc-ignore>Fonts</h3>
+          <div class="mb-4 flex flex-wrap gap-4">
+            <div class="flex-1">
+              <label class="label mb-4">
+                <span>Base</span>
+                <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-900-token">
+                  <select v-model="formTheme.fonts.base">
+                    <option v-for="font in inputSettings.fonts" :key="font" :value="font">{{ font }}</option>
+                  </select>
+                </div>
+              </label>
+              <label class="label">
+                <span>Custom base font</span>
+                <textarea
+                  class="textarea p-4 bg-surface-50-900-token rounded-container-token min-h-[130px]"
+                  type="text"
+                  v-model="formTheme.fonts.baseImports"
+                  placeholder='Custom fonts, e.g. @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");'
+                />
+                <input
+                  class="input h-[50px] bg-surface-50-900-token"
+                  type="text"
+                  v-model="formTheme.fonts.customBase"
+                  placeholder="Custom font name, e.g. Roboto"
+                />
+              </label>
+            </div>
+            <div class="flex-1">
+              <label class="label mb-4">
+                <span>Headings</span>
+                <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-900-token">
+                  <select v-model="formTheme.fonts.headings">
+                    <option v-for="font in inputSettings.fonts" :key="font" :value="font">{{ font }}</option>
+                  </select>
+                </div>
+              </label>
+              <label class="label">
+                <span>Custom headings font</span>
+                <textarea
+                  class="textarea p-4 bg-surface-50-900-token rounded-container-token min-h-[130px]"
+                  type="text"
+                  v-model="formTheme.fonts.headingImports"
+                  placeholder='Custom fonts, e.g. @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");'
+                />
+                <input
+                  class="input h-[50px] bg-surface-50-900-token"
+                  type="text"
+                  v-model="formTheme.fonts.customHeadings"
+                  placeholder="Custom font name, e.g. Roboto"
+                />
+              </label>
             </div>
           </div>
-        </v-card>
-      </section>
 
-      <section class="section">
-        <v-card>
-          <v-card-header>
-            <div class="flex flex-wrap items-center gap-4">
-              <h2 class="mb-0">Gradients</h2>
-              <div class="flex flex-1 items-center justify-between">
-                <v-light-switch />
-                <v-button @click="randomGradients()">Randomize gradient</v-button>
+          <h3 class="h3 mb-0" data-toc-ignore>Text Color</h3>
+          <div class="mb-4 flex flex-wrap gap-4">
+            <label class="label flex-1">
+              <span>Light Mode</span>
+              <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-900-token">
+                <select v-model="formTheme.textColorLight">
+                  <option v-for="c in inputSettings.colorProps" :key="c.value" :value="c.value">{{ c.label }}</option>
+                </select>
               </div>
-            </div>
-          </v-card-header>
-          <v-card-body>
-            <div :class="`mb-2 flex flex-wrap gap-2 ${isDark ? 'dark' : ''}`">
-              <div
-                data-theme="custom"
-                :class="`${
-                  isDark ? 'border-surface-50 bg-surface-900' : 'border-surface-900 bg-surface-50'
-                } relative flex aspect-video min-w-[300px] flex-1 items-center justify-center border-2 rounded-container-token`"
-              >
-                <v-button icon @click="resetGradients"><i class="fa-solid fa-xmark" /></v-button>
+            </label>
+            <label class="label flex-1">
+              <span>Dark Mode</span>
+              <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-900-token">
+                <select v-model="formTheme.textColorDark">
+                  <option v-for="c in inputSettings.colorProps" :key="c.value" :value="c.value">{{ c.label }}</option>
+                </select>
               </div>
-            </div>
-            <p class="mb-4">
-              <v-switch-group>
-                <v-switch-label class="font-bold">Synchronized gradients</v-switch-label>
-                <div class="flex w-[260px] items-center gap-2">
-                  <v-switch v-model="synchronizeGradients" />
-                  <v-switch-description>{{ synchronizeGradients ? 'on' : 'off' }}</v-switch-description>
-                </div>
-              </v-switch-group>
-            </p>
-            <p>
-              When <v-badge>Synchronized gradients</v-badge> is <v-badge>on</v-badge>, the gradient will be the same for
-              both light and dark mode.
-            </p>
-            <p>
-              When <v-badge>Synchronized gradients</v-badge> is <v-badge>off</v-badge>, the gradient will be different
-              for light and dark mode. To set the gradient for light mode, switch to light mode and then generate a new
-              gradient. To set the gradient for dark mode, switch to dark mode and then generate a new gradient.
-            </p>
-          </v-card-body>
-        </v-card>
-      </section>
+            </label>
+          </div>
 
-      <section class="section card gap-4 p-4">
-        <h3 class="h3 mb-0" data-toc-ignore>Fonts</h3>
-        <div class="mb-4 flex flex-wrap gap-4">
-          <div class="flex-1">
-            <label class="label mb-4">
+          <h3 class="h3 col-span-2 mb-0" data-toc-ignore>Border Radius</h3>
+          <div class="mb-4 flex flex-wrap gap-4">
+            <label class="label flex-1">
               <span>Base</span>
               <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-900-token">
-                <select v-model="formTheme.fonts.base">
-                  <option v-for="font in inputSettings.fonts" :key="font" :value="font">{{ font }}</option>
+                <select v-model="formTheme.roundedBase">
+                  <option v-for="r in inputSettings.rounded" :key="r" :value="r">{{ r }}</option>
+                  <option value="9999px">9999px</option>
                 </select>
               </div>
             </label>
-            <label class="label">
-              <span>Custom base font</span>
-              <textarea
-                class="textarea min-h-[130px] p-4 bg-surface-50-900-token rounded-container-token"
-                type="text"
-                v-model="formTheme.fonts.baseImports"
-                placeholder='Custom fonts, e.g. @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");'
-              />
-              <input
-                class="input h-[50px] bg-surface-50-900-token"
-                type="text"
-                v-model="formTheme.fonts.customBase"
-                placeholder="Custom font name, e.g. Roboto"
-              />
-            </label>
-          </div>
-          <div class="flex-1">
-            <label class="label mb-4">
-              <span>Headings</span>
+            <label class="label flex-1">
+              <span>Container</span>
               <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-900-token">
-                <select v-model="formTheme.fonts.headings">
-                  <option v-for="font in inputSettings.fonts" :key="font" :value="font">{{ font }}</option>
+                <select v-model="formTheme.roundedContainer">
+                  <option v-for="r in inputSettings.rounded" :key="r" :value="r">{{ r }}</option>
                 </select>
               </div>
             </label>
-            <label class="label">
-              <span>Custom headings font</span>
-              <textarea
-                class="textarea min-h-[130px] p-4 bg-surface-50-900-token rounded-container-token"
-                type="text"
-                v-model="formTheme.fonts.headingImports"
-                placeholder='Custom fonts, e.g. @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");'
-              />
-              <input
-                class="input h-[50px] bg-surface-50-900-token"
-                type="text"
-                v-model="formTheme.fonts.customHeadings"
-                placeholder="Custom font name, e.g. Roboto"
-              />
-            </label>
           </div>
-        </div>
 
-        <h3 class="h3 mb-0" data-toc-ignore>Text Color</h3>
-        <div class="mb-4 flex flex-wrap gap-4">
-          <label class="label flex-1">
-            <span>Light Mode</span>
-            <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-900-token">
-              <select v-model="formTheme.textColorLight">
-                <option v-for="c in inputSettings.colorProps" :key="c.value" :value="c.value">{{ c.label }}</option>
-              </select>
-            </div>
-          </label>
-          <label class="label flex-1">
-            <span>Dark Mode</span>
-            <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-900-token">
-              <select v-model="formTheme.textColorDark">
-                <option v-for="c in inputSettings.colorProps" :key="c.value" :value="c.value">{{ c.label }}</option>
-              </select>
-            </div>
-          </label>
-        </div>
+          <h3 class="h3 mb-0" data-toc-ignore>Border Size</h3>
+          <div class="mb-4 flex flex-wrap gap-4">
+            <label class="label flex-1">
+              <span>Base</span>
+              <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-900-token">
+                <select v-model="formTheme.borderBase">
+                  <option v-for="b in inputSettings.border" :key="b" :value="b">{{ b }}</option>
+                </select>
+              </div>
+            </label>
+            <div class="flex-1"></div>
+          </div>
+        </section>
 
-        <h3 class="h3 col-span-2 mb-0" data-toc-ignore>Border Radius</h3>
-        <div class="mb-4 flex flex-wrap gap-4">
-          <label class="label flex-1">
-            <span>Base</span>
-            <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-900-token">
-              <select v-model="formTheme.roundedBase">
-                <option v-for="r in inputSettings.rounded" :key="r" :value="r">{{ r }}</option>
-                <option value="9999px">9999px</option>
-              </select>
-            </div>
-          </label>
-          <label class="label flex-1">
-            <span>Container</span>
-            <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-900-token">
-              <select v-model="formTheme.roundedContainer">
-                <option v-for="r in inputSettings.rounded" :key="r" :value="r">{{ r }}</option>
-              </select>
-            </div>
-          </label>
-        </div>
-
-        <h3 class="h3 mb-0" data-toc-ignore>Border Size</h3>
-        <div class="mb-4 flex flex-wrap gap-4">
-          <label class="label flex-1">
-            <span>Base</span>
-            <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-900-token">
-              <select v-model="formTheme.borderBase">
-                <option v-for="b in inputSettings.border" :key="b" :value="b">{{ b }}</option>
-              </select>
-            </div>
-          </label>
-          <div class="flex-1"></div>
-        </div>
-      </section>
-
-      <section class="section">
-        <v-code-block :code="cssOutput" language="css" />
-      </section>
-    </div>
-  </transition>
+        <section class="section">
+          <v-code-block :code="cssOutput" language="css" />
+        </section>
+      </div>
+    </transition>
+  </div>
 </template>
