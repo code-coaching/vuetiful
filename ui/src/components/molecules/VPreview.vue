@@ -135,9 +135,13 @@ const toggleSwatches = () => (swatches.value = !swatches.value);
       <v-button
         v-if="!hideSwatches"
         data-test="swatch-button"
-        :class="`${
-          swatches ? 'variant-filled' : 'variant-ghost'
-        } px-4 py-1 border-token border-surface-400-500-token`"
+        :variant="swatches ? 'filled' : ''"
+        class="px-4 py-1 border-token border-surface-400-500-token"
+        :class="
+          swatches
+            ? ''
+            : 'text-center text-base rounded-token hover:variant-ghost hover:text-surface-900 dark:hover:text-surface-50'
+        "
         @click="toggleSwatches"
         title="Backgrounds"
       >
@@ -152,7 +156,7 @@ const toggleSwatches = () => (swatches.value = !swatches.value);
       </v-button>
     </header>
 
-    <!-- There is some odd behavior with test coverge, v-model must be the last property in this component -->
+    <!-- There is some odd behavior with test coverage, v-model must be the last property in this component -->
     <v-radio-group
       v-if="swatches"
       data-test="swatches"
@@ -216,7 +220,7 @@ const toggleSwatches = () => (swatches.value = !swatches.value);
     <template v-if="tabView === 'code'">
       <div
         data-test="previewer-source"
-        :class="`vuetiful-previewer-source p-4 ${backgrounds['neutral']} ${regionSource}`"
+        :class="`vuetiful-previewer-source p-4 md:p-10 ${backgrounds['neutral']} ${regionSource}`"
       >
         <slot name="source">(source)</slot>
       </div>

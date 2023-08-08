@@ -17,6 +17,64 @@ test("VButton using slot", () => {
 });
 
 describe("VButton props", () => {
+  describe("size", () => {
+    test("xs", () => {
+      const wrapper = mount(VButton, {
+        props: {
+          size: "xs",
+        },
+      });
+      expect(wrapper.classes()).toContain("px-2.5");
+      expect(wrapper.classes()).toContain("py-1.5");
+      expect(wrapper.classes()).toContain("text-xs");
+    });
+
+    test("sm", () => {
+      const wrapper = mount(VButton, {
+        props: {
+          size: "sm",
+        },
+      });
+      expect(wrapper.classes()).toContain("px-3");
+      expect(wrapper.classes()).toContain("py-2");
+      expect(wrapper.classes()).toContain("text-sm");
+      expect(wrapper.classes()).toContain("leading-4");
+    });
+
+    test("md", () => {
+      const wrapper = mount(VButton, {
+        props: {
+          size: "md",
+        },
+      });
+      expect(wrapper.classes()).toContain("px-4");
+      expect(wrapper.classes()).toContain("py-2");
+      expect(wrapper.classes()).toContain("text-sm");
+    });
+
+    test("lg", () => {
+      const wrapper = mount(VButton, {
+        props: {
+          size: "lg",
+        },
+      });
+      expect(wrapper.classes()).toContain("px-4");
+      expect(wrapper.classes()).toContain("py-2");
+      expect(wrapper.classes()).toContain("text-base");
+    });
+
+    test("xl", () => {
+      const wrapper = mount(VButton, {
+        props: {
+          size: "xl",
+        },
+      });
+      expect(wrapper.classes()).toContain("px-6");
+      expect(wrapper.classes()).toContain("py-3");
+      expect(wrapper.classes()).toContain("text-base"); 
+    });
+  });
+
   describe("given icon is true", () => {
     test("should have btn-icon class, not have btn class", () => {
       const wrapper = mount(VButton, {

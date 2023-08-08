@@ -1,12 +1,16 @@
 <script setup lang="ts">
+import { CssClasses, useSettings } from "@/index";
 import { Listbox } from "@headlessui/vue";
 import { computed, provide, ref, watch } from "vue";
 import VListboxButton from "./VListboxButton.vue";
 import VListboxItems from "./VListboxItems.vue";
 import VListboxLabel from "./VListboxLabel.vue";
+import { unstyledProp } from "@/props";
 
 const emit = defineEmits(["update:modelValue"]);
 const props = defineProps({
+  modelValue: Listbox.props["modelValue"],
+
   by: {
     type: String,
   },
@@ -14,20 +18,32 @@ const props = defineProps({
     type: String,
   },
 
-  labelText: {
+  textLabel: {
     type: String,
   },
-  labelClasses: {
-    type: Boolean,
-    default: false,
+  classLabel: {
+    type: String as () => CssClasses,
+    default: "",
   },
 
-  buttonText: {
+  textButton: {
     type: String,
     default: "Select an option",
   },
+  classButton: {
+    type: String as () => CssClasses,
+    default: "",
+  },
 
-  modelValue: Listbox.props["modelValue"],
+  classItem: {
+    type: String as () => CssClasses,
+    default: "",
+  },
+  classItems: {
+    type: String as () => CssClasses,
+    default: "",
+  },
+
   horizontal: {
     type: Boolean,
     default: false,
@@ -43,7 +59,7 @@ const props = defineProps({
   },
   hover: {
     type: String,
-    default: "variant-ghost",
+    default: "hover:variant-ghost",
   },
 
   background: {
@@ -54,6 +70,8 @@ const props = defineProps({
     type: String,
     default: "text-surface-900 dark:text-surface-50",
   },
+
+  unstyled: unstyledProp,
 });
 
 const parentModelValue = ref(props.modelValue);
@@ -75,33 +93,40 @@ provide("hover", props.hover);
 provide("background", props.background);
 provide("text", props.text);
 provide("horizontal", props.horizontal);
+provide("unstyled", props.unstyled);
+provide("classItem", props.classItem);
+provide("classItems", props.classItems);
 
 const showText = computed(() => {
   if (props.display && parentModelValue.value) return parentModelValue.value[props.display];
 
   const length = parentModelValue.value?.length;
-  if (props.multiple && length === 0) return props.buttonText;
+  if (props.multiple && length === 0) return props.textButton;
   if (props.multiple && length === 1) return parentModelValue.value[0];
   if (props.multiple && length > 1) return `${length} options selected`; // TODO: i18n
 
   if (parentModelValue.value) return parentModelValue.value;
 
-  return props.buttonText;
+  return props.textButton;
 });
+
+const { settings } = useSettings();
+const isUnstyled =
+  settings.global.unstyled || settings.components.listbox.unstyled || props.unstyled;
 </script>
 
 <template>
-  <!-- There is some odd behavior with test coverge, v-model must be the last property in this component -->
+  <!-- There is some odd behavior with test coverage, v-model must be the last property in this component -->
   <Listbox
-    data-test="v-listbox"
+    data-test="listbox"
     as="div"
     :by="by"
     :multiple="multiple"
-    class="vuetiful-listbox relative rounded-container-token"
+    :class="`vuetiful-listbox ${isUnstyled ? '' : 'relative rounded-container-token'}`"
     v-model="parentModelValue"
   >
-    <v-listbox-label v-if="labelText" :class="labelClasses">{{ labelText }}</v-listbox-label>
-    <v-listbox-button data-test="v-listbox-button" :class="`${background} ${text}`">
+    <v-listbox-label v-if="textLabel" :class="classLabel">{{ textLabel }}</v-listbox-label>
+    <v-listbox-button data-test="listbox-button" :class="`${background} ${text} ${classButton}`">
       {{ showText }}
     </v-listbox-button>
     <!-- TODO: Add configurable transition -->
@@ -113,7 +138,11 @@ const showText = computed(() => {
       leave-from-class="opacity-100"
       leave-to-class="opacity-0"
     >
-      <v-listbox-items class="absolute mt-1 min-w-full">
+      <v-listbox-items
+        data-test="listbox-items"
+        :unstyled="unstyled"
+        :class="`${isUnstyled ? '' : 'absolute mt-1 min-w-full'}`"
+      >
         <slot />
       </v-listbox-items>
     </transition>

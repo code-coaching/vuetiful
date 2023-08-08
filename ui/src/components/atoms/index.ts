@@ -2,7 +2,6 @@ import VAvatar from "./VAvatar.vue";
 import VBadge from "./VBadge.vue";
 import VButton from "./VButton.vue";
 import VChip from "./VChip.vue";
-import VCodeBlock from "./VCodeBlock.vue";
 import VLightSwitch from "./VLightSwitch.vue";
 
 import VRadioDescription from "./VRadio/VRadioDescription.vue";
@@ -20,7 +19,6 @@ export {
   VButton,
   VBadge,
   VChip,
-  VCodeBlock,
   VLightSwitch,
   VRadioGroup,
   VRadioItem,

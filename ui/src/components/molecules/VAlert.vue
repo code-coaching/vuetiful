@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useSettings } from "@/services";
 import { PropType, computed } from "vue";
 
 const emit = defineEmits(["close"]);
@@ -17,8 +18,26 @@ const props = defineProps({
     default: true,
   },
   type: {
-    type: String as PropType<"info" | "success" | "warning" | "error">,
+    type: String as PropType<"info" | "success" | "warning" | "error" | "">,
     default: "",
+  },
+
+  classPre: {
+    type: String,
+    default: "",
+  },
+  classMessage: {
+    type: String,
+    default: "",
+  },
+  classClose: {
+    type: String,
+    default: "",
+  },
+
+  unstyled: {
+    type: Boolean,
+    default: false,
   },
 });
 
@@ -32,8 +51,8 @@ const typeBackground = computed(() => {
       return "variant-filled-warning";
     case "error":
       return "variant-filled-error";
-    default:
-      return "variant-filled-primary";
+    case "":
+      return "";
   }
 });
 
@@ -43,14 +62,21 @@ const handleKeydown = (event: KeyboardEvent) => {
     close();
   }
 };
+
+const { settings } = useSettings();
+const isUnstyled = settings.global.unstyled || settings.components.alert.unstyled || props.unstyled;
 </script>
 
 <template>
   <aside
     v-if="show"
-    :class="`vuetiful-alert flex w-full flex-row items-center gap-4 p-4 border-token rounded-container-token ${typeBackground}`"
+    :class="`vuetiful-alert flex ${
+      isUnstyled
+        ? ''
+        : 'w-full items-center gap-4 p-4 border-token rounded-container-token'
+    } ${typeBackground}`"
   >
-    <div v-if="!hideIcon">
+    <div v-if="!hideIcon" :class="`vuetiful-alert-pre ${classPre}`">
       <slot v-if="$slots.pre" name="pre" />
       <template v-if="!$slots.pre">
         <!-- https://fontawesome.com/icons/circle-info?f=classic&s=solid -->
@@ -103,7 +129,7 @@ const handleKeydown = (event: KeyboardEvent) => {
       </template>
     </div>
 
-    <div class="vuetiful-alert-message flex-auto">
+    <div :class="`vuetiful-alert-message ${isUnstyled ? '' : 'flex-auto'} ${classMessage}`">
       <slot />
     </div>
 
@@ -115,7 +141,7 @@ const handleKeydown = (event: KeyboardEvent) => {
       tabindex="0"
       @keydown="handleKeydown"
       @click="close"
-      class="icon hover:cursor-pointer"
+      :class="`vuetiful-alert-close-icon icon hover:cursor-pointer ${classClose}`"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 384 512"
     >

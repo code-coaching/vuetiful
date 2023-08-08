@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useSettings } from "@/index";
 import { RadioGroup } from "@headlessui/vue";
 import { provide, ref, watch } from "vue";
 
@@ -37,6 +38,11 @@ const props = defineProps({
     default: "text-surface-900 dark:text-surface-50",
   },
 
+  classItem: {
+    type: String,
+    default: "",
+  },
+
   unstyled: {
     type: Boolean,
     default: false,
@@ -59,20 +65,25 @@ watch(
 
 provide("active", props.active);
 provide("hover", props.hover);
+provide("classItem", props.classItem);
+
+const { settings } = useSettings();
+const isUnstyled =
+  settings.global.unstyled || settings.components.radioGroup.unstyled || props.unstyled;
 </script>
 l
 <template>
-  <!-- There is some odd behavior with test coverge, v-model must be the last property in this component -->
+  <!-- There is some odd behavior with test coverage, v-model must be the last property in this component -->
   <radio-group
     data-test="radio-group"
     :as="as"
     :disabled="disabled"
     :by="by"
-    :class="`${
-      unstyled
+    :class="`vuetiful-radio-group inline-flex ${
+      isUnstyled
         ? ''
-        : `radio-group ${background} ${text} inline-flex gap-1 p-1 border-token border-surface-400-500-token rounded-container-token`
-    }`"
+        : `gap-1 p-1 border-token border-surface-400-500-token rounded-container-token`
+    } ${background} ${text}`"
     v-model="parentModelValue"
   >
     <slot></slot>

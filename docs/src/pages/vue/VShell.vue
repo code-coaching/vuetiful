@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { VButton, VCodeBlock, VShell } from '@code-coaching/vuetiful';
+import { VButton, VCodeBlock, VPreview, VShell, VTab, VTabPanel, VTabs } from '@code-coaching/vuetiful';
 import { computed, reactive } from 'vue';
 
 const state = reactive({
@@ -30,95 +30,101 @@ const codeExample = computed(() => {
 </script>
 
 <template>
-  <div class="flex max-w-5xl flex-col p-4">
-    <h1>VShell</h1>
-    <section class="section">
-      <v-code-block language="ts" :code="`import { VShell } from '@code-coaching/vuetiful`" />
-    </section>
+  <h1>VShell</h1>
+  <section class="section">
+    <v-code-block language="ts" :code="`import { VShell } from '@code-coaching/vuetiful';`" />
+  </section>
 
-    <h2>Usage</h2>
-    <section class="section">
-      <section class="section">
-        <p>
-          The <code>page</code> is a scrollable area. The page exists out of the <code>pageHeader</code>,
-          <code>(default slot)</code> and <code>pageFooter</code>.
-        </p>
+  <v-tabs class-panels="py-4 md:py-10">
+    <template v-slot:tabs>
+      <v-tab>Usage</v-tab>
+    </template>
+    <v-tab-panel>
+      <v-preview>
+        <template v-slot:preview>
+          <div class="flex flex-col gap-4">
+            <div>
+              <p>
+                The <code>page</code> is a scrollable area. The page exists out of the <code>pageHeader</code>,
+                <code>(default slot)</code> and <code>pageFooter</code>.
+              </p>
 
-        <p>Both <code>sidebarLeft</code> and <code>sidebarRight</code> are scrollable.</p>
-      </section>
-
-      <section class="section">
-        <div class="flex h-[576px] flex-col items-center justify-center gap-2 md:h-[576px]">
-          <v-shell class="card max-w-3xl p-1">
-            <template v-slot:fixedHeader>
-              <div
-                v-if="state.fixedHeader"
-                class="variant-soft card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs"
-              >
-                fixedHeader
-              </div>
-            </template>
-            <template v-slot:sidebarLeft>
-              <div
-                v-if="state.sidebarLeft"
-                class="variant-soft card m-0.5 flex h-[150%] items-center justify-center overflow-hidden p-2 text-xs"
-              >
-                <div class="flex flex-col items-center">
-                  &#8593;
-                  <div>sidebarLeft</div>
-                  &#8595;
-                </div>
-              </div>
-            </template>
-            <template v-slot:sidebarRight>
-              <div
-                v-if="state.sidebarRight"
-                class="variant-soft card m-0.5 flex h-[150%] items-center justify-center overflow-hidden p-2 text-xs"
-              >
-                <div class="flex flex-col items-center">
-                  &#8593;
-                  <div>sidebarRight</div>
-                  &#8595;
-                </div>
-              </div>
-            </template>
-            <template v-slot:pageHeader>
-              <div
-                v-if="state.pageHeader"
-                class="variant-soft-primary card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs"
-              >
-                pageHeader
-              </div>
-            </template>
-            <template v-slot:pageFooter>
-              <div
-                v-if="state.pageFooter"
-                class="variant-soft-primary card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs"
-              >
-                pageFooter
-              </div>
-            </template>
-
-            <div
-              class="variant-soft-primary card m-0.5 flex h-[500px] items-center justify-center overflow-hidden p-2 text-xs"
-            >
-              <div class="flex flex-col items-center">
-                &#8593;
-                <div>(default slot)</div>
-                &#8595;
-              </div>
+              <p>Both <code>sidebarLeft</code> and <code>sidebarRight</code> are scrollable.</p>
             </div>
+            <div class="flex h-[576px] flex-col items-center justify-center gap-2 md:h-[576px]">
+              <v-shell class="card max-w-3xl p-1">
+                <template v-slot:fixedHeader>
+                  <div
+                    v-if="state.fixedHeader"
+                    class="variant-soft card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs"
+                  >
+                    fixedHeader
+                  </div>
+                </template>
+                <template v-slot:sidebarLeft>
+                  <div
+                    v-if="state.sidebarLeft"
+                    class="variant-soft card m-0.5 flex h-[150%] items-center justify-center overflow-hidden p-2 text-xs"
+                  >
+                    <div class="flex flex-col items-center">
+                      &#8593;
+                      <div>sidebarLeft</div>
+                      &#8595;
+                    </div>
+                  </div>
+                </template>
+                <template v-slot:sidebarRight>
+                  <div
+                    v-if="state.sidebarRight"
+                    class="variant-soft card m-0.5 flex h-[150%] items-center justify-center overflow-hidden p-2 text-xs"
+                  >
+                    <div class="flex flex-col items-center">
+                      &#8593;
+                      <div>sidebarRight</div>
+                      &#8595;
+                    </div>
+                  </div>
+                </template>
+                <template v-slot:pageHeader>
+                  <div
+                    v-if="state.pageHeader"
+                    class="variant-soft-primary card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs"
+                  >
+                    pageHeader
+                  </div>
+                </template>
+                <template v-slot:pageFooter>
+                  <div
+                    v-if="state.pageFooter"
+                    class="variant-soft-primary card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs"
+                  >
+                    pageFooter
+                  </div>
+                </template>
 
-            <template v-slot:fixedFooter>
-              <div
-                v-if="state.fixedFooter"
-                class="variant-soft card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs"
-              >
-                fixedFooter
-              </div>
-            </template>
-          </v-shell>
+                <div
+                  class="variant-soft-primary card m-0.5 flex h-[500px] items-center justify-center overflow-hidden p-2 text-xs"
+                >
+                  <div class="flex flex-col items-center">
+                    &#8593;
+                    <div>(default slot)</div>
+                    &#8595;
+                  </div>
+                </div>
 
+                <template v-slot:fixedFooter>
+                  <div
+                    v-if="state.fixedFooter"
+                    class="variant-soft card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs"
+                  >
+                    fixedFooter
+                  </div>
+                </template>
+              </v-shell>
+            </div>
+          </div>
+        </template>
+        <template v-slot:footer>
           <div class="flex flex-col items-center gap-2">
             <p>Adjust layout by using the buttons below!</p>
             <div class="flex flex-wrap justify-center gap-1">
@@ -158,6 +164,11 @@ const codeExample = computed(() => {
                 >pageFooter</v-button
               >
             </div>
+          </div>
+        </template>
+        <template v-slot:source>
+          <v-code-block class="mb-4" language="html" :code="codeExample" />
+          <div class="flex w-full justify-center">
             <v-button
               :class="`mt-2 ${state.vueRouter ? 'variant-filled' : 'variant-soft'}`"
               @click="state.vueRouter = !state.vueRouter"
@@ -165,10 +176,8 @@ const codeExample = computed(() => {
               Vue Router
             </v-button>
           </div>
-        </div>
-      </section>
-
-      <v-code-block class="md:h-60" language="html" :code="codeExample" />
-    </section>
-  </div>
+        </template>
+      </v-preview>
+    </v-tab-panel>
+  </v-tabs>
 </template>

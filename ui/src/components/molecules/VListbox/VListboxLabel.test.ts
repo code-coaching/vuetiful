@@ -1,6 +1,5 @@
 import { mount } from "@vue/test-utils";
 import { expect, test } from "vitest";
-import { ref } from "vue";
 import VListbox from "./VListbox.vue";
 
 test("VListboxLabel using slot", () => {
@@ -19,7 +18,7 @@ test("VListboxLabel using slot", () => {
 test("VListboxLabel custom label", () => {
   const wrapper = mount({
     template: `
-      <v-listbox label-text="John Duck"></v-listbox>
+      <v-listbox text-label="John Duck"></v-listbox>
     `,
     components: {
       "v-listbox": VListbox,

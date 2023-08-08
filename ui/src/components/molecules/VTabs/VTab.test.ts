@@ -20,8 +20,9 @@ describe("VTab", () => {
 
     const vuetiful = wrapper.find("[data-test='vuetiful']");
     const slotContainer = vuetiful.find("[data-test='slot-container']");
-    expect(vuetiful.classes()).toEqual(["flex", "flex-col"]);
+    expect(vuetiful.classes()).toEqual(["vuetiful-tab", "flex", "flex-col"]);
     expect(slotContainer.classes()).toEqual([
+      "vuetiful-tab-content",
       "text-base",
       "rounded-token",
       "w-full",
@@ -46,7 +47,7 @@ describe("VTab", () => {
     });
 
     const vuetiful = wrapper.find("[data-test='vuetiful']");
-    expect(vuetiful.classes()).toEqual(["flex", "flex-row", "justify-between"]);
+    expect(vuetiful.classes()).toEqual(["vuetiful-tab", "flex", "flex-row", "justify-between"]);
   });
 
   test("class-tab", async () => {
@@ -66,7 +67,7 @@ describe("VTab", () => {
 
     const vuetiful = wrapper.find("[data-test='vuetiful']");
     const slotContainer = vuetiful.find("[data-test='slot-container']");
-    expect(slotContainer.classes()).toEqual(["text-base", "rounded-token", "my-custom-class"]);
+    expect(slotContainer.classes()).toEqual(["vuetiful-tab-content", "text-base", "rounded-token", "my-custom-class"]);
   });
 
   test("hover/active", async () => {
@@ -95,6 +96,7 @@ describe("VTab", () => {
       .find("[data-test='slot-container']");
 
     expect(vuetifulSlotContainer.classes()).toEqual([
+      "vuetiful-tab-content",
       "text-base",
       "rounded-token",
       "my-custom-active-class",
@@ -103,6 +105,7 @@ describe("VTab", () => {
       "py-2",
     ]);
     expect(isSlotContainer.classes()).toEqual([
+      "vuetiful-tab-content",
       "text-base",
       "rounded-token",
       "hover:variant-ghost",
@@ -111,6 +114,7 @@ describe("VTab", () => {
       "py-2",
     ]);
     expect(beautifulSlotContainer.classes()).toEqual([
+      "vuetiful-tab-content",
       "text-base",
       "rounded-token",
       "hover:variant-ghost",

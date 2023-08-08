@@ -21,7 +21,7 @@ describe("VTabs", () => {
     const wrapper = mount({
       template: /*html*/ `
           <v-tabs>
-            <template v-slot="tabs">
+            <template v-slot:tabs>
               <v-tab>John Duck</v-tab>
             </template>
             <v-tab-panel>John Duck Panel</v-tab-panel>
@@ -47,6 +47,7 @@ describe("VTabs", () => {
     const tabPanels = wrapper.find("[data-test='vuetiful-tab-panels']");
     expect(tabPanels.classes()).toEqual([
       "vuetiful-tab-panels",
+      "p-4",
       "!rounded-tl-none",
       "!rounded-tr-none",
       "rounded-container-token",
@@ -57,7 +58,7 @@ describe("VTabs", () => {
     const wrapper = mount({
       template: /*html*/ `
           <v-tabs vertical>
-            <template v-slot="tabs">
+            <template v-slot:tabs>
               <v-tab>Tab 1</v-tab>
             </template>
             <v-tab-panel>Panel 1</v-tab-panel>
@@ -82,6 +83,7 @@ describe("VTabs", () => {
     const tabPanels = wrapper.find("[data-test='vuetiful-tab-panels']");
     expect(tabPanels.classes()).toEqual([
       "vuetiful-tab-panels",
+      "p-4",
       "!rounded-bl-none",
       "!rounded-tl-none",
       "rounded-container-token",

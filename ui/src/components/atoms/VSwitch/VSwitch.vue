@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useSettings } from "@/index";
+import { sizeProp, unstyledProp } from "@/props";
 import { Switch } from "@headlessui/vue";
 import { computed, ref, watch } from "vue";
 
@@ -12,16 +14,12 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  size: {
-    type: String,
-    default: "md",
-  },
 
-  switchClass: {
+  classTrack: {
     type: String,
     default: "variant-filled",
   },
-  thumbClass: {
+  classThumb: {
     type: String,
     default: "bg-surface-100-800-token",
   },
@@ -34,6 +32,9 @@ const props = defineProps({
     type: String,
     default: "",
   },
+
+  size: sizeProp,
+  unstyled: unstyledProp,
 });
 
 const parentModelValue = ref(props.modelValue);
@@ -62,17 +63,22 @@ const trackSize = computed(() => {
       return "w-20 h-10";
     case "xl":
       return "w-24 h-12";
-    default:
-      return props.size;
   }
 });
+
+const { settings } = useSettings();
+const isUnstyled =
+  settings.global.unstyled || settings.components.switch.unstyled || props.unstyled;
 </script>
 
 <template>
-  <!-- There is some odd behavior with test coverge, v-model must be the last property in this component -->
+  <!-- There is some odd behavior with test coverage, v-model must be the last property in this component -->
   <Switch
-    :class="`slide-toggle rounded-container-token ${
-      disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'
+    data-test="switch"
+    :class="`vuetiful-slide-toggle ${
+      isUnstyled
+        ? ''
+        : `rounded-container-token ${disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`
     }`"
     :name="name"
     :as="as"
@@ -80,17 +86,23 @@ const trackSize = computed(() => {
     v-model="parentModelValue"
   >
     <div
-      :class="`slide-toggle-track flex transition-all duration-[150ms] border-token rounded-token ${trackSize} ${
-        disabled ? 'cursor-not-allowed' : 'cursor-pointer'
-      } ${switchClass}`"
+      data-test="switch-track"
+      :class="`vuetiful-slide-toggle-track flex ${
+        isUnstyled ? '' : `transition-all duration-[150ms] border-token rounded-token`
+      }
+      ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}
+      ${trackSize} ${classTrack}`"
     >
       <template v-if="$slots.default">
         <span class="sr-only"><slot /></span>
       </template>
       <div
-        :class="`slide-toggle-thumb h-full w-[50%] scale-[0.8] shadow transition-all duration-[150ms] rounded-token ${
-          checked ? 'translate-x-full' : 'opacity-90'
-        } ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'} ${thumbClass} bg-opacity-90`"
+        data-test="switch-thumb"
+        :class="`vuetiful-slide-toggle-thumb w-[50%] scale-[0.8] ${
+          isUnstyled ? '' : `bg-opactiy-90 shadow transition-all duration-[150ms] rounded-token `
+        }
+        ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}
+        ${checked ? 'translate-x-full' : `${isUnstyled ? '' : 'opacity-90'}`} ${classThumb}`"
       ></div>
     </div>
   </Switch>

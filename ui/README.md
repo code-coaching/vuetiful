@@ -18,7 +18,6 @@ TailwindCSS is added as a dependency in the consuming app, but is not mandatory 
 - [x] Avatar
 - [x] Badge
 - [x] Button
-- [x] Code Block (with syntax highlighting and copy to clipboard)
 - [ ] Conic Gradients
 - [x] Chip
 - [ ] File Button
@@ -37,6 +36,7 @@ TailwindCSS is added as a dependency in the consuming app, but is not mandatory 
 - [x] Accordion
 - [x] Alert
 - [ ] Autocomplete
+- [x] Code Block (with syntax highlighting and copy to clipboard)
 - [ ] Breadcrumb
 - [ ] Card
 - [x] Drawer

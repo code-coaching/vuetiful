@@ -2,19 +2,15 @@ import { defineConfig } from "vite";
 import type { UserConfig } from "vitest/config";
 import * as viteConfig from "./vite.config";
 
-interface VitestConfig extends UserConfig {
-  test: {
-    environment: "happy-dom" | "jsdom";
-  };
-}
 const vitestConfig: UserConfig = {
   test: {
     environment: "jsdom",
     coverage: {
-      lines: 95.27,
-      functions: 83.33,
-      branches: 95.85,
-      statements: 95.27,
+      exclude: ["**/src/types/**"],
+      lines: 98.47,
+      functions: 89.01,
+      branches: 99.35,
+      statements: 98.47,
       thresholdAutoUpdate: true,
     },
   },

@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import { useSettings } from "@/index";
 import { ListboxOptions } from "@headlessui/vue";
 import { inject } from "vue";
 
-defineProps({
+const props = defineProps({
   as: {
     type: String,
     default: "ul",
@@ -11,21 +12,33 @@ defineProps({
     type: Boolean,
     default: false,
   },
+
+  unstyled: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const background = inject("background") as string;
 const text = inject("text") as string;
 const horizontal = inject("horizontal") as boolean;
+const classItems = inject("classItems") as string;
+
+const { settings } = useSettings();
+const isUnstyled = settings.global.unstyled || settings.components.listbox.unstyled || props.unstyled;
 </script>
 
 <template>
   <ListboxOptions
     :as="as"
     :static="static"
-    :class="`p-4 border-token border-surface-400-500-token rounded-container-token ${background} ${text}`"
+    :class="`z-10 ${
+      isUnstyled
+        ? ''
+        : `rounded-container-token' gap-1 p-4 border-token border-surface-400-500-token`
+    } ${background} ${text} ${horizontal ? 'flex' : 'flex-col'} ${classItems}`"
+    data-test="listbox-items"
   >
-    <div data-test="listbox-items" :class="`flex ${horizontal ? 'flex' : 'flex-col'} gap-1`">
-      <slot />
-    </div>
+    <slot />
   </ListboxOptions>
 </template>

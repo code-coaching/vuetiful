@@ -23,10 +23,10 @@ describe("VListboxItem props", () => {
       },
     });
 
-    const listbox = wrapper.find("[data-test='v-listbox']");
+    const listbox = wrapper.find("[data-test='listbox']");
     await listbox.find("button").trigger("click");
 
-    const listboxItems = listbox.findAll("[data-test='v-listbox-item']");
+    const listboxItems = listbox.findAll("[data-test='listbox-item']");
     const selectedItem = listboxItems[0];
     const normalItem = listboxItems[1];
     expect(selectedItem.classes()).toEqual([

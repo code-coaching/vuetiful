@@ -1,7 +1,7 @@
 import VDrawer from "./VDrawer.vue";
 import VPreview from "./VPreview.vue";
-import VRail from "./VRail.vue";
-import VRailTile from "./VRailTile.vue";
+import VRail from "./VRail/VRail.vue";
+import VRailTile from "./VRail/VRailTile.vue";
 import VShell from "./VShell.vue";
 
 import VListbox from "./VListbox/VListbox.vue";
@@ -24,6 +24,8 @@ import VCardBody from "./VCard/VCardBody.vue";
 import VCardFooter from "./VCard/VCardFooter.vue";
 import VCardHeader from "./VCard/VCardHeader.vue";
 
+import VCodeBlock from "./VCodeBlock.vue";
+
 export {
   VAccordion,
   VAccordionItem,
@@ -32,6 +34,7 @@ export {
   VCardBody,
   VCardFooter,
   VCardHeader,
+  VCodeBlock,
   VDrawer,
   VListbox,
   VListboxButton,

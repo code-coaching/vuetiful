@@ -1,6 +1,8 @@
-import { useRail } from "./rail.service";
+import { useDarkMode } from "./dark-mode.service";
 import { useDrawer } from "./drawer.service";
 import { useHighlight } from "./highlight.service";
-import { useDarkMode } from "./dark-mode.service";
+import { useRail } from "./rail.service";
+import { useSettings, VuetifulSettings } from "./settings.service";
 
-export { useRail, useDrawer, useHighlight, useDarkMode };
+export { useDarkMode, useDrawer, useHighlight, useRail, useSettings };
+export type { VuetifulSettings };

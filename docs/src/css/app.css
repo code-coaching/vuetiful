@@ -4,14 +4,14 @@ h3,
 h4,
 h5,
 h6 {
-  margin-bottom: 1rem;
+  @apply mb-4 md:mb-8;
 }
 
 section.section {
-  margin-bottom: 2rem;
+  @apply mb-6 md:mb-14;
 }
 header.header {
-  margin-bottom: 2rem;
+  @apply mb-4 md:mb-10;
 }
 
 summary {
@@ -219,6 +219,7 @@ body,
 
 .q-field__native {
   color: currentColor !important;
+  background-color: transparent !important;
 }
 
 .q-time {

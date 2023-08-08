@@ -16,7 +16,7 @@ test("VListboxItems defaults", async () => {
     },
   });
 
-  const listbox = wrapper.find("[data-test='v-listbox']");
+  const listbox = wrapper.find("[data-test='listbox']");
   await listbox.find("button").trigger("click");
 
   const listboxItems = listbox.find("[data-test='listbox-items']");
@@ -36,7 +36,7 @@ test("VListboxItems horizontal", async () => {
     },
   });
 
-  const listbox = wrapper.find("[data-test='v-listbox']");
+  const listbox = wrapper.find("[data-test='listbox']");
   await listbox.find("button").trigger("click");
 
   const listboxItems = listbox.find("[data-test='listbox-items']");

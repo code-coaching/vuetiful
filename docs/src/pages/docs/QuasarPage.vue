@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { VCodeBlock } from '@code-coaching/vuetiful';
+import { VAlert, VCodeBlock, VPreview } from '@code-coaching/vuetiful';
 import { reactive, ref } from 'vue';
 
 const onDropdownItemClick = (item: string) => {
@@ -32,35 +32,33 @@ const time = ref('03:30');
 const timeWithSeconds = ref('03:30:00');
 const date = ref('1991/08/13');
 
-const qAvatarExample = `<div class="flex flex-wrap gap-1">
-  <q-avatar class="h-8 w-8">
-    <img src="/img/john-duck.png" />
-  </q-avatar>
-  <q-avatar class="h-16 w-16">
-    <img src="/img/john-duck.png" />
-  </q-avatar>
-  <q-avatar class="h-32 w-32">
-    <img src="/img/john-duck.png" />
-  </q-avatar>
+const qAvatarExample = `<q-avatar class="h-8 w-8">
+  <img src="/img/john-duck.png" />
+</q-avatar>
+<q-avatar class="h-16 w-16">
+  <img src="/img/john-duck.png" />
+</q-avatar>
+<q-avatar class="h-32 w-32">
+  <img src="/img/john-duck.png" />
+</q-avatar>
 
-  <q-avatar class="h-8 w-8 bg-surface-300 text-surface-900">JD</q-avatar>
-  <q-avatar class="h-16 w-16 bg-surface-300 text-surface-900">
-    JD
-  </q-avatar>
-  <q-avatar class="h-32 w-32 bg-surface-300 text-surface-900">
-    JD
-  </q-avatar>
+<q-avatar class="h-8 w-8 bg-surface-300 text-surface-900">JD</q-avatar>
+<q-avatar class="h-16 w-16 bg-surface-300 text-surface-900">
+  JD
+</q-avatar>
+<q-avatar class="h-32 w-32 bg-surface-300 text-surface-900">
+  JD
+</q-avatar>
 
-  <q-avatar class="h-8 w-8 bg-surface-800 text-surface-50">JD</q-avatar>
-  <q-avatar class="h-16 w-16 bg-surface-800 text-surface-50">
-    JD
-  </q-avatar>
-  <q-avatar class="h-32 w-32 bg-surface-800 text-surface-50">
-    JD
-  </q-avatar>
-</div>`;
+<q-avatar class="h-8 w-8 bg-surface-800 text-surface-50">JD</q-avatar>
+<q-avatar class="h-16 w-16 bg-surface-800 text-surface-50">
+  JD
+</q-avatar>
+<q-avatar class="h-32 w-32 bg-surface-800 text-surface-50">
+  JD
+</q-avatar>`;
 
-const qBadgeExample = `<div class="flex flex-col gap-2">
+const qBadgeExample = `<div class="flex flex-col gap-4">
   <div class="flex flex-wrap gap-2">
     <q-badge class="bg-surface-100 text-surface-900"> Surface </q-badge>
     <q-badge class="bg-primary-100 text-primary-900"> Primary </q-badge>
@@ -412,7 +410,7 @@ const qChipExample = (type: string) => `<q-chip ${
   Error
 </q-chip>`;
 
-const qColorExample = `<div class="flex flex-col gap-2">
+const qColorExample = `<div class="flex flex-col gap-4">
   <div class="flex flex-wrap items-start gap-2">
     <q-color class="bg-surface-100 text-surface-900" v-model="hex" />
     <q-color class="bg-surface-100 text-surface-900" v-model="hexa" />
@@ -1050,450 +1048,495 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 </script>
 
 <template>
-  <div class="flex max-w-5xl flex-col p-4">
-    <h1>Quasar Components</h1>
-    <header class="header">
-      <section class="section">
-        <p>
-          This page demonstrates how the Quasar components change according to the chosen theme. The theme can be
-          switched by using the "Theme Switcher", found in the top right corner.
-        </p>
-      </section>
-      <hr />
-    </header>
-
-    <h2>QAvatar</h2>
+  <h1>Quasar Components</h1>
+  <header class="header">
     <section class="section">
-      <div class="flex flex-wrap gap-2">
-        <div class="flex flex-wrap gap-1">
-          <q-avatar class="h-8 w-8">
-            <img src="/img/john-duck.png" />
-          </q-avatar>
-          <q-avatar class="h-16 w-16">
-            <img src="/img/john-duck.png" />
-          </q-avatar>
-          <q-avatar class="h-32 w-32">
-            <img src="/img/john-duck.png" />
-          </q-avatar>
-        </div>
-        <div class="flex flex-wrap gap-1">
-          <q-avatar class="h-8 w-8 bg-surface-300 text-surface-900">JD</q-avatar>
-          <q-avatar class="h-16 w-16 bg-surface-300 text-surface-900"> JD </q-avatar>
-          <q-avatar class="h-32 w-32 bg-surface-300 text-surface-900"> JD </q-avatar>
-        </div>
-        <div class="flex flex-wrap gap-1">
-          <q-avatar class="h-8 w-8 bg-surface-800 text-surface-50">JD</q-avatar>
-          <q-avatar class="h-16 w-16 bg-surface-800 text-surface-50"> JD </q-avatar>
-          <q-avatar class="h-32 w-32 bg-surface-800 text-surface-50"> JD </q-avatar>
-        </div>
-      </div>
+      <p>
+        This page demonstrates how the Quasar components change according to the chosen theme. The theme can be switched
+        by using the "Theme Switcher", found in the top right corner.
+      </p>
+    </section>
+    <hr />
+  </header>
 
-      <details class="mt-4">
-        <summary>Code</summary>
+  <h2>QAvatar</h2>
+  <section class="section">
+    <v-preview>
+      <template v-slot:preview>
+        <div class="flex flex-wrap gap-2">
+          <div class="flex flex-wrap gap-1">
+            <q-avatar class="h-8 w-8">
+              <img src="/img/john-duck.png" />
+            </q-avatar>
+            <q-avatar class="h-16 w-16">
+              <img src="/img/john-duck.png" />
+            </q-avatar>
+            <q-avatar class="h-32 w-32">
+              <img src="/img/john-duck.png" />
+            </q-avatar>
+          </div>
+          <div class="flex flex-wrap gap-1">
+            <q-avatar class="h-8 w-8 bg-surface-300 text-surface-900">JD</q-avatar>
+            <q-avatar class="h-16 w-16 bg-surface-300 text-surface-900"> JD </q-avatar>
+            <q-avatar class="h-32 w-32 bg-surface-300 text-surface-900"> JD </q-avatar>
+          </div>
+          <div class="flex flex-wrap gap-1">
+            <q-avatar class="h-8 w-8 bg-surface-800 text-surface-50">JD</q-avatar>
+            <q-avatar class="h-16 w-16 bg-surface-800 text-surface-50"> JD </q-avatar>
+            <q-avatar class="h-32 w-32 bg-surface-800 text-surface-50"> JD </q-avatar>
+          </div>
+        </div>
+      </template>
+      <template v-slot:source>
         <v-code-block language="html" :code="qAvatarExample" />
-      </details>
-    </section>
+      </template>
+    </v-preview>
+  </section>
 
-    <h2>QBadge</h2>
-    <section class="section">
-      <div class="flex flex-col gap-2">
-        <div class="flex flex-wrap gap-2">
-          <q-badge class="bg-surface-100 text-surface-900"> Surface </q-badge>
-          <q-badge class="bg-primary-100 text-primary-900"> Primary </q-badge>
-          <q-badge class="bg-secondary-100 text-secondary-900"> Secondary </q-badge>
-          <q-badge class="bg-tertiary-100 text-tertiary-900"> Tertiary </q-badge>
-          <q-badge class="bg-success-100 text-success-900"> Success </q-badge>
-          <q-badge class="bg-warning-100 text-warning-900"> Warning </q-badge>
-          <q-badge class="bg-error-100 text-error-900"> Error </q-badge>
+  <h2>QBadge</h2>
+  <section class="section">
+    <v-preview>
+      <template v-slot:preview>
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-wrap gap-2">
+            <q-badge class="bg-surface-100 text-surface-900"> Surface </q-badge>
+            <q-badge class="bg-primary-100 text-primary-900"> Primary </q-badge>
+            <q-badge class="bg-secondary-100 text-secondary-900"> Secondary </q-badge>
+            <q-badge class="bg-tertiary-100 text-tertiary-900"> Tertiary </q-badge>
+            <q-badge class="bg-success-100 text-success-900"> Success </q-badge>
+            <q-badge class="bg-warning-100 text-warning-900"> Warning </q-badge>
+            <q-badge class="bg-error-100 text-error-900"> Error </q-badge>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <q-badge class="bg-surface-800 text-surface-50"> Surface </q-badge>
+            <q-badge class="bg-primary-800 text-primary-50"> Primary </q-badge>
+            <q-badge class="bg-secondary-800 text-secondary-50"> Secondary </q-badge>
+            <q-badge class="bg-tertiary-800 text-tertiary-50"> Tertiary </q-badge>
+            <q-badge class="bg-success-800 text-success-50"> Success </q-badge>
+            <q-badge class="bg-warning-800 text-warning-50"> Warning </q-badge>
+            <q-badge class="bg-error-800 text-error-50"> Error </q-badge>
+          </div>
         </div>
-        <div class="flex flex-wrap gap-2">
-          <q-badge class="bg-surface-800 text-surface-50"> Surface </q-badge>
-          <q-badge class="bg-primary-800 text-primary-50"> Primary </q-badge>
-          <q-badge class="bg-secondary-800 text-secondary-50"> Secondary </q-badge>
-          <q-badge class="bg-tertiary-800 text-tertiary-50"> Tertiary </q-badge>
-          <q-badge class="bg-success-800 text-success-50"> Success </q-badge>
-          <q-badge class="bg-warning-800 text-warning-50"> Warning </q-badge>
-          <q-badge class="bg-error-800 text-error-50"> Error </q-badge>
-        </div>
-      </div>
-      <details class="mt-4">
-        <summary>Code</summary>
+      </template>
+      <template v-slot:source>
         <v-code-block language="html" :code="qBadgeExample" />
-      </details>
-    </section>
+      </template>
+    </v-preview>
+  </section>
 
-    <h2>QBanner</h2>
+  <h2>QBanner</h2>
+  <section class="section">
     <section class="section">
-      <section class="section">
-        <div class="flex flex-col gap-1">
-          <q-banner inline-actions class="bg-surface-100 text-surface-900">
-            Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
-            pleasing and elegant design.
-            <template v-slot:action>
-              <q-btn flat label="Dismiss" />
-            </template>
-          </q-banner>
+      <v-preview>
+        <template v-slot:preview>
+          <div class="flex flex-col gap-1">
+            <q-banner inline-actions class="bg-surface-100 text-surface-900">
+              Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+              pleasing and elegant design.
+              <template v-slot:action>
+                <q-btn flat label="Dismiss" />
+              </template>
+            </q-banner>
 
-          <q-banner inline-actions class="bg-surface-800 text-surface-50">
-            Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
-            pleasing and elegant design.
-            <template v-slot:action>
-              <q-btn flat label="Dismiss" />
-            </template>
-          </q-banner>
-        </div>
-
-        <details class="mt-4">
-          <summary>Code</summary>
+            <q-banner inline-actions class="bg-surface-800 text-surface-50">
+              Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+              pleasing and elegant design.
+              <template v-slot:action>
+                <q-btn flat label="Dismiss" />
+              </template>
+            </q-banner>
+          </div>
+        </template>
+        <template v-slot:source>
           <v-code-block language="html" :code="qBannerExample('surface')" />
-        </details>
-      </section>
+        </template>
+      </v-preview>
+    </section>
 
-      <section class="section">
-        <div class="flex flex-col gap-1">
-          <q-banner inline-actions class="bg-primary-100 text-primary-900">
-            Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
-            pleasing and elegant design.
-            <template v-slot:action>
-              <q-btn flat label="Dismiss" />
-            </template>
-          </q-banner>
-          <q-banner inline-actions class="bg-primary-800 text-primary-50">
-            Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
-            pleasing and elegant design.
-            <template v-slot:action>
-              <q-btn flat label="Dismiss" />
-            </template>
-          </q-banner>
-        </div>
-
-        <details class="mt-4">
-          <summary>Code</summary>
+    <section class="section">
+      <v-preview>
+        <template v-slot:preview>
+          <div class="flex flex-col gap-1">
+            <q-banner inline-actions class="bg-primary-100 text-primary-900">
+              Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+              pleasing and elegant design.
+              <template v-slot:action>
+                <q-btn flat label="Dismiss" />
+              </template>
+            </q-banner>
+            <q-banner inline-actions class="bg-primary-800 text-primary-50">
+              Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+              pleasing and elegant design.
+              <template v-slot:action>
+                <q-btn flat label="Dismiss" />
+              </template>
+            </q-banner>
+          </div>
+        </template>
+        <template v-slot:source>
           <v-code-block language="html" :code="qBannerExample('primary')" />
-        </details>
-      </section>
+        </template>
+      </v-preview>
+    </section>
 
-      <section class="section">
-        <div class="flex flex-col gap-1">
-          <q-banner inline-actions class="bg-secondary-100 text-secondary-900">
-            Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
-            pleasing and elegant design.
-            <template v-slot:action>
-              <q-btn flat label="Dismiss" />
-            </template>
-          </q-banner>
-          <q-banner inline-actions class="bg-secondary-800 text-secondary-50">
-            Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
-            pleasing and elegant design.
-            <template v-slot:action>
-              <q-btn flat label="Dismiss" />
-            </template>
-          </q-banner>
-        </div>
-
-        <details class="mt-4">
-          <summary>Code</summary>
+    <section class="section">
+      <v-preview>
+        <template v-slot:preview>
+          <div class="flex flex-col gap-1">
+            <q-banner inline-actions class="bg-secondary-100 text-secondary-900">
+              Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+              pleasing and elegant design.
+              <template v-slot:action>
+                <q-btn flat label="Dismiss" />
+              </template>
+            </q-banner>
+            <q-banner inline-actions class="bg-secondary-800 text-secondary-50">
+              Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+              pleasing and elegant design.
+              <template v-slot:action>
+                <q-btn flat label="Dismiss" />
+              </template>
+            </q-banner>
+          </div>
+        </template>
+        <template v-slot:source>
           <v-code-block language="html" :code="qBannerExample('secondary')" />
-        </details>
-      </section>
+        </template>
+      </v-preview>
+    </section>
 
-      <section class="section">
-        <div class="flex flex-col gap-1">
-          <q-banner inline-actions class="bg-tertiary-100 text-tertiary-900">
-            Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
-            pleasing and elegant design.
-            <template v-slot:action>
-              <q-btn flat label="Dismiss" />
-            </template>
-          </q-banner>
-          <q-banner inline-actions class="bg-tertiary-800 text-tertiary-50">
-            Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
-            pleasing and elegant design.
-            <template v-slot:action>
-              <q-btn flat label="Dismiss" />
-            </template>
-          </q-banner>
-        </div>
-
-        <details class="mt-4">
-          <summary>Code</summary>
+    <section class="section">
+      <v-preview>
+        <template v-slot:preview>
+          <div class="flex flex-col gap-1">
+            <q-banner inline-actions class="bg-tertiary-100 text-tertiary-900">
+              Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+              pleasing and elegant design.
+              <template v-slot:action>
+                <q-btn flat label="Dismiss" />
+              </template>
+            </q-banner>
+            <q-banner inline-actions class="bg-tertiary-800 text-tertiary-50">
+              Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+              pleasing and elegant design.
+              <template v-slot:action>
+                <q-btn flat label="Dismiss" />
+              </template>
+            </q-banner>
+          </div>
+        </template>
+        <template v-slot:source>
           <v-code-block language="html" :code="qBannerExample('tertiary')" />
-        </details>
-      </section>
+        </template>
+      </v-preview>
+    </section>
 
-      <section class="section">
-        <div class="flex flex-col gap-1">
-          <q-banner inline-actions class="bg-success-100 text-success-900">
-            Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
-            pleasing and elegant design.
-            <template v-slot:action>
-              <q-btn flat label="Dismiss" />
-            </template>
-          </q-banner>
-          <q-banner inline-actions class="bg-success-800 text-success-50">
-            Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
-            pleasing and elegant design.
-            <template v-slot:action>
-              <q-btn flat label="Dismiss" />
-            </template>
-          </q-banner>
-        </div>
-
-        <details class="mt-4">
-          <summary>Code</summary>
+    <section class="section">
+      <v-preview>
+        <template v-slot:preview>
+          <div class="flex flex-col gap-1">
+            <q-banner inline-actions class="bg-success-100 text-success-900">
+              Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+              pleasing and elegant design.
+              <template v-slot:action>
+                <q-btn flat label="Dismiss" />
+              </template>
+            </q-banner>
+            <q-banner inline-actions class="bg-success-800 text-success-50">
+              Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+              pleasing and elegant design.
+              <template v-slot:action>
+                <q-btn flat label="Dismiss" />
+              </template>
+            </q-banner>
+          </div>
+        </template>
+        <template v-slot:source>
           <v-code-block language="html" :code="qBannerExample('success')" />
-        </details>
-      </section>
+        </template>
+      </v-preview>
+    </section>
 
-      <section class="section">
-        <div class="flex flex-col gap-1">
-          <q-banner inline-actions class="bg-warning-100 text-warning-900">
-            Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
-            pleasing and elegant design.
-            <template v-slot:action>
-              <q-btn flat label="Dismiss" />
-            </template>
-          </q-banner>
-          <q-banner inline-actions class="bg-warning-800 text-warning-50">
-            Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
-            pleasing and elegant design.
-            <template v-slot:action>
-              <q-btn flat label="Dismiss" />
-            </template>
-          </q-banner>
-        </div>
-
-        <details class="mt-4">
-          <summary>Code</summary>
+    <section class="section">
+      <v-preview>
+        <template v-slot:preview>
+          <div class="flex flex-col gap-1">
+            <q-banner inline-actions class="bg-warning-100 text-warning-900">
+              Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+              pleasing and elegant design.
+              <template v-slot:action>
+                <q-btn flat label="Dismiss" />
+              </template>
+            </q-banner>
+            <q-banner inline-actions class="bg-warning-800 text-warning-50">
+              Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+              pleasing and elegant design.
+              <template v-slot:action>
+                <q-btn flat label="Dismiss" />
+              </template>
+            </q-banner>
+          </div>
+        </template>
+        <template v-slot:source>
           <v-code-block language="html" :code="qBannerExample('warning')" />
-        </details>
-      </section>
+        </template>
+      </v-preview>
+    </section>
 
-      <section>
-        <div class="flex flex-col gap-1">
-          <q-banner inline-actions class="bg-error-100 text-error-900">
-            Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
-            pleasing and elegant design.
-            <template v-slot:action>
-              <q-btn flat label="Dismiss" />
-            </template>
-          </q-banner>
-          <q-banner inline-actions class="bg-error-800 text-error-50">
-            Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
-            pleasing and elegant design.
-            <template v-slot:action>
-              <q-btn flat label="Dismiss" />
-            </template>
-          </q-banner>
-        </div>
-
-        <details class="mt-4">
-          <summary>Code</summary>
+    <section>
+      <v-preview>
+        <template v-slot:preview>
+          <div class="flex flex-col gap-1">
+            <q-banner inline-actions class="bg-error-100 text-error-900">
+              Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+              pleasing and elegant design.
+              <template v-slot:action>
+                <q-btn flat label="Dismiss" />
+              </template>
+            </q-banner>
+            <q-banner inline-actions class="bg-error-800 text-error-50">
+              Vuetiful is a portmanteau of Vue and Beautiful, combining the power of the Vue.js framework with visually
+              pleasing and elegant design.
+              <template v-slot:action>
+                <q-btn flat label="Dismiss" />
+              </template>
+            </q-banner>
+          </div>
+        </template>
+        <template v-slot:source>
           <v-code-block language="html" :code="qBannerExample('error')" />
-        </details>
-      </section>
+        </template>
+      </v-preview>
     </section>
+  </section>
 
-    <h2>QBtn</h2>
+  <h2>QBtn</h2>
+  <section class="section">
     <section class="section">
-      <section class="section">
-        <div class="flex flex-col gap-4">
-          <div class="flex flex-wrap gap-2">
-            <q-btn class="!bg-surface-100 !text-surface-900"> Surface </q-btn>
-            <q-btn class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
-            <q-btn class="!bg-secondary-100 !text-secondary-900"> Secondary </q-btn>
-            <q-btn class="!bg-tertiary-100 !text-tertiary-900"> Tertiary </q-btn>
-            <q-btn class="!bg-success-100 !text-success-900"> Success </q-btn>
-            <q-btn class="!bg-warning-100 !text-warning-900"> Warning </q-btn>
-            <q-btn class="!bg-error-100 !text-error-900"> Error </q-btn>
+      <v-preview>
+        <template v-slot:preview>
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-wrap gap-2">
+              <q-btn class="!bg-surface-100 !text-surface-900"> Surface </q-btn>
+              <q-btn class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
+              <q-btn class="!bg-secondary-100 !text-secondary-900"> Secondary </q-btn>
+              <q-btn class="!bg-tertiary-100 !text-tertiary-900"> Tertiary </q-btn>
+              <q-btn class="!bg-success-100 !text-success-900"> Success </q-btn>
+              <q-btn class="!bg-warning-100 !text-warning-900"> Warning </q-btn>
+              <q-btn class="!bg-error-100 !text-error-900"> Error </q-btn>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <q-btn class="!bg-surface-800 !text-surface-50"> Surface </q-btn>
+              <q-btn class="!bg-primary-800 !text-primary-50"> Primary </q-btn>
+              <q-btn class="!bg-secondary-800 !text-secondary-50"> Secondary </q-btn>
+              <q-btn class="!bg-tertiary-800 !text-tertiary-50"> Tertiary </q-btn>
+              <q-btn class="!bg-success-800 !text-success-50"> Success </q-btn>
+              <q-btn class="!bg-warning-800 !text-warning-50"> Warning </q-btn>
+              <q-btn class="!bg-error-800 !text-error-50"> Error </q-btn>
+            </div>
           </div>
-          <div class="flex flex-wrap gap-2">
-            <q-btn class="!bg-surface-800 !text-surface-50"> Surface </q-btn>
-            <q-btn class="!bg-primary-800 !text-primary-50"> Primary </q-btn>
-            <q-btn class="!bg-secondary-800 !text-secondary-50"> Secondary </q-btn>
-            <q-btn class="!bg-tertiary-800 !text-tertiary-50"> Tertiary </q-btn>
-            <q-btn class="!bg-success-800 !text-success-50"> Success </q-btn>
-            <q-btn class="!bg-warning-800 !text-warning-50"> Warning </q-btn>
-            <q-btn class="!bg-error-800 !text-error-50"> Error </q-btn>
-          </div>
-        </div>
-        <details class="mt-4">
-          <summary>Code</summary>
+        </template>
+        <template v-slot:source>
           <v-code-block language="html" :code="qBtnExample('')" />
-        </details>
-      </section>
+        </template>
+      </v-preview>
+    </section>
 
-      <section class="section">
-        <div class="flex flex-col gap-4">
-          <div class="flex flex-wrap gap-2">
-            <q-btn flat class="!bg-surface-100 !text-surface-900"> Surface </q-btn>
-            <q-btn flat class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
-            <q-btn flat class="!bg-secondary-100 !text-secondary-900"> Secondary </q-btn>
-            <q-btn flat class="!bg-tertiary-100 !text-tertiary-900"> Tertiary </q-btn>
-            <q-btn flat class="!bg-success-100 !text-success-900"> Success </q-btn>
-            <q-btn flat class="!bg-warning-100 !text-warning-900"> Warning </q-btn>
-            <q-btn flat class="!bg-error-100 !text-error-900"> Error </q-btn>
+    <section class="section">
+      <v-preview>
+        <template v-slot:preview>
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-wrap gap-2">
+              <q-btn flat class="!bg-surface-100 !text-surface-900"> Surface </q-btn>
+              <q-btn flat class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
+              <q-btn flat class="!bg-secondary-100 !text-secondary-900"> Secondary </q-btn>
+              <q-btn flat class="!bg-tertiary-100 !text-tertiary-900"> Tertiary </q-btn>
+              <q-btn flat class="!bg-success-100 !text-success-900"> Success </q-btn>
+              <q-btn flat class="!bg-warning-100 !text-warning-900"> Warning </q-btn>
+              <q-btn flat class="!bg-error-100 !text-error-900"> Error </q-btn>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <q-btn flat class="!bg-surface-800 !text-surface-50"> Surface </q-btn>
+              <q-btn flat class="!bg-primary-800 !text-primary-50"> Primary </q-btn>
+              <q-btn flat class="!bg-secondary-800 !text-secondary-50"> Secondary </q-btn>
+              <q-btn flat class="!bg-tertiary-800 !text-tertiary-50"> Tertiary </q-btn>
+              <q-btn flat class="!bg-success-800 !text-success-50"> Success </q-btn>
+              <q-btn flat class="!bg-warning-800 !text-warning-50"> Warning </q-btn>
+              <q-btn flat class="!bg-error-800 !text-error-50"> Error </q-btn>
+            </div>
           </div>
-          <div class="flex flex-wrap gap-2">
-            <q-btn flat class="!bg-surface-800 !text-surface-50"> Surface </q-btn>
-            <q-btn flat class="!bg-primary-800 !text-primary-50"> Primary </q-btn>
-            <q-btn flat class="!bg-secondary-800 !text-secondary-50"> Secondary </q-btn>
-            <q-btn flat class="!bg-tertiary-800 !text-tertiary-50"> Tertiary </q-btn>
-            <q-btn flat class="!bg-success-800 !text-success-50"> Success </q-btn>
-            <q-btn flat class="!bg-warning-800 !text-warning-50"> Warning </q-btn>
-            <q-btn flat class="!bg-error-800 !text-error-50"> Error </q-btn>
-          </div>
-        </div>
-
-        <details class="mt-4">
-          <summary>Code</summary>
+        </template>
+        <template v-slot:source>
           <v-code-block language="html" :code="qBtnExample('flat')" />
-        </details>
-      </section>
+        </template>
+      </v-preview>
+    </section>
 
-      <section>
-        <div class="flex flex-col gap-4">
-          <div class="flex gap-2">
-            <q-btn outline class="!bg-surface-100 !text-surface-900"> Surface </q-btn>
-            <q-btn outline class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
-            <q-btn outline class="!bg-secondary-100 !text-secondary-900"> Secondary </q-btn>
-            <q-btn outline class="!bg-tertiary-100 !text-tertiary-900"> Tertiary </q-btn>
-            <q-btn outline class="!bg-success-100 !text-success-900"> Success </q-btn>
-            <q-btn outline class="!bg-warning-100 !text-warning-900"> Warning </q-btn>
-            <q-btn outline class="!bg-error-100 !text-error-900"> Error </q-btn>
+    <section>
+      <v-preview>
+        <template v-slot:preview>
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-wrap gap-2">
+              <q-btn outline class="!bg-surface-100 !text-surface-900"> Surface </q-btn>
+              <q-btn outline class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
+              <q-btn outline class="!bg-secondary-100 !text-secondary-900"> Secondary </q-btn>
+              <q-btn outline class="!bg-tertiary-100 !text-tertiary-900"> Tertiary </q-btn>
+              <q-btn outline class="!bg-success-100 !text-success-900"> Success </q-btn>
+              <q-btn outline class="!bg-warning-100 !text-warning-900"> Warning </q-btn>
+              <q-btn outline class="!bg-error-100 !text-error-900"> Error </q-btn>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <q-btn outline class="!bg-surface-800 !text-surface-50"> Surface </q-btn>
+              <q-btn outline class="!bg-primary-800 !text-primary-50"> Primary </q-btn>
+              <q-btn outline class="!bg-secondary-800 !text-secondary-50"> Secondary </q-btn>
+              <q-btn outline class="!bg-tertiary-800 !text-tertiary-50"> Tertiary </q-btn>
+              <q-btn outline class="!bg-success-800 !text-success-50"> Success </q-btn>
+              <q-btn outline class="!bg-warning-800 !text-warning-50"> Warning </q-btn>
+              <q-btn outline class="!bg-error-800 !text-error-50"> Error </q-btn>
+            </div>
           </div>
-          <div class="flex gap-2">
-            <q-btn outline class="!bg-surface-800 !text-surface-50"> Surface </q-btn>
-            <q-btn outline class="!bg-primary-800 !text-primary-50"> Primary </q-btn>
-            <q-btn outline class="!bg-secondary-800 !text-secondary-50"> Secondary </q-btn>
-            <q-btn outline class="!bg-tertiary-800 !text-tertiary-50"> Tertiary </q-btn>
-            <q-btn outline class="!bg-success-800 !text-success-50"> Success </q-btn>
-            <q-btn outline class="!bg-warning-800 !text-warning-50"> Warning </q-btn>
-            <q-btn outline class="!bg-error-800 !text-error-50"> Error </q-btn>
+        </template>
+        <template v-slot:source>
+          <v-code-block language="html" :code="qBtnExample('outline')" />
+        </template>
+      </v-preview>
+    </section>
+  </section>
+
+  <h3>QBtnGroup</h3>
+  <section class="section">
+    <v-preview>
+      <template v-slot:preview>
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-wrap gap-2">
+            <q-btn-group push>
+              <q-btn push class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
+              <q-btn push class="!bg-secondary-100 !text-secondary-900"> Secondary </q-btn>
+              <q-btn push class="!bg-tertiary-100 !text-tertiary-900"> Tertiary </q-btn>
+            </q-btn-group>
+            <q-btn-group push>
+              <q-btn push class="!bg-success-100 !text-success-900"> Success </q-btn>
+              <q-btn push class="!bg-warning-100 !text-warning-900"> Warning </q-btn>
+              <q-btn push class="!bg-error-100 !text-error-900"> Error </q-btn>
+            </q-btn-group>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <q-btn-group push>
+              <q-btn push class="!bg-primary-800 !text-primary-50"> Primary </q-btn>
+              <q-btn push class="!bg-secondary-800 !text-secondary-50"> Secondary </q-btn>
+              <q-btn push class="!bg-tertiary-800 !text-tertiary-50"> Tertiary </q-btn>
+            </q-btn-group>
+            <q-btn-group outline>
+              <q-btn push class="!bg-success-800 !text-success-50"> Success </q-btn>
+              <q-btn push class="!bg-warning-800 !text-warning-50"> Warning </q-btn>
+              <q-btn push class="!bg-error-800 !text-error-50"> Error </q-btn>
+            </q-btn-group>
           </div>
         </div>
-
-        <details class="mt-4">
-          <summary>Code</summary>
-          <v-code-block language="html" :code="qBtnExample('outline')" />
-        </details>
-      </section>
-    </section>
-
-    <h3>QBtnGroup</h3>
-    <section class="section">
-      <div class="flex flex-col gap-2">
-        <q-btn-group push>
-          <q-btn push class="!bg-surface-100 !text-surface-900"> Surface </q-btn>
-          <q-btn push class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
-          <q-btn push class="!bg-secondary-100 !text-secondary-900"> Secondary </q-btn>
-          <q-btn push class="!bg-tertiary-100 !text-tertiary-900"> Tertiary </q-btn>
-          <q-btn push class="!bg-success-100 !text-success-900"> Success </q-btn>
-          <q-btn push class="!bg-warning-100 !text-warning-900"> Warning </q-btn>
-          <q-btn push class="!bg-error-100 !text-error-900"> Error </q-btn>
-        </q-btn-group>
-        <q-btn-group push>
-          <q-btn push class="!bg-surface-800 !text-surface-50"> Surface </q-btn>
-          <q-btn push class="!bg-primary-800 !text-primary-50"> Primary </q-btn>
-          <q-btn push class="!bg-secondary-800 !text-secondary-50"> Secondary </q-btn>
-          <q-btn push class="!bg-tertiary-800 !text-tertiary-50"> Tertiary </q-btn>
-          <q-btn push class="!bg-success-800 !text-success-50"> Success </q-btn>
-          <q-btn push class="!bg-warning-800 !text-warning-50"> Warning </q-btn>
-          <q-btn push class="!bg-error-800 !text-error-50"> Error </q-btn>
-        </q-btn-group>
-      </div>
-
-      <details class="mt-4">
-        <summary>Code</summary>
+      </template>
+      <template v-slot:source>
         <v-code-block language="html" :code="qBtnGroupExample('push')" />
-      </details>
-    </section>
+      </template>
+    </v-preview>
+  </section>
 
-    <section class="section">
-      <div class="flex flex-col gap-2">
-        <q-btn-group outline>
-          <q-btn outline class="!bg-surface-100 !text-surface-900"> Surface </q-btn>
-          <q-btn outline class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
-          <q-btn outline class="!bg-secondary-100 !text-secondary-900"> Secondary </q-btn>
-          <q-btn outline class="!bg-tertiary-100 !text-tertiary-900"> Tertiary </q-btn>
-          <q-btn outline class="!bg-success-100 !text-success-900"> Success </q-btn>
-          <q-btn outline class="!bg-warning-100 !text-warning-900"> Warning </q-btn>
-          <q-btn outline class="!bg-error-100 !text-error-900"> Error </q-btn>
-        </q-btn-group>
-        <q-btn-group outline>
-          <q-btn outline class="!bg-surface-800 !text-surface-50"> Surface </q-btn>
-          <q-btn outline class="!bg-primary-800 !text-primary-50"> Primary </q-btn>
-          <q-btn outline class="!bg-secondary-800 !text-secondary-50"> Secondary </q-btn>
-          <q-btn outline class="!bg-tertiary-800 !text-tertiary-50"> Tertiary </q-btn>
-          <q-btn outline class="!bg-success-800 !text-success-50"> Success </q-btn>
-          <q-btn outline class="!bg-warning-800 !text-warning-50"> Warning </q-btn>
-          <q-btn outline class="!bg-error-800 !text-error-50"> Error </q-btn>
-        </q-btn-group>
-      </div>
-
-      <details class="mt-4">
-        <summary>Code</summary>
+  <section class="section">
+    <v-preview>
+      <template v-slot:preview>
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-wrap gap-2">
+            <q-btn-group outline>
+              <q-btn outline class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
+              <q-btn outline class="!bg-secondary-100 !text-secondary-900"> Secondary </q-btn>
+              <q-btn outline class="!bg-tertiary-100 !text-tertiary-900"> Tertiary </q-btn>
+            </q-btn-group>
+            <q-btn-group outline>
+              <q-btn outline class="!bg-success-100 !text-success-900"> Success </q-btn>
+              <q-btn outline class="!bg-warning-100 !text-warning-900"> Warning </q-btn>
+              <q-btn outline class="!bg-error-100 !text-error-900"> Error </q-btn>
+            </q-btn-group>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <q-btn-group outline>
+              <q-btn outline class="!bg-primary-800 !text-primary-50"> Primary </q-btn>
+              <q-btn outline class="!bg-secondary-800 !text-secondary-50"> Secondary </q-btn>
+              <q-btn outline class="!bg-tertiary-800 !text-tertiary-50"> Tertiary </q-btn>
+            </q-btn-group>
+            <q-btn-group outline>
+              <q-btn outline class="!bg-success-800 !text-success-50"> Success </q-btn>
+              <q-btn outline class="!bg-warning-800 !text-warning-50"> Warning </q-btn>
+              <q-btn outline class="!bg-error-800 !text-error-50"> Error </q-btn>
+            </q-btn-group>
+          </div>
+        </div>
+      </template>
+      <template v-slot:source>
         <v-code-block language="html" :code="qBtnGroupExample('outline')" />
-      </details>
-    </section>
+      </template>
+    </v-preview>
+  </section>
 
-    <h3>QBtnDropdown</h3>
-    <section class="section">
-      <div class="flex flex-wrap gap-2">
-        <q-btn-dropdown class="!bg-primary-100 !text-primary-900" label="Dropdown Button">
-          <q-list class="!bg-primary-100 !text-primary-900">
-            <q-item clickable v-close-popup @click="onDropdownItemClick('Vuetiful')">
-              <q-item-section>
-                <q-item-label>Vuetiful</q-item-label>
-              </q-item-section>
-            </q-item>
+  <h3>QBtnDropdown</h3>
+  <section class="section">
+    <v-preview>
+      <template v-slot:preview>
+        <div class="flex flex-wrap gap-2">
+          <q-btn-dropdown class="!bg-primary-100 !text-primary-900" label="Dropdown Button">
+            <q-list class="!bg-primary-100 !text-primary-900">
+              <q-item clickable v-close-popup @click="onDropdownItemClick('Vuetiful')">
+                <q-item-section>
+                  <q-item-label>Vuetiful</q-item-label>
+                </q-item-section>
+              </q-item>
 
-            <q-item clickable v-close-popup @click="onDropdownItemClick('Is')">
-              <q-item-section>
-                <q-item-label>Is</q-item-label>
-              </q-item-section>
-            </q-item>
+              <q-item clickable v-close-popup @click="onDropdownItemClick('Is')">
+                <q-item-section>
+                  <q-item-label>Is</q-item-label>
+                </q-item-section>
+              </q-item>
 
-            <q-item clickable v-close-popup @click="onDropdownItemClick('Beautiful')">
-              <q-item-section>
-                <q-item-label>Beautiful</q-item-label>
-              </q-item-section>
-            </q-item>
-          </q-list>
-        </q-btn-dropdown>
+              <q-item clickable v-close-popup @click="onDropdownItemClick('Beautiful')">
+                <q-item-section>
+                  <q-item-label>Beautiful</q-item-label>
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-btn-dropdown>
 
-        <q-btn-dropdown class="!bg-primary-800 !text-primary-50" label="Dropdown Button">
-          <q-list class="!bg-primary-800 !text-primary-50">
-            <q-item clickable v-close-popup @click="onDropdownItemClick('Vuetiful')">
-              <q-item-section>
-                <q-item-label>Vuetiful</q-item-label>
-              </q-item-section>
-            </q-item>
+          <q-btn-dropdown class="!bg-primary-800 !text-primary-50" label="Dropdown Button">
+            <q-list class="!bg-primary-800 !text-primary-50">
+              <q-item clickable v-close-popup @click="onDropdownItemClick('Vuetiful')">
+                <q-item-section>
+                  <q-item-label>Vuetiful</q-item-label>
+                </q-item-section>
+              </q-item>
 
-            <q-item clickable v-close-popup @click="onDropdownItemClick('Is')">
-              <q-item-section>
-                <q-item-label>Is</q-item-label>
-              </q-item-section>
-            </q-item>
+              <q-item clickable v-close-popup @click="onDropdownItemClick('Is')">
+                <q-item-section>
+                  <q-item-label>Is</q-item-label>
+                </q-item-section>
+              </q-item>
 
-            <q-item clickable v-close-popup @click="onDropdownItemClick('Beautiful')">
-              <q-item-section>
-                <q-item-label>Beautiful</q-item-label>
-              </q-item-section>
-            </q-item>
-          </q-list>
-        </q-btn-dropdown>
-      </div>
-      <details class="mt-4">
-        <summary>Code</summary>
+              <q-item clickable v-close-popup @click="onDropdownItemClick('Beautiful')">
+                <q-item-section>
+                  <q-item-label>Beautiful</q-item-label>
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-btn-dropdown>
+        </div>
+      </template>
+      <template v-slot:source>
         <v-code-block language="html" :code="qButtonDropdownExample" />
-      </details>
-    </section>
+      </template>
+    </v-preview>
+  </section>
 
-    <h2>QCard</h2>
+  <h2>QCard</h2>
+  <section class="section">
     <section class="section">
-      <div class="flex flex-col items-start justify-start gap-2">
-        <section class="section">
+      <v-preview>
+        <template v-slot:preview>
           <div class="flex flex-wrap items-start gap-2">
             <q-card class="w-64 bg-surface-100 text-surface-900">
               <q-item>
@@ -1529,14 +1572,16 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
               <img src="/img/john-duck.png" />
             </q-card>
           </div>
+        </template>
+        <template v-slot:source>
+          <v-code-block language="html" :code="qCardOneExample" />
+        </template>
+      </v-preview>
+    </section>
 
-          <details class="mt-4">
-            <summary>Code</summary>
-            <v-code-block language="html" :code="qCardOneExample" />
-          </details>
-        </section>
-
-        <section class="section">
+    <section class="section">
+      <v-preview>
+        <template v-slot:preview>
           <div class="flex flex-wrap items-start gap-2">
             <q-card class="w-64 bg-surface-100 text-surface-900">
               <img src="/img/john-duck.png" />
@@ -1564,14 +1609,16 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
               </q-card-section>
             </q-card>
           </div>
+        </template>
+        <template v-slot:source>
+          <v-code-block language="html" :code="qCardTwoExample" />
+        </template>
+      </v-preview>
+    </section>
 
-          <details class="mt-4">
-            <summary>Code</summary>
-            <v-code-block language="html" :code="qCardTwoExample" />
-          </details>
-        </section>
-
-        <section class="section">
+    <section class="section">
+      <v-preview>
+        <template v-slot:preview>
           <div class="flex flex-wrap items-start gap-2">
             <q-card class="w-64 bg-surface-100 text-surface-900">
               <q-img src="/img/john-duck.png">
@@ -1593,14 +1640,16 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
               </q-card-section>
             </q-card>
           </div>
+        </template>
+        <template v-slot:source>
+          <v-code-block language="html" :code="qCardFiveExample" />
+        </template>
+      </v-preview>
+    </section>
 
-          <details class="mt-4">
-            <summary>Code</summary>
-            <v-code-block language="html" :code="qCardFiveExample" />
-          </details>
-        </section>
-
-        <section class="section">
+    <section class="section">
+      <v-preview>
+        <template v-slot:preview>
           <div class="flex flex-wrap items-start gap-2">
             <q-card class="w-64">
               <q-img src="/img/john-duck.png">
@@ -1620,14 +1669,16 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
               </q-img>
             </q-card>
           </div>
+        </template>
+        <template v-slot:source>
+          <v-code-block language="html" :code="qCardThreeExample" />
+        </template>
+      </v-preview>
+    </section>
 
-          <details class="mt-4">
-            <summary>Code</summary>
-            <v-code-block language="html" :code="qCardThreeExample" />
-          </details>
-        </section>
-
-        <section>
+    <section>
+      <v-preview>
+        <template v-slot:preview>
           <div class="flex flex-wrap items-start gap-2">
             <q-card class="w-64 bg-surface-100 text-surface-900">
               <q-img src="/img/john-duck.png">
@@ -1657,835 +1708,854 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
               </q-card-actions>
             </q-card>
           </div>
-
-          <details class="mt-4">
-            <summary>Code</summary>
-            <v-code-block language="html" :code="qCardFourExample" />
-          </details>
-        </section>
-      </div>
+        </template>
+        <template v-slot:source>
+          <v-code-block language="html" :code="qCardFourExample" />
+        </template>
+      </v-preview>
     </section>
+  </section>
 
-    <h2>QChip</h2>
-    <section class="section">
-      <div class="flex flex-col gap-2">
-        <section class="section">
-          <div class="flex flex-wrap gap-1">
-            <q-chip class="bg-surface-100-800-token text-surface-900-50-token">
-              <q-avatar>
-                <img src="/img/john-duck.png" />
-              </q-avatar>
-              Surface
-            </q-chip>
+  <h2>QChip</h2>
+  <section class="section">
+    <v-preview>
+      <template v-slot:preview>
+        <div class="flex flex-col gap-4">
+          <section>
+            <div class="flex flex-wrap gap-1">
+              <q-chip class="bg-surface-100-800-token text-surface-900-50-token">
+                <q-avatar>
+                  <img src="/img/john-duck.png" />
+                </q-avatar>
+                Surface
+              </q-chip>
 
-            <q-chip class="bg-primary-100-800-token text-primary-900-50-token">
-              <q-avatar>
-                <img src="/img/john-duck.png" />
-              </q-avatar>
-              Primary
-            </q-chip>
+              <q-chip class="bg-primary-100-800-token text-primary-900-50-token">
+                <q-avatar>
+                  <img src="/img/john-duck.png" />
+                </q-avatar>
+                Primary
+              </q-chip>
 
-            <q-chip class="bg-secondary-100-800-token text-secondary-900-50-token">
-              <q-avatar>
-                <img src="/img/john-duck.png" />
-              </q-avatar>
-              Secondary
-            </q-chip>
+              <q-chip class="bg-secondary-100-800-token text-secondary-900-50-token">
+                <q-avatar>
+                  <img src="/img/john-duck.png" />
+                </q-avatar>
+                Secondary
+              </q-chip>
 
-            <q-chip class="bg-tertiary-100-800-token text-tertiary-900-50-token">
-              <q-avatar>
-                <img src="/img/john-duck.png" />
-              </q-avatar>
-              Tertiary
-            </q-chip>
+              <q-chip class="bg-tertiary-100-800-token text-tertiary-900-50-token">
+                <q-avatar>
+                  <img src="/img/john-duck.png" />
+                </q-avatar>
+                Tertiary
+              </q-chip>
 
-            <q-chip class="bg-success-100-800-token text-success-900-50-token">
-              <q-avatar>
-                <img src="/img/john-duck.png" />
-              </q-avatar>
-              Success
-            </q-chip>
+              <q-chip class="bg-success-100-800-token text-success-900-50-token">
+                <q-avatar>
+                  <img src="/img/john-duck.png" />
+                </q-avatar>
+                Success
+              </q-chip>
 
-            <q-chip class="bg-warning-100-800-token text-warning-900-50-token">
-              <q-avatar>
-                <img src="/img/john-duck.png" />
-              </q-avatar>
-              Warning
-            </q-chip>
+              <q-chip class="bg-warning-100-800-token text-warning-900-50-token">
+                <q-avatar>
+                  <img src="/img/john-duck.png" />
+                </q-avatar>
+                Warning
+              </q-chip>
 
-            <q-chip class="bg-error-100-800-token text-error-900-50-token">
-              <q-avatar>
-                <img src="/img/john-duck.png" />
-              </q-avatar>
-              Error
-            </q-chip>
-          </div>
+              <q-chip class="bg-error-100-800-token text-error-900-50-token">
+                <q-avatar>
+                  <img src="/img/john-duck.png" />
+                </q-avatar>
+                Error
+              </q-chip>
+            </div>
+          </section>
 
-          <details class="mt-4">
-            <summary>Code</summary>
-            <v-code-block language="html" :code="qChipExample('')" />
-          </details>
-        </section>
+          <section>
+            <div class="flex flex-wrap gap-1">
+              <q-chip dense class="bg-surface-100-800-token text-surface-900-50-token">
+                <q-avatar>
+                  <img src="/img/john-duck.png" />
+                </q-avatar>
+                Surface
+              </q-chip>
 
-        <section>
-          <div class="flex flex-wrap gap-1">
-            <q-chip dense class="bg-surface-100-800-token text-surface-900-50-token">
-              <q-avatar>
-                <img src="/img/john-duck.png" />
-              </q-avatar>
-              Surface
-            </q-chip>
+              <q-chip dense class="bg-primary-100-800-token text-primary-900-50-token">
+                <q-avatar>
+                  <img src="/img/john-duck.png" />
+                </q-avatar>
+                Primary
+              </q-chip>
 
-            <q-chip dense class="bg-primary-100-800-token text-primary-900-50-token">
-              <q-avatar>
-                <img src="/img/john-duck.png" />
-              </q-avatar>
-              Primary
-            </q-chip>
+              <q-chip dense class="bg-secondary-100-800-token text-secondary-900-50-token">
+                <q-avatar>
+                  <img src="/img/john-duck.png" />
+                </q-avatar>
+                Secondary
+              </q-chip>
 
-            <q-chip dense class="bg-secondary-100-800-token text-secondary-900-50-token">
-              <q-avatar>
-                <img src="/img/john-duck.png" />
-              </q-avatar>
-              Secondary
-            </q-chip>
+              <q-chip dense class="bg-tertiary-100-800-token text-tertiary-900-50-token">
+                <q-avatar>
+                  <img src="/img/john-duck.png" />
+                </q-avatar>
+                Secondary
+              </q-chip>
 
-            <q-chip dense class="bg-tertiary-100-800-token text-tertiary-900-50-token">
-              <q-avatar>
-                <img src="/img/john-duck.png" />
-              </q-avatar>
-              Secondary
-            </q-chip>
+              <q-chip dense class="bg-success-100-800-token text-success-900-50-token">
+                <q-avatar>
+                  <img src="/img/john-duck.png" />
+                </q-avatar>
+                Success
+              </q-chip>
 
-            <q-chip dense class="bg-success-100-800-token text-success-900-50-token">
-              <q-avatar>
-                <img src="/img/john-duck.png" />
-              </q-avatar>
-              Success
-            </q-chip>
+              <q-chip dense class="bg-warning-100-800-token text-warning-900-50-token">
+                <q-avatar>
+                  <img src="/img/john-duck.png" />
+                </q-avatar>
+                Warning
+              </q-chip>
 
-            <q-chip dense class="bg-warning-100-800-token text-warning-900-50-token">
-              <q-avatar>
-                <img src="/img/john-duck.png" />
-              </q-avatar>
-              Warning
-            </q-chip>
-
-            <q-chip dense class="bg-error-100-800-token text-error-900-50-token">
-              <q-avatar>
-                <img src="/img/john-duck.png" />
-              </q-avatar>
-              Error
-            </q-chip>
-          </div>
-
-          <details class="mt-4">
-            <summary>Code</summary>
-            <v-code-block language="html" :code="qChipExample('dense')" />
-          </details>
-        </section>
-      </div>
-    </section>
-
-    <h2>QColor</h2>
-    <section class="section">
-      <div class="flex flex-col gap-2">
-        <div class="flex flex-wrap items-start gap-2">
-          <q-color class="bg-surface-100 text-surface-900" v-model="hex" />
-          <q-color class="bg-surface-100 text-surface-900" v-model="hexa" />
-          <q-color class="bg-surface-100 text-surface-900" v-model="rgb" />
-          <q-color class="bg-surface-100 text-surface-900" v-model="rgba" />
+              <q-chip dense class="bg-error-100-800-token text-error-900-50-token">
+                <q-avatar>
+                  <img src="/img/john-duck.png" />
+                </q-avatar>
+                Error
+              </q-chip>
+            </div>
+          </section>
         </div>
-        <div class="flex flex-wrap items-start gap-2">
-          <q-color class="bg-surface-800 text-surface-50" v-model="hex" />
-          <q-color class="bg-surface-800 text-surface-50" v-model="hexa" />
-          <q-color class="bg-surface-800 text-surface-50" v-model="rgb" />
-          <q-color class="bg-surface-800 text-surface-50" v-model="rgba" />
+      </template>
+      <template v-slot:source>
+        <div class="flex flex-col gap-4">
+          <v-code-block language="html" :code="qChipExample('')" />
+          <v-code-block language="html" :code="qChipExample('dense')" />
         </div>
-      </div>
+      </template>
+    </v-preview>
+  </section>
 
-      <details class="mt-4">
-        <summary>Code</summary>
-        <div class="flex flex-col gap-2">
+  <h2>QColor</h2>
+  <section class="section">
+    <v-preview>
+      <template v-slot:preview>
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-wrap items-start gap-2">
+            <q-color class="bg-surface-100 text-surface-900" v-model="hex" />
+            <q-color class="bg-surface-100 text-surface-900" v-model="hexa" />
+            <q-color class="bg-surface-100 text-surface-900" v-model="rgb" />
+            <q-color class="bg-surface-100 text-surface-900" v-model="rgba" />
+          </div>
+          <div class="flex flex-wrap items-start gap-2">
+            <q-color class="bg-surface-800 text-surface-50" v-model="hex" />
+            <q-color class="bg-surface-800 text-surface-50" v-model="hexa" />
+            <q-color class="bg-surface-800 text-surface-50" v-model="rgb" />
+            <q-color class="bg-surface-800 text-surface-50" v-model="rgba" />
+          </div>
+        </div>
+      </template>
+      <template v-slot:source>
+        <div class="flex flex-col gap-4">
           <v-code-block language="ts" :code="qColorScriptExample" />
           <v-code-block language="html" :code="qColorExample" />
         </div>
-      </details>
-    </section>
+      </template>
+    </v-preview>
+  </section>
 
-    <h2>QEditor</h2>
-    <section class="section">
-      <div class="flex flex-wrap gap-2">
-        <q-editor class="dark-actions bg-surface-100 text-surface-900" v-model="editor" min-height="5rem" />
-
-        <q-editor class="light-actions bg-surface-800 text-surface-50" v-model="editor" min-height="5rem" />
-      </div>
-
-      <details class="mb-2 mt-2">
-        <summary>Code</summary>
-        <div class="flex flex-col gap-2">
+  <h2>QEditor</h2>
+  <section class="section">
+    <v-preview>
+      <template v-slot:preview>
+        <div class="flex flex-wrap gap-4">
+          <q-editor class="dark-actions bg-surface-100 text-surface-900" v-model="editor" min-height="5rem" />
+          <q-editor class="light-actions bg-surface-800 text-surface-50" v-model="editor" min-height="5rem" />
+        </div>
+      </template>
+      <template v-slot:source>
+        <div class="flex flex-col gap-4">
           <v-code-block language="ts" :code="qEditorScriptExample" />
           <v-code-block language="html" :code="qEditorExample" />
         </div>
-      </details>
-    </section>
+      </template>
+    </v-preview>
+  </section>
 
-    <h2>QExpansionItem</h2>
-    <section class="section">
-      <div class="flex flex-wrap items-start gap-4">
-        <q-list class="w-64" bordered>
-          <q-expansion-item expand-separator icon="perm_identity" label="Account settings" caption="John Duck">
-            <q-card>
-              <q-card-section>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-                commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste eveniet
-                doloribus ullam aliquid.
-              </q-card-section>
-            </q-card>
-          </q-expansion-item>
+  <h2>QExpansionItem</h2>
+  <section class="section">
+    <v-preview>
+      <template v-slot:preview>
+        <div class="flex flex-wrap items-start gap-4">
+          <q-list class="w-64" bordered>
+            <q-expansion-item expand-separator icon="perm_identity" label="Account settings" caption="John Duck">
+              <q-card>
+                <q-card-section>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
+                  commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
+                  eveniet doloribus ullam aliquid.
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
 
-          <q-expansion-item expand-separator icon="signal_wifi_off" label="Wifi settings">
-            <q-card>
-              <q-card-section>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-                commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste eveniet
-                doloribus ullam aliquid.
-              </q-card-section>
-            </q-card>
-          </q-expansion-item>
+            <q-expansion-item expand-separator icon="signal_wifi_off" label="Wifi settings">
+              <q-card>
+                <q-card-section>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
+                  commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
+                  eveniet doloribus ullam aliquid.
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
 
-          <q-expansion-item icon="assessment" label="Disabled" disable>
-            <q-card>
-              <q-card-section>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-                commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste eveniet
-                doloribus ullam aliquid.
-              </q-card-section>
-            </q-card>
-          </q-expansion-item>
+            <q-expansion-item icon="assessment" label="Disabled" disable>
+              <q-card>
+                <q-card-section>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
+                  commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
+                  eveniet doloribus ullam aliquid.
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
 
-          <q-expansion-item expand-separator icon="drafts" label="Drafts">
-            <q-card>
-              <q-card-section>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-                commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste eveniet
-                doloribus ullam aliquid.
-              </q-card-section>
-            </q-card>
-          </q-expansion-item>
-        </q-list>
+            <q-expansion-item expand-separator icon="drafts" label="Drafts">
+              <q-card>
+                <q-card-section>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
+                  commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
+                  eveniet doloribus ullam aliquid.
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
+          </q-list>
 
-        <q-list class="w-64 bg-surface-800 text-surface-50" bordered>
-          <q-expansion-item
-            expand-separator
-            icon="perm_identity"
-            label="Account settings"
-            caption="John Duck"
-            group="accordion"
-          >
-            <q-card>
-              <q-card-section>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-                commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste eveniet
-                doloribus ullam aliquid.
-              </q-card-section>
-            </q-card>
-          </q-expansion-item>
+          <q-list class="w-64 bg-surface-800 text-surface-50" bordered>
+            <q-expansion-item
+              expand-separator
+              icon="perm_identity"
+              label="Account settings"
+              caption="John Duck"
+              group="accordion"
+            >
+              <q-card>
+                <q-card-section>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
+                  commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
+                  eveniet doloribus ullam aliquid.
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
 
-          <q-expansion-item expand-separator icon="signal_wifi_off" label="Wifi settings" group="accordion">
-            <q-card>
-              <q-card-section>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-                commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste eveniet
-                doloribus ullam aliquid.
-              </q-card-section>
-            </q-card>
-          </q-expansion-item>
+            <q-expansion-item expand-separator icon="signal_wifi_off" label="Wifi settings" group="accordion">
+              <q-card>
+                <q-card-section>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
+                  commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
+                  eveniet doloribus ullam aliquid.
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
 
-          <q-expansion-item icon="assessment" label="Disabled" group="accordion" disable>
-            <q-card>
-              <q-card-section>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-                commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste eveniet
-                doloribus ullam aliquid.
-              </q-card-section>
-            </q-card>
-          </q-expansion-item>
+            <q-expansion-item icon="assessment" label="Disabled" group="accordion" disable>
+              <q-card>
+                <q-card-section>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
+                  commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
+                  eveniet doloribus ullam aliquid.
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
 
-          <q-expansion-item expand-separator icon="drafts" label="Drafts" group="accordion">
-            <q-card>
-              <q-card-section>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-                commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste eveniet
-                doloribus ullam aliquid.
-              </q-card-section>
-            </q-card>
-          </q-expansion-item>
-        </q-list>
-      </div>
-
-      <details class="mb-2 mt-2">
-        <summary>Code</summary>
-        <div class="flex flex-col gap-2">
-          <v-code-block language="html" :code="qExpansionItemExample" />
+            <q-expansion-item expand-separator icon="drafts" label="Drafts" group="accordion">
+              <q-card>
+                <q-card-section>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
+                  commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
+                  eveniet doloribus ullam aliquid.
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
+          </q-list>
         </div>
-      </details>
-    </section>
+      </template>
+      <template v-slot:source>
+        <v-code-block language="html" :code="qExpansionItemExample" />
+      </template>
+    </v-preview>
+  </section>
 
-    <h2>QInput</h2>
+  <h2>QInput</h2>
+  <section class="section">
     <section class="section">
-      <section class="section">
-        <p class="mb-4">Only the outlined variant is supported</p>
-        <div class="flex flex-wrap gap-2">
-          <q-input
-            color="black"
-            label-color="black"
-            class="w-64 bg-surface-100"
-            input-class="text-surface-900 dark:text-surface-900"
-            outlined
-            v-model="text.surface"
-            label="Outlined"
-          />
+      <v-alert class="mb-4" type="info">Only the outlined variant is supported</v-alert>
+      <v-preview>
+        <template v-slot:preview>
+          <div class="flex flex-wrap gap-2">
+            <q-input
+              color="black"
+              label-color="black"
+              class="w-64 bg-surface-100"
+              input-class="text-surface-900 dark:text-surface-900"
+              outlined
+              v-model="text.surface"
+              label="Outlined"
+            />
 
-          <q-input
-            color="black"
-            label-color="black"
-            class="w-64 bg-primary-100"
-            input-class="text-primary-900 dark:text-primary-900"
-            outlined
-            v-model="text.primary"
-            label="Outlined"
-          />
+            <q-input
+              color="black"
+              label-color="black"
+              class="w-64 bg-primary-100"
+              input-class="text-primary-900 dark:text-primary-900"
+              outlined
+              v-model="text.primary"
+              label="Outlined"
+            />
 
-          <q-input
-            color="black"
-            label-color="black"
-            class="w-64 bg-secondary-100"
-            input-class="text-secondary-900 dark:text-secondary-900"
-            outlined
-            v-model="text.secondary"
-            label="Outlined"
-          />
+            <q-input
+              color="black"
+              label-color="black"
+              class="w-64 bg-secondary-100"
+              input-class="text-secondary-900 dark:text-secondary-900"
+              outlined
+              v-model="text.secondary"
+              label="Outlined"
+            />
 
-          <q-input
-            color="black"
-            label-color="black"
-            class="w-64 bg-tertiary-100"
-            input-class="text-tertiary-900 dark:text-tertiary-900"
-            outlined
-            v-model="text.tertiary"
-            label="Outlined"
-          />
+            <q-input
+              color="black"
+              label-color="black"
+              class="w-64 bg-tertiary-100"
+              input-class="text-tertiary-900 dark:text-tertiary-900"
+              outlined
+              v-model="text.tertiary"
+              label="Outlined"
+            />
 
-          <q-input
-            color="black"
-            label-color="black"
-            class="w-64 bg-success-100"
-            input-class="text-success-900 dark:text-success-900"
-            outlined
-            v-model="text.success"
-            label="Outlined"
-          />
+            <q-input
+              color="black"
+              label-color="black"
+              class="w-64 bg-success-100"
+              input-class="text-success-900 dark:text-success-900"
+              outlined
+              v-model="text.success"
+              label="Outlined"
+            />
 
-          <q-input
-            color="black"
-            label-color="black"
-            class="w-64 bg-warning-100"
-            input-class="text-warning-900 dark:text-warning-900"
-            outlined
-            v-model="text.warning"
-            label="Outlined"
-          />
+            <q-input
+              color="black"
+              label-color="black"
+              class="w-64 bg-warning-100"
+              input-class="text-warning-900 dark:text-warning-900"
+              outlined
+              v-model="text.warning"
+              label="Outlined"
+            />
 
-          <q-input
-            color="black"
-            label-color="black"
-            class="w-64 bg-error-100"
-            input-class="text-error-900 dark:text-error-900"
-            outlined
-            v-model="text.error"
-            label="Outlined"
-          />
-        </div>
-
-        <details class="mt-4">
-          <summary>Code</summary>
-          <div class="flex flex-col gap-2">
+            <q-input
+              color="black"
+              label-color="black"
+              class="w-64 bg-error-100"
+              input-class="text-error-900 dark:text-error-900"
+              outlined
+              v-model="text.error"
+              label="Outlined"
+            />
+          </div>
+        </template>
+        <template v-slot:source>
+          <div class="flex flex-col gap-4">
             <v-code-block language="ts" :code="qInputScriptExample" />
             <v-code-block language="html" :code="qInputLightExample" />
           </div>
-        </details>
-      </section>
+        </template>
+      </v-preview>
+    </section>
 
-      <section>
-        <div class="flex flex-wrap gap-2">
-          <q-input
-            color="white"
-            label-color="white"
-            class="w-64 bg-surface-800"
-            input-class="text-surface-50 dark:text-surface-50"
-            outlined
-            v-model="text.surface"
-            label="Outlined"
-          />
+    <section>
+      <v-preview>
+        <template v-slot:preview>
+          <div class="flex flex-wrap gap-2">
+            <q-input
+              color="white"
+              label-color="white"
+              class="w-64 bg-surface-800"
+              input-class="text-surface-50 dark:text-surface-50"
+              outlined
+              v-model="text.surface"
+              label="Outlined"
+            />
 
-          <q-input
-            color="white"
-            label-color="white"
-            class="w-64 bg-primary-800"
-            input-class="text-primary-50 dark:text-primary-50"
-            outlined
-            v-model="text.primary"
-            label="Outlined"
-          />
+            <q-input
+              color="white"
+              label-color="white"
+              class="w-64 bg-primary-800"
+              input-class="text-primary-50 dark:text-primary-50"
+              outlined
+              v-model="text.primary"
+              label="Outlined"
+            />
 
-          <q-input
-            color="white"
-            label-color="white"
-            class="w-64 bg-secondary-800"
-            input-class="text-secondary-50 dark:text-secondary-50"
-            outlined
-            v-model="text.secondary"
-            label="Outlined"
-          />
+            <q-input
+              color="white"
+              label-color="white"
+              class="w-64 bg-secondary-800"
+              input-class="text-secondary-50 dark:text-secondary-50"
+              outlined
+              v-model="text.secondary"
+              label="Outlined"
+            />
 
-          <q-input
-            color="white"
-            label-color="white"
-            class="w-64 bg-tertiary-800"
-            input-class="text-tertiary-50 dark:text-tertiary-50"
-            outlined
-            v-model="text.tertiary"
-            label="Outlined"
-          />
+            <q-input
+              color="white"
+              label-color="white"
+              class="w-64 bg-tertiary-800"
+              input-class="text-tertiary-50 dark:text-tertiary-50"
+              outlined
+              v-model="text.tertiary"
+              label="Outlined"
+            />
 
-          <q-input
-            color="white"
-            label-color="white"
-            class="w-64 bg-success-800"
-            input-class="text-success-50 dark:text-success-50"
-            outlined
-            v-model="text.success"
-            label="Outlined"
-          />
+            <q-input
+              color="white"
+              label-color="white"
+              class="w-64 bg-success-800"
+              input-class="text-success-50 dark:text-success-50"
+              outlined
+              v-model="text.success"
+              label="Outlined"
+            />
 
-          <q-input
-            color="white"
-            label-color="white"
-            class="w-64 bg-warning-800"
-            input-class="text-warning-50 dark:text-warning-50"
-            outlined
-            v-model="text.warning"
-            label="Outlined"
-          />
+            <q-input
+              color="white"
+              label-color="white"
+              class="w-64 bg-warning-800"
+              input-class="text-warning-50 dark:text-warning-50"
+              outlined
+              v-model="text.warning"
+              label="Outlined"
+            />
 
-          <q-input
-            color="white"
-            label-color="white"
-            class="w-64 bg-error-900"
-            input-class="text-error-50 dark:text-error-50"
-            outlined
-            v-model="text.error"
-            label="Outlined"
-          />
-        </div>
-
-        <details class="mt-4">
-          <summary>Code</summary>
-          <div class="flex flex-col gap-2">
+            <q-input
+              color="white"
+              label-color="white"
+              class="w-64 bg-error-900"
+              input-class="text-error-50 dark:text-error-50"
+              outlined
+              v-model="text.error"
+              label="Outlined"
+            />
+          </div>
+        </template>
+        <template v-slot:source>
+          <div class="flex flex-col gap-4">
             <v-code-block language="ts" :code="qInputScriptExample" />
             <v-code-block language="html" :code="qInputDarkExample" />
           </div>
-        </details>
-      </section>
+        </template>
+      </v-preview>
     </section>
+  </section>
 
-    <h2>QSelect</h2>
+  <h2>QSelect</h2>
+  <section class="section">
+    <v-alert type="info" class="mb-4">Only the outlined variant is supported</v-alert>
+
     <section class="section">
-      <section class="section">
-        <p class="mb-4">Only the outlined variant is supported</p>
-        <div class="flex flex-wrap gap-2">
-          <q-select
-            color="black"
-            label-color="black"
-            class="dark-actions w-64 bg-surface-100"
-            popup-content-class="!bg-surface-100 dark:!bg-surface-100 !text-surface-900 dark:!text-surface-900"
-            outlined
-            v-model="selectModel"
-            :options="selectOptions"
-            label="Outlined"
-          />
+      <v-preview>
+        <template v-slot:preview>
+          <div class="flex flex-wrap gap-2">
+            <q-select
+              color="black"
+              label-color="black"
+              class="dark-actions w-64 bg-surface-100"
+              popup-content-class="!bg-surface-100 dark:!bg-surface-100 !text-surface-900 dark:!text-surface-900"
+              outlined
+              v-model="selectModel"
+              :options="selectOptions"
+              label="Outlined"
+            />
 
-          <q-select
-            color="black"
-            label-color="black"
-            class="dark-actions w-64 !bg-primary-100"
-            popup-content-class="!bg-primary-100 dark:!bg-primary-100 !text-primary-900 dark:!text-primary-900"
-            outlined
-            v-model="selectModel"
-            :options="selectOptions"
-            label="Outlined"
-          />
+            <q-select
+              color="black"
+              label-color="black"
+              class="dark-actions w-64 !bg-primary-100"
+              popup-content-class="!bg-primary-100 dark:!bg-primary-100 !text-primary-900 dark:!text-primary-900"
+              outlined
+              v-model="selectModel"
+              :options="selectOptions"
+              label="Outlined"
+            />
 
-          <q-select
-            color="black"
-            label-color="black"
-            class="dark-actions w-64 !bg-secondary-100"
-            popup-content-class="!bg-secondary-100 dark:!bg-secondary-100 !text-secondary-900 dark:!text-secondary-900"
-            outlined
-            v-model="selectModel"
-            :options="selectOptions"
-            label="Outlined"
-          />
+            <q-select
+              color="black"
+              label-color="black"
+              class="dark-actions w-64 !bg-secondary-100"
+              popup-content-class="!bg-secondary-100 dark:!bg-secondary-100 !text-secondary-900 dark:!text-secondary-900"
+              outlined
+              v-model="selectModel"
+              :options="selectOptions"
+              label="Outlined"
+            />
 
-          <q-select
-            color="black"
-            label-color="black"
-            class="dark-actions w-64 !bg-tertiary-100"
-            popup-content-class="!bg-tertiary-100 dark:!bg-tertiary-100 !text-tertiary-900 dark:!text-tertiary-900"
-            outlined
-            v-model="selectModel"
-            :options="selectOptions"
-            label="Outlined"
-          />
+            <q-select
+              color="black"
+              label-color="black"
+              class="dark-actions w-64 !bg-tertiary-100"
+              popup-content-class="!bg-tertiary-100 dark:!bg-tertiary-100 !text-tertiary-900 dark:!text-tertiary-900"
+              outlined
+              v-model="selectModel"
+              :options="selectOptions"
+              label="Outlined"
+            />
 
-          <q-select
-            color="black"
-            label-color="black"
-            class="dark-actions w-64 !bg-success-100"
-            popup-content-class="!bg-success-100 dark:!bg-success-100 !text-success-900 dark:!text-success-900"
-            outlined
-            v-model="selectModel"
-            :options="selectOptions"
-            label="Outlined"
-          />
+            <q-select
+              color="black"
+              label-color="black"
+              class="dark-actions w-64 !bg-success-100"
+              popup-content-class="!bg-success-100 dark:!bg-success-100 !text-success-900 dark:!text-success-900"
+              outlined
+              v-model="selectModel"
+              :options="selectOptions"
+              label="Outlined"
+            />
 
-          <q-select
-            color="black"
-            label-color="black"
-            class="dark-actions w-64 !bg-warning-100"
-            popup-content-class="!bg-warning-100 dark:!bg-warning-100 !text-warning-900 dark:!text-warning-900"
-            outlined
-            v-model="selectModel"
-            :options="selectOptions"
-            label="Outlined"
-          />
+            <q-select
+              color="black"
+              label-color="black"
+              class="dark-actions w-64 !bg-warning-100"
+              popup-content-class="!bg-warning-100 dark:!bg-warning-100 !text-warning-900 dark:!text-warning-900"
+              outlined
+              v-model="selectModel"
+              :options="selectOptions"
+              label="Outlined"
+            />
 
-          <q-select
-            color="black"
-            label-color="black"
-            class="dark-actions w-64 !bg-error-100"
-            popup-content-class="!bg-error-100 dark:!bg-error-100 !text-error-900 dark:!text-error-900"
-            outlined
-            v-model="selectModel"
-            :options="selectOptions"
-            label="Outlined"
-          />
-        </div>
-
-        <details class="mt-4">
-          <summary>Code</summary>
-          <div class="flex flex-col gap-2">
+            <q-select
+              color="black"
+              label-color="black"
+              class="dark-actions w-64 !bg-error-100"
+              popup-content-class="!bg-error-100 dark:!bg-error-100 !text-error-900 dark:!text-error-900"
+              outlined
+              v-model="selectModel"
+              :options="selectOptions"
+              label="Outlined"
+            />
+          </div>
+        </template>
+        <template v-slot:source>
+          <div class="flex flex-col gap-4">
             <v-code-block language="ts" :code="qSelectScriptExample" />
             <v-code-block language="html" :code="qSelectLightExample" />
           </div>
-        </details>
-      </section>
+        </template>
+      </v-preview>
+    </section>
 
-      <section>
-        <div class="flex flex-wrap gap-2">
-          <q-select
-            color="white"
-            label-color="white"
-            class="light-actions w-64 !bg-surface-800"
-            popup-content-class="!bg-surface-800 dark:!bg-surface-800 !text-surface-50 dark:!text-surface-50"
-            outlined
-            v-model="selectModel"
-            :options="selectOptions"
-            label="Outlined"
-          />
+    <section>
+      <v-preview>
+        <template v-slot:preview>
+          <div class="flex flex-wrap gap-2">
+            <q-select
+              color="white"
+              label-color="white"
+              class="light-actions w-64 !bg-surface-800"
+              popup-content-class="!bg-surface-800 dark:!bg-surface-800 !text-surface-50 dark:!text-surface-50"
+              outlined
+              v-model="selectModel"
+              :options="selectOptions"
+              label="Outlined"
+            />
 
-          <q-select
-            color="white"
-            label-color="white"
-            class="light-actions w-64 !bg-primary-800"
-            input-class="text-primary-50 !dark:text-primary-50"
-            popup-content-class="!bg-primary-800 dark:!bg-primary-800 !text-primary-50 dark:!text-primary-50"
-            outlined
-            v-model="selectModel"
-            :options="selectOptions"
-            label="Outlined"
-          />
+            <q-select
+              color="white"
+              label-color="white"
+              class="light-actions w-64 !bg-primary-800"
+              input-class="text-primary-50 !dark:text-primary-50"
+              popup-content-class="!bg-primary-800 dark:!bg-primary-800 !text-primary-50 dark:!text-primary-50"
+              outlined
+              v-model="selectModel"
+              :options="selectOptions"
+              label="Outlined"
+            />
 
-          <q-select
-            color="white"
-            label-color="white"
-            class="light-actions w-64 !bg-secondary-800"
-            input-class="text-secondary-50 !dark:text-secondary-50"
-            popup-content-class="!bg-secondary-800 dark:!bg-secondary-800 !text-secondary-50 dark:!text-secondary-50"
-            outlined
-            v-model="selectModel"
-            :options="selectOptions"
-            label="Outlined"
-          />
+            <q-select
+              color="white"
+              label-color="white"
+              class="light-actions w-64 !bg-secondary-800"
+              input-class="text-secondary-50 !dark:text-secondary-50"
+              popup-content-class="!bg-secondary-800 dark:!bg-secondary-800 !text-secondary-50 dark:!text-secondary-50"
+              outlined
+              v-model="selectModel"
+              :options="selectOptions"
+              label="Outlined"
+            />
 
-          <q-select
-            color="white"
-            label-color="white"
-            class="light-actions w-64 !bg-tertiary-800"
-            input-class="text-tertiary-50 !dark:text-tertiary-50"
-            popup-content-class="!bg-tertiary-800 dark:!bg-tertiary-800 !text-tertiary-50 dark:!text-tertiary-50"
-            outlined
-            v-model="selectModel"
-            :options="selectOptions"
-            label="Outlined"
-          />
+            <q-select
+              color="white"
+              label-color="white"
+              class="light-actions w-64 !bg-tertiary-800"
+              input-class="text-tertiary-50 !dark:text-tertiary-50"
+              popup-content-class="!bg-tertiary-800 dark:!bg-tertiary-800 !text-tertiary-50 dark:!text-tertiary-50"
+              outlined
+              v-model="selectModel"
+              :options="selectOptions"
+              label="Outlined"
+            />
 
-          <q-select
-            color="white"
-            label-color="white"
-            class="light-actions w-64 !bg-success-800"
-            input-class="text-success-50 !dark:text-success-50"
-            popup-content-class="!bg-success-800 dark:!bg-success-800 !text-success-50 dark:!text-success-50"
-            outlined
-            v-model="selectModel"
-            :options="selectOptions"
-            label="Outlined"
-          />
+            <q-select
+              color="white"
+              label-color="white"
+              class="light-actions w-64 !bg-success-800"
+              input-class="text-success-50 !dark:text-success-50"
+              popup-content-class="!bg-success-800 dark:!bg-success-800 !text-success-50 dark:!text-success-50"
+              outlined
+              v-model="selectModel"
+              :options="selectOptions"
+              label="Outlined"
+            />
 
-          <q-select
-            color="white"
-            label-color="white"
-            class="light-actions w-64 !bg-warning-800"
-            input-class="text-warning-50 !dark:text-warning-50"
-            popup-content-class="!bg-warning-800 dark:!bg-warning-800 !text-warning-50 dark:!text-warning-50"
-            outlined
-            v-model="selectModel"
-            :options="selectOptions"
-            label="Outlined"
-          />
+            <q-select
+              color="white"
+              label-color="white"
+              class="light-actions w-64 !bg-warning-800"
+              input-class="text-warning-50 !dark:text-warning-50"
+              popup-content-class="!bg-warning-800 dark:!bg-warning-800 !text-warning-50 dark:!text-warning-50"
+              outlined
+              v-model="selectModel"
+              :options="selectOptions"
+              label="Outlined"
+            />
 
-          <q-select
-            color="white"
-            label-color="white"
-            class="light-actions w-64 !bg-error-800"
-            input-class="text-error-50 !dark:text-error-50"
-            popup-content-class="!bg-error-800 dark:!bg-error-800 !text-error-50 dark:!text-error-50"
-            outlined
-            v-model="selectModel"
-            :options="selectOptions"
-            label="Outlined"
-          />
-        </div>
-
-        <details class="mt-4">
-          <summary>Code</summary>
-          <div class="flex flex-col gap-2">
+            <q-select
+              color="white"
+              label-color="white"
+              class="light-actions w-64 !bg-error-800"
+              input-class="text-error-50 !dark:text-error-50"
+              popup-content-class="!bg-error-800 dark:!bg-error-800 !text-error-50 dark:!text-error-50"
+              outlined
+              v-model="selectModel"
+              :options="selectOptions"
+              label="Outlined"
+            />
+          </div>
+        </template>
+        <template v-slot:source>
+          <div class="flex flex-col gap-4">
             <v-code-block language="ts" :code="qSelectScriptExample" />
             <v-code-block language="html" :code="qSelectDarkExample" />
           </div>
-        </details>
-      </section>
+        </template>
+      </v-preview>
     </section>
+  </section>
 
-    <h2>QFile</h2>
+  <h2>QFile</h2>
+  <section class="section">
     <section class="section">
-      <section class="section">
-        <p class="mb-4">Only the outlined variant is supported</p>
-        <div class="flex flex-wrap gap-2">
-          <q-file
-            color="black"
-            label-color="black"
-            class="dark-actions w-64 !bg-surface-100"
-            input-class="text-surface-900 !dark:text-surface-900"
-            outlined
-            v-model="fileModel"
-            label="Outlined"
-          />
+      <v-alert type="info" class="mb-4">Only the outlined variant is supported</v-alert>
 
-          <q-file
-            color="black"
-            label-color="black"
-            class="dark-actions w-64 !bg-primary-100"
-            input-class="text-primary-900 !dark:text-primary-900"
-            outlined
-            v-model="fileModel"
-            label="Outlined"
-          />
+      <v-preview>
+        <template v-slot:preview>
+          <div class="flex flex-wrap gap-2">
+            <q-file
+              color="black"
+              label-color="black"
+              class="dark-actions w-64 !bg-surface-100"
+              input-class="text-surface-900 !dark:text-surface-900"
+              outlined
+              v-model="fileModel"
+              label="Outlined"
+            />
 
-          <q-file
-            color="black"
-            label-color="black"
-            class="dark-actions w-64 !bg-secondary-100"
-            input-class="text-secondary-900 !dark:text-secondary-900"
-            outlined
-            v-model="fileModel"
-            label="Outlined"
-          />
+            <q-file
+              color="black"
+              label-color="black"
+              class="dark-actions w-64 !bg-primary-100"
+              input-class="text-primary-900 !dark:text-primary-900"
+              outlined
+              v-model="fileModel"
+              label="Outlined"
+            />
 
-          <q-file
-            color="black"
-            label-color="black"
-            class="dark-actions w-64 !bg-tertiary-100"
-            input-class="text-tertiary-900 !dark:text-tertiary-900"
-            outlined
-            v-model="fileModel"
-            label="Outlined"
-          />
+            <q-file
+              color="black"
+              label-color="black"
+              class="dark-actions w-64 !bg-secondary-100"
+              input-class="text-secondary-900 !dark:text-secondary-900"
+              outlined
+              v-model="fileModel"
+              label="Outlined"
+            />
 
-          <q-file
-            color="black"
-            label-color="black"
-            class="dark-actions w-64 !bg-success-100"
-            input-class="text-success-900 !dark:text-success-900"
-            outlined
-            v-model="fileModel"
-            label="Outlined"
-          />
+            <q-file
+              color="black"
+              label-color="black"
+              class="dark-actions w-64 !bg-tertiary-100"
+              input-class="text-tertiary-900 !dark:text-tertiary-900"
+              outlined
+              v-model="fileModel"
+              label="Outlined"
+            />
 
-          <q-file
-            color="black"
-            label-color="black"
-            class="dark-actions w-64 !bg-warning-100"
-            input-class="text-warning-900 !dark:text-warning-900"
-            outlined
-            v-model="fileModel"
-            label="Outlined"
-          />
+            <q-file
+              color="black"
+              label-color="black"
+              class="dark-actions w-64 !bg-success-100"
+              input-class="text-success-900 !dark:text-success-900"
+              outlined
+              v-model="fileModel"
+              label="Outlined"
+            />
 
-          <q-file
-            color="black"
-            label-color="black"
-            class="dark-actions w-64 !bg-error-100"
-            input-class="text-error-900 !dark:text-error-900"
-            outlined
-            v-model="fileModel"
-            label="Outlined"
-          />
-        </div>
+            <q-file
+              color="black"
+              label-color="black"
+              class="dark-actions w-64 !bg-warning-100"
+              input-class="text-warning-900 !dark:text-warning-900"
+              outlined
+              v-model="fileModel"
+              label="Outlined"
+            />
 
-        <details class="mt-4">
-          <summary>Code</summary>
-          <div class="flex flex-col gap-2">
+            <q-file
+              color="black"
+              label-color="black"
+              class="dark-actions w-64 !bg-error-100"
+              input-class="text-error-900 !dark:text-error-900"
+              outlined
+              v-model="fileModel"
+              label="Outlined"
+            />
+          </div>
+        </template>
+        <template v-slot:source>
+          <div class="flex flex-col gap-4">
             <v-code-block language="ts" :code="qFileScriptExample" />
             <v-code-block language="html" :code="qFileLightExample" />
           </div>
-        </details>
-      </section>
+        </template>
+      </v-preview>
+    </section>
 
-      <section>
-        <div class="flex flex-wrap gap-2">
-          <q-file
-            color="white"
-            label-color="white"
-            class="dark-actions w-64 !bg-surface-800"
-            input-class="text-surface-50 !dark:text-surface-50"
-            outlined
-            v-model="fileModel"
-            label="Outlined"
-          />
+    <section>
+      <v-preview>
+        <template v-slot:preview>
+          <div class="flex flex-wrap gap-2">
+            <q-file
+              color="white"
+              label-color="white"
+              class="dark-actions w-64 !bg-surface-800"
+              input-class="text-surface-50 !dark:text-surface-50"
+              outlined
+              v-model="fileModel"
+              label="Outlined"
+            />
 
-          <q-file
-            color="white"
-            label-color="white"
-            class="dark-actions w-64 !bg-primary-800"
-            input-class="text-primary-50 !dark:text-primary-50"
-            outlined
-            v-model="fileModel"
-            label="Outlined"
-          />
+            <q-file
+              color="white"
+              label-color="white"
+              class="dark-actions w-64 !bg-primary-800"
+              input-class="text-primary-50 !dark:text-primary-50"
+              outlined
+              v-model="fileModel"
+              label="Outlined"
+            />
 
-          <q-file
-            color="white"
-            label-color="white"
-            class="dark-actions w-64 !bg-secondary-800"
-            input-class="text-secondary-50 !dark:text-secondary-50"
-            outlined
-            v-model="fileModel"
-            label="Outlined"
-          />
+            <q-file
+              color="white"
+              label-color="white"
+              class="dark-actions w-64 !bg-secondary-800"
+              input-class="text-secondary-50 !dark:text-secondary-50"
+              outlined
+              v-model="fileModel"
+              label="Outlined"
+            />
 
-          <q-file
-            color="white"
-            label-color="white"
-            class="dark-actions w-64 !bg-tertiary-800"
-            input-class="text-tertiary-50 !dark:text-tertiary-50"
-            outlined
-            v-model="fileModel"
-            label="Outlined"
-          />
+            <q-file
+              color="white"
+              label-color="white"
+              class="dark-actions w-64 !bg-tertiary-800"
+              input-class="text-tertiary-50 !dark:text-tertiary-50"
+              outlined
+              v-model="fileModel"
+              label="Outlined"
+            />
 
-          <q-file
-            color="white"
-            label-color="white"
-            class="dark-actions w-64 !bg-success-800"
-            input-class="text-success-50 !dark:text-success-50"
-            outlined
-            v-model="fileModel"
-            label="Outlined"
-          />
+            <q-file
+              color="white"
+              label-color="white"
+              class="dark-actions w-64 !bg-success-800"
+              input-class="text-success-50 !dark:text-success-50"
+              outlined
+              v-model="fileModel"
+              label="Outlined"
+            />
 
-          <q-file
-            color="white"
-            label-color="white"
-            class="dark-actions w-64 !bg-warning-800"
-            input-class="text-warning-50 !dark:text-warning-50"
-            outlined
-            v-model="fileModel"
-            label="Outlined"
-          />
+            <q-file
+              color="white"
+              label-color="white"
+              class="dark-actions w-64 !bg-warning-800"
+              input-class="text-warning-50 !dark:text-warning-50"
+              outlined
+              v-model="fileModel"
+              label="Outlined"
+            />
 
-          <q-file
-            color="white"
-            label-color="white"
-            class="dark-actions w-64 !bg-error-800"
-            input-class="text-error-50 !dark:text-error-50"
-            outlined
-            v-model="fileModel"
-            label="Outlined"
-          />
-        </div>
-
-        <details class="mt-4">
-          <summary>Code</summary>
-          <div class="flex flex-col gap-2">
+            <q-file
+              color="white"
+              label-color="white"
+              class="dark-actions w-64 !bg-error-800"
+              input-class="text-error-50 !dark:text-error-50"
+              outlined
+              v-model="fileModel"
+              label="Outlined"
+            />
+          </div>
+        </template>
+        <template v-slot:source>
+          <div class="flex flex-col gap-4">
             <v-code-block language="ts" :code="qFileScriptExample" />
             <v-code-block language="html" :code="qFileDarkExample" />
           </div>
-        </details>
-      </section>
+        </template>
+      </v-preview>
     </section>
+  </section>
 
-    <h2>QTime</h2>
-    <section class="section">
-      <div class="flex flex-wrap gap-4">
-        <q-time v-model="time" />
-        <q-time v-model="timeWithSeconds" with-seconds />
-      </div>
-
-      <details class="mt-4">
-        <summary>Code</summary>
-        <div class="flex flex-col gap-2">
+  <h2>QTime</h2>
+  <section class="section">
+    <v-preview>
+      <template v-slot:preview>
+        <div class="flex flex-wrap gap-4">
+          <q-time v-model="time" />
+          <q-time v-model="timeWithSeconds" with-seconds />
+        </div>
+      </template>
+      <template v-slot:source>
+        <div class="flex flex-col gap-4">
           <v-code-block language="ts" :code="qTimeScriptExample" />
           <v-code-block language="html" :code="qTimeExample" />
         </div>
-      </details>
-    </section>
+      </template>
+    </v-preview>
+  </section>
 
-    <h2>QDate</h2>
-    <section class="section">
-      <div class="flex flex-wrap gap-4">
-        <q-date color="bg-primary-100" v-model="date" />
-        <q-date v-model="date" minimal />
-      </div>
-
-      <details class="mt-4">
-        <summary>Code</summary>
-        <div class="flex flex-col gap-2">
+  <h2>QDate</h2>
+  <section class="section">
+    <v-preview>
+      <template v-slot:preview>
+        <div class="flex flex-wrap gap-4">
+          <q-date color="bg-primary-100" v-model="date" />
+          <q-date v-model="date" minimal />
+        </div>
+      </template>
+      <template v-slot:source>
+        <div class="flex flex-col gap-4">
           <v-code-block language="ts" :code="qDateScriptExample" />
           <v-code-block language="html" :code="qDateExample" />
         </div>
-      </details>
-    </section>
-  </div>
+      </template>
+    </v-preview>
+  </section>
 </template>

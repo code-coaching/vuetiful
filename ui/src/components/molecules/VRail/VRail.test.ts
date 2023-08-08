@@ -1,6 +1,6 @@
+import { VRail } from "@/index";
 import { mount } from "@vue/test-utils";
 import { expect, test } from "vitest";
-import { VRail } from ".";
 
 test("VRail", () => {
   expect(VRail).toBeTruthy();

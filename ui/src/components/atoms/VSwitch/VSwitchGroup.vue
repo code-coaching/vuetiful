@@ -4,13 +4,13 @@ import { SwitchGroup } from "@headlessui/vue";
 defineProps({
   as: {
     type: String,
-    default: "template",
+    default: "div",
   },
 });
 </script>
 
 <template>
-  <SwitchGroup :as="as">
+  <SwitchGroup class="vuetiful-switch-group" :as="as">
     <slot />
   </SwitchGroup>
 </template>
