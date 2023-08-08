@@ -1,7 +1,21 @@
 <script setup lang="ts">
 import { ThemeSwitcher, VDrawer, VShell, useDrawer } from '@code-coaching/vuetiful';
 import { DocsSideBar, DrawerExample } from 'src/components';
+import { ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
 import { version } from '../../package.json';
+
+const route = useRoute();
+const layoutRef = ref<HTMLElement | null>(null);
+
+watch(
+  () => route.fullPath,
+  (newPath, oldPath) => {
+    if (newPath !== oldPath) {
+      layoutRef.value?.scrollIntoView();
+    }
+  }
+);
 
 const { open, drawer } = useDrawer();
 </script>
@@ -43,7 +57,7 @@ const { open, drawer } = useDrawer();
     <template v-slot:sidebarLeft>
       <DocsSideBar />
     </template>
-    <div class="flex justify-center p-4 md:p-10">
+    <div ref="layoutRef" class="flex justify-center p-4 md:p-10">
       <div class="flex w-full max-w-5xl flex-col">
         <router-view />
       </div>
