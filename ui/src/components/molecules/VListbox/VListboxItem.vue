@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useSettings } from "@/services";
-import { ListboxOption } from "@headlessui/vue";
-import { inject } from "vue";
+import { useSettings } from '@/services';
+import { ListboxOption } from '@headlessui/vue';
+import { inject } from 'vue';
 
 const props = defineProps({
   value: {
@@ -15,9 +15,9 @@ const props = defineProps({
   },
 });
 
-const activeClass = inject("active") as string;
-const hoverClass = inject("hover") as string;
-const classItem = inject("classItem") as string;
+const activeClass = inject('active') as string;
+const hoverClass = inject('hover') as string;
+const classItem = inject('classItem') as string;
 
 const { settings } = useSettings();
 const isUnstyled =

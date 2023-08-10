@@ -1,5 +1,5 @@
-import { readonly, Ref, ref } from "vue";
-import { usePlatform } from "../platform/platform.service";
+import { readonly, Ref, ref } from 'vue';
+import { usePlatform } from '../platform/platform.service';
 
 const { isBrowser } = usePlatform();
 
@@ -9,13 +9,13 @@ export interface Theme {
 }
 
 const THEMES = {
-  VUETIFUL: "vuetiful",
-  ROCKET: "rocket",
-  SAHARA: "sahara",
-  SEAFOAM: "seafoam",
-  SEASONAL: "seasonal",
-  SKELETON: "skeleton",
-  VINTAGE: "vintage",
+  VUETIFUL: 'vuetiful',
+  ROCKET: 'rocket',
+  SAHARA: 'sahara',
+  SEAFOAM: 'seafoam',
+  SEASONAL: 'seasonal',
+  SKELETON: 'skeleton',
+  VINTAGE: 'vintage',
 };
 
 const builtInUrl = (name: string): string => {
@@ -43,14 +43,14 @@ const useTheme = () => {
     if (!theme) return;
 
     if (isBrowser) {
-      localStorage.setItem("vuetiful-theme", theme.name);
-      document.body.setAttribute("data-theme", theme.name);
+      localStorage.setItem('vuetiful-theme', theme.name);
+      document.body.setAttribute('data-theme', theme.name);
     }
   };
 
   const initializeTheme = (callback?: Function): void => {
     if (isBrowser) {
-      const storedTheme = localStorage.getItem("vuetiful-theme");
+      const storedTheme = localStorage.getItem('vuetiful-theme');
       if (storedTheme) loadTheme(storedTheme, callback);
       else loadTheme(defaultTheme, callback);
     }
@@ -64,21 +64,21 @@ const useTheme = () => {
     const theme: Theme = themeToLoad;
     chosenTheme.value = theme.name;
 
-    const existingStyle = document.getElementById("theme");
+    const existingStyle = document.getElementById('theme');
     let themeUrl = theme.url;
 
-    const link = document.createElement("link");
-    link.id = "theme";
+    const link = document.createElement('link');
+    link.id = 'theme';
     link.href = themeUrl;
-    link.type = "text/css";
-    link.rel = "stylesheet";
+    link.type = 'text/css';
+    link.rel = 'stylesheet';
     link.onload = () => {
       if (existingStyle) existingStyle.remove();
       saveThemeToStorage(theme.name);
       if (callback) callback();
     };
 
-    const head = document.querySelector("head");
+    const head = document.querySelector('head');
     if (head) head.appendChild(link);
   };
 

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { SwitchLabel } from "@headlessui/vue";
+import { SwitchLabel } from '@headlessui/vue';
 
 defineProps({
   as: {
     type: String,
-    default: "p",
+    default: 'p',
   },
   passive: {
     type: Boolean,

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { unstyledProp } from "@/props";
-import { useSettings } from "@/services";
-import { Ref, computed, inject, ref, useAttrs } from "vue";
+import { unstyledProp } from '@/props';
+import { useSettings } from '@/services';
+import { Ref, computed, inject, ref, useAttrs } from 'vue';
 
 const props = defineProps({
   classSeparator: {
     type: String as () => string,
-    default: "opacity-90",
+    default: 'opacity-90',
   },
   unstyled: unstyledProp,
 });
@@ -17,10 +17,10 @@ const hasImageAsChild = computed(() => {
   const children = headerRef.value?.children;
   if (!children) return false;
   const childrenArray = Array.from(children);
-  return childrenArray.some((child) => child.tagName === "IMG");
+  return childrenArray.some((child) => child.tagName === 'IMG');
 });
 
-const hideSeparator = inject("hideSeparator", false);
+const hideSeparator = inject('hideSeparator', false);
 
 const attrs = useAttrs();
 const classAttribute = attrs.class as string;
@@ -34,11 +34,18 @@ const isUnstyled =
   <div
     ref="headerRef"
     data-test="vuetiful-card-header-content"
-    :class="`vuetiful-card-header ${hasImageAsChild ? '' : `${isUnstyled ? '' : 'p-4'}`} ${classAttribute}`"
+    :class="`vuetiful-card-header ${
+      hasImageAsChild ? '' : `${isUnstyled ? '' : 'p-4'}`
+    } ${classAttribute}`"
   >
     <slot />
   </div>
-  <hr v-if="!hideSeparator" data-test="vuetiful-card-header-separator" class="divider" :class="classSeparator" />
+  <hr
+    v-if="!hideSeparator"
+    data-test="vuetiful-card-header-separator"
+    class="divider"
+    :class="classSeparator"
+  />
 </template>
 
 <style>

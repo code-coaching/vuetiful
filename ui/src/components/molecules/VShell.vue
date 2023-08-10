@@ -9,14 +9,14 @@
  */
 export type CssClasses = string;
 defineProps({
-  regionPage: { type: String as () => CssClasses, default: "" },
-  slotFixedHeader: { type: String as () => CssClasses, default: "z-10" },
-  slotSidebarLeft: { type: String as () => CssClasses, default: "w-auto" },
-  slotSidebarRight: { type: String as () => CssClasses, default: "w-auto" },
-  slotPageHeader: { type: String as () => CssClasses, default: "" },
-  slotPageContent: { type: String as () => CssClasses, default: "" },
-  slotPageFooter: { type: String as () => CssClasses, default: "" },
-  slotFixedFooter: { type: String as () => CssClasses, default: "" },
+  regionPage: { type: String as () => CssClasses, default: '' },
+  slotFixedHeader: { type: String as () => CssClasses, default: 'z-10' },
+  slotSidebarLeft: { type: String as () => CssClasses, default: 'w-auto' },
+  slotSidebarRight: { type: String as () => CssClasses, default: 'w-auto' },
+  slotPageHeader: { type: String as () => CssClasses, default: '' },
+  slotPageContent: { type: String as () => CssClasses, default: '' },
+  slotPageFooter: { type: String as () => CssClasses, default: '' },
+  slotFixedFooter: { type: String as () => CssClasses, default: '' },
 });
 </script>
 

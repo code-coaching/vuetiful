@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useSettings } from "@/services";
-import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
-import { inject } from "vue";
+import { useSettings } from '@/services';
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue';
+import { inject } from 'vue';
 
 const props = defineProps({
   title: {
@@ -15,8 +15,8 @@ const props = defineProps({
   },
 });
 
-const classQuestion = inject("classQuestion");
-const classAnswer = inject("classAnswer");
+const classQuestion = inject('classQuestion');
+const classAnswer = inject('classAnswer');
 
 const { settings } = useSettings();
 const isUnstyled =

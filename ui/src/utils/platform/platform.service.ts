@@ -1,5 +1,5 @@
 const usePlatform = () => {
-  const isBrowser = typeof window !== "undefined";
+  const isBrowser = typeof window !== 'undefined';
   return {
     isBrowser,
   };

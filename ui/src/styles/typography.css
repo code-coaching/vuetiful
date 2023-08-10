@@ -79,10 +79,10 @@
     @apply absolute left-1 font-mono;
   }
   ins:not(.unstyled):is(:not(.prose *))::before {
-    content: "+";
+    content: '+';
   }
   del:not(.unstyled):is(:not(.prose *))::before {
-    content: "−";
+    content: '−';
   }
 
   ins:not(.unstyled):is(:not(.prose *)) {

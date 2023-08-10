@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import type { CssClasses } from "@/index";
-import { VRadioGroup, useRail } from "@/index";
-import { provide } from "vue";
+import type { CssClasses } from '@/index';
+import { VRadioGroup, useRail } from '@/index';
+import { provide } from 'vue';
 
 const { selectedRailTile } = useRail();
 
 const props = defineProps({
   active: {
     type: String as () => CssClasses,
-    default: "variant-filled",
+    default: 'variant-filled',
   },
   hover: {
     type: String as () => CssClasses,
-    default: "hover:variant-ghost hover:text-surface-900 dark:hover:text-surface-50",
+    default: 'hover:variant-ghost hover:text-surface-900 dark:hover:text-surface-50',
   },
 });
 
-provide("activeRail", props.active);
-provide("hoverRail", props.hover);
+provide('activeRail', props.active);
+provide('hoverRail', props.hover);
 </script>
 
 <template>

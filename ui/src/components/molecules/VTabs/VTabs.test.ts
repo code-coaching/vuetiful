@@ -1,15 +1,15 @@
-import { mount } from "@vue/test-utils";
-import { describe, expect, test } from "vitest";
-import { VTab, VTabPanel, VTabs } from "..";
+import { mount } from '@vue/test-utils';
+import { describe, expect, test } from 'vitest';
+import { VTab, VTabPanel, VTabs } from '..';
 
-describe("VTabs", () => {
-  test("hide separator", () => {
+describe('VTabs', () => {
+  test('hide separator', () => {
     const wrapper = mount({
       template: /*html*/ `
           <v-tabs hide-separator></v-tabs>
         `,
       components: {
-        "v-tabs": VTabs,
+        'v-tabs': VTabs,
       },
     });
 
@@ -17,7 +17,7 @@ describe("VTabs", () => {
     expect(separator.exists()).toBeFalsy();
   });
 
-  test("default props", () => {
+  test('default props', () => {
     const wrapper = mount({
       template: /*html*/ `
           <v-tabs>
@@ -28,33 +28,33 @@ describe("VTabs", () => {
           </v-tabs>
         `,
       components: {
-        "v-tabs": VTabs,
-        "v-tab": VTab,
-        "v-tab-panel": VTabPanel,
+        'v-tabs': VTabs,
+        'v-tab': VTab,
+        'v-tab-panel': VTabPanel,
       },
     });
 
     const tabList = wrapper.find("[data-test='vuetiful-tab-list']");
     expect(tabList.classes()).toEqual([
-      "vuetiful-tab-list",
-      "flex",
-      "!rounded-bl-none",
-      "!rounded-br-none",
-      "rounded-container-token",
+      'vuetiful-tab-list',
+      'flex',
+      '!rounded-bl-none',
+      '!rounded-br-none',
+      'rounded-container-token',
     ]);
-    expect(tabList.classes()).not.toContain("flex-col");
+    expect(tabList.classes()).not.toContain('flex-col');
 
     const tabPanels = wrapper.find("[data-test='vuetiful-tab-panels']");
     expect(tabPanels.classes()).toEqual([
-      "vuetiful-tab-panels",
-      "p-4",
-      "!rounded-tl-none",
-      "!rounded-tr-none",
-      "rounded-container-token",
+      'vuetiful-tab-panels',
+      'p-4',
+      '!rounded-tl-none',
+      '!rounded-tr-none',
+      'rounded-container-token',
     ]);
   });
 
-  test("vertical", () => {
+  test('vertical', () => {
     const wrapper = mount({
       template: /*html*/ `
           <v-tabs vertical>
@@ -65,28 +65,28 @@ describe("VTabs", () => {
           </v-tabs>
         `,
       components: {
-        "v-tabs": VTabs,
-        "v-tab": VTab,
-        "v-tab-panel": VTabPanel,
+        'v-tabs': VTabs,
+        'v-tab': VTab,
+        'v-tab-panel': VTabPanel,
       },
     });
     const tabList = wrapper.find("[data-test='vuetiful-tab-list']");
     expect(tabList.classes()).toEqual([
-      "vuetiful-tab-list",
-      "flex",
-      "flex-col",
-      "!rounded-br-none",
-      "!rounded-tr-none",
-      "rounded-container-token",
+      'vuetiful-tab-list',
+      'flex',
+      'flex-col',
+      '!rounded-br-none',
+      '!rounded-tr-none',
+      'rounded-container-token',
     ]);
 
     const tabPanels = wrapper.find("[data-test='vuetiful-tab-panels']");
     expect(tabPanels.classes()).toEqual([
-      "vuetiful-tab-panels",
-      "p-4",
-      "!rounded-bl-none",
-      "!rounded-tl-none",
-      "rounded-container-token",
+      'vuetiful-tab-panels',
+      'p-4',
+      '!rounded-bl-none',
+      '!rounded-tl-none',
+      'rounded-container-token',
     ]);
   });
 });

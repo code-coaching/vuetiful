@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useSettings } from "@/services";
-import { PropType, computed } from "vue";
+import { useSettings } from '@/services';
+import { PropType, computed } from 'vue';
 
-const emit = defineEmits(["close"]);
+const emit = defineEmits(['close']);
 const props = defineProps({
   hideIcon: {
     type: Boolean,
@@ -18,21 +18,21 @@ const props = defineProps({
     default: true,
   },
   type: {
-    type: String as PropType<"info" | "success" | "warning" | "error" | "">,
-    default: "",
+    type: String as PropType<'info' | 'success' | 'warning' | 'error' | ''>,
+    default: '',
   },
 
   classPre: {
     type: String,
-    default: "",
+    default: '',
   },
   classMessage: {
     type: String,
-    default: "",
+    default: '',
   },
   classClose: {
     type: String,
-    default: "",
+    default: '',
   },
 
   unstyled: {
@@ -43,22 +43,22 @@ const props = defineProps({
 
 const typeBackground = computed(() => {
   switch (props.type) {
-    case "info":
-      return "variant-filled";
-    case "success":
-      return "variant-filled-success";
-    case "warning":
-      return "variant-filled-warning";
-    case "error":
-      return "variant-filled-error";
-    case "":
-      return "";
+    case 'info':
+      return 'variant-filled';
+    case 'success':
+      return 'variant-filled-success';
+    case 'warning':
+      return 'variant-filled-warning';
+    case 'error':
+      return 'variant-filled-error';
+    case '':
+      return '';
   }
 });
 
-const close = () => emit("close");
+const close = () => emit('close');
 const handleKeydown = (event: KeyboardEvent) => {
-  if (event.key === "Enter" || event.key === " ") {
+  if (event.key === 'Enter' || event.key === ' ') {
     close();
   }
 };
@@ -71,9 +71,7 @@ const isUnstyled = settings.global.unstyled || settings.components.alert.unstyle
   <aside
     v-if="show"
     :class="`vuetiful-alert flex ${
-      isUnstyled
-        ? ''
-        : 'w-full items-center gap-4 p-4 border-token rounded-container-token'
+      isUnstyled ? '' : 'w-full items-center gap-4 p-4 border-token rounded-container-token'
     } ${typeBackground}`"
   >
     <div v-if="!hideIcon" :class="`vuetiful-alert-pre ${classPre}`">

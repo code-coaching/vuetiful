@@ -1,7 +1,7 @@
-import { DirectiveBinding } from "vue";
+import { DirectiveBinding } from 'vue';
 
 const clipboard = (el: HTMLElement, binding: DirectiveBinding) => {
-  el.addEventListener("click", () => {
+  el.addEventListener('click', () => {
     navigator.clipboard.writeText(binding.value);
   });
 };

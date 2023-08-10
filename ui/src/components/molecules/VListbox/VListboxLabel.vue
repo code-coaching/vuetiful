@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ListboxLabel } from "@headlessui/vue";
+import { ListboxLabel } from '@headlessui/vue';
 
 defineProps({
   as: {
     type: String,
-    default: "label",
+    default: 'label',
   },
 });
 </script>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { CssClasses } from "@/index";
-import { useDrawer } from "@/services";
-import { Ref, computed, onMounted, ref, toRefs } from "vue";
+import type { CssClasses } from '@/index';
+import { useDrawer } from '@/services';
+import { Ref, computed, onMounted, ref, toRefs } from 'vue';
 
 const { drawer, close } = useDrawer();
 
@@ -10,21 +10,21 @@ const props = defineProps({
   // Regions
   regionBackdrop: {
     type: String as () => CssClasses,
-    default: "",
+    default: '',
   },
   regionDrawer: {
     type: String as () => CssClasses,
-    default: "",
+    default: '',
   },
 
   // a11y
   labelledby: {
     type: String,
-    default: "",
+    default: '',
   },
   describedby: {
     type: String,
-    default: "",
+    default: '',
   },
 });
 
@@ -37,7 +37,7 @@ const presets = {
 	right: { alignment: 'right-0', width: 'w-[90%]', height: 'h-full', rounded: 'rounded-tl-container-token rounded-bl-container-token' }
 };
 const preset = computed(() => {
-  const position = drawer.position || "left";
+  const position = drawer.position || 'left';
   return presets[position];
 });
 // #endregion
@@ -53,10 +53,10 @@ const onBackdropInteraction = (event: Event) => {
 };
 
 const onKeydownWindow = (event: KeyboardEvent) => {
-  if (event.code === "Escape") close();
+  if (event.code === 'Escape') close();
 };
 onMounted(() => {
-  window.addEventListener("keydown", onKeydownWindow);
+  window.addEventListener('keydown', onKeydownWindow);
 });
 // #endregion
 </script>

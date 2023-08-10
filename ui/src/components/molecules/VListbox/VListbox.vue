@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { CssClasses, useSettings } from "@/index";
-import { Listbox } from "@headlessui/vue";
-import { computed, provide, ref, watch } from "vue";
-import VListboxButton from "./VListboxButton.vue";
-import VListboxItems from "./VListboxItems.vue";
-import VListboxLabel from "./VListboxLabel.vue";
-import { unstyledProp } from "@/props";
+import { CssClasses, useSettings } from '@/index';
+import { Listbox } from '@headlessui/vue';
+import { computed, provide, ref, watch } from 'vue';
+import VListboxButton from './VListboxButton.vue';
+import VListboxItems from './VListboxItems.vue';
+import VListboxLabel from './VListboxLabel.vue';
+import { unstyledProp } from '@/props';
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(['update:modelValue']);
 const props = defineProps({
-  modelValue: Listbox.props["modelValue"],
+  modelValue: Listbox.props['modelValue'],
 
   by: {
     type: String,
@@ -23,25 +23,25 @@ const props = defineProps({
   },
   classLabel: {
     type: String as () => CssClasses,
-    default: "",
+    default: '',
   },
 
   textButton: {
     type: String,
-    default: "Select an option",
+    default: 'Select an option',
   },
   classButton: {
     type: String as () => CssClasses,
-    default: "",
+    default: '',
   },
 
   classItem: {
     type: String as () => CssClasses,
-    default: "",
+    default: '',
   },
   classItems: {
     type: String as () => CssClasses,
-    default: "",
+    default: '',
   },
 
   horizontal: {
@@ -55,20 +55,20 @@ const props = defineProps({
 
   active: {
     type: String,
-    default: "variant-filled",
+    default: 'variant-filled',
   },
   hover: {
     type: String,
-    default: "hover:variant-ghost",
+    default: 'hover:variant-ghost',
   },
 
   background: {
     type: String,
-    default: "bg-surface-200-700-token",
+    default: 'bg-surface-200-700-token',
   },
   text: {
     type: String,
-    default: "text-surface-900 dark:text-surface-50",
+    default: 'text-surface-900 dark:text-surface-50',
   },
 
   unstyled: unstyledProp,
@@ -79,23 +79,23 @@ watch(
   () => props.modelValue,
   (newValue) => {
     parentModelValue.value = newValue;
-  }
+  },
 );
 watch(
   () => parentModelValue.value,
   (newValue) => {
-    emit("update:modelValue", newValue);
-  }
+    emit('update:modelValue', newValue);
+  },
 );
 
-provide("active", props.active);
-provide("hover", props.hover);
-provide("background", props.background);
-provide("text", props.text);
-provide("horizontal", props.horizontal);
-provide("unstyled", props.unstyled);
-provide("classItem", props.classItem);
-provide("classItems", props.classItems);
+provide('active', props.active);
+provide('hover', props.hover);
+provide('background', props.background);
+provide('text', props.text);
+provide('horizontal', props.horizontal);
+provide('unstyled', props.unstyled);
+provide('classItem', props.classItem);
+provide('classItems', props.classItems);
 
 const showText = computed(() => {
   if (props.display && parentModelValue.value) return parentModelValue.value[props.display];

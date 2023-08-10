@@ -1,16 +1,16 @@
-import { describe, expect, it, vi } from "vitest";
-import * as components from "./components";
-import plugin, * as index from "./index";
+import { describe, expect, it, vi } from 'vitest';
+import * as components from './components';
+import plugin, * as index from './index';
 
-describe("src", () => {
+describe('src', () => {
   Object.entries(index).forEach(([key, value]) => {
     it(`${key} is defined`, () => {
       expect(value).toBeDefined();
     });
   });
 
-  describe("given install is called", () => {
-    it("should register all components", () => {
+  describe('given install is called', () => {
+    it('should register all components', () => {
       const app = {
         component: vi.fn(),
       };

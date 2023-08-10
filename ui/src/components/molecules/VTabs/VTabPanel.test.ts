@@ -1,10 +1,10 @@
-import { TabGroup } from "@headlessui/vue";
-import { mount } from "@vue/test-utils";
-import { describe, expect, test } from "vitest";
-import { VTabPanel } from "..";
+import { TabGroup } from '@headlessui/vue';
+import { mount } from '@vue/test-utils';
+import { describe, expect, test } from 'vitest';
+import { VTabPanel } from '..';
 
-describe("VTabs", () => {
-  test("default props", () => {
+describe('VTabs', () => {
+  test('default props', () => {
     const wrapper = mount({
       template: /*html*/ `
           <TabGroup>
@@ -13,11 +13,11 @@ describe("VTabs", () => {
         `,
       components: {
         TabGroup: TabGroup,
-        "v-tab-panel": VTabPanel,
+        'v-tab-panel': VTabPanel,
       },
     });
 
     const tabPanel = wrapper.find("[data-test='tab-panel']");
-    expect(tabPanel.text()).toEqual("John Duck");
+    expect(tabPanel.text()).toEqual('John Duck');
   });
 });

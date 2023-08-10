@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useSettings } from '@/services';
-import { provide, useSSRContext } from 'vue';
+import { provide } from 'vue';
 
 const props = defineProps({
   classQuestion: {
@@ -21,8 +21,9 @@ const props = defineProps({
 provide('classQuestion', props.classQuestion);
 provide('classAnswer', props.classAnswer);
 
-const { settings } = useSettings()
-const isUnstyled =  settings.global.unstyled || settings.components.accordion.unstyled || props.unstyled
+const { settings } = useSettings();
+const isUnstyled =
+  settings.global.unstyled || settings.components.accordion.unstyled || props.unstyled;
 </script>
 
 <template>

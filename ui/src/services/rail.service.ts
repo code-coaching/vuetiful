@@ -1,6 +1,6 @@
-import { ref } from "vue";
+import { ref } from 'vue';
 
-const selectedRailTile = ref("");
+const selectedRailTile = ref('');
 
 const useRail = () => {
   return {

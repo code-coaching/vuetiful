@@ -1,9 +1,9 @@
-import { mount } from "@vue/test-utils";
-import { describe, expect, test } from "vitest";
-import VRadioGroup from "./VRadioGroup.vue";
-import VRadioDescription from "./VRadioDescription.vue";
+import { mount } from '@vue/test-utils';
+import { describe, expect, test } from 'vitest';
+import VRadioGroup from './VRadioGroup.vue';
+import VRadioDescription from './VRadioDescription.vue';
 
-test("VRadioDescription using slot", () => {
+test('VRadioDescription using slot', () => {
   const wrapper = mount({
     template: `
       <v-radio-group>
@@ -11,15 +11,15 @@ test("VRadioDescription using slot", () => {
       </v-radio-group>
     `,
     components: {
-      "v-radio-description": VRadioDescription,
-      "v-radio-group": VRadioGroup,
+      'v-radio-description': VRadioDescription,
+      'v-radio-group': VRadioGroup,
     },
   });
 
-  expect(wrapper.text()).toContain("John Duck");
+  expect(wrapper.text()).toContain('John Duck');
 });
 
-describe("VRadioDescription props", () => {
+describe('VRadioDescription props', () => {
   test("default 'as' prop", () => {
     const wrapper = mount({
       template: `
@@ -28,8 +28,8 @@ describe("VRadioDescription props", () => {
         </v-radio-group>
       `,
       components: {
-        "v-radio-label": VRadioDescription,
-        "v-radio-group": VRadioGroup,
+        'v-radio-label': VRadioDescription,
+        'v-radio-group': VRadioGroup,
       },
     });
 
@@ -44,8 +44,8 @@ describe("VRadioDescription props", () => {
         </v-radio-group>
       `,
       components: {
-        "v-radio-label": VRadioDescription,
-        "v-radio-group": VRadioGroup,
+        'v-radio-label': VRadioDescription,
+        'v-radio-group': VRadioGroup,
       },
     });
 

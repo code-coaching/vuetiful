@@ -1,12 +1,12 @@
 /* https://fonts.google.com/specimen/Raleway */
-@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 /* https://fonts.google.com/specimen/Lato?query=lato&noto.query=Abril */
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 :root {
   /* =~= Theme Styles =~= */
-  --theme-font-family-base: "Lato", sans-serif;
-  --theme-font-family-heading: "Raleway", sans-serif;
+  --theme-font-family-base: 'Lato', sans-serif;
+  --theme-font-family-heading: 'Raleway', sans-serif;
   --theme-font-color-base: var(--color-secondary-900);
   --theme-font-color-dark: var(--color-primary-100);
   --theme-rounded-base: 9999px;
@@ -100,27 +100,27 @@
   --color-surface-900: 107 38 49; /* ⬅ #6b2631 */
 }
 
-[data-theme="sahara"] h1,
-[data-theme="sahara"] h2,
-[data-theme="sahara"] h3,
-[data-theme="sahara"] h4,
-[data-theme="sahara"] h5,
-[data-theme="sahara"] h6 {
+[data-theme='sahara'] h1,
+[data-theme='sahara'] h2,
+[data-theme='sahara'] h3,
+[data-theme='sahara'] h4,
+[data-theme='sahara'] h5,
+[data-theme='sahara'] h6 {
   font-weight: 600;
 }
-[data-theme="sahara"] p {
+[data-theme='sahara'] p {
   font-weight: 400;
 }
 
 /* Applied to body with `<body data-theme="sahara">` */
 /* Created with: https://csshero.org/mesher/ */
-[data-theme="sahara"] {
+[data-theme='sahara'] {
   /* prettier-ignore */
   background-image:
 		radial-gradient(at 100% 36%, hsla(37,81%,56%,0.15) 0px, transparent 50%),
 		radial-gradient(at 7% 0%, hsla(37,81%,56%,0.20) 0px, transparent 50%);
 }
-.dark [data-theme="sahara"] {
+.dark [data-theme='sahara'] {
   /* prettier-ignore */
   background-image:
 		radial-gradient(at 100% 36%, hsla(37,81%,56%,0.15) 0px, transparent 50%),

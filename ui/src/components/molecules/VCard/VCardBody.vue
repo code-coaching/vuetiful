@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { unstyledProp } from "@/props";
-import { useSettings } from "@/services";
+import { unstyledProp } from '@/props';
+import { useSettings } from '@/services';
 
 const props = defineProps({
   unstyled: unstyledProp,

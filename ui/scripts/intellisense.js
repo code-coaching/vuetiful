@@ -1,47 +1,47 @@
-const fileToWrite = "./src/tailwind/generated/intellisense-classes.cjs";
+const fileToWrite = './src/tailwind/generated/intellisense-classes.cjs';
 
-const stylesDirectory = "./src/styles";
-const stylesElementsDirectory = "./src/styles/elements";
+const stylesDirectory = './src/styles';
+const stylesElementsDirectory = './src/styles/elements';
 
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
-console.log("Converting CSS to Tailwind Intellisense...");
+console.log('Converting CSS to Tailwind Intellisense...');
 
 const processFiles = (directory) => {
   const files = fs.readdirSync(directory);
   files.forEach((file) => {
-    if (!file.endsWith(".css")) return;
+    if (!file.endsWith('.css')) return;
 
     const filePath = path.join(directory, file);
-    const fileContents = fs.readFileSync(filePath, "utf8");
+    const fileContents = fs.readFileSync(filePath, 'utf8');
 
     let isCodeBlock = false;
-    let lastSelector = "";
-    fileContents.split("\n").forEach((line) => {
-      if (line.startsWith("/*")) return;
-      if (line.startsWith("@import")) return;
-      if (line.startsWith("@layer")) return;
+    let lastSelector = '';
+    fileContents.split('\n').forEach((line) => {
+      if (line.startsWith('/*')) return;
+      if (line.startsWith('@import')) return;
+      if (line.startsWith('@layer')) return;
 
       if (line.includes('"')) {
         line = line.replace(/"/g, "'");
       }
-      if (line.trim().startsWith(".") && (line.includes("{") || line.endsWith(","))) {
-        if (line.endsWith(",")) {
-          if (!lastSelector.endsWith(",")) {
+      if (line.trim().startsWith('.') && (line.includes('{') || line.endsWith(','))) {
+        if (line.endsWith(',')) {
+          if (!lastSelector.endsWith(',')) {
             newFileContents += `  "`;
           }
-          newFileContents += line.trim().replace('"', "");
-          lastSelector = line.replace('"', "");
+          newFileContents += line.trim().replace('"', '');
+          lastSelector = line.replace('"', '');
           return;
         }
-        if (line.includes("{")) {
-          if (!lastSelector.endsWith(",")) {
+        if (line.includes('{')) {
+          if (!lastSelector.endsWith(',')) {
             newFileContents += `  "`;
           }
           line = line.trim();
-          line = line.replace(" {", "{");
-          newFileContents += `${line.replace("{", "")}": {\n`;
+          line = line.replace(' {', '{');
+          newFileContents += `${line.replace('{', '')}": {\n`;
           lastSelector = line;
           isCodeBlock = true;
           return;
@@ -49,26 +49,26 @@ const processFiles = (directory) => {
       }
 
       if (isCodeBlock) {
-        if (line.includes("}")) {
+        if (line.includes('}')) {
           newFileContents += `  },\n`;
           isCodeBlock = false;
           return;
         }
 
-        let [key, value] = line.split(":");
-        if (key.includes("/*")) return;
-        if (key.includes("@apply")) {
-          newFileContents += `    "${line.trim().replace(";", "")}": {},\n`;
+        let [key, value] = line.split(':');
+        if (key.includes('/*')) return;
+        if (key.includes('@apply')) {
+          newFileContents += `    "${line.trim().replace(';', '')}": {},\n`;
           return;
         } else {
-          if (value.includes("(")) {
+          if (value.includes('(')) {
             value = `"${value.trim()}"`;
             newFileContents += `    "${key.trim()}": ${value},\n`;
           } else {
-            value = value.trim().replace(";", "");
-            value = value.replace(/\/\*.*\*\//g, "");
+            value = value.trim().replace(';', '');
+            value = value.replace(/\/\*.*\*\//g, '');
             value = `"${value}",`;
-            newFileContents += `    "${key.trim()}": ${value.trim().replace(";", ",")}\n`;
+            newFileContents += `    "${key.trim()}": ${value.trim().replace(';', ',')}\n`;
           }
         }
         return;
@@ -87,5 +87,5 @@ if (!fs.existsSync(path.dirname(fileToWrite))) {
   fs.mkdirSync(path.dirname(fileToWrite), { recursive: true });
 }
 
-fs.writeFileSync(fileToWrite, "");
+fs.writeFileSync(fileToWrite, '');
 fs.writeFileSync(fileToWrite, newFileContents);

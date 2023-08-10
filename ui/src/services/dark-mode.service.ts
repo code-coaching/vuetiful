@@ -1,5 +1,5 @@
-import { computed, readonly, Ref, ref } from "vue";
-import { usePlatform } from "../utils/platform/platform.service";
+import { computed, readonly, Ref, ref } from 'vue';
+import { usePlatform } from '../utils/platform/platform.service';
 
 const { isBrowser } = usePlatform();
 
@@ -16,15 +16,15 @@ const isDark = computed(() => currentMode.value === MODE.DARK);
 const useDarkMode = () => {
   const getModeOsPrefers = (): boolean => {
     let prefersLightMode = false;
-    if (isBrowser) prefersLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
+    if (isBrowser) prefersLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
     setModeOsPrefers(prefersLightMode);
     return prefersLightMode;
   };
 
   const getModeUserPrefers = (): boolean | undefined => {
     if (isBrowser) {
-      const mode = localStorage.getItem("modeUserPrefers");
-      if (mode !== null) modeUserPrefers.value = mode === "true";
+      const mode = localStorage.getItem('modeUserPrefers');
+      if (mode !== null) modeUserPrefers.value = mode === 'true';
     }
     return modeUserPrefers.value;
   };
@@ -39,19 +39,19 @@ const useDarkMode = () => {
   const setModeOsPrefers = (value: boolean) => {
     modeOsPrefers.value = value;
     if (isBrowser) {
-      localStorage.setItem("modeOsPrefers", value.toString());
+      localStorage.setItem('modeOsPrefers', value.toString());
     }
   };
   const setModeUserPrefers = (value: boolean): void => {
     modeUserPrefers.value = value;
     if (isBrowser) {
-      localStorage.setItem("modeUserPrefers", value.toString());
+      localStorage.setItem('modeUserPrefers', value.toString());
     }
   };
 
   const setModeCurrent = (value: boolean) => {
     const elemHtmlClasses = document.documentElement.classList;
-    const classDark = "dark";
+    const classDark = 'dark';
     value === MODE.LIGHT ? elemHtmlClasses.remove(classDark) : elemHtmlClasses.add(classDark);
     currentMode.value = value;
   };
@@ -62,7 +62,7 @@ const useDarkMode = () => {
   };
 
   const autoModeWatcher = (): void => {
-    const mql = window.matchMedia("(prefers-color-scheme: light)");
+    const mql = window.matchMedia('(prefers-color-scheme: light)');
     const setMode = (value: boolean) => {
       const elemHtmlClasses = document.documentElement.classList;
       const classDark = `dark`;

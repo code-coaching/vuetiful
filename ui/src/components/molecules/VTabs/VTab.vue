@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { unstyledProp } from "@/props";
-import { useSettings } from "@/services";
-import { Tab } from "@headlessui/vue";
-import { computed, inject } from "vue";
+import { unstyledProp } from '@/props';
+import { useSettings } from '@/services';
+import { Tab } from '@headlessui/vue';
+import { computed, inject } from 'vue';
 
 const props = defineProps({
   disabled: {
@@ -12,15 +12,15 @@ const props = defineProps({
   unstyled: unstyledProp,
 });
 
-const activeClass = inject("active") as string;
-const hoverClass = inject("hover") as string;
-const vertical = inject("vertical") as boolean;
-const classTab = inject("classTab") as string;
-const hideSeparator = inject("hideSeparator") as boolean;
-const classTabSeparator = inject("classTabSeparator") as string;
+const activeClass = inject('active') as string;
+const hoverClass = inject('hover') as string;
+const vertical = inject('vertical') as boolean;
+const classTab = inject('classTab') as string;
+const hideSeparator = inject('hideSeparator') as boolean;
+const classTabSeparator = inject('classTabSeparator') as string;
 
 const tabClass = computed(() => {
-  return classTab ? classTab : "w-full px-4 py-2";
+  return classTab ? classTab : 'w-full px-4 py-2';
 });
 
 const { settings } = useSettings();

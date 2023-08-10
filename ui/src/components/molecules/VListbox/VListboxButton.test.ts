@@ -1,10 +1,10 @@
-import { Listbox } from "@headlessui/vue";
-import { mount } from "@vue/test-utils";
-import { describe, expect, test } from "vitest";
-import VListboxButton from "./VListboxButton.vue";
+import { Listbox } from '@headlessui/vue';
+import { mount } from '@vue/test-utils';
+import { describe, expect, test } from 'vitest';
+import VListboxButton from './VListboxButton.vue';
 
-describe("VListboxButton props", () => {
-  test("defaults", () => {
+describe('VListboxButton props', () => {
+  test('defaults', () => {
     const wrapper = mount({
       provide: {
         unstyled: false,
@@ -15,13 +15,13 @@ describe("VListboxButton props", () => {
         </Listbox>
       `,
       components: {
-        "v-listbox-button": VListboxButton,
+        'v-listbox-button': VListboxButton,
         Listbox: Listbox,
       },
     });
 
     const listboxButton = wrapper.find("[data-test='listbox-button']");
-    expect(listboxButton.element.tagName).toBe("BUTTON");
+    expect(listboxButton.element.tagName).toBe('BUTTON');
   });
 
   test("custom 'as' prop", () => {
@@ -35,16 +35,16 @@ describe("VListboxButton props", () => {
         </Listbox>
       `,
       components: {
-        "v-listbox-button": VListboxButton,
+        'v-listbox-button': VListboxButton,
         Listbox: Listbox,
       },
     });
 
     const listboxButton = wrapper.find("[data-test='listbox-button']");
-    expect(listboxButton.element.tagName).toBe("DIV");
+    expect(listboxButton.element.tagName).toBe('DIV');
   });
 
-  test("should hide icon", () => {
+  test('should hide icon', () => {
     const wrapper = mount({
       provide: {
         unstyled: false,
@@ -55,12 +55,12 @@ describe("VListboxButton props", () => {
         </Listbox>
       `,
       components: {
-        "v-listbox-button": VListboxButton,
+        'v-listbox-button': VListboxButton,
         Listbox: Listbox,
       },
     });
 
     const listboxButton = wrapper.find("[data-test='listbox-button']");
-    expect(listboxButton.find("svg").exists()).toBe(false);
+    expect(listboxButton.find('svg').exists()).toBe(false);
   });
 });

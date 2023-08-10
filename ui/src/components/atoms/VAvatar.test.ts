@@ -1,175 +1,175 @@
-import { mount } from "@vue/test-utils";
-import { describe, expect, test } from "vitest";
-import { VAvatar } from ".";
+import { mount } from '@vue/test-utils';
+import { describe, expect, test } from 'vitest';
+import { VAvatar } from '.';
 
-describe("VAvatar", () => {
-  test("defaults", () => {
+describe('VAvatar', () => {
+  test('defaults', () => {
     const wrapper = mount(VAvatar);
 
-    expect(wrapper.classes()).toContain("vuetiful-avatar");
-    expect(wrapper.classes()).toContain("w-16");
-    expect(wrapper.classes()).toContain("rounded-token");
+    expect(wrapper.classes()).toContain('vuetiful-avatar');
+    expect(wrapper.classes()).toContain('w-16');
+    expect(wrapper.classes()).toContain('rounded-token');
 
-    const avatarText = wrapper.find(".vuetiful-avatar-text");
+    const avatarText = wrapper.find('.vuetiful-avatar-text');
     expect(avatarText.exists()).toBe(true);
-    expect(avatarText.text()).toBe("");
-    expect(avatarText.classes()).toEqual(["vuetiful-avatar-text", "fill-white", "dark:fill-black"]);
+    expect(avatarText.text()).toBe('');
+    expect(avatarText.classes()).toEqual(['vuetiful-avatar-text', 'fill-white', 'dark:fill-black']);
   });
 
-  test("custom variant", () => {
+  test('custom variant', () => {
     const wrapper = mount(VAvatar, {
       props: {
-        variant: "ghost",
+        variant: 'ghost',
       },
     });
 
-    const avatarText = wrapper.find(".vuetiful-avatar-text");
-    expect(avatarText.classes()).toEqual(["vuetiful-avatar-text", "fill-black", "dark:fill-white"]);
+    const avatarText = wrapper.find('.vuetiful-avatar-text');
+    expect(avatarText.classes()).toEqual(['vuetiful-avatar-text', 'fill-black', 'dark:fill-white']);
   });
 
-  test("variant with hyphen", () => {
+  test('variant with hyphen', () => {
     const wrapper = mount(VAvatar, {
       props: {
-        variant: "filled-primary",
+        variant: 'filled-primary',
       },
     });
 
-    expect(wrapper.classes()).toContain("variant-filled-primary");
-  })
+    expect(wrapper.classes()).toContain('variant-filled-primary');
+  });
 
-  test("initials", () => {
+  test('initials', () => {
     const wrapper = mount(VAvatar, {
       props: {
-        initials: "JD",
-        variant: "filled",
+        initials: 'JD',
+        variant: 'filled',
       },
     });
 
-    expect(wrapper.classes()).toContain("vuetiful-avatar");
-    expect(wrapper.classes()).toContain("w-16");
-    expect(wrapper.classes()).toContain("rounded-token");
+    expect(wrapper.classes()).toContain('vuetiful-avatar');
+    expect(wrapper.classes()).toContain('w-16');
+    expect(wrapper.classes()).toContain('rounded-token');
 
-    const avatarText = wrapper.find(".vuetiful-avatar-text");
+    const avatarText = wrapper.find('.vuetiful-avatar-text');
     expect(avatarText.exists()).toBe(true);
-    expect(avatarText.text()).toBe("JD");
-    expect(avatarText.classes()).toEqual(["vuetiful-avatar-text", "fill-white", "dark:fill-black"]);
+    expect(avatarText.text()).toBe('JD');
+    expect(avatarText.classes()).toEqual(['vuetiful-avatar-text', 'fill-white', 'dark:fill-black']);
 
-    const avatarImage = wrapper.find(".vuetiful-avatar-image");
+    const avatarImage = wrapper.find('.vuetiful-avatar-image');
     expect(avatarImage.exists()).toBe(false);
   });
 
-  test("initials fill", () => {
+  test('initials fill', () => {
     const wrapper = mount(VAvatar, {
       props: {
-        initials: "JD",
-        fill: "custom-fill-class",
+        initials: 'JD',
+        fill: 'custom-fill-class',
       },
     });
 
-    expect(wrapper.classes()).toContain("vuetiful-avatar");
-    expect(wrapper.classes()).toContain("w-16");
-    expect(wrapper.classes()).toContain("rounded-token");
+    expect(wrapper.classes()).toContain('vuetiful-avatar');
+    expect(wrapper.classes()).toContain('w-16');
+    expect(wrapper.classes()).toContain('rounded-token');
 
-    const avatarText = wrapper.find(".vuetiful-avatar-text");
+    const avatarText = wrapper.find('.vuetiful-avatar-text');
     expect(avatarText.exists()).toBe(true);
-    expect(avatarText.text()).toBe("JD");
-    expect(avatarText.classes()).toContain("custom-fill-class");
+    expect(avatarText.text()).toBe('JD');
+    expect(avatarText.classes()).toContain('custom-fill-class');
   });
 
-  test("image", () => {
+  test('image', () => {
     const wrapper = mount(VAvatar, {
       props: {
-        src: "https://via.placeholder.com/150",
+        src: 'https://via.placeholder.com/150',
       },
     });
 
-    expect(wrapper.classes()).toContain("vuetiful-avatar");
-    expect(wrapper.classes()).toContain("w-16");
-    expect(wrapper.classes()).toContain("rounded-token");
+    expect(wrapper.classes()).toContain('vuetiful-avatar');
+    expect(wrapper.classes()).toContain('w-16');
+    expect(wrapper.classes()).toContain('rounded-token');
 
-    const avatarText = wrapper.find(".vuetiful-avatar-text");
+    const avatarText = wrapper.find('.vuetiful-avatar-text');
     expect(avatarText.exists()).toBe(false);
 
-    const avatarImage = wrapper.find(".vuetiful-avatar-image");
+    const avatarImage = wrapper.find('.vuetiful-avatar-image');
     expect(avatarImage.exists()).toBe(true);
-    expect(avatarImage.attributes("src")).toBe("https://via.placeholder.com/150");
+    expect(avatarImage.attributes('src')).toBe('https://via.placeholder.com/150');
   });
 
-  test("image fallback", async () => {
+  test('image fallback', async () => {
     const wrapper = mount(VAvatar, {
       props: {
-        src: "https://via.placeholder.com/150",
-        fallback: "/image/john-duck.png",
+        src: 'https://via.placeholder.com/150',
+        fallback: '/image/john-duck.png',
       },
     });
 
-    expect(wrapper.classes()).toContain("vuetiful-avatar");
-    expect(wrapper.classes()).toContain("w-16");
-    expect(wrapper.classes()).toContain("rounded-token");
+    expect(wrapper.classes()).toContain('vuetiful-avatar');
+    expect(wrapper.classes()).toContain('w-16');
+    expect(wrapper.classes()).toContain('rounded-token');
 
-    const avatarText = wrapper.find(".vuetiful-avatar-text");
+    const avatarText = wrapper.find('.vuetiful-avatar-text');
     expect(avatarText.exists()).toBe(false);
 
-    const avatarImage = wrapper.find(".vuetiful-avatar-image");
-    avatarImage.trigger("error");
+    const avatarImage = wrapper.find('.vuetiful-avatar-image');
+    avatarImage.trigger('error');
     await wrapper.vm.$nextTick();
 
     expect(avatarImage.exists()).toBe(true);
-    expect(avatarImage.attributes("src")).toBe("/image/john-duck.png");
+    expect(avatarImage.attributes('src')).toBe('/image/john-duck.png');
   });
 
-  test("size xs", () => {
+  test('size xs', () => {
     const wrapper = mount(VAvatar, {
       props: {
-        size: "xs",
+        size: 'xs',
       },
     });
 
     const avatar = wrapper.find("[data-test='avatar']");
-    expect(avatar.attributes("class")).toContain("w-8");
+    expect(avatar.attributes('class')).toContain('w-8');
   });
 
-  test("size sm", () => {
+  test('size sm', () => {
     const wrapper = mount(VAvatar, {
       props: {
-        size: "sm",
+        size: 'sm',
       },
     });
 
     const avatar = wrapper.find("[data-test='avatar']");
-    expect(avatar.attributes("class")).toContain("w-12");
+    expect(avatar.attributes('class')).toContain('w-12');
   });
 
-  test("size md", () => {
+  test('size md', () => {
     const wrapper = mount(VAvatar, {
       props: {
-        size: "md",
+        size: 'md',
       },
     });
 
     const avatar = wrapper.find("[data-test='avatar']");
-    expect(avatar.attributes("class")).toContain("w-16");
+    expect(avatar.attributes('class')).toContain('w-16');
   });
 
-  test("size lg", () => {
+  test('size lg', () => {
     const wrapper = mount(VAvatar, {
       props: {
-        size: "lg",
+        size: 'lg',
       },
     });
 
     const avatar = wrapper.find("[data-test='avatar']");
-    expect(avatar.attributes("class")).toContain("w-20");
+    expect(avatar.attributes('class')).toContain('w-20');
   });
 
-  test("size xl", () => {
+  test('size xl', () => {
     const wrapper = mount(VAvatar, {
       props: {
-        size: "xl",
+        size: 'xl',
       },
     });
 
     const avatar = wrapper.find("[data-test='avatar']");
-    expect(avatar.attributes("class")).toContain("w-24");
+    expect(avatar.attributes('class')).toContain('w-24');
   });
 });

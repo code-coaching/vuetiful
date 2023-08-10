@@ -1,9 +1,9 @@
-import { mount } from "@vue/test-utils";
-import { describe, expect, test } from "vitest";
-import VSwitchDescription from "./VSwitchDescription.vue";
-import VSwitchGroup from "./VSwitchGroup.vue";
+import { mount } from '@vue/test-utils';
+import { describe, expect, test } from 'vitest';
+import VSwitchDescription from './VSwitchDescription.vue';
+import VSwitchGroup from './VSwitchGroup.vue';
 
-test("VSwitchDescription using slot", () => {
+test('VSwitchDescription using slot', () => {
   const wrapper = mount({
     template: `
       <v-switch-group>
@@ -11,15 +11,15 @@ test("VSwitchDescription using slot", () => {
       </v-switch-group>
     `,
     components: {
-      "v-switch-label": VSwitchDescription,
-      "v-switch-group": VSwitchGroup,
+      'v-switch-label': VSwitchDescription,
+      'v-switch-group': VSwitchGroup,
     },
   });
 
-  expect(wrapper.text()).toContain("John Duck");
+  expect(wrapper.text()).toContain('John Duck');
 });
 
-describe("VSwitchDescription props", () => {
+describe('VSwitchDescription props', () => {
   test("default 'as' prop", () => {
     const wrapper = mount({
       template: `
@@ -28,8 +28,8 @@ describe("VSwitchDescription props", () => {
         </v-switch-group>
       `,
       components: {
-        "v-switch-label": VSwitchDescription,
-        "v-switch-group": VSwitchGroup,
+        'v-switch-label': VSwitchDescription,
+        'v-switch-group': VSwitchGroup,
       },
     });
 
@@ -44,8 +44,8 @@ describe("VSwitchDescription props", () => {
         </v-switch-group>
       `,
       components: {
-        "v-switch-label": VSwitchDescription,
-        "v-switch-group": VSwitchGroup,
+        'v-switch-label': VSwitchDescription,
+        'v-switch-group': VSwitchGroup,
       },
     });
 

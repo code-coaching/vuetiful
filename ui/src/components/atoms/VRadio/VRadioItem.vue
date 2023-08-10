@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useSettings } from "@/index";
-import { RadioGroupOption } from "@headlessui/vue";
-import { inject } from "vue";
+import { useSettings } from '@/index';
+import { RadioGroupOption } from '@headlessui/vue';
+import { inject } from 'vue';
 
 const props = defineProps({
   value: {
@@ -14,9 +14,9 @@ const props = defineProps({
   },
 });
 
-const active = inject("active") as string;
-const hover = inject("hover") as string;
-const classItem = inject("classItem") as string;
+const active = inject('active') as string;
+const hover = inject('hover') as string;
+const classItem = inject('classItem') as string;
 
 const { settings } = useSettings();
 const isUnstyled =

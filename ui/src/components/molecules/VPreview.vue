@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import { VButton, VRadioGroup, VRadioItem } from "@/index";
-import { ref } from "vue";
+import { VButton, VRadioGroup, VRadioItem } from '@/index';
+import { ref } from 'vue';
 
 const backgrounds: Record<string, string> = {
-  "bg-transparent": "bg-transparent",
-  "neutral-opaque": "bg-white/50 dark:bg-black/50",
-  neutral: "bg-surface-100-800-token",
+  'bg-transparent': 'bg-transparent',
+  'neutral-opaque': 'bg-white/50 dark:bg-black/50',
+  neutral: 'bg-surface-100-800-token',
 
-  "variant-filled-surface": "variant-filled-surface",
-  "variant-filled-primary": "variant-filled-primary",
-  "variant-filled-secondary": "variant-filled-secondary",
-  "variant-filled-tertiary": "variant-filled-tertiary",
-  "variant-filled-success": "variant-filled-success",
-  "variant-filled-warning": "variant-filled-warning",
-  "variant-filled-error": "variant-filled-error",
+  'variant-filled-surface': 'variant-filled-surface',
+  'variant-filled-primary': 'variant-filled-primary',
+  'variant-filled-secondary': 'variant-filled-secondary',
+  'variant-filled-tertiary': 'variant-filled-tertiary',
+  'variant-filled-success': 'variant-filled-success',
+  'variant-filled-warning': 'variant-filled-warning',
+  'variant-filled-error': 'variant-filled-error',
 
   // TODO: implement gradient backgrounds
   // 'primary-to-secondary': 'bg-gradient-to-br variant-gradient-primary-secondary',
@@ -41,35 +41,35 @@ const props = defineProps({
   },
   background: {
     type: String,
-    default: "neutral",
+    default: 'neutral',
   },
 
   // Props (regions)
   regionHeader: {
     type: String,
-    default: "",
+    default: '',
   },
   regionViewport: {
     type: String,
-    default: "",
+    default: '',
   },
   regionPreview: {
     type: String,
-    default: "",
+    default: '',
   },
   regionFooter: {
     type: String,
-    default: "",
+    default: '',
   },
   regionSource: {
     type: String,
-    default: "",
+    default: '',
   },
 });
 
 const chosenBackground = ref(props.background);
-const tabView = ref("preview");
-const radioSize = ref("full");
+const tabView = ref('preview');
+const radioSize = ref('full');
 const swatches = ref(false);
 
 const toggleSwatches = () => (swatches.value = !swatches.value);
