@@ -111,8 +111,7 @@ const showText = computed(() => {
 });
 
 const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.listbox.unstyled || props.unstyled;
+const isUnstyled = settings.global.unstyled || settings.components.listbox.unstyled || props.unstyled;
 </script>
 
 <template>

@@ -95,27 +95,20 @@ export default defineComponent({
       }
     };
 
-    const trackBg = computed(() =>
-      currentMode.value === MODE.LIGHT ? props.bgLight : props.bgDark,
-    );
-    const thumbBg = computed(() =>
-      currentMode.value === MODE.LIGHT ? props.bgDark : props.bgLight,
-    );
-    const thumbPosition = computed(() =>
-      currentMode.value === MODE.LIGHT ? 'translate-x-[100%]' : '',
-    );
+    const trackBg = computed(() => (currentMode.value === MODE.LIGHT ? props.bgLight : props.bgDark));
+    const thumbBg = computed(() => (currentMode.value === MODE.LIGHT ? props.bgDark : props.bgLight));
+    const thumbPosition = computed(() => (currentMode.value === MODE.LIGHT ? 'translate-x-[100%]' : ''));
     const iconFill = computed(() => {
       return currentMode.value === MODE.LIGHT ? props.textLight : props.textDark;
     });
 
     const classesTrack: ComputedRef<string> = computed(() => {
-      return `${cTrack} ${cTransition} ${props.width} ${props.height} ${props.ring} ${
-        props.rounded
-      } ${trackBg.value} ${attrs.class ?? ''}`;
+      return `${cTrack} ${cTransition} ${props.width} ${props.height} ${props.ring} ${props.rounded} ${trackBg.value} ${
+        attrs.class ?? ''
+      }`;
     });
     const classesThumb: ComputedRef<string> = computed(
-      () =>
-        `${cThumb} ${cTransition} ${props.height} ${props.rounded} ${thumbBg.value} ${thumbPosition.value}`,
+      () => `${cThumb} ${cTransition} ${props.height} ${props.rounded} ${thumbBg.value} ${thumbPosition.value}`,
     );
     const classesIcon: ComputedRef<string> = computed(() => `${cIcon}`);
 

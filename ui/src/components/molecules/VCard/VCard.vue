@@ -55,9 +55,7 @@ const isUnstyled = settings.global.unstyled || settings.components.card.unstyled
     :tabindex="clickable ? 0 : undefined"
     :class="`vuetiful-card flex flex-col ${
       isUnstyled ? '' : 'border-token rounded-container-token ring-outline-token'
-    } ${background} ${text} ${
-      clickable ? `${isUnstyled ? '' : 'card-hover'} hover:cursor-pointer` : ''
-    }`"
+    } ${background} ${text} ${clickable ? `${isUnstyled ? '' : 'card-hover'} hover:cursor-pointer` : ''}`"
   >
     <slot />
   </div>

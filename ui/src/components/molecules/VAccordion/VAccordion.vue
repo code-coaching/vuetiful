@@ -22,8 +22,7 @@ provide('classQuestion', props.classQuestion);
 provide('classAnswer', props.classAnswer);
 
 const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.accordion.unstyled || props.unstyled;
+const isUnstyled = settings.global.unstyled || settings.components.accordion.unstyled || props.unstyled;
 </script>
 
 <template>

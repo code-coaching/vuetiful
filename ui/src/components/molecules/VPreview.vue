@@ -193,9 +193,7 @@ const toggleSwatches = () => (swatches.value = !swatches.value);
     </v-radio-group>
 
     <template v-if="tabView === 'preview'">
-      <div
-        :class="`vuetiful-previewer-viewport p-4 md:p-10 ${backgrounds[chosenBackground]} ${regionViewport}`"
-      >
+      <div :class="`vuetiful-previewer-viewport p-4 md:p-10 ${backgrounds[chosenBackground]} ${regionViewport}`">
         <!-- <div v-if="$slots.lead" class="vuetiful-previewer-lead"><slot name="lead" /></div> -->
         <div
           data-test="previewer-preview"
@@ -209,10 +207,7 @@ const toggleSwatches = () => (swatches.value = !swatches.value);
         </div>
         <!-- <div v-if="$slots.trail" class="vuetiful-previewer-trail"><slot name="trail" /></div> -->
       </div>
-      <footer
-        v-if="$slots.footer"
-        :class="`vuetiful-previewer-footer variant-soft p-4 ${regionFooter}`"
-      >
+      <footer v-if="$slots.footer" :class="`vuetiful-previewer-footer variant-soft p-4 ${regionFooter}`">
         <slot name="footer" />
       </footer>
     </template>

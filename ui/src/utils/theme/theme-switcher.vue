@@ -1,9 +1,6 @@
 <template>
   <div class="vuetiful-theme-switcher">
-    <v-button
-      :class="`vuetiful-theme-switcher__button ${classButton}`"
-      @click="showPopup = !showPopup"
-    >
+    <v-button :class="`vuetiful-theme-switcher__button ${classButton}`" @click="showPopup = !showPopup">
       Theme
     </v-button>
 

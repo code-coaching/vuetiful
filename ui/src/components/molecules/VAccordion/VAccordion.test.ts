@@ -11,13 +11,7 @@ describe('VAccordion', () => {
       },
     });
 
-    expect(wrapper.classes()).toEqual([
-      'vuetiful-accordion',
-      'flex',
-      'w-full',
-      'flex-col',
-      'gap-1',
-    ]);
+    expect(wrapper.classes()).toEqual(['vuetiful-accordion', 'flex', 'w-full', 'flex-col', 'gap-1']);
   });
 
   test('unstyled', async () => {

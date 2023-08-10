@@ -25,8 +25,7 @@ const horizontal = inject('horizontal') as boolean;
 const classItems = inject('classItems') as string;
 
 const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.listbox.unstyled || props.unstyled;
+const isUnstyled = settings.global.unstyled || settings.components.listbox.unstyled || props.unstyled;
 </script>
 
 <template>
@@ -34,9 +33,7 @@ const isUnstyled =
     :as="as"
     :static="static"
     :class="`z-10 ${
-      isUnstyled
-        ? ''
-        : `rounded-container-token' gap-1 p-4 border-token border-surface-400-500-token`
+      isUnstyled ? '' : `rounded-container-token' gap-1 p-4 border-token border-surface-400-500-token`
     } ${background} ${text} ${horizontal ? 'flex' : 'flex-col'} ${classItems}`"
     data-test="listbox-items"
   >

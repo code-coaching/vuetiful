@@ -34,14 +34,8 @@ defineProps({
         <slot name="sidebarLeft" />
       </aside>
 
-      <div
-        tabindex="-1"
-        :class="`vuetiful-page flex flex-1 flex-col overflow-x-hidden ${regionPage ?? ''}`"
-      >
-        <header
-          v-if="$slots.pageHeader"
-          :class="`vuetiful-page-header flex-none ${slotPageHeader}`"
-        >
+      <div tabindex="-1" :class="`vuetiful-page flex flex-1 flex-col overflow-x-hidden ${regionPage ?? ''}`">
+        <header v-if="$slots.pageHeader" :class="`vuetiful-page-header flex-none ${slotPageHeader}`">
           <slot name="pageHeader" />
         </header>
 
@@ -49,10 +43,7 @@ defineProps({
           <slot />
         </main>
 
-        <footer
-          v-if="$slots.pageFooter"
-          :class="`vuetiful-page-footer flex-none ${slotPageFooter}`"
-        >
+        <footer v-if="$slots.pageFooter" :class="`vuetiful-page-footer flex-none ${slotPageFooter}`">
           <slot name="pageFooter" />
         </footer>
       </div>

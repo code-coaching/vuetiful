@@ -78,8 +78,7 @@ function onCopyClick() {
 }
 
 const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.codeBlock.unstyled || props.unstyled;
+const isUnstyled = settings.global.unstyled || settings.components.codeBlock.unstyled || props.unstyled;
 </script>
 
 <template v-if="language && code">
@@ -90,20 +89,14 @@ const isUnstyled =
   >
     <header
       :class="`vuetiful-code-block-header ${
-        isUnstyled
-          ? ''
-          : 'flex items-center justify-between p-2 pb-0 pl-4 text-xs uppercase text-[#a4a4a4]'
+        isUnstyled ? '' : 'flex items-center justify-between p-2 pb-0 pl-4 text-xs uppercase text-[#a4a4a4]'
       } ${classHeader}`"
     >
-      <span :class="`vuetiful-code-block-language ${classLanguage}`">{{
-        languageFormatter(language)
-      }}</span>
+      <span :class="`vuetiful-code-block-language ${classLanguage}`">{{ languageFormatter(language) }}</span>
       <v-button
         size="sm"
         :class="`vuetiful-code-block-button ${
-          classButton
-            ? classButton
-            : 'bg-[#171717] text-[#a4a4a4] dark:bg-[#171717] dark:text-[#a4a4a4]'
+          classButton ? classButton : 'bg-[#171717] text-[#a4a4a4] dark:bg-[#171717] dark:text-[#a4a4a4]'
         }`"
         @click="onCopyClick()"
         v-clipboard="code"
@@ -112,9 +105,9 @@ const isUnstyled =
       </v-button>
     </header>
     <pre
-      :class="`vuetiful-code-block-pre ${
-        isUnstyled ? '' : '!rounded-t-none bg-transparent p-4 !pt-0'
-      } ${preventOverflow ? 'whitespace-pre-wrap break-all' : 'overflow-auto'} ${classPre}`"
+      :class="`vuetiful-code-block-pre ${isUnstyled ? '' : '!rounded-t-none bg-transparent p-4 !pt-0'} ${
+        preventOverflow ? 'whitespace-pre-wrap break-all' : 'overflow-auto'
+      } ${classPre}`"
     ><code :class="`vuetiful-code-block-code language-${language} ${classCode}`" v-html="highlight(code, language)"></code></pre>
   </div>
 </template>

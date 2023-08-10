@@ -37,18 +37,14 @@ const isUnstyled = settings.global.unstyled || settings.components.tab.unstyled 
     <div
       data-test="slot-container"
       class="vuetiful-tab-content"
-      :class="`text-base ${isUnstyled ? '' : 'rounded-token'} ${
-        selected ? activeClass : hoverClass
-      } ${tabClass}`"
+      :class="`text-base ${isUnstyled ? '' : 'rounded-token'} ${selected ? activeClass : hoverClass} ${tabClass}`"
     >
       <slot />
     </div>
     <div
       v-show="selected && !hideSeparator"
       class="vuetiful-tab-separator"
-      :class="`z-10 ${
-        vertical ? 'mr-[-2px] h-full border-r-2' : 'mb-[-2px] w-full border-b-2'
-      } ${classTabSeparator}`"
+      :class="`z-10 ${vertical ? 'mr-[-2px] h-full border-r-2' : 'mb-[-2px] w-full border-b-2'} ${classTabSeparator}`"
     ></div>
   </Tab>
 </template>

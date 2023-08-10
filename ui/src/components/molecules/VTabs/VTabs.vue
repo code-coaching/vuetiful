@@ -86,11 +86,7 @@ const isUnstyled = settings.global.unstyled || settings.components.tabs.unstyled
     >
       <slot name="tabs" />
     </TabList>
-    <div
-      data-test="vuetiful-tab-separator"
-      v-if="!hideSeparator"
-      :class="`border ${classSeparator}`"
-    ></div>
+    <div data-test="vuetiful-tab-separator" v-if="!hideSeparator" :class="`border ${classSeparator}`"></div>
     <TabPanels
       data-test="vuetiful-tab-panels"
       :class="`vuetiful-tab-panels

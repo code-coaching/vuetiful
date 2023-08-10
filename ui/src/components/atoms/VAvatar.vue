@@ -50,8 +50,7 @@ const avatarSize = computed(() => {
 });
 
 const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.avatar.unstyled || props.unstyled;
+const isUnstyled = settings.global.unstyled || settings.components.avatar.unstyled || props.unstyled;
 </script>
 <template>
   <figure

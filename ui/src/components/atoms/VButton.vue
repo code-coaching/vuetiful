@@ -56,8 +56,7 @@ const btnSize = computed(() => {
 });
 
 const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.button.unstyled || props.unstyled;
+const isUnstyled = settings.global.unstyled || settings.components.button.unstyled || props.unstyled;
 </script>
 
 <template>

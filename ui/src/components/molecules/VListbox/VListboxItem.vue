@@ -20,8 +20,7 @@ const hoverClass = inject('hover') as string;
 const classItem = inject('classItem') as string;
 
 const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.listboxItem.unstyled || props.unstyled;
+const isUnstyled = settings.global.unstyled || settings.components.listboxItem.unstyled || props.unstyled;
 </script>
 
 <template>

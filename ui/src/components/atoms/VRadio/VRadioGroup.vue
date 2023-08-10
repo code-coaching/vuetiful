@@ -68,8 +68,7 @@ provide('hover', props.hover);
 provide('classItem', props.classItem);
 
 const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.radioGroup.unstyled || props.unstyled;
+const isUnstyled = settings.global.unstyled || settings.components.radioGroup.unstyled || props.unstyled;
 </script>
 l
 <template>
@@ -80,9 +79,7 @@ l
     :disabled="disabled"
     :by="by"
     :class="`vuetiful-radio-group inline-flex ${
-      isUnstyled
-        ? ''
-        : `gap-1 p-1 border-token border-surface-400-500-token rounded-container-token`
+      isUnstyled ? '' : `gap-1 p-1 border-token border-surface-400-500-token rounded-container-token`
     } ${background} ${text}`"
     v-model="parentModelValue"
   >

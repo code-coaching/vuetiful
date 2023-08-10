@@ -10,7 +10,5 @@ defineProps({
 </script>
 
 <template>
-  <RadioGroupDescription :as="as" class="vuetiful-radio-group-description"
-    ><slot
-  /></RadioGroupDescription>
+  <RadioGroupDescription :as="as" class="vuetiful-radio-group-description"><slot /></RadioGroupDescription>
 </template>

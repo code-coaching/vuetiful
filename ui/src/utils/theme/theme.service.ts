@@ -58,8 +58,7 @@ const useTheme = () => {
 
   const loadTheme = (themeName: string, callback?: Function) => {
     let themeToLoad = themes.value.find((t) => t.name === themeName);
-    if (!themeToLoad)
-      themeToLoad = themes.value.find((t) => t.name === defaultTheme) || themes.value[0];
+    if (!themeToLoad) themeToLoad = themes.value.find((t) => t.name === defaultTheme) || themes.value[0];
 
     const theme: Theme = themeToLoad;
     chosenTheme.value = theme.name;

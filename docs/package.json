@@ -1,13 +1,13 @@
 {
   "name": "vuetiful-docs",
-  "version": "0.23.1",
+  "version": "0.23.2",
   "description": "Documentation for Vuetiful UI Toolkit",
   "productName": "Vuetiful Docs",
   "author": "Bart Duisters <bartduisters@bartduisters.com>",
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.ts,.vue ./",
-    "format": "prettier --write \"**/*.{js,ts,vue,css,html,md,json}\" --ignore-path .gitignore",
+    "format": "prettier --write \"**/*.{js,ts,vue,css,html,md,json}\" --ignore-path .gitignore --ignore-path .prettierignore",
     "test": "echo \"No test specified\" && exit 0",
     "dev": "quasar dev",
     "dev:ssr": "quasar dev -m ssr",
@@ -15,7 +15,7 @@
     "preview": "node dist/ssr"
   },
   "dependencies": {
-    "@code-coaching/vuetiful": "^0.23.1",
+    "@code-coaching/vuetiful": "^0.23.2",
     "@quasar/extras": "^1.0.0",
     "axios": "^0.21.1",
     "quasar": "^2.6.0",

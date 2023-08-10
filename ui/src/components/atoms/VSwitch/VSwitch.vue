@@ -67,8 +67,7 @@ const trackSize = computed(() => {
 });
 
 const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.switch.unstyled || props.unstyled;
+const isUnstyled = settings.global.unstyled || settings.components.switch.unstyled || props.unstyled;
 </script>
 
 <template>
@@ -76,9 +75,7 @@ const isUnstyled =
   <Switch
     data-test="switch"
     :class="`vuetiful-slide-toggle ${
-      isUnstyled
-        ? ''
-        : `rounded-container-token ${disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`
+      isUnstyled ? '' : `rounded-container-token ${disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`
     }`"
     :name="name"
     :as="as"

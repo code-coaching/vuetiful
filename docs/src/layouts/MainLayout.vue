@@ -14,7 +14,7 @@ watch(
     if (newPath !== oldPath) {
       layoutRef.value?.scrollIntoView();
     }
-  }
+  },
 );
 
 const { open, drawer } = useDrawer();

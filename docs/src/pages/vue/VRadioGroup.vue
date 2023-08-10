@@ -74,7 +74,7 @@ const filledExample = computed(
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
   <v-radio-item value="is">Is</v-radio-item>
   <v-radio-item value="beautiful">Beautiful</v-radio-item>
-</v-radio-group>`
+</v-radio-group>`,
 );
 const filledBgExample = computed(
   () => `<div class="font-bold">${option.value}</div>
@@ -87,7 +87,7 @@ const filledBgExample = computed(
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
   <v-radio-item value="is">Is</v-radio-item>
   <v-radio-item value="beautiful">Beautiful</v-radio-item>
-</v-radio-group>`
+</v-radio-group>`,
 );
 
 const ringedExample = computed(
@@ -96,7 +96,7 @@ const ringedExample = computed(
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
   <v-radio-item value="is">Is</v-radio-item>
   <v-radio-item value="beautiful">Beautiful</v-radio-item>
-</v-radio-group>`
+</v-radio-group>`,
 );
 const ringedBgExample = computed(
   () => `<div class="font-bold">${option.value}</div>
@@ -109,7 +109,7 @@ const ringedBgExample = computed(
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
   <v-radio-item value="is">Is</v-radio-item>
   <v-radio-item value="beautiful">Beautiful</v-radio-item>
-</v-radio-group>`
+</v-radio-group>`,
 );
 
 const ghostExample = computed(
@@ -118,7 +118,7 @@ const ghostExample = computed(
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
   <v-radio-item value="is">Is</v-radio-item>
   <v-radio-item value="beautiful">Beautiful</v-radio-item>
-</v-radio-group>`
+</v-radio-group>`,
 );
 const ghostBgExample = computed(
   () => `<v-radio-group
@@ -130,7 +130,7 @@ const ghostBgExample = computed(
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
   <v-radio-item value="is">Is</v-radio-item>
   <v-radio-item value="beautiful">Beautiful</v-radio-item>
-</v-radio-group>`
+</v-radio-group>`,
 );
 
 const softExample = computed(
@@ -139,7 +139,7 @@ const softExample = computed(
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
   <v-radio-item value="is">Is</v-radio-item>
   <v-radio-item value="beautiful">Beautiful</v-radio-item>
-</v-radio-group>`
+</v-radio-group>`,
 );
 const softBgExample = computed(
   () => `<div class="font-bold">${option.value}</div>
@@ -153,7 +153,7 @@ const softBgExample = computed(
   <v-radio-item value="is">Is</v-radio-item>
   <v-radio-item value="beautiful">Beautiful</v-radio-item>
 </v-radio-group>
-`
+`,
 );
 
 const glassExample = computed(
@@ -166,7 +166,7 @@ const glassExample = computed(
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
   <v-radio-item value="is">Is</v-radio-item>
   <v-radio-item value="beautiful">Beautiful</v-radio-item>
-</v-radio-group>`
+</v-radio-group>`,
 );
 const glassBgExample = computed(
   () => `<div class="font-bold">${option.value}</div>
@@ -179,7 +179,7 @@ const glassBgExample = computed(
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
   <v-radio-item value="is">Is</v-radio-item>
   <v-radio-item value="beautiful">Beautiful</v-radio-item>
-</v-radio-group>`
+</v-radio-group>`,
 );
 
 const unstyledTemplate = `<v-radio-group v-model="radioValue" unstyled>

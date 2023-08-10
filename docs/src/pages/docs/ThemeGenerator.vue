@@ -192,8 +192,12 @@ const cssOutput = computed(() => {
 ${formTheme.value.fonts.headingImports}
 :root {
     /* =~= Theme Properties =~= */
-    --theme-font-family-base: ${formTheme.value.fonts.customBase ? `"${formTheme.value.fonts.customBase}", ` : ''}${formTheme.value.fonts.base};
-    --theme-font-family-heading: ${formTheme.value.fonts.customHeadings ? `"${formTheme.value.fonts.customHeadings}", ` : ''}${formTheme.value.fonts.headings};
+    --theme-font-family-base: ${formTheme.value.fonts.customBase ? `"${formTheme.value.fonts.customBase}", ` : ''}${
+      formTheme.value.fonts.base
+    };
+    --theme-font-family-heading: ${
+      formTheme.value.fonts.customHeadings ? `"${formTheme.value.fonts.customHeadings}", ` : ''
+    }${formTheme.value.fonts.headings};
     --theme-font-color-base: ${formTheme.value.textColorLight};
     --theme-font-color-dark: ${formTheme.value.textColorDark};
     --theme-rounded-base: ${formTheme.value.roundedBase};
@@ -263,7 +267,7 @@ watch(
       contrastReports.value = getContrastReports();
     }
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 const randomizeFont = () => {
@@ -375,13 +379,15 @@ const resetGradients = () => {
                     <label class="flex items-center gap-2">
                       <input class="input !h-[50px] !w-[50px] flex-shrink-0" type="color" v-model="color.hex" />
                       <input
-                        class="input !h-[50px] bg-surface-50-900-token flex-1"
+                        class="input !h-[50px] flex-1 bg-surface-50-900-token"
                         type="text"
                         v-model="color.hex"
                         placeholder="#BADA55"
                       />
                     </label>
-                    <div class="input-group input-group-divider h-[50px] min-w-[175px] flex-1 pl-4 bg-surface-50-900-token">
+                    <div
+                      class="input-group input-group-divider h-[50px] min-w-[175px] flex-1 pl-4 bg-surface-50-900-token"
+                    >
                       <select v-model="color.on">
                         <option v-for="c in inputSettings.colorProps" :value="c.value" :key="c.value">
                           {{ c.label }}
@@ -431,9 +437,7 @@ const resetGradients = () => {
                     isDark ? 'border-surface-50 bg-surface-900' : 'border-surface-900 bg-surface-50'
                   } relative flex aspect-video min-w-[300px] flex-1 items-center justify-center border-2 rounded-container-token`"
                 >
-                  <v-button icon @click="resetGradients"
-                    ><i class="fa-solid fa-xmark"
-                  /></v-button>
+                  <v-button icon @click="resetGradients"><i class="fa-solid fa-xmark" /></v-button>
                 </div>
               </div>
               <p class="mb-4">
@@ -475,7 +479,7 @@ const resetGradients = () => {
               <label class="label">
                 <span>Custom base font</span>
                 <textarea
-                  class="textarea p-4 bg-surface-50-900-token rounded-container-token min-h-[130px]"
+                  class="textarea min-h-[130px] p-4 bg-surface-50-900-token rounded-container-token"
                   type="text"
                   v-model="formTheme.fonts.baseImports"
                   placeholder='Custom fonts, e.g. @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");'
@@ -500,7 +504,7 @@ const resetGradients = () => {
               <label class="label">
                 <span>Custom headings font</span>
                 <textarea
-                  class="textarea p-4 bg-surface-50-900-token rounded-container-token min-h-[130px]"
+                  class="textarea min-h-[130px] p-4 bg-surface-50-900-token rounded-container-token"
                   type="text"
                   v-model="formTheme.fonts.headingImports"
                   placeholder='Custom fonts, e.g. @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");'
