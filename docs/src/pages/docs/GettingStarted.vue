@@ -180,7 +180,45 @@ module.exports = {
   ],
 };`;
 
-const exampleQuasarCssOverwrite = `.q-avatar,
+const exampleQuasarCssOverwrite = `html,
+body,
+#q-app {
+  /*
+  * This is done to prevent double scrollbars
+  */
+  height: 100%;
+  overflow: hidden;
+
+  /*
+  * Reset several font properties to browser defaults
+  */
+  font-size: 16px;
+  font-family: var(--theme-font-family-base), sans-serif;
+  -moz-osx-font-smoothing: auto;
+}
+
+.flex {
+  /*
+  * Quasar has a flex utility class that also adds flex-wrap: wrap;
+  * This class is used to reset back to flex-wrap: nowrap; the default behavior.
+  */
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+/*
+* This makes sure the Tailwind flex utility class is not overwritten
+* by the override above.
+*/
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+/* app global css */
+.q-avatar,
 .q-chip .q-avatar {
   @apply rounded-token;
   @apply transition-all;
@@ -401,6 +439,27 @@ const exampleQuasarCssOverwrite = `.q-avatar,
 .q-date__header {
   @apply bg-surface-300-600-token;
   @apply text-surface-900-50-token;
+}
+
+/**
+  * Prevent the outline from showing on focus when the input is within a QInput
+  */
+.q-field__native[type='text']:focus,
+.q-field__native[type='email']:focus,
+.q-field__native[type='url']:focus,
+.q-field__native[type='password']:focus,
+.q-field__native[type='number']:focus,
+.q-field__native[type='date']:focus,
+.q-field__native[type='datetime-local']:focus,
+.q-field__native[type='month']:focus,
+.q-field__native[type='search']:focus,
+.q-field__native[type='tel']:focus,
+.q-field__native[type='time']:focus,
+.q-field__native[type='week']:focus,
+.q-field__native[multiple]:focus,
+.q-field__native textarea:focus,
+.q-field__native select:focus {
+  --tw-ring-color: transparent;
 }`;
 </script>
 
