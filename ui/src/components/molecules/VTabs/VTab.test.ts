@@ -119,4 +119,25 @@ describe('VTab', () => {
       'py-2',
     ]);
   });
+
+  test('unstyled', async () => {
+    const wrapper = mount({
+      template: /*html*/ `
+          <v-tabs>
+            <template v-slot="tabs">
+              <v-tab unstyled data-test="vuetiful">Vuetiful</v-tab>
+            </template>
+          </v-tabs>
+        `,
+      components: {
+        'v-tabs': VTabs,
+        'v-tab': VTab,
+      },
+    });
+
+    const vuetiful = wrapper.find("[data-test='vuetiful']");
+    const slotContainer = vuetiful.find("[data-test='slot-container']");
+    expect(vuetiful.classes()).toEqual(['vuetiful-tab', 'flex', 'flex-col']);
+    expect(slotContainer.classes()).not.toContain('rounded-token');
+  });
 });

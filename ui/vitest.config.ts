@@ -7,10 +7,10 @@ const vitestConfig: UserConfig = {
     environment: 'jsdom',
     coverage: {
       exclude: ['**/src/types/**'],
-      lines: 98.47,
-      functions: 89.01,
+      lines: 99.46,
+      functions: 90,
       branches: 99.35,
-      statements: 98.47,
+      statements: 99.46,
       thresholdAutoUpdate: true,
     },
   },
