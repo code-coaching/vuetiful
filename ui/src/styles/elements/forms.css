@@ -48,7 +48,7 @@
 
   /* Range Input */
   /* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
-  [type="range"] {
+  [type='range'] {
     @apply w-full accent-surface-900 dark:accent-surface-50;
   }
 
@@ -138,23 +138,23 @@
   /* === Specialized === */
 
   /* File Inputs */
-  .input[type="file"] {
+  .input[type='file'] {
     @apply p-1;
   }
 
   /* Color Picker */
   /* https://stackoverflow.com/questions/11167281/webkit-css-to-control-the-box-around-the-color-in-an-inputtype-color */
-  .input[type="color"] {
+  .input[type='color'] {
     @apply h-10 w-10 cursor-pointer overflow-hidden border-none rounded-token;
     -webkit-appearance: none; /* WebKit Only */
   }
-  .input[type="color"]::-webkit-color-swatch-wrapper {
+  .input[type='color']::-webkit-color-swatch-wrapper {
     @apply p-0;
   }
-  .input[type="color"]::-webkit-color-swatch {
+  .input[type='color']::-webkit-color-swatch {
     @apply border-none hover:brightness-110;
   }
-  .input[type="color"]::-moz-color-swatch {
+  .input[type='color']::-moz-color-swatch {
     @apply border-none;
   }
 
@@ -263,7 +263,7 @@
     /* Blur */
     @apply backdrop-blur;
   }
-  .variant-form-material[type="file"] {
+  .variant-form-material[type='file'] {
     @apply !py-1.5;
   }
 }

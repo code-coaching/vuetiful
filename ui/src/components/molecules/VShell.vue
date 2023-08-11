@@ -9,14 +9,14 @@
  */
 export type CssClasses = string;
 defineProps({
-  regionPage: { type: String as () => CssClasses, default: "" },
-  slotFixedHeader: { type: String as () => CssClasses, default: "z-10" },
-  slotSidebarLeft: { type: String as () => CssClasses, default: "w-auto" },
-  slotSidebarRight: { type: String as () => CssClasses, default: "w-auto" },
-  slotPageHeader: { type: String as () => CssClasses, default: "" },
-  slotPageContent: { type: String as () => CssClasses, default: "" },
-  slotPageFooter: { type: String as () => CssClasses, default: "" },
-  slotFixedFooter: { type: String as () => CssClasses, default: "" },
+  regionPage: { type: String as () => CssClasses, default: '' },
+  slotFixedHeader: { type: String as () => CssClasses, default: 'z-10' },
+  slotSidebarLeft: { type: String as () => CssClasses, default: 'w-auto' },
+  slotSidebarRight: { type: String as () => CssClasses, default: 'w-auto' },
+  slotPageHeader: { type: String as () => CssClasses, default: '' },
+  slotPageContent: { type: String as () => CssClasses, default: '' },
+  slotPageFooter: { type: String as () => CssClasses, default: '' },
+  slotFixedFooter: { type: String as () => CssClasses, default: '' },
 });
 </script>
 
@@ -34,14 +34,8 @@ defineProps({
         <slot name="sidebarLeft" />
       </aside>
 
-      <div
-        tabindex="-1"
-        :class="`vuetiful-page flex flex-1 flex-col overflow-x-hidden ${regionPage ?? ''}`"
-      >
-        <header
-          v-if="$slots.pageHeader"
-          :class="`vuetiful-page-header flex-none ${slotPageHeader}`"
-        >
+      <div tabindex="-1" :class="`vuetiful-page flex flex-1 flex-col overflow-x-hidden ${regionPage ?? ''}`">
+        <header v-if="$slots.pageHeader" :class="`vuetiful-page-header flex-none ${slotPageHeader}`">
           <slot name="pageHeader" />
         </header>
 
@@ -49,10 +43,7 @@ defineProps({
           <slot />
         </main>
 
-        <footer
-          v-if="$slots.pageFooter"
-          :class="`vuetiful-page-footer flex-none ${slotPageFooter}`"
-        >
+        <footer v-if="$slots.pageFooter" :class="`vuetiful-page-footer flex-none ${slotPageFooter}`">
           <slot name="pageFooter" />
         </footer>
       </div>

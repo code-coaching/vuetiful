@@ -1,9 +1,9 @@
-import { mount } from "@vue/test-utils";
-import { expect, test } from "vitest";
-import VListbox from "./VListbox.vue";
-import VListboxItem from "./VListboxItem.vue";
+import { mount } from '@vue/test-utils';
+import { expect, test } from 'vitest';
+import VListbox from './VListbox.vue';
+import VListboxItem from './VListboxItem.vue';
 
-test("VListboxItems defaults", async () => {
+test('VListboxItems defaults', async () => {
   const wrapper = mount({
     template: /*html*/ `
       <v-listbox>
@@ -11,19 +11,19 @@ test("VListboxItems defaults", async () => {
       </v-listbox>
     `,
     components: {
-      "v-listbox": VListbox,
-      "v-listbox-item": VListboxItem,
+      'v-listbox': VListbox,
+      'v-listbox-item': VListboxItem,
     },
   });
 
   const listbox = wrapper.find("[data-test='listbox']");
-  await listbox.find("button").trigger("click");
+  await listbox.find('button').trigger('click');
 
   const listboxItems = listbox.find("[data-test='listbox-items']");
-  expect(listboxItems.classes()).toContain("flex-col");
+  expect(listboxItems.classes()).toContain('flex-col');
 });
 
-test("VListboxItems horizontal", async () => {
+test('VListboxItems horizontal', async () => {
   const wrapper = mount({
     template: /*html*/ `
       <v-listbox horizontal>
@@ -31,14 +31,14 @@ test("VListboxItems horizontal", async () => {
       </v-listbox>
     `,
     components: {
-      "v-listbox": VListbox,
-      "v-listbox-item": VListboxItem,
+      'v-listbox': VListbox,
+      'v-listbox-item': VListboxItem,
     },
   });
 
   const listbox = wrapper.find("[data-test='listbox']");
-  await listbox.find("button").trigger("click");
+  await listbox.find('button').trigger('click');
 
   const listboxItems = listbox.find("[data-test='listbox-items']");
-  expect(listboxItems.classes()).not.toContain("flex-col");
+  expect(listboxItems.classes()).not.toContain('flex-col');
 });

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { useSettings } from "@/index";
-import { sizeProp, unstyledProp } from "@/props";
-import { Switch } from "@headlessui/vue";
-import { computed, ref, watch } from "vue";
+import { useSettings } from '@/index';
+import { sizeProp, unstyledProp } from '@/props';
+import { Switch } from '@headlessui/vue';
+import { computed, ref, watch } from 'vue';
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(['update:modelValue']);
 const props = defineProps({
   modelValue: {
     type: Boolean,
@@ -17,20 +17,20 @@ const props = defineProps({
 
   classTrack: {
     type: String,
-    default: "variant-filled",
+    default: 'variant-filled',
   },
   classThumb: {
     type: String,
-    default: "bg-surface-100-800-token",
+    default: 'bg-surface-100-800-token',
   },
 
   as: {
     type: String,
-    default: "button",
+    default: 'button',
   },
   name: {
     type: String,
-    default: "",
+    default: '',
   },
 
   size: sizeProp,
@@ -42,33 +42,32 @@ watch(
   () => props.modelValue,
   (newValue) => {
     parentModelValue.value = newValue;
-  }
+  },
 );
 watch(
   () => parentModelValue.value,
   (newValue) => {
-    emit("update:modelValue", newValue);
-  }
+    emit('update:modelValue', newValue);
+  },
 );
 
 const trackSize = computed(() => {
   switch (props.size) {
-    case "xs":
-      return "w-8 h-4";
-    case "sm":
-      return "w-12 h-6";
-    case "md":
-      return "w-16 h-8";
-    case "lg":
-      return "w-20 h-10";
-    case "xl":
-      return "w-24 h-12";
+    case 'xs':
+      return 'w-8 h-4';
+    case 'sm':
+      return 'w-12 h-6';
+    case 'md':
+      return 'w-16 h-8';
+    case 'lg':
+      return 'w-20 h-10';
+    case 'xl':
+      return 'w-24 h-12';
   }
 });
 
 const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.switch.unstyled || props.unstyled;
+const isUnstyled = settings.global.unstyled || settings.components.switch.unstyled || props.unstyled;
 </script>
 
 <template>
@@ -76,9 +75,7 @@ const isUnstyled =
   <Switch
     data-test="switch"
     :class="`vuetiful-slide-toggle ${
-      isUnstyled
-        ? ''
-        : `rounded-container-token ${disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`
+      isUnstyled ? '' : `rounded-container-token ${disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`
     }`"
     :name="name"
     :as="as"

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { unstyledProp } from "@/props";
-import { useSettings } from "@/services";
-import { TabGroup, TabList, TabPanels } from "@headlessui/vue";
-import { provide } from "vue";
+import { unstyledProp } from '@/props';
+import { useSettings } from '@/services';
+import { TabGroup, TabList, TabPanels } from '@headlessui/vue';
+import { provide } from 'vue';
 
 const props = defineProps({
   hideSeparator: {
@@ -17,32 +17,32 @@ const props = defineProps({
 
   active: {
     type: String,
-    default: "",
+    default: '',
   },
   hover: {
     type: String,
-    default: "hover:variant-ghost",
+    default: 'hover:variant-ghost',
   },
 
   classPanels: {
     type: String,
-    default: "",
+    default: '',
   },
   classTabs: {
     type: String,
-    default: "",
+    default: '',
   },
   classTab: {
     type: String,
-    default: "",
+    default: '',
   },
   classSeparator: {
     type: String,
-    default: "border-surface-400-500-token",
+    default: 'border-surface-400-500-token',
   },
   classTabSeparator: {
     type: String,
-    default: "border-surface-900-50-token",
+    default: 'border-surface-900-50-token',
   },
 
   defaultIndex: {
@@ -53,12 +53,12 @@ const props = defineProps({
   unstyled: unstyledProp,
 });
 
-provide("active", props.active);
-provide("hover", props.hover);
-provide("vertical", props.vertical);
-provide("classTab", props.classTab);
-provide("hideSeparator", props.hideSeparator);
-provide("classTabSeparator", props.classTabSeparator);
+provide('active', props.active);
+provide('hover', props.hover);
+provide('vertical', props.vertical);
+provide('classTab', props.classTab);
+provide('hideSeparator', props.hideSeparator);
+provide('classTabSeparator', props.classTabSeparator);
 
 const { settings } = useSettings();
 const isUnstyled = settings.global.unstyled || settings.components.tabs.unstyled || props.unstyled;
@@ -86,11 +86,7 @@ const isUnstyled = settings.global.unstyled || settings.components.tabs.unstyled
     >
       <slot name="tabs" />
     </TabList>
-    <div
-      data-test="vuetiful-tab-separator"
-      v-if="!hideSeparator"
-      :class="`border ${classSeparator}`"
-    ></div>
+    <div data-test="vuetiful-tab-separator" v-if="!hideSeparator" :class="`border ${classSeparator}`"></div>
     <TabPanels
       data-test="vuetiful-tab-panels"
       :class="`vuetiful-tab-panels

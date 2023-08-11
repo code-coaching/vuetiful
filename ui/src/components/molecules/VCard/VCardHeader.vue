@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { unstyledProp } from "@/props";
-import { useSettings } from "@/services";
-import { Ref, computed, inject, ref, useAttrs } from "vue";
+import { unstyledProp } from '@/props';
+import { useSettings } from '@/services';
+import { Ref, computed, inject, ref, useAttrs } from 'vue';
 
 const props = defineProps({
   classSeparator: {
     type: String as () => string,
-    default: "opacity-90",
+    default: 'opacity-90',
   },
   unstyled: unstyledProp,
 });
@@ -17,17 +17,16 @@ const hasImageAsChild = computed(() => {
   const children = headerRef.value?.children;
   if (!children) return false;
   const childrenArray = Array.from(children);
-  return childrenArray.some((child) => child.tagName === "IMG");
+  return childrenArray.some((child) => child.tagName === 'IMG');
 });
 
-const hideSeparator = inject("hideSeparator", false);
+const hideSeparator = inject('hideSeparator', false);
 
 const attrs = useAttrs();
 const classAttribute = attrs.class as string;
 
 const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.cardHeader.unstyled || props.unstyled;
+const isUnstyled = settings.global.unstyled || settings.components.cardHeader.unstyled || props.unstyled;
 </script>
 
 <template>

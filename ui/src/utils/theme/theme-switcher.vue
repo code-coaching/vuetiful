@@ -1,9 +1,6 @@
 <template>
   <div class="vuetiful-theme-switcher">
-    <v-button
-      :class="`vuetiful-theme-switcher__button ${classButton}`"
-      @click="showPopup = !showPopup"
-    >
+    <v-button :class="`vuetiful-theme-switcher__button ${classButton}`" @click="showPopup = !showPopup">
       Theme
     </v-button>
 
@@ -35,39 +32,39 @@
 </template>
 
 <script setup lang="ts">
-import { CssClasses, useTheme, VButton, VLightSwitch } from "@/index";
-import { onMounted, ref } from "vue";
+import { CssClasses, useTheme, VButton, VLightSwitch } from '@/index';
+import { onMounted, ref } from 'vue';
 
 defineProps({
   background: {
     type: String as () => CssClasses,
-    default: "bg-surface-50-900-token",
+    default: 'bg-surface-50-900-token',
   },
   text: {
     type: String as () => CssClasses,
-    default: "text-surface-900-50-token",
+    default: 'text-surface-900-50-token',
   },
 
   widthPopup: {
     type: String as () => CssClasses,
-    default: "w-60",
+    default: 'w-60',
   },
   heightList: {
     type: String as () => CssClasses,
-    default: "max-h-64 lg:max-h-[500px]",
+    default: 'max-h-64 lg:max-h-[500px]',
   },
 
   classButton: {
     type: String as () => CssClasses,
-    default: "",
+    default: '',
   },
   classList: {
     type: String as () => CssClasses,
-    default: "",
+    default: '',
   },
   classListItem: {
     type: String as () => CssClasses,
-    default: "",
+    default: '',
   },
 });
 

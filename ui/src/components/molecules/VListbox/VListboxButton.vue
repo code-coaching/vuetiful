@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { useSettings } from "@/index";
-import { ListboxButton } from "@headlessui/vue";
-import { inject } from "vue";
+import { useSettings } from '@/index';
+import { ListboxButton } from '@headlessui/vue';
+import { inject } from 'vue';
 
 defineProps({
   as: {
     type: String,
-    default: "button",
+    default: 'button',
   },
   hideIcon: {
     type: Boolean,
@@ -14,7 +14,7 @@ defineProps({
   },
 });
 
-const unstyled = inject("unstyled") as boolean;
+const unstyled = inject('unstyled') as boolean;
 
 const { settings } = useSettings();
 const isUnstyled = settings.global.unstyled || settings.components.listbox.unstyled || unstyled;

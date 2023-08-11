@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useSettings } from "@/index";
-import { unstyledProp } from "@/props";
-import { provide } from "vue";
+import { useSettings } from '@/index';
+import { unstyledProp } from '@/props';
+import { provide } from 'vue';
 
-const emit = defineEmits(["click"]);
+const emit = defineEmits(['click']);
 
 const props = defineProps({
   hideSeparator: {
@@ -12,11 +12,11 @@ const props = defineProps({
   },
   background: {
     type: String,
-    default: "bg-surface-200-700-token",
+    default: 'bg-surface-200-700-token',
   },
   text: {
     type: String,
-    default: "text-surface-900-50-token",
+    default: 'text-surface-900-50-token',
   },
   clickable: {
     type: Boolean,
@@ -26,21 +26,21 @@ const props = defineProps({
   unstyled: unstyledProp,
 });
 
-provide("hideSeparator", props.hideSeparator);
+provide('hideSeparator', props.hideSeparator);
 
 const onClick = () => {
   if (!props.clickable) return;
-  emit("click");
+  emit('click');
 };
 const onKeydown = (event: KeyboardEvent) => {
   if (!props.clickable) return;
-  if (event.key === "Enter") {
+  if (event.key === 'Enter') {
     event.preventDefault();
-    emit("click");
+    emit('click');
   }
-  if (event.key === " ") {
+  if (event.key === ' ') {
     event.preventDefault();
-    emit("click");
+    emit('click');
   }
 };
 
@@ -55,9 +55,7 @@ const isUnstyled = settings.global.unstyled || settings.components.card.unstyled
     :tabindex="clickable ? 0 : undefined"
     :class="`vuetiful-card flex flex-col ${
       isUnstyled ? '' : 'border-token rounded-container-token ring-outline-token'
-    } ${background} ${text} ${
-      clickable ? `${isUnstyled ? '' : 'card-hover'} hover:cursor-pointer` : ''
-    }`"
+    } ${background} ${text} ${clickable ? `${isUnstyled ? '' : 'card-hover'} hover:cursor-pointer` : ''}`"
   >
     <slot />
   </div>

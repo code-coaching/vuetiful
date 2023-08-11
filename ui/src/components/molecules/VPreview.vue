@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import { VButton, VRadioGroup, VRadioItem } from "@/index";
-import { ref } from "vue";
+import { VButton, VRadioGroup, VRadioItem } from '@/index';
+import { ref } from 'vue';
 
 const backgrounds: Record<string, string> = {
-  "bg-transparent": "bg-transparent",
-  "neutral-opaque": "bg-white/50 dark:bg-black/50",
-  neutral: "bg-surface-100-800-token",
+  'bg-transparent': 'bg-transparent',
+  'neutral-opaque': 'bg-white/50 dark:bg-black/50',
+  neutral: 'bg-surface-100-800-token',
 
-  "variant-filled-surface": "variant-filled-surface",
-  "variant-filled-primary": "variant-filled-primary",
-  "variant-filled-secondary": "variant-filled-secondary",
-  "variant-filled-tertiary": "variant-filled-tertiary",
-  "variant-filled-success": "variant-filled-success",
-  "variant-filled-warning": "variant-filled-warning",
-  "variant-filled-error": "variant-filled-error",
+  'variant-filled-surface': 'variant-filled-surface',
+  'variant-filled-primary': 'variant-filled-primary',
+  'variant-filled-secondary': 'variant-filled-secondary',
+  'variant-filled-tertiary': 'variant-filled-tertiary',
+  'variant-filled-success': 'variant-filled-success',
+  'variant-filled-warning': 'variant-filled-warning',
+  'variant-filled-error': 'variant-filled-error',
 
   // TODO: implement gradient backgrounds
   // 'primary-to-secondary': 'bg-gradient-to-br variant-gradient-primary-secondary',
@@ -41,35 +41,35 @@ const props = defineProps({
   },
   background: {
     type: String,
-    default: "neutral",
+    default: 'neutral',
   },
 
   // Props (regions)
   regionHeader: {
     type: String,
-    default: "",
+    default: '',
   },
   regionViewport: {
     type: String,
-    default: "",
+    default: '',
   },
   regionPreview: {
     type: String,
-    default: "",
+    default: '',
   },
   regionFooter: {
     type: String,
-    default: "",
+    default: '',
   },
   regionSource: {
     type: String,
-    default: "",
+    default: '',
   },
 });
 
 const chosenBackground = ref(props.background);
-const tabView = ref("preview");
-const radioSize = ref("full");
+const tabView = ref('preview');
+const radioSize = ref('full');
 const swatches = ref(false);
 
 const toggleSwatches = () => (swatches.value = !swatches.value);
@@ -193,9 +193,7 @@ const toggleSwatches = () => (swatches.value = !swatches.value);
     </v-radio-group>
 
     <template v-if="tabView === 'preview'">
-      <div
-        :class="`vuetiful-previewer-viewport p-4 md:p-10 ${backgrounds[chosenBackground]} ${regionViewport}`"
-      >
+      <div :class="`vuetiful-previewer-viewport p-4 md:p-10 ${backgrounds[chosenBackground]} ${regionViewport}`">
         <!-- <div v-if="$slots.lead" class="vuetiful-previewer-lead"><slot name="lead" /></div> -->
         <div
           data-test="previewer-preview"
@@ -209,10 +207,7 @@ const toggleSwatches = () => (swatches.value = !swatches.value);
         </div>
         <!-- <div v-if="$slots.trail" class="vuetiful-previewer-trail"><slot name="trail" /></div> -->
       </div>
-      <footer
-        v-if="$slots.footer"
-        :class="`vuetiful-previewer-footer variant-soft p-4 ${regionFooter}`"
-      >
+      <footer v-if="$slots.footer" :class="`vuetiful-previewer-footer variant-soft p-4 ${regionFooter}`">
         <slot name="footer" />
       </footer>
     </template>

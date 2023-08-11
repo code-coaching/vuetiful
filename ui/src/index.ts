@@ -1,4 +1,4 @@
-import * as components from "./components";
+import * as components from './components';
 
 function install(app: any) {
   for (const key in components) {
@@ -7,15 +7,15 @@ function install(app: any) {
   }
 }
 
-import "./assets/main.css";
-import "./styles/tailwind.css";
+import './assets/main.css';
+import './styles/tailwind.css';
 
 export default { install };
 
-export * from "./components";
-export * from "./utils";
-export * from "./directives";
-export * from "./services";
+export * from './components';
+export * from './utils';
+export * from './directives';
+export * from './services';
 
 // This type alias is to identify CSS classes within component props, which enables Tailwind IntelliSense
 export type CssClasses = string;

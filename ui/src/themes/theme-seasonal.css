@@ -1,12 +1,12 @@
 /* A New Years inspired theme. */
 
 /* https://fonts.google.com/specimen/Quicksand?query=Quicksand */
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 :root {
   /* =~= Theme Properties =~= */
   --theme-font-family-base: system-ui;
-  --theme-font-family-heading: "Quicksand", sans-serif;
+  --theme-font-family-heading: 'Quicksand', sans-serif;
   --theme-font-color-base: var(--color-surface-500);
   --theme-font-color-dark: var(--color-surface-200);
   --theme-rounded-base: 12px;
@@ -101,13 +101,13 @@
 }
 
 /* Applied to body with `<body data-theme="seasonal">` */
-[data-theme="seasonal"] {
+[data-theme='seasonal'] {
   /* prettier-ignore */
   background-image:
 		radial-gradient(at 22% 100%, hsla(39,68%,50%,0.23) 0px, transparent 50%),
 		radial-gradient(at 80% 100%, hsla(189,100%,56%,0.33) 0px, transparent 50%);
 }
-.dark [data-theme="seasonal"] {
+.dark [data-theme='seasonal'] {
   /* prettier-ignore */
   background-image:
 		radial-gradient(at 22% 0%, hsla(39,68%,50%,0.15) 0px, transparent 50%),

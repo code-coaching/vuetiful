@@ -1,5 +1,5 @@
 /* https://fonts.google.com/specimen/Lato?query=lato&noto.query=Abril */
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 :root {
   /* =~= Theme Properties =~= */
@@ -99,12 +99,12 @@
 }
 
 /* Headings */
-[data-theme="skeleton"] h1,
-[data-theme="skeleton"] h2,
-[data-theme="skeleton"] h3,
-[data-theme="skeleton"] h4,
-[data-theme="skeleton"] h5,
-[data-theme="skeleton"] h6 {
+[data-theme='skeleton'] h1,
+[data-theme='skeleton'] h2,
+[data-theme='skeleton'] h3,
+[data-theme='skeleton'] h4,
+[data-theme='skeleton'] h5,
+[data-theme='skeleton'] h6 {
   font-weight: bold;
 }
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { unstyledProp, variantProp } from "@/props";
-import { useSettings } from "@/services";
+import { unstyledProp, variantProp } from '@/props';
+import { useSettings } from '@/services';
 
 const props = defineProps({
   variant: variantProp,

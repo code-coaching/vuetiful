@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { CssClasses, useSettings } from "@/index";
-import { sizeProp, unstyledProp, variantProp } from "@/props";
-import { Size } from "@/types";
-import { computed, ref } from "vue";
+import { CssClasses, useSettings } from '@/index';
+import { sizeProp, unstyledProp, variantProp } from '@/props';
+import { Size } from '@/types';
+import { computed, ref } from 'vue';
 
 const props = defineProps({
   // Initials
-  initials: { type: String, default: "" },
-  fill: { type: String as () => CssClasses, default: "" },
-  classInitials: { type: String, default: "" },
+  initials: { type: String, default: '' },
+  fill: { type: String as () => CssClasses, default: '' },
+  classInitials: { type: String, default: '' },
 
   // Image
-  src: { type: String, default: "" },
-  alt: { type: String, default: "" },
-  fallback: { type: String, default: "" },
-  classImage: { type: String, default: "" },
+  src: { type: String, default: '' },
+  alt: { type: String, default: '' },
+  fallback: { type: String, default: '' },
+  classImage: { type: String, default: '' },
 
   size: sizeProp,
   variant: variantProp,
@@ -26,32 +26,31 @@ const fillInitials = computed(() => {
   if (props.fill) return props.fill;
 
   const variantString = props.variant as string | undefined;
-  const type = variantString?.split("-")[1];
-  if (variantString?.includes("filled")) {
-    if (!type) return "fill-white dark:fill-black";
-    return "fill-white";
+  const type = variantString?.split('-')[1];
+  if (variantString?.includes('filled')) {
+    if (!type) return 'fill-white dark:fill-black';
+    return 'fill-white';
   }
-  return "fill-black dark:fill-white";
+  return 'fill-black dark:fill-white';
 });
 
 const avatarSize = computed(() => {
   switch (props.size) {
     case Size.XS:
-      return "w-8";
+      return 'w-8';
     case Size.SM:
-      return "w-12";
+      return 'w-12';
     case Size.MD:
-      return "w-16";
+      return 'w-16';
     case Size.LG:
-      return "w-20";
+      return 'w-20';
     case Size.XL:
-      return "w-24";
+      return 'w-24';
   }
 });
 
 const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.avatar.unstyled || props.unstyled;
+const isUnstyled = settings.global.unstyled || settings.components.avatar.unstyled || props.unstyled;
 </script>
 <template>
   <figure

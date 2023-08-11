@@ -33,9 +33,9 @@
     @apply text-base;
   }
 
-  a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not(.app-bar a):not(
-      .logo-item
-    ):not(a.card):not(.list-nav a) {
+  a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not(.app-bar a):not(.logo-item):not(
+      a.card
+    ):not(.list-nav a) {
     @apply text-primary-700 underline hover:brightness-110 dark:text-primary-500;
   }
 
@@ -79,10 +79,10 @@
     @apply absolute left-1 font-mono;
   }
   ins:not(.unstyled):is(:not(.prose *))::before {
-    content: "+";
+    content: '+';
   }
   del:not(.unstyled):is(:not(.prose *))::before {
-    content: "−";
+    content: '−';
   }
 
   ins:not(.unstyled):is(:not(.prose *)) {

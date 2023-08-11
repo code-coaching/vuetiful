@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { SwitchDescription } from "@headlessui/vue";
+import { SwitchDescription } from '@headlessui/vue';
 
 defineProps({
   as: {
     type: String,
-    default: "p",
+    default: 'p',
   },
 });
 </script>

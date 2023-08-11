@@ -1,26 +1,26 @@
-import { mount } from "@vue/test-utils";
-import { describe, expect, test } from "vitest";
-import VSwitchGroup from "./VSwitchGroup.vue";
+import { mount } from '@vue/test-utils';
+import { describe, expect, test } from 'vitest';
+import VSwitchGroup from './VSwitchGroup.vue';
 
-test("VSwitchGroup using slot", () => {
+test('VSwitchGroup using slot', () => {
   const wrapper = mount(VSwitchGroup as any, {
     slots: {
-      default: "John Duck",
+      default: 'John Duck',
     },
   });
 
-  expect(wrapper.text()).toContain("John Duck");
+  expect(wrapper.text()).toContain('John Duck');
 });
 
-describe("VSwitchGroup props", () => {
+describe('VSwitchGroup props', () => {
   test("custom 'as' prop", () => {
     const wrapper = mount(VSwitchGroup as any, {
       props: {
-        as: "div",
+        as: 'div',
       },
     });
 
-    const divEl = wrapper.find("div");
+    const divEl = wrapper.find('div');
     expect(divEl).not.toBeUndefined();
   });
 });

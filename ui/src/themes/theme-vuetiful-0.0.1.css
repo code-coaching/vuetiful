@@ -1,10 +1,10 @@
 /* https://fonts.google.com/specimen/Quicksand?query=Quicksand */
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 :root {
   /* =~= Theme Properties =~= */
-  --theme-font-family-base: "Quicksand", sans-serif;
-  --theme-font-family-heading: "Quicksand", sans-serif;
+  --theme-font-family-base: 'Quicksand', sans-serif;
+  --theme-font-family-heading: 'Quicksand', sans-serif;
   --theme-font-color-base: var(--color-surface-900);
   --theme-font-color-dark: var(--color-tertiary-50);
   --theme-rounded-base: 12px;
@@ -98,27 +98,27 @@
   --color-surface-900: 49 50 118; /* ⬅ #313276 */
 }
 
-[data-theme="vuetiful"] h1,
-[data-theme="vuetiful"] h2,
-[data-theme="vuetiful"] h3,
-[data-theme="vuetiful"] h4,
-[data-theme="vuetiful"] h5,
-[data-theme="vuetiful"] h6,
-[data-theme="vuetiful"] a,
-[data-theme="vuetiful"] button {
+[data-theme='vuetiful'] h1,
+[data-theme='vuetiful'] h2,
+[data-theme='vuetiful'] h3,
+[data-theme='vuetiful'] h4,
+[data-theme='vuetiful'] h5,
+[data-theme='vuetiful'] h6,
+[data-theme='vuetiful'] a,
+[data-theme='vuetiful'] button {
   font-weight: bold;
 }
 
 /* Applied to body with `<body data-theme="vuetiful">` */
 /* Created with: https://csshero.org/mesher/ */
-[data-theme="vuetiful"] {
+[data-theme='vuetiful'] {
   /* prettier-ignore */
   background-image:
 		radial-gradient(at 76% 0%, hsla(189,100%,56%,0.36) 0px, transparent 50%),
 		radial-gradient(at 1% 0%, hsla(340,100%,76%,0.26) 0px, transparent 50%),
 		radial-gradient(at 20% 100%, hsla(241,100%,70%,0.47) 0px, transparent 50%);
 }
-.dark [data-theme="vuetiful"] {
+.dark [data-theme='vuetiful'] {
   /* prettier-ignore */
   background-image:
 		radial-gradient(at 76% 0%, hsla(189,100%,56%,0.20) 0px, transparent 50%),

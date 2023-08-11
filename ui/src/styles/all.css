@@ -3,22 +3,22 @@
 /* NOTE: The order shown below is required */
 
 /* Tailwind Directives */
-@import "tailwind.css";
+@import 'tailwind.css';
 
 /* Global Styles */
-@import "core.css";
+@import 'core.css';
 
 /* Typographical Settings */
-@import "typography.css";
+@import 'typography.css';
 
 /* Imports all Tailwind Elements */
-@import "elements.css";
+@import 'elements.css';
 
 /* Imports all Variant Styles */
-@import "variants.css";
+@import 'variants.css';
 
 /* Imports all Transitions */
-@import "transitions.css";
+@import 'transitions.css';
 
 /* Imports all Component Styles */
-@import "../../dist/style.css";
+@import '../../dist/style.css';

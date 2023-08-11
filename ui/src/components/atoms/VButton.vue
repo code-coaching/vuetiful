@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { sizeProp, unstyledProp, variantProp } from "@/props";
-import { useSettings } from "@/services";
-import { computed } from "vue";
+import { sizeProp, unstyledProp, variantProp } from '@/props';
+import { useSettings } from '@/services';
+import { computed } from 'vue';
 
 const props = defineProps({
   icon: {
@@ -10,17 +10,17 @@ const props = defineProps({
   },
   tag: {
     type: String as () => string,
-    default: "button",
+    default: 'button',
   },
 
   size: sizeProp,
   variant: variantProp,
   unstyled: unstyledProp,
 });
-const emit = defineEmits<{ (event: "click"): void }>();
+const emit = defineEmits<{ (event: 'click'): void }>();
 
 const activate = () => {
-  emit("click");
+  emit('click');
 };
 
 const clickHandler = (event: MouseEvent) => {
@@ -29,12 +29,12 @@ const clickHandler = (event: MouseEvent) => {
 };
 
 const keydownHandler = (event: KeyboardEvent) => {
-  if (["Enter", " "].includes(event.key)) event.preventDefault();
-  if (event.key === "Enter") activate();
+  if (['Enter', ' '].includes(event.key)) event.preventDefault();
+  if (event.key === 'Enter') activate();
 };
 
 const keyupHandler = (event: KeyboardEvent) => {
-  if (event.key === " ") {
+  if (event.key === ' ') {
     event.preventDefault();
     activate();
   }
@@ -42,22 +42,21 @@ const keyupHandler = (event: KeyboardEvent) => {
 
 const btnSize = computed(() => {
   switch (props.size) {
-    case "xs":
-      return "px-2.5 py-1.5 text-xs";
-    case "sm":
-      return "px-3 py-2 text-sm leading-4";
-    case "md":
-      return "px-4 py-2 text-sm";
-    case "lg":
-      return "px-4 py-2 text-base";
-    case "xl":
-      return "px-6 py-3 text-base";
+    case 'xs':
+      return 'px-2.5 py-1.5 text-xs';
+    case 'sm':
+      return 'px-3 py-2 text-sm leading-4';
+    case 'md':
+      return 'px-4 py-2 text-sm';
+    case 'lg':
+      return 'px-4 py-2 text-base';
+    case 'xl':
+      return 'px-6 py-3 text-base';
   }
 });
 
 const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.button.unstyled || props.unstyled;
+const isUnstyled = settings.global.unstyled || settings.components.button.unstyled || props.unstyled;
 </script>
 
 <template>

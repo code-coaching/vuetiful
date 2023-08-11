@@ -1,9 +1,9 @@
-import { mount } from "@vue/test-utils";
-import { describe, expect, test } from "vitest";
-import { VCard, VCardBody } from "..";
+import { mount } from '@vue/test-utils';
+import { describe, expect, test } from 'vitest';
+import { VCard, VCardBody } from '..';
 
-describe("VCardBody", () => {
-  test("unstyled", () => {
+describe('VCardBody', () => {
+  test('unstyled', () => {
     const wrapper = mount({
       template: /*html*/ `
         <v-card>
@@ -11,17 +11,17 @@ describe("VCardBody", () => {
         </v-card>
       `,
       components: {
-        "v-card": VCard,
-        "v-card-body": VCardBody,
+        'v-card': VCard,
+        'v-card-body': VCardBody,
       },
     });
 
     const content = wrapper.find("[data-test='vuetiful-card-body-content']");
-    expect(content.text()).toEqual("John Duck");
-    expect(content.classes()).not.toContain("p-4");
+    expect(content.text()).toEqual('John Duck');
+    expect(content.classes()).not.toContain('p-4');
   });
 
-  test("defaults", async () => {
+  test('defaults', async () => {
     const wrapper = mount({
       template: /*html*/ `
         <v-card>
@@ -29,11 +29,11 @@ describe("VCardBody", () => {
         </v-card>
       `,
       components: {
-        "v-card": VCard,
-        "v-card-body": VCardBody,
+        'v-card': VCard,
+        'v-card-body': VCardBody,
       },
     });
 
-    expect(wrapper.text()).toEqual("John Duck");
+    expect(wrapper.text()).toEqual('John Duck');
   });
 });

@@ -1,9 +1,9 @@
-import { mount } from "@vue/test-utils";
-import { describe, expect, test } from "vitest";
-import VSwitchGroup from "./VSwitchGroup.vue";
-import VSwitchLabel from "./VSwitchLabel.vue";
+import { mount } from '@vue/test-utils';
+import { describe, expect, test } from 'vitest';
+import VSwitchGroup from './VSwitchGroup.vue';
+import VSwitchLabel from './VSwitchLabel.vue';
 
-test("VSwitchLabel using slot", () => {
+test('VSwitchLabel using slot', () => {
   const wrapper = mount({
     template: `
       <v-switch-group>
@@ -11,15 +11,15 @@ test("VSwitchLabel using slot", () => {
       </v-switch-group>
     `,
     components: {
-      "v-switch-label": VSwitchLabel,
-      "v-switch-group": VSwitchGroup,
+      'v-switch-label': VSwitchLabel,
+      'v-switch-group': VSwitchGroup,
     },
   });
 
-  expect(wrapper.text()).toContain("John Duck");
+  expect(wrapper.text()).toContain('John Duck');
 });
 
-describe("VSwitchLabel props", () => {
+describe('VSwitchLabel props', () => {
   test("default 'as' prop", () => {
     const wrapper = mount({
       template: `
@@ -28,8 +28,8 @@ describe("VSwitchLabel props", () => {
         </v-switch-group>
       `,
       components: {
-        "v-switch-label": VSwitchLabel,
-        "v-switch-group": VSwitchGroup,
+        'v-switch-label': VSwitchLabel,
+        'v-switch-group': VSwitchGroup,
       },
     });
 
@@ -44,8 +44,8 @@ describe("VSwitchLabel props", () => {
         </v-switch-group>
       `,
       components: {
-        "v-switch-label": VSwitchLabel,
-        "v-switch-group": VSwitchGroup,
+        'v-switch-label': VSwitchLabel,
+        'v-switch-group': VSwitchGroup,
       },
     });
 
@@ -61,13 +61,13 @@ describe("VSwitchLabel props", () => {
         </v-switch-group>
       `,
       components: {
-        "v-switch-label": VSwitchLabel,
-        "v-switch-group": VSwitchGroup,
+        'v-switch-label': VSwitchLabel,
+        'v-switch-group': VSwitchGroup,
       },
     });
 
     const label = wrapper.findComponent(VSwitchLabel);
-    expect(label.props("passive")).toBe(false);
+    expect(label.props('passive')).toBe(false);
   });
 
   test("custom 'passive' prop'", () => {
@@ -78,12 +78,12 @@ describe("VSwitchLabel props", () => {
         </v-switch-group>
       `,
       components: {
-        "v-switch-label": VSwitchLabel,
-        "v-switch-group": VSwitchGroup,
+        'v-switch-label': VSwitchLabel,
+        'v-switch-group': VSwitchGroup,
       },
     });
 
     const label = wrapper.findComponent(VSwitchLabel);
-    expect(label.props("passive")).toBe(true);
+    expect(label.props('passive')).toBe(true);
   });
 });
