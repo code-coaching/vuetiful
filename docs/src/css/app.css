@@ -279,6 +279,10 @@ body,
   @apply text-surface-900-50-token;
 }
 
+.q-date__months {
+  flex-wrap: wrap;
+}
+
 /**
   * Prevent the outline from showing on focus when the input is within a QInput
   */
