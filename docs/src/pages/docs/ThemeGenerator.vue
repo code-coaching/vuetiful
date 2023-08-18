@@ -85,10 +85,10 @@ const formTheme = reactive({
     surface: { key: 'surface', label: 'Surface', hex: '#495a8f', rgb: '0 0 0', on: '255 255 255' },
   },
   fonts: {
-    base: 'system',
+    base: 'system-ui',
     customBase: '',
     baseImports: '',
-    headings: 'system',
+    headings: 'system-ui',
     customHeadings: '',
     headingImports: '',
   },
@@ -117,7 +117,7 @@ semanticNames.forEach((colorName) => {
 
 const inputSettings = {
   colorProps: [{ label: 'Black', value: '0 0 0' }, { label: 'White', value: '255 255 255' }, ...colorProperties],
-  fonts: ['system', 'sans-serif', 'serif', 'monospace'],
+  fonts: ['system-ui', 'sans-serif', 'serif', 'monospace'],
   rounded: ['0', '4px', '8px', '12px', '16px', '20px', '24px', '28px', '32px', '36px', '40px'],
   border: ['0', '1px', '2px', '3px', '4px'],
 };
@@ -346,7 +346,6 @@ const importExample = `
 // import '@code-coaching/vuetiful/themes/theme-seafoam.css';
 // import '@code-coaching/vuetiful/themes/theme-seasonal.css';
 // import '@code-coaching/vuetiful/themes/theme-skeleton.css';
-// import '@code-coaching/vuetiful/themes/theme-vintage.css';
 import './css/theme-custom.css';
 `;
 </script>

@@ -3,8 +3,8 @@
 
 :root {
   /* =~= Theme Properties =~= */
-  --theme-font-family-base: 'Quicksand', system;
-  --theme-font-family-heading: 'Quicksand', system;
+  --theme-font-family-base: 'Quicksand', system-ui;
+  --theme-font-family-heading: 'Quicksand', system-ui;
   --theme-font-color-base: 0 0 0;
   --theme-font-color-dark: 255 255 255;
   --theme-rounded-base: 12px;
@@ -17,8 +17,8 @@
   --on-tertiary: 0 0 0;
   --on-success: 0 0 0;
   --on-warning: 0 0 0;
-  --on-error: 0 0 0;
-  --on-surface: 0 0 0;
+  --on-error: 255 255 255;
+  --on-surface: 255 255 255;
 
   /* =~= Theme Colors  =~= */
 
