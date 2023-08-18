@@ -100,6 +100,8 @@ import { useDarkMode, useTheme } from '@code-coaching/vuetiful';
 /* Add in the line containing the useQuasar import from 'quasar', it gets parsed out for some reason */
 
 import '@code-coaching/vuetiful/styles/all.css';
+import "@code-coaching/vuetiful/css/overrides/quasar.css"; // This provides overrides for Quasar components
+
 /**
  * Uncomment the theme you want to use
  */
@@ -146,6 +148,8 @@ import { useDarkMode, useTheme } from '@code-coaching/vuetiful';
 import { useQuasar } from 'quasar';
 
 import '@code-coaching/vuetiful/styles/all.css';
+import "@code-coaching/vuetiful/css/overrides/quasar.css"; // This provides overrides for Quasar components
+
 /**
  * Uncomment the theme you want to use
  */
@@ -209,297 +213,6 @@ module.exports = {
     // require('postcss-rtlcss')
   ],
 };`;
-
-const exampleQuasarCssOverwrite = `html,
-body,
-#q-app {
-  /*
-  * This is done to prevent double scrollbars
-  */
-  height: 100%;
-  overflow: hidden;
-
-  /*
-  * Reset several font properties to browser defaults
-  */
-  font-size: 16px;
-  font-family: var(--theme-font-family-base), sans-serif;
-  -moz-osx-font-smoothing: auto;
-}
-
-.flex {
-  /*
-  * Quasar has a flex utility class that also adds flex-wrap: wrap;
-  * This class is used to reset back to flex-wrap: nowrap; the default behavior.
-  */
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-/*
-* This makes sure the Tailwind flex utility class is not overwritten
-* by the override above.
-*/
-.flex-nowrap {
-  flex-wrap: nowrap;
-}
-.flex-wrap {
-  flex-wrap: wrap;
-}
-
-/* app global css */
-.q-avatar,
-.q-chip .q-avatar {
-  @apply rounded-token;
-  @apply transition-all;
-}
-
-.q-badge {
-  @apply rounded-token;
-
-  @apply transition-all;
-}
-
-.q-banner {
-  @apply rounded-container-token;
-  @apply transition-all;
-}
-
-.q-btn {
-  @apply rounded-token;
-  @apply transition-all;
-}
-
-.q-btn-group {
-  @apply rounded-token;
-  @apply transition-all;
-
-  width: fit-content;
-}
-
-.q-btn-dropdown {
-  @apply rounded-token;
-  @apply transition-all;
-}
-
-.q-menu {
-  @apply bg-surface-100-800-token;
-  @apply text-surface-900-50-token;
-
-  @apply rounded-container-token;
-  @apply transition-all;
-}
-
-.q-menu--dark {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
-}
-
-.q-card {
-  @apply rounded-container-token;
-  @apply transition-all;
-}
-
-/* Overwrite the white shadow with the normal shadow */
-.q-card--dark {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
-}
-
-.q-chip {
-  @apply rounded-token;
-  @apply transition-all;
-}
-
-.q-color-picker {
-  @apply rounded-container-token;
-  @apply transition-all;
-}
-
-.q-color-picker--dark {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
-}
-
-.q-color-picker__header-bg {
-  @apply rounded-tl-container-token;
-  @apply rounded-tr-container-token;
-}
-
-.q-editor {
-  @apply rounded-container-token;
-  @apply transition-all;
-}
-
-/**
-  * Because of how .q-editor is styled
-  * the a tag needs to be styled here
-  * Add .light-actions or .dark-actions to the QEditor as a class
-  */
-.light-actions a {
-  @apply !text-white;
-}
-
-.dark-actions a {
-  @apply !text-black;
-}
-
-/**
-  * Because of how .q-select is styled
-  * the dropdown icon needs to be styled here
-  * Add .light-actions or .dark-actions to the QSelect as a class
-  */
-.light-actions i {
-  @apply !text-white;
-}
-.dark-actions i {
-  @apply !text-black;
-}
-
-/*
-* Because of how .q-expansion-item__container -> .q-item is styled
-* the background and text color need to be set here
-*/
-.q-list {
-  @apply bg-surface-100-800-token;
-  @apply text-surface-900-50-token;
-
-  @apply rounded-container-token;
-  @apply transition-all;
-}
-
-.q-list .q-card {
-  @apply bg-surface-100-800-token;
-  @apply text-surface-900-50-token;
-}
-
-.q-list > .q-expansion-item:first-child .q-focus-helper {
-  @apply rounded-tl-container-token;
-  @apply rounded-tr-container-token;
-}
-
-.q-list > .q-expansion-item:last-child .q-focus-helper {
-  @apply rounded-bl-container-token;
-  @apply rounded-br-container-token;
-}
-
-.q-list > .q-expansion-item:last-child .q-card {
-  @apply rounded-bl-container-token;
-  @apply rounded-br-container-token;
-}
-
-.q-drawer .q-list {
-  border-radius: 0;
-  height: 100%;
-}
-
-.q-input {
-  @apply rounded-container-token;
-  @apply transition-all;
-}
-
-.q-field__control::before {
-  @apply rounded-container-token;
-}
-
-.q-field--outlined .q-field__control::after {
-  @apply rounded-container-token;
-}
-
-.q-input,
-.q-select,
-.q-file,
-.q-time {
-  @apply rounded-container-token;
-}
-
-.q-item--dark {
-  color: currentColor;
-}
-
-.q-field__native {
-  color: currentColor !important;
-  background-color: transparent !important;
-}
-
-.q-time {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
-
-  @apply bg-surface-100-800-token;
-  @apply text-surface-900-50-token;
-
-  @apply rounded-tl-container-token;
-  @apply rounded-tr-container-token;
-}
-
-.q-time__header {
-  @apply bg-surface-300-600-token;
-  @apply text-surface-900-50-token;
-
-  @apply rounded-tl-container-token;
-  @apply rounded-tr-container-token;
-}
-
-.q-time__clock-position--active,
-.q-time__clock-pointer {
-  @apply bg-surface-900-50-token;
-  @apply text-surface-50-900-token;
-}
-
-.q-date {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
-
-  @apply bg-surface-100-800-token;
-  @apply text-surface-900-50-token;
-
-  @apply rounded-container-token;
-}
-
-.q-date__calendar-item .q-btn {
-  @apply bg-surface-100-800-token;
-  @apply text-surface-900-50-token;
-
-  @apply rounded-token;
-}
-
-.q-date__calendar-item .q-btn--unelevated {
-  @apply !bg-surface-900;
-  @apply !text-surface-50;
-}
-
-.q-date__navigation .q-btn {
-  @apply bg-transparent;
-  @apply text-surface-900-50-token;
-
-  @apply rounded-token;
-}
-
-.q-date__header {
-  @apply bg-surface-300-600-token;
-  @apply text-surface-900-50-token;
-}
-
-.q-date__months {
-  flex-wrap: wrap;
-}
-
-/**
-  * Prevent the outline from showing on focus when the input is within a QInput
-  */
-.q-field__native[type='text']:focus,
-.q-field__native[type='email']:focus,
-.q-field__native[type='url']:focus,
-.q-field__native[type='password']:focus,
-.q-field__native[type='number']:focus,
-.q-field__native[type='date']:focus,
-.q-field__native[type='datetime-local']:focus,
-.q-field__native[type='month']:focus,
-.q-field__native[type='search']:focus,
-.q-field__native[type='tel']:focus,
-.q-field__native[type='time']:focus,
-.q-field__native[type='week']:focus,
-.q-field__native[multiple]:focus,
-.q-field__native textarea:focus,
-.q-field__native select:focus {
-  --tw-ring-color: transparent;
-}`;
 </script>
 
 <template>
@@ -623,7 +336,7 @@ module.exports = {
         </v-alert>
         <v-alert type="info">
           Visit the
-          <v-radio-group unstyled hover="transparant" active="transparant">
+          <v-radio-group unstyled hover="transparant" active="transparant" class="p-2">
             <side-bar-link
               class="w-40 min-w-full justify-start px-2 py-1"
               :route-name="ROUTE_NAMES.DOCS.THEME_GENERATOR"
@@ -688,12 +401,6 @@ module.exports = {
               <v-code-block language="ts" :code="exampleQuasarNoScriptSetup" />
             </v-tab-panel>
           </v-tabs>
-        </section>
-
-        <h3>app.css</h3>
-        <section class="section">
-          <p class="mb-4">Copy paste this into your <code>app.css</code> file.</p>
-          <v-code-block language="css" :code="exampleQuasarCssOverwrite" />
         </section>
       </section>
     </v-tab-panel>

@@ -1,6 +1,6 @@
 {
   "name": "@code-coaching/vuetiful",
-  "version": "0.24.10",
+  "version": "0.25.0",
   "license": "MIT",
   "scripts": {
     "dev": "onchange 'src/**/*.vue' 'src/**/*.ts' 'src/**/*.css' -- npm run build",
@@ -53,6 +53,7 @@
       "types": "./dist/types/index.d.ts"
     },
     "./themes/*": "./src/themes/*",
+    "./css/*": "./src/css/*",
     "./styles/*": "./src/styles/*",
     "./tailwind/*": "./src/tailwind/*"
   }
