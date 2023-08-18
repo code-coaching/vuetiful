@@ -335,6 +335,20 @@ const resetGradients = () => {
     }
   }
 };
+
+const importExample = `
+/**
+ * Uncomment the theme you want to use
+ */
+// import '@code-coaching/vuetiful/themes/theme-vuetiful.css';
+// import '@code-coaching/vuetiful/themes/theme-rocket.css';
+// import '@code-coaching/vuetiful/themes/theme-sahara.css';
+// import '@code-coaching/vuetiful/themes/theme-seafoam.css';
+// import '@code-coaching/vuetiful/themes/theme-seasonal.css';
+// import '@code-coaching/vuetiful/themes/theme-skeleton.css';
+// import '@code-coaching/vuetiful/themes/theme-vintage.css';
+import './css/theme-custom.css';
+`
 </script>
 <template>
   <div class="flex max-w-5xl flex-col p-4">
@@ -583,6 +597,17 @@ const resetGradients = () => {
             </label>
             <div class="flex-1"></div>
           </div>
+        </section>
+
+        <section class="section">
+          <p>
+            Save your theme to a file and import it in your project.
+            e.g. <code>src/css/custom-theme.css</code>
+          </p>
+          <p>
+            Keep in mind to remove the import of other themes.
+          </p>
+          <v-code-block :code="importExample" language="js" />
         </section>
 
         <section class="section">
