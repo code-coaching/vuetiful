@@ -58,7 +58,7 @@ const qAvatarExample = `<q-avatar class="h-8 w-8">
   JD
 </q-avatar>`;
 
-const qBadgeExample = `<div class="flex flex-col gap-4">
+const qBadgeExample = `<div class="flex flex-col gap-4 overflow-y-auto">
   <div class="flex flex-wrap gap-2">
     <q-badge class="bg-surface-100 text-surface-900"> Surface </q-badge>
     <q-badge class="bg-primary-100 text-primary-900"> Primary </q-badge>
@@ -410,7 +410,7 @@ const qChipExample = (type: string) => `<q-chip ${
   Error
 </q-chip>`;
 
-const qColorExample = `<div class="flex flex-col gap-4">
+const qColorExample = `<div class="flex flex-col gap-4 overflow-y-auto">
   <div class="flex flex-wrap items-start gap-2">
     <q-color class="bg-surface-100 text-surface-900" v-model="hex" />
     <q-color class="bg-surface-100 text-surface-900" v-model="hexa" />
@@ -1097,7 +1097,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
   <section class="section">
     <v-preview>
       <template v-slot:preview>
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-4 overflow-y-auto">
           <div class="flex flex-wrap gap-2">
             <q-badge class="bg-surface-100 text-surface-900"> Surface </q-badge>
             <q-badge class="bg-primary-100 text-primary-900"> Primary </q-badge>
@@ -1315,7 +1315,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     <section class="section">
       <v-preview>
         <template v-slot:preview>
-          <div class="flex flex-col gap-4">
+          <div class="flex flex-col gap-4 overflow-y-auto">
             <div class="flex flex-wrap gap-2">
               <q-btn class="!bg-surface-100 !text-surface-900"> Surface </q-btn>
               <q-btn class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
@@ -1345,7 +1345,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     <section class="section">
       <v-preview>
         <template v-slot:preview>
-          <div class="flex flex-col gap-4">
+          <div class="flex flex-col gap-4 overflow-y-auto">
             <div class="flex flex-wrap gap-2">
               <q-btn flat class="!bg-surface-100 !text-surface-900"> Surface </q-btn>
               <q-btn flat class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
@@ -1375,7 +1375,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     <section>
       <v-preview>
         <template v-slot:preview>
-          <div class="flex flex-col gap-4">
+          <div class="flex flex-col gap-4 overflow-y-auto">
             <div class="flex flex-wrap gap-2">
               <q-btn outline class="!bg-surface-100 !text-surface-900"> Surface </q-btn>
               <q-btn outline class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
@@ -1407,7 +1407,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
   <section class="section">
     <v-preview>
       <template v-slot:preview>
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-4 overflow-y-auto">
           <div class="flex flex-wrap gap-2">
             <q-btn-group push>
               <q-btn push class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
@@ -1443,7 +1443,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
   <section class="section">
     <v-preview>
       <template v-slot:preview>
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-4 overflow-y-auto">
           <div class="flex flex-wrap gap-2">
             <q-btn-group outline>
               <q-btn outline class="!bg-primary-100 !text-primary-900"> Primary </q-btn>
@@ -1720,7 +1720,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
   <section class="section">
     <v-preview>
       <template v-slot:preview>
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-4 overflow-y-auto">
           <section>
             <div class="flex flex-wrap gap-1">
               <q-chip class="bg-surface-100-800-token text-surface-900-50-token">
@@ -1841,7 +1841,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
   <section class="section">
     <v-preview>
       <template v-slot:preview>
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-4 overflow-y-auto">
           <div class="flex flex-wrap items-start gap-2">
             <q-color class="bg-surface-100 text-surface-900" v-model="hex" />
             <q-color class="bg-surface-100 text-surface-900" v-model="hexa" />
@@ -1875,7 +1875,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
         </div>
       </template>
       <template v-slot:source>
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-4 overflow-y-auto">
           <v-code-block language="ts" :code="qEditorScriptExample" />
           <v-code-block language="html" :code="qEditorExample" />
         </div>

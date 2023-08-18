@@ -111,7 +111,7 @@ const codeExampleMultipleTemplate = `<v-drawer>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
-            <div class="flex flex-wrap justify-center gap-8 md:gap-16">
+            <div class="flex flex-wrap justify-center gap-8 overflow-y-auto md:gap-16">
               <div class="flex flex-1 flex-col gap-4 md:gap-8">
                 <div class="border border-black p-4 dark:border-white md:p-10">
                   <drawer-example title="Content One" />
