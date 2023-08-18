@@ -391,8 +391,8 @@ import './css/theme-custom.css';
                           :style="`color: rgb(${color.on})`"
                         >
                           <template v-if="tint === '500'">
-                            <div class="flex items-center px-4">
-                              {{ tint }}
+                            <div class="flex w-[125px] items-center justify-center px-4">
+                              {{ color.label }}
                             </div>
                           </template>
                         </div>
