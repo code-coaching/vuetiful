@@ -95,13 +95,13 @@ import './css/app.css';
 export default defineComponent({
   name: 'App',
   setup() {
-    const { autoModeWatcher, currentMode, MODE } = useDarkMode();
+    const { autoModeWatcher, chosenMode, MODE } = useDarkMode();
     const { loadTheme, THEMES } = useTheme();
     const $q = useQuasar();
 
     onMounted(() => {
       autoModeWatcher(); // automatically use the dark preference of the OS
-      handleQuasarDarkMode(currentMode.value);
+      handleQuasarDarkMode(chosenMode.value);
       loadTheme(THEMES.VUETIFUL); // can be any theme from the THEMES object
     });
 
@@ -114,7 +114,7 @@ export default defineComponent({
       }
     };
 
-    watch(currentMode, (newMode) => {
+    watch(chosenMode, (newMode) => {
       handleQuasarDarkMode(newMode);
     });
 
@@ -128,13 +128,13 @@ import '@code-coaching/vuetiful/styles/all.css';
 /* This line contains the useQuasar import from 'quasar' it gets parsed out for some reason */
 import './css/app.css';
 
-const { autoModeWatcher, currentMode, MODE } = useDarkMode();
+const { autoModeWatcher, chosenMode, MODE } = useDarkMode();
 const { loadTheme, THEMES } = useTheme();
 const $q = useQuasar();
 
 onMounted(() => {
   autoModeWatcher(); // automatically use the dark preference of the OS
-  handleQuasarDarkMode(currentMode.value);
+  handleQuasarDarkMode(chosenMode.value);
   loadTheme(THEMES.VUETIFUL); // can be any theme from the THEMES object
 });
 
@@ -147,7 +147,7 @@ const handleQuasarDarkMode = (mode: boolean) => {
   }
 };
 
-watch(currentMode, (newMode) => {
+watch(chosenMode, (newMode) => {
   handleQuasarDarkMode(newMode);
 });`;
 

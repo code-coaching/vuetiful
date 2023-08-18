@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import {
+  Palette,
+  SemanticNames,
   VBadge,
   VButton,
   VCard,
@@ -11,65 +13,77 @@ import {
   VSwitchDescription,
   VSwitchGroup,
   VSwitchLabel,
+  useColors,
   useDarkMode,
+  usePlatform,
+  useTheme,
 } from '@code-coaching/vuetiful';
-import { ContrastReport, SemanticNames, TailwindNumbers, semanticNames, tailwindNumbers } from 'src/components/models';
-import {
-  Palette,
-  generateA11yOnColor,
-  generatePalette,
-  getPassReport,
-  hexValueIsValid,
-} from 'src/services/colors.service';
-import { Ref, computed, ref, watch } from 'vue';
+import { Theme } from '@code-coaching/vuetiful/dist/types/utils/theme/themes';
+import { TailwindNumbers, tailwindNumbers } from 'src/components/models';
+import { computed, onMounted, reactive, ref, watch } from 'vue';
+
+const { chosenTheme, applyTheme, changeDataTheme } = useTheme();
+const { isDark } = useDarkMode();
+const { isBrowser } = usePlatform();
+const { semanticNames, generateA11yOnColor, generatePalette, getPassReport, hexValuesAreValid } = useColors();
+
+const handleThemeChange = (theme: Theme) => {
+  theme = JSON.parse(JSON.stringify(theme));
+  formTheme.borderBase = theme.borderBase;
+  formTheme.roundedBase = theme.roundedBase;
+  formTheme.roundedContainer = theme.roundedContainer;
+  formTheme.textColorLight = theme.textColorLight;
+  formTheme.textColorDark = theme.textColorDark;
+  formTheme.fonts.base = theme.fonts.base;
+  formTheme.fonts.customBase = theme.fonts.customBase;
+  formTheme.fonts.baseImports = theme.fonts.baseImports;
+  formTheme.fonts.headings = theme.fonts.headings;
+  formTheme.fonts.customHeadings = theme.fonts.customHeadings;
+  formTheme.fonts.headingImports = theme.fonts.headingImports;
+  formTheme.gradients.light = theme.gradients.light;
+  formTheme.gradients.dark = theme.gradients.dark;
+  formTheme.colors.primary = theme.colors.primary;
+  formTheme.colors.secondary = theme.colors.secondary;
+  formTheme.colors.tertiary = theme.colors.tertiary;
+  formTheme.colors.success = theme.colors.success;
+  formTheme.colors.warning = theme.colors.warning;
+  formTheme.colors.error = theme.colors.error;
+  formTheme.colors.surface = theme.colors.surface;
+  applyTheme(formTheme);
+};
+
+onMounted(() => {
+  const storedTheme = localStorage.getItem('vuetiful-custom-theme');
+  if (storedTheme) {
+    handleThemeChange(JSON.parse(storedTheme));
+    isThemeGenerated.value = true;
+  } else {
+    handleThemeChange(chosenTheme.value);
+    isThemeGenerated.value = true;
+  }
+});
+
+watch(chosenTheme, (newTheme) => {
+  handleThemeChange(newTheme);
+});
 
 const isThemeGenerated = ref(false);
 
-const { isDark } = useDarkMode();
-const changeDataTheme = (name: string) => document.body.setAttribute('data-theme', name);
-interface ColorSettings {
-  key: SemanticNames;
-  label: string;
-  hex: string;
-  rgb: string;
-  on: string;
-}
-
-interface FormTheme {
-  gradients: {
-    light: string;
-    dark: string;
-  };
-  colors: Array<ColorSettings>;
-  fonts: {
-    base: string;
-    customBase: string;
-    baseImports: string;
-    headings: string;
-    customHeadings: string;
-    headingImports: string;
-  };
-  textColorLight: string;
-  textColorDark: string;
-  roundedBase: string;
-  roundedContainer: string;
-  borderBase: string;
-}
-
-const formTheme: Ref<FormTheme> = ref({
+const formTheme = reactive({
+  name: 'custom',
   gradients: {
     light: '',
     dark: '',
   },
-  colors: [
-    { key: 'primary', label: 'Primary', hex: '#0FBA81', rgb: '0 0 0', on: '0 0 0' },
-    { key: 'secondary', label: 'Secondary', hex: '#4F46E5', rgb: '0 0 0', on: '255 255 255' },
-    { key: 'tertiary', label: 'Tertiary', hex: '#0EA5E9', rgb: '0 0 0', on: '0 0 0' },
-    { key: 'success', label: 'Success', hex: '#84cc16', rgb: '0 0 0', on: '0 0 0' },
-    { key: 'warning', label: 'Warning', hex: '#EAB308', rgb: '0 0 0', on: '0 0 0' },
-    { key: 'error', label: 'Error', hex: '#D41976', rgb: '0 0 0', on: '255 255 255' },
-    { key: 'surface', label: 'Surface', hex: '#495a8f', rgb: '0 0 0', on: '255 255 255' },
-  ],
+  colors: {
+    primary: { key: 'primary', label: 'Primary', hex: '#0FBA81', rgb: '0 0 0', on: '0 0 0' },
+    secondary: { key: 'secondary', label: 'Secondary', hex: '#4F46E5', rgb: '0 0 0', on: '255 255 255' },
+    tertiary: { key: 'tertiary', label: 'Tertiary', hex: '#0EA5E9', rgb: '0 0 0', on: '0 0 0' },
+    success: { key: 'success', label: 'Success', hex: '#84cc16', rgb: '0 0 0', on: '0 0 0' },
+    warning: { key: 'warning', label: 'Warning', hex: '#EAB308', rgb: '0 0 0', on: '0 0 0' },
+    error: { key: 'error', label: 'Error', hex: '#D41976', rgb: '0 0 0', on: '255 255 255' },
+    surface: { key: 'surface', label: 'Surface', hex: '#495a8f', rgb: '0 0 0', on: '255 255 255' },
+  },
   fonts: {
     base: 'system',
     customBase: '',
@@ -83,7 +97,8 @@ const formTheme: Ref<FormTheme> = ref({
   roundedBase: '9999px',
   roundedContainer: '8px',
   borderBase: '1px',
-} as FormTheme);
+  customCss: '',
+} as Theme);
 
 /**
  *  Generate a list of color properties for selection inputs.
@@ -109,42 +124,38 @@ const inputSettings = {
 
 const randomize = (): void => {
   changeDataTheme('custom');
-  formTheme.value.colors.forEach((_, i: number) => {
+
+  Object.keys(formTheme.colors).forEach((key) => {
     const randomHexCode = '#' + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0');
-    formTheme.value.colors[i].hex = randomHexCode;
-    formTheme.value.colors[i].on = generateA11yOnColor(randomHexCode);
+    formTheme.colors[key as SemanticNames].hex = randomHexCode;
+    formTheme.colors[key as SemanticNames].on = generateA11yOnColor(randomHexCode);
   });
-};
-
-const hexValuesAreValid = (colors: ColorSettings[]) => {
-  let valid = true;
-  colors?.forEach((color: ColorSettings) => {
-    valid = valid && hexValueIsValid(color.hex);
-  });
-
-  return valid;
 };
 
 const generateColorCSS = (): string => {
   let newCSS = '';
   const newPalette: Record<string, Palette> = {};
-  formTheme.value.colors.forEach((color: ColorSettings, i: number) => {
-    const colorKey = color.key;
-    newPalette[color.key] = generatePalette(formTheme.value.colors[i].hex);
+  Object.keys(formTheme.colors).forEach((key) => {
+    newPalette[key] = generatePalette(formTheme.colors[key as SemanticNames].hex);
     newCSS += '\n\t';
-    newCSS += `/* ${colorKey} | ${newPalette[colorKey][500].hex} */\n\t`;
-    for (let [k, v] of Object.entries(newPalette[colorKey])) {
-      newCSS += `--color-${colorKey}-${k}: ${v.rgb}; /* ⬅ ${v.hex} */\n\t`;
+    newCSS += `--color-${key}: ${newPalette[key][500].rgb}; /* ⬅ ${newPalette[key][500].hex} */\n\t`;
+    for (let [k, v] of Object.entries(newPalette[key])) {
+      newCSS += `--color-${key}-${k}: ${v.rgb}; /* ⬅ ${v.hex} */\n\t`;
     }
   });
   return newCSS;
 };
 
-const getContrastReports = (): Array<ContrastReport> => {
-  return formTheme.value.colors.map((value: ColorSettings) => ({
-    ...value,
-    contrastReport: getPassReport(value.hex, value.on),
-  }));
+const getContrastReports = (): Record<SemanticNames, unknown> => {
+  const reports: Record<SemanticNames, unknown> = {} as Record<SemanticNames, unknown>;
+  Object.keys(formTheme.colors).map((key) => {
+    const value = formTheme.colors[key as SemanticNames];
+    reports[key as SemanticNames] = {
+      ...value,
+      contrastReport: getPassReport(value.hex, value.on),
+    };
+  });
+  return reports;
 };
 
 const random = (min: number, max: number): number => {
@@ -174,62 +185,61 @@ const randomGradients = () => {
     randomGradients.push(randomGradient());
   }
   if (synchronizeGradients.value) {
-    formTheme.value.gradients.light = randomGradients.join(', \n\t\t');
-    formTheme.value.gradients.dark = randomGradients.join(', \n\t\t');
+    formTheme.gradients.light = randomGradients.join(', \n\t\t');
+    formTheme.gradients.dark = randomGradients.join(', \n\t\t');
   } else {
-    console.log('isDark', isDark);
     if (isDark.value) {
-      formTheme.value.gradients.dark = randomGradients.join(', \n\t\t');
+      formTheme.gradients.dark = randomGradients.join(', \n\t\t');
     } else {
-      formTheme.value.gradients.light = randomGradients.join(', \n\t\t');
+      formTheme.gradients.light = randomGradients.join(', \n\t\t');
     }
   }
 };
 
 const cssOutput = computed(() => {
-  if (hexValuesAreValid(formTheme.value.colors)) {
-    return `${formTheme.value.fonts.baseImports}
-${formTheme.value.fonts.headingImports}
+  if (hexValuesAreValid(Object.values(formTheme.colors))) {
+    return `${formTheme.fonts.baseImports}
+${formTheme.fonts.headingImports}
 :root {
     /* =~= Theme Properties =~= */
-    --theme-font-family-base: ${formTheme.value.fonts.customBase ? `"${formTheme.value.fonts.customBase}", ` : ''}${
-      formTheme.value.fonts.base
+    --theme-font-family-base: ${formTheme.fonts.customBase ? `"${formTheme.fonts.customBase}", ` : ''}${
+      formTheme.fonts.base
     };
-    --theme-font-family-heading: ${
-      formTheme.value.fonts.customHeadings ? `"${formTheme.value.fonts.customHeadings}", ` : ''
-    }${formTheme.value.fonts.headings};
-    --theme-font-color-base: ${formTheme.value.textColorLight};
-    --theme-font-color-dark: ${formTheme.value.textColorDark};
-    --theme-rounded-base: ${formTheme.value.roundedBase};
-    --theme-rounded-container: ${formTheme.value.roundedContainer};
-    --theme-border-base: ${formTheme.value.borderBase};
+    --theme-font-family-heading: ${formTheme.fonts.customHeadings ? `"${formTheme.fonts.customHeadings}", ` : ''}${
+      formTheme.fonts.headings
+    };
+    --theme-font-color-base: ${formTheme.textColorLight};
+    --theme-font-color-dark: ${formTheme.textColorDark};
+    --theme-rounded-base: ${formTheme.roundedBase};
+    --theme-rounded-container: ${formTheme.roundedContainer};
+    --theme-border-base: ${formTheme.borderBase};
 
     /* =~= Theme On-X Colors  =~= */
-    --on-primary: ${formTheme.value.colors[0]?.on};
-    --on-secondary: ${formTheme.value.colors[1]?.on};
-    --on-tertiary: ${formTheme.value.colors[2]?.on};
-    --on-success: ${formTheme.value.colors[3]?.on};
-    --on-warning: ${formTheme.value.colors[4]?.on};
-    --on-error: ${formTheme.value.colors[5]?.on};
-    --on-surface: ${formTheme.value.colors[6]?.on};
+    --on-primary: ${formTheme.colors.primary.on};
+    --on-secondary: ${formTheme.colors.secondary.on};
+    --on-tertiary: ${formTheme.colors.tertiary.on};
+    --on-success: ${formTheme.colors.success.on};
+    --on-warning: ${formTheme.colors.warning.on};
+    --on-error: ${formTheme.colors.error.on};
+    --on-surface: ${formTheme.colors.surface.on};
 
     /* =~= Theme Colors  =~= */
 ${generateColorCSS()}
 }
 
 ${
-  formTheme.value.gradients.light.length
+  formTheme.gradients.light.length
     ? `[data-theme="custom"] {
     background-image:
-        ${formTheme.value.gradients.light};
+        ${formTheme.gradients.light};
 }`
     : ''
 }
 ${
-  formTheme.value.gradients.dark.length
+  formTheme.gradients.dark.length
     ? `.dark [data-theme="custom"] {
     background-image:
-        ${formTheme.value.gradients.dark};
+        ${formTheme.gradients.dark};
 }`
     : ''
 }
@@ -239,11 +249,11 @@ ${
 });
 
 const removeThemeLink = () => {
-  const link = document.getElementById('theme');
+  const link = document.getElementById('vuetiful-theme');
   if (link) link.remove();
 };
 
-watch(formTheme.value, () => {
+watch(formTheme, () => {
   removeThemeLink();
 
   const style = document.getElementById('theme-generator');
@@ -259,41 +269,41 @@ watch(formTheme.value, () => {
 });
 
 const contrastReports = ref();
-const areHexValuesValid = computed(() => hexValuesAreValid(formTheme.value.colors));
-watch(
-  formTheme.value,
-  () => {
-    if (areHexValuesValid.value) {
-      contrastReports.value = getContrastReports();
+const areHexValuesValid = computed(() => hexValuesAreValid(Object.values(formTheme.colors)));
+watch(formTheme, () => {
+  if (areHexValuesValid.value) {
+    contrastReports.value = getContrastReports();
+    if (isBrowser) {
+      applyTheme(formTheme);
+      localStorage.setItem('vuetiful-custom-theme', JSON.stringify(formTheme));
     }
-  },
-  { immediate: true },
-);
+  }
+});
 
 const randomizeFont = () => {
   const fonts = inputSettings.fonts;
   const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
   const randomHeadingFont = fonts[Math.floor(Math.random() * fonts.length)];
-  formTheme.value.fonts.base = randomFont;
-  formTheme.value.fonts.headings = randomHeadingFont;
+  formTheme.fonts.base = randomFont;
+  formTheme.fonts.headings = randomHeadingFont;
 };
 
 const randomRoundedBase = () => {
   const roundedBase = [...inputSettings.rounded, '9999px'];
   const randomRounded = roundedBase[Math.floor(Math.random() * roundedBase.length)];
-  formTheme.value.roundedBase = randomRounded;
+  formTheme.roundedBase = randomRounded;
 };
 
 const randomRoundedContainer = () => {
   const roundedContainer = inputSettings.rounded;
   const randomRounded = roundedContainer[Math.floor(Math.random() * roundedContainer.length)];
-  formTheme.value.roundedContainer = randomRounded;
+  formTheme.roundedContainer = randomRounded;
 };
 
 const randomBorderBase = () => {
   const borderBase = inputSettings.border;
   const randomBorder = borderBase[Math.floor(Math.random() * borderBase.length)];
-  formTheme.value.borderBase = randomBorder;
+  formTheme.borderBase = randomBorder;
 };
 
 const randomThemeProperties = () => {
@@ -306,6 +316,7 @@ const randomThemeProperties = () => {
 const generateTheme = () => {
   isThemeGenerated.value = true;
   changeDataTheme('custom');
+  document.cookie = 'vuetiful-theme=custom;path=/;max-age=31536000;SameSite=Lax';
   randomize();
   randomGradients();
   randomThemeProperties();
@@ -314,13 +325,13 @@ const generateTheme = () => {
 const synchronizeGradients = ref(true);
 const resetGradients = () => {
   if (synchronizeGradients.value) {
-    formTheme.value.gradients.light = '';
-    formTheme.value.gradients.dark = '';
+    formTheme.gradients.light = '';
+    formTheme.gradients.dark = '';
   } else {
     if (isDark.value) {
-      formTheme.value.gradients.dark = '';
+      formTheme.gradients.dark = '';
     } else {
-      formTheme.value.gradients.light = '';
+      formTheme.gradients.light = '';
     }
   }
 };
@@ -359,7 +370,7 @@ const resetGradients = () => {
               <div v-for="(color, index) in formTheme.colors" :key="index">
                 <div class="flex flex-wrap justify-between gap-4">
                   <div class="flex w-full flex-1">
-                    <div class="w-full" v-for="(tint, index) in tailwindNumbers" :key="index">
+                    <div class="w-full" v-for="(tint, tintIndex) in tailwindNumbers" :key="tintIndex">
                       <div class="flex w-full flex-col items-center">
                         <div>{{ tint }}</div>
                         <div

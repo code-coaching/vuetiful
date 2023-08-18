@@ -1,11 +1,11 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, test } from 'vitest';
 import { useDrawer } from './drawer.service';
 
 const { drawer, open, close } = useDrawer();
 
 describe('useDrawer', () => {
   describe('defaults', () => {
-    it('should have the default values', () => {
+    test('should have the default values', () => {
       expect(drawer.id).toBe('default');
       expect(drawer.open).toBe(false);
       expect(drawer.position).toBe('left');
@@ -16,7 +16,7 @@ describe('useDrawer', () => {
   });
 
   describe('open', () => {
-    it('should use the settings', () => {
+    test('should use the settings', () => {
       open({
         id: 'test',
         open: true,
@@ -35,7 +35,7 @@ describe('useDrawer', () => {
   });
 
   describe('close', () => {
-    it('should set the drawer to close', () => {
+    test('should set the drawer to close', () => {
       open();
       expect(drawer.open).toBe(true);
       close();

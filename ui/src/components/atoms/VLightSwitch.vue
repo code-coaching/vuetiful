@@ -3,12 +3,10 @@
     :class="`lightswitch-track ${classesTrack}`"
     @click="onToggleHandler"
     @keydown="onKeyDown"
-    on:keyup
-    on:keypress
     role="switch"
     aria-label="Light Switch"
-    :aria-checked="currentMode"
-    :title="`Toggle ${currentMode === false ? 'Dark' : 'Light'} Mode`"
+    :aria-checked="chosenMode === MODE.LIGHT"
+    :title="`Toggle ${chosenMode === MODE.DARK ? 'Dark' : 'Light'} Mode`"
     tabindex="0"
   >
     <div :class="`lightswitch-thumb ${classesThumb}`">
@@ -17,7 +15,7 @@
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 512 512"
       >
-        <path fill="currentColor" :d="currentMode ? svgPath.sun : svgPath.moon" />
+        <path fill="currentColor" :d="chosenMode === MODE.LIGHT  ? svgPath.sun : svgPath.moon" />
       </svg>
     </div>
   </div>
@@ -25,7 +23,7 @@
 
 <script lang="ts">
 import { CssClasses, useDarkMode } from '@/index';
-import { computed, ComputedRef, defineComponent, onMounted } from 'vue';
+import { ComputedRef, computed, defineComponent } from 'vue';
 
 export default defineComponent({
   props: {
@@ -63,11 +61,7 @@ export default defineComponent({
     },
   },
   setup(props, { attrs }) {
-    const { initializeMode, setModeCurrent, setModeUserPrefers, currentMode, MODE } = useDarkMode();
-
-    onMounted(() => {
-      initializeMode();
-    });
+    const { applyMode, chosenMode, MODE } = useDarkMode();
 
     const cTransition = `transition-all duration-[200ms]`;
     const cTrack = 'cursor-pointer';
@@ -80,9 +74,8 @@ export default defineComponent({
     };
 
     const onToggleHandler = () => {
-      const toggle = !currentMode.value;
-      setModeUserPrefers(toggle);
-      setModeCurrent(toggle);
+      const toggle = chosenMode.value === MODE.LIGHT ? MODE.DARK : MODE.LIGHT;
+      applyMode(toggle);
     };
 
     type OnKeyDownEvent = KeyboardEvent & {
@@ -95,11 +88,11 @@ export default defineComponent({
       }
     };
 
-    const trackBg = computed(() => (currentMode.value === MODE.LIGHT ? props.bgLight : props.bgDark));
-    const thumbBg = computed(() => (currentMode.value === MODE.LIGHT ? props.bgDark : props.bgLight));
-    const thumbPosition = computed(() => (currentMode.value === MODE.LIGHT ? 'translate-x-[100%]' : ''));
+    const trackBg = computed(() => (chosenMode.value === MODE.LIGHT ? props.bgLight : props.bgDark));
+    const thumbBg = computed(() => (chosenMode.value === MODE.LIGHT ? props.bgDark : props.bgLight));
+    const thumbPosition = computed(() => (chosenMode.value === MODE.LIGHT ? 'translate-x-[100%]' : ''));
     const iconFill = computed(() => {
-      return currentMode.value === MODE.LIGHT ? props.textLight : props.textDark;
+      return chosenMode.value === MODE.LIGHT ? props.textLight : props.textDark;
     });
 
     const classesTrack: ComputedRef<string> = computed(() => {
@@ -119,8 +112,9 @@ export default defineComponent({
       svgPath,
       onToggleHandler,
       onKeyDown,
-      currentMode,
+      chosenMode,
       iconFill,
+      MODE,
     };
   },
 });

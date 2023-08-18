@@ -1,64 +1,48 @@
-import { computed, readonly, Ref, ref } from 'vue';
+import { computed, readonly, ref } from 'vue';
 import { usePlatform } from '../utils/platform/platform.service';
 
 const { isBrowser } = usePlatform();
 
 const MODE = {
-  LIGHT: true,
-  DARK: false,
+  LIGHT: 'light',
+  DARK: 'dark',
 };
+export type Mode = (typeof MODE)[keyof typeof MODE];
 
-const modeOsPrefers = ref(MODE.DARK);
-const currentMode = ref(MODE.DARK);
-const modeUserPrefers: Ref<boolean | undefined> = ref(undefined);
-const isDark = computed(() => currentMode.value === MODE.DARK);
+const defaultMode = MODE.DARK;
+const chosenMode = ref(defaultMode);
+const isDark = computed(() => chosenMode.value === MODE.DARK);
 
 const useDarkMode = () => {
-  const getModeOsPrefers = (): boolean => {
-    let prefersLightMode = false;
-    if (isBrowser) prefersLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
-    setModeOsPrefers(prefersLightMode);
-    return prefersLightMode;
-  };
-
-  const getModeUserPrefers = (): boolean | undefined => {
-    if (isBrowser) {
-      const mode = localStorage.getItem('modeUserPrefers');
-      if (mode !== null) modeUserPrefers.value = mode === 'true';
+  const getModeFromCookie = (cookies: string) => {
+    const cookie = cookies.split(';').find((c) => c.trim().startsWith('vuetiful-mode='));
+    if (cookie) {
+      const value = cookie.split('=')[1];
+      return value;
     }
-    return modeUserPrefers.value;
+    return defaultMode;
   };
 
-  const getModeAutoPrefers = (): boolean => {
-    const os = getModeOsPrefers();
-    const user = getModeUserPrefers();
-    if (user === undefined) return os;
-    return user;
+  const applyModeSSR = (html: string, mode: Mode): string => {
+    if (mode === MODE.DARK) html = html.replace('<html', '<html class="dark"');
+    return html;
   };
 
-  const setModeOsPrefers = (value: boolean) => {
-    modeOsPrefers.value = value;
+  const initializeMode = () => {
     if (isBrowser) {
-      localStorage.setItem('modeOsPrefers', value.toString());
-    }
-  };
-  const setModeUserPrefers = (value: boolean): void => {
-    modeUserPrefers.value = value;
-    if (isBrowser) {
-      localStorage.setItem('modeUserPrefers', value.toString());
+      const mode = getModeFromCookie(document.cookie);
+      applyMode(mode);
     }
   };
 
-  const setModeCurrent = (value: boolean) => {
+  const applyMode = (value: Mode) => {
     const elemHtmlClasses = document.documentElement.classList;
     const classDark = 'dark';
     value === MODE.LIGHT ? elemHtmlClasses.remove(classDark) : elemHtmlClasses.add(classDark);
-    currentMode.value = value;
-  };
-
-  const initializeMode = (): void => {
-    const mode = getModeAutoPrefers();
-    setModeCurrent(mode);
+    if (isBrowser) {
+      document.cookie = `vuetiful-mode=${value};path=/;max-age=31536000;SameSite=Lax`;
+    }
+    chosenMode.value = value;
   };
 
   const autoModeWatcher = (): void => {
@@ -66,8 +50,9 @@ const useDarkMode = () => {
     const setMode = (value: boolean) => {
       const elemHtmlClasses = document.documentElement.classList;
       const classDark = `dark`;
-      value === MODE.LIGHT ? elemHtmlClasses.remove(classDark) : elemHtmlClasses.add(classDark);
-      setModeCurrent(value);
+      const mode = value ? MODE.LIGHT : MODE.DARK;
+      mode === MODE.LIGHT ? elemHtmlClasses.remove(classDark) : elemHtmlClasses.add(classDark);
+      applyMode(mode);
     };
     setMode(mql.matches);
     mql.onchange = () => {
@@ -76,17 +61,13 @@ const useDarkMode = () => {
   };
 
   return {
-    modeOsPrefers: readonly(modeOsPrefers),
-    modeUserPrefers: readonly(modeUserPrefers),
-    currentMode: readonly(currentMode),
+    chosenMode,
     isDark: readonly(isDark),
-    getModeOsPrefers,
-    getModeUserPrefers,
-    getModeAutoPrefers,
-    setModeUserPrefers,
-    setModeCurrent,
-    autoModeWatcher,
     initializeMode,
+    applyMode,
+    autoModeWatcher,
+    applyModeSSR,
+    getModeFromCookie,
     MODE,
   };
 };

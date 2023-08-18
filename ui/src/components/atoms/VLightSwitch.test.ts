@@ -1,20 +1,69 @@
 import { mount } from '@vue/test-utils';
-import { expect, test, vi } from 'vitest';
+import { describe, expect, test, vi } from 'vitest';
+import { ref } from 'vue';
 import { VLightSwitch } from '.';
-import { useDarkMode } from '@/services';
 
-const { MODE } = useDarkMode();
+const applyMode = vi.fn();
+const chosenMode = ref('dark');
+const MODE = {
+  LIGHT: 'light',
+  DARK: 'dark',
+};
+vi.mock('../../services/dark-mode.service', () => ({
+  useDarkMode: () => ({
+    applyMode,
+    chosenMode,
+    MODE,
+  }),
+}));
 
-const matchMediaMock = (matches: boolean) => vi.fn(() => ({ matches, onchange: vi.fn() }));
+describe('VLightSwitch', () => {
+  test('toggle dark to light', async () => {
+    const wrapper = mount(VLightSwitch);
+    await wrapper.trigger('click');
+    expect(applyMode).toHaveBeenCalledWith(MODE.LIGHT);
+  });
 
-test('VLightSwitch', () => {
-  expect(VLightSwitch).toBeTruthy();
-});
+  test('toggle light to dark', async () => {
+    chosenMode.value = 'light';
+    const wrapper = mount(VLightSwitch);
+    await wrapper.trigger('click');
+    expect(applyMode).toHaveBeenCalledWith(MODE.DARK);
+  });
 
-// TODO: add tests
-test('VLightSwitch using slot', () => {
-  window.matchMedia = matchMediaMock(MODE.LIGHT) as any;
-  const wrapper = mount(VLightSwitch);
+  test('svg dark/light', async () => {
+    chosenMode.value = MODE.DARK;
+    const wrapper = mount(VLightSwitch);
+    const path = wrapper.find('path');
+    expect(path.attributes().d).toBe(wrapper.vm.svgPath.moon);
 
-  expect(wrapper).toBeTruthy();
+    chosenMode.value = MODE.LIGHT;
+    await wrapper.vm.$nextTick();
+    expect(path.attributes().d).toBe(wrapper.vm.svgPath.sun);
+  });
+
+  test('keydown Enter', async () => {
+    const wrapper = mount(VLightSwitch);
+    const preventDefaultSpy = vi.fn();
+    const event = { code: 'Enter', preventDefault: preventDefaultSpy };
+    await wrapper.trigger('keydown', event);
+    expect(applyMode).toHaveBeenCalledWith(MODE.LIGHT);
+    expect(preventDefaultSpy).toHaveBeenCalled();
+  });
+
+  test('keydown Space', async () => {
+    const wrapper = mount(VLightSwitch);
+    const preventDefaultSpy = vi.fn();
+    const event = { code: 'Space', preventDefault: preventDefaultSpy };
+    await wrapper.trigger('keydown', event);
+    expect(applyMode).toHaveBeenCalledWith(MODE.LIGHT);
+    expect(preventDefaultSpy).toHaveBeenCalled();
+  });
+
+  test('keydown other', async () => {
+    applyMode.mockClear();
+    const wrapper = mount(VLightSwitch);
+    await wrapper.trigger('keydown', { key: 'a' });
+    expect(applyMode).not.toHaveBeenCalled();
+  });
 });
