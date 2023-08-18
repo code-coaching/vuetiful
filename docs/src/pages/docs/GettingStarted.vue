@@ -38,23 +38,27 @@ import App from './App.vue';
 
 createApp(App).mount('#app');`;
 
-const exampleScriptSetup = `import { useDarkMode } from "@code-coaching/vuetiful";
+const exampleScriptSetup = `import { useDarkMode, useTheme } from "@code-coaching/vuetiful";
 import { onMounted } from "vue";
 
 const { autoModeWatcher } = useDarkMode();
+const { changeDataTheme } = useTheme();
 
 onMounted(() => {
+  changeDataTheme("vuetiful"); // adds data-theme="vuetiful" to the <body> tag
   autoModeWatcher(); // automatically use the dark preference of the OS
 });`;
 
-const exampleNoScriptSetup = `import { useDarkMode } from "@code-coaching/vuetiful";
+const exampleNoScriptSetup = `import { useDarkMode, useTheme } from "@code-coaching/vuetiful";
 import { onMounted } from "vue";
 
 export default defineComponent({
   setup() {
     const { autoModeWatcher } = useDarkMode();
+    const { changeDataTheme } = useTheme();
 
     onMounted(() => {
+      changeDataTheme("vuetiful"); // adds data-theme="vuetiful" to the <body> tag
       autoModeWatcher(); // automatically use the dark preference of the OS
     });
 
@@ -93,7 +97,7 @@ module.exports = configure(function (/* ctx */) {
 });`;
 
 const exampleQuasarNoScriptSetup = `import { defineComponent, onMounted, watch } from 'vue';
-import { useDarkMode } from '@code-coaching/vuetiful';
+import { useDarkMode, useTheme } from '@code-coaching/vuetiful';
 /* Add in the line containing the useQuasar import from 'quasar', it gets parsed out for some reason */
 
 import '@code-coaching/vuetiful/styles/all.css';
@@ -113,9 +117,11 @@ export default defineComponent({
   name: 'App',
   setup() {
     const { autoModeWatcher, chosenMode, MODE } = useDarkMode();
+    const { changeDataTheme } = useTheme();
     const $q = useQuasar();
 
     onMounted(() => {
+      changeDataTheme("vuetiful"); // adds data-theme="vuetiful" to the <body> tag
       autoModeWatcher(); // automatically use the dark preference of the OS
       handleQuasarDarkMode(chosenMode.value);
     });
@@ -138,7 +144,7 @@ export default defineComponent({
 });`;
 
 const exampleQuasarScriptSetup = `import { onMounted, watch } from 'vue';
-import { useDarkMode } from '@code-coaching/vuetiful';
+import { useDarkMode, useTheme } from '@code-coaching/vuetiful';
 import { useQuasar } from 'quasar';
 
 import '@code-coaching/vuetiful/styles/all.css';
@@ -156,9 +162,11 @@ import '@code-coaching/vuetiful/themes/theme-vuetiful.css';
 import './css/app.css';
 
 const { autoModeWatcher, chosenMode, MODE } = useDarkMode();
+const { changeDataTheme } = useTheme();
 const $q = useQuasar();
 
 onMounted(() => {
+  changeDataTheme("vuetiful"); // adds data-theme="vuetiful" to the <body> tag
   autoModeWatcher(); // automatically use the dark preference of the OS
   handleQuasarDarkMode(chosenMode.value);
 });

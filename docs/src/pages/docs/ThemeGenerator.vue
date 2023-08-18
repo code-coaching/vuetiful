@@ -348,7 +348,7 @@ const importExample = `
 // import '@code-coaching/vuetiful/themes/theme-skeleton.css';
 // import '@code-coaching/vuetiful/themes/theme-vintage.css';
 import './css/theme-custom.css';
-`
+`;
 </script>
 <template>
   <div class="flex max-w-5xl flex-col p-4">
@@ -600,14 +600,22 @@ import './css/theme-custom.css';
         </section>
 
         <section class="section">
-          <p>
-            Save your theme to a file and import it in your project.
-            e.g. <code>src/css/custom-theme.css</code>
-          </p>
-          <p>
-            Keep in mind to remove the import of other themes.
-          </p>
-          <v-code-block :code="importExample" language="js" />
+          <p>The theme can be copied from the bottom of this page.</p>
+          <p>Save your theme to a file and import it in your project. e.g. <code>src/css/custom-theme.css</code></p>
+          <p>Keep in mind to remove the import of other themes.</p>
+          <div class="flex flex-col gap-4">
+            <v-code-block :code="importExample" language="ts" />
+
+            <div class="flex flex-col">
+              <p>Remember to update the parameter of <code>changeDataTheme</code>.</p>
+              <v-code-block
+                :code="`
+// changeDataTheme(&quot;vuetiful&quot;); // adds data-theme=&quot;vuetiful&quot; to the <body> tag
+changeDataTheme(&quot;custom&quot;);`"
+                language="ts"
+              />
+            </div>
+          </div>
         </section>
 
         <section class="section">
