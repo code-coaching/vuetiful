@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { VAlert, VBadge, VCodeBlock, VTab, VTabPanel, VTabs } from '@code-coaching/vuetiful';
+import { VAlert, VBadge, VCodeBlock, VRadioGroup, VTab, VTabPanel, VTabs } from '@code-coaching/vuetiful';
+import SideBarLink from 'components/SideBarLink.vue';
+import { ROUTE_NAMES } from 'src/router/routes';
 
 const exampleTailwindConfig = `/** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -17,25 +19,34 @@ module.exports = {
   plugins: [...require('@code-coaching/vuetiful/tailwind/vuetiful.cjs')()],
 };`;
 
-const exampleVueMain = `import { createApp } from "vue";
+const exampleVueMain = `import { createApp } from 'vue';
 
-import "@code-coaching/vuetiful/styles/all.css";
-import "./style.css";
+import '@code-coaching/vuetiful/styles/all.css';
+/**
+ * Uncomment the theme you want to use
+ */
+import '@code-coaching/vuetiful/themes/theme-vuetiful.css';
+// import '@code-coaching/vuetiful/themes/theme-rocket.css';
+// import '@code-coaching/vuetiful/themes/theme-sahara.css';
+// import '@code-coaching/vuetiful/themes/theme-seafoam.css';
+// import '@code-coaching/vuetiful/themes/theme-seasonal.css';
+// import '@code-coaching/vuetiful/themes/theme-skeleton.css';
+// import '@code-coaching/vuetiful/themes/theme-vintage.css';
+import './style.css';
 
-import App from "./App.vue";
+import App from './App.vue';
 
-createApp(App).mount("#app");`;
+createApp(App).mount('#app');`;
 
 const exampleScriptSetup = `import { useDarkMode, useTheme } from "@code-coaching/vuetiful";
-import "@code-coaching/vuetiful/styles/all.css";
 import { onMounted } from "vue";
 
 const { autoModeWatcher } = useDarkMode();
-const { loadTheme, THEMES } = useTheme();
+const { changeDataTheme } = useTheme();
 
 onMounted(() => {
+  changeDataTheme("vuetiful"); // adds data-theme="vuetiful" to the <body> tag
   autoModeWatcher(); // automatically use the dark preference of the OS
-  loadTheme(THEMES.VUETIFUL); // can be any theme from the THEMES object
 });`;
 
 const exampleNoScriptSetup = `import { useDarkMode, useTheme } from "@code-coaching/vuetiful";
@@ -44,11 +55,11 @@ import { onMounted } from "vue";
 export default defineComponent({
   setup() {
     const { autoModeWatcher } = useDarkMode();
-    const { loadTheme, THEMES } = useTheme();
+    const { changeDataTheme } = useTheme();
 
     onMounted(() => {
+      changeDataTheme("vuetiful"); // adds data-theme="vuetiful" to the <body> tag
       autoModeWatcher(); // automatically use the dark preference of the OS
-      loadTheme(THEMES.VUETIFUL); // can be any theme from the THEMES object
     });
 
     return {};
@@ -87,25 +98,35 @@ module.exports = configure(function (/* ctx */) {
 
 const exampleQuasarNoScriptSetup = `import { defineComponent, onMounted, watch } from 'vue';
 import { useDarkMode, useTheme } from '@code-coaching/vuetiful';
-import '@code-coaching/vuetiful/styles/all.css';
 /* Add in the line containing the useQuasar import from 'quasar', it gets parsed out for some reason */
-import './css/app.css';
 
+import '@code-coaching/vuetiful/styles/all.css';
+/**
+ * Uncomment the theme you want to use
+ */
+import '@code-coaching/vuetiful/themes/theme-vuetiful.css';
+// import '@code-coaching/vuetiful/themes/theme-rocket.css';
+// import '@code-coaching/vuetiful/themes/theme-sahara.css';
+// import '@code-coaching/vuetiful/themes/theme-seafoam.css';
+// import '@code-coaching/vuetiful/themes/theme-seasonal.css';
+// import '@code-coaching/vuetiful/themes/theme-skeleton.css';
+// import '@code-coaching/vuetiful/themes/theme-vintage.css';
+import './css/app.css';
 
 export default defineComponent({
   name: 'App',
   setup() {
-    const { autoModeWatcher, currentMode, MODE } = useDarkMode();
-    const { loadTheme, THEMES } = useTheme();
+    const { autoModeWatcher, chosenMode, MODE } = useDarkMode();
+    const { changeDataTheme } = useTheme();
     const $q = useQuasar();
 
     onMounted(() => {
+      changeDataTheme("vuetiful"); // adds data-theme="vuetiful" to the <body> tag
       autoModeWatcher(); // automatically use the dark preference of the OS
-      handleQuasarDarkMode(currentMode.value);
-      loadTheme(THEMES.VUETIFUL); // can be any theme from the THEMES object
+      handleQuasarDarkMode(chosenMode.value);
     });
 
-    const handleQuasarDarkMode = (mode: boolean) => {
+    const handleQuasarDarkMode = (mode: string) => {
       $q.dark.set(mode === MODE.DARK);
       if (mode === MODE.LIGHT) {
         document.body.classList.remove('body--light');
@@ -114,7 +135,7 @@ export default defineComponent({
       }
     };
 
-    watch(currentMode, (newMode) => {
+    watch(() => chosenMode.value, (newMode) => {
       handleQuasarDarkMode(newMode);
     });
 
@@ -124,21 +145,33 @@ export default defineComponent({
 
 const exampleQuasarScriptSetup = `import { onMounted, watch } from 'vue';
 import { useDarkMode, useTheme } from '@code-coaching/vuetiful';
+import { useQuasar } from 'quasar';
+
 import '@code-coaching/vuetiful/styles/all.css';
-/* This line contains the useQuasar import from 'quasar' it gets parsed out for some reason */
+/**
+ * Uncomment the theme you want to use
+ */
+import '@code-coaching/vuetiful/themes/theme-vuetiful.css';
+// import '@code-coaching/vuetiful/themes/theme-rocket.css';
+// import '@code-coaching/vuetiful/themes/theme-sahara.css';
+// import '@code-coaching/vuetiful/themes/theme-seafoam.css';
+// import '@code-coaching/vuetiful/themes/theme-seasonal.css';
+// import '@code-coaching/vuetiful/themes/theme-skeleton.css';
+// import '@code-coaching/vuetiful/themes/theme-vintage.css';
+
 import './css/app.css';
 
-const { autoModeWatcher, currentMode, MODE } = useDarkMode();
-const { loadTheme, THEMES } = useTheme();
+const { autoModeWatcher, chosenMode, MODE } = useDarkMode();
+const { changeDataTheme } = useTheme();
 const $q = useQuasar();
 
 onMounted(() => {
+  changeDataTheme("vuetiful"); // adds data-theme="vuetiful" to the <body> tag
   autoModeWatcher(); // automatically use the dark preference of the OS
-  handleQuasarDarkMode(currentMode.value);
-  loadTheme(THEMES.VUETIFUL); // can be any theme from the THEMES object
+  handleQuasarDarkMode(chosenMode.value);
 });
 
-const handleQuasarDarkMode = (mode: boolean) => {
+const handleQuasarDarkMode = (mode: string) => {
   $q.dark.set(mode === MODE.DARK);
   if (mode === MODE.LIGHT) {
     document.body.classList.remove('body--light');
@@ -147,7 +180,7 @@ const handleQuasarDarkMode = (mode: boolean) => {
   }
 };
 
-watch(currentMode, (newMode) => {
+watch(() => chosenMode.value, (newMode) => {
   handleQuasarDarkMode(newMode);
 });`;
 
@@ -355,6 +388,11 @@ body,
   @apply rounded-br-container-token;
 }
 
+.q-drawer .q-list {
+  border-radius: 0;
+  height: 100%;
+}
+
 .q-input {
   @apply rounded-container-token;
   @apply transition-all;
@@ -493,6 +531,7 @@ body,
 
   <h2>Install Tailwind</h2>
   <section class="section">
+    <p>TailwindCSS is a framework with utility/helper classes for direct styling of HTML elements.</p>
     <p class="mb-4">
       Vuetiful is created using TailwindCSS, you will need to add it as a dependency. However, you are not obligated to
       use TailwindCSS yourself.
@@ -578,24 +617,42 @@ module.exports = {
         />
       </section>
 
-      <h3>Vue3 - main.ts</h3>
-      <section class="section">
+      <h3>main.ts</h3>
+      <section class="section flex flex-col gap-2">
         <v-code-block class="mb-2" language="ts" :code="exampleVueMain" />
         <v-alert type="info">
           <v-badge variant="filled-surface">@code-coaching/vuetiful/styles/all.css</v-badge> must be imported before any
           other css.
         </v-alert>
+        <v-alert type="info">
+          Visit the
+          <v-radio-group unstyled hover="transparant" active="transparant">
+            <side-bar-link
+              class="w-40 min-w-full justify-start px-2 py-1"
+              :route-name="ROUTE_NAMES.DOCS.THEME_GENERATOR"
+              :link="ROUTE_NAMES.DOCS.THEME_GENERATOR"
+            >
+              Theme Generator
+            </side-bar-link>
+          </v-radio-group>
+          to create a custom theme.
+        </v-alert>
       </section>
 
-      <h3>App.vue - script setup</h3>
+      <h3>App.vue</h3>
       <section class="section">
-        <p class="mb-4">Add the following code to your App.vue file.</p>
-        <v-code-block language="ts" :code="exampleScriptSetup" />
-      </section>
-
-      <h3>App.vue - no script setup</h3>
-      <section class="section">
-        <v-code-block language="ts" :code="exampleNoScriptSetup" />
+        <v-tabs>
+          <template v-slot:tabs>
+            <v-tab><h4 class="mb-0">script setup</h4></v-tab>
+            <v-tab><h4 class="mb-0">no script setup</h4></v-tab>
+          </template>
+          <v-tab-panel>
+            <v-code-block language="ts" :code="exampleScriptSetup" />
+          </v-tab-panel>
+          <v-tab-panel>
+            <v-code-block language="ts" :code="exampleNoScriptSetup" />
+          </v-tab-panel>
+        </v-tabs>
       </section>
     </v-tab-panel>
     <v-tab-panel>
@@ -620,14 +677,20 @@ module.exports = {
           </div>
         </section>
 
-        <h3>App.vue - script setup</h3>
+        <h3>App.vue</h3>
         <section class="section">
-          <v-code-block language="ts" :code="exampleQuasarScriptSetup" />
-        </section>
-
-        <h3>App.vue - no script setup</h3>
-        <section class="section">
-          <v-code-block language="ts" :code="exampleQuasarNoScriptSetup" />
+          <v-tabs>
+            <template v-slot:tabs>
+              <v-tab><h4 class="mb-0">script setup</h4></v-tab>
+              <v-tab><h4 class="mb-0">no script setup</h4></v-tab>
+            </template>
+            <v-tab-panel>
+              <v-code-block language="ts" :code="exampleQuasarScriptSetup" />
+            </v-tab-panel>
+            <v-tab-panel>
+              <v-code-block language="ts" :code="exampleQuasarNoScriptSetup" />
+            </v-tab-panel>
+          </v-tabs>
         </section>
 
         <h3>app.css</h3>

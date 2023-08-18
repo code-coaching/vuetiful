@@ -1,5 +1,8 @@
+import { useDarkMode, useTheme } from '@code-coaching/vuetiful';
 import { RenderError } from '@quasar/app-vite';
 import { ssrMiddleware } from 'quasar/wrappers';
+const { applyThemeSSR, getThemeFromCookie } = useTheme();
+const { applyModeSSR, MODE, getModeFromCookie } = useDarkMode();
 
 // This middleware should execute as last one
 // since it captures everything and tries to
@@ -13,6 +16,14 @@ export default ssrMiddleware(({ app, resolve, render, serve }) => {
 
     render(/* the ssrContext: */ { req, res })
       .then((html) => {
+        const mode = getModeFromCookie(req.headers.cookie || '');
+        if (mode === MODE.DARK) html = applyModeSSR(html, mode);
+
+        const theme = getThemeFromCookie(req.headers.cookie || '');
+        if (theme) {
+          html = applyThemeSSR(html, theme);
+        }
+
         // now let's send the rendered html to the client
         res.send(html);
       })

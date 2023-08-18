@@ -193,6 +193,11 @@ body,
   @apply rounded-br-container-token;
 }
 
+.q-drawer .q-list {
+  border-radius: 0;
+  height: 100%;
+}
+
 .q-input {
   @apply rounded-container-token;
   @apply transition-all;

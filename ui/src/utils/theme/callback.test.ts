@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, vi, test } from 'vitest';
 
 /**
  * No clue why, but when this test is added to theme.service.test.ts, it fails.
@@ -6,16 +6,20 @@ import { describe, expect, it, vi } from 'vitest';
  */
 
 describe('given there is a callback', () => {
-  it('should call the callback', async () => {
+  test('should call the callback', async () => {
     const { useTheme } = await import('./theme.service');
-    const { loadTheme } = useTheme();
+    const { applyTheme, themes } = useTheme();
 
     const callbackSpy = vi.fn();
     const callbackFunction = () => {
       callbackSpy();
     };
-    loadTheme('vuetiful', callbackFunction);
-    const link = document.querySelector('#theme') as HTMLLinkElement;
+
+    const newTheme = JSON.parse(JSON.stringify(themes[0]));
+    newTheme.name = 'new-theme';
+    applyTheme(newTheme, callbackFunction);
+
+    const link = document.querySelector('#vuetiful-theme') as HTMLLinkElement;
     // @ts-ignore
     link.onload();
 

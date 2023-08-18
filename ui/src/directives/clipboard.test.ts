@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, vi, test } from 'vitest';
 import { DirectiveBinding } from 'vue';
 import { vClipboard } from '.';
 
@@ -13,7 +13,7 @@ describe('clipboard', () => {
     vi.resetAllMocks();
   });
   describe('given the v-clipboard directive is used', () => {
-    it('should copy text to the clipboard on click', () => {
+    test('should copy text to the clipboard on click', () => {
       window.navigator = navigatorMock;
 
       const el = document.createElement('div');

@@ -49,10 +49,10 @@ const onClick = () => {
   <v-radio-item
     unstyled
     :value="props.link"
-    :class="`min-w-full border-token rounded-token hover:variant-ghost-secondary hover:cursor-pointer ${
+    :class="`min-w-full border-token rounded-token ${
       routeName === activeRoute
-        ? 'variant-filled-secondary hover:!bg-secondary-500 hover:!text-on-secondary-token'
-        : 'focus:variant-ghost-secondary'
+        ? 'variant-filled'
+        : 'hover:variant-filled-surface focus:variant-ghost-surface hover:text-surface-900 dark:hover:text-surface-50'
     }`"
     :key="routeName"
     @click="onClick()"
