@@ -31,7 +31,6 @@ import '@code-coaching/vuetiful/themes/theme-vuetiful.css';
 // import '@code-coaching/vuetiful/themes/theme-seafoam.css';
 // import '@code-coaching/vuetiful/themes/theme-seasonal.css';
 // import '@code-coaching/vuetiful/themes/theme-skeleton.css';
-// import '@code-coaching/vuetiful/themes/theme-vintage.css';
 import './style.css';
 
 import App from './App.vue';
@@ -110,7 +109,6 @@ import '@code-coaching/vuetiful/themes/theme-vuetiful.css';
 // import '@code-coaching/vuetiful/themes/theme-seafoam.css';
 // import '@code-coaching/vuetiful/themes/theme-seasonal.css';
 // import '@code-coaching/vuetiful/themes/theme-skeleton.css';
-// import '@code-coaching/vuetiful/themes/theme-vintage.css';
 import './css/app.css';
 
 export default defineComponent({
@@ -157,7 +155,6 @@ import '@code-coaching/vuetiful/themes/theme-vuetiful.css';
 // import '@code-coaching/vuetiful/themes/theme-seafoam.css';
 // import '@code-coaching/vuetiful/themes/theme-seasonal.css';
 // import '@code-coaching/vuetiful/themes/theme-skeleton.css';
-// import '@code-coaching/vuetiful/themes/theme-vintage.css';
 
 import './css/app.css';
 
