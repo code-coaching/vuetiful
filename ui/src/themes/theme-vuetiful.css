@@ -107,13 +107,30 @@
   --color-surface-900: 49 50 118; /* ⬅ #313276 */
 }
 
-[data-theme='custom'] {
-  background-image: radial-gradient(at 76% 0%, hsla(189, 100%, 56%, 0.36) 0px, transparent 50%),
-    radial-gradient(at 1% 0%, hsla(340, 100%, 76%, 0.26) 0px, transparent 50%),
-    radial-gradient(at 20% 100%, hsla(241, 100%, 70%, 0.47) 0px, transparent 50%);
+[data-theme='vuetiful'] h1,
+[data-theme='vuetiful'] h2,
+[data-theme='vuetiful'] h3,
+[data-theme='vuetiful'] h4,
+[data-theme='vuetiful'] h5,
+[data-theme='vuetiful'] h6,
+[data-theme='vuetiful'] a,
+[data-theme='vuetiful'] button {
+  font-weight: bold;
 }
-.dark [data-theme='custom'] {
-  background-image: radial-gradient(at 76% 0%, hsla(189, 100%, 56%, 0.2) 0px, transparent 50%),
-    radial-gradient(at 1% 0%, hsla(340, 100%, 76%, 0.15) 0px, transparent 50%),
-    radial-gradient(at 20% 100%, hsla(241, 100%, 70%, 0.3) 0px, transparent 50%);
+
+/* Applied to body with `<body data-theme="vuetiful">` */
+/* Created with: https://csshero.org/mesher/ */
+[data-theme='vuetiful'] {
+  /* prettier-ignore */
+  background-image:
+		radial-gradient(at 76% 0%, hsla(189,100%,56%,0.36) 0px, transparent 50%),
+		radial-gradient(at 1% 0%, hsla(340,100%,76%,0.26) 0px, transparent 50%),
+		radial-gradient(at 20% 100%, hsla(241,100%,70%,0.47) 0px, transparent 50%);
+}
+.dark [data-theme='vuetiful'] {
+  /* prettier-ignore */
+  background-image:
+		radial-gradient(at 76% 0%, hsla(189,100%,56%,0.20) 0px, transparent 50%),
+		radial-gradient(at 1% 0%, hsla(340,100%,76%,0.15) 0px, transparent 50%),
+		radial-gradient(at 20% 100%, hsla(241,100%,70%,0.30) 0px, transparent 50%);
 }

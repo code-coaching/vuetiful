@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { CssClasses, useTheme, VButton, VLightSwitch } from '@/index';
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 
 defineProps({
   background: {
