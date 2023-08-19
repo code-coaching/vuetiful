@@ -513,7 +513,7 @@ const lastColor = computed(() => {
               <label class="label">
                 <span>Custom base font</span>
                 <textarea
-                  class="textarea min-h-[130px] p-4 bg-surface-50-900-token rounded-container-token"
+                  class="textarea min-h-[160px] p-4 bg-surface-50-900-token rounded-container-token"
                   type="text"
                   v-model="formTheme.fonts.baseImports"
                   placeholder='Custom fonts, e.g. @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");'
@@ -538,7 +538,7 @@ const lastColor = computed(() => {
               <label class="label">
                 <span>Custom headings font</span>
                 <textarea
-                  class="textarea min-h-[130px] p-4 bg-surface-50-900-token rounded-container-token"
+                  class="textarea min-h-[160px] p-4 bg-surface-50-900-token rounded-container-token"
                   type="text"
                   v-model="formTheme.fonts.headingImports"
                   placeholder='Custom fonts, e.g. @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");'
