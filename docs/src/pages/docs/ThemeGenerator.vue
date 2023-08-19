@@ -469,7 +469,7 @@ const lastColor = computed(() => {
                   data-theme="custom"
                   :class="`${
                     isDark ? 'border-surface-50 bg-surface-900' : 'border-surface-900 bg-surface-50'
-                  } relative flex aspect-video min-w-[300px] flex-1 items-center justify-center border-2 rounded-container-token`"
+                  } relative flex aspect-video flex-1 items-center justify-center border-2 rounded-container-token`"
                 >
                   <v-button icon @click="resetGradients"><i class="fa-solid fa-xmark" /></v-button>
                 </div>
