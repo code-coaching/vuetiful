@@ -348,6 +348,12 @@ const importExample = `
 // import '@code-coaching/vuetiful/themes/theme-skeleton.css';
 import './css/theme-custom.css';
 `;
+
+const lastColor = computed(() => {
+  const colors = Object.values(formTheme.colors);
+  const lastColor = colors[colors.length - 1];
+  return lastColor;
+});
 </script>
 <template>
   <div class="flex max-w-5xl flex-col p-4">
@@ -382,6 +388,9 @@ import './css/theme-custom.css';
             <div class="flex flex-col justify-center gap-4 p-4">
               <div v-for="(color, index) in formTheme.colors" :key="index">
                 <div class="flex flex-wrap justify-between gap-4">
+                  <div class="vuetiful-theme-generator-color-label--mobile w-[125px]">
+                    {{ color.label }}
+                  </div>
                   <div class="flex w-full flex-1">
                     <div class="w-full" v-for="(tint, tintIndex) in tailwindNumbers" :key="tintIndex">
                       <div class="flex w-full flex-col items-center">
@@ -391,7 +400,7 @@ import './css/theme-custom.css';
                           :style="`color: rgb(${color.on})`"
                         >
                           <template v-if="tint === '500'">
-                            <div class="flex w-[125px] items-center justify-center px-4">
+                            <div class="vuetiful-theme-generator-color-label w-[125px] items-center justify-center px-4">
                               {{ color.label }}
                             </div>
                           </template>
@@ -437,6 +446,7 @@ import './css/theme-custom.css';
                     ></div>
                   </div>
                 </div>
+                <hr v-if="color.label !== lastColor.label" class="mt-4" />
               </div>
             </div>
           </v-card>
@@ -624,3 +634,25 @@ changeDataTheme(&quot;custom&quot;);`"
     </transition>
   </div>
 </template>
+
+<style scoped>
+.vuetiful-theme-generator-color-label {
+  display: none;
+}
+
+@media (min-width: 475px) {
+  .vuetiful-theme-generator-color-label {
+    display: block;
+  }
+}
+
+.vuetiful-theme-generator-color-label--mobile {
+  display: none;
+}
+
+@media (max-width: 474px) {
+  .vuetiful-theme-generator-color-label--mobile {
+    display: block;
+  }
+}
+</style>
