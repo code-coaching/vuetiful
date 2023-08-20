@@ -8,10 +8,10 @@ const vitestConfig: UserConfig = {
     coverage: {
       // colors.service.ts is a direct copy from skeleton - might refactor and test later
       exclude: ['**/src/types/**', '**/index**', '**/**.test.ts', '**/colors.service.ts'],
-      lines: 99.42,
-      functions: 96.82,
-      branches: 98.64,
-      statements: 99.42,
+      lines: 99.44,
+      functions: 97.1,
+      branches: 98.69,
+      statements: 99.44,
       thresholdAutoUpdate: true,
     },
   },

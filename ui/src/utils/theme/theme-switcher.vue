@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CssClasses, useTheme, VButton, VLightSwitch } from '@/index';
+import { CssClasses, VButton, VLightSwitch, useTheme, vClickOutsideGroup } from '@/index';
 import { ref } from 'vue';
 
 defineProps({
@@ -48,6 +48,10 @@ const showPopup = ref(false);
 
     <div
       v-if="showPopup"
+      v-click-outside-group="{
+        elementsInGroup: ['.vuetiful-theme-switcher__button'],
+        callback: () => (showPopup = false),
+      }"
       class="vuetiful-theme-switcher__popup absolute z-10 mt-1 space-y-4 p-4 shadow-xl rounded-container-token"
       :class="`${background} ${text} ${widthPopup} ${classList}`"
     >

@@ -1,3 +1,5 @@
+import vClickOutside from './click-outside';
+import vClickOutsideGroup from './click-outside-group';
 import vClipboard from './clipboard';
 
-export { vClipboard };
+export { vClickOutside, vClickOutsideGroup, vClipboard };

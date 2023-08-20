@@ -270,7 +270,7 @@ module.exports = {
 
     <v-code-block
       language="css"
-      :code="`// If this is in your css, remove it
+      :code="`// If any of these are in your css, remove them
 @tailwind base;
 @tailwind components;
 @tailwind utilities;`"
