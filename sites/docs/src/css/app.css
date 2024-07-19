@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply mb-4 md:mb-8;
+}
+
+section.section {
+  @apply mb-6 md:mb-14;
+}
+header.header {
+  @apply mb-4 md:mb-10;
+}
+
+summary {
+  cursor: pointer;
+}
