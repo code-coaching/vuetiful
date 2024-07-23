@@ -31,7 +31,7 @@ const { open, drawer } = useDrawer();
   </v-drawer>
   <v-shell>
     <template v-slot:fixedHeader>
-      <q-toolbar class="border-b border-surface-500/30 bg-surface-50-900-token">
+      <q-toolbar class="border-b border-surface-500/30 bg-surface-50-950">
         <q-btn
           class="lg:hidden"
           id="icon-button"
@@ -48,7 +48,7 @@ const { open, drawer } = useDrawer();
         </q-toolbar-title>
 
         <div class="flex items-center gap-2">
-          <ThemeSwitcher button-classes="btn-sm variant-filled-secondary" />
+          <ThemeSwitcher button-classes="btn-sm preset-filled-secondary-500" />
           <div>v{{ version }}</div>
         </div>
       </q-toolbar>

@@ -8,6 +8,6 @@ defineProps({
 </script>
 
 <template>
-  <h1>{{ title }}</h1>
+  <h1 class="h1">{{ title }}</h1>
   <p>This is some content in the drawer.</p>
 </template>

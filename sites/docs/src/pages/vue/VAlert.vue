@@ -18,7 +18,7 @@ const customTemplate = `<v-alert hide-icon show-close :show="showCustomAlert" @c
 const customSlotsScript = `const handleCustomAction = () => {
   alert('Custom action clicked!');
 };`;
-const customSlotsTemplate = `<v-alert class="variant-ghost-primary text-primary-700-200-token">
+const customSlotsTemplate = `<v-alert class="preset-outlined-primary text-primary-700-300">
   <template v-slot:pre>
     <!-- https://fontawesome.com/icons/ghost?f=classic&s=solid -->
     <svg
@@ -76,7 +76,7 @@ const handleCloseAction = () => {
 </script>
 
 <template>
-  <h1>VAlert</h1>
+  <h1 class="h1">VAlert</h1>
   <section class="section">
     <v-code-block language="ts" :code="`import { VAlert } from '@code-coaching/vuetiful';`" />
   </section>
@@ -103,13 +103,13 @@ const handleCloseAction = () => {
         </v-preview>
       </section>
 
-      <h2>Accessibility</h2>
+      <h2 class="h2">Accessibility</h2>
       <section class="section">
         <p><kbd>Tab</kbd> and <kbd>Shift + Tab</kbd>: Move focus onto and away from the alert.</p>
         <p><kbd>Space</kbd> and <kbd>Enter</kbd>: Close the alert.</p>
       </section>
 
-      <h2>Customization</h2>
+      <h2 class="h2">Customization</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -119,7 +119,7 @@ const handleCloseAction = () => {
           </template>
           <template v-slot:footer>
             <div class="flex justify-center">
-              <v-button variant="filled-warning" @click="showCustomAlert = !showCustomAlert">Toggle Alert</v-button>
+              <v-button preset="filled-warning-500" @click="showCustomAlert = !showCustomAlert">Toggle Alert</v-button>
             </div>
           </template>
           <template v-slot:source>
@@ -134,7 +134,7 @@ const handleCloseAction = () => {
       <section class="section">
         <v-preview>
           <template v-slot:preview>
-            <v-alert class="variant-ghost-primary text-primary-700-200-token">
+            <v-alert class="preset-outlined-primary text-primary-700-300">
               <template v-slot:pre>
                 <!-- https://fontawesome.com/icons/ghost?f=classic&s=solid -->
                 <svg
@@ -183,7 +183,7 @@ const handleCloseAction = () => {
         </v-preview>
       </section>
 
-      <h2>No prop-based styles</h2>
+      <h2 class="h2">No prop-based styles</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -196,7 +196,7 @@ const handleCloseAction = () => {
         </v-preview>
       </section>
 
-      <h2>Custom style example</h2>
+      <h2 class="h2">Custom style example</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>

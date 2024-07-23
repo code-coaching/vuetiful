@@ -359,51 +359,49 @@ const qCardFiveExample = `<div class="flex flex-wrap items-start gap-2">
   </q-card>
 </div>`;
 
-const qChipExample = (type: string) => `<q-chip ${
-  type ? `${type} ` : ''
-}class="bg-surface-100-800-token text-surface-900-50-token">
+const qChipExample = (type: string) => `<q-chip ${type ? `${type} ` : ''}class="bg-surface-100-900 text-surface-950-50">
   <q-avatar>
     <img src="/img/john-duck.png" />
   </q-avatar>
   Surface
 </q-chip>
 
-<q-chip ${type ? `${type} ` : ''}class="bg-primary-100-800-token text-primary-900-50-token">
+<q-chip ${type ? `${type} ` : ''}class="bg-primary-100-900 text-primary-900-100">
   <q-avatar>
     <img src="/img/john-duck.png" />
   </q-avatar>
   Primary
 </q-chip>
 
-<q-chip ${type ? `${type} ` : ''}class="bg-secondary-100-800-token text-secondary-900-50-token">
+<q-chip ${type ? `${type} ` : ''}class="bg-secondary-100-900 text-secondary-900-100">
   <q-avatar>
     <img src="/img/john-duck.png" />
   </q-avatar>
   Secondary
 </q-chip>
 
-<q-chip ${type ? `${type} ` : ''}class="bg-tertiary-100-800-token text-tertiary-900-50-token">
+<q-chip ${type ? `${type} ` : ''}class="bg-tertiary-100-900 text-tertiary-900-100">
   <q-avatar>
     <img src="/img/john-duck.png" />
   </q-avatar>
   Secondary
 </q-chip>
 
-<q-chip ${type ? `${type} ` : ''}class="bg-success-100-800-token text-success-900-50-token">
+<q-chip ${type ? `${type} ` : ''}class="bg-success-100-900 text-success-900-100">
   <q-avatar>
     <img src="/img/john-duck.png" />
   </q-avatar>
   Success
 </q-chip>
 
-<q-chip ${type ? `${type} ` : ''}class="bg-warning-100-800-token text-warning-900-50-token">
+<q-chip ${type ? `${type} ` : ''}class="bg-warning-100-900 text-warning-900-100">
   <q-avatar>
     <img src="/img/john-duck.png" />
   </q-avatar>
   Warning
 </q-chip>
 
-<q-chip ${type ? `${type} ` : ''}class="bg-error-100-800-token text-error-900-50-token">
+<q-chip ${type ? `${type} ` : ''}class="bg-error-100-900 text-error-900-100">
   <q-avatar>
     <img src="/img/john-duck.png" />
   </q-avatar>
@@ -1048,7 +1046,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 </script>
 
 <template>
-  <h1>Quasar Components</h1>
+  <h1 class="h1">Quasar Components</h1>
   <header class="header">
     <section class="section">
       <p>
@@ -1059,7 +1057,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     <hr />
   </header>
 
-  <h2>QAvatar</h2>
+  <h2 class="h2">QAvatar</h2>
   <section class="section">
     <v-preview>
       <template v-slot:preview>
@@ -1093,7 +1091,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     </v-preview>
   </section>
 
-  <h2>QBadge</h2>
+  <h2 class="h2">QBadge</h2>
   <section class="section">
     <v-preview>
       <template v-slot:preview>
@@ -1124,7 +1122,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     </v-preview>
   </section>
 
-  <h2>QBanner</h2>
+  <h2 class="h2">QBanner</h2>
   <section class="section">
     <section class="section">
       <v-preview>
@@ -1310,7 +1308,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     </section>
   </section>
 
-  <h2>QBtn</h2>
+  <h2 class="h2">QBtn</h2>
   <section class="section">
     <section class="section">
       <v-preview>
@@ -1403,7 +1401,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     </section>
   </section>
 
-  <h3>QBtnGroup</h3>
+  <h3 class="h3">QBtnGroup</h3>
   <section class="section">
     <v-preview>
       <template v-slot:preview>
@@ -1476,7 +1474,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     </v-preview>
   </section>
 
-  <h3>QBtnDropdown</h3>
+  <h3 class="h3">QBtnDropdown</h3>
   <section class="section">
     <v-preview>
       <template v-slot:preview>
@@ -1532,7 +1530,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     </v-preview>
   </section>
 
-  <h2>QCard</h2>
+  <h2 class="h2">QCard</h2>
   <section class="section">
     <section class="section">
       <v-preview>
@@ -1716,56 +1714,56 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     </section>
   </section>
 
-  <h2>QChip</h2>
+  <h2 class="h2">QChip</h2>
   <section class="section">
     <v-preview>
       <template v-slot:preview>
         <div class="flex flex-col gap-4 overflow-y-auto">
           <section>
             <div class="flex flex-wrap gap-1">
-              <q-chip class="bg-surface-100-800-token text-surface-900-50-token">
+              <q-chip class="bg-surface-100-900 text-surface-950-50">
                 <q-avatar>
                   <img src="/img/john-duck.png" />
                 </q-avatar>
                 Surface
               </q-chip>
 
-              <q-chip class="bg-primary-100-800-token text-primary-900-50-token">
+              <q-chip class="bg-primary-100-900 text-primary-900-100">
                 <q-avatar>
                   <img src="/img/john-duck.png" />
                 </q-avatar>
                 Primary
               </q-chip>
 
-              <q-chip class="bg-secondary-100-800-token text-secondary-900-50-token">
+              <q-chip class="bg-secondary-100-900 text-secondary-900-100">
                 <q-avatar>
                   <img src="/img/john-duck.png" />
                 </q-avatar>
                 Secondary
               </q-chip>
 
-              <q-chip class="bg-tertiary-100-800-token text-tertiary-900-50-token">
+              <q-chip class="bg-tertiary-100-900 text-tertiary-900-100">
                 <q-avatar>
                   <img src="/img/john-duck.png" />
                 </q-avatar>
                 Tertiary
               </q-chip>
 
-              <q-chip class="bg-success-100-800-token text-success-900-50-token">
+              <q-chip class="bg-success-100-900 text-success-900-100">
                 <q-avatar>
                   <img src="/img/john-duck.png" />
                 </q-avatar>
                 Success
               </q-chip>
 
-              <q-chip class="bg-warning-100-800-token text-warning-900-50-token">
+              <q-chip class="bg-warning-100-900 text-warning-900-100">
                 <q-avatar>
                   <img src="/img/john-duck.png" />
                 </q-avatar>
                 Warning
               </q-chip>
 
-              <q-chip class="bg-error-100-800-token text-error-900-50-token">
+              <q-chip class="bg-error-100-900 text-error-900-100">
                 <q-avatar>
                   <img src="/img/john-duck.png" />
                 </q-avatar>
@@ -1776,49 +1774,49 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
 
           <section>
             <div class="flex flex-wrap gap-1">
-              <q-chip dense class="bg-surface-100-800-token text-surface-900-50-token">
+              <q-chip dense class="bg-surface-100-900 text-surface-950-50">
                 <q-avatar>
                   <img src="/img/john-duck.png" />
                 </q-avatar>
                 Surface
               </q-chip>
 
-              <q-chip dense class="bg-primary-100-800-token text-primary-900-50-token">
+              <q-chip dense class="bg-primary-100-900 text-primary-900-100">
                 <q-avatar>
                   <img src="/img/john-duck.png" />
                 </q-avatar>
                 Primary
               </q-chip>
 
-              <q-chip dense class="bg-secondary-100-800-token text-secondary-900-50-token">
+              <q-chip dense class="bg-secondary-100-900 text-secondary-900-100">
                 <q-avatar>
                   <img src="/img/john-duck.png" />
                 </q-avatar>
                 Secondary
               </q-chip>
 
-              <q-chip dense class="bg-tertiary-100-800-token text-tertiary-900-50-token">
+              <q-chip dense class="bg-tertiary-100-900 text-tertiary-900-100">
                 <q-avatar>
                   <img src="/img/john-duck.png" />
                 </q-avatar>
                 Secondary
               </q-chip>
 
-              <q-chip dense class="bg-success-100-800-token text-success-900-50-token">
+              <q-chip dense class="bg-success-100-900 text-success-900-100">
                 <q-avatar>
                   <img src="/img/john-duck.png" />
                 </q-avatar>
                 Success
               </q-chip>
 
-              <q-chip dense class="bg-warning-100-800-token text-warning-900-50-token">
+              <q-chip dense class="bg-warning-100-900 text-warning-900-100">
                 <q-avatar>
                   <img src="/img/john-duck.png" />
                 </q-avatar>
                 Warning
               </q-chip>
 
-              <q-chip dense class="bg-error-100-800-token text-error-900-50-token">
+              <q-chip dense class="bg-error-100-900 text-error-900-100">
                 <q-avatar>
                   <img src="/img/john-duck.png" />
                 </q-avatar>
@@ -1837,7 +1835,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     </v-preview>
   </section>
 
-  <h2>QColor</h2>
+  <h2 class="h2">QColor</h2>
   <section class="section">
     <v-preview>
       <template v-slot:preview>
@@ -1865,7 +1863,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     </v-preview>
   </section>
 
-  <h2>QEditor</h2>
+  <h2 class="h2">QEditor</h2>
   <section class="section">
     <v-preview>
       <template v-slot:preview>
@@ -1883,7 +1881,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     </v-preview>
   </section>
 
-  <h2>QExpansionItem</h2>
+  <h2 class="h2">QExpansionItem</h2>
   <section class="section">
     <v-preview>
       <template v-slot:preview>
@@ -1985,10 +1983,10 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     </v-preview>
   </section>
 
-  <h2>QInput</h2>
+  <h2 class="h2">QInput</h2>
   <section class="section">
     <section class="section">
-      <v-alert class="mb-4" type="info">Only the outlined variant is supported</v-alert>
+      <v-alert class="mb-4" type="info">Only the outlined preset is supported</v-alert>
       <v-preview>
         <template v-slot:preview>
           <div class="flex flex-wrap gap-2">
@@ -2157,9 +2155,9 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     </section>
   </section>
 
-  <h2>QSelect</h2>
+  <h2 class="h2">QSelect</h2>
   <section class="section">
-    <v-alert type="info" class="mb-4">Only the outlined variant is supported</v-alert>
+    <v-alert type="info" class="mb-4">Only the outlined preset is supported</v-alert>
 
     <section class="section">
       <v-preview>
@@ -2350,10 +2348,10 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     </section>
   </section>
 
-  <h2>QFile</h2>
+  <h2 class="h2">QFile</h2>
   <section class="section">
     <section class="section">
-      <v-alert type="info" class="mb-4">Only the outlined variant is supported</v-alert>
+      <v-alert type="info" class="mb-4">Only the outlined preset is supported</v-alert>
 
       <v-preview>
         <template v-slot:preview>
@@ -2523,7 +2521,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     </section>
   </section>
 
-  <h2>QTime</h2>
+  <h2 class="h2">QTime</h2>
   <section class="section">
     <v-preview>
       <template v-slot:preview>
@@ -2541,7 +2539,7 @@ const qDateScriptExample = "const date = ref('1991/08/13');";
     </v-preview>
   </section>
 
-  <h2>QDate</h2>
+  <h2 class="h2">QDate</h2>
   <section class="section">
     <v-preview>
       <template v-slot:preview>

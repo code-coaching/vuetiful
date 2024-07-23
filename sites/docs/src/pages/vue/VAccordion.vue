@@ -35,8 +35,8 @@ const faqScript = `const faqs = [
 ];`;
 
 const customTemplate = `<v-accordion
-  class-question="hover:variant-ghost-primary bg-secondary-200-700-token"
-  class-answer="bg-secondary-100-800-token"
+  class-question="hover:preset-outlined-primary bg-secondary-300-700"
+  class-answer="bg-secondary-100-900"
 >
   <v-accordion-item v-for="(faq, index) in faqs" :key="index" :title="faq.question">
     {{ faq.answer }}
@@ -70,7 +70,7 @@ const unstyledCustomTemplate = `<v-accordion
 </script>
 
 <template>
-  <h1>VAccordion</h1>
+  <h1 class="h1">VAccordion</h1>
   <section class="section">
     <v-code-block language="ts" :code="`import { VAccordion, VAccordionItem } from '@code-coaching/vuetiful';`" />
   </section>
@@ -100,19 +100,19 @@ const unstyledCustomTemplate = `<v-accordion
         </v-preview>
       </section>
 
-      <h2>Accessibility</h2>
+      <h2 class="h2">Accessibility</h2>
       <section class="section">
         <p><kbd>Tab</kbd> and <kbd>Shift + Tab</kbd>: Move focus onto and away from the accordion item.</p>
         <p><kbd>Space</kbd> and <kbd>Enter</kbd>: Toggle open/close the accordion item.</p>
       </section>
 
-      <h2>Customization</h2>
+      <h2 class="h2">Customization</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
             <v-accordion
-              class-question="hover:variant-ghost-primary bg-secondary-200-700-token"
-              class-answer="bg-secondary-100-800-token"
+              class-question="hover:preset-outlined-primary bg-secondary-300-700"
+              class-answer="bg-secondary-100-900"
             >
               <v-accordion-item v-for="(faq, index) in faqs" :key="index" :title="faq.question">
                 {{ faq.answer }}
@@ -162,7 +162,7 @@ const unstyledCustomTemplate = `<v-accordion
         </v-preview>
       </section>
 
-      <h2>No prop-based styles</h2>
+      <h2 class="h2">No prop-based styles</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -183,7 +183,7 @@ const unstyledCustomTemplate = `<v-accordion
         </v-preview>
       </section>
 
-      <h2>Custom style example</h2>
+      <h2 class="h2">Custom style example</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>

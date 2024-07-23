@@ -5,7 +5,7 @@ import { AlertUnstyled } from 'src/components';
 const consoleExample = '<v-code-block lang="sh" code="npm install @code-coaching/vuetiful" />';
 const htmlExample = `<v-code-block
   language="html"
-  code="<h1>John Duck</h1>
+  code="<h1 class="h1">John Duck</h1>
 <p>Vuetiful is beautiful</p>"
 />`;
 const jsExample = `<v-code-block
@@ -31,7 +31,7 @@ const mascot: Mascot = {
 };"
 />`;
 
-const codeExample = `<div class="mb-2 flex flex-wrap items-start gap-2">
+const codeExample = `<div class="flex flex-wrap items-start gap-2 mb-2">
   <div class="color-column">primary</div>
   <div class="btn-sm bg-primary-50 text-primary-900">50</div>
   <div class="btn-sm bg-primary-100 text-primary-900">100</div>
@@ -45,7 +45,7 @@ const codeExample = `<div class="mb-2 flex flex-wrap items-start gap-2">
   <div class="btn-sm bg-primary-900 text-primary-50">900</div>
 </div>`;
 
-const codeCodeScriptExample = `const codeExample = \`<div class="mb-2 flex flex-wrap items-start gap-2">
+const codeCodeScriptExample = `const codeExample = \`<div class="flex flex-wrap items-start gap-2 mb-2">
   <div class="color-column">primary</div>
   <div class="btn-sm bg-primary-50 text-primary-900">50</div>
   <div class="btn-sm bg-primary-100 text-primary-900">100</div>
@@ -66,7 +66,7 @@ const withoutOverflowExample =
 
 const sourceScriptOverflowExample = `const withOverflowExample = '<v-code-block class="!max-w-[500px]" language="html" :code="withoutOverflowExample" />';
 const withoutOverflowExample = '<v-code-block prevent-overflow class="!max-w-[500px]" language="html" :code="withoutOverflowExample" />';`;
-const sourceTemplateOverflowExample = `<div class="flex max-w-full flex-col gap-4">
+const sourceTemplateOverflowExample = `<div class="flex flex-col max-w-full gap-4">
   <div class="flex flex-col gap-1">
     <v-code-block class="!max-w-[500px]" language="html" :code="withOverflowExample" />
     <div>With overflow (default)</div>
@@ -79,7 +79,7 @@ const sourceTemplateOverflowExample = `<div class="flex max-w-full flex-col gap-
 </div>`;
 
 const copyButtonExample =
-  '<v-code-block button-text="Grab me!" button-copied-text="You got me!" language="html" code="<h1>John Duck</h1>" />';
+  '<v-code-block button-text="Grab me!" button-copied-text="You got me!" language="html" code="<h1 class="h1">John Duck</h1>" />';
 const sourceTemplateCopyButtonExample = `<v-code-block
   button-text="Grab me!"
   button-copied-text="You got me!"
@@ -87,12 +87,12 @@ const sourceTemplateCopyButtonExample = `<v-code-block
   :code="copyButtonExample"
 />`;
 const sourceScriptCopyButtonExample =
-  'const copyButtonExample = \'<v-code-block button-text="Grab me!" button-copied-text="You got me!" language="html" code="<h1>John Duck</h1>" />\';';
+  'const copyButtonExample = \'<v-code-block button-text="Grab me!" button-copied-text="You got me!" language="html" code="<h1 class="h1">John Duck</h1>" />\';';
 
 const unstyledTemplate = `<v-code-block
   unstyled
   language="html"
-  code="<h1>John Duck</h1>
+  code="<h1 class="h1">John Duck</h1>
 <p>Vuetiful is beautiful</p>"
 />`;
 
@@ -104,13 +104,13 @@ const unstyledPropTemplate = `<v-code-block
   class-code="!bg-green-600"
   class-button="bg-green-600 text-white hover:bg-green-700"
   language="html"
-  code="<h1>John Duck</h1>
+  code="<h1 class="h1">John Duck</h1>
 <p>Vuetiful is beautiful</p>"
 />`;
 </script>
 
 <template>
-  <h1>VCodeBlock</h1>
+  <h1 class="h1">VCodeBlock</h1>
   <section class="section">
     <v-code-block language="ts" :code="`import { VCodeBlock } from '@code-coaching/vuetiful';`" />
   </section>
@@ -121,7 +121,7 @@ const unstyledPropTemplate = `<v-code-block
       <v-tab>Unstyled</v-tab>
     </template>
     <v-tab-panel>
-      <h2>Console</h2>
+      <h2 class="h2">Console</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -133,14 +133,14 @@ const unstyledPropTemplate = `<v-code-block
         </v-preview>
       </section>
 
-      <h2>HTML</h2>
+      <h2 class="h2">HTML</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
             <v-code-block
               language="html"
-              code="<h1>John Duck</h1>
-<p>Vuetiful is beautiful</p>"
+              code='<h1 class="h1">John Duck</h1>
+<p>Vuetiful is beautiful</p>'
             />
           </template>
           <template v-slot:source>
@@ -149,7 +149,7 @@ const unstyledPropTemplate = `<v-code-block
         </v-preview>
       </section>
 
-      <h2>JavaScript</h2>
+      <h2 class="h2">JavaScript</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -168,7 +168,7 @@ const unstyledPropTemplate = `<v-code-block
         </v-preview>
       </section>
 
-      <h2>TypeScript</h2>
+      <h2 class="h2">TypeScript</h2>
 
       <section class="section">
         <v-preview>
@@ -194,7 +194,7 @@ const mascot: Mascot = {
         </v-preview>
       </section>
 
-      <h2>A lot of code</h2>
+      <h2 class="h2">A lot of code</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -209,11 +209,11 @@ const mascot: Mascot = {
         </v-preview>
       </section>
 
-      <h2>Prevent overflow</h2>
+      <h2 class="h2">Prevent overflow</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
-            <div class="flex max-w-full flex-col gap-4">
+            <div class="flex flex-col max-w-full gap-4">
               <div class="flex flex-col gap-1">
                 <v-code-block class="!max-w-[500px]" language="html" :code="withOverflowExample" />
                 <div>With overflow (default)</div>
@@ -235,11 +235,11 @@ const mascot: Mascot = {
         </v-preview>
       </section>
 
-      <h2>Copy Button</h2>
+      <h2 class="h2">Copy Button</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
-            <div class="flex max-w-full flex-col gap-2">
+            <div class="flex flex-col max-w-full gap-2">
               <v-code-block
                 button-text="Grab me!"
                 button-copied-text="You got me!"
@@ -272,8 +272,10 @@ const mascot: Mascot = {
             <v-code-block
               unstyled
               language="html"
-              code="<h1>John Duck</h1>
-<p>Vuetiful is beautiful</p>"
+              code='
+            <h1 class="h1">John Duck</h1>
+            <p>Vuetiful is beautiful</p>
+            '
             />
           </template>
           <template v-slot:source>
@@ -282,7 +284,7 @@ const mascot: Mascot = {
         </v-preview>
       </section>
 
-      <h2>Custom style example</h2>
+      <h2 class="h2">Custom style example</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -294,8 +296,10 @@ const mascot: Mascot = {
               class-code="!bg-green-600 !text-white"
               class-button="bg-green-600 text-white hover:bg-green-700 dark:bg-green-600"
               language="html"
-              code="<h1>John Duck</h1>
-<p>Vuetiful is beautiful</p>"
+              code='
+            <h1 class="h1">John Duck</h1>
+            <p>Vuetiful is beautiful</p>
+            '
             />
           </template>
           <template v-slot:source>

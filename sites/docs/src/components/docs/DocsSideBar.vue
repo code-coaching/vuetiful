@@ -130,7 +130,7 @@ const activeRoute = ref();
       active="transparant"
     >
       <template v-if="selectedRailTile === 'docs'">
-        <div class="text-lg font-bold text-primary-900-50-token">Docs</div>
+        <div class="text-lg font-bold text-primary-900-100">Docs</div>
         <side-bar-link
           class="w-40 min-w-full justify-start px-2 py-1"
           v-for="link in docsLinks"
@@ -140,7 +140,7 @@ const activeRoute = ref();
         >
           {{ link.title }}
         </side-bar-link>
-        <div class="text-lg font-bold text-primary-900-50-token">Resources</div>
+        <div class="text-lg font-bold text-primary-900-100">Resources</div>
         <side-bar-link
           class="w-40 min-w-full justify-start px-2 py-1"
           v-for="link in docsResourceLinks"
@@ -153,7 +153,7 @@ const activeRoute = ref();
       </template>
 
       <template v-if="selectedRailTile === 'vue' || selectedRailTile.includes('demo')">
-        <div class="text-lg font-bold text-primary-900-50-token">Layout</div>
+        <div class="text-lg font-bold text-primary-900-100">Layout</div>
         <side-bar-link
           class="w-40 min-w-full justify-start px-4 py-1"
           v-for="link in vueLinksLayout"
@@ -164,7 +164,7 @@ const activeRoute = ref();
           {{ link.title }}
         </side-bar-link>
 
-        <div class="text-lg font-bold text-primary-900-50-token">Components</div>
+        <div class="text-lg font-bold text-primary-900-100">Components</div>
         <side-bar-link
           class="w-40 min-w-full justify-start px-4 py-1"
           v-for="link in vueLinks"

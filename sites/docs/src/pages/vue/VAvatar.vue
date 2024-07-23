@@ -15,58 +15,40 @@ const usageCss = `.custom-class {
   fill: #ec4899;
 }`;
 
-const filled = `<v-avatar variant="filled" initials="AB" />
-<v-avatar variant="filled-surface" initials="CD" />
-<v-avatar variant="filled-primary" initials="EF" />
-<v-avatar variant="filled-secondary" initials="GH" />
-<v-avatar variant="filled-tertiary" initials="IJ" />
-<v-avatar variant="filled-success" initials="KL" />
-<v-avatar variant="filled-warning" initials="MN" />
-<v-avatar variant="filled-error" initials="OP" />`;
+const filled = `<v-avatar preset="filled" initials="AB" />
+<v-avatar preset="filled-surface-500" initials="CD" />
+<v-avatar preset="filled-primary-500" initials="EF" />
+<v-avatar preset="filled-secondary-500" initials="GH" />
+<v-avatar preset="filled-tertiary-500" initials="IJ" />
+<v-avatar preset="filled-success-500" initials="KL" />
+<v-avatar preset="filled-warning-500" initials="MN" />
+<v-avatar preset="filled-error-500" initials="OP" />`;
 
-const ringed = `<v-avatar variant="ringed" initials="AB" />
-<v-avatar variant="ringed-surface" initials="CD" />
-<v-avatar variant="ringed-primary" initials="EF" />
-<v-avatar variant="ringed-secondary" initials="GH" />
-<v-avatar variant="ringed-tertiary" initials="IJ" />
-<v-avatar variant="ringed-success" initials="KL" />
-<v-avatar variant="ringed-warning" initials="MN" />
-<v-avatar variant="ringed-error" initials="OP" />`;
+const tonal = `<v-avatar preset="tonal" initials="AB" />
+<v-avatar preset="tonal-surface" initials="CD" />
+<v-avatar preset="tonal-primary" initials="EF" />
+<v-avatar preset="tonal-secondary" initials="GH" />
+<v-avatar preset="tonal-tertiary" initials="IJ" />
+<v-avatar preset="tonal-success" initials="KL" />
+<v-avatar preset="tonal-warning" initials="MN" />
+<v-avatar preset="tonal-error" initials="OP" />`;
 
-const ghost = `<v-avatar variant="ghost" initials="AB" />
-<v-avatar variant="ghost-surface" initials="CD" />
-<v-avatar variant="ghost-primary" initials="EF" />
-<v-avatar variant="ghost-secondary" initials="GH" />
-<v-avatar variant="ghost-tertiary" initials="IJ" />
-<v-avatar variant="ghost-success" initials="KL" />
-<v-avatar variant="ghost-warning" initials="MN" />
-<v-avatar variant="ghost-error" initials="OP" />`;
-
-const soft = `<v-avatar variant="soft" initials="AB" />
-<v-avatar variant="soft-surface" initials="CD" />
-<v-avatar variant="soft-primary" initials="EF" />
-<v-avatar variant="soft-secondary" initials="GH" />
-<v-avatar variant="soft-tertiary" initials="IJ" />
-<v-avatar variant="soft-success" initials="KL" />
-<v-avatar variant="soft-warning" initials="MN" />
-<v-avatar variant="soft-error" initials="OP" />>`;
-
-const glass = `<v-avatar variant="glass" initials="AB" />
-<v-avatar variant="glass-surface" initials="CD" />
-<v-avatar variant="glass-primary" initials="EF" />
-<v-avatar variant="glass-secondary" initials="GH" />
-<v-avatar variant="glass-tertiary" initials="IJ" />
-<v-avatar variant="glass-success" initials="KL" />
-<v-avatar variant="glass-warning" initials="MN" />
-<v-avatar variant="glass-error" initials="OP" />`;
+const outlined = `<v-avatar preset="outlined" initials="AB" />
+<v-avatar preset="outlined-surface-500" initials="CD" />
+<v-avatar preset="outlined-primary-500" initials="EF" />
+<v-avatar preset="outlined-secondary-500" initials="GH" />
+<v-avatar preset="outlined-tertiary-500" initials="IJ" />
+<v-avatar preset="outlined-success-500" initials="KL" />
+<v-avatar preset="outlined-warning-500" initials="MN" />
+<v-avatar preset="outlined-error-500" initials="OP" />`;
 
 const unstyledTemplate = '<v-avatar unstyled initials="JD" />';
-const unstyledPropTemplate = '<v-avatar unstyled variant="" initials="JD" />';
+const unstyledPropTemplate = '<v-avatar unstyled preset="" initials="JD" />';
 const unstyledCustomTemplate = '';
 </script>
 
 <template>
-  <h1>VAvatar</h1>
+  <h1 class="h1">VAvatar</h1>
   <section class="section">
     <v-code-block language="ts" :code="`import { VAvatar } from '@code-coaching/vuetiful';`" />
   </section>
@@ -108,20 +90,20 @@ const unstyledCustomTemplate = '';
         </v-preview>
       </section>
 
-      <h2>Variants</h2>
-      <h3>Filled</h3>
+      <h2 class="h2">Presets</h2>
+      <h3 class="h3">Filled</h3>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
             <div class="flex flex-wrap gap-2">
-              <v-avatar variant="filled" initials="AB" />
-              <v-avatar variant="filled-surface" initials="CD" />
-              <v-avatar variant="filled-primary" initials="EF" />
-              <v-avatar variant="filled-secondary" initials="GH" />
-              <v-avatar variant="filled-tertiary" initials="IJ" />
-              <v-avatar variant="filled-success" initials="KL" />
-              <v-avatar variant="filled-warning" initials="MN" />
-              <v-avatar variant="filled-error" initials="OP" />
+              <v-avatar preset="filled" initials="AB" />
+              <v-avatar preset="filled-surface-500" initials="CD" />
+              <v-avatar preset="filled-primary-500" initials="EF" />
+              <v-avatar preset="filled-secondary-500" initials="GH" />
+              <v-avatar preset="filled-tertiary-500" initials="IJ" />
+              <v-avatar preset="filled-success-500" initials="KL" />
+              <v-avatar preset="filled-warning-500" initials="MN" />
+              <v-avatar preset="filled-error-500" initials="OP" />
             </div>
           </template>
           <template v-slot:source>
@@ -130,95 +112,44 @@ const unstyledCustomTemplate = '';
         </v-preview>
       </section>
 
-      <h3>Ringed</h3>
+      <h3 class="h3">Tonal</h3>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
             <div class="flex flex-wrap gap-2">
-              <v-avatar variant="ringed" initials="AB" />
-              <v-avatar variant="ringed-surface" initials="CD" />
-              <v-avatar variant="ringed-primary" initials="EF" />
-              <v-avatar variant="ringed-secondary" initials="GH" />
-              <v-avatar variant="ringed-tertiary" initials="IJ" />
-              <v-avatar variant="ringed-success" initials="KL" />
-              <v-avatar variant="ringed-warning" initials="MN" />
-              <v-avatar variant="ringed-error" initials="OP" />
+              <v-avatar preset="tonal" initials="AB" />
+              <v-avatar preset="tonal-surface" initials="CD" />
+              <v-avatar preset="tonal-primary" initials="EF" />
+              <v-avatar preset="tonal-secondary" initials="GH" />
+              <v-avatar preset="tonal-tertiary" initials="IJ" />
+              <v-avatar preset="tonal-success" initials="KL" />
+              <v-avatar preset="tonal-warning" initials="MN" />
+              <v-avatar preset="tonal-error" initials="OP" />
             </div>
           </template>
           <template v-slot:source>
-            <v-code-block language="html" :code="ringed" />
+            <v-code-block language="html" :code="tonal" />
           </template>
         </v-preview>
       </section>
 
-      <h3>Ghost</h3>
+      <h3 class="h3">Outlined</h3>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
             <div class="flex flex-wrap gap-2">
-              <v-avatar variant="ghost" initials="AB" />
-              <v-avatar variant="ghost-surface" initials="CD" />
-              <v-avatar variant="ghost-primary" initials="EF" />
-              <v-avatar variant="ghost-secondary" initials="GH" />
-              <v-avatar variant="ghost-tertiary" initials="IJ" />
-              <v-avatar variant="ghost-success" initials="KL" />
-              <v-avatar variant="ghost-warning" initials="MN" />
-              <v-avatar variant="ghost-error" initials="OP" />
+              <v-avatar preset="outlined" initials="AB" />
+              <v-avatar preset="outlined-surface-500" initials="CD" />
+              <v-avatar preset="outlined-primary-500" initials="EF" />
+              <v-avatar preset="outlined-secondary-500" initials="GH" />
+              <v-avatar preset="outlined-tertiary-500" initials="IJ" />
+              <v-avatar preset="outlined-success-500" initials="KL" />
+              <v-avatar preset="outlined-warning-500" initials="MN" />
+              <v-avatar preset="outlined-error-500" initials="OP" />
             </div>
           </template>
           <template v-slot:source>
-            <v-code-block language="html" :code="ghost" />
-          </template>
-        </v-preview>
-      </section>
-
-      <h3>Soft</h3>
-      <section class="section">
-        <v-preview>
-          <template v-slot:preview>
-            <div class="flex flex-wrap gap-2">
-              <v-avatar variant="soft" initials="AB" />
-              <v-avatar variant="soft-surface" initials="CD" />
-              <v-avatar variant="soft-primary" initials="EF" />
-              <v-avatar variant="soft-secondary" initials="GH" />
-              <v-avatar variant="soft-tertiary" initials="IJ" />
-              <v-avatar variant="soft-success" initials="KL" />
-              <v-avatar variant="soft-warning" initials="MN" />
-              <v-avatar variant="soft-error" initials="OP" />
-            </div>
-          </template>
-          <template v-slot:source>
-            <v-code-block language="html" :code="soft" />
-          </template>
-        </v-preview>
-      </section>
-
-      <h3>Glass</h3>
-      <section class="section">
-        <v-preview hide-swatches region-viewport="!p-0">
-          <template v-slot:preview>
-            <div
-              class="flex w-full flex-wrap items-center justify-center gap-2 p-4 md:p-10"
-              style="background: url('https://i.imgur.com/DdrZVb7.gif') center center no-repeat; background-size: cover"
-            >
-              <v-avatar variant="glass" initials="AB" fill="fill-white/75" />
-              <v-avatar variant="glass-surface" initials="CD" fill="fill-white/75" />
-              <v-avatar variant="glass-primary" initials="EF" fill="fill-white/75" />
-              <v-avatar variant="glass-secondary" initials="GH" fill="fill-white/75" />
-              <v-avatar variant="glass-tertiary" initials="IJ" fill="fill-white/75" />
-              <v-avatar variant="glass-success" initials="KL" fill="fill-white/75" />
-              <v-avatar variant="glass-warning" initials="MN" fill="fill-white/75" />
-              <v-avatar variant="glass-error" initials="OP" fill="fill-white/75" />
-            </div>
-          </template>
-          <template v-slot:footer>
-            <div class="flex items-center justify-center">
-              <a target="_blank" href="https://www.markferrari.com/"> Image Source </a>
-            </div>
-          </template>
-
-          <template v-slot:source>
-            <v-code-block language="html" :code="glass" />
+            <v-code-block language="html" :code="outlined" />
           </template>
         </v-preview>
       </section>
@@ -238,24 +169,24 @@ const unstyledCustomTemplate = '';
         </v-preview>
       </section>
 
-      <h2>No prop-based styles</h2>
+      <h2 class="h2">No prop-based styles</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
-            <v-avatar unstyled variant="" initials="JD" />
+            <v-avatar unstyled preset="" initials="JD" />
           </template>
           <template v-slot:source>
             <v-code-block class="mb-2" language="html" :code="unstyledPropTemplate" />
-            <p>Set <code>variant</code> to an empty string to have no prop-based styles.</p>
+            <p>Set <code>preset</code> to an empty string to have no prop-based styles.</p>
           </template>
         </v-preview>
       </section>
 
-      <h2>Custom style example</h2>
+      <h2 class="h2">Custom style example</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
-            <v-avatar unstyled variant="" fill="fill-white" class="bg-blue-500 py-4" initials="JD" />
+            <v-avatar unstyled preset="" fill="fill-white" class="py-4 bg-blue-500" initials="JD" />
           </template>
           <template v-slot:source>
             <v-code-block class="mb-2" language="html" :code="unstyledCustomTemplate" />

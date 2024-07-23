@@ -68,7 +68,7 @@ const unstyledCustomTemplate = `<v-switch
 </script>
 
 <template>
-  <h1>VSwitch</h1>
+  <h1 class="h1">VSwitch</h1>
   <section class="section">
     <v-code-block language="ts" :code="`import { VSwitch } from '@code-coaching/vuetiful';`" />
   </section>
@@ -79,7 +79,7 @@ const unstyledCustomTemplate = `<v-switch
       <v-tab>Unstyled</v-tab>
     </template>
     <v-tab-panel>
-      <h2>Basic</h2>
+      <h2 class="h2">Basic</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -101,7 +101,7 @@ const unstyledCustomTemplate = `<v-switch
         </v-preview>
       </section>
 
-      <h2>Group - Label - Description</h2>
+      <h2 class="h2">Group - Label - Description</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -121,9 +121,9 @@ const unstyledCustomTemplate = `<v-switch
         </v-preview>
       </section>
 
-      <h2>Accessibility</h2>
+      <h2 class="h2">Accessibility</h2>
       <section class="section">
-        <h3>Keyboard Interaction</h3>
+        <h3 class="h3">Keyboard Interaction</h3>
         <section class="section">
           <p><kbd>Tab</kbd>: Move focus to the next focusable element.</p>
           <p><kbd>Space</kbd>: Switches the toggle to the opposite state.</p>
@@ -131,7 +131,7 @@ const unstyledCustomTemplate = `<v-switch
           <p>All relevant ARIA attributes are automatically managed.</p>
         </section>
 
-        <h3>Labels</h3>
+        <h3 class="h3">Labels</h3>
         <section>
           <v-preview>
             <template v-slot:preview>
@@ -149,8 +149,8 @@ const unstyledCustomTemplate = `<v-switch
         </section>
       </section>
 
-      <h2>Presets</h2>
-      <h3>Filled</h3>
+      <h2 class="h2">Presets</h2>
+      <h3 class="h3">Filled</h3>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -198,7 +198,7 @@ const unstyledCustomTemplate = `<v-switch
         </v-preview>
       </section>
 
-      <h3>Outlined</h3>
+      <h3 class="h3">Outlined</h3>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -230,7 +230,7 @@ const unstyledCustomTemplate = `<v-switch
         </v-preview>
       </section>
 
-      <h3>Tonal</h3>
+      <h3 class="h3">Tonal</h3>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -254,135 +254,95 @@ const unstyledCustomTemplate = `<v-switch
         </v-preview>
       </section>
 
-      <h3>Mix and match</h3>
+      <h3 class="h3">Mix and match</h3>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
-            <div class="flex flex-wrap gap-2">
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal preset-outlined"
-                class-thumb="bg-surface-950-50"
-              />
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal-surface preset-outlined-surface-950-50"
-                class-thumb="bg-surface-950-50"
-              />
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal-primary preset-outlined-primary-950-50"
-                class-thumb="bg-primary-950-50"
-              />
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal-secondary preset-outlined-secondary-950-50"
-                class-thumb="bg-secondary-950-50"
-              />
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal-tertiary preset-outlined-tertiary-950-50"
-                class-thumb="bg-tertiary-950-50"
-              />
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal-success preset-outlined-success-950-50"
-                class-thumb="bg-success-950-50"
-              />
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal-warning preset-outlined-warning-950-50"
-                class-thumb="bg-warning-950-50"
-              />
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal-error preset-outlined-error-950-50"
-                class-thumb="bg-error-950-50"
-              />
-            </div>
-            <div class="flex flex-wrap gap-2 mt-2">
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal preset-outlined"
-                class-thumb="bg-surface-50-950 preset-outlined-surface-950-50"
-              />
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal-surface preset-outlined-surface-950-50"
-                class-thumb="bg-surface-50-950 preset-outlined-surface-950-50"
-              />
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal-primary preset-outlined-primary-950-50"
-                class-thumb="bg-primary-50-950 preset-outlined-primary-950-50"
-              />
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal-secondary preset-outlined-secondary-950-50"
-                class-thumb="bg-secondary-50-950 preset-outlined-secondary-950-50"
-              />
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal-tertiary preset-outlined-tertiary-950-50"
-                class-thumb="bg-tertiary-50-950 preset-outlined-tertiary-950-50"
-              />
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal-success preset-outlined-success-950-50"
-                class-thumb="bg-success-50-950 preset-outlined-success-950-50"
-              />
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal-warning preset-outlined-warning-950-50"
-                class-thumb="bg-warning-50-950 preset-outlined-warning-950-50"
-              />
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal-error preset-outlined-error-950-50"
-                class-thumb="bg-error-50-950 preset-outlined-error-950-50"
-              />
-            </div>
-            <div class="flex flex-wrap gap-2 mt-2">
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal preset-outlined"
-                class-thumb="bg-surface-50-950 preset-outlined-surface-950-50"
-              />
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal-surface preset-outlined-surface-950-50"
-                class-thumb="bg-surface-50-950 preset-outlined-surface-950-50"
-              />
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal-primary preset-outlined-primary-950-50"
-                class-thumb="bg-primary-50-950 preset-outlined-primary-950-50"
-              />
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal-secondary preset-outlined-secondary-950-50"
-                class-thumb="bg-secondary-50-950 preset-outlined-secondary-950-50"
-              />
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal-tertiary preset-outlined-tertiary-950-50"
-                class-thumb="bg-tertiary-50-950 preset-outlined-tertiary-950-50"
-              />
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal-success preset-outlined-success-950-50"
-                class-thumb="bg-success-50-950 preset-outlined-success-950-50"
-              />
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal-warning preset-outlined-warning-950-50"
-                class-thumb="bg-warning-50-950 preset-outlined-warning-950-50"
-              />
-              <v-switch
-                v-model="switchValue"
-                class-track="preset-tonal-error preset-outlined-error-950-50"
-                class-thumb="bg-error-50-950 preset-outlined-error-950-50"
-              />
+            <div class="flex flex-wrap gap-4">
+              <div class="flex flex-wrap gap-2">
+                <v-switch
+                  v-model="switchValue"
+                  class-track="preset-tonal preset-outlined"
+                  class-thumb="bg-surface-950-50"
+                />
+                <v-switch
+                  v-model="switchValue"
+                  class-track="preset-tonal-surface preset-outlined-surface-950-50"
+                  class-thumb="bg-surface-950-50"
+                />
+                <v-switch
+                  v-model="switchValue"
+                  class-track="preset-tonal-primary preset-outlined-primary-950-50"
+                  class-thumb="bg-primary-950-50"
+                />
+                <v-switch
+                  v-model="switchValue"
+                  class-track="preset-tonal-secondary preset-outlined-secondary-950-50"
+                  class-thumb="bg-secondary-950-50"
+                />
+                <v-switch
+                  v-model="switchValue"
+                  class-track="preset-tonal-tertiary preset-outlined-tertiary-950-50"
+                  class-thumb="bg-tertiary-950-50"
+                />
+                <v-switch
+                  v-model="switchValue"
+                  class-track="preset-tonal-success preset-outlined-success-950-50"
+                  class-thumb="bg-success-950-50"
+                />
+                <v-switch
+                  v-model="switchValue"
+                  class-track="preset-tonal-warning preset-outlined-warning-950-50"
+                  class-thumb="bg-warning-950-50"
+                />
+                <v-switch
+                  v-model="switchValue"
+                  class-track="preset-tonal-error preset-outlined-error-950-50"
+                  class-thumb="bg-error-950-50"
+                />
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <v-switch
+                  v-model="switchValue"
+                  class-track="preset-tonal preset-outlined"
+                  class-thumb="bg-surface-50-950 preset-outlined-surface-950-50"
+                />
+                <v-switch
+                  v-model="switchValue"
+                  class-track="preset-tonal-surface preset-outlined-surface-950-50"
+                  class-thumb="bg-surface-50-950 preset-outlined-surface-950-50"
+                />
+                <v-switch
+                  v-model="switchValue"
+                  class-track="preset-tonal-primary preset-outlined-primary-950-50"
+                  class-thumb="bg-primary-50-950 preset-outlined-primary-950-50"
+                />
+                <v-switch
+                  v-model="switchValue"
+                  class-track="preset-tonal-secondary preset-outlined-secondary-950-50"
+                  class-thumb="bg-secondary-50-950 preset-outlined-secondary-950-50"
+                />
+                <v-switch
+                  v-model="switchValue"
+                  class-track="preset-tonal-tertiary preset-outlined-tertiary-950-50"
+                  class-thumb="bg-tertiary-50-950 preset-outlined-tertiary-950-50"
+                />
+                <v-switch
+                  v-model="switchValue"
+                  class-track="preset-tonal-success preset-outlined-success-950-50"
+                  class-thumb="bg-success-50-950 preset-outlined-success-950-50"
+                />
+                <v-switch
+                  v-model="switchValue"
+                  class-track="preset-tonal-warning preset-outlined-warning-950-50"
+                  class-thumb="bg-warning-50-950 preset-outlined-warning-950-50"
+                />
+                <v-switch
+                  v-model="switchValue"
+                  class-track="preset-tonal-error preset-outlined-error-950-50"
+                  class-thumb="bg-error-50-950 preset-outlined-error-950-50"
+                />
+              </div>
             </div>
           </template>
           <template v-slot:source>
@@ -413,7 +373,7 @@ const unstyledCustomTemplate = `<v-switch
         </v-preview>
       </section>
 
-      <h2>No prop-based styles</h2>
+      <h2 class="h2">No prop-based styles</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -437,7 +397,7 @@ const unstyledCustomTemplate = `<v-switch
         </v-preview>
       </section>
 
-      <h2>Custom style example</h2>
+      <h2 class="h2">Custom style example</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>

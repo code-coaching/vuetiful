@@ -357,7 +357,7 @@ const lastColor = computed(() => {
 </script>
 <template>
   <div class="flex flex-col max-w-5xl p-4">
-    <h1>Theme Generator</h1>
+    <h1 class="h1">Theme Generator</h1>
     <header class="header">
       <section class="section">
         <p>
@@ -412,14 +412,14 @@ const lastColor = computed(() => {
                     <label class="flex items-center gap-2">
                       <input class="input !h-[50px] !w-[50px] flex-shrink-0" type="color" v-model="color.hex" />
                       <input
-                        class="input !h-[50px] flex-1 bg-surface-50-900-token"
+                        class="input !h-[50px] flex-1 bg-surface-50-950"
                         type="text"
                         v-model="color.hex"
                         placeholder="#BADA55"
                       />
                     </label>
                     <div
-                      class="input-group input-group-divider h-[50px] min-w-[175px] flex-1 pl-4 bg-surface-50-900-token"
+                      class="input-group input-group-divider h-[50px] min-w-[175px] flex-1 pl-4 bg-surface-50-950"
                     >
                       <select v-model="color.on">
                         <option v-for="c in inputSettings.colorProps" :value="c.value" :key="c.value">
@@ -429,7 +429,7 @@ const lastColor = computed(() => {
                     </div>
                     <div
                       :title="contrastReports[index].contrastReport.report.note"
-                      class="flex h-[50px] w-[50px] items-center justify-center rounded-token"
+                      class="flex h-[50px] w-[50px] items-center justify-center rounded"
                       :class="{
                         'text-stone-900': contrastReports[index].contrastReport.fails,
                         'bg-red-500': contrastReports[index].contrastReport.fails,
@@ -469,7 +469,7 @@ const lastColor = computed(() => {
                   data-theme="custom"
                   :class="`${
                     isDark ? 'border-surface-50 bg-surface-900' : 'border-surface-900 bg-surface-50'
-                  } relative flex aspect-video flex-1 items-center justify-center border-2 rounded-container-token`"
+                  } relative flex aspect-video flex-1 items-center justify-center border-2 rounded-container`"
                 >
                   <v-button icon @click="resetGradients"><i class="fa-solid fa-xmark" /></v-button>
                 </div>
@@ -484,13 +484,13 @@ const lastColor = computed(() => {
                 </v-switch-group>
               </p>
               <p>
-                When <v-badge class="variant-filled">Synchronized gradients</v-badge> is
-                <v-badge class="variant-filled">on</v-badge>, the gradient will be the same for both light and dark
+                When <v-badge class="preset-filled">Synchronized gradients</v-badge> is
+                <v-badge class="preset-filled">on</v-badge>, the gradient will be the same for both light and dark
                 mode.
               </p>
               <p>
-                When <v-badge class="variant-filled">Synchronized gradients</v-badge> is
-                <v-badge class="variant-filled">off</v-badge>, the gradient will be different for light and dark mode.
+                When <v-badge class="preset-filled">Synchronized gradients</v-badge> is
+                <v-badge class="preset-filled">off</v-badge>, the gradient will be different for light and dark mode.
                 To set the gradient for light mode, switch to light mode and then generate a new gradient. To set the
                 gradient for dark mode, switch to dark mode and then generate a new gradient.
               </p>
@@ -504,7 +504,7 @@ const lastColor = computed(() => {
             <div class="flex-1">
               <label class="mb-4 label">
                 <span>Base</span>
-                <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-900-token">
+                <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-950">
                   <select v-model="formTheme.fonts.base">
                     <option v-for="font in inputSettings.fonts" :key="font" :value="font">{{ font }}</option>
                   </select>
@@ -513,13 +513,13 @@ const lastColor = computed(() => {
               <label class="label">
                 <span>Custom base font</span>
                 <textarea
-                  class="textarea min-h-[160px] p-4 bg-surface-50-900-token rounded-container-token"
+                  class="textarea min-h-[160px] p-4 bg-surface-50-950 rounded-container"
                   type="text"
                   v-model="formTheme.fonts.baseImports"
                   placeholder='Custom fonts, e.g. @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");'
                 />
                 <input
-                  class="input h-[50px] bg-surface-50-900-token"
+                  class="input h-[50px] bg-surface-50-950"
                   type="text"
                   v-model="formTheme.fonts.customBase"
                   placeholder="Custom font name, e.g. Roboto"
@@ -529,7 +529,7 @@ const lastColor = computed(() => {
             <div class="flex-1">
               <label class="mb-4 label">
                 <span>Headings</span>
-                <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-900-token">
+                <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-950">
                   <select v-model="formTheme.fonts.headings">
                     <option v-for="font in inputSettings.fonts" :key="font" :value="font">{{ font }}</option>
                   </select>
@@ -538,13 +538,13 @@ const lastColor = computed(() => {
               <label class="label">
                 <span>Custom headings font</span>
                 <textarea
-                  class="textarea min-h-[160px] p-4 bg-surface-50-900-token rounded-container-token"
+                  class="textarea min-h-[160px] p-4 bg-surface-50-950 rounded-container"
                   type="text"
                   v-model="formTheme.fonts.headingImports"
                   placeholder='Custom fonts, e.g. @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");'
                 />
                 <input
-                  class="input h-[50px] bg-surface-50-900-token"
+                  class="input h-[50px] bg-surface-50-950"
                   type="text"
                   v-model="formTheme.fonts.customHeadings"
                   placeholder="Custom font name, e.g. Roboto"
@@ -557,7 +557,7 @@ const lastColor = computed(() => {
           <div class="flex flex-wrap gap-4 mb-4">
             <label class="flex-1 label">
               <span>Light Mode</span>
-              <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-900-token">
+              <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-950">
                 <select v-model="formTheme.textColorLight">
                   <option v-for="c in inputSettings.colorProps" :key="c.value" :value="c.value">{{ c.label }}</option>
                 </select>
@@ -565,7 +565,7 @@ const lastColor = computed(() => {
             </label>
             <label class="flex-1 label">
               <span>Dark Mode</span>
-              <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-900-token">
+              <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-950">
                 <select v-model="formTheme.textColorDark">
                   <option v-for="c in inputSettings.colorProps" :key="c.value" :value="c.value">{{ c.label }}</option>
                 </select>
@@ -577,7 +577,7 @@ const lastColor = computed(() => {
           <div class="flex flex-wrap gap-4 mb-4">
             <label class="flex-1 label">
               <span>Base</span>
-              <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-900-token">
+              <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-950">
                 <select v-model="formTheme.roundedBase">
                   <option v-for="r in inputSettings.rounded" :key="r" :value="r">{{ r }}</option>
                   <option value="9999px">9999px</option>
@@ -586,7 +586,7 @@ const lastColor = computed(() => {
             </label>
             <label class="flex-1 label">
               <span>Container</span>
-              <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-900-token">
+              <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-950">
                 <select v-model="formTheme.roundedContainer">
                   <option v-for="r in inputSettings.rounded" :key="r" :value="r">{{ r }}</option>
                 </select>
@@ -598,7 +598,7 @@ const lastColor = computed(() => {
           <div class="flex flex-wrap gap-4 mb-4">
             <label class="flex-1 label">
               <span>Base</span>
-              <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-900-token">
+              <div class="input-group input-group-divider h-[50px] pl-4 bg-surface-50-950">
                 <select v-model="formTheme.borderBase">
                   <option v-for="b in inputSettings.border" :key="b" :value="b">{{ b }}</option>
                 </select>

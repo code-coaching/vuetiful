@@ -21,7 +21,7 @@ const sourceHide = `<v-preview hide-swatches hide-mobile-toggle class="min-w-ful
 </script>
 
 <template>
-  <h1>VPreview</h1>
+  <h1 class="h1">VPreview</h1>
   <section class="section">
     <v-code-block language="ts" :code="`import { VPreview } from '@code-coaching/vuetiful';`" />
   </section>
@@ -31,7 +31,7 @@ const sourceHide = `<v-preview hide-swatches hide-mobile-toggle class="min-w-ful
       <v-tab>Usage</v-tab>
     </template>
     <v-tab-panel>
-      <h2>Default</h2>
+      <h2 class="h2">Default</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -46,7 +46,7 @@ const sourceHide = `<v-preview hide-swatches hide-mobile-toggle class="min-w-ful
         </v-preview>
       </section>
 
-      <h2>Hide</h2>
+      <h2 class="h2">Hide</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>

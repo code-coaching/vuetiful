@@ -40,7 +40,7 @@ const faIconsSizes = `<p><i class="fa-solid fa-code fa-2xs"></i></p>
 <p><i class="fa-solid fa-code fa-xl"></i></p>
 <p><i class="fa-solid fa-code fa-2xl"></i></p>`;
 
-const vbuttonIcon = `<v-button icon class="variant-filled">
+const vbuttonIcon = `<v-button icon class="preset-filled">
   <i class="fa-solid fa-code"></i>
 </v-button>
 
@@ -59,7 +59,7 @@ const vbuttonIcon = `<v-button icon class="variant-filled">
 </v-button>
 `;
 
-const quasarQIcon = `<v-button icon class="variant-filled">
+const quasarQIcon = `<v-button icon class="preset-filled">
   <q-icon name="code"></q-icon>
 </v-button>
 
@@ -79,7 +79,7 @@ const quasarQIcon = `<v-button icon class="variant-filled">
 `;
 </script>
 <template>
-  <h1>Icons</h1>
+  <h1 class="h1">Icons</h1>
   <header class="header">
     <section class="section">
       <p>You can use any icon library you want. This website uses Font Awesome.</p>
@@ -87,7 +87,7 @@ const quasarQIcon = `<v-button icon class="variant-filled">
     <hr />
   </header>
 
-  <h2>Font Awesome</h2>
+  <h2 class="h2">Font Awesome</h2>
   <section class="section">
     <section class="section">
       <p class="mb-4">
@@ -105,8 +105,8 @@ const quasarQIcon = `<v-button icon class="variant-filled">
     </section>
   </section>
 
-  <h2>Usage</h2>
-  <h3>Examples</h3>
+  <h2 class="h2">Usage</h2>
+  <h3 class="h3">Examples</h3>
   <section class="section">
     <p class="mb-4">
       Any free solid <a href="https://fontawesome.com/search?o=r&m=free&s=solid">Font Awesome Icon</a> can be used
@@ -137,12 +137,12 @@ const quasarQIcon = `<v-button icon class="variant-filled">
     </div>
   </section>
 
-  <h3>VButton</h3>
-  <h4>Font Awesome</h4>
+  <h3 class="h3">VButton</h3>
+  <h4 class="h4">Font Awesome</h4>
   <section class="section">
     <div class="flex flex-col gap-4">
       <div class="flex flex-wrap gap-4">
-        <v-button icon class="variant-filled">
+        <v-button icon class="preset-filled">
           <i class="fa-solid fa-code"></i>
         </v-button>
         <v-button>
@@ -161,11 +161,11 @@ const quasarQIcon = `<v-button icon class="variant-filled">
     </div>
   </section>
 
-  <h4>Quasar - QIcon</h4>
+  <h4 class="h4">Quasar - QIcon</h4>
   <section class="section">
     <div class="flex flex-col gap-4">
       <div class="flex flex-wrap gap-4">
-        <v-button icon class="variant-filled">
+        <v-button icon class="preset-filled">
           <q-icon name="code"></q-icon>
         </v-button>
         <v-button>

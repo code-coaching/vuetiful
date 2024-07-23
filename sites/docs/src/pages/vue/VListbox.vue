@@ -75,7 +75,7 @@ const unstyledCustomTemplate = `<v-listbox
   hover="hover:bg-blue-500"
   active="bg-green-600 text-white"
   text-label="Unstyled - no props"
-  class="flex w-60 flex-col gap-2"
+  class="flex flex-col gap-2 w-60"
   class-button="p-4 hover:bg-blue-500"
   class-items="flex gap-2 p-2"
   class-item="p-2 px-4"
@@ -88,7 +88,7 @@ const unstyledCustomTemplate = `<v-listbox
 </script>
 
 <template>
-  <h1>VListbox</h1>
+  <h1 class="h1">VListbox</h1>
   <section class="section">
     <v-code-block language="ts" :code="`import { VListbox, VListboxItem } from '@code-coaching/vuetiful';`" />
   </section>
@@ -99,7 +99,7 @@ const unstyledCustomTemplate = `<v-listbox
       <v-tab>Unstyled</v-tab>
     </template>
     <v-tab-panel>
-      <h2>Basic</h2>
+      <h2 class="h2">Basic</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -129,7 +129,7 @@ const unstyledCustomTemplate = `<v-listbox
         </v-preview>
       </section>
 
-      <h2>Object as value</h2>
+      <h2 class="h2">Object as value</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -155,7 +155,7 @@ const unstyledCustomTemplate = `<v-listbox
         </v-preview>
       </section>
 
-      <h2>Multiple</h2>
+      <h2 class="h2">Multiple</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -181,9 +181,9 @@ const unstyledCustomTemplate = `<v-listbox
         </v-preview>
       </section>
 
-      <h2>Accessibility</h2>
+      <h2 class="h2">Accessibility</h2>
       <section class="section">
-        <h3>Keyboard Interaction</h3>
+        <h3 class="h3">Keyboard Interaction</h3>
         <section class="section">
           <p><kbd>Tab</kbd> and <kbd>Shift + Tab</kbd>: Move focus onto and away from the listbox button.</p>
           <p><kbd>Space</kbd> and <kbd>Enter</kbd>: Opens the listbox.</p>
@@ -239,7 +239,7 @@ const unstyledCustomTemplate = `<v-listbox
         </v-preview>
       </section>
 
-      <h2>No prop-based styles</h2>
+      <h2 class="h2">No prop-based styles</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -262,12 +262,12 @@ const unstyledCustomTemplate = `<v-listbox
           </template>
           <template v-slot:source>
             <v-code-block class="mb-2" language="html" :code="unstyledPropTemplate" />
-            <p>Set <code>variant</code> to an empty string to have no prop-based styles.</p>
+            <p>Set <code>preset</code> to an empty string to have no prop-based styles.</p>
           </template>
         </v-preview>
       </section>
 
-      <h2>Custom style example</h2>
+      <h2 class="h2">Custom style example</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -279,7 +279,7 @@ const unstyledCustomTemplate = `<v-listbox
                 hover="hover:bg-blue-500"
                 active="bg-green-600 text-white"
                 text-label="Unstyled - no props"
-                class="flex w-60 flex-col gap-2"
+                class="flex flex-col gap-2 w-60"
                 class-button="p-4 hover:bg-blue-500"
                 class-items="flex gap-2 p-2"
                 class-item="p-2 px-4"

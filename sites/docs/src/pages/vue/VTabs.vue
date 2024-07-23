@@ -31,7 +31,7 @@ const exampleOneTemplate = /*html*/ `<v-tabs>
     <v-tab>Beautiful</v-tab>
   </template>
   <v-tab-panel>
-    <h2>Vuetiful</h2>
+    <h2 class="h2">Vuetiful</h2>
     <p>
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis dicta placeat ipsam vitae error ipsa
       temporibus optio autem nam voluptates libero ex esse enim maxime nemo eum mollitia doloribus magnam
@@ -40,7 +40,7 @@ const exampleOneTemplate = /*html*/ `<v-tabs>
     </p>
   </v-tab-panel>
   <v-tab-panel>
-    <h2>Is</h2>
+    <h2 class="h2">Is</h2>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nemo saepe, qui veniam dolores, quam
       aliquid inventore laborum, animi vitae excepturi at? Impedit nam ex esse cumque labore nihil sint
@@ -49,7 +49,7 @@ const exampleOneTemplate = /*html*/ `<v-tabs>
     </p>
   </v-tab-panel>
   <v-tab-panel>
-    <h2>Beautiful</h2>
+    <h2 class="h2">Beautiful</h2>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque nemo ipsum ex tenetur veritatis, eius
       hic nulla a quisquam rerum similique, labore sed dolor repellendus consequuntur. Aut perspiciatis
@@ -59,14 +59,14 @@ const exampleOneTemplate = /*html*/ `<v-tabs>
   </v-tab-panel>
 </v-tabs>`;
 
-const exampleTwoTemplate = /*html*/ `<v-tabs class-tabs="bg-surface-300-600-token" class-panels="bg-surface-200-700-token">
+const exampleTwoTemplate = /*html*/ `<v-tabs class-tabs="bg-surface-300-700" class-panels="bg-surface-200-800">
   <template v-slot:tabs>
     <v-tab>Vuetiful</v-tab>
     <v-tab>Is</v-tab>
     <v-tab>Beautiful</v-tab>
   </template>
   <v-tab-panel>
-    <h2>Vuetiful</h2>
+    <h2 class="h2">Vuetiful</h2>
     <p>
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis dicta placeat ipsam vitae error ipsa
       temporibus optio autem nam voluptates libero ex esse enim maxime nemo eum mollitia doloribus magnam
@@ -75,7 +75,7 @@ const exampleTwoTemplate = /*html*/ `<v-tabs class-tabs="bg-surface-300-600-toke
     </p>
   </v-tab-panel>
   <v-tab-panel>
-    <h2>Is</h2>
+    <h2 class="h2">Is</h2>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nemo saepe, qui veniam dolores, quam
       aliquid inventore laborum, animi vitae excepturi at? Impedit nam ex esse cumque labore nihil sint
@@ -84,7 +84,7 @@ const exampleTwoTemplate = /*html*/ `<v-tabs class-tabs="bg-surface-300-600-toke
     </p>
   </v-tab-panel>
   <v-tab-panel>
-    <h2>Beautiful</h2>
+    <h2 class="h2">Beautiful</h2>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque nemo ipsum ex tenetur veritatis, eius
       hic nulla a quisquam rerum similique, labore sed dolor repellendus consequuntur. Aut perspiciatis
@@ -101,7 +101,7 @@ const exampleThreeTemplate = /*html*/ `<v-tabs vertical class="h-[250px]" class-
     <v-tab>Beautiful</v-tab>
   </template>
   <v-tab-panel>
-    <h2>Vuetiful</h2>
+    <h2 class="h2">Vuetiful</h2>
     <p>
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis dicta placeat ipsam vitae error ipsa
       temporibus optio autem nam voluptates libero ex esse enim maxime nemo eum mollitia doloribus magnam
@@ -110,7 +110,7 @@ const exampleThreeTemplate = /*html*/ `<v-tabs vertical class="h-[250px]" class-
     </p>
   </v-tab-panel>
   <v-tab-panel>
-    <h2>Is</h2>
+    <h2 class="h2">Is</h2>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nemo saepe, qui veniam dolores, quam
       aliquid inventore laborum, animi vitae excepturi at? Impedit nam ex esse cumque labore nihil sint
@@ -119,7 +119,7 @@ const exampleThreeTemplate = /*html*/ `<v-tabs vertical class="h-[250px]" class-
     </p>
   </v-tab-panel>
   <v-tab-panel>
-    <h2>Beautiful</h2>
+    <h2 class="h2">Beautiful</h2>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque nemo ipsum ex tenetur veritatis, eius
       hic nulla a quisquam rerum similique, labore sed dolor repellendus consequuntur. Aut perspiciatis
@@ -131,8 +131,8 @@ const exampleThreeTemplate = /*html*/ `<v-tabs vertical class="h-[250px]" class-
 
 const exampleFourTemplate = /*html*/ `<v-tabs
   vertical
-  class-tabs="bg-surface-300-600-token"
-  class-panels="bg-surface-200-700-token"
+  class-tabs="bg-surface-300-700"
+  class-panels="bg-surface-200-800"
   class-tab="w-[100px] py-2"
 >
   <template v-slot:tabs>
@@ -141,7 +141,7 @@ const exampleFourTemplate = /*html*/ `<v-tabs
     <v-tab>Beautiful</v-tab>
   </template>
   <v-tab-panel>
-    <h2>Vuetiful</h2>
+    <h2 class="h2">Vuetiful</h2>
     <p>
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis dicta placeat ipsam vitae error ipsa
       temporibus optio autem nam voluptates libero ex esse enim maxime nemo eum mollitia doloribus magnam
@@ -150,7 +150,7 @@ const exampleFourTemplate = /*html*/ `<v-tabs
     </p>
   </v-tab-panel>
   <v-tab-panel>
-    <h2>Is</h2>
+    <h2 class="h2">Is</h2>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nemo saepe, qui veniam dolores, quam
       aliquid inventore laborum, animi vitae excepturi at? Impedit nam ex esse cumque labore nihil sint
@@ -159,7 +159,7 @@ const exampleFourTemplate = /*html*/ `<v-tabs
     </p>
   </v-tab-panel>
   <v-tab-panel>
-    <h2>Beautiful</h2>
+    <h2 class="h2">Beautiful</h2>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque nemo ipsum ex tenetur veritatis, eius
       hic nulla a quisquam rerum similique, labore sed dolor repellendus consequuntur. Aut perspiciatis
@@ -169,14 +169,14 @@ const exampleFourTemplate = /*html*/ `<v-tabs
   </v-tab-panel>
 </v-tabs>`;
 
-const exampleFiveTemplate = /*html*/ `<v-tabs hide-separator active="variant-filled" hover="hover:variant-soft">
+const exampleFiveTemplate = /*html*/ `<v-tabs hide-separator active="preset-filled" hover="hover:preset-outlined-surface-950-50">
   <template v-slot:tabs>
     <v-tab>Vuetiful</v-tab>
     <v-tab>Is</v-tab>
     <v-tab>Beautiful</v-tab>
   </template>
   <v-tab-panel>
-    <h2>Vuetiful</h2>
+    <h2 class="h2">Vuetiful</h2>
     <p>
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis dicta placeat ipsam vitae error ipsa
       temporibus optio autem nam voluptates libero ex esse enim maxime nemo eum mollitia doloribus magnam
@@ -185,7 +185,7 @@ const exampleFiveTemplate = /*html*/ `<v-tabs hide-separator active="variant-fil
     </p>
   </v-tab-panel>
   <v-tab-panel>
-    <h2>Is</h2>
+    <h2 class="h2">Is</h2>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nemo saepe, qui veniam dolores, quam
       aliquid inventore laborum, animi vitae excepturi at? Impedit nam ex esse cumque labore nihil sint
@@ -194,7 +194,7 @@ const exampleFiveTemplate = /*html*/ `<v-tabs hide-separator active="variant-fil
     </p>
   </v-tab-panel>
   <v-tab-panel>
-    <h2>Beautiful</h2>
+    <h2 class="h2">Beautiful</h2>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque nemo ipsum ex tenetur veritatis, eius
       hic nulla a quisquam rerum similique, labore sed dolor repellendus consequuntur. Aut perspiciatis
@@ -249,7 +249,7 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
 </script>
 
 <template>
-  <h1>VTabs</h1>
+  <h1 class="h1">VTabs</h1>
   <section class="section">
     <v-code-block language="ts" :code="`import { VTab, VTabPanel, VTabs } from '@code-coaching/vuetiful';`" />
   </section>
@@ -260,7 +260,7 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
       <v-tab>Unstyled</v-tab>
     </template>
     <v-tab-panel>
-      <h2>Basic</h2>
+      <h2 class="h2">Basic</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -281,7 +281,7 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
         </v-preview>
       </section>
 
-      <h2>Vertical</h2>
+      <h2 class="h2">Vertical</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -303,9 +303,9 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
         </v-preview>
       </section>
 
-      <h2>Accessibility</h2>
+      <h2 class="h2">Accessibility</h2>
       <section class="section">
-        <h3>Keyboard Interaction</h3>
+        <h3 class="h3">Keyboard Interaction</h3>
         <section class="section">
           <p><kbd>Tab</kbd> and <kbd>Shift + Tab</kbd>: Move focus onto and away from the active tab.</p>
           <p class="mt-2">Horizontal tabs:</p>
@@ -322,7 +322,7 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
         </section>
       </section>
 
-      <h2>Examples</h2>
+      <h2 class="h2">Examples</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -333,7 +333,7 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
                 <v-tab>Beautiful</v-tab>
               </template>
               <v-tab-panel>
-                <h2>Vuetiful</h2>
+                <h2 class="h2">Vuetiful</h2>
                 <p>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis dicta placeat ipsam vitae error ipsa
                   temporibus optio autem nam voluptates libero ex esse enim maxime nemo eum mollitia doloribus magnam
@@ -342,7 +342,7 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
                 </p>
               </v-tab-panel>
               <v-tab-panel>
-                <h2>Is</h2>
+                <h2 class="h2">Is</h2>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nemo saepe, qui veniam dolores, quam
                   aliquid inventore laborum, animi vitae excepturi at? Impedit nam ex esse cumque labore nihil sint
@@ -351,7 +351,7 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
                 </p>
               </v-tab-panel>
               <v-tab-panel>
-                <h2>Beautiful</h2>
+                <h2 class="h2">Beautiful</h2>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque nemo ipsum ex tenetur veritatis, eius
                   hic nulla a quisquam rerum similique, labore sed dolor repellendus consequuntur. Aut perspiciatis
@@ -374,14 +374,14 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
       <section class="section">
         <v-preview>
           <template v-slot:preview>
-            <v-tabs class-tabs="bg-surface-300-600-token" class-panels="bg-surface-200-700-token">
+            <v-tabs class-tabs="bg-surface-300-700" class-panels="bg-surface-200-800">
               <template v-slot:tabs>
                 <v-tab>Vuetiful</v-tab>
                 <v-tab>Is</v-tab>
                 <v-tab>Beautiful</v-tab>
               </template>
               <v-tab-panel>
-                <h2>Vuetiful</h2>
+                <h2 class="h2">Vuetiful</h2>
                 <p>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis dicta placeat ipsam vitae error ipsa
                   temporibus optio autem nam voluptates libero ex esse enim maxime nemo eum mollitia doloribus magnam
@@ -390,7 +390,7 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
                 </p>
               </v-tab-panel>
               <v-tab-panel>
-                <h2>Is</h2>
+                <h2 class="h2">Is</h2>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nemo saepe, qui veniam dolores, quam
                   aliquid inventore laborum, animi vitae excepturi at? Impedit nam ex esse cumque labore nihil sint
@@ -399,7 +399,7 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
                 </p>
               </v-tab-panel>
               <v-tab-panel>
-                <h2>Beautiful</h2>
+                <h2 class="h2">Beautiful</h2>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque nemo ipsum ex tenetur veritatis, eius
                   hic nulla a quisquam rerum similique, labore sed dolor repellendus consequuntur. Aut perspiciatis
@@ -433,7 +433,7 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
                 <v-tab>Beautiful</v-tab>
               </template>
               <v-tab-panel>
-                <h2>Vuetiful</h2>
+                <h2 class="h2">Vuetiful</h2>
                 <p>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis dicta placeat ipsam vitae error ipsa
                   temporibus optio autem nam voluptates libero ex esse enim maxime nemo eum mollitia doloribus magnam
@@ -442,7 +442,7 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
                 </p>
               </v-tab-panel>
               <v-tab-panel>
-                <h2>Is</h2>
+                <h2 class="h2">Is</h2>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nemo saepe, qui veniam dolores, quam
                   aliquid inventore laborum, animi vitae excepturi at? Impedit nam ex esse cumque labore nihil sint
@@ -451,7 +451,7 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
                 </p>
               </v-tab-panel>
               <v-tab-panel>
-                <h2>Beautiful</h2>
+                <h2 class="h2">Beautiful</h2>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque nemo ipsum ex tenetur veritatis, eius
                   hic nulla a quisquam rerum similique, labore sed dolor repellendus consequuntur. Aut perspiciatis
@@ -481,8 +481,8 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
           <template v-slot:preview>
             <v-tabs
               vertical
-              class-tabs="bg-surface-300-600-token"
-              class-panels="bg-surface-200-700-token"
+              class-tabs="bg-surface-300-700"
+              class-panels="bg-surface-200-800"
               class-tab="w-[100px] py-2"
             >
               <template v-slot:tabs>
@@ -491,7 +491,7 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
                 <v-tab>Beautiful</v-tab>
               </template>
               <v-tab-panel>
-                <h2>Vuetiful</h2>
+                <h2 class="h2">Vuetiful</h2>
                 <p>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis dicta placeat ipsam vitae error ipsa
                   temporibus optio autem nam voluptates libero ex esse enim maxime nemo eum mollitia doloribus magnam
@@ -500,7 +500,7 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
                 </p>
               </v-tab-panel>
               <v-tab-panel>
-                <h2>Is</h2>
+                <h2 class="h2">Is</h2>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nemo saepe, qui veniam dolores, quam
                   aliquid inventore laborum, animi vitae excepturi at? Impedit nam ex esse cumque labore nihil sint
@@ -509,7 +509,7 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
                 </p>
               </v-tab-panel>
               <v-tab-panel>
-                <h2>Beautiful</h2>
+                <h2 class="h2">Beautiful</h2>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque nemo ipsum ex tenetur veritatis, eius
                   hic nulla a quisquam rerum similique, labore sed dolor repellendus consequuntur. Aut perspiciatis
@@ -541,14 +541,14 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
       <section class="section">
         <v-preview>
           <template v-slot:preview>
-            <v-tabs hide-separator active="variant-filled" hover="hover:variant-soft">
+            <v-tabs hide-separator active="preset-filled" hover="hover:preset-outlined-surface-950-50">
               <template v-slot:tabs>
                 <v-tab>Vuetiful</v-tab>
                 <v-tab>Is</v-tab>
                 <v-tab>Beautiful</v-tab>
               </template>
               <v-tab-panel>
-                <h2>Vuetiful</h2>
+                <h2 class="h2">Vuetiful</h2>
                 <p>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis dicta placeat ipsam vitae error ipsa
                   temporibus optio autem nam voluptates libero ex esse enim maxime nemo eum mollitia doloribus magnam
@@ -557,7 +557,7 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
                 </p>
               </v-tab-panel>
               <v-tab-panel>
-                <h2>Is</h2>
+                <h2 class="h2">Is</h2>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nemo saepe, qui veniam dolores, quam
                   aliquid inventore laborum, animi vitae excepturi at? Impedit nam ex esse cumque labore nihil sint
@@ -566,7 +566,7 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
                 </p>
               </v-tab-panel>
               <v-tab-panel>
-                <h2>Beautiful</h2>
+                <h2 class="h2">Beautiful</h2>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque nemo ipsum ex tenetur veritatis, eius
                   hic nulla a quisquam rerum similique, labore sed dolor repellendus consequuntur. Aut perspiciatis
@@ -618,7 +618,7 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
         </v-preview>
       </section>
 
-      <h2>No prop-based styles</h2>
+      <h2 class="h2">No prop-based styles</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -643,7 +643,7 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
         </v-preview>
       </section>
 
-      <h2>Custom style example</h2>
+      <h2 class="h2">Custom style example</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>

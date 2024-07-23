@@ -40,7 +40,7 @@ const useRailExample = `<v-shell class="flex border-2 border-surface-500">
 </script>
 
 <template>
-  <h1>VRail</h1>
+  <h1 class="h1">VRail</h1>
   <section class="section">
     <v-code-block language="ts" :code="`import { VRail, VRailTile, useRail } from '@code-coaching/vuetiful';`" />
   </section>
@@ -48,14 +48,14 @@ const useRailExample = `<v-shell class="flex border-2 border-surface-500">
   <section class="section">
     <v-alert type="info">
       <p>
-        <v-badge variant="filled-surface">VRail</v-badge> is a container that holds multiple
-        <v-badge variant="filled-surface">VRailTile</v-badge> components.
+        <v-badge preset="filled-surface-500">VRail</v-badge> is a container that holds multiple
+        <v-badge preset="filled-surface-500">VRailTile</v-badge> components.
       </p>
       <p>
-        <v-badge variant="filled-surface">VRailTile</v-badge> is a clickable tile that indicates the current page and
+        <v-badge preset="filled-surface-500">VRailTile</v-badge> is a clickable tile that indicates the current page and
         allows navigation through a click handler. Each tile has a unique value, determining its active state, which is
-        automatically stored in the <v-badge variant="filled-surface">selectedRailTile</v-badge> variable accessible via
-        <v-badge variant="filled-surface">useRail</v-badge>.
+        automatically stored in the <v-badge preset="filled-surface-500">selectedRailTile</v-badge> variable accessible
+        via <v-badge preset="filled-surface-500">useRail</v-badge>.
       </p>
     </v-alert>
   </section>
@@ -82,7 +82,7 @@ const useRailExample = `<v-shell class="flex border-2 border-surface-500">
           </v-preview>
         </section>
 
-        <h2>Example</h2>
+        <h2 class="h2">Example</h2>
         <section class="section">
           <v-preview>
             <template v-slot:preview>

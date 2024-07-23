@@ -70,7 +70,7 @@ const option = ref('surface');
 
 const filledExample = computed(
   () => `<div class="font-bold">${option.value}</div>
-<v-radio-group active="variant-filled-${option.value}" v-model="radioValue">
+<v-radio-group active="preset-filled-${option.value}" v-model="radioValue">
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
   <v-radio-item value="is">Is</v-radio-item>
   <v-radio-item value="beautiful">Beautiful</v-radio-item>
@@ -79,9 +79,9 @@ const filledExample = computed(
 const filledBgExample = computed(
   () => `<div class="font-bold">${option.value}</div>
 <v-radio-group
-  background="bg-${option.value}-100-800-token"
-  active="variant-filled-${option.value}"
-  hover="hover:variant-ghost-${option.value}"
+  background="bg-${option.value}-100-900"
+  active="preset-filled-${option.value}"
+  hover="hover:preset-outlined-${option.value}"
   v-model="radioValue"
 >
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
@@ -92,7 +92,7 @@ const filledBgExample = computed(
 
 const ringedExample = computed(
   () => `<div class="font-bold">${option.value}</div>
-<v-radio-group active="variant-ringed-${option.value}" v-model="radioValue">
+<v-radio-group active="preset-tonal-${option.value}" v-model="radioValue">
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
   <v-radio-item value="is">Is</v-radio-item>
   <v-radio-item value="beautiful">Beautiful</v-radio-item>
@@ -101,9 +101,9 @@ const ringedExample = computed(
 const ringedBgExample = computed(
   () => `<div class="font-bold">${option.value}</div>
 <v-radio-group
-  background="bg-${option.value}-100-800-token"
-  active="variant-ringed-${option.value}"
-  hover="hover:variant-ghost-${option.value}"
+  background="bg-${option.value}-100-900"
+  active="preset-tonal-${option.value}"
+  hover="hover:preset-outlined-${option.value}"
   v-model="radioValue"
 >
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
@@ -114,7 +114,7 @@ const ringedBgExample = computed(
 
 const ghostExample = computed(
   () => `<div class="font-bold">${option.value}</div>
-<v-radio-group active="variant-ghost-${option.value}" hover="hover:variant-soft-surface" v-model="radioValue">
+<v-radio-group active="preset-outlined-${option.value}" hover="hover:preset-soft-surface" v-model="radioValue">
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
   <v-radio-item value="is">Is</v-radio-item>
   <v-radio-item value="beautiful">Beautiful</v-radio-item>
@@ -122,9 +122,9 @@ const ghostExample = computed(
 );
 const ghostBgExample = computed(
   () => `<v-radio-group
-  background="bg-${option.value}-100-800-token"
-  active="variant-ghost-${option.value}"
-  hover="hover:variant-soft-${option.value}"
+  background="bg-${option.value}-100-900"
+  active="preset-outline-${option.value}"
+  hover="hover:preset-soft-${option.value}"
   v-model="radioValue"
 >
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
@@ -135,7 +135,7 @@ const ghostBgExample = computed(
 
 const softExample = computed(
   () => `<div class="font-bold">${option.value}</div>
-<v-radio-group active="variant-soft-${option.value}" v-model="radioValue">
+<v-radio-group active="preset-soft-${option.value}" v-model="radioValue">
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
   <v-radio-item value="is">Is</v-radio-item>
   <v-radio-item value="beautiful">Beautiful</v-radio-item>
@@ -144,9 +144,9 @@ const softExample = computed(
 const softBgExample = computed(
   () => `<div class="font-bold">${option.value}</div>
 <v-radio-group
-  background="bg-${option.value}-100-800-token"
-  active="variant-glass-${option.value}"
-  hover="hover:variant-ghost-${option.value}"
+  background="bg-${option.value}-100-900"
+  active="preset-glass-${option.value}"
+  hover="hover:preset-outline-${option.value}"
   v-model="radioValue"
 >
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
@@ -159,8 +159,8 @@ const softBgExample = computed(
 const glassExample = computed(
   () => `<div class="font-bold">${option.value}</div>
 <v-radio-group
-  background="variant-glass-surface"
-  active="variant-glass-${option.value}"
+  background="preset-glass-surface"
+  active="preset-glass-${option.value}"
   v-model="radioValue"
 >
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
@@ -171,9 +171,9 @@ const glassExample = computed(
 const glassBgExample = computed(
   () => `<div class="font-bold">${option.value}</div>
 <v-radio-group
-  background="variant-glass-${option.value}"
-  active="variant-glass-${option.value}"
-  hover="hover:variant-ghost-${option.value}"
+  background="preset-glass-${option.value}"
+  active="preset-glass-${option.value}"
+  hover="hover:preset-outline-${option.value}"
   v-model="radioValue"
 >
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
@@ -209,7 +209,7 @@ const unstyledCustomTemplate = `<v-radio-group
 </script>
 
 <template>
-  <h1>VRadioGroup</h1>
+  <h1 class="h1">VRadioGroup</h1>
   <section class="section">
     <v-code-block
       language="ts"
@@ -223,7 +223,7 @@ const unstyledCustomTemplate = `<v-radio-group
       <v-tab>Unstyled</v-tab>
     </template>
     <v-tab-panel>
-      <h2>Basic</h2>
+      <h2 class="h2">Basic</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -264,7 +264,7 @@ const unstyledCustomTemplate = `<v-radio-group
         </v-preview>
       </section>
 
-      <h2>Object as value</h2>
+      <h2 class="h2">Object as value</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -295,9 +295,9 @@ const unstyledCustomTemplate = `<v-radio-group
         </v-preview>
       </section>
 
-      <h2>Accessibility</h2>
+      <h2 class="h2">Accessibility</h2>
       <section class="section">
-        <h3>Keyboard Interaction</h3>
+        <h3 class="h3">Keyboard Interaction</h3>
         <section>
           <p><kbd>Tab</kbd> and <kbd>Shift + Tab</kbd>: Move focus into and out of the radio group.</p>
           <p><kbd>Space</kbd> and <kbd>Enter</kbd>: Checks the focused radio button if it is not already checked.</p>
@@ -366,9 +366,9 @@ const unstyledCustomTemplate = `<v-radio-group
         </v-preview>
       </section>
 
-      <h2>Variants</h2>
+      <h2 class="h2">Presets</h2>
       <section class="section">
-        <h3>Filled</h3>
+        <h3 class="h3">Filled</h3>
         <section class="section">
           <v-preview>
             <template v-slot:preview>
@@ -376,7 +376,7 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">surface</div>
                   <v-radio-group
-                    active="variant-filled-surface"
+                    active="preset-filled-surface-500"
                     v-model="radioValue"
                     @click="() => (option = 'surface')"
                   >
@@ -389,7 +389,7 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">primary</div>
                   <v-radio-group
-                    active="variant-filled-primary"
+                    active="preset-filled-primary-500"
                     v-model="radioValue"
                     @click="() => (option = 'primary')"
                   >
@@ -402,7 +402,7 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">secondary</div>
                   <v-radio-group
-                    active="variant-filled-secondary"
+                    active="preset-filled-secondary-500"
                     v-model="radioValue"
                     @click="() => (option = 'secondary')"
                   >
@@ -415,7 +415,7 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">tertiary</div>
                   <v-radio-group
-                    active="variant-filled-tertiary"
+                    active="preset-filled-tertiary-500"
                     v-model="radioValue"
                     @click="() => (option = 'tertiary')"
                   >
@@ -428,7 +428,7 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">success</div>
                   <v-radio-group
-                    active="variant-filled-success"
+                    active="preset-filled-success-500"
                     v-model="radioValue"
                     @click="() => (option = 'success')"
                   >
@@ -441,7 +441,7 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">warning</div>
                   <v-radio-group
-                    active="variant-filled-warning"
+                    active="preset-filled-warning-500"
                     v-model="radioValue"
                     @click="() => (option = 'warning')"
                   >
@@ -453,7 +453,11 @@ const unstyledCustomTemplate = `<v-radio-group
 
                 <div>
                   <div class="font-bold">error</div>
-                  <v-radio-group active="variant-filled-error" v-model="radioValue" @click="() => (option = 'error')">
+                  <v-radio-group
+                    active="preset-filled-error-500"
+                    v-model="radioValue"
+                    @click="() => (option = 'error')"
+                  >
                     <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
                     <v-radio-item value="is">Is</v-radio-item>
                     <v-radio-item value="beautiful">Beautiful</v-radio-item>
@@ -476,9 +480,9 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">surface</div>
                   <v-radio-group
-                    background="bg-surface-100-800-token"
-                    active="variant-filled-surface"
-                    hover="hover:variant-ghost-surface"
+                    background="bg-surface-100-900"
+                    active="preset-filled-surface-500"
+                    hover="hover:preset-outlined-surface-500"
                     v-model="radioValue"
                     @click="() => (option = 'surface')"
                   >
@@ -491,9 +495,9 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">primary</div>
                   <v-radio-group
-                    background="bg-primary-100-800-token"
-                    active="variant-filled-primary"
-                    hover="hover:variant-ghost-primary"
+                    background="bg-primary-100-900"
+                    active="preset-filled-primary-500"
+                    hover="hover:preset-outlined-primary-500"
                     v-model="radioValue"
                     @click="() => (option = 'primary')"
                   >
@@ -506,9 +510,9 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">secondary</div>
                   <v-radio-group
-                    background="bg-secondary-100-800-token"
-                    active="variant-filled-secondary"
-                    hover="hover:variant-ghost-secondary"
+                    background="bg-secondary-100-900"
+                    active="preset-filled-secondary-500"
+                    hover="hover:preset-outlined-secondary-500"
                     v-model="radioValue"
                     @click="() => (option = 'secondary')"
                   >
@@ -521,9 +525,9 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">tertiary</div>
                   <v-radio-group
-                    background="bg-tertiary-100-800-token"
-                    active="variant-filled-tertiary"
-                    hover="hover:variant-ghost-tertiary"
+                    background="bg-tertiary-100-900"
+                    active="preset-filled-tertiary-500"
+                    hover="hover:preset-outlined-tertiary-500"
                     v-model="radioValue"
                     @click="() => (option = 'tertiary')"
                   >
@@ -536,9 +540,9 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">success</div>
                   <v-radio-group
-                    background="bg-success-100-800-token"
-                    active="variant-filled-success"
-                    hover="hover:variant-ghost-success"
+                    background="bg-success-100-900"
+                    active="preset-filled-success-500"
+                    hover="hover:preset-outlined-success-500"
                     v-model="radioValue"
                     @click="() => (option = 'success')"
                   >
@@ -551,9 +555,9 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">warning</div>
                   <v-radio-group
-                    background="bg-warning-100-800-token"
-                    active="variant-filled-warning"
-                    hover="hover:variant-ghost-warning"
+                    background="bg-warning-100-900"
+                    active="preset-filled-warning-500"
+                    hover="hover:preset-outlined-warning-500"
                     v-model="radioValue"
                     @click="() => (option = 'warning')"
                   >
@@ -566,9 +570,9 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">error</div>
                   <v-radio-group
-                    background="bg-error-100-800-token"
-                    active="variant-filled-error"
-                    hover="hover:variant-ghost-error"
+                    background="bg-error-100-900"
+                    active="preset-filled-error-500"
+                    hover="hover:preset-outlined-error-500"
                     v-model="radioValue"
                     @click="() => (option = 'error')"
                   >
@@ -588,7 +592,7 @@ const unstyledCustomTemplate = `<v-radio-group
           </v-preview>
         </section>
 
-        <h3>Ringed</h3>
+        <h3 class="h3">Tonal</h3>
         <section class="section">
           <v-preview>
             <template v-slot:preview>
@@ -596,7 +600,7 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">surface</div>
                   <v-radio-group
-                    active="variant-ringed-surface"
+                    active="preset-tonal-surface"
                     v-model="radioValue"
                     @click="() => (option = 'surface')"
                   >
@@ -608,11 +612,7 @@ const unstyledCustomTemplate = `<v-radio-group
 
                 <div>
                   <div class="font-bold">primary</div>
-                  <v-radio-group
-                    active="variant-ringed-primary"
-                    v-model="radioValue"
-                    @click="() => (option = 'primary')"
-                  >
+                  <v-radio-group active="preset-tonal-primary" v-model="radioValue" @click="() => (option = 'primary')">
                     <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
                     <v-radio-item value="is">Is</v-radio-item>
                     <v-radio-item value="beautiful">Beautiful</v-radio-item>
@@ -622,7 +622,7 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">secondary</div>
                   <v-radio-group
-                    active="variant-ringed-secondary"
+                    active="preset-tonal-secondary"
                     v-model="radioValue"
                     @click="() => (option = 'secondary')"
                   >
@@ -635,7 +635,7 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">tertiary</div>
                   <v-radio-group
-                    active="variant-ringed-tertiary"
+                    active="preset-tonal-tertiary"
                     v-model="radioValue"
                     @click="() => (option = 'tertiary')"
                   >
@@ -647,11 +647,7 @@ const unstyledCustomTemplate = `<v-radio-group
 
                 <div>
                   <div class="font-bold">success</div>
-                  <v-radio-group
-                    active="variant-ringed-success"
-                    v-model="radioValue"
-                    @click="() => (option = 'success')"
-                  >
+                  <v-radio-group active="preset-tonal-success" v-model="radioValue" @click="() => (option = 'success')">
                     <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
                     <v-radio-item value="is">Is</v-radio-item>
                     <v-radio-item value="beautiful">Beautiful</v-radio-item>
@@ -660,11 +656,7 @@ const unstyledCustomTemplate = `<v-radio-group
 
                 <div>
                   <div class="font-bold">warning</div>
-                  <v-radio-group
-                    active="variant-ringed-warning"
-                    v-model="radioValue"
-                    @click="() => (option = 'warning')"
-                  >
+                  <v-radio-group active="preset-tonal-warning" v-model="radioValue" @click="() => (option = 'warning')">
                     <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
                     <v-radio-item value="is">Is</v-radio-item>
                     <v-radio-item value="beautiful">Beautiful</v-radio-item>
@@ -673,7 +665,7 @@ const unstyledCustomTemplate = `<v-radio-group
 
                 <div>
                   <div class="font-bold">error</div>
-                  <v-radio-group active="variant-ringed-error" v-model="radioValue" @click="() => (option = 'error')">
+                  <v-radio-group active="preset-tonal-error" v-model="radioValue" @click="() => (option = 'error')">
                     <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
                     <v-radio-item value="is">Is</v-radio-item>
                     <v-radio-item value="beautiful">Beautiful</v-radio-item>
@@ -696,9 +688,9 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">surface</div>
                   <v-radio-group
-                    background="bg-surface-100-800-token"
-                    active="variant-ringed-surface"
-                    hover="hover:variant-ghost-surface"
+                    background="bg-surface-300-700"
+                    active="preset-tonal-surface"
+                    hover="hover:preset-outlined-surface-500"
                     v-model="radioValue"
                     @click="() => (option = 'surface')"
                   >
@@ -711,9 +703,9 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">primary</div>
                   <v-radio-group
-                    background="bg-primary-100-800-token"
-                    active="variant-ringed-primary"
-                    hover="hover:variant-ghost-primary"
+                    background="bg-primary-300-700"
+                    active="preset-tonal-primary"
+                    hover="hover:preset-outlined-primary-500"
                     v-model="radioValue"
                     @click="() => (option = 'primary')"
                   >
@@ -726,9 +718,9 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">secondary</div>
                   <v-radio-group
-                    background="bg-secondary-100-800-token"
-                    active="variant-ringed-secondary"
-                    hover="hover:variant-ghost-secondary"
+                    background="bg-secondary-300-700"
+                    active="preset-tonal-secondary"
+                    hover="hover:preset-outlined-secondary-500"
                     v-model="radioValue"
                     @click="() => (option = 'secondary')"
                   >
@@ -741,9 +733,9 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">tertiary</div>
                   <v-radio-group
-                    background="bg-tertiary-100-800-token"
-                    active="variant-ringed-tertiary"
-                    hover="hover:variant-ghost-tertiary"
+                    background="bg-tertiary-300-700"
+                    active="preset-tonal-tertiary"
+                    hover="hover:preset-outlined-tertiary-500"
                     v-model="radioValue"
                     @click="() => (option = 'tertiary')"
                   >
@@ -756,9 +748,9 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">success</div>
                   <v-radio-group
-                    background="bg-success-100-800-token"
-                    active="variant-ringed-success"
-                    hover="hover:variant-ghost-success"
+                    background="bg-success-300-700"
+                    active="preset-tonal-success"
+                    hover="hover:preset-outlined-success-500"
                     v-model="radioValue"
                     @click="() => (option = 'success')"
                   >
@@ -771,9 +763,9 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">warning</div>
                   <v-radio-group
-                    background="bg-warning-100-800-token"
-                    active="variant-ringed-warning"
-                    hover="hover:variant-ghost-warning"
+                    background="bg-warning-300-700"
+                    active="preset-tonal-warning"
+                    hover="hover:preset-outlined-warning-500"
                     v-model="radioValue"
                     @click="() => (option = 'warning')"
                   >
@@ -786,9 +778,9 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">error</div>
                   <v-radio-group
-                    background="bg-error-100-800-token"
-                    active="variant-ringed-error"
-                    hover="hover:variant-ghost-error"
+                    background="bg-error-300-700"
+                    active="preset-tonal-error"
+                    hover="hover:preset-outlined-error-500"
                     v-model="radioValue"
                     @click="() => (option = 'error')"
                   >
@@ -808,7 +800,7 @@ const unstyledCustomTemplate = `<v-radio-group
           </v-preview>
         </section>
 
-        <h3>Ghost</h3>
+        <h3 class="h3">Outlined</h3>
         <section class="section">
           <v-preview>
             <template v-slot:preview>
@@ -816,8 +808,8 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">surface</div>
                   <v-radio-group
-                    active="variant-ghost-surface"
-                    hover="hover:variant-soft-surface"
+                    active="preset-outlined-surface-500"
+                    hover="hover:preset-soft-surface"
                     v-model="radioValue"
                     @click="() => (option = 'surface')"
                   >
@@ -830,8 +822,8 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">primary</div>
                   <v-radio-group
-                    active="variant-ghost-primary"
-                    hover="hover:variant-soft-surface"
+                    active="preset-outlined-primary-500"
+                    hover="hover:preset-soft-surface"
                     v-model="radioValue"
                     @click="() => (option = 'primary')"
                   >
@@ -844,8 +836,8 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">secondary</div>
                   <v-radio-group
-                    active="variant-ghost-secondary"
-                    hover="hover:variant-soft-surface"
+                    active="preset-outlined-secondary-900-100"
+                    hover="hover:preset-soft-surface"
                     v-model="radioValue"
                     @click="() => (option = 'secondary')"
                   >
@@ -858,8 +850,8 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">tertiary</div>
                   <v-radio-group
-                    active="variant-ghost-tertiary"
-                    hover="hover:variant-soft-surface"
+                    active="preset-outlined-tertiary-500"
+                    hover="hover:preset-soft-surface"
                     v-model="radioValue"
                     @click="() => (option = 'tertiary')"
                   >
@@ -872,8 +864,8 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">success</div>
                   <v-radio-group
-                    active="variant-ghost-success"
-                    hover="hover:variant-soft-surface"
+                    active="preset-outlined-success-500"
+                    hover="hover:preset-soft-surface"
                     v-model="radioValue"
                     @click="() => (option = 'success')"
                   >
@@ -886,8 +878,8 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">warning</div>
                   <v-radio-group
-                    active="variant-ghost-warning"
-                    hover="hover:variant-soft-surface"
+                    active="preset-outlined-warning-500"
+                    hover="hover:preset-soft-surface"
                     v-model="radioValue"
                     @click="() => (option = 'warning')"
                   >
@@ -900,8 +892,8 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">error</div>
                   <v-radio-group
-                    active="variant-ghost-error"
-                    hover="hover:variant-soft-surface"
+                    active="preset-outlined-error-500"
+                    hover="hover:preset-soft-surface"
                     v-model="radioValue"
                     @click="() => (option = 'error')"
                   >
@@ -927,9 +919,9 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">surface</div>
                   <v-radio-group
-                    background="bg-surface-100-800-token"
-                    active="variant-ghost-surface"
-                    hover="hover:variant-soft-surface"
+                    background="bg-surface-100-900"
+                    active="preset-outlined-surface-500"
+                    hover="hover:preset-soft-surface"
                     v-model="radioValue"
                     @click="() => (option = 'surface')"
                   >
@@ -942,9 +934,9 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">primary</div>
                   <v-radio-group
-                    background="bg-primary-100-800-token"
-                    active="variant-ghost-primary"
-                    hover="hover:variant-soft-primary"
+                    background="bg-primary-100-900"
+                    active="preset-outlined-primary-500"
+                    hover="hover:preset-soft-primary"
                     v-model="radioValue"
                     @click="() => (option = 'primary')"
                   >
@@ -957,9 +949,9 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">secondary</div>
                   <v-radio-group
-                    background="bg-secondary-100-800-token"
-                    active="variant-ghost-secondary"
-                    hover="hover:variant-soft-secondary"
+                    background="bg-secondary-100-900"
+                    active="preset-outlined-secondary-500"
+                    hover="hover:preset-soft-secondary"
                     v-model="radioValue"
                     @click="() => (option = 'secondary')"
                   >
@@ -972,9 +964,9 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">tertiary</div>
                   <v-radio-group
-                    background="bg-tertiary-100-800-token"
-                    active="variant-ghost-tertiary"
-                    hover="hover:variant-soft-tertiary"
+                    background="bg-tertiary-100-900"
+                    active="preset-outlined-tertiary-500"
+                    hover="hover:preset-soft-tertiary"
                     v-model="radioValue"
                     @click="() => (option = 'tertiary')"
                   >
@@ -987,9 +979,9 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">success</div>
                   <v-radio-group
-                    background="bg-success-100-800-token"
-                    active="variant-ghost-success"
-                    hover="hover:variant-soft-success"
+                    background="bg-success-100-900"
+                    active="preset-outlined-success-500"
+                    hover="hover:preset-soft-success"
                     v-model="radioValue"
                     @click="() => (option = 'success')"
                   >
@@ -1002,9 +994,9 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">warning</div>
                   <v-radio-group
-                    background="bg-warning-100-800-token"
-                    active="variant-ghost-warning"
-                    hover="hover:variant-soft-warning"
+                    background="bg-warning-100-900"
+                    active="preset-outlined-warning-500"
+                    hover="hover:preset-soft-warning"
                     v-model="radioValue"
                     @click="() => (option = 'warning')"
                   >
@@ -1017,9 +1009,9 @@ const unstyledCustomTemplate = `<v-radio-group
                 <div>
                   <div class="font-bold">error</div>
                   <v-radio-group
-                    background="bg-error-100-800-token"
-                    active="variant-ghost-error"
-                    hover="hover:variant-soft-error"
+                    background="bg-error-100-900"
+                    active="preset-outlined-error-500"
+                    hover="hover:preset-soft-error"
                     v-model="radioValue"
                     @click="() => (option = 'error')"
                   >
@@ -1034,465 +1026,6 @@ const unstyledCustomTemplate = `<v-radio-group
               <div class="flex flex-col gap-4">
                 <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
                 <v-code-block language="html" :code="ghostBgExample" />
-              </div>
-            </template>
-          </v-preview>
-        </section>
-
-        <h3>Soft</h3>
-        <section class="section">
-          <v-preview>
-            <template v-slot:preview>
-              <div class="flex flex-wrap gap-2">
-                <div>
-                  <div class="font-bold">surface</div>
-                  <v-radio-group active="variant-soft-surface" v-model="radioValue" @click="() => (option = 'surface')">
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">primary</div>
-                  <v-radio-group active="variant-soft-primary" v-model="radioValue" @click="() => (option = 'primary')">
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">secondary</div>
-                  <v-radio-group
-                    active="variant-soft-secondary"
-                    v-model="radioValue"
-                    @click="() => (option = 'secondary')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">tertiary</div>
-                  <v-radio-group
-                    active="variant-soft-tertiary"
-                    v-model="radioValue"
-                    @click="() => (option = 'tertiary')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">success</div>
-                  <v-radio-group active="variant-soft-success" v-model="radioValue" @click="() => (option = 'success')">
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">warning</div>
-                  <v-radio-group active="variant-soft-warning" v-model="radioValue" @click="() => (option = 'warning')">
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">error</div>
-                  <v-radio-group active="variant-soft-error" v-model="radioValue" @click="() => (option = 'error')">
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-              </div>
-            </template>
-            <template v-slot:source>
-              <div class="flex flex-col gap-4">
-                <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
-                <v-code-block language="html" :code="softExample" />
-              </div>
-            </template>
-          </v-preview>
-        </section>
-        <section class="section">
-          <v-preview>
-            <template v-slot:preview>
-              <div class="flex flex-wrap gap-2">
-                <div>
-                  <div class="font-bold">surface</div>
-                  <v-radio-group
-                    background="bg-surface-100-800-token"
-                    active="variant-soft-surface"
-                    hover="hover:variant-ghost-surface"
-                    v-model="radioValue"
-                    @click="() => (option = 'surface')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">primary</div>
-                  <v-radio-group
-                    background="bg-primary-100-800-token"
-                    active="variant-soft-primary"
-                    hover="hover:variant-ghost-primary"
-                    v-model="radioValue"
-                    @click="() => (option = 'primary')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">secondary</div>
-                  <v-radio-group
-                    background="bg-secondary-100-800-token"
-                    active="variant-soft-secondary"
-                    hover="hover:variant-ghost-secondary"
-                    v-model="radioValue"
-                    @click="() => (option = 'secondary')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">tertiary</div>
-                  <v-radio-group
-                    background="bg-tertiary-100-800-token"
-                    active="variant-soft-tertiary"
-                    hover="hover:variant-ghost-tertiary"
-                    v-model="radioValue"
-                    @click="() => (option = 'tertiary')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">success</div>
-                  <v-radio-group
-                    background="bg-success-100-800-token"
-                    active="variant-soft-success"
-                    hover="hover:variant-ghost-success"
-                    v-model="radioValue"
-                    @click="() => (option = 'success')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">warning</div>
-                  <v-radio-group
-                    background="bg-warning-100-800-token"
-                    active="variant-soft-warning"
-                    hover="hover:variant-ghost-warning"
-                    v-model="radioValue"
-                    @click="() => (option = 'warning')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">error</div>
-                  <v-radio-group
-                    background="bg-error-100-800-token"
-                    active="variant-soft-error"
-                    hover="hover:variant-ghost-error"
-                    v-model="radioValue"
-                    @click="() => (option = 'error')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-              </div>
-            </template>
-            <template v-slot:source>
-              <div class="flex flex-col gap-4">
-                <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
-                <v-code-block language="html" :code="softBgExample" />
-              </div>
-            </template>
-          </v-preview>
-        </section>
-
-        <h3>Glass</h3>
-        <section class="section">
-          <v-preview hide-swatches region-viewport="!p-0">
-            <template v-slot:preview>
-              <div
-                class="flex w-full flex-wrap items-center justify-center gap-2 p-4 md:p-10"
-                style="
-                  background: url('https://i.imgur.com/DdrZVb7.gif') center center no-repeat;
-                  background-size: cover;
-                "
-              >
-                <div>
-                  <div class="font-bold">surface</div>
-                  <v-radio-group
-                    background="variant-glass-surface"
-                    active="variant-glass-surface"
-                    v-model="radioValue"
-                    @click="() => (option = 'surface')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">primary</div>
-                  <v-radio-group
-                    background="variant-glass-surface"
-                    active="variant-glass-primary"
-                    v-model="radioValue"
-                    @click="() => (option = 'primary')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">secondary</div>
-                  <v-radio-group
-                    background="variant-glass-surface"
-                    active="variant-glass-secondary"
-                    v-model="radioValue"
-                    @click="() => (option = 'secondary')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">tertiary</div>
-                  <v-radio-group
-                    background="variant-glass-surface"
-                    active="variant-glass-tertiary"
-                    v-model="radioValue"
-                    @click="() => (option = 'tertiary')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">success</div>
-                  <v-radio-group
-                    background="variant-glass-surface"
-                    active="variant-glass-success"
-                    v-model="radioValue"
-                    @click="() => (option = 'success')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">warning</div>
-                  <v-radio-group
-                    background="variant-glass-surface"
-                    active="variant-glass-warning"
-                    v-model="radioValue"
-                    @click="() => (option = 'warning')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">error</div>
-                  <v-radio-group
-                    background="variant-glass-surface"
-                    active="variant-glass-error"
-                    v-model="radioValue"
-                    @click="() => (option = 'error')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-              </div>
-            </template>
-            <template v-slot:footer>
-              <div class="flex items-center justify-center">
-                <a target="_blank" href="https://www.markferrari.com/"> Image Source </a>
-              </div>
-            </template>
-
-            <template v-slot:source>
-              <div class="flex flex-col gap-4">
-                <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
-                <v-code-block language="html" :code="glassExample" />
-              </div>
-            </template>
-          </v-preview>
-        </section>
-        <section>
-          <v-preview hide-swatches region-viewport="!p-0">
-            <template v-slot:preview>
-              <div
-                class="flex w-full flex-wrap items-center justify-center gap-2 p-4 md:p-10"
-                style="
-                  background: url('https://i.imgur.com/DdrZVb7.gif') center center no-repeat;
-                  background-size: cover;
-                "
-              >
-                <div>
-                  <div class="font-bold">surface</div>
-                  <v-radio-group
-                    background="variant-glass-surface"
-                    active="variant-glass-surface"
-                    hover="hover:variant-ghost-surface"
-                    v-model="radioValue"
-                    @click="() => (option = 'surface')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">primary</div>
-                  <v-radio-group
-                    background="variant-glass-primary"
-                    active="variant-glass-primary"
-                    hover="hover:variant-ghost-primary"
-                    v-model="radioValue"
-                    @click="() => (option = 'primary')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">secondary</div>
-                  <v-radio-group
-                    background="variant-glass-secondary"
-                    active="variant-glass-secondary"
-                    hover="hover:variant-ghost-secondary"
-                    v-model="radioValue"
-                    @click="() => (option = 'secondary')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">tertiary</div>
-                  <v-radio-group
-                    background="variant-glass-tertiary"
-                    active="variant-glass-tertiary"
-                    hover="hover:variant-ghost-tertiary"
-                    v-model="radioValue"
-                    @click="() => (option = 'tertiary')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">success</div>
-                  <v-radio-group
-                    background="variant-glass-success"
-                    active="variant-glass-success"
-                    hover="hover:variant-ghost-success"
-                    v-model="radioValue"
-                    @click="() => (option = 'success')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">warning</div>
-                  <v-radio-group
-                    background="variant-glass-warning"
-                    active="variant-glass-warning"
-                    hover="hover:variant-ghost-warning"
-                    v-model="radioValue"
-                    @click="() => (option = 'warning')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-
-                <div>
-                  <div class="font-bold">error</div>
-                  <v-radio-group
-                    background="variant-glass-error"
-                    active="variant-glass-error"
-                    hover="hover:variant-ghost-error"
-                    v-model="radioValue"
-                    @click="() => (option = 'error')"
-                  >
-                    <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-                    <v-radio-item value="is">Is</v-radio-item>
-                    <v-radio-item value="beautiful">Beautiful</v-radio-item>
-                  </v-radio-group>
-                </div>
-              </div>
-            </template>
-            <template v-slot:footer>
-              <div class="flex items-center justify-center">
-                <a target="_blank" href="https://www.markferrari.com/"> Image Source </a>
-              </div>
-            </template>
-
-            <template v-slot:source>
-              <div class="flex flex-col gap-4">
-                <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
-                <v-code-block language="html" :code="glassBgExample" />
               </div>
             </template>
           </v-preview>
@@ -1522,7 +1055,7 @@ const unstyledCustomTemplate = `<v-radio-group
         </v-preview>
       </section>
 
-      <h2>No prop-based styles</h2>
+      <h2 class="h2">No prop-based styles</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>
@@ -1533,7 +1066,7 @@ const unstyledCustomTemplate = `<v-radio-group
             </v-radio-group>
           </template>
           <template v-slot:source>
-            <div class="mb-2 flex flex-col gap-2">
+            <div class="flex flex-col gap-2 mb-2">
               <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
               <v-code-block language="html" :code="unstyledPropTemplate" />
             </div>
@@ -1550,7 +1083,7 @@ const unstyledCustomTemplate = `<v-radio-group
         </v-preview>
       </section>
 
-      <h2>Custom style example</h2>
+      <h2 class="h2">Custom style example</h2>
       <section class="section">
         <v-preview>
           <template v-slot:preview>

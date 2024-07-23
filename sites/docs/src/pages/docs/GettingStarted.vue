@@ -216,7 +216,7 @@ module.exports = {
 </script>
 
 <template>
-  <h1>Getting Started</h1>
+  <h1 class="h1">Getting Started</h1>
 
   <header class="header">
     <section class="section">
@@ -233,12 +233,12 @@ module.exports = {
     <hr />
   </header>
 
-  <h2>Install Vuetiful</h2>
+  <h2 class="h2">Install Vuetiful</h2>
   <section class="section">
     <v-code-block language="sh" code="npm install @code-coaching/vuetiful" />
   </section>
 
-  <h2>Install Tailwind</h2>
+  <h2 class="h2">Install Tailwind</h2>
   <section class="section">
     <p>TailwindCSS is a framework with utility/helper classes for direct styling of HTML elements.</p>
     <p class="mb-4">
@@ -248,20 +248,21 @@ module.exports = {
     <v-code-block language="sh" code="npm install -D tailwindcss postcss autoprefixer prettier-plugin-tailwindcss" />
   </section>
 
-  <h3>Initialize Tailwind</h3>
+  <h3 class="h3">Initialize Tailwind</h3>
   <section class="section">
     <v-code-block language="sh" code="npx tailwindcss init" />
   </section>
 
-  <h3>tailwind.config.js</h3>
+  <h3 class="h3">tailwind.config.js</h3>
   <section class="section">
     <v-code-block class="mb-2" language="js" :code="exampleTailwindConfig" />
     <v-alert type="info">
-      This file might be called <v-badge variant="filled-surface">tailwind.config.cjs</v-badge> depending on your setup.
+      This file might be called <v-badge preset="filled-surface-500">tailwind.config.cjs</v-badge> depending on your
+      setup.
     </v-alert>
   </section>
 
-  <h3>Tailwind Directives</h3>
+  <h3 class="h3">Tailwind Directives</h3>
   <section class="section">
     <p class="mb-4">
       Make sure to <strong>not</strong> have the Tailwind directives in your css, this is provided by Vuetiful.
@@ -276,7 +277,7 @@ module.exports = {
     />
   </section>
 
-  <h3>pnpm | yarn</h3>
+  <h3 class="h3">pnpm | yarn</h3>
   <section class="section">
     <p class="mb-4">
       In case you are using pnpm or yarn instead of npm, you will need to create/add the following to
@@ -291,7 +292,7 @@ module.exports = {
     />
   </section>
 
-  <h3>Recommended VSCode Extension</h3>
+  <h3 class="h3">Recommended VSCode Extension</h3>
   <section class="section">
     <a href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss">
       Tailwind CSS IntelliSense
@@ -309,7 +310,7 @@ module.exports = {
       <v-tab><h2 class="mb-0">Quasar</h2></v-tab>
     </template>
     <v-tab-panel>
-      <h3>PostCSS config</h3>
+      <h3 class="h3">PostCSS config</h3>
       <section class="section">
         <p class="mb-4">
           Create a <code>postcss.config.cjs</code> file in the root of your project, add the following content:
@@ -326,12 +327,12 @@ module.exports = {
         />
       </section>
 
-      <h3>main.ts</h3>
+      <h3 class="h3">main.ts</h3>
       <section class="section flex flex-col gap-2">
         <v-code-block class="mb-2" language="ts" :code="exampleVueMain" />
         <v-alert type="info">
-          <v-badge variant="filled-surface">@code-coaching/vuetiful/styles/all.css</v-badge> must be imported before any
-          other css.
+          <v-badge preset="filled-surface-500">@code-coaching/vuetiful/styles/all.css</v-badge> must be imported before
+          any other css.
         </v-alert>
         <v-alert type="info">
           Visit the
@@ -348,7 +349,7 @@ module.exports = {
         </v-alert>
       </section>
 
-      <h3>App.vue</h3>
+      <h3 class="h3">App.vue</h3>
       <section class="section">
         <v-tabs>
           <template v-slot:tabs>
@@ -369,12 +370,12 @@ module.exports = {
         <v-alert type="info">Vuetiful is Quasar SSR compatible</v-alert>
       </section>
       <section class="section">
-        <h3>postcss.config.js</h3>
+        <h3 class="h3">postcss.config.js</h3>
         <section class="section">
           <v-code-block language="js" :code="exampleQuasarPostCss" />
         </section>
 
-        <h3>quasar.config.js</h3>
+        <h3 class="h3">quasar.config.js</h3>
         <section class="section">
           <v-code-block language="js" :code="exampleQuasarConfig" />
           <div class="mt-2">
@@ -386,7 +387,7 @@ module.exports = {
           </div>
         </section>
 
-        <h3>App.vue</h3>
+        <h3 class="h3">App.vue</h3>
         <section class="section">
           <v-tabs>
             <template v-slot:tabs>
