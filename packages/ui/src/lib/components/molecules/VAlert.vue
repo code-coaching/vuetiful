@@ -44,13 +44,13 @@ const props = defineProps({
 const typeBackground = computed(() => {
   switch (props.type) {
     case 'info':
-      return 'variant-filled';
+      return 'preset-filled';
     case 'success':
-      return 'variant-filled-success';
+      return 'preset-filled-success-500';
     case 'warning':
-      return 'variant-filled-warning';
+      return 'preset-filled-warning-500';
     case 'error':
-      return 'variant-filled-error';
+      return 'preset-filled-error-500';
     case '':
       return '';
   }
@@ -71,7 +71,7 @@ const isUnstyled = settings.global.unstyled || settings.components.alert.unstyle
   <aside
     v-if="show"
     :class="`vuetiful-alert flex ${
-      isUnstyled ? '' : 'w-full items-center gap-4 p-4 border-token rounded-container-token'
+      isUnstyled ? '' : 'w-full items-center gap-4 p-4 border rounded-container'
     } ${typeBackground}`"
   >
     <div v-if="!hideIcon" :class="`vuetiful-alert-pre ${classPre}`">

@@ -37,7 +37,7 @@ const isUnstyled = settings.global.unstyled || settings.components.tab.unstyled 
     <div
       data-test="slot-container"
       class="vuetiful-tab-content"
-      :class="`text-base ${isUnstyled ? '' : 'rounded-token'} ${selected ? activeClass : hoverClass} ${tabClass}`"
+      :class="`text-base ${isUnstyled ? '' : 'rounded'} ${selected ? activeClass : hoverClass} ${tabClass}`"
     >
       <slot />
     </div>

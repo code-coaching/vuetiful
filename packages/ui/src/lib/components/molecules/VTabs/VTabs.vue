@@ -21,7 +21,7 @@ const props = defineProps({
   },
   hover: {
     type: String,
-    default: 'hover:variant-ghost',
+    default: 'hover:preset-outlined-surface-500',
   },
 
   classPanels: {
@@ -38,11 +38,11 @@ const props = defineProps({
   },
   classSeparator: {
     type: String,
-    default: 'border-surface-400-500-token',
+    default: 'border-surface-400-600',
   },
   classTabSeparator: {
     type: String,
-    default: 'border-surface-900-50-token',
+    default: 'border-surface-900-100',
   },
 
   defaultIndex: {
@@ -80,7 +80,7 @@ const isUnstyled = settings.global.unstyled || settings.components.tabs.unstyled
           ? ''
           : `${
               vertical ? '!rounded-br-none !rounded-tr-none' : '!rounded-bl-none !rounded-br-none'
-            } rounded-container-token `
+            } rounded-container `
       } 
       ${classTabs}`"
     >
@@ -99,7 +99,7 @@ const isUnstyled = settings.global.unstyled || settings.components.tabs.unstyled
           ? ''
           : `p-4 ${
               vertical ? '!rounded-bl-none !rounded-tl-none' : '!rounded-tl-none !rounded-tr-none'
-            } rounded-container-token`
+            } rounded-container`
       } ${classPanels}`"
     >
       <slot />

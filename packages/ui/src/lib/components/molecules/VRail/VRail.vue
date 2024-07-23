@@ -7,11 +7,11 @@ const { selectedRailTile } = useRail();
 const props = defineProps({
   active: {
     type: String as () => CssClasses,
-    default: 'variant-filled',
+    default: 'preset-filled',
   },
   hover: {
     type: String as () => CssClasses,
-    default: 'hover:variant-ghost hover:text-surface-900 dark:hover:text-surface-50',
+    default: 'hover:preset-outlined hover:text-surface-900 dark:hover:text-surface-50',
   },
 });
 

@@ -11,11 +11,11 @@ const props = defineProps({
   },
   background: {
     type: String,
-    default: 'bg-surface-200-700-token',
+    default: 'bg-surface-200-800',
   },
   text: {
     type: String,
-    default: 'text-surface-900-50-token',
+    default: 'text-surface-950-50',
   },
   clickable: {
     type: Boolean,
@@ -53,7 +53,7 @@ const isUnstyled = settings.global.unstyled || settings.components.card.unstyled
     @keydown="onKeydown"
     :tabindex="clickable ? 0 : undefined"
     :class="`vuetiful-card flex flex-col ${
-      isUnstyled ? '' : 'border-token rounded-container-token ring-outline-token'
+      isUnstyled ? '' : 'border rounded-container ring overflow-hidden'
     } ${background} ${text} ${clickable ? `${isUnstyled ? '' : 'card-hover'} hover:cursor-pointer` : ''}`"
   >
     <slot />

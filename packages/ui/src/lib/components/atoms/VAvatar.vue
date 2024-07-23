@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { type CssClasses, useSettings } from '@/lib';
-import { sizeProp, unstyledProp, variantProp } from '@/lib/props';
+import { presetProp, sizeProp, unstyledProp } from '@/lib/props';
 import { Size } from '@/lib/types';
 import { computed, ref } from 'vue';
 const props = defineProps({
@@ -16,7 +16,7 @@ const props = defineProps({
   classImage: { type: String, default: '' },
 
   size: sizeProp,
-  variant: variantProp,
+  preset: presetProp,
   unstyled: unstyledProp,
 });
 
@@ -24,7 +24,7 @@ const imgSrc = ref(props.src);
 const fillInitials = computed(() => {
   if (props.fill) return props.fill;
 
-  const variantString = props.variant as string | undefined;
+  const variantString = props.preset as string | undefined;
   const type = variantString?.split('-')[1];
   if (variantString?.includes('filled')) {
     if (!type) return 'fill-white dark:fill-black';
@@ -58,8 +58,8 @@ const isUnstyled =
     :class="`vuetiful-avatar ${
       isUnstyled
         ? ''
-        : 'isolate flex aspect-square items-center justify-center overflow-hidden font-semibold rounded-token'
-    } ${avatarSize} variant-${variant}`"
+        : 'isolate flex aspect-square items-center justify-center overflow-hidden font-semibold rounded'
+    } ${avatarSize} preset-${preset}`"
   >
     <img
       :class="`vuetiful-avatar-image ${classImage}`"

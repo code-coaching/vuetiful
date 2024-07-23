@@ -58,81 +58,90 @@ body,
 /* app global css */
 .q-avatar,
 .q-chip .q-avatar {
-  @apply rounded-token;
+  @apply rounded;
   @apply transition-all;
 }
 
 .q-badge {
-  @apply rounded-token;
+  @apply rounded;
 
   @apply transition-all;
 }
 
 .q-banner {
-  @apply rounded-container-token;
+  @apply rounded-container;
   @apply transition-all;
 }
 
 .q-btn {
-  @apply rounded-token;
+  @apply rounded;
   @apply transition-all;
 }
 
 .q-btn-group {
-  @apply rounded-token;
+  @apply rounded;
   @apply transition-all;
 
   width: fit-content;
 }
 
 .q-btn-dropdown {
-  @apply rounded-token;
+  @apply rounded;
   @apply transition-all;
 }
 
 .q-menu {
-  @apply bg-surface-100-800-token;
-  @apply text-surface-900-50-token;
+  @apply bg-surface-100-900;
+  @apply text-surface-950-50;
 
-  @apply rounded-container-token;
+  @apply rounded-container;
   @apply transition-all;
 }
 
 .q-menu--dark {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0 1px 5px rgba(0, 0, 0, 0.2),
+    0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
 }
 
 .q-card {
-  @apply rounded-container-token;
+  @apply rounded-container;
   @apply transition-all;
 }
 
 /* Overwrite the white shadow with the normal shadow */
 .q-card--dark {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0 1px 5px rgba(0, 0, 0, 0.2),
+    0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
 }
 
 .q-chip {
-  @apply rounded-token;
+  @apply rounded;
   @apply transition-all;
 }
 
 .q-color-picker {
-  @apply rounded-container-token;
+  @apply rounded-container;
   @apply transition-all;
 }
 
 .q-color-picker--dark {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0 1px 5px rgba(0, 0, 0, 0.2),
+    0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
 }
 
 .q-color-picker__header-bg {
-  @apply rounded-tl-container-token;
-  @apply rounded-tr-container-token;
+  @apply rounded-tl-container;
+  @apply rounded-tr-container;
 }
 
 .q-editor {
-  @apply rounded-container-token;
+  @apply rounded-container;
   @apply transition-all;
 }
 
@@ -166,31 +175,31 @@ body,
 * the background and text color need to be set here
 */
 .q-list {
-  @apply bg-surface-100-800-token;
-  @apply text-surface-900-50-token;
+  @apply bg-surface-100-900;
+  @apply text-surface-950-50;
 
-  @apply rounded-container-token;
+  @apply rounded-container;
   @apply transition-all;
 }
 
 .q-list .q-card {
-  @apply bg-surface-100-800-token;
-  @apply text-surface-900-50-token;
+  @apply bg-surface-100-900;
+  @apply text-surface-950-50;
 }
 
 .q-list > .q-expansion-item:first-child .q-focus-helper {
-  @apply rounded-tl-container-token;
-  @apply rounded-tr-container-token;
+  @apply rounded-tl-container;
+  @apply rounded-tr-container;
 }
 
 .q-list > .q-expansion-item:last-child .q-focus-helper {
-  @apply rounded-bl-container-token;
-  @apply rounded-br-container-token;
+  @apply rounded-bl-container;
+  @apply rounded-br-container;
 }
 
 .q-list > .q-expansion-item:last-child .q-card {
-  @apply rounded-bl-container-token;
-  @apply rounded-br-container-token;
+  @apply rounded-bl-container;
+  @apply rounded-br-container;
 }
 
 .q-drawer .q-list {
@@ -199,23 +208,23 @@ body,
 }
 
 .q-input {
-  @apply rounded-container-token;
+  @apply rounded-container;
   @apply transition-all;
 }
 
 .q-field__control::before {
-  @apply rounded-container-token;
+  @apply rounded-container;
 }
 
 .q-field--outlined .q-field__control::after {
-  @apply rounded-container-token;
+  @apply rounded-container;
 }
 
 .q-input,
 .q-select,
 .q-file,
 .q-time {
-  @apply rounded-container-token;
+  @apply rounded-container;
 }
 
 .q-item--dark {
@@ -228,43 +237,49 @@ body,
 }
 
 .q-time {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0 1px 5px rgba(0, 0, 0, 0.2),
+    0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
 
-  @apply bg-surface-100-800-token;
-  @apply text-surface-900-50-token;
+  @apply bg-surface-100-900;
+  @apply text-surface-950-50;
 
-  @apply rounded-tl-container-token;
-  @apply rounded-tr-container-token;
+  @apply rounded-tl-container;
+  @apply rounded-tr-container;
 }
 
 .q-time__header {
-  @apply bg-surface-300-600-token;
-  @apply text-surface-900-50-token;
+  @apply bg-surface-300-700;
+  @apply text-surface-950-50;
 
-  @apply rounded-tl-container-token;
-  @apply rounded-tr-container-token;
+  @apply rounded-tl-container;
+  @apply rounded-tr-container;
 }
 
 .q-time__clock-position--active,
 .q-time__clock-pointer {
-  @apply bg-surface-900-50-token;
-  @apply text-surface-50-900-token;
+  @apply bg-surface-900-100;
+  @apply text-surface-50-950;
 }
 
 .q-date {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0 1px 5px rgba(0, 0, 0, 0.2),
+    0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
 
-  @apply bg-surface-100-800-token;
-  @apply text-surface-900-50-token;
+  @apply bg-surface-100-900;
+  @apply text-surface-950-50;
 
-  @apply rounded-container-token;
+  @apply rounded-container;
 }
 
 .q-date__calendar-item .q-btn {
-  @apply bg-surface-100-800-token;
-  @apply text-surface-900-50-token;
+  @apply bg-surface-100-900;
+  @apply text-surface-950-50;
 
-  @apply rounded-token;
+  @apply rounded;
 }
 
 .q-date__calendar-item .q-btn--unelevated {
@@ -274,14 +289,14 @@ body,
 
 .q-date__navigation .q-btn {
   @apply bg-transparent;
-  @apply text-surface-900-50-token;
+  @apply text-surface-950-50;
 
-  @apply rounded-token;
+  @apply rounded;
 }
 
 .q-date__header {
-  @apply bg-surface-300-600-token;
-  @apply text-surface-900-50-token;
+  @apply bg-surface-300-700;
+  @apply text-surface-950-50;
 }
 
 .q-date__months {

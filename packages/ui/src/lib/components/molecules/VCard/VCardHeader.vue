@@ -23,7 +23,9 @@ const hasImageAsChild = computed(() => {
 const hideSeparator = inject('hideSeparator', false);
 
 const attrs = useAttrs();
+console.log('attrs', attrs);
 const classAttribute = attrs.class as string;
+console.log('classAttribute', classAttribute);
 
 const { settings } = useSettings();
 const isUnstyled =

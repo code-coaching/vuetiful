@@ -8,7 +8,7 @@ describe('VAvatar', () => {
 
     expect(wrapper.classes()).toContain('vuetiful-avatar');
     expect(wrapper.classes()).toContain('w-16');
-    expect(wrapper.classes()).toContain('rounded-token');
+    expect(wrapper.classes()).toContain('rounded');
 
     const avatarText = wrapper.find('.vuetiful-avatar-text');
     expect(avatarText.exists()).toBe(true);
@@ -16,10 +16,10 @@ describe('VAvatar', () => {
     expect(avatarText.classes()).toEqual(['vuetiful-avatar-text', 'fill-white', 'dark:fill-black']);
   });
 
-  test('custom variant', () => {
+  test('custom preset', () => {
     const wrapper = mount(VAvatar, {
       props: {
-        variant: 'ghost',
+        preset: 'outlined',
       },
     });
 
@@ -27,27 +27,27 @@ describe('VAvatar', () => {
     expect(avatarText.classes()).toEqual(['vuetiful-avatar-text', 'fill-black', 'dark:fill-white']);
   });
 
-  test('variant with hyphen', () => {
+  test('preset with hyphen', () => {
     const wrapper = mount(VAvatar, {
       props: {
-        variant: 'filled-primary',
+        preset: 'filled-primary-500',
       },
     });
 
-    expect(wrapper.classes()).toContain('variant-filled-primary');
+    expect(wrapper.classes()).toContain('preset-filled-primary-500');
   });
 
   test('initials', () => {
     const wrapper = mount(VAvatar, {
       props: {
         initials: 'JD',
-        variant: 'filled',
+        preset: 'filled',
       },
     });
 
     expect(wrapper.classes()).toContain('vuetiful-avatar');
     expect(wrapper.classes()).toContain('w-16');
-    expect(wrapper.classes()).toContain('rounded-token');
+    expect(wrapper.classes()).toContain('rounded');
 
     const avatarText = wrapper.find('.vuetiful-avatar-text');
     expect(avatarText.exists()).toBe(true);
@@ -68,7 +68,7 @@ describe('VAvatar', () => {
 
     expect(wrapper.classes()).toContain('vuetiful-avatar');
     expect(wrapper.classes()).toContain('w-16');
-    expect(wrapper.classes()).toContain('rounded-token');
+    expect(wrapper.classes()).toContain('rounded');
 
     const avatarText = wrapper.find('.vuetiful-avatar-text');
     expect(avatarText.exists()).toBe(true);
@@ -85,7 +85,7 @@ describe('VAvatar', () => {
 
     expect(wrapper.classes()).toContain('vuetiful-avatar');
     expect(wrapper.classes()).toContain('w-16');
-    expect(wrapper.classes()).toContain('rounded-token');
+    expect(wrapper.classes()).toContain('rounded');
 
     const avatarText = wrapper.find('.vuetiful-avatar-text');
     expect(avatarText.exists()).toBe(false);
@@ -105,7 +105,7 @@ describe('VAvatar', () => {
 
     expect(wrapper.classes()).toContain('vuetiful-avatar');
     expect(wrapper.classes()).toContain('w-16');
-    expect(wrapper.classes()).toContain('rounded-token');
+    expect(wrapper.classes()).toContain('rounded');
 
     const avatarText = wrapper.find('.vuetiful-avatar-text');
     expect(avatarText.exists()).toBe(false);

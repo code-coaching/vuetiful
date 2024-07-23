@@ -30,10 +30,10 @@ const props = defineProps({
 const { regionBackdrop, regionDrawer, labelledby, describedby } = toRefs(props);
 // prettier-ignore
 const presets = {
-	top: { alignment: 'top-0', width: 'w-full', height: 'h-[50%]', rounded: 'rounded-bl-container-token rounded-br-container-token' },
-	bottom: { alignment: 'bottom-0', width: 'w-full', height: ' h-[50%]', rounded: 'rounded-tl-container-token rounded-tr-container-token' },
-	left: { alignment: 'lef-0', width: 'w-[90%]', height: 'h-full', rounded: 'rounded-tr-container-token rounded-br-container-token' },
-	right: { alignment: 'right-0', width: 'w-[90%]', height: 'h-full', rounded: 'rounded-tl-container-token rounded-bl-container-token' }
+	top: { alignment: 'top-0', width: 'w-full', height: 'h-[50%]', rounded: 'rounded-bl-container rounded-br-container' },
+	bottom: { alignment: 'bottom-0', width: 'w-full', height: ' h-[50%]', rounded: 'rounded-tl-container rounded-tr-container' },
+	left: { alignment: 'lef-0', width: 'w-[90%]', height: 'h-full', rounded: 'rounded-tr-container rounded-br-container' },
+	right: { alignment: 'right-0', width: 'w-[90%]', height: 'h-full', rounded: 'rounded-tl-container rounded-bl-container' }
 };
 const preset = computed(() => {
   const position = drawer.position || 'left';
@@ -65,7 +65,7 @@ onMounted(() => {
     <div
       v-if="drawer.open"
       ref="elemDrawer"
-      :class="`drawer absolute overflow-y-auto shadow-xl transition-transform bg-surface-100-800-token ${preset.width} ${preset.height} ${preset.rounded} ${preset.alignment} z-50 ${regionDrawer}`"
+      :class="`drawer absolute overflow-y-auto shadow-xl transition-transform bg-surface-100-900 ${preset.width} ${preset.height} ${preset.rounded} ${preset.alignment} z-50 ${regionDrawer}`"
       role="dialog"
       aria-modal="true"
       :aria-labelledby="labelledby"
@@ -78,7 +78,7 @@ onMounted(() => {
     <div
       v-if="drawer.open"
       ref="elemBackdrop"
-      :class="`drawer-backdrop backdrop-blur-xs fixed bottom-0 left-0 right-0 top-0 z-40 flex bg-surface-backdrop-token ${regionBackdrop}`"
+      :class="`drawer-backdrop backdrop-blur-xs fixed bottom-0 left-0 right-0 top-0 z-40 flex bg-surface-backdrop ${regionBackdrop}`"
       @mousedown="onBackdropInteraction"
       @touchstart="onBackdropInteraction"
     ></div>

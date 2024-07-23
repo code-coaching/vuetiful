@@ -56,7 +56,7 @@ export default defineComponent({
     },
     rounded: {
       type: String as () => CssClasses,
-      default: 'rounded-token',
+      default: 'rounded',
     },
   },
   setup(props, { attrs }) {

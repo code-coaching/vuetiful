@@ -17,10 +17,10 @@ describe('VListbox', () => {
       classItems: '',
       horizontal: false,
       multiple: false,
-      active: 'variant-filled',
-      hover: 'hover:variant-ghost',
-      background: 'bg-surface-200-700-token',
-      text: 'text-surface-900 dark:text-surface-50',
+      active: 'preset-filled',
+      hover: 'hover:preset-filled-surface-800-200',
+      background: 'bg-surface-200-800',
+      text: '',
       unstyled: false,
       by: undefined,
       display: undefined,
@@ -136,9 +136,7 @@ describe('VListbox', () => {
       expect(listbox.classes()).toEqual(['vuetiful-listbox']);
       expect(listboxItems.classes()).toEqual([
         'z-10',
-        'bg-surface-200-700-token',
-        'text-surface-900',
-        'dark:text-surface-50',
+        'bg-surface-200-800',
         'flex-col',
       ]);
     });

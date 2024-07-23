@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "lib:build": "run-p type-check build-only generate-types",
+    "lib:build": "run-p type-check build-only generate-types && mkdir -p dist/css/overrides && cp -r src/lib/css/overrides/* dist/css/overrides/",
     "build": "vite build --config vite.spa.config.ts --outDir build",
     "preview": "vite preview --outDir build",
     "test:unit": "vitest",
@@ -51,12 +51,11 @@
     "tailwindcss": "^3.4.4",
     "typescript": "~5.1.6",
     "vite": "^4.4.9",
+    "vite-plugin-copy": "^0.1.6",
     "vitest": "^2.0.3",
     "vue-tsc": "^1.8.8"
   },
   "files": [
-    "src/lib",
-    "!src/lib/__tests__",
     "dist"
   ],
   "exports": {
@@ -64,6 +63,7 @@
       "import": "./dist/vuetiful.es.mjs",
       "require": "./dist/vuetiful.umd.js",
       "types": "./dist/types/index.d.ts"
+    },
+    "./css/*": "./dist/css/*"
     }
-  }
 }

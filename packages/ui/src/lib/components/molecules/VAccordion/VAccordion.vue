@@ -5,11 +5,11 @@ import { provide } from 'vue';
 const props = defineProps({
   classQuestion: {
     type: String,
-    default: 'bg-surface-200-700-token hover:variant-soft',
+    default: 'bg-surface-200-800 hover:preset-soft',
   },
   classAnswer: {
     type: String,
-    default: 'bg-surface-200-700-token',
+    default: 'bg-surface-200-800',
   },
 
   unstyled: {

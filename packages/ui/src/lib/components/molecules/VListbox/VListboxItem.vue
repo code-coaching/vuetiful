@@ -28,7 +28,7 @@ const isUnstyled =
   <ListboxOption v-slot="{ selected, disabled, active }" :value="value">
     <div
       data-test="listbox-item"
-      :class="`vuetiful-listbox-item ${isUnstyled ? '' : 'px-4 py-1 text-base rounded-token'} 
+      :class="`vuetiful-listbox-item ${isUnstyled ? '' : 'px-4 py-1 text-base rounded'} 
       ${selected ? activeClass : hoverClass} 
       ${disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}
       ${active && !selected ? hoverClass : ''}

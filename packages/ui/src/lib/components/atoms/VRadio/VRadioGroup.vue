@@ -21,16 +21,16 @@ const props = defineProps({
 
   active: {
     type: String,
-    default: 'variant-filled',
+    default: 'preset-filled',
   },
   hover: {
     type: String,
-    default: 'hover:variant-ghost hover:text-surface-900 dark:hover:text-surface-50',
+    default: 'hover:preset-outlined hover:text-surface-900 dark:hover:text-surface-50',
   },
 
   background: {
     type: String,
-    default: 'bg-surface-200-700-token',
+    default: 'bg-surface-200-800',
   },
   text: {
     type: String,
@@ -79,9 +79,7 @@ l
     :disabled="disabled"
     :by="by"
     :class="`vuetiful-radio-group inline-flex ${
-      isUnstyled
-        ? ''
-        : `gap-1 p-1 border-token border-surface-400-500-token rounded-container-token`
+      isUnstyled ? '' : `gap-1 p-1 border border-surface-400-600 rounded-container`
     } ${background} ${text}`"
     v-model="parentModelValue"
   >

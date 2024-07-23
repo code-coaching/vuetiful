@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useSettings } from '@/lib';
-import { sizeProp, unstyledProp, variantProp } from '@/lib/props';
+import { presetProp, sizeProp, unstyledProp } from '@/lib/props';
 import { computed } from 'vue';
 
 const props = defineProps({
@@ -14,7 +14,7 @@ const props = defineProps({
   },
 
   size: sizeProp,
-  variant: variantProp,
+  preset: presetProp,
   unstyled: unstyledProp,
 });
 const emit = defineEmits<{ (event: 'click'): void }>();
@@ -66,8 +66,8 @@ const isUnstyled =
     role="button"
     :is="tag"
     :class="`vuetiful-button ${
-      isUnstyled ? '' : `${icon ? 'btn-icon' : 'btn'} border-token hover:cursor-pointer`
-    } ${btnSize} variant-${variant}`"
+      isUnstyled ? '' : `${icon ? 'btn-icon' : 'btn'} hover:cursor-pointer`
+    } ${btnSize} preset-${preset}`"
     @click="clickHandler"
     @keydown="keydownHandler"
     @keyup="keyupHandler"

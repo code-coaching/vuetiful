@@ -4,29 +4,29 @@ import { ref } from 'vue';
 const backgrounds: Record<string, string> = {
   'bg-transparent': 'bg-transparent',
   'neutral-opaque': 'bg-white/50 dark:bg-black/50',
-  neutral: 'bg-surface-100-800-token',
+  neutral: 'bg-surface-100-900',
 
-  'variant-filled-surface': 'variant-filled-surface',
-  'variant-filled-primary': 'variant-filled-primary',
-  'variant-filled-secondary': 'variant-filled-secondary',
-  'variant-filled-tertiary': 'variant-filled-tertiary',
-  'variant-filled-success': 'variant-filled-success',
-  'variant-filled-warning': 'variant-filled-warning',
-  'variant-filled-error': 'variant-filled-error',
+  'preset-filled-surface-500': 'preset-filled-surface-500',
+  'preset-filled-primary-500': 'preset-filled-primary-500',
+  'preset-filled-secondary-500': 'preset-filled-secondary-500',
+  'preset-filled-tertiary-500': 'preset-filled-tertiary-500',
+  'preset-filled-success-500': 'preset-filled-success-500',
+  'preset-filled-warning-500': 'preset-filled-warning-500',
+  'preset-filled-error-500': 'preset-filled-error-500',
 
   // TODO: implement gradient backgrounds
-  // 'primary-to-secondary': 'bg-gradient-to-br variant-gradient-primary-secondary',
-  // 'secondary-to-tertiary': 'bg-gradient-to-br variant-gradient-secondary-tertiary',
-  // 'tertiary-to-primary': 'bg-gradient-to-br variant-gradient-tertiary-primary',
-  // 'secondary-to-primary': 'bg-gradient-to-br variant-gradient-secondary-primary',
-  // 'tertiary-to-secondary': 'bg-gradient-to-br variant-gradient-tertiary-secondary',
-  // 'primary-to-tertiary': 'bg-gradient-to-br variant-gradient-primary-tertiary',
-  // 'success-to-warning': 'bg-gradient-to-br variant-gradient-success-warning',
-  // 'warning-to-error': 'bg-gradient-to-br variant-gradient-warning-error',
-  // 'error-to-success': 'bg-gradient-to-br variant-gradient-error-success',
-  // 'warning-to-success': 'bg-gradient-to-br variant-gradient-warning-success',
-  // 'error-to-warning': 'bg-gradient-to-br variant-gradient-error-warning',
-  // 'success-to-error': 'bg-gradient-to-br variant-gradient-success-error',
+  // 'primary-to-secondary': 'bg-gradient-to-br preset-gradient-primary-secondary',
+  // 'secondary-to-tertiary': 'bg-gradient-to-br preset-gradient-secondary-tertiary',
+  // 'tertiary-to-primary': 'bg-gradient-to-br preset-gradient-tertiary-primary',
+  // 'secondary-to-primary': 'bg-gradient-to-br preset-gradient-secondary-primary',
+  // 'tertiary-to-secondary': 'bg-gradient-to-br preset-gradient-tertiary-secondary',
+  // 'primary-to-tertiary': 'bg-gradient-to-br preset-gradient-primary-tertiary',
+  // 'success-to-warning': 'bg-gradient-to-br preset-gradient-success-warning',
+  // 'warning-to-error': 'bg-gradient-to-br preset-gradient-warning-error',
+  // 'error-to-success': 'bg-gradient-to-br preset-gradient-error-success',
+  // 'warning-to-success': 'bg-gradient-to-br preset-gradient-warning-success',
+  // 'error-to-warning': 'bg-gradient-to-br preset-gradient-error-warning',
+  // 'success-to-error': 'bg-gradient-to-br preset-gradient-success-error',
 };
 
 const props = defineProps({
@@ -76,10 +76,10 @@ const toggleSwatches = () => (swatches.value = !swatches.value);
 
 <template>
   <div
-    class="vuetiful-previewer overflow-hidden shadow-2xl shadow-surface-500/10 rounded-container-token dark:shadow-black/10"
+    class="overflow-hidden shadow-2xl vuetiful-previewer shadow-surface-500/10 rounded-container dark:shadow-black/10"
   >
     <header
-      :class="`vuetiful-previewer-header flex items-center justify-between gap-4 p-4 bg-surface-200-700-token ${regionHeader}`"
+      :class="`vuetiful-previewer-header flex items-center justify-between gap-4 p-4 bg-surface-200-800 ${regionHeader}`"
     >
       <div class="flex items-center gap-2">
         <v-radio-group v-model="tabView">
@@ -134,12 +134,12 @@ const toggleSwatches = () => (swatches.value = !swatches.value);
       <v-button
         v-if="!hideSwatches"
         data-test="swatch-button"
-        :variant="swatches ? 'filled' : ''"
-        class="px-4 py-1 border-token border-surface-400-500-token"
+        :preset="swatches ? 'filled' : ''"
+        class="px-4 py-1 border border-surface-400-600"
         :class="
           swatches
             ? ''
-            : 'text-center text-base rounded-token hover:variant-ghost hover:text-surface-900 dark:hover:text-surface-50'
+            : 'text-center text-base rounded hover:bg-surface-200-800 hover:text-surface-900 dark:hover:text-surface-50'
         "
         @click="toggleSwatches"
         title="Backgrounds"
@@ -159,7 +159,7 @@ const toggleSwatches = () => (swatches.value = !swatches.value);
     <v-radio-group
       v-if="swatches"
       data-test="swatches"
-      :class="`vuetiful-previewer-swatches variant-soft grid grid-cols-6 gap-2 !rounded-none p-4 sm:grid-cols-12`"
+      :class="`vuetiful-previewer-swatches bg-surface-200-800 grid grid-cols-6 gap-2 !rounded-none p-4 sm:grid-cols-12`"
       active="bg-transparent"
       hover="bg-transparent"
       v-model="chosenBackground"
@@ -210,7 +210,7 @@ const toggleSwatches = () => (swatches.value = !swatches.value);
       </div>
       <footer
         v-if="$slots.footer"
-        :class="`vuetiful-previewer-footer variant-soft p-4 ${regionFooter}`"
+        :class="`vuetiful-previewer-footer bg-surface-200-800 p-4 ${regionFooter}`"
       >
         <slot name="footer" />
       </footer>

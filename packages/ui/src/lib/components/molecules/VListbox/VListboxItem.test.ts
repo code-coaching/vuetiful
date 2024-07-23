@@ -34,8 +34,8 @@ describe('VListboxItem props', () => {
       'px-4',
       'py-1',
       'text-base',
-      'rounded-token',
-      'variant-filled',
+      'rounded',
+      'preset-filled',
       'cursor-pointer',
     ]);
     expect(normalItem.classes()).toEqual([
@@ -43,8 +43,8 @@ describe('VListboxItem props', () => {
       'px-4',
       'py-1',
       'text-base',
-      'rounded-token',
-      'hover:variant-ghost',
+      'rounded',
+      'hover:preset-filled-surface-800-200',
       'cursor-pointer',
     ]);
   });

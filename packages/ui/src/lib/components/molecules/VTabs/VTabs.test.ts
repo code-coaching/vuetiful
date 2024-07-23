@@ -40,7 +40,7 @@ describe('VTabs', () => {
       'flex',
       '!rounded-bl-none',
       '!rounded-br-none',
-      'rounded-container-token',
+      'rounded-container',
     ]);
     expect(tabList.classes()).not.toContain('flex-col');
 
@@ -50,7 +50,7 @@ describe('VTabs', () => {
       'p-4',
       '!rounded-tl-none',
       '!rounded-tr-none',
-      'rounded-container-token',
+      'rounded-container',
     ]);
   });
 
@@ -77,7 +77,7 @@ describe('VTabs', () => {
       'flex-col',
       '!rounded-br-none',
       '!rounded-tr-none',
-      'rounded-container-token',
+      'rounded-container',
     ]);
 
     const tabPanels = wrapper.find("[data-test='vuetiful-tab-panels']");
@@ -86,7 +86,7 @@ describe('VTabs', () => {
       'p-4',
       '!rounded-bl-none',
       '!rounded-tl-none',
-      'rounded-container-token',
+      'rounded-container',
     ]);
   });
 });

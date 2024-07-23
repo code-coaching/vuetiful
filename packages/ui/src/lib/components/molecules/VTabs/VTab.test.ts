@@ -24,7 +24,7 @@ describe('VTab', () => {
     expect(slotContainer.classes()).toEqual([
       'vuetiful-tab-content',
       'text-base',
-      'rounded-token',
+      'rounded',
       'w-full',
       'px-4',
       'py-2',
@@ -67,7 +67,12 @@ describe('VTab', () => {
 
     const vuetiful = wrapper.find("[data-test='vuetiful']");
     const slotContainer = vuetiful.find("[data-test='slot-container']");
-    expect(slotContainer.classes()).toEqual(['vuetiful-tab-content', 'text-base', 'rounded-token', 'my-custom-class']);
+    expect(slotContainer.classes()).toEqual([
+      'vuetiful-tab-content',
+      'text-base',
+      'rounded',
+      'my-custom-class',
+    ]);
   });
 
   test('hover/active', async () => {
@@ -87,14 +92,18 @@ describe('VTab', () => {
       },
     });
 
-    const vuetifulSlotContainer = wrapper.find("[data-test='vuetiful']").find("[data-test='slot-container']");
+    const vuetifulSlotContainer = wrapper
+      .find("[data-test='vuetiful']")
+      .find("[data-test='slot-container']");
     const isSlotContainer = wrapper.find("[data-test='is']").find("[data-test='slot-container']");
-    const beautifulSlotContainer = wrapper.find("[data-test='beautiful']").find("[data-test='slot-container']");
+    const beautifulSlotContainer = wrapper
+      .find("[data-test='beautiful']")
+      .find("[data-test='slot-container']");
 
     expect(vuetifulSlotContainer.classes()).toEqual([
       'vuetiful-tab-content',
       'text-base',
-      'rounded-token',
+      'rounded',
       'my-custom-active-class',
       'w-full',
       'px-4',
@@ -103,8 +112,8 @@ describe('VTab', () => {
     expect(isSlotContainer.classes()).toEqual([
       'vuetiful-tab-content',
       'text-base',
-      'rounded-token',
-      'hover:variant-ghost',
+      'rounded',
+      'hover:preset-outlined-surface-500',
       'w-full',
       'px-4',
       'py-2',
@@ -112,8 +121,8 @@ describe('VTab', () => {
     expect(beautifulSlotContainer.classes()).toEqual([
       'vuetiful-tab-content',
       'text-base',
-      'rounded-token',
-      'hover:variant-ghost',
+      'rounded',
+      'hover:preset-outlined-surface-500',
       'w-full',
       'px-4',
       'py-2',
@@ -138,6 +147,6 @@ describe('VTab', () => {
     const vuetiful = wrapper.find("[data-test='vuetiful']");
     const slotContainer = vuetiful.find("[data-test='slot-container']");
     expect(vuetiful.classes()).toEqual(['vuetiful-tab', 'flex', 'flex-col']);
-    expect(slotContainer.classes()).not.toContain('rounded-token');
+    expect(slotContainer.classes()).not.toContain('rounded');
   });
 });

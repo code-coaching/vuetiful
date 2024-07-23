@@ -41,8 +41,8 @@ describe('VRadioItem slot states', () => {
       });
 
       const itemEl = wrapper.find("[data-test='item']").find('div');
-      expect(itemEl.element.classList.contains('variant-filled')).toBe(true);
-      expect(itemEl.element.classList.contains('hover:variant-ghost')).toBe(false);
+      expect(itemEl.element.classList.contains('preset-filled')).toBe(true);
+      expect(itemEl.element.classList.contains('hover:preset-outlined')).toBe(false);
     });
 
     test('should have the default hover class', () => {
@@ -63,8 +63,8 @@ describe('VRadioItem slot states', () => {
       });
 
       const itemEl = wrapper.find("[data-test='item']").find('div');
-      expect(itemEl.element.classList.contains('variant-filled')).toBe(false);
-      expect(itemEl.element.classList.contains('hover:variant-ghost')).toBe(true);
+      expect(itemEl.element.classList.contains('preset-filled')).toBe(false);
+      expect(itemEl.element.classList.contains('hover:preset-outlined')).toBe(true);
     });
   });
   describe('given v-slot checked is true', () => {

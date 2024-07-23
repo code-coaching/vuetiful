@@ -24,7 +24,7 @@ const isUnstyled = settings.global.unstyled || settings.components.listbox.unsty
     v-slot="{ open }"
     :as="as"
     :class="`vuetiful-listbox-button ${
-      isUnstyled ? 'flex' : 'variant-filled btn flex w-full justify-between active:scale-[100%]'
+      isUnstyled ? 'flex' : 'preset-filled btn flex w-full justify-between active:scale-[100%]'
     }`"
   >
     <slot />

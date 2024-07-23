@@ -27,7 +27,7 @@ const isUnstyled =
   <Disclosure class="vuetiful-accordion-item" as="div" v-slot="{ open }">
     <DisclosureButton
       :class="`${isUnstyled ? '' : `${open ? '!rounded-bl-none !rounded-br-none' : ''}`}
-      ${isUnstyled ? '' : 'items-center justify-between p-4 py-2 rounded-container-token hover:cursor-pointer'}
+      ${isUnstyled ? '' : 'items-center justify-between p-4 py-2 rounded-container hover:cursor-pointer'}
       ${classQuestion}`"
       class="vuetiful-accordion-item-button flex w-full"
     >
@@ -62,7 +62,7 @@ const isUnstyled =
     <DisclosurePanel
       class="vuetiful-accordion-item-panel"
       :class="`${open ? `${isUnstyled ? '' : '!rounded-tl-none !rounded-tr-none'}` : ''} ${
-        isUnstyled ? '' : 'p-4 py-2 rounded-container-token'
+        isUnstyled ? '' : 'p-4 py-2 rounded-container'
       } ${classAnswer}`"
     >
       <slot></slot>

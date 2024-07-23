@@ -54,20 +54,20 @@ const props = defineProps({
 
   active: {
     type: String,
-    default: 'variant-filled',
+    default: 'preset-filled',
   },
   hover: {
     type: String,
-    default: 'hover:variant-ghost',
+    default: 'hover:preset-filled-surface-800-200',
   },
 
   background: {
     type: String,
-    default: 'bg-surface-200-700-token',
+    default: 'bg-surface-200-800',
   },
   text: {
     type: String,
-    default: 'text-surface-900 dark:text-surface-50',
+    default: '',
   },
 
   unstyled: unstyledProp,
@@ -121,7 +121,7 @@ const isUnstyled =
     as="div"
     :by="by"
     :multiple="multiple"
-    :class="`vuetiful-listbox ${isUnstyled ? '' : 'relative rounded-container-token'}`"
+    :class="`vuetiful-listbox ${isUnstyled ? '' : 'relative rounded-container'}`"
     v-model="parentModelValue"
   >
     <v-listbox-label v-if="textLabel" :class="classLabel">{{ textLabel }}</v-listbox-label>

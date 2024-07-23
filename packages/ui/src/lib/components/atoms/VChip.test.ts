@@ -22,12 +22,12 @@ describe('VChip', () => {
     expect(wrapper.classes()).not.toContain('chip');
   });
 
-  test('variant', () => {
+  test('preset', () => {
     const wrapper = mount({
-      template: `<v-chip variant="primary">John Duck</v-chip>`,
+      template: `<v-chip preset="primary">John Duck</v-chip>`,
       components: { VChip },
     });
 
-    expect(wrapper.classes()).toContain('variant-primary');
+    expect(wrapper.classes()).toContain('preset-primary');
   });
 });

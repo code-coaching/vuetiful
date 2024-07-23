@@ -84,7 +84,7 @@ const isUnstyled =
 <template v-if="language && code">
   <div
     :class="`vuetiful-code-block code-block ${
-      isUnstyled ? '' : 'max-w-full bg-[#171717] text-sm text-white shadow rounded-container-token'
+      isUnstyled ? '' : 'max-w-full bg-[#171717] text-sm text-white shadow rounded-container'
     }`"
   >
     <header

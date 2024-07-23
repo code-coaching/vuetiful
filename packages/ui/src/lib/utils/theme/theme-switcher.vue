@@ -5,11 +5,11 @@ import { ref } from 'vue';
 defineProps({
   background: {
     type: String as () => CssClasses,
-    default: 'bg-surface-50-900-token',
+    default: 'bg-surface-50-950',
   },
   text: {
     type: String as () => CssClasses,
-    default: 'text-surface-900-50-token',
+    default: 'text-surface-950-50',
   },
 
   widthPopup: {
@@ -42,7 +42,10 @@ const showPopup = ref(false);
 
 <template>
   <div class="vuetiful-theme-switcher">
-    <v-button :class="`vuetiful-theme-switcher__button ${classButton}`" @click="showPopup = !showPopup">
+    <v-button
+      :class="`vuetiful-theme-switcher__button ${classButton}`"
+      @click="showPopup = !showPopup"
+    >
       Theme
     </v-button>
 
@@ -52,7 +55,7 @@ const showPopup = ref(false);
         elementsInGroup: ['.vuetiful-theme-switcher__button'],
         callback: () => (showPopup = false),
       }"
-      class="absolute z-10 p-4 mt-1 space-y-4 shadow-xl vuetiful-theme-switcher__popup rounded-container-token"
+      class="absolute z-10 p-4 mt-1 space-y-4 shadow-xl vuetiful-theme-switcher__popup rounded-container"
       :class="`${background} ${text} ${widthPopup} ${classList}`"
     >
       <section class="flex items-center justify-between">
@@ -66,7 +69,7 @@ const showPopup = ref(false);
         <v-button
           class="w-full h-full p-2 text-center capitalize vuetiful-theme-switcher__popup-list-item hover:cursor-pointer"
           v-for="(theme, index) in themes"
-          :class="`${classListItem} ${chosenTheme.name === theme.name ? 'variant-filled-surface' : ''}`"
+          :class="`${classListItem} ${chosenTheme.name === theme.name ? 'preset-filled-surface-500' : ''}`"
           :key="index"
           @click="applyTheme(theme)"
         >

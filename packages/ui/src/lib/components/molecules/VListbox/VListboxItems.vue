@@ -33,9 +33,7 @@ const isUnstyled =
     :as="as"
     :static="static"
     :class="`z-10 ${
-      isUnstyled
-        ? ''
-        : `rounded-container-token' gap-1 p-4 border-token border-surface-400-500-token`
+      isUnstyled ? '' : `rounded-container gap-1 p-4 border border-surface-400-600`
     } ${background} ${text} ${horizontal ? 'flex' : 'flex-col'} ${classItems}`"
     data-test="listbox-items"
   >

@@ -1,62 +1,46 @@
 <script setup lang="ts">
-import { Variant } from '@/lib/types';
+import { Preset } from '@/lib/types';
 import { type PropType } from 'vue';
 
 /**
  * VBoostrap is a component that should not be used directly.
- * It is used to make sure that the variant-classes are bundled with the application.
- * This allows us to use `variant-${variant}` in the template.
+ * It is used to make sure that the preset-classes are bundled with the application.
+ * This allows us to use `preset-${preset}` in the template.
  *
- * In the future it might be a good idea to just add .filled, .ringed, etc. as alternatives for .variant-filled, .variant-ringed, etc. and remove this component.
+ * In the future it might be a good idea to just add .filled, .ringed, etc. as alternatives for .preset-filled, .preset-ringed, etc. and remove this component.
  */
 
 defineProps({
-  variant: {
+  preset: {
     // explicit string union because TypeScript type won't throw error if invalid value is passed
     type: String as PropType<
       | ''
-      | 'variant-filled'
-      | 'variant-filled-primary'
-      | 'variant-filled-secondary'
-      | 'variant-filled-tertiary'
-      | 'variant-filled-success'
-      | 'variant-filled-warning'
-      | 'variant-filled-error'
-      | 'variant-filled-surface'
-      | 'variant-ringed'
-      | 'variant-ringed-primary'
-      | 'variant-ringed-secondary'
-      | 'variant-ringed-tertiary'
-      | 'variant-ringed-success'
-      | 'variant-ringed-warning'
-      | 'variant-ringed-error'
-      | 'variant-ringed-surface'
-      | 'variant-ghost'
-      | 'variant-ghost-primary'
-      | 'variant-ghost-secondary'
-      | 'variant-ghost-tertiary'
-      | 'variant-ghost-success'
-      | 'variant-ghost-warning'
-      | 'variant-ghost-error'
-      | 'variant-ghost-surface'
-      | 'variant-soft'
-      | 'variant-soft-primary'
-      | 'variant-soft-secondary'
-      | 'variant-soft-tertiary'
-      | 'variant-soft-success'
-      | 'variant-soft-warning'
-      | 'variant-soft-error'
-      | 'variant-soft-surface'
-      | 'variant-glass'
-      | 'variant-glass-primary'
-      | 'variant-glass-secondary'
-      | 'variant-glass-tertiary'
-      | 'variant-glass-success'
-      | 'variant-glass-warning'
-      | 'variant-glass-error'
-      | 'variant-glass-surface'
+      | 'preset-filled'
+      | 'preset-filled-primary-500'
+      | 'preset-filled-secondary-500'
+      | 'preset-filled-tertiary-500'
+      | 'preset-filled-success-500'
+      | 'preset-filled-warning-500'
+      | 'preset-filled-error-500'
+      | 'preset-filled-surface-500'
+      | 'preset-tonal'
+      | 'preset-tonal-primary-500'
+      | 'preset-tonal-secondary-500'
+      | 'preset-tonal-tertiary-500'
+      | 'preset-tonal-success-500'
+      | 'preset-tonal-warning-500'
+      | 'preset-tonal-error-500'
+      | 'preset-tonal-surface-500'
+      | 'preset-outlined'
+      | 'preset-outlined-primary-500'
+      | 'preset-outlined-secondary-500'
+      | 'preset-outlined-tertiary-500'
+      | 'preset-outlined-success-500'
+      | 'preset-outlined-warning-500'
+      | 'preset-outlined-error-500'
+      | 'preset-outlined-surface-500'
     >,
-    default: Variant.Filled,
+    default: Preset.Filled,
   },
 });
 </script>
