@@ -148,7 +148,7 @@ const unstyledCustomTemplate = '<v-chip unstyled preset="" class="p-1 text-white
           </template>
           <template v-slot:source>
             <v-code-block class="mb-2" language="html" :code="unstyledPropTemplate" />
-            <p>Set <code>preset</code> to an empty string to have no prop-based styles.</p>
+            <p>Set <code class="code">preset</code> to an empty string to have no prop-based styles.</p>
           </template>
         </v-preview>
       </section>

@@ -5,6 +5,7 @@
 <script setup lang="ts">
 // import { type Mode, useDarkMode } from '@code-coaching/vuetiful';
 // import '@code-coaching/vuetiful/styles/all.css';
+import '@code-coaching/vuetiful/css/style.css';
 import '@code-coaching/vuetiful/css/overrides/quasar.css';
 // import { useQuasar } from 'quasar';
 // import { onMounted, watch } from 'vue';

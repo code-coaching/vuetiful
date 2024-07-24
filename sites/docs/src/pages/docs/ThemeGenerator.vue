@@ -610,13 +610,13 @@ const lastColor = computed(() => {
 
         <section class="section">
           <p>The theme can be copied from the bottom of this page.</p>
-          <p>Save your theme to a file and import it in your project. e.g. <code>src/css/custom-theme.css</code></p>
+          <p>Save your theme to a file and import it in your project. e.g. <code class="code">src/css/custom-theme.css</code></p>
           <p>Keep in mind to remove the import of other themes.</p>
           <div class="flex flex-col gap-4">
             <v-code-block :code="importExample" language="ts" />
 
             <div class="flex flex-col">
-              <p>Remember to update the parameter of <code>changeDataTheme</code>.</p>
+              <p>Remember to update the parameter of <code class="code">changeDataTheme</code>.</p>
               <v-code-block
                 :code="`
 // changeDataTheme(&quot;vuetiful&quot;); // adds data-theme=&quot;vuetiful&quot; to the <body> tag

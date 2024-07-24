@@ -2,7 +2,10 @@
 import { type CssClasses, VButton, useSettings, vClipboard } from '@/lib';
 import { unstyledProp } from '@/lib/props';
 import { useHighlight } from '@/lib/services';
-import 'highlight.js/styles/github-dark.css';
+/**
+ * A consumer of Vuetiful needs to add highlight.js as dependency and import a style
+ */
+// import 'highlight.js/styles/github-dark.css';
 import { ref } from 'vue';
 const { highlight } = useHighlight();
 
@@ -111,9 +114,9 @@ const isUnstyled =
       </v-button>
     </header>
     <pre
-      :class="`vuetiful-code-block-pre ${isUnstyled ? '' : '!rounded-t-none bg-transparent p-4 !pt-0'} ${
+      :class="`vuetiful-code-block-pre pre ${isUnstyled ? '' : '!rounded-t-none bg-transparent p-4 !pt-0'} ${
         preventOverflow ? 'whitespace-pre-wrap break-all' : 'overflow-auto'
       } ${classPre}`"
-    ><code :class="`vuetiful-code-block-code language-${language} ${classCode}`" v-html="highlight(code, language)"></code></pre>
+    ><code :class="`vuetiful-code-block-code code language-${language} ${classCode}`" v-html="highlight(code, language)"></code></pre>
   </div>
 </template>

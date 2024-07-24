@@ -11,8 +11,8 @@
     </p>
 
     <p>
-      Intensity <code>500</code> is the default color. The higher the intensity, the darker the color. The lower the
-      intensity, the lighter the color.
+      Intensity <code class="code">500</code> is the default color. The higher the intensity, the darker the color. The
+      lower the intensity, the lighter the color.
     </p>
   </section>
   <section class="section">
@@ -20,37 +20,37 @@
     <div class="flex flex-col gap-2">
       <div class="flex">
         <a target="_blank" class="w-28" href="https://tailwindcss.com/docs/background-color">Background</a>
-        <code>bg-primary-500</code>
+        <code class="code">bg-primary-500</code>
       </div>
 
       <div class="flex">
         <a target="_blank" class="w-28" href="https://tailwindcss.com/docs/text-color">Text</a>
-        <code>text-primary-500</code>
+        <code class="code">text-primary-500</code>
       </div>
 
       <div class="flex">
         <a target="_blank" class="w-28" href="https://tailwindcss.com/docs/border-color">Border</a>
-        <code>border-primary-500</code>
+        <code class="code">border-primary-500</code>
       </div>
 
       <div class="flex">
         <a target="_blank" class="w-28" href="https://tailwindcss.com/docs/outline-color">Outline</a>
-        <code>outline-primary-500</code>
+        <code class="code">outline-primary-500</code>
       </div>
 
       <div class="flex">
         <a target="_blank" class="w-28" href="https://tailwindcss.com/docs/ring-color">Ring</a>
-        <code>ring-primary-900</code>
+        <code class="code">ring-primary-900</code>
       </div>
 
       <div class="flex">
         <a target="_blank" class="w-28" href="https://tailwindcss.com/docs/ring-offset-color">Ring Offset</a>
-        <code>ring-offset-primary-900</code>
+        <code class="code">ring-offset-primary-900</code>
       </div>
 
       <div class="flex">
         <a target="_blank" class="w-28" href="https://tailwindcss.com/docs/divide-color">Divide</a>
-        <code>divide-primary-900</code>
+        <code class="code">divide-primary-900</code>
       </div>
     </div>
   </section>

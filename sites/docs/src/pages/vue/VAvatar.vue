@@ -77,14 +77,16 @@ const unstyledCustomTemplate = '';
             <v-code-block class="mb-2" language="html" :code="usage" />
             <v-code-block class="mb-2" language="css" :code="usageCss" />
             <p>
-              Passing a <code>src</code> will render an image. If the image fails to load, the
-              <code>fallback</code> will be used.
+              Passing a <code class="code">src</code> will render an image. If the image fails to load, the
+              <code class="code">fallback</code> will be used.
             </p>
-            <p>Passing an empty string to <code>rounded</code> will remove the theme based rounded corners.</p>
             <p>
-              Passing any class to the <code>fill</code> property will apply this class to the initials. Note that by
-              default the component tries to automatically take a readable color, if this is not the case, do apply a
-              custom color.
+              Passing an empty string to <code class="code">rounded</code> will remove the theme based rounded corners.
+            </p>
+            <p>
+              Passing any class to the <code class="code">fill</code> property will apply this class to the initials.
+              Note that by default the component tries to automatically take a readable color, if this is not the case,
+              do apply a custom color.
             </p>
           </template>
         </v-preview>
@@ -177,7 +179,7 @@ const unstyledCustomTemplate = '';
           </template>
           <template v-slot:source>
             <v-code-block class="mb-2" language="html" :code="unstyledPropTemplate" />
-            <p>Set <code>preset</code> to an empty string to have no prop-based styles.</p>
+            <p>Set <code class="code">preset</code> to an empty string to have no prop-based styles.</p>
           </template>
         </v-preview>
       </section>
@@ -190,10 +192,10 @@ const unstyledCustomTemplate = '';
           </template>
           <template v-slot:source>
             <v-code-block class="mb-2" language="html" :code="unstyledCustomTemplate" />
-            <p>Set <code>type</code> to an empty string to have no prop-based styles.</p>
-            <p><code>class</code> will add classes to the alert.</p>
-            <p><code>class-pre</code> will add classes to the pre slot.</p>
-            <p><code>class-close</code> will add classes to the close button.</p>
+            <p>Set <code class="code">type</code> to an empty string to have no prop-based styles.</p>
+            <p><code class="code">class</code> will add classes to the alert.</p>
+            <p><code class="code">class-pre</code> will add classes to the pre slot.</p>
+            <p><code class="code">class-close</code> will add classes to the close button.</p>
           </template>
         </v-preview>
       </section>

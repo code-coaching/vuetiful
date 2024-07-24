@@ -288,8 +288,13 @@ const unstyledCustomTemplate = '';
       <section class="section">
         <h3 class="h3">Keyboard Interaction</h3>
         <section>
-          <p><kbd>Tab</kbd> and <kbd>Shift + Tab</kbd>: Move focus onto and away from the card.</p>
-          <p><kbd>Enter</kbd> and <kbd>Space</kbd>: Execute the <code>@click</code> event handler.</p>
+          <p>
+            <kbd class="kbd">Tab</kbd> and <kbd class="kbd">Shift + Tab</kbd>: Move focus onto and away from the card.
+          </p>
+          <p>
+            <kbd class="kbd">Enter</kbd> and <kbd class="kbd">Space</kbd>: Execute the
+            <code class="code">@click</code> event handler.
+          </p>
         </section>
       </section>
 
@@ -327,7 +332,7 @@ const unstyledCustomTemplate = '';
           <template v-slot:source>
             <v-code-block class="mb-2" language="ts" :code="a11yScript" />
             <v-code-block class="mb-2" language="html" :code="a11yTemplate" />
-            Having the prop <code>clickable</code> present adds an hover effect.
+            Having the prop <code class="code">clickable</code> present adds an hover effect.
           </template>
         </v-preview>
       </section>
@@ -452,7 +457,7 @@ const unstyledCustomTemplate = '';
           </template>
           <template v-slot:source>
             <v-code-block class="mb-2" language="html" :code="unstyledPropTemplate" />
-            <p>Set <code>preset</code> to an empty string to have no prop-based styles.</p>
+            <p>Set <code class="code">preset</code> to an empty string to have no prop-based styles.</p>
           </template>
         </v-preview>
       </section>

@@ -102,8 +102,11 @@ const unstyledCustomTemplate = `<v-accordion
 
       <h2 class="h2">Accessibility</h2>
       <section class="section">
-        <p><kbd>Tab</kbd> and <kbd>Shift + Tab</kbd>: Move focus onto and away from the accordion item.</p>
-        <p><kbd>Space</kbd> and <kbd>Enter</kbd>: Toggle open/close the accordion item.</p>
+        <p>
+          <kbd class="kbd">Tab</kbd> and <kbd class="kbd">Shift + Tab</kbd>: Move focus onto and away from the accordion
+          item.
+        </p>
+        <p><kbd class="kbd">Space</kbd> and <kbd class="kbd">Enter</kbd>: Toggle open/close the accordion item.</p>
       </section>
 
       <h2 class="h2">Customization</h2>
@@ -125,17 +128,19 @@ const unstyledCustomTemplate = `<v-accordion
             <v-code-block class="mb-2" language="ts" :code="faqScript" />
             <v-code-block class="mb-2" language="html" :code="customTemplate" />
             <p>
-              <code>class-question</code> will be appended to the <code>class</code> property of each invidivual tab's
-              question. This can be one or multiple classes. This can be both normal CSS classes or Tailwind classes.
+              <code class="code">class-question</code> will be appended to the <code class="code">class</code> property
+              of each invidivual tab's question. This can be one or multiple classes. This can be both normal CSS
+              classes or Tailwind classes.
             </p>
             <p>
-              <code>class-answer</code> will be appended to the <code>class</code> property of each invidivual tab's
-              answer. This can be one or multiple classes. This can be both normal CSS classes or Tailwind classes.
+              <code class="code">class-answer</code> will be appended to the <code class="code">class</code> property of
+              each invidivual tab's answer. This can be one or multiple classes. This can be both normal CSS classes or
+              Tailwind classes.
             </p>
             <p>
-              <code>open-item</code> and <code>close-item</code> are slots that can be used to customize the open and
-              close content. These slots are optional. By default, the open slot will display a plus icon and the close
-              slot will display a minus icon.
+              <code class="code">open-item</code> and <code class="code">close-item</code> are slots that can be used to
+              customize the open and close content. These slots are optional. By default, the open slot will display a
+              plus icon and the close slot will display a minus icon.
             </p>
           </template>
         </v-preview>
@@ -176,8 +181,8 @@ const unstyledCustomTemplate = `<v-accordion
             <v-code-block class="mb-2" language="ts" :code="faqScript" />
             <v-code-block class="mb-2" language="html" :code="unstyledPropTemplate" />
             <p>
-              Overwrite <code>class-question</code> and <code>class-answer</code> with empty strings to remove all prop
-              based styles.
+              Overwrite <code class="code">class-question</code> and <code class="code">class-answer</code> with empty
+              strings to remove all prop based styles.
             </p>
           </template>
         </v-preview>
@@ -202,12 +207,14 @@ const unstyledCustomTemplate = `<v-accordion
             <v-code-block class="mb-2" language="ts" :code="faqScript" />
             <v-code-block class="mb-2" language="html" :code="unstyledCustomTemplate" />
             <p>
-              <code>class-question</code> will be appended to the <code>class</code> property of each invidivual tab's
-              question. This can be one or multiple classes. This can be both normal CSS classes or Tailwind classes.
+              <code class="code">class-question</code> will be appended to the <code class="code">class</code> property
+              of each invidivual tab's question. This can be one or multiple classes. This can be both normal CSS
+              classes or Tailwind classes.
             </p>
             <p>
-              <code>class-answer</code> will be appended to the <code>class</code> property of each invidivual tab's
-              answer. This can be one or multiple classes. This can be both normal CSS classes or Tailwind classes.
+              <code class="code">class-answer</code> will be appended to the <code class="code">class</code> property of
+              each invidivual tab's answer. This can be one or multiple classes. This can be both normal CSS classes or
+              Tailwind classes.
             </p>
           </template>
         </v-preview>

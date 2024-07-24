@@ -57,8 +57,10 @@ const unstyledCustomTemplate = '';
       <section class="section">
         <h3 class="h3">Keyboard Interaction</h3>
         <section class="section">
-          <p><kbd>Tab</kbd> and <kbd>Shift + Tab</kbd>: Move focus to and from button.</p>
-          <p><kbd>Space</kbd> and <kbd>Enter</kbd>: Execute the action coupled to the button.</p>
+          <p><kbd class="kbd">Tab</kbd> and <kbd class="kbd">Shift + Tab</kbd>: Move focus to and from button.</p>
+          <p>
+            <kbd class="kbd">Space</kbd> and <kbd class="kbd">Enter</kbd>: Execute the action coupled to the button.
+          </p>
         </section>
 
         <h3 class="h3">Label</h3>
@@ -71,7 +73,7 @@ const unstyledCustomTemplate = '';
             <p>
               By default the accessibility label is the same as the button text. If you want to change the accessibility
               label, you can use the
-              <code>aria-label</code> attribute.
+              <code class="code">aria-label</code> attribute.
             </p>
           </template>
         </v-preview>
@@ -188,7 +190,7 @@ const unstyledCustomTemplate = '';
           </template>
           <template v-slot:source>
             <v-code-block class="mb-2" language="html" :code="unstyledPropTemplate" />
-            <p>Set <code>preset</code> to an empty string to have no prop-based styles.</p>
+            <p>Set <code class="code">preset</code> to an empty string to have no prop-based styles.</p>
           </template>
         </v-preview>
       </section>

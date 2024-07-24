@@ -125,8 +125,8 @@ const unstyledCustomTemplate = `<v-switch
       <section class="section">
         <h3 class="h3">Keyboard Interaction</h3>
         <section class="section">
-          <p><kbd>Tab</kbd>: Move focus to the next focusable element.</p>
-          <p><kbd>Space</kbd>: Switches the toggle to the opposite state.</p>
+          <p><kbd class="kbd">Tab</kbd>: Move focus to the next focusable element.</p>
+          <p><kbd class="kbd">Space</kbd>: Switches the toggle to the opposite state.</p>
           <br />
           <p>All relevant ARIA attributes are automatically managed.</p>
         </section>
@@ -139,10 +139,10 @@ const unstyledCustomTemplate = `<v-switch
             </template>
             <template v-slot:source>
               <v-code-block class="mb-2" language="html" :code="labelTemplate" />
-              <p>The text inside the <code>v-switch</code> tag is only visible to screen readers.</p>
+              <p>The text inside the <code class="code">v-switch</code> tag is only visible to screen readers.</p>
               <p>
-                When not using an explicit label (<code>v-switch-label</code>), do add text to the
-                <code>v-switch</code> tag for accessibility.
+                When not using an explicit label (<code class="code">v-switch-label</code>), do add text to the
+                <code class="code">v-switch</code> tag for accessibility.
               </p>
             </template>
           </v-preview>
@@ -390,7 +390,8 @@ const unstyledCustomTemplate = `<v-switch
               <v-code-block language="html" :code="unstyledPropTemplate" />
             </div>
             <p>
-              Set <code>class-thumb</code> and <code>class-track</code> to an empty string to have no prop-based styles.
+              Set <code class="code">class-thumb</code> and <code class="code">class-track</code> to an empty string to
+              have no prop-based styles.
             </p>
             <p>This example adds a border to the thumb and track, otherwise they would be invisible.</p>
           </template>

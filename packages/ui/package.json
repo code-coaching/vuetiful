@@ -64,6 +64,7 @@
       "require": "./dist/vuetiful.umd.js",
       "types": "./dist/types/index.d.ts"
     },
-    "./css/*": "./dist/css/*"
+    "./css/*": "./dist/css/*",
+    "./css/style.css": "./dist/style.css"
     }
 }

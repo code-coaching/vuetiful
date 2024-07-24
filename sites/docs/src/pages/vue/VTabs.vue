@@ -298,7 +298,7 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
           </template>
           <template v-slot:source>
             <v-code-block class="mb-2" language="html" :code="basicVerticalTemplate" />
-            <p><code>vertical</code> will place the tabs into a vertical orientation.</p>
+            <p><code class="code">vertical</code> will place the tabs into a vertical orientation.</p>
           </template>
         </v-preview>
       </section>
@@ -307,17 +307,26 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
       <section class="section">
         <h3 class="h3">Keyboard Interaction</h3>
         <section class="section">
-          <p><kbd>Tab</kbd> and <kbd>Shift + Tab</kbd>: Move focus onto and away from the active tab.</p>
+          <p>
+            <kbd class="kbd">Tab</kbd> and <kbd class="kbd">Shift + Tab</kbd>: Move focus onto and away from the active
+            tab.
+          </p>
           <p class="mt-2">Horizontal tabs:</p>
-          <p><kbd>Left Arrow</kbd> and <kbd>Right Arrow</kbd>: Moves focus to previous and next tab.</p>
+          <p>
+            <kbd class="kbd">Left Arrow</kbd> and <kbd class="kbd">Right Arrow</kbd>: Moves focus to previous and next
+            tab.
+          </p>
           <p class="mt-2">Vertical tabs:</p>
-          <p><kbd>Up Arrow</kbd> and <kbd>Down Arrow</kbd>: Moves focus to previous and next tab.</p>
+          <p>
+            <kbd class="kbd">Up Arrow</kbd> and <kbd class="kbd">Down Arrow</kbd>: Moves focus to previous and next tab.
+          </p>
         </section>
         <section class="section">
           <p>
-            <code>v-tab</code> and <code>v-tab-panel</code> are automatically connected by their position. This means
-            that the first <code>v-tab</code> will be connected to the first <code>v-tab-panel</code>, the second
-            <code>v-tab</code> to the second <code>v-tab-panel</code>, etc.
+            <code class="code">v-tab</code> and <code class="code">v-tab-panel</code> are automatically connected by
+            their position. This means that the first <code class="code">v-tab</code> will be connected to the first
+            <code class="code">v-tab-panel</code>, the second <code class="code">v-tab</code> to the second
+            <code class="code">v-tab-panel</code>, etc.
           </p>
         </section>
       </section>
@@ -364,8 +373,9 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
           <template v-slot:source>
             <v-code-block class="mb-2" language="html" :code="exampleOneTemplate" />
             <p>
-              <code>class-panels</code> will be appended to the <code>class</code> property of the panels element. This
-              can be one or multiple classes. This can be both normal CSS classes or Tailwind classes.
+              <code class="code">class-panels</code> will be appended to the <code class="code">class</code> property of
+              the panels element. This can be one or multiple classes. This can be both normal CSS classes or Tailwind
+              classes.
             </p>
           </template>
         </v-preview>
@@ -412,12 +422,14 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
           <template v-slot:source>
             <v-code-block class="mb-2" language="html" :code="exampleTwoTemplate" />
             <p>
-              <code>class-tabs</code> will be appended to the <code>class</code> property of the tabs element. This can
-              be one or multiple classes. This can be both normal CSS classes or Tailwind classes.
+              <code class="code">class-tabs</code> will be appended to the <code class="code">class</code> property of
+              the tabs element. This can be one or multiple classes. This can be both normal CSS classes or Tailwind
+              classes.
             </p>
             <p>
-              <code>class-panels</code> will be appended to the <code>class</code> property of the panels element. This
-              can be one or multiple classes. This can be both normal CSS classes or Tailwind classes.
+              <code class="code">class-panels</code> will be appended to the <code class="code">class</code> property of
+              the panels element. This can be one or multiple classes. This can be both normal CSS classes or Tailwind
+              classes.
             </p>
           </template>
         </v-preview>
@@ -463,14 +475,16 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
           </template>
           <template v-slot:source>
             <v-code-block class="mb-2" language="html" :code="exampleThreeTemplate" />
-            <p><code>vertical</code> will place the tabs into a vertical orientation.</p>
+            <p><code class="code">vertical</code> will place the tabs into a vertical orientation.</p>
             <p>
-              <code>class-panels</code> will be appended to the <code>class</code> property of the panels element. This
-              can be one or multiple classes. This can be both normal CSS classes or Tailwind classes.
+              <code class="code">class-panels</code> will be appended to the <code class="code">class</code> property of
+              the panels element. This can be one or multiple classes. This can be both normal CSS classes or Tailwind
+              classes.
             </p>
             <p>
-              <code>class-tab</code> will be appended to the <code>class</code> property of each individual tab. This
-              can be one or multiple classes. This can be both normal CSS classes or Tailwind classes.
+              <code class="code">class-tab</code> will be appended to the <code class="code">class</code> property of
+              each individual tab. This can be one or multiple classes. This can be both normal CSS classes or Tailwind
+              classes.
             </p>
           </template>
         </v-preview>
@@ -521,18 +535,21 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
           </template>
           <template v-slot:source>
             <v-code-block class="mb-2" language="html" :code="exampleFourTemplate" />
-            <p><code>vertical</code> will place the tabs into a vertical orientation.</p>
+            <p><code class="code">vertical</code> will place the tabs into a vertical orientation.</p>
             <p>
-              <code>class-tabs</code> will be appended to the <code>class</code> property of the tabs element. This can
-              be one or multiple classes. This can be both normal CSS classes or Tailwind classes.
+              <code class="code">class-tabs</code> will be appended to the <code class="code">class</code> property of
+              the tabs element. This can be one or multiple classes. This can be both normal CSS classes or Tailwind
+              classes.
             </p>
             <p>
-              <code>class-panels</code> will be appended to the <code>class</code> property of the panels element. This
-              can be one or multiple classes. This can be both normal CSS classes or Tailwind classes.
+              <code class="code">class-panels</code> will be appended to the <code class="code">class</code> property of
+              the panels element. This can be one or multiple classes. This can be both normal CSS classes or Tailwind
+              classes.
             </p>
             <p>
-              <code>class-tab</code> will be appended to the <code>class</code> property of each individual tab. This
-              can be one or multiple classes. This can be both normal CSS classes or Tailwind classes.
+              <code class="code">class-tab</code> will be appended to the <code class="code">class</code> property of
+              each individual tab. This can be one or multiple classes. This can be both normal CSS classes or Tailwind
+              classes.
             </p>
           </template>
         </v-preview>
@@ -578,16 +595,16 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
           </template>
           <template v-slot:source>
             <v-code-block class="mb-2" language="html" :code="exampleFiveTemplate" />
-            <p><code>hide-separator</code> will hide the separator between the tabs and the tab panels.</p>
+            <p><code class="code">hide-separator</code> will hide the separator between the tabs and the tab panels.</p>
             <p>
-              <code>active</code> will be appended to the <code>class</code> property of each invidivual tab. This can
-              be one or multiple classes. This can be both normal CSS classes or Tailwind classes. This property is
-              automatically applied to the active tab.
+              <code class="code">active</code> will be appended to the <code class="code">class</code> property of each
+              invidivual tab. This can be one or multiple classes. This can be both normal CSS classes or Tailwind
+              classes. This property is automatically applied to the active tab.
             </p>
             <p>
-              <code>hover</code> will be appended to the <code>class</code> property of each invidivual tab. This can be
-              one or multiple classes. This can be both normal CSS classes or Tailwind classes. This property is
-              automatically applied to the inactive tabs.
+              <code class="code">hover</code> will be appended to the <code class="code">class</code> property of each
+              invidivual tab. This can be one or multiple classes. This can be both normal CSS classes or Tailwind
+              classes. This property is automatically applied to the inactive tabs.
             </p>
           </template>
         </v-preview>
@@ -636,8 +653,8 @@ const unstyledCustomTemplate = /*html*/ `<v-tabs
           <template v-slot:source>
             <v-code-block class="mb-2" language="html" :code="unstyledPropTemplate" />
             <p>
-              Set <code>hover</code> to an empty string and add <code>hide-separator</code> to have no prop-based
-              styles.
+              Set <code class="code">hover</code> to an empty string and add <code class="code">hide-separator</code> to
+              have no prop-based styles.
             </p>
           </template>
         </v-preview>

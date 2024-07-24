@@ -250,10 +250,22 @@ const unstyledCustomTemplate = `<v-radio-group
       <section class="section">
         <h3 class="h3">Keyboard Interaction</h3>
         <section>
-          <p><kbd>Tab</kbd> and <kbd>Shift + Tab</kbd>: Move focus into and out of the radio group.</p>
-          <p><kbd>Space</kbd> and <kbd>Enter</kbd>: Checks the focused radio button if it is not already checked.</p>
-          <p><kbd>Right Arrow</kbd> and <kbd>Down Arrow</kbd>: Select the next radio button in the group.</p>
-          <p><kbd>Left Arrow</kbd> and <kbd>Up Arrow</kbd>: Select the previous radio button in the group.</p>
+          <p>
+            <kbd class="kbd">Tab</kbd> and <kbd class="kbd">Shift + Tab</kbd>: Move focus into and out of the radio
+            group.
+          </p>
+          <p>
+            <kbd class="kbd">Space</kbd> and <kbd class="kbd">Enter</kbd>: Checks the focused radio button if it is not
+            already checked.
+          </p>
+          <p>
+            <kbd class="kbd">Right Arrow</kbd> and <kbd class="kbd">Down Arrow</kbd>: Select the next radio button in
+            the group.
+          </p>
+          <p>
+            <kbd class="kbd">Left Arrow</kbd> and <kbd class="kbd">Up Arrow</kbd>: Select the previous radio button in
+            the group.
+          </p>
         </section>
       </section>
       <section class="section">

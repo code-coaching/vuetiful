@@ -113,6 +113,9 @@ importers:
       axios:
         specifier: ^0.21.1
         version: 0.21.4
+      highlight.js:
+        specifier: ^11.10.0
+        version: 11.10.0
       quasar:
         specifier: ^2.6.0
         version: 2.16.6

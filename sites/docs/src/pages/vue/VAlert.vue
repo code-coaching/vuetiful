@@ -105,8 +105,10 @@ const handleCloseAction = () => {
 
       <h2 class="h2">Accessibility</h2>
       <section class="section">
-        <p><kbd>Tab</kbd> and <kbd>Shift + Tab</kbd>: Move focus onto and away from the alert.</p>
-        <p><kbd>Space</kbd> and <kbd>Enter</kbd>: Close the alert.</p>
+        <p>
+          <kbd class="kbd">Tab</kbd> and <kbd class="kbd">Shift + Tab</kbd>: Move focus onto and away from the alert.
+        </p>
+        <p><kbd class="kbd">Space</kbd> and <kbd class="kbd">Enter</kbd>: Close the alert.</p>
       </section>
 
       <h2 class="h2">Customization</h2>
@@ -125,8 +127,8 @@ const handleCloseAction = () => {
           <template v-slot:source>
             <v-code-block class="mb-2" language="ts" :code="customScript" />
             <v-code-block class="mb-2" language="html" :code="customTemplate" />
-            <p><code>hide-icon</code> will hide the icon in the alert.</p>
-            <p><code>show-close</code> will show the close button in the alert.</p>
+            <p><code class="code">hide-icon</code> will hide the icon in the alert.</p>
+            <p><code class="code">show-close</code> will show the close button in the alert.</p>
           </template>
         </v-preview>
       </section>
@@ -156,8 +158,10 @@ const handleCloseAction = () => {
           <template v-slot:source>
             <v-code-block class="mb-2" language="ts" :code="customSlotsScript" />
             <v-code-block class="mb-2" language="html" :code="customSlotsTemplate" />
-            <p><code>v-slot:pre</code> will override the default content (icon).</p>
-            <p><code>v-slot:actions</code> will add content to the actions slot (before the close button).</p>
+            <p><code class="code">v-slot:pre</code> will override the default content (icon).</p>
+            <p>
+              <code class="code">v-slot:actions</code> will add content to the actions slot (before the close button).
+            </p>
           </template>
         </v-preview>
       </section>
@@ -191,7 +195,7 @@ const handleCloseAction = () => {
           </template>
           <template v-slot:source>
             <v-code-block class="mb-2" language="html" :code="unstyledPropTemplate" />
-            <p>Set <code>type</code> to an empty string to have no prop-based styles.</p>
+            <p>Set <code class="code">type</code> to an empty string to have no prop-based styles.</p>
           </template>
         </v-preview>
       </section>
@@ -222,10 +226,10 @@ const handleCloseAction = () => {
           </template>
           <template v-slot:source>
             <v-code-block class="mb-2" language="html" :code="unstyledCustomTemplate" />
-            <p>Set <code>type</code> to an empty string to have no prop-based styles.</p>
-            <p><code>class</code> will add classes to the alert.</p>
-            <p><code>class-pre</code> will add classes to the pre slot.</p>
-            <p><code>class-close</code> will add classes to the close button.</p>
+            <p>Set <code class="code">type</code> to an empty string to have no prop-based styles.</p>
+            <p><code class="code">class</code> will add classes to the alert.</p>
+            <p><code class="code">class-pre</code> will add classes to the pre slot.</p>
+            <p><code class="code">class-close</code> will add classes to the close button.</p>
           </template>
         </v-preview>
       </section>

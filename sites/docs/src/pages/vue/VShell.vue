@@ -45,11 +45,14 @@ const codeExample = computed(() => {
           <div class="flex flex-col gap-4">
             <div>
               <p>
-                The <code>page</code> is a scrollable area. The page exists out of the <code>pageHeader</code>,
-                <code>(default slot)</code> and <code>pageFooter</code>.
+                The <code class="code">page</code> is a scrollable area. The page exists out of the
+                <code class="code">pageHeader</code>, <code class="code">(default slot)</code> and
+                <code class="code">pageFooter</code>.
               </p>
 
-              <p>Both <code>sidebarLeft</code> and <code>sidebarRight</code> are scrollable.</p>
+              <p>
+                Both <code class="code">sidebarLeft</code> and <code class="code">sidebarRight</code> are scrollable.
+              </p>
             </div>
             <div class="flex h-[576px] flex-col items-center justify-center gap-2 md:h-[576px]">
               <v-shell class="max-w-3xl p-1 card">

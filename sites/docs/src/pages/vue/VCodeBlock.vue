@@ -74,7 +74,7 @@ const sourceTemplateOverflowExample = `<div class="flex flex-col max-w-full gap-
 
   <div class="flex flex-col gap-1">
     <v-code-block prevent-overflow class="!max-w-[500px]" language="html" :code="withoutOverflowExample" />
-    <div>Without overflow - Add <code>prevent-overflow</code> prop</div>
+    <div>Without overflow - Add <code class="code">prevent-overflow</code> prop</div>
   </div>
 </div>`;
 
@@ -221,7 +221,7 @@ const mascot: Mascot = {
 
               <div class="flex flex-col gap-1">
                 <v-code-block prevent-overflow class="!max-w-[500px]" language="html" :code="withoutOverflowExample" />
-                <div>Without overflow - Add <code>prevent-overflow</code> prop</div>
+                <div>Without overflow - Add <code class="code">prevent-overflow</code> prop</div>
               </div>
             </div>
           </template>
@@ -247,8 +247,8 @@ const mascot: Mascot = {
                 :code="copyButtonExample"
               />
               <div>
-                The text to copy and the copied text can be customized with the <code>button-text</code> and
-                <code>button-copied-text</code> props.
+                The text to copy and the copied text can be customized with the
+                <code class="code">button-text</code> and <code class="code">button-copied-text</code> props.
               </div>
             </div>
           </template>

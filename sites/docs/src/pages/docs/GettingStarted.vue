@@ -281,7 +281,7 @@ module.exports = {
   <section class="section">
     <p class="mb-4">
       In case you are using pnpm or yarn instead of npm, you will need to create/add the following to
-      <code>prettier.config.js</code>.
+      <code class="code">prettier.config.js</code>.
     </p>
     <v-code-block
       language="js"
@@ -313,7 +313,8 @@ module.exports = {
       <h3 class="h3">PostCSS config</h3>
       <section class="section">
         <p class="mb-4">
-          Create a <code>postcss.config.cjs</code> file in the root of your project, add the following content:
+          Create a <code class="code">postcss.config.cjs</code> file in the root of your project, add the following
+          content:
         </p>
 
         <v-code-block
@@ -379,9 +380,9 @@ module.exports = {
         <section class="section">
           <v-code-block language="js" :code="exampleQuasarConfig" />
           <div class="mt-2">
-            There are two things to change in <code>quasar.config.js</code>:
+            There are two things to change in <code class="code">quasar.config.js</code>:
             <ul>
-              <li>- remove <code>app.css</code> from the css array</li>
+              <li>- remove <code class="code">app.css</code> from the css array</li>
               <li>- extendViteConf to dedupe Vue</li>
             </ul>
           </div>

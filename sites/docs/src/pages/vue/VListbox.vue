@@ -123,7 +123,7 @@ const unstyledCustomTemplate = `<v-listbox
           </template>
           <template v-slot:footer>
             <p class="flex items-center justify-center">
-              <code>{{ choice ? choice : 'undefined' }}</code>
+              <code class="code">{{ choice ? choice : 'undefined' }}</code>
             </p>
           </template>
         </v-preview>
@@ -144,12 +144,12 @@ const unstyledCustomTemplate = `<v-listbox
           <template v-slot:source>
             <v-code-block class="mb-2" language="ts" :code="objectScript" />
             <v-code-block class="mb-2" language="html" :code="objectTemplate" />
-            <p><code>by</code> is the property of the object to use as the value.</p>
-            <p><code>display</code> is the property of the object to display in the listbox button.</p>
+            <p><code class="code">by</code> is the property of the object to use as the value.</p>
+            <p><code class="code">display</code> is the property of the object to display in the listbox button.</p>
           </template>
           <template v-slot:footer>
             <p class="flex items-center justify-center">
-              <code>{{ choiceObject ? choiceObject : 'undefined' }}</code>
+              <code class="code">{{ choiceObject ? choiceObject : 'undefined' }}</code>
             </p>
           </template>
         </v-preview>
@@ -170,12 +170,12 @@ const unstyledCustomTemplate = `<v-listbox
           <template v-slot:source>
             <v-code-block class="mb-2" language="ts" :code="multipleScript" />
             <v-code-block class="mb-2" language="html" :code="multipleTemplate" />
-            <p><code>multiple</code> allows for multiple selections.</p>
-            <p>Pass an array to <code>v-model</code> to get the selected values.</p>
+            <p><code class="code">multiple</code> allows for multiple selections.</p>
+            <p>Pass an array to <code class="code">v-model</code> to get the selected values.</p>
           </template>
           <template v-slot:footer>
             <p class="flex items-center justify-center">
-              <code>{{ choiceMultiple }}</code>
+              <code class="code">{{ choiceMultiple }}</code>
             </p>
           </template>
         </v-preview>
@@ -185,12 +185,18 @@ const unstyledCustomTemplate = `<v-listbox
       <section class="section">
         <h3 class="h3">Keyboard Interaction</h3>
         <section class="section">
-          <p><kbd>Tab</kbd> and <kbd>Shift + Tab</kbd>: Move focus onto and away from the listbox button.</p>
-          <p><kbd>Space</kbd> and <kbd>Enter</kbd>: Opens the listbox.</p>
+          <p>
+            <kbd class="kbd">Tab</kbd> and <kbd class="kbd">Shift + Tab</kbd>: Move focus onto and away from the listbox
+            button.
+          </p>
+          <p><kbd class="kbd">Space</kbd> and <kbd class="kbd">Enter</kbd>: Opens the listbox.</p>
           <p class="mt-2">With the listbox open:</p>
-          <p><kbd>Escape</kbd>: Closes the listbox.</p>
-          <p><kbd>Up Arrow</kbd> and <kbd>Down Arrow</kbd>: Moves focus up and down the listbox items.</p>
-          <p><kbd>Space</kbd> and <kbd>Enter</kbd>: Selects the focused item.</p>
+          <p><kbd class="kbd">Escape</kbd>: Closes the listbox.</p>
+          <p>
+            <kbd class="kbd">Up Arrow</kbd> and <kbd class="kbd">Down Arrow</kbd>: Moves focus up and down the listbox
+            items.
+          </p>
+          <p><kbd class="kbd">Space</kbd> and <kbd class="kbd">Enter</kbd>: Selects the focused item.</p>
         </section>
         <section>
           <v-preview>
@@ -207,10 +213,10 @@ const unstyledCustomTemplate = `<v-listbox
               <v-code-block class="mb-2" language="ts" :code="a11yScript" />
               <v-code-block class="mb-2" language="html" :code="a11yTemplate" />
               <p>By default the text of the button is used as a label.</p>
-              <p>Use <code>text-label</code> to provide an explicit label.</p>
+              <p>Use <code class="code">text-label</code> to provide an explicit label.</p>
               <p>
-                Add <code>class="sr-only"</code> to the label to hide it visually. This will make sure screen readers
-                still read the label.
+                Add <code class="code">class="sr-only"</code> to the label to hide it visually. This will make sure
+                screen readers still read the label.
               </p>
             </template>
           </v-preview>
@@ -262,7 +268,7 @@ const unstyledCustomTemplate = `<v-listbox
           </template>
           <template v-slot:source>
             <v-code-block class="mb-2" language="html" :code="unstyledPropTemplate" />
-            <p>Set <code>preset</code> to an empty string to have no prop-based styles.</p>
+            <p>Set <code class="code">preset</code> to an empty string to have no prop-based styles.</p>
           </template>
         </v-preview>
       </section>

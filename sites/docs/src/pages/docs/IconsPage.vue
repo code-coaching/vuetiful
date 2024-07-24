@@ -91,15 +91,18 @@ const quasarQIcon = `<v-button icon class="preset-filled">
   <section class="section">
     <section class="section">
       <p class="mb-4">
-        Download the <code>Free For Web</code> version of Font Awesome from
+        Download the <code class="code">Free For Web</code> version of Font Awesome from
         <a href="https://fontawesome.com/download">Font Awesome</a>. Add the following file structure to a public
-        folder. The <code>css</code>, <code>ttf</code> and <code>woff2</code> files are copied over from the download.
+        folder. The <code class="code">css</code>, <code class="code">ttf</code> and
+        <code class="code">woff2</code> files are copied over from the download.
       </p>
       <v-code-block language="bash" :code="fileStructure" />
     </section>
 
     <section>
-      <p class="mb-4">Add the css files to the <code>head</code> of your <code>index.html</code> file.</p>
+      <p class="mb-4">
+        Add the css files to the <code class="code">head</code> of your <code class="code">index.html</code> file.
+      </p>
       <v-code-block class="mb-2" language="html" :code="indexHtml" />
       <v-alert type="info">Make sure to point towards the correct paths.</v-alert>
     </section>
