@@ -36,7 +36,7 @@ const defaultExample = `<div class="font-bold">default</div>
 </v-radio-group>`;
 
 const a11yValue = ref('basic');
-const a11yExample = `<div class="font-bold">Example using <code>v-radio-label</code> and <code>v-radio-description</code></div>
+const a11yExample = `<div class="font-bold">Example using <code class="code">v-radio-label</code> and <code class="code">v-radio-description</code></div>
 <v-radio-group v-model="a11yValue">
 <v-radio-label class="sr-only">Label for v-radio-group only visible to screen readers</v-radio-label>
   <v-radio-item disabled value="free" class="flex flex-col">
@@ -90,7 +90,7 @@ const filledBgExample = computed(
 </v-radio-group>`,
 );
 
-const ringedExample = computed(
+const tonalExample = computed(
   () => `<div class="font-bold">${option.value}</div>
 <v-radio-group active="preset-tonal-${option.value}" v-model="radioValue">
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
@@ -98,7 +98,7 @@ const ringedExample = computed(
   <v-radio-item value="beautiful">Beautiful</v-radio-item>
 </v-radio-group>`,
 );
-const ringedBgExample = computed(
+const tonalBgExample = computed(
   () => `<div class="font-bold">${option.value}</div>
 <v-radio-group
   background="bg-${option.value}-100-900"
@@ -112,7 +112,7 @@ const ringedBgExample = computed(
 </v-radio-group>`,
 );
 
-const ghostExample = computed(
+const outlinedExample = computed(
   () => `<div class="font-bold">${option.value}</div>
 <v-radio-group active="preset-outlined-${option.value}" hover="hover:preset-soft-surface" v-model="radioValue">
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
@@ -120,60 +120,11 @@ const ghostExample = computed(
   <v-radio-item value="beautiful">Beautiful</v-radio-item>
 </v-radio-group>`,
 );
-const ghostBgExample = computed(
+const outlinedBgExample = computed(
   () => `<v-radio-group
   background="bg-${option.value}-100-900"
   active="preset-outline-${option.value}"
   hover="hover:preset-soft-${option.value}"
-  v-model="radioValue"
->
-  <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-  <v-radio-item value="is">Is</v-radio-item>
-  <v-radio-item value="beautiful">Beautiful</v-radio-item>
-</v-radio-group>`,
-);
-
-const softExample = computed(
-  () => `<div class="font-bold">${option.value}</div>
-<v-radio-group active="preset-soft-${option.value}" v-model="radioValue">
-  <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-  <v-radio-item value="is">Is</v-radio-item>
-  <v-radio-item value="beautiful">Beautiful</v-radio-item>
-</v-radio-group>`,
-);
-const softBgExample = computed(
-  () => `<div class="font-bold">${option.value}</div>
-<v-radio-group
-  background="bg-${option.value}-100-900"
-  active="preset-glass-${option.value}"
-  hover="hover:preset-outline-${option.value}"
-  v-model="radioValue"
->
-  <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-  <v-radio-item value="is">Is</v-radio-item>
-  <v-radio-item value="beautiful">Beautiful</v-radio-item>
-</v-radio-group>
-`,
-);
-
-const glassExample = computed(
-  () => `<div class="font-bold">${option.value}</div>
-<v-radio-group
-  background="preset-glass-surface"
-  active="preset-glass-${option.value}"
-  v-model="radioValue"
->
-  <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
-  <v-radio-item value="is">Is</v-radio-item>
-  <v-radio-item value="beautiful">Beautiful</v-radio-item>
-</v-radio-group>`,
-);
-const glassBgExample = computed(
-  () => `<div class="font-bold">${option.value}</div>
-<v-radio-group
-  background="preset-glass-${option.value}"
-  active="preset-glass-${option.value}"
-  hover="hover:preset-outline-${option.value}"
   v-model="radioValue"
 >
   <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
@@ -258,7 +209,7 @@ const unstyledCustomTemplate = `<v-radio-group
           </template>
           <template v-slot:footer>
             <p class="flex items-center justify-center">
-              <code>{{ radioValue }}</code>
+              <code class="code">{{ radioValue }}</code>
             </p>
           </template>
         </v-preview>
@@ -284,12 +235,12 @@ const unstyledCustomTemplate = `<v-radio-group
               :code="`const radioValue = ref({ id: ${radioObjectValue.id}, name: ${radioObjectValue.name} });`"
             />
             <v-code-block class="mb-2" language="html" :code="objectExample" />
-            The <code>by</code> attribute on the <code>v-radio-group</code> contains the value of the property to filter
-            by.
+            The <code class="code">by</code> attribute on the <code class="code">v-radio-group</code> contains the value
+            of the property to filter by.
           </template>
           <template v-slot:footer>
             <p class="flex items-center justify-center">
-              <code>{{ radioObjectValue }}</code>
+              <code class="code">{{ radioObjectValue }}</code>
             </p>
           </template>
         </v-preview>
@@ -309,7 +260,9 @@ const unstyledCustomTemplate = `<v-radio-group
         <v-preview>
           <template v-slot:preview>
             <div>
-              <div class="font-bold">Example using <code>v-radio-label</code> and <code>v-radio-description</code></div>
+              <div class="font-bold">
+                Example using <code class="code">v-radio-label</code> and <code class="code">v-radio-description</code>
+              </div>
               <div>
                 <v-radio-group v-model="a11yValue">
                   <v-radio-label class="sr-only">Label for v-radio-group only visible to screen readers</v-radio-label>
@@ -338,29 +291,32 @@ const unstyledCustomTemplate = `<v-radio-group
           <template v-slot:source>
             <v-code-block class="mb-2" language="ts" :code="`const radioValue = ref('${a11yValue}');`" />
             <v-code-block class="mb-2" language="html" :code="a11yExample" />
-            <p>Adding <code>disabled</code> to a <code>v-radio-item</code> will disable the radio button.</p>
             <p>
-              Using <code>v-radio-label</code> and <code>v-radio-description</code> is optional, but recommended for
-              accessibility.
+              Adding <code class="code">disabled</code> to a <code class="code">v-radio-item</code> will disable the
+              radio button.
             </p>
             <p>
-              A <code>v-radio-label</code> will automatically generate the id for the label and the
-              <code>aria-labbeledby</code> attribute for the closest <code>v-radio-item</code> or
-              <code>v-radio-group</code> parent.
+              Using <code class="code">v-radio-label</code> and <code class="code">v-radio-description</code> is
+              optional, but recommended for accessibility.
             </p>
             <p>
-              A <code>v-radio-description</code> will automatically generate the id for the description and the
-              <code>aria-describedby</code> attribute for the closest <code>v-radio-item</code> or
-              <code>v-radio-group</code> parent.
+              A <code class="code">v-radio-label</code> will automatically generate the id for the label and the
+              <code class="code">aria-labbeledby</code> attribute for the closest
+              <code class="code">v-radio-item</code> or <code class="code">v-radio-group</code> parent.
             </p>
             <p>
-              Add <code>class="sr-only"</code> on the <code>v-radio-label</code> to hide the label visually, but still
-              make it available to screen readers.
+              A <code class="code">v-radio-description</code> will automatically generate the id for the description and
+              the <code class="code">aria-describedby</code> attribute for the closest
+              <code class="code">v-radio-item</code> or <code class="code">v-radio-group</code> parent.
+            </p>
+            <p>
+              Add <code class="code">class="sr-only"</code> on the <code class="code">v-radio-label</code> to hide the
+              label visually, but still make it available to screen readers.
             </p>
           </template>
           <template v-slot:footer>
             <p class="flex items-center justify-center">
-              <code>{{ a11yValue }}</code>
+              <code class="code">{{ a11yValue }}</code>
             </p>
           </template>
         </v-preview>
@@ -599,11 +555,7 @@ const unstyledCustomTemplate = `<v-radio-group
               <div class="flex flex-wrap gap-2">
                 <div>
                   <div class="font-bold">surface</div>
-                  <v-radio-group
-                    active="preset-tonal-surface"
-                    v-model="radioValue"
-                    @click="() => (option = 'surface')"
-                  >
+                  <v-radio-group active="preset-tonal-surface" v-model="radioValue" @click="() => (option = 'surface')">
                     <v-radio-item value="vuetiful">Vuetiful</v-radio-item>
                     <v-radio-item value="is">Is</v-radio-item>
                     <v-radio-item value="beautiful">Beautiful</v-radio-item>
@@ -676,7 +628,7 @@ const unstyledCustomTemplate = `<v-radio-group
             <template v-slot:source>
               <div class="flex flex-col gap-4">
                 <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
-                <v-code-block language="html" :code="ringedExample" />
+                <v-code-block language="html" :code="tonalExample" />
               </div>
             </template>
           </v-preview>
@@ -794,7 +746,7 @@ const unstyledCustomTemplate = `<v-radio-group
             <template v-slot:source>
               <div class="flex flex-col gap-4">
                 <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
-                <v-code-block language="html" :code="ringedBgExample" />
+                <v-code-block language="html" :code="tonalBgExample" />
               </div>
             </template>
           </v-preview>
@@ -907,7 +859,7 @@ const unstyledCustomTemplate = `<v-radio-group
             <template v-slot:source>
               <div class="flex flex-col gap-4">
                 <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
-                <v-code-block language="html" :code="ghostExample" />
+                <v-code-block language="html" :code="outlinedExample" />
               </div>
             </template>
           </v-preview>
@@ -1025,7 +977,7 @@ const unstyledCustomTemplate = `<v-radio-group
             <template v-slot:source>
               <div class="flex flex-col gap-4">
                 <v-code-block language="ts" :code="`const radioValue = ref('${radioValue}');`" />
-                <v-code-block language="html" :code="ghostBgExample" />
+                <v-code-block language="html" :code="outlinedBgExample" />
               </div>
             </template>
           </v-preview>
@@ -1071,13 +1023,14 @@ const unstyledCustomTemplate = `<v-radio-group
               <v-code-block language="html" :code="unstyledPropTemplate" />
             </div>
             <p>
-              Set <code>background</code>, <code>text</code>, <code>hover</code> and <code>active</code> to an empty
-              string to have no prop-based styles.
+              Set <code class="code">background</code>, <code class="code">text</code>,
+              <code class="code">hover</code> and <code class="code">active</code> to an empty string to have no
+              prop-based styles.
             </p>
           </template>
           <template v-slot:footer>
             <p class="flex items-center justify-center">
-              <code>{{ radioValue }}</code>
+              <code class="code">{{ radioValue }}</code>
             </p>
           </template>
         </v-preview>
