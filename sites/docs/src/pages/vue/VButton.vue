@@ -18,15 +18,6 @@ const filled = `<v-button preset="filled">Default</v-button>
 <v-button preset="filled-warning-500">Warning</v-button>
 <v-button preset="filled-error-500">Error</v-button>`;
 
-const glass = `<v-button preset="glass text-white/75">Default</v-button>
-<v-button preset="glass-surface text-white/75">Surface</v-button>
-<v-button preset="glass-primary text-white/75">Primary</v-button>
-<v-button preset="glass-secondary text-white/75">Secondary</v-button>
-<v-button preset="glass-tertiary text-white/75">Tertiary</v-button>
-<v-button preset="glass-success text-white/75">Success</v-button>
-<v-button preset="glass-warning text-white/75">Warning</v-button>
-<v-button preset="glass-error text-white/75">Error</v-button>`;
-
 const tonal = `<v-button preset="tonal">Default</v-button>
 <v-button preset="tonal-surface">Surface</v-button>
 <v-button preset="tonal-primary">Primary</v-button>
@@ -44,15 +35,6 @@ const outlined = `<v-button preset="outlined">Default</v-button>
 <v-button preset="outlined-success">Success</v-button>
 <v-button preset="outlined-warning">Warning</v-button>
 <v-button preset="outlined-error">Error</v-button>`;
-
-const soft = `<v-button preset="soft">Default</v-button>
-<v-button preset="soft-surface">Surface</v-button>
-<v-button preset="soft-primary">Primary</v-button>
-<v-button preset="soft-secondary">Secondary</v-button>
-<v-button preset="soft-tertiary">Tertiary</v-button>
-<v-button preset="soft-success">Success</v-button>
-<v-button preset="soft-warning">Warning</v-button>
-<v-button preset="soft-error">Error</v-button>`;
 
 const unstyledTemplate = '';
 const unstyledPropTemplate = '';
