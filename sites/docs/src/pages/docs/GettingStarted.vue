@@ -329,7 +329,7 @@ module.exports = {
       </section>
 
       <h3 class="h3">main.ts</h3>
-      <section class="section flex flex-col gap-2">
+      <section class="flex flex-col gap-2 section">
         <v-code-block class="mb-2" language="ts" :code="exampleVueMain" />
         <v-alert type="info">
           <v-badge preset="filled-surface-500">@code-coaching/vuetiful/styles/all.css</v-badge> must be imported before
@@ -339,7 +339,7 @@ module.exports = {
           Visit the
           <v-radio-group unstyled hover="transparant" active="transparant" class="p-2">
             <side-bar-link
-              class="w-40 min-w-full justify-start px-2 py-1"
+              class="justify-start w-40 min-w-full px-2 py-1"
               :route-name="ROUTE_NAMES.DOCS.THEME_GENERATOR"
               :link="ROUTE_NAMES.DOCS.THEME_GENERATOR"
             >

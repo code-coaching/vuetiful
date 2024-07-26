@@ -229,41 +229,5 @@ describe('useTheme', () => {
       const body = html.includes('data-theme="vuetiful"');
       expect(body).toBe(true);
     });
-
-    test('no customBase, no customHeadings, no gradients, no custom css', async () => {
-      const { useTheme } = await import('./theme.service');
-      const { applyThemeSSR, themes } = useTheme();
-
-      const theme = JSON.parse(JSON.stringify(themes[0]));
-      theme.fonts.customBase = '';
-      theme.fonts.customHeadings = '';
-      theme.gradients.light = '';
-      theme.gradients.dark = '';
-      theme.customCss = '';
-
-      const preHtml = '<html><head></head><body></body></html>';
-      const html = applyThemeSSR(preHtml, theme);
-
-      const style = html.includes('id="vuetiful-theme"');
-      expect(style).toBe(true);
-      const body = html.includes('data-theme="vuetiful"');
-      expect(body).toBe(true);
-    });
-
-    test('invalid hex colors', async () => {
-      const { useTheme } = await import('./theme.service');
-      const { applyThemeSSR, themes } = useTheme();
-
-      const theme = JSON.parse(JSON.stringify(themes[0]));
-      theme.colors.primary = 'invalid';
-
-      const preHtml = '<html><head></head><body></body></html>';
-      const html = applyThemeSSR(preHtml, theme);
-
-      const style = html.includes('id="vuetiful-theme"');
-      expect(style).toBe(true);
-      const body = html.includes('data-theme="vuetiful"');
-      expect(body).toBe(true);
-    });
   });
 });

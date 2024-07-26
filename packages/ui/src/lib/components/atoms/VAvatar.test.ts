@@ -172,4 +172,14 @@ describe('VAvatar', () => {
     const avatar = wrapper.find("[data-test='avatar']");
     expect(avatar.attributes('class')).toContain('w-24');
   });
+
+  test('unstyled', () => {
+    const wrapper = mount(VAvatar, {
+      props: {
+        unstyled: true,
+      },
+    });
+
+    expect(wrapper.classes()).not.toContain('rounded');
+  })
 });

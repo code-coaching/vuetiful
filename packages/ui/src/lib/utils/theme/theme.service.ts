@@ -1,26 +1,10 @@
-import { type Ref, ref } from 'vue';
-import { type ColorSettings, type Palette, useColors } from '../colors/colors.service';
+import type { Theme, ThemeProperties } from '@skeletonlabs/skeleton/themes';
+import { ref, type Ref } from 'vue';
 import { usePlatform } from '../platform/platform.service';
-import { type Theme, THEME, themes } from './themes';
+import { themes } from './themes';
 
 const { isBrowser } = usePlatform();
 const chosenTheme: Ref<Theme> = ref(themes[0]);
-const { generatePalette, hexValuesAreValid } = useColors();
-
-const generateColorCSS = (theme: Theme): string => {
-  let newCSS = '';
-  const newPalette: Record<string, Palette> = {};
-  Object.values(theme.colors).forEach((color: ColorSettings) => {
-    const colorKey = color.key;
-    newPalette[color.key] = generatePalette(color.hex);
-    newCSS += '\n\t';
-    newCSS += `/* ${colorKey} | ${newPalette[colorKey][500].hex} */\n\t`;
-    for (let [k, v] of Object.entries(newPalette[colorKey])) {
-      newCSS += `--color-${colorKey}-${k}: ${v.rgb}; /* ⬅ ${v.hex} */\n\t`;
-    }
-  });
-  return newCSS;
-};
 
 const useTheme = () => {
   const changeDataTheme = (name: string) => document.body.setAttribute('data-theme', name);
@@ -50,54 +34,16 @@ const useTheme = () => {
   };
 
   const generateCss = (theme: Theme): string => {
-    if (hexValuesAreValid(Object.values(theme.colors))) {
-      return `${theme.fonts.baseImports}
-  ${theme.fonts.headingImports}
-  :root {
+    return `
+    :root {
       /* =~= Theme Properties =~= */
-      --theme-font-family-base: ${theme.fonts.customBase ? `"${theme.fonts.customBase}", ` : ''}${theme.fonts.base};
-      --theme-font-family-heading: ${theme.fonts.customHeadings ? `"${theme.fonts.customHeadings}", ` : ''}${
-        theme.fonts.headings
-      };
-      --theme-font-color-base: ${theme.textColorLight};
-      --theme-font-color-dark: ${theme.textColorDark};
-      --theme-rounded-base: ${theme.roundedBase};
-      --theme-rounded-container: ${theme.roundedContainer};
-      --theme-border-base: ${theme.borderBase};
-  
-      /* =~= Theme On-X Colors  =~= */
-      --on-primary: ${theme.colors.primary.on};
-      --on-secondary: ${theme.colors.secondary.on};
-      --on-tertiary: ${theme.colors.tertiary.on};
-      --on-success: ${theme.colors.success.on};
-      --on-warning: ${theme.colors.warning.on};
-      --on-error: ${theme.colors.error.on};
-      --on-surface: ${theme.colors.surface.on};
-  
-      /* =~= Theme Colors  =~= */
-${generateColorCSS(theme)}
-  }
-  
-  ${
-    theme.gradients.light.length
-      ? `[data-theme="${theme.name}"] {
-      background-image:
-          ${theme.gradients.light};
-  }`
-      : ''
-  }
-  ${
-    theme.gradients.dark.length
-      ? `.dark [data-theme="${theme.name}"] {
-      background-image:
-          ${theme.gradients.dark};
-  }`
-      : ''
-  }
-  ${theme.customCss}
-  `;
-    }
-    return '';
+      ${Object.keys(theme.properties)
+        .map((key) => `${key}: ${theme.properties[key as keyof ThemeProperties]};`)
+        .join('\n')}
+        }
+      /* =~= Custom Properties =~= */
+      ${theme.custom ? theme.custom : ''}
+    `;
   };
 
   const applyTheme = (theme: Theme, callback?: Function) => {
@@ -163,7 +109,6 @@ ${generateColorCSS(theme)}
   return {
     chosenTheme,
     themes,
-    THEME,
     applyThemeSSR,
     applyTheme,
     getThemeFromCookie,

@@ -1,4 +1,6 @@
 @import './highlight.css';
+@import './transitions/fade.css';
+@import './transitions/slide.css';
 
 @tailwind base;
 @tailwind components;

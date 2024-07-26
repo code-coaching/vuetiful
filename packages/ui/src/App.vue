@@ -8,7 +8,7 @@ const router = useRouter();
 const lightMode = ref(false);
 
 function onModeChange(newValue: boolean) {
-  console.log('onModeChange', newValue);
+  // console.log('onModeChange', newValue);
   lightMode.value = newValue;
   if (lightMode.value) {
     document.documentElement.classList.remove('dark');

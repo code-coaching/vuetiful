@@ -33,6 +33,10 @@ defineProps({
     type: String as () => CssClasses,
     default: '',
   },
+  classListItemActive: {
+    type: String as () => CssClasses,
+    default: 'preset-filled-surface-200-800',
+  },
 });
 
 const { applyTheme, themes, chosenTheme } = useTheme();
@@ -69,7 +73,7 @@ const showPopup = ref(false);
         <v-button
           class="w-full h-full p-2 text-center capitalize vuetiful-theme-switcher__popup-list-item hover:cursor-pointer"
           v-for="(theme, index) in themes"
-          :class="`${classListItem} ${chosenTheme.name === theme.name ? 'preset-filled-surface-500' : ''}`"
+          :class="`${classListItem} ${chosenTheme.name === theme.name ? classListItemActive : ''}`"
           :key="index"
           @click="applyTheme(theme)"
         >

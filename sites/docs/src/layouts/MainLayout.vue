@@ -48,7 +48,7 @@ const { open, drawer } = useDrawer();
         </q-toolbar-title>
 
         <div class="flex items-center gap-2">
-          <ThemeSwitcher button-classes="btn-sm preset-filled-secondary-500" />
+          <ThemeSwitcher button-classes="btn-sm" />
           <div>v{{ version }}</div>
         </div>
       </q-toolbar>
@@ -58,7 +58,7 @@ const { open, drawer } = useDrawer();
       <DocsSideBar />
     </template>
     <div ref="layoutRef" class="flex justify-center p-4 md:p-10">
-      <div class="flex w-full max-w-5xl flex-col">
+      <div class="flex flex-col w-full max-w-5xl">
         <router-view />
       </div>
     </div>

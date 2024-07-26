@@ -3,7 +3,7 @@ import * as themes from '@skeletonlabs/skeleton/themes';
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // darkMode: 'class',
+  darkMode: 'class',
   content: [
     './src/**/*.{html,js,ts,vue}',
     require('path').join(

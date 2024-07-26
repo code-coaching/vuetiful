@@ -21,17 +21,19 @@
     "version:major": "npm version major && git add package*.json && git commit -m \"version: major\" && git push",
     "version:publish": "npm publish --scope=code-coaching --access public"
   },
-  "dependencies": {
-    "@headlessui/vue": "^1.7.22",
-    "highlight.js": "^11.10.0",
-    "lucide-vue-next": "^0.408.0",
+  "peerDependencies": {
     "vue": "^3.3.4",
-    "vue-router": "^4.2.4"
+    "highlight.js": "^11.10.0"
+  },
+  "dependencies": {
+    "@headlessui/vue": "^1.7.22"
   },
   "devDependencies": {
+    "vue-router": "^4.2.4",
+    "lucide-vue-next": "^0.408.0",
     "@playwright/test": "^1.37.0",
     "@rushstack/eslint-patch": "^1.3.2",
-    "@skeletonlabs/skeleton": "3.0.0-next.1",
+    "@skeletonlabs/skeleton": "3.0.0-next.2",
     "@tsconfig/node18": "^18.2.0",
     "@types/jsdom": "^21.1.1",
     "@types/node": "^18.17.5",
@@ -66,5 +68,5 @@
     },
     "./css/*": "./dist/css/*",
     "./css/style.css": "./dist/style.css"
-    }
+  }
 }
