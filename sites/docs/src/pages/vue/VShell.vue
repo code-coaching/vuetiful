@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { VButton, VCodeBlock, VPreview, VShell, VTab, VTabPanel, VTabs } from '@code-coaching/vuetiful';
+import { VButton, VCodeBlock, VPreview, VShellConfigurator, VTab, VTabPanel, VTabs } from '@code-coaching/vuetiful';
 import { computed, reactive } from 'vue';
 
 const state = reactive({
@@ -55,11 +55,11 @@ const codeExample = computed(() => {
               </p>
             </div>
             <div class="flex h-[576px] flex-col items-center justify-center gap-2 md:h-[576px]">
-              <v-shell class="max-w-3xl p-1 card">
+              <v-shell-configurator class="max-w-3xl p-1 card">
                 <template v-slot:fixedHeader>
                   <div
                     v-if="state.fixedHeader"
-                    class="preset-filled-primary-300-700 card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs"
+                    class="preset-filled-surface-300-700 card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs"
                   >
                     fixedHeader
                   </div>
@@ -67,7 +67,7 @@ const codeExample = computed(() => {
                 <template v-slot:sidebarLeft>
                   <div
                     v-if="state.sidebarLeft"
-                    class="preset-filled-primary-300-700 card m-0.5 flex h-[150%] items-center justify-center overflow-hidden p-2 text-xs"
+                    class="preset-filled-surface-300-700 card m-0.5 flex h-[150%] items-center justify-center overflow-hidden p-2 text-xs"
                   >
                     <div class="flex flex-col items-center">
                       &#8593;
@@ -79,7 +79,7 @@ const codeExample = computed(() => {
                 <template v-slot:sidebarRight>
                   <div
                     v-if="state.sidebarRight"
-                    class="preset-filled-primary-300-700 card m-0.5 flex h-[150%] items-center justify-center overflow-hidden p-2 text-xs"
+                    class="preset-filled-surface-300-700 card m-0.5 flex h-[150%] items-center justify-center overflow-hidden p-2 text-xs"
                   >
                     <div class="flex flex-col items-center">
                       &#8593;
@@ -91,7 +91,7 @@ const codeExample = computed(() => {
                 <template v-slot:pageHeader>
                   <div
                     v-if="state.pageHeader"
-                    class="preset-filled-primary-200-800 card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs"
+                    class="preset-filled-surface-200-800 card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs"
                   >
                     pageHeader
                   </div>
@@ -99,14 +99,14 @@ const codeExample = computed(() => {
                 <template v-slot:pageFooter>
                   <div
                     v-if="state.pageFooter"
-                    class="preset-filled-primary-200-800 card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs"
+                    class="preset-filled-surface-200-800 card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs"
                   >
                     pageFooter
                   </div>
                 </template>
 
                 <div
-                  class="preset-filled-primary-100-900 card m-0.5 flex h-[500px] items-center justify-center overflow-hidden p-2 text-xs"
+                  class="preset-filled-surface-200-800 card m-0.5 flex h-[500px] items-center justify-center overflow-hidden p-2 text-xs"
                 >
                   <div class="flex flex-col items-center">
                     &#8593;
@@ -118,12 +118,12 @@ const codeExample = computed(() => {
                 <template v-slot:fixedFooter>
                   <div
                     v-if="state.fixedFooter"
-                    class="preset-filled-primary-300-700 card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs"
+                    class="preset-filled-surface-300-700 card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs"
                   >
                     fixedFooter
                   </div>
                 </template>
-              </v-shell>
+              </v-shell-configurator>
             </div>
           </div>
         </template>

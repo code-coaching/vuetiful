@@ -59,24 +59,6 @@ const vbuttonIcon = `<v-button icon class="preset-filled">
 </v-button>
 `;
 
-const quasarQIcon = `<v-button icon class="preset-filled">
-  <q-icon name="code"></q-icon>
-</v-button>
-
-<v-button>
-  <q-icon name="code"></q-icon>
-</v-button>
-
-<v-button>
-  <q-icon name="code"></q-icon>
-  <div>Code</div>
-</v-button>
-
-<v-button>
-  <div>Code</div>
-  <q-icon name="code"></q-icon>
-</v-button>
-`;
 </script>
 <template>
   <h1 class="h1">Icons</h1>
@@ -161,29 +143,6 @@ const quasarQIcon = `<v-button icon class="preset-filled">
         </v-button>
       </div>
       <v-code-block language="html" :code="vbuttonIcon" />
-    </div>
-  </section>
-
-  <h4 class="h4">Quasar - QIcon</h4>
-  <section class="section">
-    <div class="flex flex-col gap-4">
-      <div class="flex flex-wrap gap-4">
-        <v-button icon class="preset-filled">
-          <q-icon name="code"></q-icon>
-        </v-button>
-        <v-button>
-          <q-icon name="code"></q-icon>
-        </v-button>
-        <v-button>
-          <q-icon name="code"></q-icon>
-          <div>Code</div>
-        </v-button>
-        <v-button>
-          <div>Code</div>
-          <q-icon name="code"></q-icon>
-        </v-button>
-      </div>
-      <v-code-block language="html" :code="quasarQIcon" />
     </div>
   </section>
 </template>

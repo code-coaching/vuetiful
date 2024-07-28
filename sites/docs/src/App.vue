@@ -4,20 +4,16 @@
 
 <script setup lang="ts">
 import { type Mode, useDarkMode, useTheme } from '@code-coaching/vuetiful';
+import { useQuasar } from 'quasar';
+import { onMounted, watch } from 'vue';
+import './css/app.css';
+
 import '@code-coaching/vuetiful/css/overrides/quasar.css';
 import '@code-coaching/vuetiful/css/style.css';
-import { useQuasar } from 'quasar';
-import { onMounted, ref, watch } from 'vue';
-import './css/app.css';
 
 const { initializeTheme } = useTheme();
 const { chosenMode, MODE, initializeMode } = useDarkMode();
 const $q = useQuasar();
-
-const test = ref(true);
-setTimeout(() => {
-  test.value = false;
-}, 3000);
 
 const handleQuasarDarkMode = (mode: Mode) => {
   $q.dark.set(mode === MODE.DARK);

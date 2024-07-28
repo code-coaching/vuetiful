@@ -118,21 +118,21 @@ const activeRoute = ref();
       embedded ? 'grid' : 'hidden lg:!grid'
     }`"
   >
-    <v-rail class="rail border-r border-surface-500/30">
+    <v-rail class="border-r rail border-surface-500/30">
       <v-rail-tile @click="$router.push({ name: ROUTE_NAMES.DOCS.DEFAULT })" value="docs" label="Docs"> </v-rail-tile>
       <v-rail-tile value="vue" label="Vue" @click="$router.push({ name: ROUTE_NAMES.VUE.DEFAULT })"> </v-rail-tile>
     </v-rail>
     <v-radio-group
       v-model="activeRoute"
       unstyled
-      class="flex flex-col gap-4 overflow-y-auto p-4"
+      class="flex flex-col gap-4 p-4 overflow-y-auto"
       hover="transparant"
       active="transparant"
     >
       <template v-if="selectedRailTile === 'docs'">
         <div class="text-lg font-bold text-primary-900-100">Docs</div>
         <side-bar-link
-          class="w-40 min-w-full justify-start px-2 py-1"
+          class="justify-start px-2 py-1"
           v-for="link in docsLinks"
           :key="link.name"
           :route-name="link.name"
@@ -142,7 +142,7 @@ const activeRoute = ref();
         </side-bar-link>
         <div class="text-lg font-bold text-primary-900-100">Resources</div>
         <side-bar-link
-          class="w-40 min-w-full justify-start px-2 py-1"
+          class="justify-start w-40 min-w-full px-2 py-1"
           v-for="link in docsResourceLinks"
           :key="link.name"
           :route-name="link.name"
@@ -155,7 +155,7 @@ const activeRoute = ref();
       <template v-if="selectedRailTile === 'vue' || selectedRailTile.includes('demo')">
         <div class="text-lg font-bold text-primary-900-100">Layout</div>
         <side-bar-link
-          class="w-40 min-w-full justify-start px-4 py-1"
+          class="justify-start w-40 min-w-full px-4 py-1"
           v-for="link in vueLinksLayout"
           :key="link.name"
           :route-name="link.name"
@@ -166,7 +166,7 @@ const activeRoute = ref();
 
         <div class="text-lg font-bold text-primary-900-100">Components</div>
         <side-bar-link
-          class="w-40 min-w-full justify-start px-4 py-1"
+          class="justify-start w-40 min-w-full px-4 py-1"
           v-for="link in vueLinks"
           :key="link.name"
           :route-name="link.name"

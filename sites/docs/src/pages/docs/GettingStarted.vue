@@ -250,7 +250,8 @@ module.exports = {
 
   <h3 class="h3">Initialize Tailwind</h3>
   <section class="section">
-    <v-code-block language="sh" code="npx tailwindcss init" />
+    <v-code-block language="sh" code="npx tailwindcss init -p" />
+    <p>This will create a file named `tailwind.config.js` and a file named `postcss.config.js`.</p>
   </section>
 
   <h3 class="h3">tailwind.config.js</h3>
