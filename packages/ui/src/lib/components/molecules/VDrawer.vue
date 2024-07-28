@@ -65,7 +65,7 @@ onMounted(() => {
     <div
       v-if="drawer.open"
       ref="elemDrawer"
-      :class="`drawer absolute overflow-y-auto shadow-xl transition-transform bg-surface-100-900 ${preset.width} ${preset.height} ${preset.rounded} ${preset.alignment} z-50 ${regionDrawer}`"
+      :class="`drawer fixed overflow-y-auto shadow-xl transition-transform bg-surface-100-900 ${preset.width} ${preset.height} ${preset.rounded} ${preset.alignment} z-50 ${regionDrawer}`"
       role="dialog"
       aria-modal="true"
       :aria-labelledby="labelledby"
