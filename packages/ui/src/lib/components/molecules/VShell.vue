@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+
 /**
  * @slot fixedHeader - Insert fixed header content, such as Skeleton's App Bar component.
  * @slot sidebarLeft - Hidden when empty. Allows you to set fixed left sidebar content.
@@ -8,7 +10,7 @@
  * @slot fixedFooter - Insert fixed footer content. Not recommended for most layouts.
  */
 export type CssClasses = string;
-defineProps({
+const props = defineProps({
   regionPage: { type: String as () => CssClasses, default: '' },
   slotFixedHeader: { type: String as () => CssClasses, default: 'z-10' },
   slotSidebarLeft: { type: String as () => CssClasses, default: 'w-auto' },
@@ -18,46 +20,65 @@ defineProps({
   slotPageFooter: { type: String as () => CssClasses, default: '' },
   slotFixedFooter: { type: String as () => CssClasses, default: '' },
 });
+
+const slots = defineSlots();
+const computedHeight = computed(() => {
+  return `calc(100vh - ${slots.fixedHeader ? '50px' : '0px'} - ${slots.fixedFooter ? '50px' : '0px'})`;
+});
+const computedTop = computed(() => {
+  return `${slots.fixedHeader ? '50px' : '0px'}`;
+});
 </script>
 
 <template>
-  <div class="vuetiful-shell flex h-full w-full flex-col overflow-hidden">
-    <header v-if="$slots.fixedHeader" :class="`vuetiful-fixed-header ${slotFixedHeader}`">
-      <slot name="fixedHeader" />
-    </header>
-
-    <div class="vuetiful-shell-content flex h-full w-full flex-auto overflow-hidden">
-      <aside
-        v-if="$slots.sidebarLeft"
-        :class="`vuetiful-sidebar-left overflow-y-auto overflow-x-hidden ${slotSidebarLeft}`"
+  <div :class="`vuetiful-shell relative`">
+    <div class="min-h-screen">
+      <header
+        v-if="$slots.fixedHeader"
+        :class="`vuetiful-fixed-header sticky top-0 z-10 ${slotFixedHeader}`"
       >
-        <slot name="sidebarLeft" />
-      </aside>
+        <slot name="fixedHeader" />
+      </header>
 
-      <div tabindex="-1" :class="`vuetiful-page flex flex-1 flex-col overflow-x-hidden ${regionPage ?? ''}`">
-        <header v-if="$slots.pageHeader" :class="`vuetiful-page-header flex-none ${slotPageHeader}`">
-          <slot name="pageHeader" />
-        </header>
+      <div class="flex vuetiful-shell-content">
+        <aside
+          v-if="$slots.sidebarLeft"
+          :class="`vuetiful-sidebar-left sticky overflow-y-auto hidden lg:!block w-fit min-w-fit`"
+          :style="`height: ${computedHeight}; top: ${computedTop}`"
+        >
+          <!-- :style="`height: calc(100vh - ${$slots.fixedHeader ? '50px' : '0'} - ${$slots.fixedFooter ? '50px' : '0'}); top: ${$slots.fixedHeader ? '50px' : '0'}`" -->
+          <slot name="sidebarLeft" />
+        </aside>
 
-        <main :class="`vuetiful-page-content flex-auto ${slotPageContent}`">
-          <slot />
-        </main>
+        <div tabindex="-1" class="w-full vuetiful-page">
+          <header v-if="$slots.pageHeader" :class="`vuetiful-page-header ${slotPageHeader}`">
+            <slot name="pageHeader" />
+          </header>
 
-        <footer v-if="$slots.pageFooter" :class="`vuetiful-page-footer flex-none ${slotPageFooter}`">
-          <slot name="pageFooter" />
-        </footer>
+          <main :class="`vuetiful-page-content w-full ${slotPageContent}`">
+            <slot />
+          </main>
+
+          <footer v-if="$slots.pageFooter" :class="`vuetiful-page-footer ${slotPageFooter}`">
+            <slot name="pageFooter" />
+          </footer>
+        </div>
+
+        <aside
+          v-if="$slots.sidebarRight"
+          :class="`vuetiful-sidebar-right sticky overflow-y-auto hidden lg:!block`"
+          :style="`height: ${computedHeight}; top: ${computedTop}`"
+        >
+          <slot name="sidebarRight" />
+        </aside>
       </div>
 
-      <aside
-        v-if="$slots.sidebarRight"
-        :class="`vuetiful-sidebar-right flex-none overflow-y-auto overflow-x-hidden ${slotSidebarRight}`"
+      <footer
+        v-if="$slots.fixedFooter"
+        :class="`vuetiful-fixed-footer z-10 bottom-0 sticky ${slotFixedFooter}`"
       >
-        <slot name="sidebarRight" />
-      </aside>
+        <slot name="fixedFooter" />
+      </footer>
     </div>
-
-    <footer v-if="$slots.fixedFooter" :class="`vuetiful-fixed-footer ${slotFixedFooter}`">
-      <slot name="fixedFooter" />
-    </footer>
   </div>
 </template>

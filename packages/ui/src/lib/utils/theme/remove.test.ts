@@ -8,13 +8,13 @@ import { describe, expect, vi, test } from 'vitest';
 describe('given there is no existing theme style tag', () => {
   test('should create a new theme style tag', async () => {
     const { useTheme } = await import('./theme.service');
-    const { applyTheme, themes } = useTheme();
+    const { applyTheme, themeArray } = useTheme();
 
     const removeObject = { remove: () => {} };
     const removeSpy = vi.spyOn(removeObject, 'remove');
     vi.spyOn(window.document, 'getElementById').mockReturnValueOnce(removeObject as any);
 
-    const newTheme = JSON.parse(JSON.stringify(themes[0]));
+    const newTheme = JSON.parse(JSON.stringify(themeArray[0]));
     newTheme.name = 'new-theme';
     applyTheme(newTheme);
 

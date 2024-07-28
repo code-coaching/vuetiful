@@ -60,10 +60,12 @@
   "files": [
     "dist"
   ],
+  "types": "./dist/types/index.d.ts",
+  "module": "./dist/vuetiful.es.mjs",
   "exports": {
     ".": {
       "import": "./dist/vuetiful.es.mjs",
-      "require": "./dist/vuetiful.umd.js",
+      "require": "./dist/vuetiful.umd.cjs",
       "types": "./dist/types/index.d.ts"
     },
     "./css/*": "./dist/css/*",

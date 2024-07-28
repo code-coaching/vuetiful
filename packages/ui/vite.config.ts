@@ -16,7 +16,7 @@ export default defineConfig({
       formats: ['es', 'umd'],
       fileName: (format: string) => {
         if (format === 'es') return `vuetiful.es.mjs`;
-        return `vuetiful.${format}.js`;
+        return `vuetiful.${format}.cjs`;
       },
     },
     rollupOptions: {

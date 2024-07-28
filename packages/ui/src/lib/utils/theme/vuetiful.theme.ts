@@ -221,21 +221,7 @@ const vuetiful = {
     '--color-surface-contrast-900': 'var(--color-surface-contrast-light)',
     '--color-surface-contrast-950': 'var(--color-surface-contrast-light)',
   },
-  custom: `
-  [data-theme='vuetiful'] {
-    /* prettier-ignore */
-    background-image:
-      radial-gradient(at 76% 0%, hsla(189,100%,56%,0.36) 0px, transparent 50%),
-      radial-gradient(at 1% 0%, hsla(340,100%,76%,0.26) 0px, transparent 50%),
-      radial-gradient(at 20% 100%, hsla(241,100%,70%,0.47) 0px, transparent 50%);
-  }
-  .dark [data-theme='vuetiful'] {
-    /* prettier-ignore */
-    background-image:
-      radial-gradient(at 76% 0%, hsla(189,100%,56%,0.20) 0px, transparent 50%),
-      radial-gradient(at 1% 0%, hsla(340,100%,76%,0.15) 0px, transparent 50%),
-      radial-gradient(at 20% 100%, hsla(241,100%,70%,0.30) 0px, transparent 50%);
-  }`,
+  custom: ``,
 } satisfies Theme;
 
 vuetiful.custom = `

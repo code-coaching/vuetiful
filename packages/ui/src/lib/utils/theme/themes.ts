@@ -1,12 +1,17 @@
-import vuetiful from "./vuetiful.theme";
-import rocket from "./rocket.theme";
-import {catppuccin, cerberus, pine, rose, type Theme} from '@skeletonlabs/skeleton/themes';
+import { catppuccin, cerberus, pine, rose, type Theme } from '@skeletonlabs/skeleton/themes';
+import rocket from './rocket.theme';
+import vuetiful from './vuetiful.theme';
 
-export const themes: Array<Theme> = [
+export const themes: Record<
+  'vuetiful' | 'rocket' | 'catppuccin' | 'cerberus' | 'pine' | 'rose',
+  Theme
+> = {
   vuetiful,
   rocket,
   catppuccin,
   cerberus,
   pine,
-  rose
-]
+  rose,
+};
+
+export const themeArray: Array<Theme> = [vuetiful, rocket, catppuccin, cerberus, pine, rose];

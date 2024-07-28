@@ -3,6 +3,7 @@ import VPreview from './VPreview.vue';
 import VRail from './VRail/VRail.vue';
 import VRailTile from './VRail/VRailTile.vue';
 import VShell from './VShell.vue';
+import VShellConfigurator from './VShellConfigurator.vue';
 
 import VListbox from './VListbox/VListbox.vue';
 import VListboxButton from './VListbox/VListboxButton.vue';
@@ -45,6 +46,7 @@ export {
   VRail,
   VRailTile,
   VShell,
+  VShellConfigurator,
   VTab,
   VTabPanel,
   VTabs,

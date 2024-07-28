@@ -8,14 +8,14 @@ import { describe, expect, vi, test } from 'vitest';
 describe('given there is a callback', () => {
   test('should call the callback', async () => {
     const { useTheme } = await import('./theme.service');
-    const { applyTheme, themes } = useTheme();
+    const { applyTheme, themeArray } = useTheme();
 
     const callbackSpy = vi.fn();
     const callbackFunction = () => {
       callbackSpy();
     };
 
-    const newTheme = JSON.parse(JSON.stringify(themes[0]));
+    const newTheme = JSON.parse(JSON.stringify(themeArray[0]));
     newTheme.name = 'new-theme';
     applyTheme(newTheme, callbackFunction);
 

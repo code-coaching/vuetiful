@@ -1,19 +1,19 @@
 import type { Theme, ThemeProperties } from '@skeletonlabs/skeleton/themes';
 import { ref, type Ref } from 'vue';
 import { usePlatform } from '../platform/platform.service';
-import { themes } from './themes';
+import { themes, themeArray } from './themes';
 
 const { isBrowser } = usePlatform();
-const chosenTheme: Ref<Theme> = ref(themes[0]);
+const chosenTheme: Ref<Theme> = ref(themeArray[0]);
 
 const useTheme = () => {
   const changeDataTheme = (name: string) => document.body.setAttribute('data-theme', name);
 
   const getThemeFromCookie = (cookies: string): Theme => {
     const themeName = getThemeNameFromCookie(cookies);
-    const theme = themes.find((t) => t.name === themeName);
+    const theme = themeArray.find((t) => t.name === themeName);
     if (theme) return theme;
-    return themes[0];
+    return themeArray[0];
   };
 
   const getThemeNameFromCookie = (cookies: string): string => {
@@ -83,32 +83,33 @@ const useTheme = () => {
             registerTheme(storedTheme);
           }
         } catch (e) {
-          applyTheme(themes[0], callback);
+          applyTheme(themeArray[0], callback);
         }
       } else {
-        const theme = themes.find((t) => t.name === themeName);
+        const theme = themeArray.find((t) => t.name === themeName);
         if (theme) {
           applyTheme(theme, callback);
         } else {
-          applyTheme(themes[0], callback);
+          applyTheme(themeArray[0], callback);
         }
       }
     }
   };
 
   const registerTheme = (theme: Theme): void => {
-    const existingTheme = themes.find((t) => t.name === theme.name);
+    const existingTheme = themeArray.find((t) => t.name === theme.name);
     if (existingTheme) {
-      const index = themes.indexOf(existingTheme);
-      themes[index] = theme;
+      const index = themeArray.indexOf(existingTheme);
+      themeArray[index] = theme;
     } else {
-      themes.push(theme);
+      themeArray.push(theme);
     }
   };
 
   return {
     chosenTheme,
     themes,
+    themeArray,
     applyThemeSSR,
     applyTheme,
     getThemeFromCookie,
