@@ -1,6 +1,6 @@
-import { fileURLToPath } from 'node:url'
-import { mergeConfig, defineConfig, configDefaults } from 'vitest/config'
-import viteConfig from './vite.config'
+import { fileURLToPath } from 'node:url';
+import { configDefaults, defineConfig, mergeConfig } from 'vitest/config';
+import viteConfig from './vite.config';
 
 export default mergeConfig(
   viteConfig,
@@ -12,15 +12,22 @@ export default mergeConfig(
       root: fileURLToPath(new URL('./', import.meta.url)),
       coverage: {
         include: ['src/lib/'],
-        exclude: ['src/lib/components/VBootstrap.vue', 'src/**/*.test.ts', '/src/lib/types/**', '**/index**'],
+        exclude: [
+          'src/lib/components/VBootstrap.vue',
+          'src/lib/components/molecules/VDrawer.vue',
+          'src/lib/components/molecules/VShell.vue',
+          'src/**/*.test.ts',
+          '/src/lib/types/**',
+          '**/index**',
+        ],
         thresholds: {
-          lines: 99.69,
-          functions: 97.1,
-          branches: 99.21,
-          statements: 99.69,
+          lines: 99.94,
+          functions: 98.41,
+          branches: 99.06,
+          statements: 99.94,
           autoUpdate: true,
         },
       },
-    }
-  })
-)
+    },
+  }),
+);

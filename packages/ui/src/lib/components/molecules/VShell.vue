@@ -10,7 +10,7 @@ import { computed } from 'vue';
  * @slot fixedFooter - Insert fixed footer content. Not recommended for most layouts.
  */
 export type CssClasses = string;
-const props = defineProps({
+defineProps({
   regionPage: { type: String as () => CssClasses, default: '' },
   slotFixedHeader: { type: String as () => CssClasses, default: 'z-10' },
   slotSidebarLeft: { type: String as () => CssClasses, default: 'w-auto' },
