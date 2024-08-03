@@ -7,73 +7,30 @@ describe('VAvatar', () => {
     const wrapper = mount(VAvatar);
 
     expect(wrapper.classes()).toContain('vuetiful-avatar');
-    expect(wrapper.classes()).toContain('w-16');
-    expect(wrapper.classes()).toContain('rounded');
-
-    const avatarText = wrapper.find('.vuetiful-avatar-text');
-    expect(avatarText.exists()).toBe(true);
-    expect(avatarText.text()).toBe('');
-    expect(avatarText.classes()).toEqual(['vuetiful-avatar-text', 'fill-white', 'dark:fill-black']);
   });
 
-  test('custom preset', () => {
+  test('custom props', () => {
     const wrapper = mount(VAvatar, {
       props: {
-        preset: 'outlined',
-      },
+        class: 'custom-bg'
+      }
     });
 
-    const avatarText = wrapper.find('.vuetiful-avatar-text');
-    expect(avatarText.classes()).toEqual(['vuetiful-avatar-text', 'fill-black', 'dark:fill-white']);
-  });
-
-  test('preset with hyphen', () => {
-    const wrapper = mount(VAvatar, {
-      props: {
-        preset: 'filled-primary-500',
-      },
-    });
-
-    expect(wrapper.classes()).toContain('preset-filled-primary-500');
+    expect(wrapper.classes()).toContain('custom-bg');
+    expect(wrapper.classes()).not.toContain('preset-filled');
   });
 
   test('initials', () => {
     const wrapper = mount(VAvatar, {
       props: {
         initials: 'JD',
-        preset: 'filled',
       },
     });
 
-    expect(wrapper.classes()).toContain('vuetiful-avatar');
-    expect(wrapper.classes()).toContain('w-16');
-    expect(wrapper.classes()).toContain('rounded');
-
-    const avatarText = wrapper.find('.vuetiful-avatar-text');
-    expect(avatarText.exists()).toBe(true);
-    expect(avatarText.text()).toBe('JD');
-    expect(avatarText.classes()).toEqual(['vuetiful-avatar-text', 'fill-white', 'dark:fill-black']);
+    expect(wrapper.text()).toBe('JD');
 
     const avatarImage = wrapper.find('.vuetiful-avatar-image');
     expect(avatarImage.exists()).toBe(false);
-  });
-
-  test('initials fill', () => {
-    const wrapper = mount(VAvatar, {
-      props: {
-        initials: 'JD',
-        fill: 'custom-fill-class',
-      },
-    });
-
-    expect(wrapper.classes()).toContain('vuetiful-avatar');
-    expect(wrapper.classes()).toContain('w-16');
-    expect(wrapper.classes()).toContain('rounded');
-
-    const avatarText = wrapper.find('.vuetiful-avatar-text');
-    expect(avatarText.exists()).toBe(true);
-    expect(avatarText.text()).toBe('JD');
-    expect(avatarText.classes()).toContain('custom-fill-class');
   });
 
   test('image', () => {
@@ -82,10 +39,6 @@ describe('VAvatar', () => {
         src: 'https://via.placeholder.com/150',
       },
     });
-
-    expect(wrapper.classes()).toContain('vuetiful-avatar');
-    expect(wrapper.classes()).toContain('w-16');
-    expect(wrapper.classes()).toContain('rounded');
 
     const avatarText = wrapper.find('.vuetiful-avatar-text');
     expect(avatarText.exists()).toBe(false);
@@ -103,10 +56,6 @@ describe('VAvatar', () => {
       },
     });
 
-    expect(wrapper.classes()).toContain('vuetiful-avatar');
-    expect(wrapper.classes()).toContain('w-16');
-    expect(wrapper.classes()).toContain('rounded');
-
     const avatarText = wrapper.find('.vuetiful-avatar-text');
     expect(avatarText.exists()).toBe(false);
 
@@ -118,68 +67,4 @@ describe('VAvatar', () => {
     expect(avatarImage.attributes('src')).toBe('/image/john-duck.png');
   });
 
-  test('size xs', () => {
-    const wrapper = mount(VAvatar, {
-      props: {
-        size: 'xs',
-      },
-    });
-
-    const avatar = wrapper.find("[data-test='avatar']");
-    expect(avatar.attributes('class')).toContain('w-8');
-  });
-
-  test('size sm', () => {
-    const wrapper = mount(VAvatar, {
-      props: {
-        size: 'sm',
-      },
-    });
-
-    const avatar = wrapper.find("[data-test='avatar']");
-    expect(avatar.attributes('class')).toContain('w-12');
-  });
-
-  test('size md', () => {
-    const wrapper = mount(VAvatar, {
-      props: {
-        size: 'md',
-      },
-    });
-
-    const avatar = wrapper.find("[data-test='avatar']");
-    expect(avatar.attributes('class')).toContain('w-16');
-  });
-
-  test('size lg', () => {
-    const wrapper = mount(VAvatar, {
-      props: {
-        size: 'lg',
-      },
-    });
-
-    const avatar = wrapper.find("[data-test='avatar']");
-    expect(avatar.attributes('class')).toContain('w-20');
-  });
-
-  test('size xl', () => {
-    const wrapper = mount(VAvatar, {
-      props: {
-        size: 'xl',
-      },
-    });
-
-    const avatar = wrapper.find("[data-test='avatar']");
-    expect(avatar.attributes('class')).toContain('w-24');
-  });
-
-  test('unstyled', () => {
-    const wrapper = mount(VAvatar, {
-      props: {
-        unstyled: true,
-      },
-    });
-
-    expect(wrapper.classes()).not.toContain('rounded');
-  })
 });

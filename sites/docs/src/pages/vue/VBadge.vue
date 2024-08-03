@@ -1,37 +1,47 @@
 <script setup lang="ts">
-import { VBadge, VCodeBlock, VPreview, VTab, VTabPanel, VTabs } from '@code-coaching/vuetiful';
-import { AlertUnstyled } from 'src/components';
+import { VAlert, VBadge, VCodeBlock, VPreview, VTab, VTabPanel, VTabs } from '@code-coaching/vuetiful';
 
-const filled = `<v-badge preset="filled">Default</v-badge>
-<v-badge preset="filled-surface-500">Surface</v-badge>
-<v-badge preset="filled-primary-500">Primary</v-badge>
-<v-badge preset="filled-secondary-500">Secondary</v-badge>
-<v-badge preset="filled-tertiary-500">Tertiary</v-badge>
-<v-badge preset="filled-success-500">Success</v-badge>
-<v-badge preset="filled-warning-500">Warning</v-badge>
-<v-badge preset="filled-error-500">Error</v-badge>`;
+const custom = `<div class="flex flex-wrap gap-2">
+  <v-badge class="px-8 py-2" class="preset-tonal-tertiary">custom</v-badge>
+  <v-badge class="px-8 py-2" background="custom-background" text="text-black font-extrabold">custom</v-badge>
+</div>`;
+const customCss = `.custom-background {
+  background: #42b883;
+  background: linear-gradient(90deg, #35495e 0%, #42b883 50%, #35495e 100%);
+}`;
 
-const tonal = `<v-badge preset="tonal">Default</v-badge>
-<v-badge preset="tonal-surface">Surface</v-badge>
-<v-badge preset="tonal-primary">Primary</v-badge>
-<v-badge preset="tonal-secondary">Secondary</v-badge>
-<v-badge preset="tonal-tertiary">Tertiary</v-badge>
-<v-badge preset="tonal-success">Success</v-badge>
-<v-badge preset="tonal-warning">Warning</v-badge>
-<v-badge preset="tonal-error">Error</v-badge>`;
+const filled = `<div class="flex flex-wrap gap-2">
+  <v-badge class="preset-filled">Default</v-badge>
+  <v-badge class="preset-filled-surface-800-200">Surface</v-badge>
+  <v-badge class="preset-filled-primary-800-200">Primary</v-badge>
+  <v-badge class="preset-filled-secondary-800-200">Secondary</v-badge>
+  <v-badge class="preset-filled-tertiary-800-200">Tertiary</v-badge>
+  <v-badge class="preset-filled-success-800-200">Success</v-badge>
+  <v-badge class="preset-filled-warning-800-200">Warning</v-badge>
+  <v-badge class="preset-filled-error-800-200">Error</v-badge>
+</div>`;
 
-const outlined = `<v-badge preset="outlined">Default</v-badge>
-<v-badge preset="outlined-surface-500">Surface</v-badge>
-<v-badge preset="outlined-primary-500">Primary</v-badge>
-<v-badge preset="outlined-secondary-500">Secondary</v-badge>
-<v-badge preset="outlined-tertiary-500">Tertiary</v-badge>
-<v-badge preset="outlined-success-500">Success</v-badge>
-<v-badge preset="outlined-warning-500">Warning</v-badge>
-<v-badge preset="outlined-error-500">Error</v-badge>`;
+const tonal = `<div class="flex flex-wrap gap-2">
+  <v-badge class="preset-tonal">Default</v-badge>
+  <v-badge class="preset-tonal-surface">Surface</v-badge>
+  <v-badge class="preset-tonal-primary">Primary</v-badge>
+  <v-badge class="preset-tonal-secondary">Secondary</v-badge>
+  <v-badge class="preset-tonal-tertiary">Tertiary</v-badge>
+  <v-badge class="preset-tonal-success">Success</v-badge>
+  <v-badge class="preset-tonal-warning">Warning</v-badge>
+  <v-badge class="preset-tonal-error">Error</v-badge>
+</div>`;
 
-const unstyledTemplate = '<v-badge unstyled>Unstyled</v-badge>';
-const unstyledPropTemplate = '<v-badge unstyled preset="">No prop-based styles</v-badge>';
-const unstyledCustomTemplate = '<v-badge unstyled preset="" class="p-1 text-white bg-blue-600">Custom</v-badge>';
+const outlined = `<div class="flex flex-wrap gap-2">
+  <v-badge class="preset-outlined">Default</v-badge>
+  <v-badge class="preset-outlined-surface-800-200">Surface</v-badge>
+  <v-badge class="preset-outlined-primary-800-200">Primary</v-badge>
+  <v-badge class="preset-outlined-secondary-800-200">Secondary</v-badge>
+  <v-badge class="preset-outlined-tertiary-800-200">Tertiary</v-badge>
+  <v-badge class="preset-outlined-success-800-200">Success</v-badge>
+  <v-badge class="preset-outlined-warning-800-200">Warning</v-badge>
+  <v-badge class="preset-outlined-error-800-200">Error</v-badge>
+</div>`;
 </script>
 
 <template>
@@ -43,14 +53,40 @@ const unstyledCustomTemplate = '<v-badge unstyled preset="" class="p-1 text-whit
   <v-tabs class-panels="py-4 md:py-10">
     <template v-slot:tabs>
       <v-tab>Usage</v-tab>
-      <v-tab>Unstyled</v-tab>
     </template>
     <v-tab-panel>
+      <h2 class="h2">Props</h2>
+      <h3 class="h3">Default</h3>
       <section class="section">
         <v-preview>
-          <template v-slot:preview> <v-badge preset="filled">default</v-badge> </template>"
+          <template v-slot:preview>
+            <v-badge class="preset-filled">default</v-badge>
+          </template>
           <template v-slot:source>
-            <v-code-block language="html" :code="`<v-badge class=&quot;preset-filled&quot;>default</v-badge>`" />
+            <v-code-block language="html" :code="`<v-badge>default</v-badge>`" />
+          </template>
+        </v-preview>
+      </section>
+
+      <h3 class="h3">Custom</h3>
+      <section class="section">
+        <v-preview>
+          <template v-slot:preview>
+            <div class="flex flex-wrap gap-2">
+              <v-badge class="preset-tonal-tertiary">custom</v-badge>
+              <v-badge class="px-8 py-2 font-extrabold text-black custom-background"> custom </v-badge>
+              <v-badge class="h-4 rounded-none w-fit preset-filled">custom</v-badge>
+            </div>
+          </template>
+          <template v-slot:source>
+            <div class="flex flex-col gap-2">
+              <v-code-block language="html" :code="custom" />
+              <v-code-block language="css" :code="customCss" />
+              <v-alert type="info">
+                Either provide <code class="code">preset</code> or <code class="code">background</code> and
+                <code class="code">text</code>.
+              </v-alert>
+            </div>
           </template>
         </v-preview>
       </section>
@@ -61,14 +97,14 @@ const unstyledCustomTemplate = '<v-badge unstyled preset="" class="p-1 text-whit
         <v-preview>
           <template v-slot:preview>
             <div class="flex flex-wrap gap-2">
-              <v-badge preset="filled">Default</v-badge>
-              <v-badge preset="filled-surface-500">Surface</v-badge>
-              <v-badge preset="filled-primary-500">Primary</v-badge>
-              <v-badge preset="filled-secondary-500">Secondary</v-badge>
-              <v-badge preset="filled-tertiary-500">Tertiary</v-badge>
-              <v-badge preset="filled-success-500">Success</v-badge>
-              <v-badge preset="filled-warning-500">Warning</v-badge>
-              <v-badge preset="filled-error-500">Error</v-badge>
+              <v-badge class="preset-filled">Default</v-badge>
+              <v-badge class="preset-filled-surface-800-200">Surface</v-badge>
+              <v-badge class="preset-filled-primary-800-200">Primary</v-badge>
+              <v-badge class="preset-filled-secondary-800-200">Secondary</v-badge>
+              <v-badge class="preset-filled-tertiary-800-200">Tertiary</v-badge>
+              <v-badge class="preset-filled-success-800-200">Success</v-badge>
+              <v-badge class="preset-filled-warning-800-200">Warning</v-badge>
+              <v-badge class="preset-filled-error-800-200">Error</v-badge>
             </div>
           </template>
           <template v-slot:source>
@@ -82,14 +118,14 @@ const unstyledCustomTemplate = '<v-badge unstyled preset="" class="p-1 text-whit
         <v-preview>
           <template v-slot:preview>
             <div class="flex flex-wrap gap-2">
-              <v-badge preset="tonal">Default</v-badge>
-              <v-badge preset="tonal-surface">Surface</v-badge>
-              <v-badge preset="tonal-primary">Primary</v-badge>
-              <v-badge preset="tonal-secondary">Secondary</v-badge>
-              <v-badge preset="tonal-tertiary">Tertiary</v-badge>
-              <v-badge preset="tonal-success">Success</v-badge>
-              <v-badge preset="tonal-warning">Warning</v-badge>
-              <v-badge preset="tonal-error">Error</v-badge>
+              <v-badge class="text-surface-950-50 preset-tonal">Default</v-badge>
+              <v-badge class="preset-tonal-surface">Surface</v-badge>
+              <v-badge class="preset-tonal-primary">Primary</v-badge>
+              <v-badge class="preset-tonal-secondary">Secondary</v-badge>
+              <v-badge class="preset-tonal-tertiary">Tertiary</v-badge>
+              <v-badge class="preset-tonal-success">Success</v-badge>
+              <v-badge class="preset-tonal-warning">Warning</v-badge>
+              <v-badge class="preset-tonal-error">Error</v-badge>
             </div>
           </template>
           <template v-slot:source>
@@ -103,14 +139,14 @@ const unstyledCustomTemplate = '<v-badge unstyled preset="" class="p-1 text-whit
         <v-preview>
           <template v-slot:preview>
             <div class="flex flex-wrap gap-2">
-              <v-badge preset="outlined">Default</v-badge>
-              <v-badge preset="outlined-surface-500">Surface</v-badge>
-              <v-badge preset="outlined-primary-500">Primary</v-badge>
-              <v-badge preset="outlined-secondary-500">Secondary</v-badge>
-              <v-badge preset="outlined-tertiary-500">Tertiary</v-badge>
-              <v-badge preset="outlined-success-500">Success</v-badge>
-              <v-badge preset="outlined-warning-500">Warning</v-badge>
-              <v-badge preset="outlined-error-500">Error</v-badge>
+              <v-badge class="preset-outlined">Default</v-badge>
+              <v-badge class="preset-outlined-surface-800-200">Surface</v-badge>
+              <v-badge class="preset-outlined-primary-800-200">Primary</v-badge>
+              <v-badge class="preset-outlined-secondary-800-200">Secondary</v-badge>
+              <v-badge class="preset-outlined-tertiary-800-200">Tertiary</v-badge>
+              <v-badge class="preset-outlined-success-800-200">Success</v-badge>
+              <v-badge class="preset-outlined-warning-800-200">Warning</v-badge>
+              <v-badge class="preset-outlined-error-800-200">Error</v-badge>
             </div>
           </template>
           <template v-slot:source>
@@ -119,46 +155,12 @@ const unstyledCustomTemplate = '<v-badge unstyled preset="" class="p-1 text-whit
         </v-preview>
       </section>
     </v-tab-panel>
-    <v-tab-panel>
-      <section class="section">
-        <alert-unstyled />
-      </section>
-
-      <section class="section">
-        <v-preview>
-          <template v-slot:preview>
-            <v-badge unstyled>Unstyled</v-badge>
-          </template>
-          <template v-slot:source>
-            <v-code-block language="html" :code="unstyledTemplate" />
-          </template>
-        </v-preview>
-      </section>
-
-      <h2 class="h2">No prop-based styles</h2>
-      <section class="section">
-        <v-preview>
-          <template v-slot:preview>
-            <v-badge unstyled preset="">No prop-based styles</v-badge>
-          </template>
-          <template v-slot:source>
-            <v-code-block class="mb-2" language="html" :code="unstyledPropTemplate" />
-            <p>Set <code class="code">preset</code> to an empty string to have no prop-based styles.</p>
-          </template>
-        </v-preview>
-      </section>
-
-      <h2 class="h2">Custom style example</h2>
-      <section class="section">
-        <v-preview>
-          <template v-slot:preview>
-            <v-badge unstyled preset="" class="p-1 text-white bg-blue-600">Custom</v-badge>
-          </template>
-          <template v-slot:source>
-            <v-code-block language="html" :code="unstyledCustomTemplate" />
-          </template>
-        </v-preview>
-      </section>
-    </v-tab-panel>
   </v-tabs>
 </template>
+
+<style scoped>
+.custom-background {
+  background: #42b883;
+  background: linear-gradient(90deg, #35495e 0%, #42b883 50%, #35495e 100%);
+}
+</style>

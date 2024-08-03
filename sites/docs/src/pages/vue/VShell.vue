@@ -55,11 +55,11 @@ const codeExample = computed(() => {
               </p>
             </div>
             <div class="flex h-[576px] flex-col items-center justify-center gap-2 md:h-[576px]">
-              <v-shell-configurator class="max-w-3xl p-1 card">
+              <v-shell-configurator class="card max-w-3xl p-1">
                 <template v-slot:fixedHeader>
                   <div
                     v-if="state.fixedHeader"
-                    class="preset-filled-surface-300-700 card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs"
+                    class="card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs preset-filled-surface-300-700"
                   >
                     fixedHeader
                   </div>
@@ -67,7 +67,7 @@ const codeExample = computed(() => {
                 <template v-slot:sidebarLeft>
                   <div
                     v-if="state.sidebarLeft"
-                    class="preset-filled-surface-300-700 card m-0.5 flex h-[150%] items-center justify-center overflow-hidden p-2 text-xs"
+                    class="card m-0.5 flex h-[150%] items-center justify-center overflow-hidden p-2 text-xs preset-filled-surface-300-700"
                   >
                     <div class="flex flex-col items-center">
                       &#8593;
@@ -79,7 +79,7 @@ const codeExample = computed(() => {
                 <template v-slot:sidebarRight>
                   <div
                     v-if="state.sidebarRight"
-                    class="preset-filled-surface-300-700 card m-0.5 flex h-[150%] items-center justify-center overflow-hidden p-2 text-xs"
+                    class="card m-0.5 flex h-[150%] items-center justify-center overflow-hidden p-2 text-xs preset-filled-surface-300-700"
                   >
                     <div class="flex flex-col items-center">
                       &#8593;
@@ -91,7 +91,7 @@ const codeExample = computed(() => {
                 <template v-slot:pageHeader>
                   <div
                     v-if="state.pageHeader"
-                    class="preset-filled-surface-200-800 card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs"
+                    class="card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs preset-filled-surface-200-800"
                   >
                     pageHeader
                   </div>
@@ -99,14 +99,14 @@ const codeExample = computed(() => {
                 <template v-slot:pageFooter>
                   <div
                     v-if="state.pageFooter"
-                    class="preset-filled-surface-200-800 card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs"
+                    class="card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs preset-filled-surface-200-800"
                   >
                     pageFooter
                   </div>
                 </template>
 
                 <div
-                  class="preset-filled-surface-200-800 card m-0.5 flex h-[500px] items-center justify-center overflow-hidden p-2 text-xs"
+                  class="card m-0.5 flex h-[500px] items-center justify-center overflow-hidden p-2 text-xs preset-filled-surface-200-800"
                 >
                   <div class="flex flex-col items-center">
                     &#8593;
@@ -118,7 +118,7 @@ const codeExample = computed(() => {
                 <template v-slot:fixedFooter>
                   <div
                     v-if="state.fixedFooter"
-                    class="preset-filled-surface-300-700 card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs"
+                    class="card m-0.5 flex items-center justify-center overflow-hidden p-2 text-xs preset-filled-surface-300-700"
                   >
                     fixedFooter
                   </div>
@@ -132,37 +132,37 @@ const codeExample = computed(() => {
             <p>Adjust layout by using the buttons below!</p>
             <div class="flex flex-wrap justify-center gap-1">
               <v-button
-                :preset="`${state.fixedHeader ? 'filled' : 'outlined'}`"
+                :preset="`${state.fixedHeader ? 'preset-filled' : 'preset-outlined'}`"
                 @click="state.fixedHeader = !state.fixedHeader"
               >
                 fixedHeader
               </v-button>
               <v-button
-                :preset="`${state.sidebarLeft ? 'filled' : 'outlined'}`"
+                :preset="`${state.sidebarLeft ? 'preset-filled' : 'preset-outlined'}`"
                 @click="state.sidebarLeft = !state.sidebarLeft"
               >
                 sidebarLeft
               </v-button>
               <v-button
-                :preset="`${state.sidebarRight ? 'filled' : 'outlined'}`"
+                :preset="`${state.sidebarRight ? 'preset-filled' : 'preset-outlined'}`"
                 @click="state.sidebarRight = !state.sidebarRight"
               >
                 sidebarRight
               </v-button>
               <v-button
-                :preset="`${state.fixedFooter ? 'filled' : 'outlined'}`"
+                :preset="`${state.fixedFooter ? 'preset-filled' : 'preset-outlined'}`"
                 @click="state.fixedFooter = !state.fixedFooter"
               >
                 fixedFooter
               </v-button>
               <v-button
-                :preset="`${state.pageHeader ? 'filled' : 'outlined'}`"
+                :preset="`${state.pageHeader ? 'preset-filled' : 'preset-outlined'}`"
                 @click="state.pageHeader = !state.pageHeader"
               >
                 pageHeader
               </v-button>
               <v-button
-                :preset="`${state.pageFooter ? 'filled' : 'outlined'}`"
+                :preset="`${state.pageFooter ? 'preset-filled' : 'preset-outlined'}`"
                 @click="state.pageFooter = !state.pageFooter"
                 >pageFooter</v-button
               >
@@ -171,9 +171,10 @@ const codeExample = computed(() => {
         </template>
         <template v-slot:source>
           <v-code-block class="mb-4" language="html" :code="codeExample" />
-          <div class="flex justify-center w-full">
+          <div class="flex w-full justify-center">
             <v-button
-              :preset="`mt-2 ${state.vueRouter ? 'filled' : 'outlined'}`"
+              class="mt-2"
+              :preset="`${state.vueRouter ? 'preset-filled' : 'preset-outlined'}`"
               @click="state.vueRouter = !state.vueRouter"
             >
               Vue Router

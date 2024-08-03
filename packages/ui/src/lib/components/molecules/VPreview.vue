@@ -40,7 +40,7 @@ const props = defineProps({
   },
   background: {
     type: String,
-    default: 'neutral',
+    default: 'neutral-opaque',
   },
 
   // Props (regions)
@@ -134,7 +134,7 @@ const toggleSwatches = () => (swatches.value = !swatches.value);
       <v-button
         v-if="!hideSwatches"
         data-test="swatch-button"
-        :preset="swatches ? 'filled' : ''"
+        :preset="swatches ? 'preset-filled' : ''"
         class="px-4 py-1 border border-surface-400-600"
         :class="
           swatches

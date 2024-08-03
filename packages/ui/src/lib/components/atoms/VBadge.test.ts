@@ -6,7 +6,7 @@ test('VBadge', () => {
   expect(VBadge).toBeTruthy();
 });
 
-test('VBadge using slot', () => {
+test('using slot', () => {
   const wrapper = mount(VBadge, {
     slots: {
       default: 'John Duck',
@@ -15,14 +15,4 @@ test('VBadge using slot', () => {
 
   expect(wrapper.text()).toContain('John Duck');
   expect(wrapper.classes()).toContain('badge');
-});
-
-test('VBadge unstyled', () => {
-  const wrapper = mount(VBadge, {
-    props: {
-      unstyled: true,
-    },
-  });
-
-  expect(wrapper.classes()).not.toContain('badge');
 });

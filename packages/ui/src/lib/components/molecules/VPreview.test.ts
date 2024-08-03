@@ -11,7 +11,7 @@ describe('VPreview', () => {
     const wrapper = mount(VPreview);
 
     expect(wrapper.props()).toEqual({
-      background: 'neutral',
+      background: 'neutral-opaque',
       hideSwatches: false,
       regionFooter: '',
       regionHeader: '',
