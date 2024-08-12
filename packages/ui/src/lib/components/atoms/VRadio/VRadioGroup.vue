@@ -13,6 +13,7 @@ interface RadioGroupProps {
   classItemHover?: string;
   classItemDisabled?: string;
   classItem?: string;
+  vertical?: boolean;
 }
 
 const props = withDefaults(defineProps<RadioGroupProps>(), {
@@ -42,8 +43,8 @@ provide('hover', props.classItemHover);
 provide('disabled', props.classItemDisabled);
 provide('classItem', props.classItem);
 
-const classRootDefault = 'inline-flex gap-1 p-1 border border-surface-400-600 rounded-container preset-filled-surface-200-800';
-const classRootMerged = computed(() => tm(classRootDefault, props.class));
+const classRootDefault = computed(() => `inline-flex gap-1 p-1 border border-surface-400-600 rounded-container preset-filled-surface-200-800 ${props.vertical ? 'flex-col' : 'flex-row'}`);
+const classRootMerged = computed(() => tm(classRootDefault.value, props.class));
 </script>
 l
 <template>

@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, test, vi } from 'vitest';
 import { ref } from 'vue';
-import { VLightSwitch } from '.';
+import { VLightSwitch } from '..';
 
 const applyMode = vi.fn();
 const chosenMode = ref('dark');
@@ -9,7 +9,7 @@ const MODE = {
   LIGHT: 'light',
   DARK: 'dark',
 };
-vi.mock('../../services/dark-mode.service', () => ({
+vi.mock('./dark-mode.service', () => ({
   useDarkMode: () => ({
     applyMode,
     chosenMode,
@@ -35,11 +35,11 @@ describe('VLightSwitch', () => {
     chosenMode.value = MODE.DARK;
     const wrapper = mount(VLightSwitch);
     const path = wrapper.find('path');
-    expect(path.attributes().d).toBe(wrapper.vm.svgPath.moon);
+    expect(path.attributes().d).toBe((wrapper.vm as any).svgPath.moon);
 
     chosenMode.value = MODE.LIGHT;
     await wrapper.vm.$nextTick();
-    expect(path.attributes().d).toBe(wrapper.vm.svgPath.sun);
+    expect(path.attributes().d).toBe((wrapper.vm as any).svgPath.sun);
   });
 
   test('keydown Enter', async () => {

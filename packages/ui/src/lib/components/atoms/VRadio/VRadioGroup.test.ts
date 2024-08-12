@@ -24,6 +24,7 @@ test('VRadioGroup default props', () => {
     'border-surface-400-600',
     'rounded-container',
     'preset-filled-surface-200-800',
+    'flex-row'
   ]);
 
   const radioGroup = wrapper.find("[data-test='radio-group']");
@@ -45,6 +46,7 @@ test('VRadioGroup custom class props', () => {
     'border',
     'border-surface-400-600',
     'rounded-container',
+    'flex-row',
     'bg-blue-800',
     'text-blue-200',
   ]);
@@ -76,3 +78,14 @@ describe('VRadioGroup v-model', () => {
     });
   });
 });
+
+test('vertical', () => {
+  const wrapper = mount(VRadioGroup, {
+    props: {
+      vertical: true,
+    },
+  });
+
+  const radioGroupEl = wrapper.find('div');
+  expect(radioGroupEl.classes()).toContain('flex-col');
+})
