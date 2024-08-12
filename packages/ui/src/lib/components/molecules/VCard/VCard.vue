@@ -1,28 +1,16 @@
 <script setup lang="ts">
-import { useSettings } from '@/lib';
-import { unstyledProp } from '@/lib/props';
-import { provide } from 'vue';
+import { tm } from '@/lib/utils/tailwind-merge';
+import { computed, provide } from 'vue';
 const emit = defineEmits(['click']);
 
-const props = defineProps({
-  hideSeparator: {
-    type: Boolean,
-    default: false,
-  },
-  background: {
-    type: String,
-    default: 'bg-surface-200-800',
-  },
-  text: {
-    type: String,
-    default: 'text-surface-950-50',
-  },
-  clickable: {
-    type: Boolean,
-    default: false,
-  },
+interface CardProps {
+  class?: string;
+  hideSeparator?: boolean;
+  clickable?: boolean;
+}
 
-  unstyled: unstyledProp,
+const props = withDefaults(defineProps<CardProps>(), {
+  class: '',
 });
 
 provide('hideSeparator', props.hideSeparator);
@@ -43,31 +31,19 @@ const onKeydown = (event: KeyboardEvent) => {
   }
 };
 
-const { settings } = useSettings();
-const isUnstyled = settings.global.unstyled || settings.components.card.unstyled || props.unstyled;
+const classRootDefault =
+  'preset-filled-surface-200-800 flex flex-col border rounded-container ring overflow-hidden';
+const classRootMerged = computed(() => tm(classRootDefault, props.class));
 </script>
 
+<!-- TODO: conigurable clickable classes -->
 <template>
   <div
     @click="onClick"
     @keydown="onKeydown"
     :tabindex="clickable ? 0 : undefined"
-    :class="`vuetiful-card flex flex-col ${
-      isUnstyled ? '' : 'border rounded-container ring overflow-hidden'
-    } ${background} ${text} ${clickable ? `${isUnstyled ? '' : 'card-hover'} hover:cursor-pointer` : ''}`"
+    :class="`vuetiful-card ${classRootMerged} ${clickable ? `card-hover hover:cursor-pointer` : ''}`"
   >
     <slot />
   </div>
 </template>
-
-<style>
-.vuetiful-card-header {
-  border-top-left-radius: inherit;
-  border-top-right-radius: inherit;
-}
-
-.vuetiful-card-header > * {
-  border-top-left-radius: inherit;
-  border-top-right-radius: inherit;
-}
-</style>

@@ -62,7 +62,7 @@ export default defineComponent({
   setup(props, { attrs }) {
     const { applyMode, chosenMode, MODE } = useDarkMode();
 
-    const cTransition = `transition-all duration-[200ms]`;
+    const cTransition = `transition-all duration-300`;
     const cTrack = 'cursor-pointer';
     const cThumb = 'aspect-square scale-[0.8] flex justify-center items-center';
     const cIcon = 'w-[70%] aspect-square';

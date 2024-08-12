@@ -75,7 +75,7 @@ describe('VRadioItem slot states', () => {
           return { value };
         },
         template: `
-          <v-radio-group hover="custom-hover-class" active="custom-active-class" v-model="value">
+          <v-radio-group class-item-hover="custom-hover-class" class-item-active="custom-active-class" v-model="value">
             <v-radio-item data-test="item" :value="'John Duck'">John Duck</v-radio-item>
           </v-radio-group>
         `,
@@ -103,7 +103,7 @@ describe('VRadioItem slot states', () => {
           return { value };
         },
         template: `
-          <v-radio-group hover="custom-hover-class" active="custom-active-class" v-model="value">
+          <v-radio-group class-item-hover="custom-hover-class" class-item-active="custom-active-class" v-model="value">
             <v-radio-item data-test="item" :value="'John Duck'">John Duck</v-radio-item>
           </v-radio-group>
         `,
@@ -176,7 +176,7 @@ describe('VRadioItem slot states', () => {
 
       const itemEl = wrapper.find("[data-test='item']").find('div');
       expect(itemEl.element.classList.contains('cursor-pointer')).toBe(false);
-      expect(itemEl.element.classList.contains('cursor-not-allowed')).toBe(true);
+      expect(itemEl.element.classList.contains('pointer-events-none')).toBe(true);
       expect(itemEl.element.classList.contains('opacity-50')).toBe(true);
     });
   });

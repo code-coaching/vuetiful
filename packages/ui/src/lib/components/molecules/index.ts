@@ -6,10 +6,10 @@ import VShell from './VShell.vue';
 import VShellConfigurator from './VShellConfigurator.vue';
 
 import VListbox from './VListbox/VListbox.vue';
-import VListboxButton from './VListbox/VListboxButton.vue';
+// import VListboxButton from './VListbox/VListboxButton.vue';
 import VListboxItem from './VListbox/VListboxItem.vue';
-import VListboxItems from './VListbox/VListboxItems.vue';
-import VListboxLabel from './VListbox/VListboxLabel.vue';
+// import VListboxItems from './VListbox/VListboxItems.vue';
+// import VListboxLabel from './VListbox/VListboxLabel.vue';
 
 import VTab from './VTabs/VTab.vue';
 import VTabPanel from './VTabs/VTabPanel.vue';
@@ -26,6 +26,7 @@ import VCardFooter from './VCard/VCardFooter.vue';
 import VCardHeader from './VCard/VCardHeader.vue';
 
 import VCodeBlock from './VCodeBlock.vue';
+import Vuetiful from './Vuetiful.vue';
 
 export {
   VAccordion,
@@ -38,10 +39,10 @@ export {
   VCodeBlock,
   VDrawer,
   VListbox,
-  VListboxButton,
+  // VListboxButton,
   VListboxItem,
-  VListboxItems,
-  VListboxLabel,
+  // VListboxItems,
+  // VListboxLabel,
   VPreview,
   VRail,
   VRailTile,
@@ -50,4 +51,5 @@ export {
   VTab,
   VTabPanel,
   VTabs,
+  Vuetiful
 };

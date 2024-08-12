@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { useSettings } from '@/lib';
-import { presetProp, unstyledProp } from '@/lib/props';
+import { tm } from '@/lib/utils/tailwind-merge';
+import { computed } from 'vue';
 
-const props = defineProps({
-  unstyled: unstyledProp,
-  preset: presetProp,
-});
+type ChipProps = {
+  class?: string;
+};
+const props = withDefaults(defineProps<ChipProps>(), { class: '' });
 
-const { settings } = useSettings();
-const isUnstyled = settings.global.unstyled || settings.components.chip.unstyled || props.unstyled;
+const classRootDefault = computed(() => `chip preset-filled ${props.class}`);
+const classRootMerged = tm(classRootDefault.value, props.class);
 </script>
 <template>
-  <div :class="`vuetiful-chip ${isUnstyled ? '' : 'chip'} preset-${preset}`">
+  <div :class="`vuetiful-chip ${classRootMerged}`">
     <slot />
   </div>
 </template>

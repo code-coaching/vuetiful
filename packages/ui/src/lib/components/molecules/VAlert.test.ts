@@ -6,7 +6,7 @@ describe('VAlert', () => {
   test('types', () => {
     const wrapper = mount({
       template: /*html*/ `
-          <v-alert data-test="default"></v-alert>
+          <v-alert data-test="default" type=""></v-alert>
           <v-alert data-test="info" type="info"></v-alert>
           <v-alert data-test="success" type="success"></v-alert>
           <v-alert data-test="warning" type="warning"></v-alert>
@@ -18,27 +18,24 @@ describe('VAlert', () => {
     });
 
     const defaultAlert = wrapper.find('[data-test=default]');
-    expect(defaultAlert.classes()).not.toContain('preset-filled-primary-500');
+    expect(defaultAlert.classes()).not.toContain('preset-filled-primary-200-800');
 
     const infoAlert = wrapper.find('[data-test=info]');
-    expect(infoAlert.classes()).toContain('preset-filled');
+    expect(infoAlert.classes()).toContain('preset-filled-surface-200-800');
 
     const successAlert = wrapper.find('[data-test=success]');
-    expect(successAlert.classes()).toContain('preset-filled-success-500');
+    expect(successAlert.classes()).toContain('preset-filled-success-200-800');
 
     const warningAlert = wrapper.find('[data-test=warning]');
-    expect(warningAlert.classes()).toContain('preset-filled-warning-500');
+    expect(warningAlert.classes()).toContain('preset-filled-warning-200-800');
   });
 
-  test('unstyled', () => {
-    const wrapper = mount(VAlert, {
-      props: {
-        unstyled: true,
-      },
+  describe('given show is false', () => {
+    test('should not render', () => {
+      const wrapper = mount(VAlert, { props: { show: false } });
+      expect(wrapper.html()).toBe('<!--v-if-->');
     });
-
-    expect(wrapper.classes()).toEqual(['vuetiful-alert', 'flex']);
-  });
+  })
 
   describe('given close icon is clicked', () => {
     test('should emit close', async () => {

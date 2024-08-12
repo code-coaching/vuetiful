@@ -1,8 +1,29 @@
 <script setup lang="ts">
 import type { CssClasses } from '@/lib';
-import { useRail, VRadioItem } from '@/lib';
-import { inject } from 'vue';
-defineProps({
+import { tm, useRail, VRadioItem } from '@/lib';
+import { computed, inject } from 'vue';
+const props = defineProps({
+  class: {
+    type: String,
+    default: '',
+  },
+  classIcon: {
+    type: String,
+    default: '',
+  },
+  classLabel: {
+    type: String,
+    default: '',
+  },
+  classActive: {
+    type: String as () => CssClasses,
+    default: '',
+  },
+  classHover: {
+    type: String as () => CssClasses,
+    default: '',
+  },
+
   value: {
     type: String,
     default: '',
@@ -12,34 +33,35 @@ defineProps({
     default: '',
   },
 
-  regionIcon: {
-    type: String as () => CssClasses,
-    default: '',
-  },
-  regionLabel: {
-    type: String as () => CssClasses,
-    default: '',
-  },
 });
 
 const { selectedRailTile } = useRail();
-const activeRail = inject('activeRail');
-const hoverRail = inject('hoverRail');
+const activeRail = inject('activeRail') as string;
+const hoverRail = inject('hoverRail') as string;
+
+const classRootDefault = 'grid aspect-square w-full cursor-pointer place-content-center place-items-center'
+const classRootMerged = computed(() => tm(classRootDefault, props.class))
+
+const classActiveMerged = computed(() => tm(activeRail, props.classActive))
+const classHoverMerged = computed(() => tm(hoverRail, props.classHover))
+
+const classIconDefault = '';
+const classIconMerged = computed(() => tm(classIconDefault, props.classIcon))
+
+const classLabelDefault = 'text-center text-xs font-bold';
+const classLabelMerged = computed(() => tm(classLabelDefault, props.classLabel))
 </script>
 
 <template>
   <v-radio-item
-    unstyled
     :value="value"
-    :class="`vuetiful-rail-tile grid aspect-square w-full cursor-pointer place-content-center place-items-center ${
-      selectedRailTile === value ? `${activeRail}` : `${hoverRail}`
-    }`"
+    :class="`vuetiful-rail-tile ${ selectedRailTile === value ? `${classActiveMerged}` : `${classHoverMerged}` } ${classRootMerged}`"
   >
     <template v-if="$slots.default">
-      <div :class="`vuetiful-rail-tile-icon ${regionIcon}`"><slot /></div>
+      <div :class="`vuetiful-rail-tile-icon ${classIconMerged}`"><slot /></div>
     </template>
     <template v-if="label">
-      <div :class="`vuetiful-rail-tile-label text-center text-xs font-bold ${regionLabel}`">
+      <div :class="`vuetiful-rail-tile-label ${classLabelMerged}`">
         {{ label }}
       </div>
     </template>

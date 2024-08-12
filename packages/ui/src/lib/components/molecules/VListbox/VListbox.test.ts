@@ -9,21 +9,19 @@ describe('VListbox', () => {
     const wrapper = mount(VListbox);
 
     expect(wrapper.props()).toEqual({
-      modelValue: undefined,
-      classLabel: '',
-      textButton: 'Select an option',
-      classButton: '',
-      classItem: '',
-      classItems: '',
-      horizontal: false,
-      multiple: false,
-      active: 'preset-filled',
-      hover: 'hover:preset-filled-surface-800-200',
-      background: 'bg-surface-200-800',
-      text: '',
-      unstyled: false,
       by: undefined,
+      class: undefined,
+      classButton: undefined,
+      classItem: undefined,
+      classItemActive: '',
+      classItemHover: '',
+      classItems: undefined,
+      classLabel: undefined,
       display: undefined,
+      horizontal: false,
+      modelValue: undefined,
+      multiple: false,
+      textButton: 'Select an option',
       textLabel: undefined,
     });
   });
@@ -118,27 +116,6 @@ describe('VListbox', () => {
       await listbox.find("[data-test='is']").trigger('click');
       expect(choice.value).toEqual(['vuetiful', 'is']);
       expect(button.text()).toBe('2 options selected');
-    });
-  });
-
-  describe('unstyled', () => {
-    test('should only have vuetiful- classes', async () => {
-      const wrapper = mount(VListbox, {
-        props: {
-          unstyled: true,
-        },
-      });
-
-      const listbox = wrapper.find("[data-test='listbox']");
-      await listbox.find("[data-test='listbox-button']").trigger('click');
-      const listboxItems = wrapper.find("[data-test='listbox-items']");
-
-      expect(listbox.classes()).toEqual(['vuetiful-listbox']);
-      expect(listboxItems.classes()).toEqual([
-        'z-10',
-        'bg-surface-200-800',
-        'flex-col',
-      ]);
     });
   });
 });

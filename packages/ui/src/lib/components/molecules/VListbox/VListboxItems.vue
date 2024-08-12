@@ -1,40 +1,22 @@
 <script setup lang="ts">
-import { useSettings } from '@/lib';
+import { tm } from '@/lib/utils/tailwind-merge';
 import { ListboxOptions } from '@headlessui/vue';
-import { inject } from 'vue';
-const props = defineProps({
-  as: {
-    type: String,
-    default: 'ul',
-  },
-  static: {
-    type: Boolean,
-    default: false,
-  },
+import { computed, inject } from 'vue';
 
-  unstyled: {
-    type: Boolean,
-    default: false,
-  },
-});
+interface ListboxItemsProps {
+  class?: string;
+}
+const props = defineProps<ListboxItemsProps>();
 
-const background = inject('background') as string;
-const text = inject('text') as string;
 const horizontal = inject('horizontal') as boolean;
-const classItems = inject('classItems') as string;
 
-const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.listbox.unstyled || props.unstyled;
+const classRootDefault = 'z-10 rounded-container gap-1 p-4 flex preset-filled-surface-200-800';
+const classRootMerged = computed(() => tm(classRootDefault, props.class));
 </script>
 
 <template>
   <ListboxOptions
-    :as="as"
-    :static="static"
-    :class="`z-10 ${
-      isUnstyled ? '' : `rounded-container gap-1 p-4 border border-surface-400-600`
-    } ${background} ${text} ${horizontal ? 'flex' : 'flex-col'} ${classItems}`"
+    :class="`${horizontal ? 'flex-row' : 'flex-col'} ${classRootMerged}`"
     data-test="listbox-items"
   >
     <slot />

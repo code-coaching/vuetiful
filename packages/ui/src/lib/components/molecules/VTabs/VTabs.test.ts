@@ -37,10 +37,10 @@ describe('VTabs', () => {
     const tabList = wrapper.find("[data-test='vuetiful-tab-list']");
     expect(tabList.classes()).toEqual([
       'vuetiful-tab-list',
-      'flex',
-      '!rounded-bl-none',
-      '!rounded-br-none',
       'rounded-container',
+      'flex',
+      'rounded-bl-none',
+      'rounded-br-none',
     ]);
     expect(tabList.classes()).not.toContain('flex-col');
 
@@ -48,9 +48,9 @@ describe('VTabs', () => {
     expect(tabPanels.classes()).toEqual([
       'vuetiful-tab-panels',
       'p-4',
-      '!rounded-tl-none',
-      '!rounded-tr-none',
       'rounded-container',
+      'rounded-tl-none',
+      'rounded-tr-none',
     ]);
   });
 
@@ -73,20 +73,20 @@ describe('VTabs', () => {
     const tabList = wrapper.find("[data-test='vuetiful-tab-list']");
     expect(tabList.classes()).toEqual([
       'vuetiful-tab-list',
+      'rounded-container',
       'flex',
       'flex-col',
-      '!rounded-br-none',
-      '!rounded-tr-none',
-      'rounded-container',
+      'rounded-br-none',
+      'rounded-tr-none',
     ]);
 
     const tabPanels = wrapper.find("[data-test='vuetiful-tab-panels']");
     expect(tabPanels.classes()).toEqual([
       'vuetiful-tab-panels',
       'p-4',
-      '!rounded-bl-none',
-      '!rounded-tl-none',
       'rounded-container',
+      'rounded-bl-none',
+      'rounded-tl-none',
     ]);
   });
 });

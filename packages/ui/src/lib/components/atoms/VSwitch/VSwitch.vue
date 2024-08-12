@@ -1,39 +1,25 @@
 <script setup lang="ts">
-import { useSettings } from '@/lib';
-import { sizeProp, unstyledProp } from '@/lib/props';
+import { type SizeProp } from '@/lib/props';
+import { tm } from '@/lib/utils';
 import { Switch } from '@headlessui/vue';
 import { computed, ref, watch } from 'vue';
 const emit = defineEmits(['update:modelValue']);
-const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    default: false,
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
 
-  classTrack: {
-    type: String,
-    default: 'preset-filled',
-  },
-  classThumb: {
-    type: String,
-    default: 'bg-surface-100-900',
-  },
-
-  as: {
-    type: String,
-    default: 'button',
-  },
-  name: {
-    type: String,
-    default: '',
-  },
-
-  size: sizeProp,
-  unstyled: unstyledProp,
+interface SwitchProps {
+  class?: string;
+  classThumb?: string;
+  modelValue?: boolean;
+  disabled?: boolean;
+  as?: string;
+  name?: string;
+  size?: SizeProp;
+}
+const props = withDefaults(defineProps<SwitchProps>(), {
+  class: '',
+  classThumb: '',
+  name: '',
+  as: 'button',
+  size: 'md'
 });
 
 const parentModelValue = ref(props.modelValue);
@@ -65,44 +51,29 @@ const trackSize = computed(() => {
   }
 });
 
-const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.switch.unstyled || props.unstyled;
+const classRootDefault = 'flex rounded transition-all duration-300 preset-filled';
+const classRootMerged = computed(() => tm(classRootDefault, trackSize.value, props.class));
+
+const classThumbDefault = 'w-[50%] scale-[0.8] rounded bg-opacity-90 shadow transition-all duration-300 bg-surface-100-900';
+const classThumbMerged = computed(() => tm(classThumbDefault, props.classThumb));
 </script>
 
 <template>
   <!-- There is some odd behavior with test coverage, v-model must be the last property in this component -->
   <Switch
     data-test="switch"
-    :class="`vuetiful-slide-toggle ${
-      isUnstyled
-        ? ''
-        : `rounded-container ${disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`
-    }`"
+    :class="`vuetiful-slide-toggle ${classRootMerged}`"
     :name="name"
-    :as="as"
+    :disabled="disabled"
     v-slot="{ checked }"
     v-model="parentModelValue"
   >
+    <template v-if="$slots.default">
+      <span class="sr-only"><slot /></span>
+    </template>
     <div
-      data-test="switch-track"
-      :class="`vuetiful-slide-toggle-track flex ${
-        isUnstyled ? '' : `transition-all duration-[150ms] rounded`
-      }
-      ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}
-      ${trackSize} ${classTrack}`"
-    >
-      <template v-if="$slots.default">
-        <span class="sr-only"><slot /></span>
-      </template>
-      <div
-        data-test="switch-thumb"
-        :class="`vuetiful-slide-toggle-thumb w-[50%] scale-[0.8] ${
-          isUnstyled ? '' : `bg-opacity-90 shadow transition-all duration-[150ms] rounded `
-        }
-        ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}
-        ${checked ? 'translate-x-full' : `${isUnstyled ? '' : 'opacity-90'}`} ${classThumb}`"
-      ></div>
-    </div>
+      data-test="switch-thumb"
+      :class="`vuetiful-slide-toggle-thumb ${checked ? 'translate-x-full' : 'opacity-90'} ${classThumbMerged}`"
+    ></div>
   </Switch>
 </template>

@@ -1,41 +1,38 @@
 <script setup lang="ts">
-import { useSettings } from '@/lib';
+import { tm } from '@/lib/utils/tailwind-merge';
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue';
-import { inject } from 'vue';
+import { computed, inject } from 'vue';
 
-const props = defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
+interface AccordionItemProps {
+  class?: string;
+  title: string;
+}
 
-  unstyled: {
-    type: Boolean,
-    default: false,
-  },
+const props = withDefaults(defineProps<AccordionItemProps>(), {
+  class: '',
 });
 
-const classQuestion = inject('classQuestion');
-const classAnswer = inject('classAnswer');
+const classQuestionDefault =
+  'items-center justify-between rounded-container p-4 py-2 hover:cursor-pointer';
+const classQuestion = inject('classQuestion') as string;
+const classQuestionMerged = computed(() => tm(classQuestionDefault, classQuestion, props.class));
 
-const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.accordionItem.unstyled || props.unstyled;
+const classAnswerDefault = 'rounded-container p-4 py-2';
+const classAnswer = inject('classAnswer') as string;
+const classAnswerMerged = computed(() => tm(classAnswerDefault, classAnswer, props.class));
 </script>
 
 <template>
   <Disclosure class="vuetiful-accordion-item" as="div" v-slot="{ open }">
     <DisclosureButton
-      :class="`${isUnstyled ? '' : `${open ? '!rounded-bl-none !rounded-br-none' : ''}`}
-      ${isUnstyled ? '' : 'items-center justify-between p-4 py-2 rounded-container hover:cursor-pointer'}
-      ${classQuestion}`"
+      :class="`${open ? 'rounded-bl-none rounded-br-none' : ''} ${classQuestionMerged}`"
       class="vuetiful-accordion-item-button flex w-full"
     >
       <span class="vuetiful-accordion-title">{{ title }}</span>
       <slot v-if="!open" name="open-item">
         <!-- https://fontawesome.com/icons/plus?f=classic&s=solid -->
         <svg
-          class="vuetiful-accordion-item-icon-plus icon"
+          class="vuetiful-accordion-item-icon-plus my-1 h-4 min-h-[1rem] w-4 min-w-[1rem] fill-current"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
         >
@@ -48,7 +45,7 @@ const isUnstyled =
       <slot v-if="open" name="close-item">
         <!-- https://fontawesome.com/icons/minus?f=classic&s=solid -->
         <svg
-          class="vuetiful-accordion-item-icon-minus icon"
+          class="vuetiful-accordion-item-icon-minus my-1 h-4 min-h-[1rem] w-4 min-w-[1rem] fill-current"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
         >
@@ -61,17 +58,9 @@ const isUnstyled =
     </DisclosureButton>
     <DisclosurePanel
       class="vuetiful-accordion-item-panel"
-      :class="`${open ? `${isUnstyled ? '' : '!rounded-tl-none !rounded-tr-none'}` : ''} ${
-        isUnstyled ? '' : 'p-4 py-2 rounded-container'
-      } ${classAnswer}`"
+      :class="`${open ? `rounded-tl-none rounded-tr-none` : ''} ${classAnswerMerged}`"
     >
       <slot></slot>
     </DisclosurePanel>
   </Disclosure>
 </template>
-
-<style scoped>
-.icon {
-  @apply my-1 h-4 min-h-[1rem] w-4 min-w-[1rem] fill-current;
-}
-</style>

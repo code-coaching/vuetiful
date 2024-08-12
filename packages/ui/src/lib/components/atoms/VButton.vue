@@ -1,22 +1,20 @@
 <script setup lang="ts">
-import { useSettings } from '@/lib';
-import { presetProp, sizeProp, unstyledProp } from '@/lib/props';
+import { tm } from '@/lib/utils/tailwind-merge';
 import { computed } from 'vue';
 
-const props = defineProps({
-  icon: {
-    type: Boolean as () => boolean,
-    default: false,
-  },
-  tag: {
-    type: String as () => string,
-    default: 'button',
-  },
+interface ButtonProps {
+  class?: string;
+  icon?: boolean;
+  tag?: string;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+}
 
-  size: sizeProp,
-  preset: presetProp,
-  unstyled: unstyledProp,
+const props = withDefaults(defineProps<ButtonProps>(), {
+  class: '',
+  tag: 'button',
+  size: 'md',
 });
+
 const emit = defineEmits<{ (event: 'click'): void }>();
 
 const activate = () => {
@@ -41,6 +39,7 @@ const keyupHandler = (event: KeyboardEvent) => {
 };
 
 const btnSize = computed(() => {
+  if (props.icon) return '';
   switch (props.size) {
     case 'xs':
       return 'px-2.5 py-1.5 text-xs';
@@ -55,9 +54,10 @@ const btnSize = computed(() => {
   }
 });
 
-const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.button.unstyled || props.unstyled;
+const classRootDefault = computed(
+  () => `preset-filled ${props.icon ? 'btn-icon' : 'btn'} ${btnSize.value} hover:cursor-pointer`,
+);
+const classRootMerged = computed(() => tm(classRootDefault.value, props.class));
 </script>
 
 <template>
@@ -65,9 +65,7 @@ const isUnstyled =
     tabindex="0"
     role="button"
     :is="tag"
-    :class="`vuetiful-button ${
-      isUnstyled ? '' : `${icon ? 'btn-icon' : 'btn'} hover:cursor-pointer`
-    } ${btnSize} preset-${preset}`"
+    :class="`vuetiful-button ${classRootMerged}`"
     @click="clickHandler"
     @keydown="keydownHandler"
     @keyup="keyupHandler"

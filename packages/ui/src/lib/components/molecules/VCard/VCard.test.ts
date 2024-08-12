@@ -6,11 +6,9 @@ describe('VCard', () => {
   test('defaults', async () => {
     const wrapper = mount(VCard);
     expect(wrapper.props()).toEqual({
-      background: 'bg-surface-200-800',
+      class: '',
       clickable: false,
       hideSeparator: false,
-      text: 'text-surface-950-50',
-      unstyled: false,
     });
   });
 

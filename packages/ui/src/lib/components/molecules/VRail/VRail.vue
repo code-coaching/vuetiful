@@ -1,31 +1,35 @@
 <script setup lang="ts">
-import type { CssClasses } from '@/lib';
-import { VRadioGroup, useRail } from '@/lib';
-import { provide } from 'vue';
+import { VRadioGroup, tm, useRail } from '@/lib';
+import { computed, provide } from 'vue';
 const { selectedRailTile } = useRail();
 
 const props = defineProps({
-  active: {
-    type: String as () => CssClasses,
+  class: {
+    type: String,
+    default: '',
+  },
+
+  classItemActive: {
+    type: String,
     default: 'preset-filled',
   },
-  hover: {
-    type: String as () => CssClasses,
-    default: 'hover:preset-outlined hover:text-surface-900 dark:hover:text-surface-50',
+  classItemHover: {
+    type: String,
+    default: 'hover:preset-outlined',
   },
 });
 
-provide('activeRail', props.active);
-provide('hoverRail', props.hover);
+provide('activeRail', props.classItemActive);
+provide('hoverRail', props.classItemHover);
+
+const classRootDefault = 'flex h-full w-[70px] flex-col overflow-y-auto rounded-none border-0 border-r gap-0 p-0';
+const classRootMerged = computed(() => tm(classRootDefault, props.class));
 </script>
 
 <template>
   <v-radio-group
     v-model="selectedRailTile"
-    unstyled
-    hover=""
-    active=""
-    class="flex h-full w-[70px] flex-col overflow-y-auto"
+    :class="`vuetiful-rail ${classRootMerged}`"
   >
     <slot />
   </v-radio-group>

@@ -23,9 +23,7 @@ test('VRadioGroup default props', () => {
     'border',
     'border-surface-400-600',
     'rounded-container',
-    'bg-surface-200-800',
-    'text-surface-900',
-    'dark:text-surface-50',
+    'preset-filled-surface-200-800',
   ]);
 
   const radioGroup = wrapper.find("[data-test='radio-group']");
@@ -35,8 +33,7 @@ test('VRadioGroup default props', () => {
 test('VRadioGroup custom class props', () => {
   const wrapper = mount(VRadioGroup, {
     props: {
-      background: 'custom-background-class',
-      text: 'custom-text-class',
+      class: 'bg-blue-800 text-blue-200',
     },
   });
   const radioGroupEl = wrapper.find('div');
@@ -48,8 +45,8 @@ test('VRadioGroup custom class props', () => {
     'border',
     'border-surface-400-600',
     'rounded-container',
-    'custom-background-class',
-    'custom-text-class',
+    'bg-blue-800',
+    'text-blue-200',
   ]);
 });
 

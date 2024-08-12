@@ -10,11 +10,10 @@ describe('VSwitch props', () => {
       modelValue: false,
       disabled: false,
       size: 'md',
-      classTrack: 'preset-filled',
-      classThumb: 'bg-surface-100-900',
+      class: '',
+      classThumb: '',
       as: 'button',
       name: '',
-      unstyled: false,
     });
   });
 
@@ -25,7 +24,7 @@ describe('VSwitch props', () => {
       },
     });
 
-    const track = wrapper.find("[data-test='switch-track']");
+    const track = wrapper.find("[data-test='switch']");
     expect(track.attributes('class')).toContain('w-8 h-4');
   });
 
@@ -36,7 +35,7 @@ describe('VSwitch props', () => {
       },
     });
 
-    const track = wrapper.find("[data-test='switch-track']");
+    const track = wrapper.find("[data-test='switch']");
     expect(track.attributes('class')).toContain('w-12 h-6');
   });
 
@@ -47,7 +46,7 @@ describe('VSwitch props', () => {
       },
     });
 
-    const track = wrapper.find("[data-test='switch-track']");
+    const track = wrapper.find("[data-test='switch']");
     expect(track.attributes('class')).toContain('w-16 h-8');
   });
 
@@ -58,7 +57,7 @@ describe('VSwitch props', () => {
       },
     });
 
-    const track = wrapper.find("[data-test='switch-track']");
+    const track = wrapper.find("[data-test='switch']");
     expect(track.attributes('class')).toContain('w-20 h-10');
   });
 
@@ -69,7 +68,7 @@ describe('VSwitch props', () => {
       },
     });
 
-    const track = wrapper.find("[data-test='switch-track']");
+    const track = wrapper.find("[data-test='switch']");
     expect(track.attributes('class')).toContain('w-24 h-12');
   });
 });
@@ -81,6 +80,10 @@ describe('VSwitch events', () => {
         modelValue: false,
       },
     });
+
+    const switchEl = wrapper.find("[data-test='switch']");
+    await switchEl.trigger('click');
+    expect(wrapper.emitted()).toHaveProperty('update:modelValue');
 
     await wrapper.setProps({ modelValue: true });
     expect(wrapper.emitted()).toHaveProperty('update:modelValue');

@@ -12,13 +12,22 @@ describe('VPreview', () => {
 
     expect(wrapper.props()).toEqual({
       background: 'neutral-opaque',
-      hideSwatches: false,
-      regionFooter: '',
-      regionHeader: '',
-      regionPreview: '',
-      regionSource: '',
-      regionViewport: '',
+      class: undefined,
+      classHeader: undefined,
+      classPreviewAreaDesktop: undefined,
+      classPreviewAreaMobile: undefined,
+      classPreviewTab: undefined,
+      classPreviewTabArea: undefined,
+      classPreviewTabFooter: undefined,
+      classPreviewTabSource: undefined,
+      classRadioGroupWrapper: undefined,
+      classSwatch: undefined,
+      classSwatchToggle: undefined,
+      classSwatchToggleActive: undefined,
+      classSwatchToggleInactive: undefined,
+      classSwatches: undefined,
       hideMobileToggle: false,
+      hideSwatches: false,
     });
   });
 
@@ -86,14 +95,51 @@ describe('VPreview', () => {
       const swatches = wrapper.find('[data-test="swatches"]');
       await swatches.trigger('click');
 
-      const itemTransparent = wrapper.find('.bg-transparent')
+      const itemTransparent = wrapper.find('.bg-transparent');
       await itemTransparent.trigger('click');
 
-      const itemOpaque = wrapper.find('.bg-surface-100-900')
-      expect(itemOpaque.element.innerHTML).not.toContain('https://fontawesome.com/icons/circle-check?f=classic&s=solid');
+      const itemOpaque = wrapper.find('.bg-surface-100-900');
+      expect(itemOpaque.element.innerHTML).not.toContain(
+        'https://fontawesome.com/icons/circle-check?f=classic&s=solid',
+      );
 
       await itemOpaque.trigger('click');
-      expect(itemOpaque.element.innerHTML).toContain('https://fontawesome.com/icons/circle-check?f=classic&s=solid');
+      expect(itemOpaque.element.innerHTML).toContain(
+        'https://fontawesome.com/icons/circle-check?f=classic&s=solid',
+      );
     });
   });
+
+  describe('given a footer slot is provided', () => {
+    test('should render the footer slot', () => {
+      const wrapper = mount(VPreview, {
+        slots: {
+          footer: 'John Duck',
+        },
+      });
+      expect(wrapper.text()).toContain('John Duck');
+    });
+  })
+
+  describe('given mobile button should be hidden', () => {
+    test('should not render the mobile button', () => {
+      const wrapper = mount(VPreview, {
+        props: {
+          hideMobileToggle: true,
+        },
+      });
+      expect(wrapper.find("[data-test='radio-item-mobile']").exists()).toBe(false);
+    });
+  })
+
+  describe('given swatches should be hidden', () => {
+    test('should not render the swatches', () => {
+      const wrapper = mount(VPreview, {
+        props: {
+          hideSwatches: true,
+        },
+      });
+      expect(wrapper.find("[data-test='swatch-button']").exists()).toBe(false);
+    });
+  })
 });

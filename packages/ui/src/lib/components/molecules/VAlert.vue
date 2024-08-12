@@ -1,56 +1,36 @@
 <script setup lang="ts">
-import { useSettings } from '@/lib';
-import { type PropType, computed } from 'vue';
+import { tm } from '@/lib/utils/tailwind-merge';
+import { computed } from 'vue';
 
 const emit = defineEmits(['close']);
-const props = defineProps({
-  hideIcon: {
-    type: Boolean,
-    default: false,
-  },
-  showClose: {
-    type: Boolean,
-    default: false,
-  },
+interface AlertProps {
+  class?: string;
+  classPre?: string;
+  classMessage?: string;
+  classClose?: string;
+  hideIcon?: boolean;
+  showClose?: boolean;
+  show?: boolean;
+  type?: 'info' | 'success' | 'warning' | 'error' | '';
+}
 
-  show: {
-    type: Boolean,
-    default: true,
-  },
-  type: {
-    type: String as PropType<'info' | 'success' | 'warning' | 'error' | ''>,
-    default: '',
-  },
-
-  classPre: {
-    type: String,
-    default: '',
-  },
-  classMessage: {
-    type: String,
-    default: '',
-  },
-  classClose: {
-    type: String,
-    default: '',
-  },
-
-  unstyled: {
-    type: Boolean,
-    default: false,
-  },
+const props = withDefaults(defineProps<AlertProps>(), {
+  hideIcon: false,
+  showClose: false,
+  show: true,
+  type: '',
 });
 
 const typeBackground = computed(() => {
   switch (props.type) {
     case 'info':
-      return 'preset-filled';
+      return 'preset-filled-surface-200-800';
     case 'success':
-      return 'preset-filled-success-500';
+      return 'preset-filled-success-200-800';
     case 'warning':
-      return 'preset-filled-warning-500';
+      return 'preset-filled-warning-200-800';
     case 'error':
-      return 'preset-filled-error-500';
+      return 'preset-filled-error-200-800';
     case '':
       return '';
   }
@@ -63,24 +43,31 @@ const handleKeydown = (event: KeyboardEvent) => {
   }
 };
 
-const { settings } = useSettings();
-const isUnstyled = settings.global.unstyled || settings.components.alert.unstyled || props.unstyled;
+const classRootDefault = computed(
+  () => `flex w-full items-center gap-4 rounded-container border p-4 ${typeBackground.value}`,
+);
+const classRootMerged = computed(() => tm(classRootDefault.value, props.class));
+
+const classPreDefault = '';
+const classPreMerged = computed(() => tm(classPreDefault, props.classPre));
+
+const classMessageDefault = 'flex-auto';
+const classMessageMerged = computed(() => tm(classMessageDefault, props.classMessage));
+
+const classCloseDefault =
+  ' my-1 h-6 min-h-[1.5rem] w-6 min-w-[1.5rem] fill-current hover:cursor-pointer';
+const classCloseMerged = computed(() => tm(classCloseDefault, props.classClose));
 </script>
 
 <template>
-  <aside
-    v-if="show"
-    :class="`vuetiful-alert flex ${
-      isUnstyled ? '' : 'w-full items-center gap-4 p-4 border rounded-container'
-    } ${typeBackground}`"
-  >
-    <div v-if="!hideIcon" :class="`vuetiful-alert-pre ${classPre}`">
+  <aside v-if="show" :class="`vuetiful-alert ${classRootMerged}`">
+    <div v-if="!hideIcon" :class="`vuetiful-alert-pre ${classPreMerged}`">
       <slot v-if="$slots.pre" name="pre" />
       <template v-if="!$slots.pre">
         <!-- https://fontawesome.com/icons/circle-info?f=classic&s=solid -->
         <svg
           v-if="type === 'info'"
-          class="icon"
+          class="my-1 h-6 min-h-[1.5rem] w-6 min-w-[1.5rem] fill-current"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
         >
@@ -92,7 +79,7 @@ const isUnstyled = settings.global.unstyled || settings.components.alert.unstyle
         <!-- https://fontawesome.com/icons/circle-check?f=classic&s=solid -->
         <svg
           v-if="type === 'success'"
-          class="icon"
+          class="my-1 h-6 min-h-[1.5rem] w-6 min-w-[1.5rem] fill-current"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
         >
@@ -104,7 +91,7 @@ const isUnstyled = settings.global.unstyled || settings.components.alert.unstyle
         <!-- https://fontawesome.com/icons/circle-exclamation?f=classic&s=solid -->
         <svg
           v-if="type === 'warning'"
-          class="icon"
+          class="my-1 h-6 min-h-[1.5rem] w-6 min-w-[1.5rem] fill-current"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
         >
@@ -116,7 +103,7 @@ const isUnstyled = settings.global.unstyled || settings.components.alert.unstyle
         <!-- https://fontawesome.com/icons/triangle-exclamation?f=classic&s=solid -->
         <svg
           v-if="type === 'error'"
-          class="icon"
+          class="my-1 h-6 min-h-[1.5rem] w-6 min-w-[1.5rem] fill-current"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
         >
@@ -127,7 +114,7 @@ const isUnstyled = settings.global.unstyled || settings.components.alert.unstyle
       </template>
     </div>
 
-    <div :class="`vuetiful-alert-message ${isUnstyled ? '' : 'flex-auto'} ${classMessage}`">
+    <div :class="`vuetiful-alert-message ${classMessageMerged}`">
       <slot />
     </div>
 
@@ -139,7 +126,7 @@ const isUnstyled = settings.global.unstyled || settings.components.alert.unstyle
       tabindex="0"
       @keydown="handleKeydown"
       @click="close"
-      :class="`vuetiful-alert-close-icon icon hover:cursor-pointer ${classClose}`"
+      :class="`vuetiful-alert-close-icon ${classCloseMerged}`"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 384 512"
     >
@@ -149,9 +136,3 @@ const isUnstyled = settings.global.unstyled || settings.components.alert.unstyle
     </svg>
   </aside>
 </template>
-
-<style scoped>
-.icon {
-  @apply my-1 h-6 min-h-[1.5rem] w-6 min-w-[1.5rem] fill-current;
-}
-</style>

@@ -1,15 +1,29 @@
 <script setup lang="ts">
-import { useSettings } from '@/lib';
+import { tm } from '@/lib/utils';
 import { RadioGroupOption } from '@headlessui/vue';
-import { inject } from 'vue';
+import { computed, inject } from 'vue';
 const props = defineProps({
+  class: {
+    type: String,
+    default: '',
+  },
+
+  classActive: {
+    type: String,
+    default: '',
+  },
+  classHover: {
+    type: String,
+    default: '',
+  },
+  classDisabled: {
+    type: String,
+    default: '',
+  },
+
   value: {
     type: [String, Number, Boolean, Object],
     required: true,
-  },
-  unstyled: {
-    type: Boolean,
-    default: false,
   },
 });
 
@@ -17,18 +31,24 @@ const active = inject('active') as string;
 const hover = inject('hover') as string;
 const classItem = inject('classItem') as string;
 
-const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.radioItem.unstyled || props.unstyled;
+const classRootDefault = 'px-4 py-1 text-center text-base rounded';
+const classRootMerged = computed(() => tm(classRootDefault, classItem, props.class));
+
+const classActiveDefault = 'preset-filled';
+const classActiveMerged = computed(() => tm(classActiveDefault, active, props.classActive));
+
+const classHoverDefault = 'hover:preset-outlined';
+const classHoverMerged = computed(() => tm(classHoverDefault, hover, props.classHover));
+
+const classDisabledDefault = 'pointer-events-none opacity-50';
+const classDisabledMerged = computed(() => tm(classDisabledDefault, props.classDisabled));
 </script>
 
 <template>
   <RadioGroupOption v-slot="{ checked, disabled }" :value="value">
     <div
       data-test="radio-item"
-      :class="`vuetiful-radio-item ${isUnstyled ? '' : `px-4 py-1 text-center text-base rounded`} ${
-        checked ? active : hover
-      } ${disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'} ${classItem}`"
+      :class="`vuetiful-radio-item ${checked ? classActiveMerged : `${disabled ? '' : classHoverMerged}`} ${disabled ? classDisabledMerged : 'cursor-pointer'} ${classRootMerged}`"
     >
       <slot />
     </div>

@@ -3,24 +3,6 @@ import { describe, expect, test } from 'vitest';
 import { VCard, VCardHeader } from '..';
 
 describe('VCardHeader', () => {
-  test('unstyled', () => {
-    const wrapper = mount({
-      template: /*html*/ `
-        <v-card>
-          <v-card-header unstyled>John Duck</v-card-header>
-        </v-card>
-      `,
-      components: {
-        'v-card': VCard,
-        'v-card-header': VCardHeader,
-      },
-    });
-
-    const content = wrapper.find("[data-test='vuetiful-card-header-content']");
-    expect(content.text()).toEqual('John Duck');
-    expect(content.classes()).not.toContain('p-4');
-  });
-
   test('defaults', async () => {
     const wrapper = mount({
       template: /*html*/ `
@@ -83,4 +65,22 @@ describe('VCardHeader', () => {
       expect(content.classes()).not.toContain('p-4');
     });
   });
+
+  describe('given no children', () => {
+    test('should not render', async () => {
+      const wrapper = mount({
+        template: /*html*/ `
+        <v-card>
+          <v-card-header />
+        </v-card>
+      `,
+        components: {
+          'v-card': VCard,
+          'v-card-header': VCardHeader,
+        },
+      });
+
+      expect(wrapper.text()).toEqual('');
+    });
+  })
 });

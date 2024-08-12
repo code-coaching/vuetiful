@@ -1,37 +1,34 @@
 <script setup lang="ts">
-import { useSettings } from '@/lib';
-import { unstyledProp } from '@/lib/props';
-import { inject, useAttrs } from 'vue';
+import { tm } from '@/lib/utils/tailwind-merge';
+import { computed, inject } from 'vue';
 
-const props = defineProps({
-  classSeparator: {
-    type: String as () => string,
-    default: 'opacity-90',
-  },
-  unstyled: unstyledProp,
+interface CardFooterProps {
+  class?: string;
+  classSeparator?: string;
+}
+
+const props = withDefaults(defineProps<CardFooterProps>(), {
+  class: '',
+  classSeparator: '',
 });
 
 const hideSeparator = inject('hideSeparator', false);
 
-const attrs = useAttrs();
-const classAttribute = attrs.class as string;
+const classRootDefault = 'p-4';
+const classRootMerged = computed(() => tm(classRootDefault, props.class));
 
-const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.cardBody.unstyled || props.unstyled;
+const classSeparatorDefault = 'opacity-90';
+const classSeparatorMerged = computed(() => tm(classSeparatorDefault, props.classSeparator));
 </script>
 
 <template>
   <hr
     v-if="!hideSeparator"
     data-test="vuetiful-card-footer-separator"
-    class="divider"
-    :class="classSeparator"
+    class="vuetiful-card-footer-divider"
+    :class="classSeparatorMerged"
   />
-  <div
-    data-test="vuetiful-card-footer-content"
-    :class="`vuetiful-card-footer ${isUnstyled ? '' : 'p-4'} ${classAttribute}`"
-  >
+  <div data-test="vuetiful-card-footer-content" :class="`vuetiful-card-footer ${classRootMerged}`">
     <slot />
   </div>
 </template>

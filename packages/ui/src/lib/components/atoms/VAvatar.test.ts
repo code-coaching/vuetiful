@@ -12,11 +12,11 @@ describe('VAvatar', () => {
   test('custom props', () => {
     const wrapper = mount(VAvatar, {
       props: {
-        class: 'custom-bg'
+        class: 'bg-blue-500'
       }
     });
 
-    expect(wrapper.classes()).toContain('custom-bg');
+    expect(wrapper.classes()).toContain('bg-blue-500');
     expect(wrapper.classes()).not.toContain('preset-filled');
   });
 

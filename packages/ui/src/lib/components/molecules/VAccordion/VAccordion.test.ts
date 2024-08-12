@@ -13,15 +13,4 @@ describe('VAccordion', () => {
 
     expect(wrapper.classes()).toEqual(['vuetiful-accordion', 'flex', 'w-full', 'flex-col', 'gap-1']);
   });
-
-  test('unstyled', async () => {
-    const wrapper = mount({
-      template: /*html*/ `<v-accordion unstyled></v-accordion>`,
-      components: {
-        'v-accordion': VAccordion,
-      },
-    });
-
-    expect(wrapper.classes()).toEqual(['vuetiful-accordion']);
-  });
 });

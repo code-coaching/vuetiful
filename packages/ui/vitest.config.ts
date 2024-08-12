@@ -13,7 +13,6 @@ export default mergeConfig(
       coverage: {
         include: ['src/lib/'],
         exclude: [
-          'src/lib/components/VBootstrap.vue',
           'src/lib/components/molecules/VDrawer.vue',
           'src/lib/components/molecules/VShell.vue',
           'src/**/*.test.ts',
@@ -21,10 +20,10 @@ export default mergeConfig(
           '**/index**',
         ],
         thresholds: {
-          lines: 99.94,
-          functions: 98.46,
-          branches: 99.02,
-          statements: 99.94,
+          lines: 100,
+          functions: 100,
+          branches: 100,
+          statements: 100,
           autoUpdate: true,
         },
       },

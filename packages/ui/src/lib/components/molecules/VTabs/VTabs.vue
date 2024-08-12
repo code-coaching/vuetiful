@@ -1,67 +1,50 @@
 <script setup lang="ts">
-import { useSettings } from '@/lib';
-import { unstyledProp } from '@/lib/props';
+import { tm } from '@/lib/utils';
 import { TabGroup, TabList, TabPanels } from '@headlessui/vue';
-import { provide } from 'vue';
+import { computed, provide } from 'vue';
 
-const props = defineProps({
-  hideSeparator: {
-    type: Boolean,
-    default: false,
-  },
+interface TabsProps {
+  class?: string;
+  classPanels?: string;
+  classTabs?: string;
+  classTab?: string;
+  classTabActive?: string;
+  classTabHover?: string;
+  classSeparator?: string;
+  classTabSeparator?: string;
+  hideSeparator?: boolean;
+  vertical?: boolean;
+  defaultIndex?: number;
+}
 
-  vertical: {
-    type: Boolean,
-    default: false,
-  },
-
-  active: {
-    type: String,
-    default: '',
-  },
-  hover: {
-    type: String,
-    default: 'hover:preset-outlined-surface-500',
-  },
-
-  classPanels: {
-    type: String,
-    default: '',
-  },
-  classTabs: {
-    type: String,
-    default: '',
-  },
-  classTab: {
-    type: String,
-    default: '',
-  },
-  classSeparator: {
-    type: String,
-    default: 'border-surface-400-600',
-  },
-  classTabSeparator: {
-    type: String,
-    default: 'border-surface-900-100',
-  },
-
-  defaultIndex: {
-    type: Number,
-    default: 0,
-  },
-
-  unstyled: unstyledProp,
+const props = withDefaults(defineProps<TabsProps>(), {
+  defaultIndex: 0,
 });
 
-provide('active', props.active);
-provide('hover', props.hover);
+const classTabHoverDefault = 'hover:preset-outlined-surface-500';
+const classTabHoverMerged = computed(() => tm(classTabHoverDefault, props.classTabHover));
+const classSeparatorDefault = 'border-surface-900-100';
+const classSeparatorMerged = computed(() => tm(classSeparatorDefault, props.classSeparator));
+const classTabSeparatorDefault = 'border-primary-400';
+const classTabSeparatorMerged = computed(() => tm(classTabSeparatorDefault, props.classTabSeparator));
+
+provide('active', props.classTabActive);
+provide('hover', classTabHoverMerged.value);
 provide('vertical', props.vertical);
 provide('classTab', props.classTab);
-provide('hideSeparator', props.hideSeparator);
-provide('classTabSeparator', props.classTabSeparator);
+provide('hideSeparator', classSeparatorMerged.value);
+provide('classTabSeparator', classTabSeparatorMerged.value);
 
-const { settings } = useSettings();
-const isUnstyled = settings.global.unstyled || settings.components.tabs.unstyled || props.unstyled;
+const classRootDefault = computed(() => props.vertical ? 'flex' : '')
+const classRootMerged = computed(() => tm(classRootDefault.value, props.class))
+
+const classTabListHorizontalVertical = computed(() => props.vertical ? 'flex flex-col rounded-br-none rounded-tr-none' : 'flex rounded-bl-none rounded-br-none');
+const classTabListDefault = computed(() => `rounded-container ${classTabListHorizontalVertical.value}`);
+const classTabListMerged = computed(() => tm(classTabListDefault.value, props.classTabs));
+
+const classTabPanelsHorizontalVertical = computed(() => props.vertical ? 'rounded-bl-none rounded-tl-none' : 'rounded-tl-none rounded-tr-none');
+const classTabPanelsDefault = computed(() => `p-4 rounded-container ${classTabPanelsHorizontalVertical.value}`);
+const classPanelsMerged = computed(() => tm(classTabPanelsDefault.value, props.classPanels));
 </script>
 
 <template>
@@ -70,19 +53,11 @@ const isUnstyled = settings.global.unstyled || settings.components.tabs.unstyled
     :vertical="vertical"
     :defaultIndex="defaultIndex"
     class="vuetiful-tab-group"
-    :class="`${vertical ? 'flex' : ''}`"
+    :class="classRootMerged"
   >
     <TabList
       data-test="vuetiful-tab-list"
-      :class="`vuetiful-tab-list flex ${vertical ? 'flex-col' : ''}
-      ${
-        isUnstyled
-          ? ''
-          : `${
-              vertical ? '!rounded-br-none !rounded-tr-none' : '!rounded-bl-none !rounded-br-none'
-            } rounded-container `
-      } 
-      ${classTabs}`"
+      :class="`vuetiful-tab-list ${classTabListMerged}`"
     >
       <slot name="tabs" />
     </TabList>
@@ -93,14 +68,7 @@ const isUnstyled = settings.global.unstyled || settings.components.tabs.unstyled
     ></div>
     <TabPanels
       data-test="vuetiful-tab-panels"
-      :class="`vuetiful-tab-panels
-      ${
-        isUnstyled
-          ? ''
-          : `p-4 ${
-              vertical ? '!rounded-bl-none !rounded-tl-none' : '!rounded-tl-none !rounded-tr-none'
-            } rounded-container`
-      } ${classPanels}`"
+      :class="`vuetiful-tab-panels ${classPanelsMerged}`"
     >
       <slot />
     </TabPanels>

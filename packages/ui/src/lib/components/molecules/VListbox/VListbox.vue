@@ -1,76 +1,35 @@
 <script setup lang="ts">
-import { type CssClasses, useSettings } from '@/lib';
-import { unstyledProp } from '@/lib/props';
+import { tm } from '@/lib/utils/tailwind-merge';
 import { Listbox } from '@headlessui/vue';
 import { computed, provide, ref, watch } from 'vue';
 import VListboxButton from './VListboxButton.vue';
 import VListboxItems from './VListboxItems.vue';
 import VListboxLabel from './VListboxLabel.vue';
+
 const emit = defineEmits(['update:modelValue']);
-const props = defineProps({
-  modelValue: Listbox.props['modelValue'],
 
-  by: {
-    type: String,
-  },
-  display: {
-    type: String,
-  },
+interface ListboxProps {
+  class?: string;
+  classLabel?: string;
+  classButton?: string;
+  classItem?: string;
+  classItemActive?: string;
+  classItemHover?: string;
+  classItemDisabled?: string;
+  classItems?: string;
+  modelValue?: any;
+  by?: string;
+  display?: string;
+  textLabel?: string;
+  textButton?: string;
+  horizontal?: boolean;
+  multiple?: boolean;
+}
 
-  textLabel: {
-    type: String,
-  },
-  classLabel: {
-    type: String as () => CssClasses,
-    default: '',
-  },
-
-  textButton: {
-    type: String,
-    default: 'Select an option',
-  },
-  classButton: {
-    type: String as () => CssClasses,
-    default: '',
-  },
-
-  classItem: {
-    type: String as () => CssClasses,
-    default: '',
-  },
-  classItems: {
-    type: String as () => CssClasses,
-    default: '',
-  },
-
-  horizontal: {
-    type: Boolean,
-    default: false,
-  },
-  multiple: {
-    type: Boolean,
-    default: false,
-  },
-
-  active: {
-    type: String,
-    default: 'preset-filled',
-  },
-  hover: {
-    type: String,
-    default: 'hover:preset-filled-surface-800-200',
-  },
-
-  background: {
-    type: String,
-    default: 'bg-surface-200-800',
-  },
-  text: {
-    type: String,
-    default: '',
-  },
-
-  unstyled: unstyledProp,
+const props = withDefaults(defineProps<ListboxProps>(), {
+  classItemActive: '',
+  classItemHover: '',
+  textButton: 'Select an option',
 });
 
 const parentModelValue = ref(props.modelValue);
@@ -87,14 +46,21 @@ watch(
   },
 );
 
-provide('active', props.active);
-provide('hover', props.hover);
-provide('background', props.background);
-provide('text', props.text);
+const classItemActiveDefault = 'preset-filled-surface-800-200';
+const classItemActiveMerged = computed(() =>
+  tm(classItemActiveDefault, props.classItemActive),
+);
+const classItemHoverDefault = 'hover:preset-outlined-surface-800-200';
+const classItemHoverMerged = computed(() => tm(classItemHoverDefault, props.classItemHover));
+
+const classItemDisabledDefault = 'pointer-events-none opacity-50';
+const classItemDisabledMerged = computed(() => tm(classItemDisabledDefault, props.classItemDisabled));
+
+provide('active', classItemActiveMerged.value);
+provide('hover', classItemHoverMerged.value);
+provide('disabled', classItemDisabledMerged.value);
 provide('horizontal', props.horizontal);
-provide('unstyled', props.unstyled);
 provide('classItem', props.classItem);
-provide('classItems', props.classItems);
 
 const showText = computed(() => {
   if (props.display && parentModelValue.value) return parentModelValue.value[props.display];
@@ -109,9 +75,8 @@ const showText = computed(() => {
   return props.textButton;
 });
 
-const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.listbox.unstyled || props.unstyled;
+const classRootDefault = 'rounded-container preset-filled-surface-200-800';
+const classRootMerged = computed(() => tm(classRootDefault, props.class));
 </script>
 
 <template>
@@ -121,27 +86,23 @@ const isUnstyled =
     as="div"
     :by="by"
     :multiple="multiple"
-    :class="`vuetiful-listbox ${isUnstyled ? '' : 'relative rounded-container'}`"
+    :class="`vuetiful-listbox relative`"
     v-model="parentModelValue"
   >
     <v-listbox-label v-if="textLabel" :class="classLabel">{{ textLabel }}</v-listbox-label>
-    <v-listbox-button data-test="listbox-button" :class="`${background} ${text} ${classButton}`">
+    <v-listbox-button data-test="listbox-button" :class="`${classRootMerged}`">
       {{ showText }}
     </v-listbox-button>
     <!-- TODO: Add configurable transition -->
     <transition
-      enter-active-class="transition duration-150 ease-in-out"
+      enter-active-class="transition duration-300 ease-in-out"
       enter-from-class="opacity-0"
       enter-to-class="opacity-100"
-      leave-active-class="transition duration-150 ease-in-out"
+      leave-active-class="transition duration-300 ease-in-out"
       leave-from-class="opacity-100"
       leave-to-class="opacity-0"
     >
-      <v-listbox-items
-        data-test="listbox-items"
-        :unstyled="unstyled"
-        :class="`${isUnstyled ? '' : 'absolute mt-1 min-w-full'}`"
-      >
+      <v-listbox-items data-test="listbox-items" :class="`absolute mt-1 min-w-full ${classItems}`">
         <slot />
       </v-listbox-items>
     </transition>

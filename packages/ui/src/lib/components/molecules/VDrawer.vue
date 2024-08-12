@@ -60,6 +60,7 @@ onMounted(() => {
 // #endregion
 </script>
 
+<!-- TODO - api -->
 <template>
   <transition :name="`slide-${drawer.position}-${drawer.duration}`">
     <div
@@ -78,7 +79,7 @@ onMounted(() => {
     <div
       v-if="drawer.open"
       ref="elemBackdrop"
-      :class="`drawer-backdrop backdrop-blur-xs fixed bottom-0 left-0 right-0 top-0 z-40 flex bg-surface-backdrop ${regionBackdrop}`"
+      :class="`drawer-backdrop backdrop-blur-sm fixed bottom-0 left-0 right-0 top-0 z-40 flex bg-surface-backdrop ${regionBackdrop}`"
       @mousedown="onBackdropInteraction"
       @touchstart="onBackdropInteraction"
     ></div>

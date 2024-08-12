@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { tm } from '@/lib/utils/tailwind-merge';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
 type AvatarProps = {
   // Classes
@@ -31,10 +31,11 @@ const imgSrc = ref(props.src);
 
 const classRootDefault =
   'flex items-center justify-center overflow-hidden h-16 w-16 rounded preset-filled text-xl';
-const classRoot = tm(classRootDefault, props.class);
+const classRootMerged = computed(() => tm(classRootDefault, props.class));
 </script>
 <template>
-  <div data-test="avatar" :class="`vuetiful-avatar ${classRoot}`">
+  <div data-test="avatar" :class="`vuetiful-avatar ${classRootMerged}`">
+    <!-- Note that @error only works client side, e.g. in Nuxt it will render when loading the image ater hydration, but not on initial SSR load -->
     <img
       :class="`vuetiful-avatar-image ${classImage}`"
       v-if="src"

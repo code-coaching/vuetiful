@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { SwitchGroup } from '@headlessui/vue';
 
-defineProps({
-  as: {
-    type: String,
-    default: 'div',
-  },
+interface SwitchGroupProps {
+  as?: string;
+}
+
+withDefaults(defineProps<SwitchGroupProps>(), {
+  as: 'div',
 });
 </script>
 

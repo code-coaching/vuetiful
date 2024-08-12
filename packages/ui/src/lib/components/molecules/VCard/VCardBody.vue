@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { useSettings } from '@/lib';
-import { unstyledProp } from '@/lib/props';
+import { tm } from '@/lib/utils/tailwind-merge';
+import { computed } from 'vue';
 
-const props = defineProps({
-  unstyled: unstyledProp,
+interface CardBodyProps {
+  class?: string;
+}
+
+const props = withDefaults(defineProps<CardBodyProps>(), {
+  class: '',
 });
 
-const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.cardBody.unstyled || props.unstyled;
+const classRootDefault = 'p-4';
+const classRootMerged = computed(() => tm(classRootDefault, props.class));
 </script>
 <template>
-  <div
-    data-test="vuetiful-card-body-content"
-    :class="`vuetiful-card-body ${isUnstyled ? '' : 'p-4'}`"
-  >
+  <div data-test="vuetiful-card-body-content" :class="`vuetiful-card-body ${classRootMerged}`">
     <slot />
   </div>
 </template>

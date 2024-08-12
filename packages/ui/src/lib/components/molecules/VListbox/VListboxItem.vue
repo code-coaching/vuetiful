@@ -1,38 +1,42 @@
 <script setup lang="ts">
-import { useSettings } from '@/lib';
+import { tm } from '@/lib/utils/tailwind-merge';
 import { ListboxOption } from '@headlessui/vue';
-import { inject } from 'vue';
+import { computed, inject } from 'vue';
 
-const props = defineProps({
-  value: {
-    type: [String, Number, Boolean, Object],
-    required: true,
-  },
-
-  unstyled: {
-    type: Boolean,
-    default: false,
-  },
-});
+interface ListboxItemProps {
+  class?: string;
+  classActive?: string;
+  classHover?: string;
+  classDisabled?: string;
+  value: string | number | boolean | object;
+}
+const props = defineProps<ListboxItemProps>();
 
 const activeClass = inject('active') as string;
 const hoverClass = inject('hover') as string;
+const disabledClass = inject('disabled') as string;
 const classItem = inject('classItem') as string;
 
-const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.listboxItem.unstyled || props.unstyled;
+const classRootDefault = 'rounded px-4 py-1 text-base';
+const classRootMerged = computed(() => tm(classRootDefault, classItem, props.class));
+
+const classActiveDefault = '';
+const classActiveMerged = computed(() => tm(classActiveDefault, activeClass, props.classActive));
+
+const classHoverDefault = '';
+const classHoverMerged = computed(() => tm(classHoverDefault, hoverClass, props.classHover));
+
+const classDisabledDefault = '';
+const classDisabledMerged = computed(() =>
+  tm(classDisabledDefault, disabledClass, props.classDisabled),
+);
 </script>
 
 <template>
-  <ListboxOption v-slot="{ selected, disabled, active }" :value="value">
+  <ListboxOption v-slot="{ selected, disabled }" :value="value">
     <div
       data-test="listbox-item"
-      :class="`vuetiful-listbox-item ${isUnstyled ? '' : 'px-4 py-1 text-base rounded'} 
-      ${selected ? activeClass : hoverClass} 
-      ${disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}
-      ${active && !selected ? hoverClass : ''}
-      ${classItem}`"
+      :class="`vuetiful-listbox-item ${classRootMerged} ${selected ? classActiveMerged : `${classHoverMerged}`} ${disabled ? classDisabledMerged : 'cursor-pointer'}`"
     >
       <slot />
     </div>

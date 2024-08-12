@@ -1,59 +1,48 @@
 <script setup lang="ts">
-import { useSettings } from '@/lib';
-import { unstyledProp } from '@/lib/props';
-import { type Ref, computed, inject, ref, useAttrs } from 'vue';
+import { tm } from '@/lib/utils/tailwind-merge';
+import { type Ref, computed, inject, onMounted, ref } from 'vue';
 
-const props = defineProps({
-  classSeparator: {
-    type: String as () => string,
-    default: 'opacity-90',
-  },
-  unstyled: unstyledProp,
+interface CardHeaderProps {
+  class?: string;
+  classSeparator?: string;
+}
+
+const props = withDefaults(defineProps<CardHeaderProps>(), {
+  class: '',
+  classSeparator: '',
 });
 
 const headerRef = ref() as Ref<HTMLDivElement>;
 
-const hasImageAsChild = computed(() => {
+const hasImageAsChild = ref(false);
+
+onMounted(() => {
   const children = headerRef.value?.children;
-  if (!children) return false;
+  if (children.length === 0) return false;
   const childrenArray = Array.from(children);
-  return childrenArray.some((child) => child.tagName === 'IMG');
+  hasImageAsChild.value = childrenArray.some((child) => child.tagName === 'IMG');
 });
 
 const hideSeparator = inject('hideSeparator', false);
 
-const attrs = useAttrs();
-const classAttribute = attrs.class as string;
+let classRootDefault = computed(() => (hasImageAsChild.value ? 'p-0' : 'p-4'));
+const classRootMerged = computed(() => tm(classRootDefault.value, props.class));
 
-const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.cardHeader.unstyled || props.unstyled;
+const classSeperatorDefault = 'opacity-90';
+const classSeparatorMerged = computed(() => tm(classSeperatorDefault, props.classSeparator));
 </script>
 
 <template>
   <div
     ref="headerRef"
     data-test="vuetiful-card-header-content"
-    :class="`vuetiful-card-header ${hasImageAsChild ? '' : `${isUnstyled ? '' : 'p-4'}`} ${classAttribute}`"
+    :class="`vuetiful-card-header ${classRootMerged}`"
   >
     <slot />
   </div>
   <hr
     v-if="!hideSeparator"
     data-test="vuetiful-card-header-separator"
-    class="divider"
-    :class="classSeparator"
+    :class="`vuetiful-card-header-divider ${classSeparatorMerged}`"
   />
 </template>
-
-<style>
-.vuetiful-card-header {
-  border-top-left-radius: inherit;
-  border-top-right-radius: inherit;
-}
-
-.vuetiful-card-header > * {
-  border-top-left-radius: inherit;
-  border-top-right-radius: inherit;
-}
-</style>

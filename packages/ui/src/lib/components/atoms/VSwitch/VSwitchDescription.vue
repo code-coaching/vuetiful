@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { SwitchDescription } from '@headlessui/vue';
 
-defineProps({
-  as: {
-    type: String,
-    default: 'p',
-  },
+interface SwitchDescriptionProps {
+  as?: string;
+}
+
+withDefaults(defineProps<SwitchDescriptionProps>(), {
+  as: 'p'
 });
 </script>
 

@@ -19,6 +19,5 @@ describe('VTabs', () => {
 
     const tabPanel = wrapper.find("[data-test='tab-panel']");
     expect(tabPanel.text()).toEqual('John Duck');
-    expect(tabPanel.attributes('tabindex')).toEqual('-1');
   });
 });

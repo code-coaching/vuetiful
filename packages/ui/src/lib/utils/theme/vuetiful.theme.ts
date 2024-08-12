@@ -375,6 +375,11 @@ vuetiful.custom = `
 		radial-gradient(at 76% 0%, hsla(189,100%,56%,0.36) 0px, transparent 50%),
 		radial-gradient(at 1% 0%, hsla(340,100%,76%,0.26) 0px, transparent 50%),
 		radial-gradient(at 20% 100%, hsla(241,100%,70%,0.47) 0px, transparent 50%);
+  
+  .kbd {
+    background-color: rgb(var(--color-surface-600) / var(--tw-bg-opacity));
+    color: rgb(var(--color-surface-contrast-600) / var(--tw-text-opacity));
+  }
 }
 .dark [data-theme='vuetiful'] {
   /* prettier-ignore */
@@ -382,6 +387,11 @@ vuetiful.custom = `
 		radial-gradient(at 76% 0%, hsla(189,100%,56%,0.20) 0px, transparent 50%),
 		radial-gradient(at 1% 0%, hsla(340,100%,76%,0.15) 0px, transparent 50%),
 		radial-gradient(at 20% 100%, hsla(241,100%,70%,0.30) 0px, transparent 50%);
+
+  .kbd {
+    background-color: rgb(var(--color-surface-400) / var(--tw-bg-opacity));
+    color: rgb(var(--color-surface-contrast-400) / var(--tw-text-opacity));
+  }
 }
 `;
 

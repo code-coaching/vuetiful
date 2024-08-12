@@ -1,33 +1,33 @@
 <script setup lang="ts">
-import { useSettings } from '@/lib';
-import { provide } from 'vue';
+import { tm } from '@/lib/utils/tailwind-merge';
+import { computed, provide } from 'vue';
 
-const props = defineProps({
-  classQuestion: {
-    type: String,
-    default: 'bg-surface-200-800 hover:preset-soft',
-  },
-  classAnswer: {
-    type: String,
-    default: 'bg-surface-200-800',
-  },
+interface AccordionProps {
+  class?: string;
+  classQuestion?: string;
+  classAnswer?: string;
+}
 
-  unstyled: {
-    type: Boolean,
-    default: false,
-  },
+const props = withDefaults(defineProps<AccordionProps>(), {
+  class: '',
+  classQuestion: '',
+  classAnswer: '',
 });
 
-provide('classQuestion', props.classQuestion);
-provide('classAnswer', props.classAnswer);
+const classQuestionDefault = 'bg-surface-200-800 hover:preset-outlined';
+const classQuestionMerged = computed(() => tm(classQuestionDefault, props.classQuestion));
 
-const { settings } = useSettings();
-const isUnstyled =
-  settings.global.unstyled || settings.components.accordion.unstyled || props.unstyled;
+const classAnswerDefault = 'bg-surface-200-800';
+const classAnswerMerged = computed(() => tm(classAnswerDefault, props.classAnswer));
+
+provide('classQuestion', classQuestionMerged.value);
+provide('classAnswer', classAnswerMerged.value);
+
+const classRootDefault = 'flex w-full flex-col gap-1';
 </script>
 
 <template>
-  <div :class="`vuetiful-accordion ${isUnstyled ? '' : 'flex w-full flex-col gap-1'}`">
+  <div :class="`vuetiful-accordion ${classRootDefault}`">
     <slot></slot>
   </div>
 </template>
