@@ -17,7 +17,7 @@ const drawer = reactive<DrawerSettings>({
   id: 'default',
   open: false,
   position: 'left',
-  duration: 300,
+  duration: 150,
   regionBackdrop: '',
   regionDrawer: '',
 });
@@ -26,7 +26,7 @@ const useDrawer = () => {
   const open = (settings?: DrawerSettings) => {
     drawer.open = true;
     drawer.id = settings?.id ?? 'default';
-    drawer.duration = settings?.duration ?? 300;
+    drawer.duration = settings?.duration ?? 150;
     drawer.regionBackdrop = settings?.regionBackdrop ?? '';
     drawer.regionDrawer = settings?.regionDrawer ?? '';
     drawer.position = settings?.position ?? 'left';

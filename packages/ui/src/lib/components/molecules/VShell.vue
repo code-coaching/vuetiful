@@ -102,7 +102,6 @@ const classFixedFooterDefault = 'sticky bottom-0 z-10';
 const classFixedFooterMerged = computed(() => tm(classFixedFooterDefault, props.classFixedFooter));
 </script>
 
-<!-- TODO - api -->
 <template>
   <div :class="`vuetiful-shell ${classRootMerged}`">
     <header v-if="$slots.fixedHeader" :class="`vuetiful-fixed-header ${classFixedHeaderMerged}`">

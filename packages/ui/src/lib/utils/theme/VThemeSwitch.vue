@@ -58,30 +58,39 @@ const showPopup = ref(false);
       Theme
     </v-button>
 
-    <div
-      v-if="showPopup"
-      v-click-outside-group="{
-        elementsInGroup: ['.vuetiful-theme-switcher__button'],
-        callback: () => (showPopup = false),
-      }"
-      class="vuetiful-theme-switcher__popup"
-      :class="`${classRootMerged}`"
+    <transition
+      enter-active-class="transition-opacity"
+      enter-from-class="opacity-0"
+      enter-to-class="opacity-100"
+      leave-active-class="transition-opacity"
+      leave-from-class="opacity-100"
+      leave-to-class="opacity-0"
     >
-      <section class="flex items-center justify-between">
-        <div class="text-lg">Mode</div>
-        <v-light-switch />
-      </section>
-      <v-radio-group vertical class="w-full border-none max-h-60 sm:max-h-96 overflow-y-auto">
-        <template v-for="(theme, index) in themes">
-          <v-radio-item
-            :value="theme.name"
-            :class="`vuetiful-theme-switcher__popup-list-item ${classItemMerged} ${chosenTheme.name === theme.name ? classItemActiveMerged : ''}`"
-            @click="applyTheme(theme)"
-          >
-            {{ theme.name }}
-          </v-radio-item>
-        </template>
-      </v-radio-group>
-    </div>
+      <div
+        v-if="showPopup"
+        v-click-outside-group="{
+          elementsInGroup: ['.vuetiful-theme-switcher__button'],
+          callback: () => (showPopup = false),
+        }"
+        class="vuetiful-theme-switcher__popup"
+        :class="`${classRootMerged}`"
+      >
+        <section class="flex items-center justify-between">
+          <div class="text-lg">Mode</div>
+          <v-light-switch />
+        </section>
+        <v-radio-group vertical class="max-h-60 w-full overflow-y-auto border-none sm:max-h-96">
+          <template v-for="(theme, index) in themes">
+            <v-radio-item
+              :value="theme.name"
+              :class="`vuetiful-theme-switcher__popup-list-item ${classItemMerged} ${chosenTheme.name === theme.name ? classItemActiveMerged : ''}`"
+              @click="applyTheme(theme)"
+            >
+              {{ theme.name }}
+            </v-radio-item>
+          </template>
+        </v-radio-group>
+      </div>
+    </transition>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { tm } from '..'
-import { useDarkMode } from './dark-mode.service';
 import { computed } from 'vue';
+import { tm } from '..';
+import { useDarkMode } from './dark-mode.service';
 
 const { applyMode, chosenMode, MODE } = useDarkMode();
 
@@ -13,11 +13,11 @@ interface LightSwitchProps {
 const props = defineProps<LightSwitchProps>();
 
 const classRootDefault =
-  'bg-surface-100-900 w-12 h-6 ring-[1px] ring-surface-500/30 rounded cursor-pointer transition-all duration-300';
+  'bg-surface-100-900 w-12 h-6 ring-[1px] ring-surface-500/30 rounded cursor-pointer transition-all duration-150';
 const classRootMerged = computed(() => tm(classRootDefault, props.class));
 
 const classThumbDefault =
-  'bg-surface-800-200 text-surface-200-800 aspect-square scale-[0.8] flex justify-center items-center transition-all duration-300 h-6 rounded';
+  'bg-surface-800-200 text-surface-200-800 aspect-square scale-[0.8] flex justify-center items-center transition-all duration-150 h-6 rounded';
 const classThumbPosition = computed(() =>
   chosenMode.value === MODE.LIGHT ? 'translate-x-[100%]' : '',
 );

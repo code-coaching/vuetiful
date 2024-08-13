@@ -9,7 +9,7 @@ describe('useDrawer', () => {
       expect(drawer.id).toBe('default');
       expect(drawer.open).toBe(false);
       expect(drawer.position).toBe('left');
-      expect(drawer.duration).toBe(300);
+      expect(drawer.duration).toBe(150);
       expect(drawer.regionBackdrop).toBe('');
       expect(drawer.regionDrawer).toBe('');
     });
@@ -21,14 +21,14 @@ describe('useDrawer', () => {
         id: 'test',
         open: true,
         position: 'right',
-        duration: 150,
+        duration: 300,
         regionBackdrop: 'backdrop',
         regionDrawer: 'drawer',
       });
       expect(drawer.id).toBe('test');
       expect(drawer.open).toBe(true);
       expect(drawer.position).toBe('right');
-      expect(drawer.duration).toBe(150);
+      expect(drawer.duration).toBe(300);
       expect(drawer.regionBackdrop).toBe('backdrop');
       expect(drawer.regionDrawer).toBe('drawer');
     });

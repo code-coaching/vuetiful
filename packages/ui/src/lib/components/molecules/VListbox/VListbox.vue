@@ -47,14 +47,14 @@ watch(
 );
 
 const classItemActiveDefault = 'preset-filled-surface-800-200';
-const classItemActiveMerged = computed(() =>
-  tm(classItemActiveDefault, props.classItemActive),
-);
+const classItemActiveMerged = computed(() => tm(classItemActiveDefault, props.classItemActive));
 const classItemHoverDefault = 'hover:preset-outlined-surface-800-200';
 const classItemHoverMerged = computed(() => tm(classItemHoverDefault, props.classItemHover));
 
 const classItemDisabledDefault = 'pointer-events-none opacity-50';
-const classItemDisabledMerged = computed(() => tm(classItemDisabledDefault, props.classItemDisabled));
+const classItemDisabledMerged = computed(() =>
+  tm(classItemDisabledDefault, props.classItemDisabled),
+);
 
 provide('active', classItemActiveMerged.value);
 provide('hover', classItemHoverMerged.value);
@@ -93,12 +93,11 @@ const classRootMerged = computed(() => tm(classRootDefault, props.class));
     <v-listbox-button data-test="listbox-button" :class="`${classRootMerged}`">
       {{ showText }}
     </v-listbox-button>
-    <!-- TODO: Add configurable transition -->
     <transition
-      enter-active-class="transition duration-300 ease-in-out"
+      enter-active-class="transition-opacity"
       enter-from-class="opacity-0"
       enter-to-class="opacity-100"
-      leave-active-class="transition duration-300 ease-in-out"
+      leave-active-class="transition-opacity"
       leave-from-class="opacity-100"
       leave-to-class="opacity-0"
     >

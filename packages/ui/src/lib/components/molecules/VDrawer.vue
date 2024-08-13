@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import type { CssClasses } from '@/lib';
 import { useDrawer } from '@/lib';
-import { type Ref, computed, onMounted, ref, toRefs } from 'vue';
+import { type Ref, computed, onMounted, ref, toRefs, watch } from 'vue';
 const { drawer, close } = useDrawer();
 
-// #region Props
 const props = defineProps({
   // Regions
   regionBackdrop: {
@@ -39,14 +38,10 @@ const preset = computed(() => {
   const position = drawer.position || 'left';
   return presets[position];
 });
-// #endregion
 
-// #region template refs
 const elemBackdrop: Ref<HTMLElement> = ref() as Ref<HTMLElement>;
 const elemDrawer: Ref<HTMLElement> = ref() as Ref<HTMLElement>;
-// #endregion
 
-// #region Event Handlers
 const onBackdropInteraction = (event: Event) => {
   if (event.target === elemBackdrop.value) close();
 };
@@ -54,15 +49,59 @@ const onBackdropInteraction = (event: Event) => {
 const onKeydownWindow = (event: KeyboardEvent) => {
   if (event.code === 'Escape') close();
 };
+
+const enterFromClass = ref('transform-[translateY(-100%)]');
+const enterToClass = ref('transform-[translateY(0)]');
+const leaveFromClass = ref('transform-[translateY(0)]');
+const leaveToClass = ref('transform-[translateY(-100%)]');
 onMounted(() => {
   window.addEventListener('keydown', onKeydownWindow);
 });
-// #endregion
+
+watch(
+  () => drawer.position,
+  () => {
+    switch (drawer.position) {
+      case 'top':
+        enterFromClass.value = 'translate-y-[-100%]';
+        enterToClass.value = 'translate-y-0';
+        leaveFromClass.value = 'translate-y-0';
+        leaveToClass.value = 'translate-y-[-100%]';
+        break;
+      case 'bottom':
+        enterFromClass.value = 'translate-y-full';
+        enterToClass.value = 'translate-y-0';
+        leaveFromClass.value = 'translate-y-0';
+        leaveToClass.value = 'translate-y-full';
+        break;
+      case 'left':
+        enterFromClass.value = 'translate-x-[-100%]';
+        enterToClass.value = 'translate-x-0';
+        leaveFromClass.value = 'translate-x-0';
+        leaveToClass.value = 'translate-x-[-100%]';
+        break;
+      case 'right':
+        enterFromClass.value = 'translate-x-full';
+        enterToClass.value = 'translate-x-0';
+        leaveFromClass.value = 'translate-x-0';
+        leaveToClass.value = 'translate-x-full';
+        break;
+    }
+  },
+  { immediate: true },
+);
 </script>
 
 <!-- TODO - api -->
 <template>
-  <transition :name="`slide-${drawer.position}-${drawer.duration}`">
+  <transition
+    enter-active-class="transition-all"
+    :enter-from-class="enterFromClass"
+    :enter-to-class="enterToClass"
+    leave-active-class="transition-all"
+    :leave-from-class="leaveFromClass"
+    :leave-to-class="leaveToClass"
+  >
     <div
       v-if="drawer.open"
       ref="elemDrawer"
@@ -75,11 +114,18 @@ onMounted(() => {
       <slot />
     </div>
   </transition>
-  <transition :name="`fade-${drawer.duration}`">
+  <transition
+    enter-active-class="transition-opacity"
+    enter-from-class="opacity-0"
+    enter-to-class="opacity-100"
+    leave-active-class="transition-opacity"
+    leave-from-class="opacity-100"
+    leave-to-class="opacity-0"
+  >
     <div
       v-if="drawer.open"
       ref="elemBackdrop"
-      :class="`drawer-backdrop backdrop-blur-sm fixed bottom-0 left-0 right-0 top-0 z-40 flex bg-surface-backdrop ${regionBackdrop}`"
+      :class="`drawer-backdrop bg-surface-backdrop fixed bottom-0 left-0 right-0 top-0 z-40 flex backdrop-blur-sm ${regionBackdrop}`"
       @mousedown="onBackdropInteraction"
       @touchstart="onBackdropInteraction"
     ></div>

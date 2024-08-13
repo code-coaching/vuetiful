@@ -14,20 +14,6 @@ const backgrounds: Record<string, string> = {
   'preset-filled-success-500': 'preset-filled-success-500',
   'preset-filled-warning-500': 'preset-filled-warning-500',
   'preset-filled-error-500': 'preset-filled-error-500',
-
-  // TODO: implement gradient backgrounds
-  // 'primary-to-secondary': 'bg-gradient-to-br preset-gradient-primary-secondary',
-  // 'secondary-to-tertiary': 'bg-gradient-to-br preset-gradient-secondary-tertiary',
-  // 'tertiary-to-primary': 'bg-gradient-to-br preset-gradient-tertiary-primary',
-  // 'secondary-to-primary': 'bg-gradient-to-br preset-gradient-secondary-primary',
-  // 'tertiary-to-secondary': 'bg-gradient-to-br preset-gradient-tertiary-secondary',
-  // 'primary-to-tertiary': 'bg-gradient-to-br preset-gradient-primary-tertiary',
-  // 'success-to-warning': 'bg-gradient-to-br preset-gradient-success-warning',
-  // 'warning-to-error': 'bg-gradient-to-br preset-gradient-warning-error',
-  // 'error-to-success': 'bg-gradient-to-br preset-gradient-error-success',
-  // 'warning-to-success': 'bg-gradient-to-br preset-gradient-warning-success',
-  // 'error-to-warning': 'bg-gradient-to-br preset-gradient-error-warning',
-  // 'success-to-error': 'bg-gradient-to-br preset-gradient-success-error',
 };
 
 interface PreviewProps {
@@ -74,7 +60,7 @@ const classRadioGroupWrapperMerged = computed(() =>
   tm(classRadioGroupWrapperDefault, props.classRadioGroupWrapper),
 );
 
-const classViewportDefault = 'p-4 md:p-10 duration-300';
+const classViewportDefault = 'p-4 md:p-10 duration-150';
 const classPreviewTabMerged = computed(() => tm(classViewportDefault, props.classPreviewTab));
 
 const classPreviewAreaMobile =
@@ -88,7 +74,7 @@ const classPreviewAreaDesktopmerged = computed(() =>
   tm(classPreviewAreaDesktop, props.classPreviewAreaDesktop),
 );
 
-const classPreviewTabAreaDeafult = 'mx-auto flex duration-300';
+const classPreviewTabAreaDeafult = 'mx-auto flex duration-150';
 const classPreviewTabAreaMerged = computed(() =>
   tm(classPreviewTabAreaDeafult, props.classPreviewTabArea),
 );

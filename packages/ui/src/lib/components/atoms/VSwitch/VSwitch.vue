@@ -19,7 +19,7 @@ const props = withDefaults(defineProps<SwitchProps>(), {
   classThumb: '',
   name: '',
   as: 'button',
-  size: 'md'
+  size: 'md',
 });
 
 const parentModelValue = ref(props.modelValue);
@@ -51,10 +51,11 @@ const trackSize = computed(() => {
   }
 });
 
-const classRootDefault = 'flex rounded transition-all duration-300 preset-filled';
+const classRootDefault = 'flex rounded transition-all duration-150 preset-filled';
 const classRootMerged = computed(() => tm(classRootDefault, trackSize.value, props.class));
 
-const classThumbDefault = 'w-[50%] scale-[0.8] rounded bg-opacity-90 shadow transition-all duration-300 bg-surface-100-900';
+const classThumbDefault =
+  'w-[50%] scale-[0.8] rounded bg-opacity-90 shadow transition-all duration-150 bg-surface-100-900';
 const classThumbMerged = computed(() => tm(classThumbDefault, props.classThumb));
 </script>
 
