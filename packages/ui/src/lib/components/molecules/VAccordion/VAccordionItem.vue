@@ -30,29 +30,34 @@ const classAnswerMerged = computed(() => tm(classAnswerDefault, classAnswer, pro
     >
       <span class="vuetiful-accordion-title">{{ title }}</span>
       <slot v-if="!open" name="open-item">
-        <!-- https://fontawesome.com/icons/plus?f=classic&s=solid -->
+        <!-- https://lucide.dev/icons/plus -->
         <svg
-          class="vuetiful-accordion-item-icon-plus my-1 h-4 min-h-[1rem] w-4 min-w-[1rem] fill-current"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 448 512"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-plus my-1 h-5 min-h-[1rem] w-5 min-w-[1rem]"
         >
-          <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-          <path
-            d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
-          />
+          <path d="M5 12h14" />
+          <path d="M12 5v14" />
         </svg>
       </slot>
       <slot v-if="open" name="close-item">
-        <!-- https://fontawesome.com/icons/minus?f=classic&s=solid -->
+        <!-- https://lucide.dev/icons/minus -->
         <svg
-          class="vuetiful-accordion-item-icon-minus my-1 h-4 min-h-[1rem] w-4 min-w-[1rem] fill-current"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 448 512"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-minus my-1 h-5 min-h-[1rem] w-5 min-w-[1rem]"
         >
-          <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-          <path
-            d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"
-          />
+          <path d="M5 12h14" />
         </svg>
       </slot>
     </DisclosureButton>

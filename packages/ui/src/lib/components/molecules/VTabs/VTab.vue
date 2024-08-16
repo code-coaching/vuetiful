@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { tm } from '@/lib/utils';
 import { Tab } from '@headlessui/vue';
 import { computed, inject } from 'vue';
 
@@ -33,9 +34,9 @@ const classRootDefault = computed(() => `flex ${classRootHorizontalVertical.valu
 const classRootMerged = computed(() => `${classRootDefault.value} ${props.class}`);
 
 const classTabDefault = 'rounded text-base w-full px-4 py-2';
-const classTabMerged = computed(() => `${classTabDefault} ${tabClass} ${props.classTab}`);
-const classTabActiveMerged = computed(() => `${activeClass} ${props.classActive}`);
-const classTabHoverMerged = computed(() => `${hoverClass} ${props.classHover}`);
+const classTabMerged = computed(() => tm(classTabDefault, tabClass, props.classTab));
+const classTabActiveMerged = computed(() => tm(activeClass, props.classActive));
+const classTabHoverMerged = computed(() => tm(hoverClass, props.classHover));
 
 const classSeparatorDefault = 'z-0';
 const classSeparatorHorizontalVertical = computed(() =>

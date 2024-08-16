@@ -73,7 +73,7 @@ const computedTop = computed(() => {
 const classRootDefault = 'relative min-h-screen w-full';
 const classRootMerged = computed(() => tm(classRootDefault, props.class));
 
-const classFixedHeaderDefault = 'sticky top-0 z-10';
+const classFixedHeaderDefault = 'sticky top-0 z-10 flex items-center border-b border-surface-500/30 bg-surface-50-950';
 const classFixedHeaderMerged = computed(() => tm(classFixedHeaderDefault, props.classFixedHeader));
 
 const classPageContainerDefault = 'flex w-full';
