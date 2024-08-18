@@ -130,4 +130,28 @@ describe('VCodeBlock', () => {
     expect(wrapper.find('.vuetiful-code-block-code').classes()).toContain('language-sh');
     expect(wrapper.find('.vuetiful-code-block-pre').classes()).toContain('whitespace-pre-wrap');
   });
+
+  test('renders the component with custom props', () => {
+    const customProps = {
+      language: 'javascript',
+      fileName: 'index.js',
+      code: 'const x = 10;',
+      buttonText: 'Copy Code',
+      buttonCopiedText: 'Copied!',
+      classButton: 'custom-button-class',
+      classLanguage: 'custom-language-class',
+      classCode: 'custom-code-class',
+      preventOverflow: true,
+    };
+
+    const wrapper = mount(VCodeBlock, {
+      props: customProps,
+    });
+
+    expect(wrapper.find('.vuetiful-code-block-button').text()).toContain('Copy Code');
+    expect(wrapper.find('.vuetiful-code-block-language').text()).toBe('javascript');
+    expect(wrapper.find('.vuetiful-code-block-file').text()).toBe('index.js');
+    expect(wrapper.find('.vuetiful-code-block-code').classes()).toContain('language-javascript');
+    expect(wrapper.find('.vuetiful-code-block-pre').classes()).toContain('whitespace-pre-wrap');
+  });
 });

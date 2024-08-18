@@ -27,8 +27,8 @@ const classSeparatorDefault = 'border-surface-900-100';
 const classSeparatorMerged = computed(() => tm(classSeparatorDefault, props.classSeparator));
 const classTabSeparatorDefault = 'border-primary-400';
 const classTabSeparatorMerged = computed(() => tm(classTabSeparatorDefault, props.classTabSeparator));
-const classTabActiveDefault = 'border-t-2 border-x-2 rounded-bl-none rounded-br-none';
-const classTabActiveMerged = computed(() => tm(classTabActiveDefault, props.classTabActive));
+const classTabActiveDefault = computed(() => props.vertical ? 'border-l-2 border-y-2 rounded-tr-none rounded-br-none' : 'border-t-2 border-x-2 rounded-bl-none rounded-br-none');
+const classTabActiveMerged = computed(() => tm(classTabActiveDefault.value, props.classTabActive));
 
 provide('active', classTabActiveMerged.value);
 provide('hover', classTabHoverMerged.value);

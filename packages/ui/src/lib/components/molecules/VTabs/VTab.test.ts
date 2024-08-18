@@ -23,6 +23,10 @@ describe('VTab', () => {
     expect(vuetiful.classes()).toEqual(['vuetiful-tab', 'flex', 'flex-col']);
     expect(slotContainer.classes()).toEqual([
       'vuetiful-tab-content',
+      'border-t-2',
+      'border-x-2',
+      'rounded-bl-none',
+      'rounded-br-none',
       'rounded',
       'text-base',
       'w-full',
@@ -69,6 +73,10 @@ describe('VTab', () => {
     const slotContainer = vuetiful.find("[data-test='slot-container']");
     expect(slotContainer.classes()).toEqual([
       'vuetiful-tab-content',
+      'border-t-2',
+      'border-x-2',
+      'rounded-bl-none',
+      'rounded-br-none',
       'rounded',
       'text-base',
       'w-full',
@@ -105,6 +113,10 @@ describe('VTab', () => {
 
     expect(vuetifulSlotContainer.classes()).toEqual([
       'vuetiful-tab-content',
+      'border-t-2',
+      'border-x-2',
+      'rounded-bl-none',
+      'rounded-br-none',
       'my-custom-active-class',
       'rounded',
       'text-base',
@@ -131,5 +143,4 @@ describe('VTab', () => {
       'py-2',
     ]);
   });
-
 });

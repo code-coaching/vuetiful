@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<TabProps>(), {
   disabled: false,
 });
 
-const activeClass = inject('active') as string || '';
+const activeClass = inject('active') as string;
 const hoverClass = inject('hover') as string;
 const vertical = inject('vertical') as boolean;
 const tabClass = inject('classTab') as string || '';

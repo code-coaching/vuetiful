@@ -11,7 +11,7 @@ describe('VPreview', () => {
     const wrapper = mount(VPreview);
 
     expect(wrapper.props()).toEqual({
-      background: 'neutral-opaque',
+      background: 'bg-transparent',
       class: undefined,
       classHeader: undefined,
       classPreviewAreaDesktop: undefined,

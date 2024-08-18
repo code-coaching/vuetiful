@@ -41,8 +41,8 @@ describe('VRadioItem slot states', () => {
       });
 
       const itemEl = wrapper.find("[data-test='item']").find('div');
-      expect(itemEl.element.classList.contains('preset-filled')).toBe(true);
-      expect(itemEl.element.classList.contains('hover:preset-outlined')).toBe(false);
+      expect(itemEl.element.classList.toString().includes('preset-filled')).toBe(true);
+      expect(itemEl.element.classList.toString().includes('hover:preset-outlined')).toBe(false);
     });
 
     test('should have the default hover class', () => {
@@ -63,8 +63,12 @@ describe('VRadioItem slot states', () => {
       });
 
       const itemEl = wrapper.find("[data-test='item']").find('div');
-      expect(itemEl.element.classList.contains('preset-filled')).toBe(false);
-      expect(itemEl.element.classList.contains('hover:preset-outlined')).toBe(true);
+      expect(itemEl.element.classList.toString().includes('preset-filled')).toBe(false);
+      expect(
+        itemEl.element.classList
+          .toString()
+          .includes('hover:border-black dark:hover:border-white hover:border'),
+      ).toBe(true);
     });
   });
   describe('given v-slot checked is true', () => {
@@ -90,8 +94,8 @@ describe('VRadioItem slot states', () => {
       });
 
       const itemEl = wrapper.find("[data-test='item']").find('div');
-      expect(itemEl.element.classList.contains('custom-active-class')).toBe(true);
-      expect(itemEl.element.classList.contains('custom-hover-class')).toBe(false);
+      expect(itemEl.element.classList.toString().includes('custom-active-class')).toBe(true);
+      expect(itemEl.element.classList.toString().includes('custom-hover-class')).toBe(false);
     });
   });
 
@@ -118,8 +122,8 @@ describe('VRadioItem slot states', () => {
       });
 
       const itemEl = wrapper.find("[data-test='item']").find('div');
-      expect(itemEl.element.classList.contains('custom-active-class')).toBe(false);
-      expect(itemEl.element.classList.contains('custom-hover-class')).toBe(true);
+      expect(itemEl.element.classList.toString().includes('custom-active-class')).toBe(false);
+      expect(itemEl.element.classList.toString().includes('custom-hover-class')).toBe(true);
     });
   });
 
@@ -146,9 +150,9 @@ describe('VRadioItem slot states', () => {
       });
 
       const itemEl = wrapper.find("[data-test='item']").find('div');
-      expect(itemEl.element.classList.contains('cursor-pointer')).toBe(true);
-      expect(itemEl.element.classList.contains('cursor-not-allowed')).toBe(false);
-      expect(itemEl.element.classList.contains('opacity-50')).toBe(false);
+      expect(itemEl.element.classList.toString().includes('cursor-pointer')).toBe(true);
+      expect(itemEl.element.classList.toString().includes('cursor-not-allowed')).toBe(false);
+      expect(itemEl.element.classList.toString().includes('opacity-50')).toBe(false);
     });
   });
 
@@ -175,9 +179,9 @@ describe('VRadioItem slot states', () => {
       });
 
       const itemEl = wrapper.find("[data-test='item']").find('div');
-      expect(itemEl.element.classList.contains('cursor-pointer')).toBe(false);
-      expect(itemEl.element.classList.contains('pointer-events-none')).toBe(true);
-      expect(itemEl.element.classList.contains('opacity-50')).toBe(true);
+      expect(itemEl.element.classList.toString().includes('cursor-pointer')).toBe(false);
+      expect(itemEl.element.classList.toString().includes('pointer-events-none')).toBe(true);
+      expect(itemEl.element.classList.toString().includes('opacity-50')).toBe(true);
     });
   });
 });

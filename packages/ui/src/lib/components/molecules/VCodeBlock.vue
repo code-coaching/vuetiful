@@ -10,63 +10,36 @@ import { computed, ref } from 'vue';
 
 const { highlight } = useHighlight();
 
-const props = defineProps({
-  class: {
-    type: String,
-    default: '',
-  },
+interface CodeBlockProps {
+  class: string;
+  language: string;
+  code: string;
+  fileName: string;
+  preventOverflow: boolean;
+  classHeader: string;
+  classLanguage: string;
+  classPre: string;
+  classCode: string;
+  classFileName: string;
+  classButton: string;
+  buttonText: string;
+  buttonCopiedText: string;
+}
 
-  language: {
-    type: String,
-    default: 'plaintext',
-  },
-  code: {
-    type: String,
-    default: '',
-  },
-  fileName: {
-    type: String,
-    default: '',
-  },
-
-  preventOverflow: {
-    type: Boolean,
-    default: false,
-  },
-
-  classHeader: {
-    type: String as () => CssClasses,
-    default: '',
-  },
-  classLanguage: {
-    type: String as () => CssClasses,
-    default: '',
-  },
-  classPre: {
-    type: String as () => CssClasses,
-    default: '',
-  },
-  classCode: {
-    type: String as () => CssClasses,
-    default: '',
-  },
-  classFileName: {
-    type: String as () => CssClasses,
-    default: '',
-  },
-
-  classButton: {
-    type: String as () => CssClasses,
-    default: '',
-  },
-  buttonText: {
-    type: String,
-    default: 'Copy',
-  },
-  buttonCopiedText: {
-    type: String,
-    default: '👍',
-  },
+const props = withDefaults(defineProps<CodeBlockProps>(), {
+  class: '',
+  language: 'plaintext',
+  code: '',
+  fileName: '',
+  preventOverflow: false,
+  classHeader: '',
+  classLanguage: '',
+  classPre: '',
+  classCode: '',
+  classFileName: '',
+  classButton: '',
+  buttonText: 'Copy',
+  buttonCopiedText: '👍',
 });
 
 const emit = defineEmits<{

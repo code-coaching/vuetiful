@@ -38,7 +38,7 @@ interface PreviewProps {
 }
 
 const props = withDefaults(defineProps<PreviewProps>(), {
-  background: 'neutral-opaque',
+  background: 'bg-transparent',
 });
 
 const chosenBackground = ref(props.background);
@@ -104,7 +104,7 @@ const classSwatchToggleInactiveMerged = computed(() =>
 );
 
 const classSwatchesDefault =
-  'grid grid-cols-6 gap-2 rounded-none p-4 bg-surface-200-800 sm:grid-cols-12';
+  'grid grid-cols-6 gap-2 rounded-none p-4 bg-surface-200-800 sm:grid-cols-12 border-0';
 const classSwatchesMerged = computed(() => tm(classSwatchesDefault, props.classSwatches));
 
 const classSwatchDefault =

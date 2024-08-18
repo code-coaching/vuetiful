@@ -1,6 +1,6 @@
 import { type Config, extendTailwindMerge, mergeConfigs, validators } from 'tailwind-merge';
 
-const withVuetiful = (prevConfig: Config<any, any>): Config<any, any> => {
+export const withVuetiful = (prevConfig: Config<any, any>): Config<any, any> => {
   const getAny = () => [validators.isAny] as const;
 
   const mergedConfigs = mergeConfigs(prevConfig, {

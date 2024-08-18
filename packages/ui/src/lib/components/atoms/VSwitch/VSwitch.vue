@@ -51,11 +51,11 @@ const trackSize = computed(() => {
   }
 });
 
-const classRootDefault = 'flex rounded transition-all duration-150 preset-filled';
+const classRootDefault = 'flex rounded transition-all duration-150 bg-surface-100-900';
 const classRootMerged = computed(() => tm(classRootDefault, trackSize.value, props.class));
 
 const classThumbDefault =
-  'w-[50%] scale-[0.8] rounded bg-opacity-90 shadow transition-all duration-150 bg-surface-100-900';
+  'h-full w-[50%] scale-[0.8] rounded bg-opacity-90 shadow transition-all duration-150 bg-surface-900-100';
 const classThumbMerged = computed(() => tm(classThumbDefault, props.classThumb));
 </script>
 

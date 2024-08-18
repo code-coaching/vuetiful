@@ -1,38 +1,35 @@
 <script setup lang="ts">
-import type { CssClasses } from '@/lib';
 import { useDrawer } from '@/lib';
-import { type Ref, computed, onMounted, ref, toRefs, watch } from 'vue';
+import { type Ref, computed, onMounted, ref, watch } from 'vue';
+import { withVuetiful } from '../../utils/tailwind-merge';
 const { drawer, close } = useDrawer();
 
-const props = defineProps({
-  // Regions
-  regionBackdrop: {
-    type: String as () => CssClasses,
-    default: '',
-  },
-  regionDrawer: {
-    type: String as () => CssClasses,
-    default: '',
-  },
+import { extendTailwindMerge } from 'tailwind-merge';
+/**
+ * Normally we would just import `tm` from '@/lib'.
+ * For some reason this doesn't work for VDrawer when using multiple calls to `tm`
+ */
+const tm = extendTailwindMerge(withVuetiful);
 
-  // a11y
-  labelledby: {
-    type: String,
-    default: '',
-  },
-  describedby: {
-    type: String,
-    default: '',
-  },
+interface DrawerProps {
+  classBackdrop: string;
+  classDrawer: string;
+  labelledby: string;
+  describedby: string;
+}
+
+const props = withDefaults(defineProps<DrawerProps>(), {
+  classBackdrop: '',
+  classDrawer: '',
+  labelledby: '',
+  describedby: '',
 });
 
-const { regionBackdrop, regionDrawer, labelledby, describedby } = toRefs(props);
-// prettier-ignore
 const presets = {
-	top: { alignment: 'top-0', width: 'w-full', height: 'h-[50%]', rounded: 'rounded-bl-container rounded-br-container' },
-	bottom: { alignment: 'bottom-0', width: 'w-full', height: ' h-[50%]', rounded: 'rounded-tl-container rounded-tr-container' },
-	left: { alignment: 'lef-0', width: 'w-[90%]', height: 'h-full', rounded: 'rounded-tr-container rounded-br-container' },
-	right: { alignment: 'right-0', width: 'w-[90%]', height: 'h-full', rounded: 'rounded-tl-container rounded-bl-container' }
+  top: 'top-0 w-full h-[50%] rounded-bl-container rounded-br-container',
+  bottom: 'bottom-0 w-full h-[50%] rounded-tl-container rounded-tr-container',
+  left: 'lef-0 w-[90%] h-full rounded-tr-container rounded-br-container',
+  right: 'right-0 w-[90%] h-full rounded-tl-container rounded-bl-container',
 };
 const preset = computed(() => {
   const position = drawer.position || 'left';
@@ -40,7 +37,6 @@ const preset = computed(() => {
 });
 
 const elemBackdrop: Ref<HTMLElement> = ref() as Ref<HTMLElement>;
-const elemDrawer: Ref<HTMLElement> = ref() as Ref<HTMLElement>;
 
 const onBackdropInteraction = (event: Event) => {
   if (event.target === elemBackdrop.value) close();
@@ -90,9 +86,18 @@ watch(
   },
   { immediate: true },
 );
+
+const classDrawerDefault = computed(
+  () =>
+    `fixed overflow-y-auto shadow-xl transition-transform bg-surface-100-900 z-50 ${preset.value}`,
+);
+const classDrawerMerged = computed(() => tm(classDrawerDefault.value, props.classDrawer));
+
+const classBackdropDefault =
+  'fixed bottom-0 left-0 right-0 top-0 z-40 flex backdrop-blur-sm cursor-pointer';
+const classBackdropMerged = computed(() => tm(classBackdropDefault, props.classBackdrop));
 </script>
 
-<!-- TODO - api -->
 <template>
   <transition
     enter-active-class="transition-all"
@@ -104,8 +109,7 @@ watch(
   >
     <div
       v-if="drawer.open"
-      ref="elemDrawer"
-      :class="`drawer fixed overflow-y-auto shadow-xl transition-transform bg-surface-100-900 ${preset.width} ${preset.height} ${preset.rounded} ${preset.alignment} z-50 ${regionDrawer}`"
+      :class="`drawer ${classDrawerMerged}`"
       role="dialog"
       aria-modal="true"
       :aria-labelledby="labelledby"
@@ -125,7 +129,7 @@ watch(
     <div
       v-if="drawer.open"
       ref="elemBackdrop"
-      :class="`drawer-backdrop bg-surface-backdrop fixed bottom-0 left-0 right-0 top-0 z-40 flex backdrop-blur-sm ${regionBackdrop}`"
+      :class="`drawer-backdrop ${classBackdropMerged}`"
       @mousedown="onBackdropInteraction"
       @touchstart="onBackdropInteraction"
     ></div>
