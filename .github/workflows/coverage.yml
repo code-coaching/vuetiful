@@ -14,10 +14,21 @@ jobs:
       - run: echo "✓ The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "✓ The workflow is now ready to test your code on the runner."
 
+      # Install Node.js (which includes npm) using the setup-node action
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # or the version you need
+
+      # Install pnpm globally
+      - name: Install pnpm
+        run: npm install -g pnpm
+
       - name: Install npm dependencies in ./ui
         run: |
           pnpm install
         working-directory: ./packages/ui
+
       - name: Run unit tests in ./packages/ui
         run: |
           pnpm test:unit:coverage
