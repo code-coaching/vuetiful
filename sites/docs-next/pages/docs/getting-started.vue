@@ -519,6 +519,14 @@ watch(() => chosenMode.value, (newMode) => {
           language="sh"
           code="npm install -D tailwindcss @tailwindcss/forms"
         />
+        <v-alert type="info">
+          <p class="mb-2">
+            It might be necessary to add the flag
+            <code class="code"> --legacy-peer-deps </code>.
+          </p>
+
+          <v-code-block language="sh" code="npm install --legacy-peer-deps" />
+        </v-alert>
       </section>
 
       <h3 class="h3">Initialize Tailwind</h3>
