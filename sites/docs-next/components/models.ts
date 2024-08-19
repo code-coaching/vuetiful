@@ -1,0 +1,30 @@
+export const ROUTES = {
+  DOCS: {
+    DEFAULT: "/docs/getting-started",
+    GETTING_STARTED: "/docs/getting-started",
+    COLORS: "/docs/colors",
+    ICONS: "/docs/icons",
+    QUASAR: "/docs/quasar",
+    THEME_GENERATOR: "/docs/theme-generator",
+  },
+  VUE: {
+    DEFAULT: "/vue/shell",
+    V_ACCORDION: "/vue/accordion",
+    V_ALERT: "/vue/alert",
+    V_AVATAR: "/vue/avatar",
+    V_BADGE: "/vue/badge",
+    V_BUTTON: "/vue/button",
+    V_CARD: "/vue/card",
+    V_CHIP: "/vue/chip",
+    V_CODE_BLOCK: "/vue/code-block",
+    V_LISTBOX: "/vue/listbox",
+    V_PREVIEW: "/vue/preview",
+    V_RADIO_GROUP: "/vue/radio-group",
+    V_SWITCH: "/vue/switch",
+    V_TABS: "/vue/tabs",
+
+    V_DRAWER: "/vue/drawer",
+    V_RAIL: "/vue/rail",
+    V_SHELL: "/vue/shell",
+  },
+};
