@@ -1,32 +1,6 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply mb-4 md:mb-8;
-}
-
-section.section {
-  @apply mb-6 md:mb-14;
-}
-header.header {
-  @apply mb-4 md:mb-10;
-}
-
-summary {
-  cursor: pointer;
-}
-
 html,
 body,
 #q-app {
-  /*
-  * This is done to prevent double scrollbars
-  */
-  /* height: 100%; */
-  /* overflow: hidden; */
-
   /*
   * Reset several font properties to browser defaults
   */
@@ -283,8 +257,12 @@ body,
 }
 
 .q-date__calendar-item .q-btn--unelevated {
-  @apply !bg-surface-900;
-  @apply !text-surface-50;
+  @apply !bg-surface-800;
+  @apply !text-surface-200;
+}
+.dark .q-date__calendar-item .q-btn--unelevated {
+  @apply !bg-surface-200;
+  @apply !text-surface-800;
 }
 
 .q-date__navigation .q-btn {
@@ -322,4 +300,14 @@ body,
 .q-field__native textarea:focus,
 .q-field__native select:focus {
   --tw-ring-color: transparent;
+}
+
+/* The teleporting of elements makes it go from top left to location -> turn it off */
+.q-position-engine {
+  @apply transition-none;
+}
+
+.q-toolbar {
+  @apply bg-surface-300-700;
+  @apply text-surface-950-50;
 }
