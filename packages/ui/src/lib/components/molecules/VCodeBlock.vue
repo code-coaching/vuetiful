@@ -11,19 +11,19 @@ import { computed, ref } from 'vue';
 const { highlight } = useHighlight();
 
 interface CodeBlockProps {
-  class: string;
-  language: string;
+  class?: string;
+  language?: string;
   code: string;
-  fileName: string;
-  preventOverflow: boolean;
-  classHeader: string;
-  classLanguage: string;
-  classPre: string;
-  classCode: string;
-  classFileName: string;
-  classButton: string;
-  buttonText: string;
-  buttonCopiedText: string;
+  fileName?: string;
+  preventOverflow?: boolean;
+  classHeader?: string;
+  classLanguage?: string;
+  classPre?: string;
+  classCode?: string;
+  classFileName?: string;
+  classButton?: string;
+  buttonText?: string;
+  buttonCopiedText?: string;
 }
 
 const props = withDefaults(defineProps<CodeBlockProps>(), {

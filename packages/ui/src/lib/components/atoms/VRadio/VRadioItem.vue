@@ -4,10 +4,10 @@ import { RadioGroupOption } from '@headlessui/vue';
 import { computed, inject } from 'vue';
 
 interface RadioItemProps {
-  class: string;
-  classActive: string;
-  classHover: string;
-  classDisabled: string;
+  class?: string;
+  classActive?: string;
+  classHover?: string;
+  classDisabled?: string;
   value: string | number | boolean | object;
 }
 
