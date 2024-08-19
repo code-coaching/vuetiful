@@ -17,10 +17,10 @@ jobs:
       - name: Install npm dependencies in ./ui
         run: |
           npm install
-        working-directory: ./ui
-      - name: Run unit tests in ./ui
+        working-directory: ./packages/ui
+      - name: Run unit tests in ./packages/ui
         run: |
           npm run coverage
-        working-directory: ./ui
+        working-directory: ./packages/ui
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
