@@ -1,0 +1,76 @@
+{
+  "name": "@code-coaching/vuetiful",
+  "type": "module",
+  "version": "0.31.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "lib:build": "run-p type-check build-only generate-types && mkdir -p dist/css && cp -r src/lib/css/* dist/css/",
+    "build": "vite build --config vite.spa.config.ts --outDir build",
+    "preview": "vite preview --outDir build",
+    "test:unit": "vitest",
+    "test:unit:coverage": "vitest --coverage",
+    "test:e2e": "playwright test",
+    "build-only": "vite build",
+    "generate-types": "vue-tsc -p tsconfig.lib.json",
+    "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "format": "prettier --write src/",
+    "version:patch": "npm version patch && git add package*.json && git commit -m \"version: patch\" && git push",
+    "version:minor": "npm version minor && git add package*.json && git commit -m \"version: minor\" && git push",
+    "version:major": "npm version major && git add package*.json && git commit -m \"version: major\" && git push",
+    "version:publish": "npm publish --scope=code-coaching --access public"
+  },
+  "peerDependencies": {
+    "highlight.js": "^11.10.0",
+    "vue": "^3.3.4"
+  },
+  "dependencies": {
+    "@headlessui/vue": "^1.7.22"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.37.0",
+    "@rushstack/eslint-patch": "^1.3.2",
+    "@skeletonlabs/skeleton": "3.0.0-next.2",
+    "@tsconfig/node18": "^18.2.0",
+    "@types/jsdom": "^21.1.1",
+    "@types/node": "^18.17.5",
+    "@vitejs/plugin-vue": "^4.3.1",
+    "@vitest/coverage-v8": "^2.0.4",
+    "@vue/eslint-config-prettier": "^8.0.0",
+    "@vue/eslint-config-typescript": "^11.0.3",
+    "@vue/test-utils": "^2.4.1",
+    "@vue/tsconfig": "^0.4.0",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8.46.0",
+    "eslint-plugin-vue": "^9.16.1",
+    "jsdom": "^22.1.0",
+    "lucide-vue-next": "^0.408.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.39",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.5",
+    "tailwind-merge": "^2.4.0",
+    "tailwindcss": "^3.4.4",
+    "typescript": "~5.1.6",
+    "vite": "^4.4.9",
+    "vite-plugin-copy": "^0.1.6",
+    "vitest": "2.0.4",
+    "vue-router": "^4.2.4",
+    "vue-tsc": "^1.8.8"
+  },
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/types/index.d.ts",
+  "module": "./dist/vuetiful.es.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/vuetiful.es.mjs",
+      "require": "./dist/vuetiful.umd.cjs",
+      "types": "./dist/types/index.d.ts"
+    },
+    "./css/*": "./dist/css/*",
+    "./css/style.css": "./dist/style.css"
+  }
+}

@@ -1,0 +1,313 @@
+html,
+body,
+#q-app {
+  /*
+  * Reset several font properties to browser defaults
+  */
+  font-size: 16px;
+  font-family: var(--base-font-family), sans-serif;
+  -moz-osx-font-smoothing: auto;
+}
+
+.flex {
+  /*
+  * Quasar has a flex utility class that also adds flex-wrap: wrap;
+  * This class is used to reset back to flex-wrap: nowrap; the default behavior.
+  */
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+/*
+* This makes sure the Tailwind flex utility class is not overwritten
+* by the override above.
+*/
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+/* app global css */
+.q-avatar,
+.q-chip .q-avatar {
+  @apply rounded;
+  @apply transition-all;
+}
+
+.q-badge {
+  @apply rounded;
+
+  @apply transition-all;
+}
+
+.q-banner {
+  @apply rounded-container;
+  @apply transition-all;
+}
+
+.q-btn {
+  @apply rounded;
+  @apply transition-all;
+}
+
+.q-btn-group {
+  @apply rounded;
+  @apply transition-all;
+
+  width: fit-content;
+}
+
+.q-btn-dropdown {
+  @apply rounded;
+  @apply transition-all;
+}
+
+.q-menu {
+  @apply bg-surface-100-900;
+  @apply text-surface-950-50;
+
+  @apply rounded-container;
+  @apply transition-all;
+}
+
+.q-menu--dark {
+  box-shadow:
+    0 1px 5px rgba(0, 0, 0, 0.2),
+    0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
+
+.q-card {
+  @apply rounded-container;
+  @apply transition-all;
+}
+
+/* Overwrite the white shadow with the normal shadow */
+.q-card--dark {
+  box-shadow:
+    0 1px 5px rgba(0, 0, 0, 0.2),
+    0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
+
+.q-chip {
+  @apply rounded;
+  @apply transition-all;
+}
+
+.q-color-picker {
+  @apply rounded-container;
+  @apply transition-all;
+}
+
+.q-color-picker--dark {
+  box-shadow:
+    0 1px 5px rgba(0, 0, 0, 0.2),
+    0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
+
+.q-color-picker__header-bg {
+  @apply rounded-tl-container;
+  @apply rounded-tr-container;
+}
+
+.q-editor {
+  @apply rounded-container;
+  @apply transition-all;
+}
+
+/**
+  * Because of how .q-editor is styled
+  * the a tag needs to be styled here
+  * Add .light-actions or .dark-actions to the QEditor as a class
+  */
+.light-actions a {
+  @apply !text-white;
+}
+
+.dark-actions a {
+  @apply !text-black;
+}
+
+/**
+  * Because of how .q-select is styled
+  * the dropdown icon needs to be styled here
+  * Add .light-actions or .dark-actions to the QSelect as a class
+  */
+.light-actions i {
+  @apply !text-white;
+}
+.dark-actions i {
+  @apply !text-black;
+}
+
+/*
+* Because of how .q-expansion-item__container -> .q-item is styled
+* the background and text color need to be set here
+*/
+.q-list {
+  @apply bg-surface-100-900;
+  @apply text-surface-950-50;
+
+  @apply rounded-container;
+  @apply transition-all;
+}
+
+.q-list .q-card {
+  @apply bg-surface-100-900;
+  @apply text-surface-950-50;
+}
+
+.q-list > .q-expansion-item:first-child .q-focus-helper {
+  @apply rounded-tl-container;
+  @apply rounded-tr-container;
+}
+
+.q-list > .q-expansion-item:last-child .q-focus-helper {
+  @apply rounded-bl-container;
+  @apply rounded-br-container;
+}
+
+.q-list > .q-expansion-item:last-child .q-card {
+  @apply rounded-bl-container;
+  @apply rounded-br-container;
+}
+
+.q-drawer .q-list {
+  border-radius: 0;
+  height: 100%;
+}
+
+.q-input {
+  @apply rounded-container;
+  @apply transition-all;
+}
+
+.q-field__control::before {
+  @apply rounded-container;
+}
+
+.q-field--outlined .q-field__control::after {
+  @apply rounded-container;
+}
+
+.q-input,
+.q-select,
+.q-file,
+.q-time {
+  @apply rounded-container;
+}
+
+.q-item--dark {
+  color: currentColor;
+}
+
+.q-field__native {
+  color: currentColor !important;
+  background-color: transparent !important;
+}
+
+.q-time {
+  box-shadow:
+    0 1px 5px rgba(0, 0, 0, 0.2),
+    0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+
+  @apply bg-surface-100-900;
+  @apply text-surface-950-50;
+
+  @apply rounded-tl-container;
+  @apply rounded-tr-container;
+}
+
+.q-time__header {
+  @apply bg-surface-300-700;
+  @apply text-surface-950-50;
+
+  @apply rounded-tl-container;
+  @apply rounded-tr-container;
+}
+
+.q-time__clock-position--active,
+.q-time__clock-pointer {
+  @apply bg-surface-900-100;
+  @apply text-surface-50-950;
+}
+
+.q-date {
+  box-shadow:
+    0 1px 5px rgba(0, 0, 0, 0.2),
+    0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+
+  @apply bg-surface-100-900;
+  @apply text-surface-950-50;
+
+  @apply rounded-container;
+}
+
+.q-date__calendar-item .q-btn {
+  @apply bg-surface-100-900;
+  @apply text-surface-950-50;
+
+  @apply rounded;
+}
+
+.q-date__calendar-item .q-btn--unelevated {
+  @apply !bg-surface-800;
+  @apply !text-surface-200;
+}
+.dark .q-date__calendar-item .q-btn--unelevated {
+  @apply !bg-surface-200;
+  @apply !text-surface-800;
+}
+
+.q-date__navigation .q-btn {
+  @apply bg-transparent;
+  @apply text-surface-950-50;
+
+  @apply rounded;
+}
+
+.q-date__header {
+  @apply bg-surface-300-700;
+  @apply text-surface-950-50;
+}
+
+.q-date__months {
+  flex-wrap: wrap;
+}
+
+/**
+  * Prevent the outline from showing on focus when the input is within a QInput
+  */
+.q-field__native[type='text']:focus,
+.q-field__native[type='email']:focus,
+.q-field__native[type='url']:focus,
+.q-field__native[type='password']:focus,
+.q-field__native[type='number']:focus,
+.q-field__native[type='date']:focus,
+.q-field__native[type='datetime-local']:focus,
+.q-field__native[type='month']:focus,
+.q-field__native[type='search']:focus,
+.q-field__native[type='tel']:focus,
+.q-field__native[type='time']:focus,
+.q-field__native[type='week']:focus,
+.q-field__native[multiple]:focus,
+.q-field__native textarea:focus,
+.q-field__native select:focus {
+  --tw-ring-color: transparent;
+}
+
+/* The teleporting of elements makes it go from top left to location -> turn it off */
+.q-position-engine {
+  @apply transition-none;
+}
+
+.q-toolbar {
+  @apply bg-surface-300-700;
+  @apply text-surface-950-50;
+}
