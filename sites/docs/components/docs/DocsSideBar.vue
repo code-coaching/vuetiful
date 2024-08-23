@@ -165,6 +165,8 @@ const ids = {
     <v-rail
       :id="ids.rail.root"
       class="rail border-surface-500/30"
+      class-item-active="preset-filled"
+      class-item-hover="hover:preset-outlined"
     >
       <v-rail-tile
         class="rounded-none"
@@ -187,7 +189,7 @@ const ids = {
       :id="ids.sidebar.root"
       v-model="activeRoute"
       unstyled
-      class="flex flex-col gap-4 p-4 overflow-y-auto rounded-none border-0"
+      class="flex flex-col gap-2 p-4 overflow-y-auto rounded-none border-0"
       hover="transparant"
       active="transparant"
     >
