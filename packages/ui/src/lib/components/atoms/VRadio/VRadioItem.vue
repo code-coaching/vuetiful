@@ -26,7 +26,7 @@ const classItem = inject('classItem') as string;
 const classRootDefault = 'px-4 py-1 text-center text-base rounded border border-transparent';
 const classRootMerged = computed(() => tm(classRootDefault, classItem, props.class));
 
-const classActiveDefault = 'preset-filled';
+const classActiveDefault = 'bg-surface-950-50 text-surface-50-950';
 const classActiveMerged = computed(() => tm(classActiveDefault, active, props.classActive));
 
 const classHoverDefault = 'hover:border-black dark:hover:border-white hover:border';

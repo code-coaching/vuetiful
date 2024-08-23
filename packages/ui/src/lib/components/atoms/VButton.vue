@@ -55,7 +55,8 @@ const btnSize = computed(() => {
 });
 
 const classRootDefault = computed(
-  () => `preset-filled ${props.icon ? 'btn-icon' : 'btn'} ${btnSize.value} hover:cursor-pointer`,
+  () =>
+    `bg-surface-50-950 text-surface-950-50 ${props.icon ? 'btn-icon' : 'btn'} ${btnSize.value} hover:cursor-pointer`,
 );
 const classRootMerged = computed(() => tm(classRootDefault.value, props.class));
 </script>

@@ -14,9 +14,9 @@ const props = withDefaults(defineProps<AccordionProps>(), {
   classAnswer: '',
 });
 
-const classQuestionDefault = 'bg-surface-200-800 hover:preset-outlined';
-const classQuestionMerged = computed(() => tm(classQuestionDefault, props.classQuestion));
+const classQuestionDefault = 'bg-surface-200-800 border border-transparent hover:border-surface-800-200';
 
+const classQuestionMerged = computed(() => tm(classQuestionDefault, props.classQuestion));
 const classAnswerDefault = 'bg-surface-200-800';
 const classAnswerMerged = computed(() => tm(classAnswerDefault, props.classAnswer));
 

@@ -13,7 +13,7 @@ interface LightSwitchProps {
 const props = defineProps<LightSwitchProps>();
 
 const classRootDefault =
-  'bg-surface-100-900 w-12 h-6 ring-[1px] ring-surface-500/30 rounded cursor-pointer transition-all duration-150';
+  'bg-surface-100-900 w-12 h-6 rounded cursor-pointer transition-all duration-150 flex items-center';
 const classRootMerged = computed(() => tm(classRootDefault, props.class));
 
 const classThumbDefault =

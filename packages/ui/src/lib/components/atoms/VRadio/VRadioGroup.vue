@@ -43,7 +43,7 @@ provide('hover', props.classItemHover);
 provide('disabled', props.classItemDisabled);
 provide('classItem', props.classItem);
 
-const classRootDefault = computed(() => `inline-flex gap-1 p-1 border border-surface-400-600 rounded-container preset-filled-surface-200-800 ${props.vertical ? 'flex-col' : 'flex-row'}`);
+const classRootDefault = computed(() => `inline-flex gap-1 p-1 border border-surface-400-600 rounded-container bg-surface-200-800 text-surface-950-50 ${props.vertical ? 'flex-col' : 'flex-row'}`);
 const classRootMerged = computed(() => tm(classRootDefault.value, props.class));
 </script>
 l

@@ -7,7 +7,7 @@ type ChipProps = {
 };
 const props = withDefaults(defineProps<ChipProps>(), { class: '' });
 
-const classRootDefault = computed(() => `chip preset-filled ${props.class}`);
+const classRootDefault = computed(() => `chip bg-surface-50-950 text-surface-950-50 ${props.class}`);
 const classRootMerged = tm(classRootDefault.value, props.class);
 </script>
 <template>

@@ -32,7 +32,7 @@ const onKeydown = (event: KeyboardEvent) => {
 };
 
 const classRootDefault =
-  'preset-filled-surface-200-800 flex flex-col border rounded-container ring overflow-hidden';
+  'bg-surface-200-800 text-surface-950-50 flex flex-col border rounded-container overflow-hidden';
 const classRootMerged = computed(() => tm(classRootDefault, props.class));
 </script>
 

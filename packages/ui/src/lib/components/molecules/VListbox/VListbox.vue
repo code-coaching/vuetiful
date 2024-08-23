@@ -46,9 +46,9 @@ watch(
   },
 );
 
-const classItemActiveDefault = 'preset-filled-surface-800-200';
+const classItemActiveDefault = 'bg-surface-800-200 text-surface-50-950';
 const classItemActiveMerged = computed(() => tm(classItemActiveDefault, props.classItemActive));
-const classItemHoverDefault = 'hover:preset-outlined-surface-800-200';
+const classItemHoverDefault = 'border border-transparent hover:border-surface-800-200';
 const classItemHoverMerged = computed(() => tm(classItemHoverDefault, props.classItemHover));
 
 const classItemDisabledDefault = 'pointer-events-none opacity-50';
@@ -75,7 +75,7 @@ const showText = computed(() => {
   return props.textButton;
 });
 
-const classRootDefault = 'rounded-container preset-filled-surface-200-800';
+const classRootDefault = 'rounded-container bg-surface-200-800 text-surface-950-50';
 const classRootMerged = computed(() => tm(classRootDefault, props.class));
 </script>
 

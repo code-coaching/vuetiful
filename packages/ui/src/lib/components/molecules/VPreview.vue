@@ -49,7 +49,7 @@ const swatches = ref(false);
 const toggleSwatches = () => (swatches.value = !swatches.value);
 
 const classRootDefault =
-  'overflow-hidden rounded-container shadow-2xl shadow-surface-500/10 dark:shadow-black/10';
+  'overflow-hidden rounded-container shadow-2xl shadow-surface-950/20';
 const classRootMerged = computed(() => tm(classRootDefault, props.class));
 
 const classHeaderDefault = 'flex items-center justify-between gap-4 p-4 bg-surface-200-800';
@@ -93,12 +93,12 @@ const classSwatchToggleMerged = computed(() =>
   tm(classSwatchToggleDefault, props.classSwatchToggle),
 );
 
-const classSwatchToggleActiveDefault = 'preset-filled';
+const classSwatchToggleActiveDefault = 'bg-surface-950-50 text-surface-50-950';
 const classSwatchToggleActiveMerged = computed(() =>
   tm(classSwatchToggleActiveDefault, props.classSwatchToggleActive),
 );
 
-const classSwatchToggleInactiveDefault = 'bg-transparent hover:preset-outlined-surface-950-50';
+const classSwatchToggleInactiveDefault = 'bg-transparent hover:border';
 const classSwatchToggleInactiveMerged = computed(() =>
   tm(classSwatchToggleInactiveDefault, props.classSwatchToggleInactive),
 );
@@ -108,7 +108,7 @@ const classSwatchesDefault =
 const classSwatchesMerged = computed(() => tm(classSwatchesDefault, props.classSwatches));
 
 const classSwatchDefault =
-  'flex aspect-square cursor-pointer items-center justify-center rounded ring-[1px] ring-surface-500/50';
+  'flex aspect-square cursor-pointer items-center justify-center rounded';
 const classSwatchMerged = computed(() => tm(classSwatchDefault, props.classSwatch));
 </script>
 

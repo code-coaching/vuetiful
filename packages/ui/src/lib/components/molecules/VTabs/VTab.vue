@@ -33,7 +33,7 @@ const classRootHorizontalVertical = computed(() =>
 const classRootDefault = computed(() => `flex ${classRootHorizontalVertical.value}`);
 const classRootMerged = computed(() => `${classRootDefault.value} ${props.class}`);
 
-const classTabDefault = 'rounded text-base w-full px-4 py-2';
+const classTabDefault = 'rounded-container text-base w-full px-4 py-2';
 const classTabMerged = computed(() => tm(classTabDefault, tabClass, props.classTab));
 const classTabActiveMerged = computed(() => tm(activeClass, props.classActive));
 const classTabHoverMerged = computed(() => tm(hoverClass, props.classHover));

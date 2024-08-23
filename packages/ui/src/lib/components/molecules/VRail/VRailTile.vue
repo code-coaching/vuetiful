@@ -55,6 +55,8 @@ const classLabelMerged = computed(() => tm(classLabelDefault, props.classLabel))
 <template>
   <v-radio-item
     :value="value"
+    :class-active="classActiveMerged"
+    :class-hover="classHoverMerged"
     :class="`vuetiful-rail-tile ${ selectedRailTile === value ? `${classActiveMerged}` : `${classHoverMerged}` } ${classRootMerged}`"
   >
     <template v-if="$slots.default">

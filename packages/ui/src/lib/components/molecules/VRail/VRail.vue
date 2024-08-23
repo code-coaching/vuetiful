@@ -3,20 +3,16 @@ import { VRadioGroup, tm, useRail } from '@/lib';
 import { computed, provide } from 'vue';
 const { selectedRailTile } = useRail();
 
-const props = defineProps({
-  class: {
-    type: String,
-    default: '',
-  },
+interface RailProps {
+  class?: string;
+  classItemActive?: string;
+  classItemHover?: string;
+}
 
-  classItemActive: {
-    type: String,
-    default: 'preset-filled',
-  },
-  classItemHover: {
-    type: String,
-    default: 'hover:preset-outlined',
-  },
+const props = withDefaults(defineProps<RailProps>(), {
+  class: '',
+  classItemActive: 'bg-surface-950-50 text-surface-50-950',
+  classItemHover: 'border border-transparent hover:border-surface-200-800',
 });
 
 provide('activeRail', props.classItemActive);

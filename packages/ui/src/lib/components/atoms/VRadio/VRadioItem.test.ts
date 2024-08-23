@@ -41,8 +41,8 @@ describe('VRadioItem slot states', () => {
       });
 
       const itemEl = wrapper.find("[data-test='item']").find('div');
-      expect(itemEl.element.classList.toString().includes('preset-filled')).toBe(true);
-      expect(itemEl.element.classList.toString().includes('hover:preset-outlined')).toBe(false);
+      expect(itemEl.classes()).toContain('bg-surface-950-50');
+      expect(itemEl.classes().some((c) => c.startsWith('hover:'))).toBe(false);
     });
 
     test('should have the default hover class', () => {
@@ -63,12 +63,11 @@ describe('VRadioItem slot states', () => {
       });
 
       const itemEl = wrapper.find("[data-test='item']").find('div');
-      expect(itemEl.element.classList.toString().includes('preset-filled')).toBe(false);
-      expect(
-        itemEl.element.classList
-          .toString()
-          .includes('hover:border-black dark:hover:border-white hover:border'),
-      ).toBe(true);
+      expect(itemEl.classes()).not.toContain('bg-surface-950-50');
+      expect(itemEl.classes()).not.toContain('text-surface-50-950');
+      expect(itemEl.classes()).toContain('hover:border-black');
+      expect(itemEl.classes()).toContain('dark:hover:border-white');
+      expect(itemEl.classes()).toContain('hover:border');
     });
   });
   describe('given v-slot checked is true', () => {

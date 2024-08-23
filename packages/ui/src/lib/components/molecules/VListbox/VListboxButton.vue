@@ -10,7 +10,8 @@ interface ListboxButtonProps {
 
 const props = defineProps<ListboxButtonProps>();
 
-const classRootDefault = 'preset-filled btn flex w-full justify-between active:scale-[100%]';
+const classRootDefault =
+  'bg-surface-800-200 text-surace-50-950 btn flex w-full justify-between active:scale-[100%]';
 const classRootMerged = computed(() => tm(classRootDefault, props.class));
 </script>
 

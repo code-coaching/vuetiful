@@ -6,7 +6,7 @@ const props = withDefaults(defineProps<{ class?: string }>(), {
   class: '',
 });
 
-const classRootDefault = 'preset-filled-surface-800-200';
+const classRootDefault = 'bg-surface-50-950 text-surface-950-50';
 const classRootMerged = computed(() => tm(classRootDefault, props.class));
 </script>
 
