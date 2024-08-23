@@ -1,23 +1,23 @@
 <script lang="ts" setup>
 import {
-  VThemeSwitch,
   useDarkMode,
   useDrawer,
   useTheme,
   VButton,
   VDrawer,
   VShell,
+  VThemeSwitch,
   Vuetiful,
 } from "@code-coaching/vuetiful";
+import "highlight.js/styles/github-dark.min.css";
 import { MenuIcon } from "lucide-vue-next";
-import 'highlight.js/styles/github-dark.min.css';
 import { version } from "../../packages/ui/package.json";
 
 const { applyTheme, themes } = useTheme();
 const { autoModeWatcher } = useDarkMode();
 
 onNuxtReady(() => {
-  autoModeWatcher(); 
+  autoModeWatcher();
   applyTheme(themes.vuetiful);
 });
 
@@ -52,10 +52,8 @@ const generateId = () => useId();
     </v-drawer>
     <v-shell fixed-header-height="50px">
       <template v-slot:fixedHeader>
-        <div
-          class="w-full flex justify-between items-center p-2 h-[50px]"
-        >
-          <div class="flex gap-2 items-center">
+        <div class="flex h-[50px] w-full items-center justify-between p-2">
+          <div class="flex items-center gap-2">
             <v-button
               icon
               class="2xl:hidden"
@@ -70,7 +68,10 @@ const generateId = () => useId();
           </div>
 
           <div class="flex items-center gap-2">
-            <VThemeSwitch button-classes="btn-sm" width-popup="w-60 right-4" />
+            <VThemeSwitch
+              class-button="bg-surface-800-200 text-surface-contrast-800 dark:text-surface-contrast-200"
+              class="right-4 w-60"
+            />
             <div>v{{ version }}</div>
           </div>
         </div>
@@ -80,7 +81,7 @@ const generateId = () => useId();
         <DocsSideBar />
       </template>
       <div ref="layoutRef" class="flex justify-center p-4 md:p-10">
-        <div class="flex flex-col w-full max-w-5xl">
+        <div class="flex w-full max-w-5xl flex-col">
           <NuxtLayout>
             <NuxtPage />
           </NuxtLayout>
@@ -102,7 +103,7 @@ h6 {
 
 section.section {
   @apply mb-6 md:mb-14;
-  @apply flex flex-col gap-2
+  @apply flex flex-col gap-2;
 }
 header.header {
   @apply mb-4 md:mb-10;

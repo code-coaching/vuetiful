@@ -21,13 +21,13 @@ const props = withDefaults(defineProps<TabsProps>(), {
   defaultIndex: 0,
 });
 
-const classTabHoverDefault = 'hover:preset-outlined-surface-500';
+const classTabHoverDefault = 'border border-transparent hover:border-surface-950-50';
 const classTabHoverMerged = computed(() => tm(classTabHoverDefault, props.classTabHover));
 const classSeparatorDefault = 'border-surface-900-100';
 const classSeparatorMerged = computed(() => tm(classSeparatorDefault, props.classSeparator));
 const classTabSeparatorDefault = 'border-primary-400';
 const classTabSeparatorMerged = computed(() => tm(classTabSeparatorDefault, props.classTabSeparator));
-const classTabActiveDefault = computed(() => props.vertical ? 'border-l-2 border-y-2 rounded-tr-none rounded-br-none' : 'border-t-2 border-x-2 rounded-bl-none rounded-br-none');
+const classTabActiveDefault = computed(() => props.vertical ? 'border-l-2 border-y-2 rounded-tr-none rounded-br-none border-surface-950-50' : 'border-t-2 border-x-2 rounded-bl-none rounded-br-none border-surface-950-50');
 const classTabActiveMerged = computed(() => tm(classTabActiveDefault.value, props.classTabActive));
 
 provide('active', classTabActiveMerged.value);
@@ -66,7 +66,7 @@ const classPanelsMerged = computed(() => tm(classTabPanelsDefault.value, props.c
     <div
       data-test="vuetiful-tab-separator"
       v-if="!hideSeparator"
-      :class="`border ${classSeparator}`"
+      :class="`border-[1px] ${classSeparatorMerged}`"
     ></div>
     <TabPanels
       data-test="vuetiful-tab-panels"

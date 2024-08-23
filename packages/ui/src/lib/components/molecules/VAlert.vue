@@ -24,13 +24,13 @@ const props = withDefaults(defineProps<AlertProps>(), {
 const typeBackground = computed(() => {
   switch (props.type) {
     case 'info':
-      return 'preset-filled-surface-200-800';
+      return 'bg-surface-200-800 text-surface-950-50';
     case 'success':
-      return 'preset-filled-success-200-800';
+      return 'bg-success-200-800 text-surface-950-50';
     case 'warning':
-      return 'preset-filled-warning-200-800';
+      return 'bg-warning-200-800 text-surface-950-50';
     case 'error':
-      return 'preset-filled-error-200-800';
+      return 'bg-error-200-800 text-surface-950-50';
     case '':
       return '';
   }

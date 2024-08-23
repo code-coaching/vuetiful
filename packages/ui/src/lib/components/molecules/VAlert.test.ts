@@ -18,16 +18,19 @@ describe('VAlert', () => {
     });
 
     const defaultAlert = wrapper.find('[data-test=default]');
-    expect(defaultAlert.classes()).not.toContain('preset-filled-primary-200-800');
+    expect(defaultAlert.classes()).not.toContain('bg-surface-200-800');
 
     const infoAlert = wrapper.find('[data-test=info]');
-    expect(infoAlert.classes()).toContain('preset-filled-surface-200-800');
+    expect(infoAlert.classes()).toContain('bg-surface-200-800');
 
     const successAlert = wrapper.find('[data-test=success]');
-    expect(successAlert.classes()).toContain('preset-filled-success-200-800');
+    expect(successAlert.classes()).toContain('bg-success-200-800');
 
     const warningAlert = wrapper.find('[data-test=warning]');
-    expect(warningAlert.classes()).toContain('preset-filled-warning-200-800');
+    expect(warningAlert.classes()).toContain('bg-warning-200-800');
+
+    const errorAlert = wrapper.find('[data-test=error]');
+    expect(errorAlert.classes()).toContain('bg-error-200-800');
   });
 
   describe('given show is false', () => {

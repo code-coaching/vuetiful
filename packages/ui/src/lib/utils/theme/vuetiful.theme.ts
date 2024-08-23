@@ -380,6 +380,17 @@ vuetiful.custom = `
     background-color: rgb(var(--color-surface-600) / var(--tw-bg-opacity));
     color: rgb(var(--color-surface-contrast-600) / var(--tw-text-opacity));
   }
+  
+  .code {
+    background-color: rgb(var(--color-surface-700) / var(--tw-bg-opacity));
+    color: rgb(var(--color-surface-contrast-700) / var(--tw-text-opacity));
+  }
+
+  .anchor {
+    color: rgb(var(--color-surface-950) / var(--tw-text-opacity));
+    font-weight: 800;
+    font-style: italic;
+  }
 }
 .dark [data-theme='vuetiful'] {
   /* prettier-ignore */
@@ -391,6 +402,17 @@ vuetiful.custom = `
   .kbd {
     background-color: rgb(var(--color-surface-400) / var(--tw-bg-opacity));
     color: rgb(var(--color-surface-contrast-400) / var(--tw-text-opacity));
+  }
+
+  .code {
+    background-color: rgb(var(--color-surface-300) / var(--tw-bg-opacity));
+    color: rgb(var(--color-surface-contrast-300) / var(--tw-text-opacity));
+  }
+  
+  .anchor {
+    color: rgb(var(--color-surface-50) / var(--tw-text-opacity));
+    font-weight: 800;
+    font-style: italic;
   }
 }
 `;

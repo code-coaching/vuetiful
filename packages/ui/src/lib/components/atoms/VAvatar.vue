@@ -30,7 +30,7 @@ const props = withDefaults(defineProps<AvatarProps>(), {
 const imgSrc = ref(props.src);
 
 const classRootDefault =
-  'flex items-center justify-center overflow-hidden h-16 w-16 rounded preset-filled text-xl';
+  'flex items-center justify-center overflow-hidden h-16 w-16 rounded bg-surface-50-950 text-surface-950-50 text-xl';
 const classRootMerged = computed(() => tm(classRootDefault, props.class));
 </script>
 <template>

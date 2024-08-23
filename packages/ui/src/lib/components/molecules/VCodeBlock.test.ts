@@ -42,7 +42,11 @@ describe('VCodeBlock', () => {
   });
 
   test('renders the component with default props', () => {
-    const wrapper = mount(VCodeBlock);
+    const wrapper = mount(VCodeBlock, {
+      props: {
+        code: 'John Duck',
+      }
+    });
     expect(wrapper.exists()).toBe(true);
     expect(wrapper.text()).toContain('Copy');
     expect(wrapper.find('.vuetiful-code-block-language').text()).toBe('plaintext');

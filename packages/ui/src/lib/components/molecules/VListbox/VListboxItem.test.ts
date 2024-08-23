@@ -35,7 +35,8 @@ describe('VListboxItem props', () => {
       'px-4',
       'py-1',
       'text-base',
-      'preset-filled-surface-800-200',
+      'bg-surface-800-200',
+      'text-surface-50-950',
       'cursor-pointer',
     ]);
     expect(normalItem.classes()).toEqual([
@@ -44,7 +45,9 @@ describe('VListboxItem props', () => {
       'px-4',
       'py-1',
       'text-base',
-      'hover:preset-outlined-surface-800-200',
+      'border',
+      'border-transparent',
+      'hover:border-surface-800-200',
       'cursor-pointer',
     ]);
   });
@@ -79,7 +82,8 @@ describe('VListboxItem props', () => {
       'px-4',
       'py-1',
       'text-base',
-      'preset-filled-surface-800-200',
+      'bg-surface-800-200',
+      'text-surface-50-950',
       'pointer-events-none',
       'opacity-50',
     ]);
@@ -89,10 +93,12 @@ describe('VListboxItem props', () => {
       'px-4',
       'py-1',
       'text-base',
-      'hover:preset-outlined-surface-800-200',
+      'border',
+      'border-transparent',
+      'hover:border-surface-800-200',
       'cursor-pointer',
     ]);
-  })
+  });
 
   test('focussed but not selected', async () => {
     const listboxValue = ref('John');
@@ -110,7 +116,6 @@ describe('VListboxItem props', () => {
         'v-listbox': VListbox,
         'v-listbox-item': VListboxItem,
       },
-     
     });
 
     const listbox = wrapper.find("[data-test='listbox']");
@@ -128,7 +133,9 @@ describe('VListboxItem props', () => {
       'px-4',
       'py-1',
       'text-base',
-      'hover:preset-outlined-surface-800-200',
+      'border',
+      'border-transparent',
+      'hover:border-surface-800-200',
       'cursor-pointer',
     ]);
     expect(selectedItem.classes()).toEqual([
@@ -137,8 +144,9 @@ describe('VListboxItem props', () => {
       'px-4',
       'py-1',
       'text-base',
-      'preset-filled-surface-800-200',
+      'bg-surface-800-200',
+      'text-surface-50-950',
       'cursor-pointer',
     ]);
-  }) 
+  });
 });

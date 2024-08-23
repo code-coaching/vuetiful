@@ -12,10 +12,10 @@ import { extendTailwindMerge } from 'tailwind-merge';
 const tm = extendTailwindMerge(withVuetiful);
 
 interface DrawerProps {
-  classBackdrop: string;
-  classDrawer: string;
-  labelledby: string;
-  describedby: string;
+  classBackdrop?: string;
+  classDrawer?: string;
+  labelledby?: string;
+  describedby?: string;
 }
 
 const props = withDefaults(defineProps<DrawerProps>(), {

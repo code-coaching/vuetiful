@@ -10,7 +10,7 @@ const props = defineProps<ListboxItemsProps>();
 
 const horizontal = inject('horizontal') as boolean;
 
-const classRootDefault = 'z-10 rounded-container gap-1 p-4 flex preset-filled-surface-200-800';
+const classRootDefault = 'z-10 rounded-container gap-1 p-4 flex bg-surface-200-800 text-surface-950-50';
 const classRootMerged = computed(() => tm(classRootDefault, props.class));
 </script>
 

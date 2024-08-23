@@ -295,8 +295,8 @@ watch(() => chosenMode.value, (newMode) => {
         <v-code-block language="sh" code="npx tailwindcss init -p" />
         <p>
           This will create a file named
-          <code class="code"> tailwind.config.js </code> and a file named
-          <code class="code"> postcss.config.js </code> .
+          <code class="code">tailwind.config.js</code> and a file named
+          <code class="code">postcss.config.js</code> .
         </p>
       </section>
 
@@ -428,7 +428,7 @@ watch(() => chosenMode.value, (newMode) => {
         <v-code-block language="sh" code="npx tailwindcss init" />
         <p>
           This will create a file named
-          <code class="code"> tailwind.config.js </code>.
+          <code class="code">tailwind.config.js</code>.
         </p>
       </section>
 
@@ -522,7 +522,7 @@ watch(() => chosenMode.value, (newMode) => {
         <v-alert type="info">
           <p class="mb-2">
             It might be necessary to add the flag
-            <code class="code"> --legacy-peer-deps </code>.
+            <code class="code">--legacy-peer-deps</code>.
           </p>
 
           <v-code-block language="sh" code="npm install --legacy-peer-deps" />
@@ -534,7 +534,7 @@ watch(() => chosenMode.value, (newMode) => {
         <v-code-block language="sh" code="npx tailwindcss init" />
         <p>
           This will create a file named
-          <code class="code"> tailwind.config.js </code>.
+          <code class="code">tailwind.config.js</code>.
         </p>
       </section>
 

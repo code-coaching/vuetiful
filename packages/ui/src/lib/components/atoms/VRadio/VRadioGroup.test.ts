@@ -23,7 +23,8 @@ test('VRadioGroup default props', () => {
     'border',
     'border-surface-400-600',
     'rounded-container',
-    'preset-filled-surface-200-800',
+    'bg-surface-200-800',
+    'text-surface-950-50',
     'flex-row'
   ]);
 
