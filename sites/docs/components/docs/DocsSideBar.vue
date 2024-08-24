@@ -154,6 +154,11 @@ const ids = {
     root: "sidebar",
   },
 };
+
+const go = (value: string, url: string) => {
+  activeRoute.value = value;
+  navigateTo(url);
+};
 </script>
 
 <template>
@@ -170,7 +175,7 @@ const ids = {
     >
       <v-rail-tile
         class="rounded-none"
-        @click="navigateTo('/docs/getting-started')"
+        @click="go('docs', '/docs/getting-started')"
         value="docs"
         label="Docs"
         :id="ids.rail.docs"
@@ -180,7 +185,7 @@ const ids = {
         class="rounded-none"
         value="vue"
         label="Vue"
-        @click="navigateTo('/vue/shell')"
+        @click="go('vue', '/vue/shell')"
         :id="ids.rail.vue"
       >
       </v-rail-tile>
