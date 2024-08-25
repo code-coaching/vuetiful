@@ -18,12 +18,69 @@ const { autoModeWatcher } = useDarkMode();
 
 onNuxtReady(() => {
   autoModeWatcher();
-  applyTheme(themes.vuetiful);
+  if (process.env.NODE_ENV === "development") {
+    applyTheme(themes.vuetiful);
+  }
 });
 
 const { open, drawer } = useDrawer();
 
 const generateId = () => useId();
+
+useHead({
+  style: [
+    {
+      children: `
+        .h1,
+        .h2,
+        .h3,
+        .h4,
+        .h5,
+        .h6 {
+          margin-bottom: 1rem; /* Tailwind mb-4 */
+        }
+
+        @media (min-width: 768px) {
+          .h1,
+          .h2,
+          .h3,
+          .h4,
+          .h5,
+          .h6 {
+            margin-bottom: 2rem; /* Tailwind md:mb-8 */
+          }
+        }
+
+        section.section {
+          margin-bottom: 1.5rem; /* Tailwind mb-6 */
+          display: flex; /* Tailwind flex */
+          flex-direction: column; /* Tailwind flex-col */
+          gap: 0.5rem; /* Tailwind gap-2 */
+        }
+
+        @media (min-width: 768px) {
+          section.section {
+            margin-bottom: 3.5rem; /* Tailwind md:mb-14 */
+          }
+        }
+
+        header.header {
+          margin-bottom: 1rem; /* Tailwind mb-4 */
+        }
+
+        @media (min-width: 768px) {
+          header.header {
+            margin-bottom: 2.5rem; /* Tailwind md:mb-10 */
+          }
+        }
+
+        summary {
+          cursor: pointer;
+        }
+      `,
+    },
+  ],
+});
 </script>
 <template>
   <Vuetiful :id-generator="generateId">
@@ -92,7 +149,7 @@ const generateId = () => useId();
 </template>
 
 <style>
-h1,
+/* h1,
 h2,
 h3,
 h4,
@@ -111,5 +168,5 @@ header.header {
 
 summary {
   cursor: pointer;
-}
+} */
 </style>
