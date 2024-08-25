@@ -38,7 +38,7 @@ interface PreviewProps {
 }
 
 const props = withDefaults(defineProps<PreviewProps>(), {
-  background: 'bg-transparent',
+  background: 'neutral',
 });
 
 const chosenBackground = ref(props.background);

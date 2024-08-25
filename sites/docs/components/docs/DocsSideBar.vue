@@ -46,6 +46,11 @@ const docsLinks = [
     name: name(ROUTES.DOCS.ICONS),
     link: ROUTES.DOCS.ICONS,
   },
+  {
+    title: "Theme",
+    name: name(ROUTES.DOCS.THEME),
+    link: ROUTES.DOCS.THEME,
+  }
 ];
 
 const docsResourceLinks = [

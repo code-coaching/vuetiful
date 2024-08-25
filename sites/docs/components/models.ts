@@ -4,7 +4,7 @@ export const ROUTES = {
     GETTING_STARTED: "/docs/getting-started",
     COLORS: "/docs/colors",
     ICONS: "/docs/icons",
-    QUASAR: "/docs/quasar",
+    THEME: "/docs/theme",
     THEME_GENERATOR: "/docs/theme-generator",
   },
   VUE: {
