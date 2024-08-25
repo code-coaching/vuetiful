@@ -13,14 +13,13 @@ import "highlight.js/styles/github-dark.min.css";
 import { MenuIcon } from "lucide-vue-next";
 import { version } from "../../packages/ui/package.json";
 
-const { applyTheme, themes } = useTheme();
+const { applyTheme, getThemeFromCookie } = useTheme();
 const { autoModeWatcher } = useDarkMode();
 
 onNuxtReady(() => {
   autoModeWatcher();
-  if (process.env.NODE_ENV === "development") {
-    applyTheme(themes.vuetiful);
-  }
+  const theme = getThemeFromCookie(document.cookie);
+  applyTheme(theme);
 });
 
 const { open, drawer } = useDrawer();
