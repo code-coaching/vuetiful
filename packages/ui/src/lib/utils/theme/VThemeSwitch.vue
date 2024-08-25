@@ -27,7 +27,7 @@ const props = withDefaults(defineProps<ThemeSwitchProps>(), {
 const { applyTheme, themes, chosenTheme } = useTheme();
 
 const classRootDefault =
-  'absolute z-10 mt-1 right-4 w-60 space-y-4 rounded-container p-4 shadow-xl bg-surface-200-800 text-surface-950-50';
+  'relative z-10 mt-1 w-60 space-y-4 rounded-container p-4 shadow-xl bg-surface-200-800 text-surface-950-50';
 const classRootMerged = tm(classRootDefault, props.class);
 
 const classButtonDefault = '';
