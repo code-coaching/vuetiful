@@ -126,7 +126,7 @@ useHead({
           <div class="flex items-center gap-2">
             <VThemeSwitch
               class-button="bg-surface-800-200 text-surface-contrast-800 dark:text-surface-contrast-200"
-              class="right-4 w-60"
+              class="absolute right-4"
             />
             <div>v{{ version }}</div>
           </div>
