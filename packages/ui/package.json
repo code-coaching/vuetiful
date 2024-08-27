@@ -1,7 +1,7 @@
 {
   "name": "@code-coaching/vuetiful",
   "type": "module",
-  "version": "0.37.0",
+  "version": "0.37.1",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
