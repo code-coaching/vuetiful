@@ -2,7 +2,6 @@ import { VRadioGroup, VRail, VRailTile, useRail } from '@/lib';
 import { mount } from '@vue/test-utils';
 import { describe, expect, test } from 'vitest';
 describe('VRailTile', () => {
-  // TODO: add tests
   test('default slot', () => {
     const wrapper = mount({
       provide: {
@@ -93,4 +92,27 @@ describe('VRailTile', () => {
     await railTile.trigger('click');
     expect(selectedRailTile.value).toBe('John Duck');
   });
+
+  test('center text by default', () => {
+      const wrapper = mount({
+        provide: {
+          activeRail: null,
+          hoverRail: null,
+        },
+        template: /*html*/ `
+          <v-radio-group>
+            <v-rail-tile>John Duck</v-rail-tile>
+          </v-radio-group>
+        `,
+        components: {
+          'v-rail-tile': VRailTile,
+          'v-radio-group': VRadioGroup,
+        },
+      });
+  
+      console.log(wrapper.html());
+      expect(wrapper.html()).toContain('flex');
+      expect(wrapper.html()).toContain('justify-center');
+      expect(wrapper.html()).toContain('items-center');
+  })
 });

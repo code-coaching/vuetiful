@@ -39,7 +39,7 @@ const { selectedRailTile } = useRail();
 const activeRail = inject('activeRail') as string;
 const hoverRail = inject('hoverRail') as string;
 
-const classRootDefault = 'grid aspect-square w-full cursor-pointer place-content-center place-items-center'
+const classRootDefault = 'flex aspect-square w-full cursor-pointer items-center justify-center'
 const classRootMerged = computed(() => tm(classRootDefault, props.class))
 
 const classActiveMerged = computed(() => tm(activeRail, props.classActive))
