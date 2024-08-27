@@ -126,6 +126,11 @@ const vueLinks = [
     link: ROUTES.VUE.V_LISTBOX,
   },
   {
+    title: "Popover",
+    name: name(ROUTES.VUE.V_POPOVER),
+    link: ROUTES.VUE.V_POPOVER,
+  },
+  {
     title: "Preview",
     name: name(ROUTES.VUE.V_PREVIEW),
     link: ROUTES.VUE.V_PREVIEW,

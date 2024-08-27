@@ -1,7 +1,7 @@
 {
   "name": "@code-coaching/vuetiful",
   "type": "module",
-  "version": "0.36.0",
+  "version": "0.37.0",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
@@ -26,6 +26,7 @@
     "vue": "^3.3.4"
   },
   "dependencies": {
+    "@floating-ui/vue": "^1.1.4",
     "@headlessui/vue": "^1.7.22"
   },
   "devDependencies": {

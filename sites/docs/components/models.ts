@@ -18,6 +18,7 @@ export const ROUTES = {
     V_CHIP: "/vue/chip",
     V_CODE_BLOCK: "/vue/code-block",
     V_LISTBOX: "/vue/listbox",
+    V_POPOVER: "/vue/popover",
     V_PREVIEW: "/vue/preview",
     V_RADIO_GROUP: "/vue/radio-group",
     V_SWITCH: "/vue/switch",
