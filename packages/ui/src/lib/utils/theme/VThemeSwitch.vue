@@ -1,13 +1,5 @@
 <script setup lang="ts">
-import {
-  VButton,
-  VLightSwitch,
-  VRadioGroup,
-  VRadioItem,
-  tm,
-  useTheme,
-  vClickOutsideGroup,
-} from '@/lib';
+import { VButton, VLightSwitch, VPopover, VRadioGroup, VRadioItem, tm, useTheme } from '@/lib';
 import { ref } from 'vue';
 
 interface ThemeSwitchProps {
@@ -40,50 +32,44 @@ const classItemActiveDefault = 'bg-surface-800-200 text-surface-50-950';
 const classItemActiveMerged = tm(classItemActiveDefault, props.classItemActive);
 
 const showPopup = ref(false);
+
+const anchorRef = ref();
+const anchorRefFn = () => anchorRef;
 </script>
 
 <template>
   <div class="vuetiful-theme-switcher">
     <v-button
+      id="theme-switcher"
+      ref="anchorRef"
       :class="`vuetiful-theme-switcher__button ${classButtonMerged}`"
       @click="showPopup = !showPopup"
     >
       Theme
     </v-button>
 
-    <transition
-      enter-active-class="transition-opacity"
-      enter-from-class="opacity-0"
-      enter-to-class="opacity-100"
-      leave-active-class="transition-opacity"
-      leave-from-class="opacity-100"
-      leave-to-class="opacity-0"
+    <v-popover
+      show-on-click
+      :anchor="anchorRefFn"
+      :show="showPopup"
+      class="vuetiful-theme-switcher__popup"
+      :class="`${classRootMerged}`"
     >
-      <div
-        v-if="showPopup"
-        v-click-outside-group="{
-          elementsInGroup: ['.vuetiful-theme-switcher__button'],
-          callback: () => (showPopup = false),
-        }"
-        class="vuetiful-theme-switcher__popup"
-        :class="`${classRootMerged}`"
-      >
-        <section class="flex items-center justify-between">
-          <div class="text-lg">Mode</div>
-          <v-light-switch />
-        </section>
-        <v-radio-group vertical class="max-h-60 w-full overflow-y-auto border-none sm:max-h-96">
-          <template v-for="(theme, index) in themes">
-            <v-radio-item
-              :value="theme.name"
-              :class="`vuetiful-theme-switcher__popup-list-item ${classItemMerged} ${chosenTheme.name === theme.name ? classItemActiveMerged : ''}`"
-              @click="applyTheme(theme)"
-            >
-              {{ theme.name }}
-            </v-radio-item>
-          </template>
-        </v-radio-group>
-      </div>
-    </transition>
+      <section class="flex items-center justify-between">
+        <div class="text-lg">Mode</div>
+        <v-light-switch />
+      </section>
+      <v-radio-group vertical class="max-h-60 w-full overflow-y-auto border-none sm:max-h-96">
+        <template v-for="(theme, index) in themes">
+          <v-radio-item
+            :value="theme.name"
+            :class="`vuetiful-theme-switcher__popup-list-item ${classItemMerged} ${chosenTheme.name === theme.name ? classItemActiveMerged : ''}`"
+            @click="applyTheme(theme)"
+          >
+            {{ theme.name }}
+          </v-radio-item>
+        </template>
+      </v-radio-group>
+    </v-popover>
   </div>
 </template>

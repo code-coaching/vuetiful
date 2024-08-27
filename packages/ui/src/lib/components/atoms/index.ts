@@ -13,6 +13,8 @@ import VSwitchDescription from './VSwitch/VSwitchDescription.vue';
 import VSwitchGroup from './VSwitch/VSwitchGroup.vue';
 import VSwitchLabel from './VSwitch/VSwitchLabel.vue';
 
+import VPopover from './VPopover.vue';
+
 export {
   VAvatar,
   VButton,
@@ -26,4 +28,5 @@ export {
   VSwitchLabel,
   VSwitchDescription,
   VSwitch,
+  VPopover
 };

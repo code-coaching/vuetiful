@@ -26,6 +26,7 @@
     "vue": "^3.3.4"
   },
   "dependencies": {
+    "@floating-ui/vue": "^1.1.4",
     "@headlessui/vue": "^1.7.22"
   },
   "devDependencies": {
