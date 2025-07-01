@@ -11,9 +11,24 @@ import {
   VTabs,
 } from "@code-coaching/vuetiful";
 import { ref } from "vue";
+import { XIcon, SmileIcon } from "lucide-vue-next";
 
 const basicScript = "const switchValue = ref(false);";
 const basicTemplate = '<v-switch v-model="switchValue" />';
+
+const iconScript = `import { XIcon, SmileIcon } from "lucide-vue-next";\n\n` + basicScript;
+const iconTemplate = `<v-switch v-model="switchValue" />
+
+<v-switch v-model="switchValue" hide-icons />
+
+<v-switch v-model="switchValue">
+  <template #inactiveChild>
+    <XIcon color="deeppink" :size="16" />
+  </template>
+  <template #activeChild>
+    <SmileIcon color="deeppink" :size="16" />
+  </template>
+</v-switch>`;
 
 const groupTemplate = `<v-switch-group>
   <v-switch-label class="font-bold">A label</v-switch-label>
@@ -174,7 +189,7 @@ const switchValue = ref(false);
     <v-tab-panel>
       <h2 class="h2">Basic</h2>
       <section class="section">
-        <v-preview>
+        <v-preview background="preset-filled-surface-500">
           <template #preview>
             <v-switch v-model="switchValue" />
           </template>
@@ -194,17 +209,17 @@ const switchValue = ref(false);
 
       <h2 class="h2">Group - Label - Description</h2>
       <section class="section">
-        <v-preview>
+        <v-preview background="preset-filled-surface-500">
           <template #preview>
             <div>
               <v-switch-group>
                 <v-switch-label class="font-bold">A label</v-switch-label>
                 <div class="flex w-[260px] items-center gap-2">
                   <v-switch v-model="switchValue" />
-                  <v-switch-description
-                    >The current value is:
-                    {{ switchValue }}</v-switch-description
-                  >
+                  <v-switch-description>
+                    The current value is:
+                    {{ switchValue }}
+                  </v-switch-description>
                 </div>
               </v-switch-group>
             </div>
@@ -233,11 +248,11 @@ const switchValue = ref(false);
 
         <h3 class="h3">Labels</h3>
         <section>
-          <v-preview>
+          <v-preview background="preset-filled-surface-500">
             <template #preview>
-              <v-switch v-model="switchValue"
-                >Label for screen readers</v-switch
-              >
+              <v-switch v-model="switchValue">
+                Label for screen readers
+              </v-switch>
             </template>
             <template #source>
               <v-code-block
@@ -263,7 +278,7 @@ const switchValue = ref(false);
       <h2 class="h2">Presets</h2>
       <h3 class="h3">Filled</h3>
       <section class="section">
-        <v-preview>
+        <v-preview background="preset-filled-surface-500">
           <template #preview>
             <div class="flex flex-wrap gap-2">
               <v-switch
@@ -319,7 +334,7 @@ const switchValue = ref(false);
 
       <h3 class="h3">Outlined</h3>
       <section class="section">
-        <v-preview>
+        <v-preview background="preset-filled-surface-500">
           <template #preview>
             <div class="flex flex-wrap gap-2">
               <v-switch
@@ -375,7 +390,7 @@ const switchValue = ref(false);
 
       <h3 class="h3">Tonal</h3>
       <section class="section">
-        <v-preview>
+        <v-preview background="preset-filled-surface-500">
           <template #preview>
             <div class="flex flex-wrap gap-2">
               <v-switch
@@ -424,6 +439,49 @@ const switchValue = ref(false);
             <div class="flex flex-col gap-4">
               <v-code-block language="ts" :code="basicScript" />
               <v-code-block language="html" :code="presetTonal" />
+            </div>
+          </template>
+        </v-preview>
+      </section>
+
+      <h2 class="h2">Icon</h2>
+      <section class="section">
+        <p>
+          The default switch has no icon when the switch is inactive and a check
+          icon when the switch is active.
+        </p>
+      </section>
+      <section class="section">
+        <v-preview background="preset-filled-surface-500">
+          <template #preview>
+            <div class="flex flex-col gap-2">
+              <div class="flex flex-wrap gap-2">
+                <v-switch v-model="switchValue" />
+                <p>Default</p>
+              </div>
+
+              <div class="flex flex-wrap gap-2">
+                <v-switch v-model="switchValue" hide-icons />
+                <p>With <code>hide-icons</code> present</p>
+              </div>
+
+              <div class="flex flex-wrap gap-2">
+                <v-switch v-model="switchValue">
+                  <template #inactiveChild>
+                    <XIcon color="deeppink" :size="16" />
+                  </template>
+                  <template #activeChild>
+                    <SmileIcon color="deeppink" :size="16" />
+                  </template>
+                </v-switch>
+                <p>With custom icons</p>
+              </div>
+            </div>
+          </template>
+          <template #source>
+            <div class="flex flex-col gap-4">
+              <v-code-block language="ts" :code="iconScript" />
+              <v-code-block language="html" :code="iconTemplate" />
             </div>
           </template>
         </v-preview>
