@@ -1,3 +1,4 @@
+import type { SizeProp } from '@/lib/props';
 import { mount } from '@vue/test-utils';
 import { describe, expect, test } from 'vitest';
 import VSwitch from './VSwitch.vue';
@@ -14,6 +15,8 @@ describe('VSwitch props', () => {
       classThumb: '',
       as: 'button',
       name: '',
+      classThumbIcon: 'text-surface-100-900',
+      hideIcons: false,
     });
   });
 
@@ -70,6 +73,17 @@ describe('VSwitch props', () => {
 
     const track = wrapper.find("[data-test='switch']");
     expect(track.attributes('class')).toContain('w-24 h-12');
+  });
+
+  test('default', () => {
+    const wrapper = mount(VSwitch, {
+      props: {
+        size: 'unknown' as SizeProp,
+      },
+    });
+
+    const track = wrapper.find("[data-test='switch']");
+    expect(track.attributes('class')).toContain('w-16 h-8');
   });
 });
 
