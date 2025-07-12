@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { tm } from '@/lib/utils/tailwind-merge';
-import { computed } from 'vue';
+import { computed, useAttrs } from 'vue';
 
 interface ButtonProps {
   classRoot?: string;
@@ -16,6 +16,8 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 });
 
 const emit = defineEmits<{ (event: 'click'): void }>();
+const attrs = useAttrs(); 
+
 
 const activate = () => {
   emit('click');
@@ -63,7 +65,7 @@ const classRootDefault = computed(
   () =>
     `bg-surface-50-950 text-surface-950-50 ${props.icon ? 'btn-icon' : 'btn'} ${btnSize.value} hover:cursor-pointer`,
 );
-const classRootMerged = computed(() => tm(classRootDefault.value, props.classRoot));
+const classRootMerged = computed(() => tm(classRootDefault.value, props.classRoot, attrs.class as string));
 </script>
 
 <template>
