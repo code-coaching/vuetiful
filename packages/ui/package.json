@@ -1,11 +1,11 @@
 {
   "name": "@code-coaching/vuetiful",
   "type": "module",
-  "version": "0.41.0",
+  "version": "0.42.0",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "lib:build": "run-p type-check build-only generate-types && mkdir -p dist/css && cp -r src/lib/css/* dist/css/",
+    "lib:build": "run-p type-check build-only && npm run generate-types && mkdir -p dist/css && cp -r src/lib/css/* dist/css/",
     "build": "vite build --config vite.spa.config.ts --outDir build",
     "preview": "vite preview --outDir build",
     "test:unit": "vitest",
