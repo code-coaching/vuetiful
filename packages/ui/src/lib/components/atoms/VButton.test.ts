@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, test, vi } from 'vitest';
 import { VButton } from '.';
+import type { SizeProp } from '@/lib/props';
 
 test('VButton', () => {
   expect(VButton).toBeTruthy();
@@ -73,6 +74,17 @@ describe('VButton props', () => {
       expect(wrapper.classes()).toContain('py-3');
       expect(wrapper.classes()).toContain('text-base');
     });
+
+    test('unknown', () => {
+      const wrapper = mount(VButton, {
+        props: {
+          size: 'unknown' as SizeProp,
+        },
+      });
+      expect(wrapper.classes()).toContain('px-4');
+      expect(wrapper.classes()).toContain('py-2');
+      expect(wrapper.classes()).toContain('text-sm');
+    })
   });
 
   describe('given icon is true', () => {

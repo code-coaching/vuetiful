@@ -3,14 +3,14 @@ import { tm } from '@/lib/utils/tailwind-merge';
 import { computed } from 'vue';
 
 interface ButtonProps {
-  class?: string;
+  classRoot?: string;
   icon?: boolean;
   tag?: string;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
 const props = withDefaults(defineProps<ButtonProps>(), {
-  class: '',
+  classRoot: '',
   tag: 'button',
   size: 'md',
 });
@@ -40,17 +40,22 @@ const keyupHandler = (event: KeyboardEvent) => {
 
 const btnSize = computed(() => {
   if (props.icon) return '';
+
+  const md = 'px-4 py-2 text-sm';
   switch (props.size) {
     case 'xs':
       return 'px-2.5 py-1.5 text-xs';
     case 'sm':
       return 'px-3 py-2 text-sm leading-4';
     case 'md':
-      return 'px-4 py-2 text-sm';
+      return md;
     case 'lg':
       return 'px-4 py-2 text-base';
     case 'xl':
       return 'px-6 py-3 text-base';
+    default:
+      return md;
+
   }
 });
 
@@ -58,7 +63,7 @@ const classRootDefault = computed(
   () =>
     `bg-surface-50-950 text-surface-950-50 ${props.icon ? 'btn-icon' : 'btn'} ${btnSize.value} hover:cursor-pointer`,
 );
-const classRootMerged = computed(() => tm(classRootDefault.value, props.class));
+const classRootMerged = computed(() => tm(classRootDefault.value, props.classRoot));
 </script>
 
 <template>
