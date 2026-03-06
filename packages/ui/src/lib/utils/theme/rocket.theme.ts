@@ -1,4 +1,4 @@
-import type { Theme } from "@skeletonlabs/skeleton/themes";
+import type { Theme } from '@/lib/types/skeletonlabs';
 
 const rocket = {
   "name": "rocket",

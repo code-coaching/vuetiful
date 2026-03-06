@@ -1,3 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "@skeletonlabs/skeleton";
+@import "@skeletonlabs/skeleton/themes/cerberus.css";
+@import "@skeletonlabs/skeleton/themes/catppuccin.css";
+@import "@skeletonlabs/skeleton/themes/pine.css";
+@import "@skeletonlabs/skeleton/themes/rose.css";

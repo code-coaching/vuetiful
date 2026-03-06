@@ -1,4 +1,4 @@
-import type { Theme, ThemeProperties } from '@skeletonlabs/skeleton/themes';
+import type { Theme, ThemeProperties } from '@/lib/types/skeletonlabs';
 import { ref, type Ref } from 'vue';
 import { usePlatform } from '../platform/platform.service';
 import { themes, themeArray } from './themes';
