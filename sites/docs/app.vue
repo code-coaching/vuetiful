@@ -16,6 +16,7 @@ import { version } from "../../packages/ui/package.json";
 const { applyTheme, getThemeFromCookie, registerTheme } = useTheme();
 const { autoModeWatcher } = useDarkMode();
 
+registerTheme({ name: 'rocket' });
 registerTheme({ name: 'cerberus' });
 registerTheme({ name: 'catppuccin' });
 registerTheme({ name: 'pine' });

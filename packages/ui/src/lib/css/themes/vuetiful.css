@@ -254,7 +254,7 @@
 	}
 }
 
-.dark [data-theme='vuetiful'] {
+.dark[data-theme='vuetiful'] {
 	/* prettier-ignore */
 	background-image:
 		radial-gradient(at 76% 0%, hsla(189,100%,56%,0.20) 0px, transparent 50%),
