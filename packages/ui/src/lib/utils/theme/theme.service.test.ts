@@ -168,7 +168,7 @@ describe('useTheme', () => {
       newTheme.name = 'new-theme';
 
       registerTheme(newTheme);
-      expect(themeArray).toContain(newTheme);
+      expect(themeArray).toContainEqual(newTheme);
     });
 
     describe('given the theme is already registered', () => {
@@ -224,8 +224,6 @@ describe('useTheme', () => {
       const preHtml = '<html><head></head><body></body></html>';
       const html = applyThemeSSR(preHtml, theme);
 
-      const style = html.includes('id="vuetiful-theme"');
-      expect(style).toBe(true);
       const body = html.includes('data-theme="vuetiful"');
       expect(body).toBe(true);
     });

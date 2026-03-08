@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 @import "@skeletonlabs/skeleton";
 @import "@skeletonlabs/skeleton/themes/cerberus";
 @import "@skeletonlabs/skeleton/themes/catppuccin";
@@ -6,3 +7,4 @@
 @import "@skeletonlabs/skeleton/themes/rose";
 @import "@code-coaching/vuetiful/themes/vuetiful";
 @import "@code-coaching/vuetiful/themes/rocket";
+@import "@code-coaching/vuetiful/vuetiful.css";
