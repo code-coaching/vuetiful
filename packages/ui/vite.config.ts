@@ -10,7 +10,7 @@ export default defineConfig({
     },
     dedupe: ['vue'],
   },
-  plugins: [tailwindcss(), vue()],
+  plugins: [vue(), tailwindcss()],
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/lib/index.ts'),

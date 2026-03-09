@@ -1,27 +1,14 @@
-import { describe, expect, vi, test } from 'vitest';
+import { describe, expect, test } from 'vitest';
 
-/**
- * No clue why, but when this test is added to theme.service.test.ts, it fails.
- * Running it in isolation works fine.
- */
-
-describe('given there is no existing theme style tag', () => {
-  test('should create a new theme style tag', async () => {
+describe('given there is an existing theme', () => {
+  test('should switch to the new theme', async () => {
     const { useTheme } = await import('./theme.service');
     const { applyTheme, themeArray } = useTheme();
 
-    const removeObject = { remove: () => {} };
-    const removeSpy = vi.spyOn(removeObject, 'remove');
-    vi.spyOn(window.document, 'getElementById').mockReturnValueOnce(removeObject as any);
+    applyTheme(themeArray[0]);
+    expect(document.documentElement.getAttribute('data-theme')).toBe(themeArray[0].name);
 
-    const newTheme = JSON.parse(JSON.stringify(themeArray[0]));
-    newTheme.name = 'new-theme';
-    applyTheme(newTheme);
-
-    const link = document.querySelector('#vuetiful-theme') as HTMLLinkElement;
-    // @ts-ignore
-    link.onload();
-
-    expect(removeSpy).toHaveBeenCalled();
+    applyTheme(themeArray[1]);
+    expect(document.documentElement.getAttribute('data-theme')).toBe(themeArray[1].name);
   });
 });

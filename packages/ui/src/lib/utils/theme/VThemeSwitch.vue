@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<ThemeSwitchProps>(), {
   classItemActive: '',
 });
 
-const { applyTheme, themes, chosenTheme } = useTheme();
+const { applyTheme, themeArray, chosenTheme } = useTheme();
 
 const classRootDefault =
   'relative z-10 mt-1 w-60 space-y-4 rounded-container p-4 shadow-xl bg-surface-200-800 text-surface-950-50';
@@ -60,7 +60,7 @@ const anchorRefFn = () => anchorRef;
         <v-light-switch />
       </section>
       <v-radio-group vertical class="max-h-60 w-full overflow-y-auto border-none sm:max-h-96">
-        <template v-for="(theme, index) in themes">
+        <template v-for="(theme, index) in themeArray">
           <v-radio-item
             :value="theme.name"
             :class="`vuetiful-theme-switcher__popup-list-item ${classItemMerged} ${chosenTheme.name === theme.name ? classItemActiveMerged : ''}`"
