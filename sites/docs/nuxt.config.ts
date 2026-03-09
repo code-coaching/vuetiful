@@ -6,8 +6,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
   vite: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    plugins: [tailwindcss() as any],
+    plugins: [tailwindcss()],
   },
   experimental: {
     externalVue: false,
