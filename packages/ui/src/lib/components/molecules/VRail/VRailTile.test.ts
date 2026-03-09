@@ -110,7 +110,6 @@ describe('VRailTile', () => {
         },
       });
   
-      console.log(wrapper.html());
       expect(wrapper.html()).toContain('flex');
       expect(wrapper.html()).toContain('justify-center');
       expect(wrapper.html()).toContain('items-center');
