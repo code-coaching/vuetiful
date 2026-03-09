@@ -60,10 +60,11 @@ describe('useTheme', () => {
           });
 
           const { useTheme } = await import('./theme.service');
-          const { initializeTheme, themeArray, chosenTheme } = useTheme();
+          const { initializeTheme, themeArray, chosenTheme, registerTheme } = useTheme();
 
-          const customTheme = JSON.parse(JSON.stringify(themeArray[1]));
+          const customTheme = JSON.parse(JSON.stringify(themeArray[0]));
           customTheme.name = 'rocket';
+          registerTheme(customTheme);
 
           const localStorageSpy = vi.spyOn(window.localStorage, 'getItem');
 
@@ -134,7 +135,7 @@ describe('useTheme', () => {
 
           expect(localStorageSpy).toHaveBeenCalledWith('vuetiful-custom-theme');
           expect(chosenTheme.value).toEqual(themeArray[0]);
-        })
+        });
 
         test('should set the default theme if no theme is stored', async () => {
           const platform = await import('../platform/platform.service');
@@ -153,9 +154,8 @@ describe('useTheme', () => {
 
           expect(localStorageSpy).toHaveBeenCalledWith('vuetiful-custom-theme');
           expect(chosenTheme.value).toEqual(themeArray[0]);
-        })
+        });
       });
-
     });
   });
 
@@ -202,13 +202,14 @@ describe('useTheme', () => {
     describe('given there is a cookie', () => {
       test('should return the theme', async () => {
         const { useTheme } = await import('./theme.service');
-        const { getThemeFromCookie, themeArray } = useTheme();
+        const { getThemeFromCookie, registerTheme } = useTheme();
+
+        const rocketTheme = { name: 'rocket' };
+        registerTheme(rocketTheme);
 
         const cookie = 'vuetiful-theme=rocket';
-
         const theme = getThemeFromCookie(cookie);
 
-        const rocketTheme = themeArray.find((theme) => theme.name === 'rocket');
         expect(theme).toEqual(rocketTheme);
       });
     });
