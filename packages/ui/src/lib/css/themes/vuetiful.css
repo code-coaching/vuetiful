@@ -277,3 +277,29 @@
 		font-style: italic;
 	}
 }
+
+@media (prefers-color-scheme: dark) {
+	[data-theme='vuetiful'] {
+		/* prettier-ignore */
+		background-image:
+			radial-gradient(at 76% 0%, hsla(189,100%,56%,0.20) 0px, transparent 50%),
+			radial-gradient(at 1% 0%, hsla(340,100%,76%,0.15) 0px, transparent 50%),
+			radial-gradient(at 20% 100%, hsla(241,100%,70%,0.30) 0px, transparent 50%);
+
+		& .kbd {
+			background-color: var(--color-surface-400);
+			color: var(--color-surface-contrast-400);
+		}
+
+		& .code {
+			background-color: var(--color-surface-300);
+			color: var(--color-surface-contrast-300);
+		}
+
+		& .anchor {
+			color: var(--color-surface-50);
+			font-weight: 800;
+			font-style: italic;
+		}
+	}
+}
