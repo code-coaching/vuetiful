@@ -35,7 +35,7 @@ const generateId = () => useId();
 useHead({
   style: [
     {
-      children: `
+      innerHTML: `
         .h1,
         .h2,
         .h3,
