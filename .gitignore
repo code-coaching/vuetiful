@@ -1,2 +1,55 @@
 node_modules
 .DS_Store
+
+**/scripts/visual-diff.sh
+**/visual-diff/
+**/test-results/
+**/.playwright-cli/
+
+# --- AI models ---
+# Initialize your LLM context locally
+CLAUDE.md
+AGENTS.md
+AI.md
+PROMPTS.md
+
+# --- AI coding tools ---
+
+# Anthropic Claude Code
+.claude/
+
+# Cursor
+.cursor/
+.cursor-tmp/
+
+# Continue.dev
+.continue/
+
+# Aider
+.aider*
+.aider/
+
+# OpenAI / Codex CLI style tools
+.openai/
+
+# Generic AI cache / prompts
+.ai/
+.ai-cache/
+.prompts/
+
+# Local LLM tooling
+.llm/
+.llms/
+
+# LM Studio / Ollama project configs
+.ollama/
+
+# Codeium
+.codeium/
+
+# Windsurf / Codeium IDE
+.windsurf/
+
+# Temporary AI artifacts
+*_ai_tmp/
+*_llm_tmp/

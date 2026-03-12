@@ -17,10 +17,10 @@ const simpleUsage = `import {
 import { onMounted } from "vue";
 
 const { autoModeWatcher } = useDarkMode();
-const { applyTheme, themes } = useTheme();
+const { applyTheme, themeArray } = useTheme();
 
 onMounted(() => {
-  applyTheme(themes.vuetiful);
+  applyTheme(themeArray[0]); // applies the first registered theme (vuetiful by default)
   autoModeWatcher();
 });
 `;
@@ -36,7 +36,12 @@ const themeCookie = `import {
 import { onMounted } from "vue";
 
 const { autoModeWatcher } = useDarkMode();
-const { applyTheme, themes, getThemeFromCookie } = useTheme();
+const { applyTheme, getThemeFromCookie, registerTheme } = useTheme();
+
+// Register Skeleton themes you imported in your CSS
+registerTheme({ name: 'cerberus' });
+registerTheme({ name: 'rocket' });
+// vuetiful is registered by default
 
 onMounted(() => {
   const theme = getThemeFromCookie(document.cookie);
@@ -47,20 +52,28 @@ onMounted(() => {
 
 const ssrExample = `import { useDarkMode, useTheme } from "@code-coaching/vuetiful";
 
-const { applyThemeSSR, getThemeFromCookie, themes } = useTheme();
+const { applyThemeSSR, getThemeFromCookie, registerTheme } = useTheme();
 const { applyModeSSR, getModeFromCookie } = useDarkMode();
+
+// Register all themes used in your app so the cookie can be resolved
+registerTheme({ name: 'cerberus' });
+registerTheme({ name: 'rocket' });
 
 let html = ''; // This depends on your framework
 const cookie = ''; // This depends on your framework
-const theme = getThemeFromCookie(cookie) || themes.vuetiful; // Default to vuetiful theme
+const theme = getThemeFromCookie(cookie); // defaults to vuetiful if not found
 const mode = getModeFromCookie(cookie);
-html = applyThemeSSR(html, theme);
+html = applyThemeSSR(html, theme); // sets data-theme on the <html> tag
 html = applyModeSSR(html, mode);`;
 
 const ssrNuxtExample = `import { useDarkMode, useTheme } from "@code-coaching/vuetiful";
 
-const { applyThemeSSR, getThemeFromCookie, themes } = useTheme();
+const { applyThemeSSR, getThemeFromCookie, registerTheme } = useTheme();
 const { applyModeSSR, getModeFromCookie } = useDarkMode();
+
+// Register all themes used in your app so the cookie can be resolved
+registerTheme({ name: 'cerberus' });
+registerTheme({ name: 'rocket' });
 
 export default eventHandler(async (event) => {
 
@@ -71,7 +84,7 @@ export default eventHandler(async (event) => {
 
     if (event.node.res.getHeader("content-type")?.includes("text/html")) {
       const cookie = event.node.req.headers.cookie || "";
-      const theme = getThemeFromCookie(cookie) || themes.vuetiful;
+      const theme = getThemeFromCookie(cookie);
       const mode = getModeFromCookie(cookie);
       html = applyThemeSSR(html, theme);
       html = applyModeSSR(html, mode);
@@ -91,12 +104,15 @@ export default eventHandler(async (event) => {
 const ssrQuasarExample = `import { useDarkMode, useTheme } from '@code-coaching/vuetiful';
 import { RenderError } from '@quasar/app-vite';
 import { ssrMiddleware } from 'quasar/wrappers';
-const { applyThemeSSR, getThemeFromCookie } = useTheme();
+const { applyThemeSSR, getThemeFromCookie, registerTheme } = useTheme();
 const { applyModeSSR, MODE, getModeFromCookie } = useDarkMode();
+
+// Register all themes used in your app so the cookie can be resolved
+registerTheme({ name: 'cerberus' });
 
 // This middleware should execute as last one
 // since it captures everything and tries to
-// render the page with Vue
+// render the page with Vue and Vue Router
 
 export default ssrMiddleware(({ app, resolve, render, serve }) => {
   // we capture any other Express route and hand it
@@ -204,6 +220,10 @@ export default ssrMiddleware(({ app, resolve, render, serve }) => {
 
   <h3 class="h3">Load theme from cookie</h3>
   <section class="section">
+    <p>
+      Use <code class="code">registerTheme</code> to make Skeleton themes
+      available, then restore the last-used theme from the cookie on mount.
+    </p>
     <v-code-block language="ts" :code="themeCookie" />
     <v-alert type="info">
       Depending on your framework, it might be in a different lifecycle hook.
@@ -223,6 +243,12 @@ export default ssrMiddleware(({ app, resolve, render, serve }) => {
       The solution to this is to use SSR (Nuxt, Quasar SSR, ...) and apply the
       theming on the rendered HTML.
     </p>
+    <v-alert type="info">
+      <code class="code">applyThemeSSR</code> sets the
+      <code class="code">data-theme</code> attribute on the
+      <code class="code">&lt;html&gt;</code> tag. Theme styles are loaded from
+      your CSS file — no inline style injection is needed.
+    </v-alert>
   </section>
   <section class="section">
     <v-code-block language="js" :code="ssrExample" />
@@ -233,7 +259,7 @@ export default ssrMiddleware(({ app, resolve, render, serve }) => {
       </template>
       <v-tab-panel>
         <section class="section">
-          <v-code-block language="js" file-name="server/middleware/vuetiful-theme.js" :code="ssrNuxtExample" /> 
+          <v-code-block language="js" file-name="server/middleware/vuetiful-theme.js" :code="ssrNuxtExample" />
           <v-alert type="info">
             Do place this file in the <code class="code">server/middleware</code> folder.
             Nuxt will automatically load this middleware. The file name does not matter.
@@ -242,7 +268,7 @@ export default ssrMiddleware(({ app, resolve, render, serve }) => {
       </v-tab-panel>
       <v-tab-panel>
         <section class="section">
-          <v-code-block language="js" file-name="src-ssr/middlewares/render.ts" :code="ssrQuasarExample" /> 
+          <v-code-block language="js" file-name="src-ssr/middlewares/render.ts" :code="ssrQuasarExample" />
         </section>
       </v-tab-panel>
     </v-tabs>

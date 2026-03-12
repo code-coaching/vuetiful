@@ -1,3 +1,5 @@
+@reference "tailwindcss";
+
 html,
 body,
 #q-app {
@@ -43,7 +45,7 @@ body,
 }
 
 .q-banner {
-  @apply rounded-container;
+  border-radius: var(--radius-container);
   @apply transition-all;
 }
 
@@ -65,10 +67,10 @@ body,
 }
 
 .q-menu {
-  @apply bg-surface-100-900;
-  @apply text-surface-950-50;
+  background-color: var(--color-surface-100-900);
+  color: var(--color-surface-950-50);
 
-  @apply rounded-container;
+  border-radius: var(--radius-container);
   @apply transition-all;
 }
 
@@ -80,7 +82,7 @@ body,
 }
 
 .q-card {
-  @apply rounded-container;
+  border-radius: var(--radius-container);
   @apply transition-all;
 }
 
@@ -98,7 +100,7 @@ body,
 }
 
 .q-color-picker {
-  @apply rounded-container;
+  border-radius: var(--radius-container);
   @apply transition-all;
 }
 
@@ -110,12 +112,12 @@ body,
 }
 
 .q-color-picker__header-bg {
-  @apply rounded-tl-container;
-  @apply rounded-tr-container;
+  border-top-left-radius: var(--radius-container);
+  border-top-right-radius: var(--radius-container);
 }
 
 .q-editor {
-  @apply rounded-container;
+  border-radius: var(--radius-container);
   @apply transition-all;
 }
 
@@ -149,31 +151,31 @@ body,
 * the background and text color need to be set here
 */
 .q-list {
-  @apply bg-surface-100-900;
-  @apply text-surface-950-50;
+  background-color: var(--color-surface-100-900);
+  color: var(--color-surface-950-50);
 
-  @apply rounded-container;
+  border-radius: var(--radius-container);
   @apply transition-all;
 }
 
 .q-list .q-card {
-  @apply bg-surface-100-900;
-  @apply text-surface-950-50;
+  background-color: var(--color-surface-100-900);
+  color: var(--color-surface-950-50);
 }
 
 .q-list > .q-expansion-item:first-child .q-focus-helper {
-  @apply rounded-tl-container;
-  @apply rounded-tr-container;
+  border-top-left-radius: var(--radius-container);
+  border-top-right-radius: var(--radius-container);
 }
 
 .q-list > .q-expansion-item:last-child .q-focus-helper {
-  @apply rounded-bl-container;
-  @apply rounded-br-container;
+  border-bottom-left-radius: var(--radius-container);
+  border-bottom-right-radius: var(--radius-container);
 }
 
 .q-list > .q-expansion-item:last-child .q-card {
-  @apply rounded-bl-container;
-  @apply rounded-br-container;
+  border-bottom-left-radius: var(--radius-container);
+  border-bottom-right-radius: var(--radius-container);
 }
 
 .q-drawer .q-list {
@@ -182,23 +184,23 @@ body,
 }
 
 .q-input {
-  @apply rounded-container;
+  border-radius: var(--radius-container);
   @apply transition-all;
 }
 
 .q-field__control::before {
-  @apply rounded-container;
+  border-radius: var(--radius-container);
 }
 
 .q-field--outlined .q-field__control::after {
-  @apply rounded-container;
+  border-radius: var(--radius-container);
 }
 
 .q-input,
 .q-select,
 .q-file,
 .q-time {
-  @apply rounded-container;
+  border-radius: var(--radius-container);
 }
 
 .q-item--dark {
@@ -216,25 +218,25 @@ body,
     0 2px 2px rgba(0, 0, 0, 0.14),
     0 3px 1px -2px rgba(0, 0, 0, 0.12);
 
-  @apply bg-surface-100-900;
-  @apply text-surface-950-50;
+  background-color: var(--color-surface-100-900);
+  color: var(--color-surface-950-50);
 
-  @apply rounded-tl-container;
-  @apply rounded-tr-container;
+  border-top-left-radius: var(--radius-container);
+  border-top-right-radius: var(--radius-container);
 }
 
 .q-time__header {
-  @apply bg-surface-300-700;
-  @apply text-surface-950-50;
+  background-color: var(--color-surface-300-700);
+  color: var(--color-surface-950-50);
 
-  @apply rounded-tl-container;
-  @apply rounded-tr-container;
+  border-top-left-radius: var(--radius-container);
+  border-top-right-radius: var(--radius-container);
 }
 
 .q-time__clock-position--active,
 .q-time__clock-pointer {
-  @apply bg-surface-900-100;
-  @apply text-surface-50-950;
+  background-color: var(--color-surface-900-100);
+  color: var(--color-surface-50-950);
 }
 
 .q-date {
@@ -243,38 +245,38 @@ body,
     0 2px 2px rgba(0, 0, 0, 0.14),
     0 3px 1px -2px rgba(0, 0, 0, 0.12);
 
-  @apply bg-surface-100-900;
-  @apply text-surface-950-50;
+  background-color: var(--color-surface-100-900);
+  color: var(--color-surface-950-50);
 
-  @apply rounded-container;
+  border-radius: var(--radius-container);
 }
 
 .q-date__calendar-item .q-btn {
-  @apply bg-surface-100-900;
-  @apply text-surface-950-50;
+  background-color: var(--color-surface-100-900);
+  color: var(--color-surface-950-50);
 
   @apply rounded;
 }
 
 .q-date__calendar-item .q-btn--unelevated {
-  @apply !bg-surface-800;
-  @apply !text-surface-200;
+  background-color: var(--color-surface-800) !important;
+  color: var(--color-surface-200) !important;
 }
 .dark .q-date__calendar-item .q-btn--unelevated {
-  @apply !bg-surface-200;
-  @apply !text-surface-800;
+  background-color: var(--color-surface-200) !important;
+  color: var(--color-surface-800) !important;
 }
 
 .q-date__navigation .q-btn {
   @apply bg-transparent;
-  @apply text-surface-950-50;
+  color: var(--color-surface-950-50);
 
   @apply rounded;
 }
 
 .q-date__header {
-  @apply bg-surface-300-700;
-  @apply text-surface-950-50;
+  background-color: var(--color-surface-300-700);
+  color: var(--color-surface-950-50);
 }
 
 .q-date__months {
@@ -308,6 +310,6 @@ body,
 }
 
 .q-toolbar {
-  @apply bg-surface-300-700;
-  @apply text-surface-950-50;
+  background-color: var(--color-surface-300-700);
+  color: var(--color-surface-950-50);
 }

@@ -7,26 +7,27 @@ import {
   VTabs,
 } from "@code-coaching/vuetiful";
 
-const exampleTailwindConfig = `import { skeleton } from "@skeletonlabs/skeleton/plugin";
+const exampleViteConfig = `import tailwindcss from '@tailwindcss/vite';
+import vue from '@vitejs/plugin-vue';
+import { defineConfig } from 'vite';
 
-/** @type {import('tailwindcss').Config} */
-export default {
-  darkMode: "class",
-  content: [
-    "./src/**/*.{html,js,ts,vue}",
-    require("path").join(
-      require.resolve("@code-coaching/vuetiful"),
-      "../**/*.{html,js,ts,vue,mjs}"
-    ),
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [
-    require("@tailwindcss/forms"),
-    skeleton(),
-  ],
-};`;
+export default defineConfig({
+  plugins: [vue(), tailwindcss()],
+});`;
+
+const exampleMainCss = `@custom-variant dark (&:where(.dark, .dark *));
+
+@import "tailwindcss";
+@import "@skeletonlabs/skeleton";
+@import "@code-coaching/vuetiful/vuetiful.css";
+
+/* Import the themes you want to use */
+@import "@code-coaching/vuetiful/themes/vuetiful";
+@import "@skeletonlabs/skeleton/themes/cerberus";
+@import "@skeletonlabs/skeleton/themes/catppuccin";
+@import "@skeletonlabs/skeleton/themes/pine";
+@import "@skeletonlabs/skeleton/themes/rose";
+@import "@skeletonlabs/skeleton/themes/rocket";`;
 
 const exampleScriptSetup = `import {
   useDarkMode,
@@ -37,18 +38,20 @@ const exampleScriptSetup = `import {
 import { onMounted } from "vue";
 
 const { autoModeWatcher } = useDarkMode();
-const { applyTheme, themes } = useTheme();
+const { applyTheme, getThemeFromCookie, registerTheme } = useTheme();
+
+// Register any Skeleton themes you imported in your CSS
+registerTheme({ name: 'cerberus' });
+registerTheme({ name: 'catppuccin' });
+registerTheme({ name: 'pine' });
+registerTheme({ name: 'rose' });
+registerTheme({ name: 'rocket' });
+// vuetiful is registered by default
 
 onMounted(() => {
-  /**
-   * This adds the data-theme attribute to the <body> tag
-   * And it will load the theme in the <head> tag
-   */
-  applyTheme(themes.vuetiful);
-  /**
-   * This will add the dark mode class to the html tag based on the OS preference
-   */
-  autoModeWatcher();
+  const theme = getThemeFromCookie(document.cookie);
+  applyTheme(theme); // sets data-theme on the <html> tag and handles the theme cookie
+  autoModeWatcher(); // automatically use the dark preference of the OS and handles the dark mode cookie
 });`;
 
 const exampleNoScriptSetup = `import { useDarkMode, useTheme } from "@code-coaching/vuetiful";
@@ -57,18 +60,20 @@ import { onMounted } from "vue";
 export default defineComponent({
   setup() {
     const { autoModeWatcher } = useDarkMode();
-    const { applyTheme, themes } = useTheme();
+    const { applyTheme, getThemeFromCookie, registerTheme } = useTheme();
+
+    // Register any Skeleton themes you imported in your CSS
+    registerTheme({ name: 'cerberus' });
+    registerTheme({ name: 'catppuccin' });
+    registerTheme({ name: 'pine' });
+    registerTheme({ name: 'rose' });
+    registerTheme({ name: 'rocket' });
+    // vuetiful is registered by default
 
     onMounted(() => {
-      /**
-       * This adds the data-theme attribute to the <body> tag
-       * And it will load the theme in the <head> tag
-       */
-      applyTheme(themes.vuetiful);
-      /**
-       * This will add the dark mode class to the html tag based on the OS preference
-       */
-      autoModeWatcher();
+      const theme = getThemeFromCookie(document.cookie);
+      applyTheme(theme); // sets data-theme on the <html> tag and handles the theme cookie
+      autoModeWatcher(); // automatically use the dark preference of the OS and handles the dark mode cookie
     });
 
     return {};
@@ -98,16 +103,61 @@ const settings = `{
   ]
 }`;
 
-const nuxtConfig = `// https://nuxt.com/docs/api/configuration/nuxt-config
+const nuxtConfig = `import tailwindcss from "@tailwindcss/vite";
+
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-04-03',
+  compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss"],
-  tailwindcss: {
-    exposeConfig: true,
-    viewer: true,
+  css: ["~/assets/css/main.css"],
+  vite: {
+    plugins: [tailwindcss()],
   },
 })`;
+
+const nuxtConfigAsAny = `import tailwindcss from "@tailwindcss/vite";
+
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+  compatibilityDate: '2025-07-15',
+  devtools: { enabled: true },
+  css: ["~/assets/css/main.css"],
+  vite: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    plugins: [tailwindcss() as any],
+  },
+})`;
+
+const nuxtTailwindModule = `import { addVitePlugin, defineNuxtModule } from "@nuxt/kit";
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineNuxtModule({
+  setup() {
+    addVitePlugin(() => tailwindcss());
+  },
+});`;
+
+const nuxtConfigWithModule = `// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+  compatibilityDate: '2025-07-15',
+  devtools: { enabled: true },
+  css: ["~/assets/css/main.css"],
+  modules: ["./modules/tailwind"],
+})`;
+
+const exampleNuxtMainCss = `@custom-variant dark (&:where(.dark, .dark *));
+
+@import "tailwindcss";
+@import "@skeletonlabs/skeleton";
+@import "@code-coaching/vuetiful/vuetiful.css";
+
+/* Import the themes you want to use */
+@import "@code-coaching/vuetiful/themes/vuetiful";
+@import "@skeletonlabs/skeleton/themes/cerberus";
+@import "@skeletonlabs/skeleton/themes/catppuccin";
+@import "@skeletonlabs/skeleton/themes/pine";
+@import "@skeletonlabs/skeleton/themes/rose";
+@import "@skeletonlabs/skeleton/themes/rocket";`;
 
 const exampleNuxtSetup = `import {
   useDarkMode,
@@ -116,19 +166,21 @@ const exampleNuxtSetup = `import {
   Vuetiful,
 } from "@code-coaching/vuetiful";
 
-const { applyTheme, themes } = useTheme();
+const { applyTheme, getThemeFromCookie, registerTheme } = useTheme();
 const { autoModeWatcher } = useDarkMode();
 
+// Register any Skeleton themes you imported in your CSS
+registerTheme({ name: 'cerberus' });
+registerTheme({ name: 'catppuccin' });
+registerTheme({ name: 'pine' });
+registerTheme({ name: 'rose' });
+registerTheme({ name: 'rocket' });
+// vuetiful is registered by default
+
 onNuxtReady(() => {
-  /**
-    * This adds the data-theme attribute to the <body> tag
-    * And it will load the theme in the <head> tag
-    */
-  applyTheme(themes.vuetiful);
-  /**
-    * This will add the dark mode class to the html tag based on the OS preference
-    */
-  autoModeWatcher();
+  const theme = getThemeFromCookie(document.cookie);
+  applyTheme(theme); // sets data-theme on the <html> tag and handles the theme cookie
+  autoModeWatcher(); // automatically use the dark preference of the OS and handles the dark mode cookie
 });
 
 const generateId = () => useId();`;
@@ -146,57 +198,14 @@ const exampleNuxtTemplate = `<Vuetiful :id-generator="generateId">
   </v-shell>
 </Vuetiful>`;
 
-const exampleQuasarPostcss = `/* eslint-disable */
-// https://github.com/michael-ciniawsky/postcss-load-config
+const exampleQuasarConfig = `import tailwindcssVite from '@tailwindcss/vite';
+import { defineConfig } from '#q-app/wrappers';
 
-module.exports = {
-  plugins: [
-    require('tailwindcss'),
-    // https://github.com/postcss/autoprefixer
-    require('autoprefixer')({
-      overrideBrowserslist: [
-        'last 4 Chrome versions',
-        'last 4 Firefox versions',
-        'last 4 Edge versions',
-        'last 4 Safari versions',
-        'last 4 Android versions',
-        'last 4 ChromeAndroid versions',
-        'last 4 FirefoxAndroid versions',
-        'last 4 iOS versions'
-      ]
-    })
-
-    // https://github.com/elchininet/postcss-rtlcss
-    // If you want to support RTL css, then
-    // 1. yarn/npm install postcss-rtlcss
-    // 2. optionally set quasar.config.js > framework > lang to an RTL language
-    // 3. uncomment the following line:
-    // require('postcss-rtlcss')
-  ]
-}`;
-
-const exampleQuasarConig = `/* eslint-env node */
-
-/*
- * This file runs in a Node context (it's NOT transpiled by Babel), so use only
- * the ES6 features that are supported by your Node version. https://node.green/
- */
-
-// Configuration for your app
-// https://v2.quasar.dev/quasar-cli-vite/quasar-config-js
-
-
-const { configure } = require('quasar/wrappers');
-
-
-module.exports = configure(function (/* ctx */) {
+export default defineConfig((/* ctx */) => {
   return {
-
     // more code here
 
-    // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#build
     build: {
-
       // more code here
 
       extendViteConf(viteConf) {
@@ -204,15 +213,30 @@ module.exports = configure(function (/* ctx */) {
           ...viteConf.resolve,
           dedupe: ['vue'],
         };
+        viteConf.plugins = [...(viteConf.plugins ?? []), ...tailwindcssVite()];
       },
 
       // more code here
-      
     },
 
     // more code here
-  }
+  };
 });`;
+
+const exampleQuasarCss = `/* app global css */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import "tailwindcss";
+@import "@skeletonlabs/skeleton";
+@import "@code-coaching/vuetiful/vuetiful.css";
+
+/* Import the themes you want to use */
+@import "@code-coaching/vuetiful/themes/vuetiful";
+@import "@skeletonlabs/skeleton/themes/cerberus";
+@import "@skeletonlabs/skeleton/themes/catppuccin";
+@import "@skeletonlabs/skeleton/themes/pine";
+@import "@skeletonlabs/skeleton/themes/rose";
+@import "@skeletonlabs/skeleton/themes/rocket";`;
 
 const exampleQuasarScriptSetup = `import { useDarkMode, useTheme } from '@code-coaching/vuetiful';
 import { useQuasar } from 'quasar';
@@ -221,12 +245,21 @@ import { onMounted, watch } from 'vue';
 import "@code-coaching/vuetiful/css/overrides/quasar.css"; // This provides overrides for Quasar components
 
 const { autoModeWatcher, chosenMode, MODE } = useDarkMode();
-const { applyTheme, themes } = useTheme();
+const { applyTheme, getThemeFromCookie, registerTheme } = useTheme();
 const $q = useQuasar();
 
+// Register any Skeleton themes you imported in your CSS
+registerTheme({ name: 'cerberus' });
+registerTheme({ name: 'catppuccin' });
+registerTheme({ name: 'pine' });
+registerTheme({ name: 'rose' });
+registerTheme({ name: 'rocket' });
+// vuetiful is registered by default
+
 onMounted(() => {
-  applyTheme(themes.vuetiful); // adds data-theme="vuetiful" to the <body> tag
-  autoModeWatcher(); // automatically use the dark preference of the OS
+  const theme = getThemeFromCookie(document.cookie);
+  applyTheme(theme); // sets data-theme on the <html> tag and handles the theme cookie
+  autoModeWatcher(); // automatically use the dark preference of the OS and handles the dark mode cookie
   handleQuasarDarkMode(chosenMode.value);
 });
 
@@ -258,12 +291,8 @@ watch(() => chosenMode.value, (newMode) => {
   <section class="section">
     <v-code-block
       language="sh"
-      code="npm install @skeletonlabs/skeleton@next @code-coaching/vuetiful"
+      code="npm install @skeletonlabs/skeleton @code-coaching/vuetiful"
     />
-    <v-alert type="info">
-      Make sure to use the <code class="code">next</code> version of skeleton
-      <code class="code">@skeletonlabs/skeleton@next</code>.
-    </v-alert>
   </section>
 
   <v-tabs class-panels="px-0">
@@ -286,49 +315,27 @@ watch(() => chosenMode.value, (newMode) => {
         </p>
         <v-code-block
           language="sh"
-          code="npm install -D tailwindcss @tailwindcss/forms postcss autoprefixer"
+          code="npm install -D tailwindcss @tailwindcss/vite"
         />
       </section>
 
-      <h3 class="h3">Initialize Tailwind</h3>
+      <h3 class="h3">Configure Vite</h3>
       <section class="section">
-        <v-code-block language="sh" code="npx tailwindcss init -p" />
         <p>
-          This will create a file named
-          <code class="code">tailwind.config.js</code> and a file named
-          <code class="code">postcss.config.js</code> .
+          Add the <code class="code">@tailwindcss/vite</code> plugin to your
+          Vite configuration.
         </p>
-      </section>
-
-      <section class="section">
         <v-code-block
-          file-name="tailwind.config.js"
-          class="mb-2"
-          language="js"
-          :code="exampleTailwindConfig"
-        />
-        <v-alert type="info">
-          Skeleton provides the design tokens that are used in Vuetiful.
-        </v-alert>
-      </section>
-
-      <section class="section">
-        <v-code-block
-          file-name="postcss.config.js"
-          language="js"
-          :code="`module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
-};`"
+          file-name="vite.config.ts"
+          language="ts"
+          :code="exampleViteConfig"
         />
       </section>
 
-      <h3 class="h3">Tailwind Directives</h3>
+      <h3 class="h3">CSS Imports</h3>
       <section class="section">
         <p class="mb-4">
-          Make sure to have the Tailwind directives in your main css file, e.g.
+          Add the following imports to your main CSS file, e.g.
           <code class="code">style.css</code> or
           <code class="code">main.css</code>.
         </p>
@@ -336,11 +343,17 @@ watch(() => chosenMode.value, (newMode) => {
         <v-code-block
           file-name="style.css"
           language="css"
-          :code="`
-@tailwind base;
-@tailwind components;
-@tailwind utilities;`"
+          :code="exampleMainCss"
         />
+        <v-alert type="info">
+          Only import the themes you want to use. Skeleton provides
+          <code class="code">cerberus</code>,
+          <code class="code">catppuccin</code>, <code class="code">pine</code>,
+          <code class="code">rose</code>, and
+          <code class="code">rocket</code> among others. The
+          <code class="code">vuetiful</code> theme is provided by Vuetiful
+          itself.
+        </v-alert>
       </section>
 
       <h3 class="h3">Theme & Dark Mode</h3>
@@ -370,8 +383,11 @@ watch(() => chosenMode.value, (newMode) => {
           </v-tab-panel>
         </v-tabs>
         <v-alert type="info">
-          The built-in themes are: vuetiful, rocket, catppuccin, cerberus, pine,
-          rose.
+          Call <code class="code">registerTheme({ name: '...' })</code> for each
+          Skeleton theme you imported in your CSS. This makes them available in
+          <code class="code">VThemeSwitch</code> and allows the theme cookie to
+          restore them. The <code class="code">vuetiful</code> theme is
+          registered by default.
         </v-alert>
       </section>
       <section class="section">
@@ -401,19 +417,15 @@ watch(() => chosenMode.value, (newMode) => {
         </p>
         <v-code-block
           language="sh"
-          code="npm install -D tailwindcss @tailwindcss/forms"
-        />
-        <v-code-block
-          language="sh"
-          code="npx nuxi@latest module add tailwindcss"
+          code="npm install -D tailwindcss @tailwindcss/vite"
         />
       </section>
 
+      <h3 class="h3">Configure Nuxt</h3>
       <section class="section">
         <p>
-          This will add <code class="code">@nuxtjs/tailwindcss</code> to the
-          modules property in <code class="code">nuxt.config.ts</code>.
-          Additionally, add the <code class="code">tailwindcss</code> property.
+          Add the <code class="code">@tailwindcss/vite</code> plugin and
+          reference your CSS file in <code class="code">nuxt.config.ts</code>.
         </p>
 
         <v-code-block
@@ -421,26 +433,74 @@ watch(() => chosenMode.value, (newMode) => {
           language="ts"
           :code="nuxtConfig"
         />
+        <v-alert type="warning">
+          <p class="mb-2">
+            Due to a type mismatch between
+            <code class="code">@nuxt/vite-builder</code>'s bundled types and the
+            standalone vite types used by
+            <code class="code">@tailwindcss/vite</code>, you may see a
+            TypeScript error on the <code class="code">plugins</code> line.
+            There are two ways to resolve this.
+          </p>
+          <v-tabs class-panels="px-0">
+            <template v-slot:tabs>
+              <v-tab><h4 class="mb-0">Quick fix</h4></v-tab>
+              <v-tab><h4 class="mb-0">Clean solution</h4></v-tab>
+            </template>
+            <v-tab-panel>
+              <p class="mb-2">
+                Cast the plugin to <code class="code">any</code> to suppress the
+                TypeScript error. This is the simplest fix but loses type safety
+                for the plugin.
+              </p>
+              <v-code-block
+                file-name="nuxt.config.ts"
+                language="ts"
+                :code="nuxtConfigAsAny"
+              />
+            </v-tab-panel>
+            <v-tab-panel>
+              <p class="mb-2">
+                Register Tailwind through Nuxt's module system using
+                <code class="code">addVitePlugin</code>, which uses the same
+                standalone vite types as
+                <code class="code">@tailwindcss/vite</code>
+                and avoids the conflict entirely.
+              </p>
+              <div class="flex flex-col gap-2">
+                <v-code-block
+                  file-name="modules/tailwind.ts"
+                  language="ts"
+                  :code="nuxtTailwindModule"
+                />
+                <v-code-block
+                  file-name="nuxt.config.ts"
+                  language="ts"
+                  :code="nuxtConfigWithModule"
+                />
+              </div>
+            </v-tab-panel>
+          </v-tabs>
+        </v-alert>
       </section>
 
-      <h3 class="h3">Initialize Tailwind</h3>
+      <h3 class="h3">CSS Imports</h3>
       <section class="section">
-        <v-code-block language="sh" code="npx tailwindcss init" />
-        <p>
-          This will create a file named
-          <code class="code">tailwind.config.js</code>.
+        <p class="mb-4">
+          Create <code class="code">assets/css/main.css</code> with the
+          following imports.
         </p>
-      </section>
-
-      <section class="section">
         <v-code-block
-          file-name="tailwind.config.js"
-          class="mb-2"
-          language="js"
-          :code="exampleTailwindConfig"
+          file-name="assets/css/main.css"
+          language="css"
+          :code="exampleNuxtMainCss"
         />
         <v-alert type="info">
-          Skeleton provides the design tokens that are used in Vuetiful.
+          Only import the themes you want to use. The
+          <code class="code">vuetiful</code> theme is provided by Vuetiful.
+          Skeleton themes use the path
+          <code class="code">@skeletonlabs/skeleton/themes/[name]</code> (no
+          <code class="code">.css</code> extension needed).
         </v-alert>
       </section>
 
@@ -456,8 +516,11 @@ watch(() => chosenMode.value, (newMode) => {
           :code="exampleNuxtSetup"
         />
         <v-alert type="info">
-          The built-in themes are: vuetiful, rocket, catppuccin, cerberus, pine,
-          rose.
+          Call <code class="code">registerTheme({ name: '...' })</code> for each
+          Skeleton theme you imported in your CSS. This makes them available in
+          <code class="code">VThemeSwitch</code> and allows the theme cookie to
+          restore them. The <code class="code">vuetiful</code> theme is
+          registered by default.
         </v-alert>
         <v-alert type="info">
           If you are using Nuxt with magic imports, you can leave out the
@@ -501,7 +564,7 @@ watch(() => chosenMode.value, (newMode) => {
       </v-alert>
 
       <v-alert class="mb-4" type="warning">
-        The overriden components are limited.
+        The overridden components are limited.
       </v-alert>
 
       <h2 class="h2">Install Tailwind</h2>
@@ -517,72 +580,44 @@ watch(() => chosenMode.value, (newMode) => {
         </p>
         <v-code-block
           language="sh"
-          code="npm install -D tailwindcss @tailwindcss/forms"
-        />
-        <v-alert type="info">
-          <p class="mb-2">
-            It might be necessary to add the flag
-            <code class="code">--legacy-peer-deps</code>.
-          </p>
-
-          <v-code-block language="sh" code="npm install --legacy-peer-deps" />
-        </v-alert>
-      </section>
-
-      <h3 class="h3">Initialize Tailwind</h3>
-      <section class="section">
-        <v-code-block language="sh" code="npx tailwindcss init" />
-        <p>
-          This will create a file named
-          <code class="code">tailwind.config.js</code>.
-        </p>
-      </section>
-
-      <section class="section">
-        <v-code-block
-          file-name="tailwind.config.js"
-          class="mb-2"
-          language="js"
-          :code="exampleTailwindConfig"
-        />
-        <v-alert type="info">
-          Skeleton provides the design tokens that are used in Vuetiful.
-        </v-alert>
-      </section>
-
-      <section class="section">
-        <v-code-block
-          file-name="postcss.config.js"
-          language="js"
-          :code="exampleQuasarPostcss"
+          code="npm install -D tailwindcss @tailwindcss/vite"
         />
       </section>
 
-      <h3 class="h3">Tailwind Directives</h3>
+      <h3 class="h3">Configure Quasar</h3>
       <section class="section">
         <p class="mb-4">
-          Make sure to have the Tailwind directives in your main css file, e.g.
-          <code class="code">app.css</code> or
-          <code class="code">app.scss</code>.
+          Add the <code class="code">@tailwindcss/vite</code> plugin via
+          <code class="code">extendViteConf</code> and dedupe Vue in
+          <code class="code">quasar.config.ts</code>.
         </p>
-
         <v-code-block
-          file-name="app.css"
-          language="css"
-          :code="`
-@tailwind base;
-@tailwind components;
-@tailwind utilities;`"
+          file-name="quasar.config.ts"
+          language="ts"
+          :code="exampleQuasarConfig"
         />
       </section>
 
-      <h2 class="h2">Dedupe Vue</h2>
+      <h3 class="h3">CSS Imports</h3>
       <section class="section">
+        <p class="mb-4">
+          Add the following imports to your main CSS file, e.g.
+          <code class="code">src/css/app.css</code>.
+        </p>
         <v-code-block
-          file-name="quasar.config.js"
-          language="js"
-          :code="exampleQuasarConig"
+          file-name="src/css/app.css"
+          language="css"
+          :code="exampleQuasarCss"
         />
+        <v-alert type="info">
+          Only import the themes you want to use. Skeleton provides
+          <code class="code">cerberus</code>,
+          <code class="code">catppuccin</code>, <code class="code">pine</code>,
+          <code class="code">rose</code>, and
+          <code class="code">rocket</code> among others. The
+          <code class="code">vuetiful</code> theme is provided by Vuetiful
+          itself.
+        </v-alert>
       </section>
 
       <h3 class="h3">Theme & Dark Mode</h3>
@@ -599,8 +634,11 @@ watch(() => chosenMode.value, (newMode) => {
         />
 
         <v-alert type="info">
-          The built-in themes are: vuetiful, rocket, catppuccin, cerberus, pine,
-          rose.
+          Call <code class="code">registerTheme({ name: '...' })</code> for each
+          Skeleton theme you imported in your CSS. This makes them available in
+          <code class="code">VThemeSwitch</code> and allows the theme cookie to
+          restore them. The <code class="code">vuetiful</code> theme is
+          registered by default.
         </v-alert>
       </section>
     </v-tab-panel>

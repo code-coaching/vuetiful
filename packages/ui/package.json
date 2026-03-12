@@ -1,11 +1,11 @@
 {
   "name": "@code-coaching/vuetiful",
   "type": "module",
-  "version": "0.44.0",
+  "version": "0.47.1",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "lib:build": "run-p type-check build-only && npm run generate-types && mkdir -p dist/css && cp -r src/lib/css/* dist/css/",
+    "lib:build": "run-p type-check build-only && npm run generate-types && mkdir -p dist/css && cp -r src/lib/css/* dist/css/ && mkdir -p dist/themes && cp -r src/lib/css/themes/* dist/themes/",
     "build": "vite build --config vite.spa.config.ts --outDir build",
     "preview": "vite preview --outDir build",
     "test:unit": "vitest",
@@ -32,17 +32,17 @@
   "devDependencies": {
     "@playwright/test": "^1.37.0",
     "@rushstack/eslint-patch": "^1.3.2",
-    "@skeletonlabs/skeleton": "3.0.0-next.2",
+    "@skeletonlabs/skeleton": "^4.12.1",
+    "@tailwindcss/vite": "^4.2.1",
     "@tsconfig/node18": "^18.2.0",
     "@types/jsdom": "^21.1.1",
-    "@types/node": "^18.17.5",
-    "@vitejs/plugin-vue": "^4.3.1",
+    "@types/node": "^20.19.0",
+    "@vitejs/plugin-vue": "^6.0.0",
     "@vitest/coverage-v8": "^2.0.4",
     "@vue/eslint-config-prettier": "^8.0.0",
     "@vue/eslint-config-typescript": "^11.0.3",
     "@vue/test-utils": "^2.4.1",
     "@vue/tsconfig": "^0.4.0",
-    "autoprefixer": "^10.4.19",
     "eslint": "^8.46.0",
     "eslint-plugin-vue": "^9.16.1",
     "jsdom": "^22.1.0",
@@ -50,11 +50,11 @@
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.39",
     "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.5",
-    "tailwind-merge": "^2.4.0",
-    "tailwindcss": "^3.4.4",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss": "^4.2.1",
     "typescript": "~5.1.6",
-    "vite": "^4.4.9",
+    "vite": "^7.0.0",
     "vite-plugin-copy": "^0.1.6",
     "vitest": "2.0.4",
     "vue-router": "^4.2.4",
@@ -67,11 +67,13 @@
   "module": "./dist/vuetiful.es.mjs",
   "exports": {
     ".": {
-      "import": "./dist/vuetiful.es.mjs",
+      "types": "./dist/types/index.d.ts",
       "require": "./dist/vuetiful.umd.cjs",
-      "types": "./dist/types/index.d.ts"
+      "import": "./dist/vuetiful.es.mjs"
     },
+    "./vuetiful.css": "./dist/css/vuetiful.css",
     "./css/*": "./dist/css/*",
-    "./css/style.css": "./dist/style.css"
+    "./css/style.css": "./dist/style.css",
+    "./themes/*": "./dist/themes/*.css"
   }
 }

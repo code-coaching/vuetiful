@@ -13,8 +13,14 @@ import "highlight.js/styles/github-dark.min.css";
 import { MenuIcon } from "lucide-vue-next";
 import { version } from "../../packages/ui/package.json";
 
-const { applyTheme, getThemeFromCookie } = useTheme();
+const { applyTheme, getThemeFromCookie, registerTheme } = useTheme();
 const { autoModeWatcher } = useDarkMode();
+
+registerTheme({ name: 'rocket' });
+registerTheme({ name: 'cerberus' });
+registerTheme({ name: 'catppuccin' });
+registerTheme({ name: 'pine' });
+registerTheme({ name: 'rose' });
 
 onNuxtReady(() => {
   autoModeWatcher();
@@ -29,7 +35,7 @@ const generateId = () => useId();
 useHead({
   style: [
     {
-      children: `
+      innerHTML: `
         .h1,
         .h2,
         .h3,
